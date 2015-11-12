@@ -68,10 +68,10 @@
     <Content Include="AQ\tipo_anotacion_obj_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="AQ\tipo_entidad_obj_tab.sql">
+    <Content Include="AQ\tipo_doc_obj_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="AQ\tip_doc_obj_tab.sql">
+    <Content Include="AQ\tipo_entidad_obj_tab.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="User Defined Types\Nested Tables\tipo_doc_ref_tab_typ.sql">

@@ -1,5 +1,5 @@
 CREATE TABLESPACE tb_web_legem
-DATAFILE 'C:\oradata\datssuni.dbf'
+DATAFILE 'C:\oradata\dat_web_legem.dbf'
 SIZE 100M AUTOEXTEND ON;
 
 CREATE USER web_legem IDENTIFIED BY web_legem;
