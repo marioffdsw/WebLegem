@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <ProductVersion>12.1.0.2</ProductVersion>
+    <ProjectGuid>3e5366ae-7a07-4557-ba24-1d6e9d08c0ab</ProjectGuid>
+    <DBVERSION>
+    </DBVERSION>
+    <DEFAULTSCHEMANAME>
+    </DEFAULTSCHEMANAME>
+    <AssemblyName>WebLegemDB</AssemblyName>
+    <Name>WebLegemDB</Name>
+    <RootNamespace>WebLegemDB</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Functions\" />
+    <Folder Include="Packages\" />
+    <Folder Include="Procedures\" />
+    <Folder Include="Scripts\" />
+    <Folder Include="Security\" />
+    <Folder Include="Security\Permissions\" />
+    <Folder Include="Security\Roles\" />
+    <Folder Include="Security\Users\" />
+    <Folder Include="Sequences\" />
+    <Folder Include="Synonyms\" />
+    <Folder Include="Tables\" />
+    <Folder Include="Tables\Relational Tables" />
+    <Folder Include="Tables\Object Tables" />
+    <Folder Include="Tables\XML Tables" />
+    <Folder Include="User Defined Types\" />
+    <Folder Include="User Defined Types\Nested Tables\" />
+    <Folder Include="User Defined Types\Objects\" />
+    <Folder Include="User Defined Types\VARRAYs\" />
+    <Folder Include="Views\" />
+    <Folder Include="Views\Relational Views" />
+    <Folder Include="Views\Object Views" />
+    <Folder Include="Views\XML Views" />
+    <Folder Include="Views\Materialized Views" />
+    <Folder Include="XML Schemas\" />
+    <Folder Include="AQ\" />
+    <Folder Include="AQ\Queues\" />
+    <Folder Include="AQ\Queue Tables\" />
+    <Folder Include="Pluggable Databases\" />
+    <Folder Include="Triggers\" />
+    <Folder Include="Triggers\Table Triggers" />
+    <Folder Include="Triggers\View Triggers" />
+    <Folder Include="Triggers\Schema Triggers" />
+    <Folder Include="Triggers\Database Triggers" />
+    <Folder Include="Indexes\" />
+    <DBRefs Include="Database References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AQ\anotacion_obj_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="AQ\control_obj_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="AQ\doc_id_obj_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="AQ\doc_id_sin_archivo_obj_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="AQ\entidad_obj_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="AQ\tipo_anotacion_obj_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="AQ\tipo_entidad_obj_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="AQ\tip_doc_obj_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="User Defined Types\Nested Tables\tipo_doc_ref_tab_typ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="User Defined Types\Objects\anotacion_typ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="User Defined Types\Objects\control_typ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="User Defined Types\Objects\doc_typ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="User Defined Types\Objects\doc_id_typ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="User Defined Types\Objects\entidad_typ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="User Defined Types\Objects\tipo_anotacion_typ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="User Defined Types\Objects\tipo_doc_typ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="User Defined Types\Objects\tipo_entidad_typ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="usuario_tablespace_permisos.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="web_legem.sql">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+</Project>
