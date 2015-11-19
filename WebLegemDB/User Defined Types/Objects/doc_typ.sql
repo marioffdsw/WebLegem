@@ -4,3 +4,4 @@ CREATE OR REPLACE TYPE doc_typ AS OBJECT (
     ruta_al_archivo             VARCHAR2(255),
     contenido_documento         BFILE
 );
+/

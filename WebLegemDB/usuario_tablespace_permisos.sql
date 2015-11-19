@@ -17,7 +17,7 @@ GRANT EXECUTE ON CTXSYS.CTX_ULEXER TO web_legem;
 
 GRANT CREATE ANY DIRECTORY TO web_legem;
 
-ALTER USER web_legem DEFAULT TABLESPACE tb_ssuni;
+ALTER USER web_legem DEFAULT TABLESPACE tb_web_legem;
 
 CONNECT web_legem/web_legem;
 

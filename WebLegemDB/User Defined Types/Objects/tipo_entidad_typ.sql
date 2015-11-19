@@ -3,3 +3,4 @@ CREATE TYPE tipo_entidad_typ AS OBJECT (
    nombre                       VARCHAR2(50),
    documentos_soportados        tipo_doc_ref_tab_typ
 );
+/

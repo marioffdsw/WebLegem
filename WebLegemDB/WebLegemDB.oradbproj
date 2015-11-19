@@ -50,28 +50,28 @@
     <DBRefs Include="Database References\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AQ\anotacion_obj_tab.sql">
+    <Content Include="Tables\Object Tables\anotacion_obj_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="AQ\control_obj_tab.sql">
+    <Content Include="Tables\Object Tables\control_obj_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="AQ\doc_id_obj_tab.sql">
+    <Content Include="Tables\Object Tables\doc_id_obj_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="AQ\doc_id_sin_archivo_obj_tab.sql">
+    <Content Include="Tables\Object Tables\doc_id_sin_archivo_obj_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="AQ\entidad_obj_tab.sql">
+    <Content Include="Tables\Object Tables\entidad_obj_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="AQ\tipo_anotacion_obj_tab.sql">
+    <Content Include="Tables\Object Tables\tipo_anotacion_obj_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="AQ\tipo_doc_obj_tab.sql">
+    <Content Include="Tables\Object Tables\tipo_doc_obj_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="AQ\tipo_entidad_obj_tab.sql">
+    <Content Include="Tables\Object Tables\tipo_entidad_obj_tab.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="User Defined Types\Nested Tables\tipo_doc_ref_tab_typ.sql">

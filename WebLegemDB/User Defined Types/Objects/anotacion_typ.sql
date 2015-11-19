@@ -5,3 +5,4 @@ CREATE TYPE anotacion_typ AS OBJECT (
 	pendiente					NUMBER(1),
 	descripcion					VARCHAR2( 255 )
 );
+/

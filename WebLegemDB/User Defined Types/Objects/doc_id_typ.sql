@@ -4,3 +4,4 @@ CREATE OR REPLACE TYPE doc_id_typ AS OBJECT (
     numero							VARCHAR2(10),
     fecha_publicacion				CHAR(4)    
 );
+/
