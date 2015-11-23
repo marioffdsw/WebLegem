@@ -50,6 +50,15 @@
     <DBRefs Include="Database References\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="drop_web_legem.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\crear_tipo_doc.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\typ_doc_seq.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Tables\Object Tables\anotacion_obj_tab.sql">
       <SubType>Content</SubType>
     </Content>

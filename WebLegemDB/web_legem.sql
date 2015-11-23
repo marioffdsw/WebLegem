@@ -6,6 +6,7 @@ set sqlbl on
 @usuario_tablespace_permisos.sql
 
 -- Tipo Documento (definición de tipo y tablas asociadas)
+@'Sequences/typ_doc_seq.sql'
 @'User Defined Types\Objects\tipo_doc_typ.sql'
 @'User Defined Types\Nested Tables\tipo_doc_ref_tab_typ.sql'
 @'Tables\Object Tables\tipo_doc_obj_tab.sql'
