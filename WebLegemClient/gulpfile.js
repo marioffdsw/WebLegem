@@ -9,17 +9,13 @@ var minifyCss = require('gulp-minify-css');
 gulp.task('css_min', function () {
     return gulp.src('src/**/*.css')
       .pipe(watch('src/**/*.css'))
+      .pipe(plumber())
+      .pipe(autoprefixer({
+          browsers: ['last 2 versions'],
+          cascade: false
+      }))
       .pipe(minifyCss())
       .pipe(gulp.dest('build'));
-});
-
-gulp.task('css_autoprefixer', function () {
-    return gulp.src('src/**/*.css')
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
-        .pipe(gulp.dest('build'));
 });
 
 gulp.task('js_min', function () {
@@ -33,12 +29,13 @@ gulp.task('js_min', function () {
 gulp.task('html_min', function () {
     return gulp.src('src/**/*.html')
         .pipe(watch('src/**/*.html'))
+        .pipe(plumber())
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(gulp.dest('build'));
 });
 
-gulp.task("default", ["js_min",    
-    "css_autoprefixer",
+gulp.task("default", [
+    "js_min",
     "html_min",
     "css_min"
 ]);
