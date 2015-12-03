@@ -4,8 +4,7 @@
     angular.module("WebLegemApp", [
 
         /* Angular modules*/
-        "ngAria",
-        "ngMaterial",
+        "ngAria",        
         "ngTouch",
 
         /* Third party modules */

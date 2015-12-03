@@ -5,27 +5,54 @@
 	<meta charset="utf-8" />    
 
     <!-- Library Styles -->
-    <link href="../bower_components/animate.css/animate.min.css" rel="stylesheet" />    
+    <link href="../bower_components/animate.css/animate.min.css" rel="stylesheet" />
 
     <!-- App Styles -->
     
     <!-- Library Scripts -->
     <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
     <script src="../bower_components/angular-resource/angular-resource.min.js"></script>
-    <script src="../bower_components/angular-touch/angular-touch.min.js"></script>
-    <script src="../bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="../bower_components/ng-file-upload/ng-file-upload.min.js"></script>    
-
+    <script src="../bower_components/angular-touch/angular-touch.min.js"></script>    
+    <script src="../bower_components/ng-file-upload/ng-file-upload.min.js"></script>   
+    <script src="../bower_components/angular-mocks/angular-mocks.js"></script>
+   
     <!-- App Scripts -->
-    <script src="app/app.core.js"></script>
-    <script src="app/app.core.dependencies.js"></script>
+    <script src="app/app.core.js"></script>    
+    <script src="app/app.core.dependencies.js"></script>    
     <script src="app/app.core.modules.js"></script>
     <script src="app/app.core.run.js"></script>
+    <script src="app/app.core.routes.js"></script>
+
+    <!-- Login -->
+    <script src="app/login/login.js"></script>
+    <script src="app/login/login.dependencies.js"></script>
+    <script src="app/login/login.routes.js"></script>
+
+    <!-- Administration -->
+    <script src="app/administracion/administracion.js"></script>
+    <script src="app/administracion/administracion.dependencies.js"></script>
+    <script src="app/administracion/administracion.routes.js"></script>    
+    <script src="app/administracion/tipo-documento/tipo-documento.controller.js"></script>    
+    <script src="app/administracion/tipo-entidad/tipos-entidad.controller.js"></script>
+    <script src="app/administracion/entidad/entidad.controller.js"></script>
+
+    <!-- Gestion Documntal -->
+    <script src="app/gestion-documental/gestion-documental.js"></script>
+    <script src="app/gestion-documental/gestion-documental.dependencies.js"></script>
+    <script src="app/gestion-documental/gestion-documental.routes.js"></script>   
+    
+    <!-- Mocks -->    
+    <script src="common/mocks/common.mocks.dependencies.js"></script>
+    <script src="common/mocks/tipo-documento-resource.mock.js"></script>
+
+    <!-- Services -->
+    <script src="common/services/common.services.js"></script>
+    <script src="common/services/tipo-documento-resource.service.js"></script>
 
     <!-- Controllers -->
-    <script src="app/myController.controller.js"></script>
     
     <!-- Services -->
 
@@ -41,13 +68,17 @@
         </header>
 
         <ul>
-            <li>Login</li>
-            <li>Buscar</li>
-            <li>Administración</li>
+            <li><a ui-sref="home">Home</a></li>
+            <li><a ui-sref="login.form">Login</a></li>
+            <li><a ui-sref="administracion">Administration</a></li>            
+            <li><a ui-sref="gestion-documental.crear-documento.subir-archivo">Gestion Documental</a></li>
             <li>Auditoria</li>
-            <li>Gestion Documental</li>
+            <li><a ui-sref="otro">Otro</a></li>
+            <li><a ui-sref="no-existe">estado no existe</a></li>
         </ul>
     </nav>
+
+    <div ui-view></div>
 
     <footer>
         <p>&copy; Universidad de Nariño 2015-2016</p>        

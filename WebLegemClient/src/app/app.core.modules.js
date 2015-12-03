@@ -2,10 +2,13 @@
 	"use strict";
 
 	angular.module("WebLegemApp", [
-		"WebLegemApp.Busqueda",
+		/*"WebLegemApp.Busqueda",*/
 		"WebLegemApp.Administracion",
-		"WebLegemApp.Auditoria",
-		"WebLegemApp.GestionDocumental",
-        "WebLegemApp.Noticias"
+        "WebLegemApp.Login",
+        "WebLegemApp.GestionDocumental",
+        "common.services",
+        "common.mocks"/*,
+		"WebLegemApp.Auditoria",		
+        "WebLegemApp.Noticias"*/
 	]);
 })();

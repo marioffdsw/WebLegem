@@ -1,0 +1,25 @@
+﻿<div>   
+    <form>
+        <label for="nombre">Nombre</label>
+        <input id="nombre" type="text" ng-model="vm.tipoAnot.nombre" />
+        
+        <label for="activo">Rol Activo de la anotación</label>
+        <input id="activo" type="text" ng-model="vm.tipoAnot.rol_activo" />
+
+        <label for="pasivo">Rol Pasivo de la anotación</label>
+        <input id="pasivo" type="text" ng-model="vm.tipoAnot.rol_pasivo" />
+
+        <button type="submit">Añadir</button>
+    </form>
+
+    <select multiple>
+        <option ng-repeat="tipo in vm.tiposAnot">{{ tipo.nombre }}</option>
+    </select>
+
+    <button type="button">
+        Remover
+    </button>
+    <button type="button">
+        Editar
+    </button>
+</div>
