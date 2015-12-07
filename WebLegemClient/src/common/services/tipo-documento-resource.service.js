@@ -5,9 +5,9 @@
         .module("common.services")
         .factory("TipoDocumentoResource", TipoDocumentoResource);
 
-    TipoDocumentoResource.$inject = [ "$resource" ];
-    function TipoDocumentoResource( $resource ){
-        return $resource( "/api/tipos-documento" );
+    TipoDocumentoResource.$inject = ["$resource", "serviceUrl"];
+    function TipoDocumentoResource($resource, serviceUrl) {
+        return $resource(serviceUrl + "/TipoDocumento");
     } // end ProductResource Service
 
 })();
