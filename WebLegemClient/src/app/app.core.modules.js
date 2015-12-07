@@ -6,8 +6,8 @@
 		"WebLegemApp.Administracion",
         "WebLegemApp.Login",
         "WebLegemApp.GestionDocumental",
-        "common.services",
-        "common.mocks"/*,
+        "common.services"/*,
+        "common.mocks",
 		"WebLegemApp.Auditoria",		
         "WebLegemApp.Noticias"*/
 	]);

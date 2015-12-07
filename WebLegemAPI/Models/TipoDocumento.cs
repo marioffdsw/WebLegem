@@ -1,60 +1,17 @@
-﻿using Oracle.DataAccess.Client;
+﻿using Newtonsoft.Json;
+using Oracle.DataAccess.Client;
 using Oracle.DataAccess.Types;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace PruebaOracleUDT
+namespace WebLegemAPI.Models
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            string constr = "user id=web_legem;password=web_legem;data source=ORCL";            
-            string sql = "select VALUE(td) from tipo_doc_obj_tab td";
-
-            OracleConnection con = new OracleConnection() { ConnectionString = constr };
-
-            con.Open();
-
-            OracleCommand cmd = new OracleCommand(sql, con);
-            cmd.CommandType = System.Data.CommandType.Text;
-
-            OracleDataReader reader = cmd.ExecuteReader();
-
-            while (reader.Read())
-            {
-                TipoDocumento td;
-                if (reader.IsDBNull(0))
-                    td = TipoDocumento.Null;
-                else
-                    td = (TipoDocumento)reader.GetValue(0);
-
-
-                Console.WriteLine( td );
-            }
-
-            reader.Dispose();
-            cmd.Dispose();
-            con.Close();
-            con.Dispose();
-        } // end Main   
-    } // end Program class
-}
-
-namespace PruebaOracleUDT {
-    /* TipoDocumento Class */
-    /* una instancia de la clase TipoDocumento representa un objeto web_legem.tipo_doc_typ
-        el tipo personalizado debe implementar las interfaces INullable y IOracleCustomType
-    */
     public class TipoDocumento : INullable, IOracleCustomType
     {
         private bool isNull; // implementacion de INUllable
         private int id; // atributo id del typ
         private string nombre; // atributo nombre del typ
 
+        [JsonIgnore]
         // Implementation of INullable.IsNull
         public virtual bool IsNull
         {
@@ -75,7 +32,7 @@ namespace PruebaOracleUDT {
             }
         } // end Null prop
 
-        [OracleObjectMappingAttribute( "NOMBRE" )]
+        [OracleObjectMappingAttribute("NOMBRE")]
         public string Nombre
         {
             get
@@ -89,7 +46,7 @@ namespace PruebaOracleUDT {
 
         }
 
-        [OracleObjectMappingAttribute( "ID" )]
+        [OracleObjectMappingAttribute("ID")]
         public int Id
         {
             get
@@ -115,8 +72,8 @@ namespace PruebaOracleUDT {
             // por defecto el atributo "NOMBRE" sera establecido a NULL             
             if (nombre != null)
             {
-                OracleUdt.SetValue(con, pUdt, "NOMBRE", nombre);                
-            }                        
+                OracleUdt.SetValue(con, pUdt, "NOMBRE", nombre);
+            }
         } // end method FromCustomObject
 
         // Implementation of IOracleCustomType.ToCustomObject()
@@ -130,27 +87,12 @@ namespace PruebaOracleUDT {
 
             // Get the "NAME" attribute
             // If the "NAME" attribute is NULL, then null will be returned
-            nombre = (string)OracleUdt.GetValue(con, pUdt, "NOMBRE");                                    
-        }
+            nombre = (string)OracleUdt.GetValue(con, pUdt, "NOMBRE");
+        } // end ToCustomObject method
 
         public override string ToString()
         {
             return "TipoDocumento( " + Id + ", " + Nombre + " )";
-        }    
+        } // end ToString method
     } // end TipoDocumento class
-
-
-    /* PersonFactory Class
-    *  An instance of the PersonFactory class is used to create Person objects
-    */
-    [OracleCustomTypeMappingAttribute("WEB_LEGEM.TIPO_DOC_TYP")]
-    public class PersonFactory : IOracleCustomTypeFactory
-    {
-        // Implementation of IOracleCustomTypeFactory.CreateObject()
-        public IOracleCustomType CreateObject()
-        {
-            // Return a new custom object
-            return new TipoDocumento();
-        }
-    }
-}
+} // end namespace

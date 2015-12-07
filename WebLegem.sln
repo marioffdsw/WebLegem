@@ -29,6 +29,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebLegemClient", "WebLegemC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebaOracleUDT", "PruebaOracleUDT\PruebaOracleUDT.csproj", "{73BC2DCA-84C5-4331-8343-D74E603662E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLegemAPI", "WebLegemAPI\WebLegemAPI.csproj", "{2FF09FF0-D2C5-45B2-B9ED-08DC21713F0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{73BC2DCA-84C5-4331-8343-D74E603662E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73BC2DCA-84C5-4331-8343-D74E603662E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73BC2DCA-84C5-4331-8343-D74E603662E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FF09FF0-D2C5-45B2-B9ED-08DC21713F0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FF09FF0-D2C5-45B2-B9ED-08DC21713F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FF09FF0-D2C5-45B2-B9ED-08DC21713F0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FF09FF0-D2C5-45B2-B9ED-08DC21713F0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
