@@ -15,7 +15,6 @@
             { id: 5, nombre: "SuperEntidad", tipo: "externa", documentosSoportados: { id: 2, nombre: "Ley" } }
         ];
 
-
         var tiposEntidadUrl = "/api/TipoEntidad";
 
         $httpBackend.whenGET(tiposEntidadUrl).respond(tiposEntidad);

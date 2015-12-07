@@ -30,7 +30,9 @@
             })
             .state("administracion.tipo-anotacion", {
                 url: "/tipo-anotacion/:id",
-                templateUrl: "app/administracion/tipo-anotacion/tipo-anotacion.tmpl.html"
+                templateUrl: "app/administracion/tipo-anotacion/tipo-anotacion.tmpl.html",
+                controller: "TipoAnotacionController",
+                controllerAs: "vm"
             });
 	} // end config function
 })();

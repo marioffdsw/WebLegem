@@ -13,7 +13,7 @@
     </form>
 
     <select multiple>
-        <option ng-repeat="tipo in vm.tiposAnot">{{ tipo.nombre }}</option>
+        <option ng-repeat="tipo in vm.tiposAnotaciones">{{ tipo.nombre }} {{ tipo.rolActivo }} {{ tipo.rolPasivo }}</option>
     </select>
 
     <button type="button">

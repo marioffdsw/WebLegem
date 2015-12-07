@@ -14,14 +14,7 @@
         TipoEntidadService.query(function (data) {
             vm.tiposEntidad = data;
         });
-
-        //vm.tiposEntidad = [
-        //    { id: 1, nombre: "Facultad", tipo: "interna" },
-        //    { id: 2, nombre: "Departamento", tipo: "interna" },
-        //    { id: 3, nombre: "Rectoria", tipo: "interna" },
-        //    { id: 4, nombre: "Secretaría de Educación", tipo: "externa" }
-        //];
-
+       
     } // end TipoEntidadController
 
 })();

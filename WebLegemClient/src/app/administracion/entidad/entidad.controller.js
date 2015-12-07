@@ -5,24 +5,21 @@
         .module("WebLegemApp.Administracion")
         .controller("EntidadController", EntidadController);
 
-    EntidadController.$inject = [];
-    function EntidadController() {
+    EntidadController.$inject = [ "TipoEntidadService", "EntidadService" ];
+    function EntidadController( TipoEntidadService, EntidadService ) {
         var vm = this;
+        vm.tiposEntidad;
+        vm.entidades;
 
-        vm.entidad = { id: 0, nombre: "Oficina Juridica", tipo: "interna" };
+        TipoEntidadService.query(function (data) {
+            vm.tiposEntidad = data;
+        });
 
-        vm.tiposEntidad = [
-            { id: 1, nombre: "Rectoria" },
-            { id: 2, nombre: "Facultad" },
-            { id: 3, nombre: "Departamento" }
-        ];
+        EntidadService.query(function (data) {
+            vm.entidades = data;
+        });
 
-        vm.entidades = [
-            { id: 1, nombre: "Facultad", tipo: "interna" },
-            { id: 2, nombre: "Departamento", tipo: "interna" },
-            { id: 3, nombre: "Rectoria", tipo: "interna" },
-            { id: 4, nombre: "Secretaría de Educación", tipo: "externa" }
-        ];
+        vm.entidad = { id: 0, nombre: "Oficina Juridica", tipo: "interna" };                
 
     } // end TipoEntidadController
 
