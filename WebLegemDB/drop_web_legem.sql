@@ -1,5 +1,5 @@
 -- drop everything as system
-connect system/1234
+connect system/123
 
 drop tablespace tb_web_legem including contents;
 

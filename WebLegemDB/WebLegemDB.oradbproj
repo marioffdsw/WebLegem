@@ -53,10 +53,22 @@
     <Content Include="drop_web_legem.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Procedures\asociar_doc_a_tipo_entidad.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Procedures\crear_tipo_doc.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Sequences\typ_doc_seq.sql">
+    <Content Include="Procedures\crear_tipo_entidad_pro.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\entidad_seq.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\tipo_entidad_seq.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\tipo_doc_seq.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Tables\Object Tables\anotacion_obj_tab.sql">
