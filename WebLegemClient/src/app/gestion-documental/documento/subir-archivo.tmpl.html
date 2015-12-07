@@ -1,0 +1,16 @@
+﻿<h3>Subir Documento</h3>
+
+<form>
+    <label for="archivo">Ingresar Archivo</label>
+    <input id="archivo" type="file" />
+
+    <fieldset>
+        <legend>¿Cuantas columnas tiene tu documento?</legend>
+        <input id="rad.una" name="estructura" type="radio" value="Una columna" /><label for="rad.una">Una Columna</label><br />
+        <input id="rad.dos" name="estructura" type="radio" value="Dos columnas" /><label for="rad.dos">Dos Columnnas</label><br />
+        <input id="rad.tres" name="estructura" type="radio" value="Tres columnas" /><label for="rad.tres">Tres Columnas</label><br />
+        <input id="rad.otro" name="estructura" type="radio" value="Otro" /><label for="rad.otro">Otro</label>
+    </fieldset>
+</form>
+
+<button ui-sref="gestion-documental.crear-documento.informacion-documento">Siguiente</button>

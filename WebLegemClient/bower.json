@@ -1,0 +1,30 @@
+{
+  "name": "WebLegemClient",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Mario <marioffdsw@gmail.com.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/marioffdsw/WebLegem",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "docs"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-resource": "~1.4.8",
+    "angular-ui-router": "~0.2.15",
+    "angular-touch": "~1.4.8",
+    "animate.css": "~3.4.0",
+    "ng-file-upload": "~10.0.2",
+    "angular-aria": "~1.4.8",
+    "angular-animate": "~1.4.8",
+    "angular-mocks": "~1.4.8"
+  }
+}
