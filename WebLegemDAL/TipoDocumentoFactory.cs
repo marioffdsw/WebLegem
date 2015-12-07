@@ -1,6 +1,6 @@
 ﻿using Oracle.DataAccess.Types;
 
-namespace WebLegemAPI.Models
+namespace WebLegemDAL.Models
 {
     [OracleCustomTypeMappingAttribute("WEB_LEGEM.TIPO_DOC_TYP")]
     public class TipoDocumentoFactory : IOracleCustomTypeFactory

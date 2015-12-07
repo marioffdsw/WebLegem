@@ -3,7 +3,7 @@ set sqlbl on
 /
 
 -- Creacion y configuración de la Base de Datos
-@usuario_tablespace_permisos.sql
+--@usuario_tablespace_permisos.sql
 
 -- Tipo Documento (definición de tipo y tablas asociadas)
 --@'Sequences/tipo_doc_seq.sql'
@@ -11,6 +11,7 @@ set sqlbl on
 --@'User Defined Types\Nested Tables\tipo_doc_ref_tab_typ.sql'
 --@'Tables\Object Tables\tipo_doc_obj_tab.sql'
 --@'Procedures\crear_tipo_doc.sql'
+@'Procedures\crear_tipo_doc_from_td_pro.sql'
 
 
 -- Tipo Entidad (definición de tipo y tablas asociadas)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using WebLegemAPI.Models;
+using WebLegemDAL.Models;
 
 namespace WebLegemAPI.Controllers
 {
@@ -29,7 +29,7 @@ namespace WebLegemAPI.Controllers
             while (reader.Read())
             {
                 TipoDocumento td;
-                if (reader.IsDBNull(0))
+                if (reader.IsDBNull(0)) 
                     td = TipoDocumento.Null;
                 else
                     td = (TipoDocumento)reader.GetValue(0);

@@ -3,7 +3,7 @@ using Oracle.DataAccess.Client;
 using Oracle.DataAccess.Types;
 using System;
 
-namespace WebLegemAPI.Models
+namespace WebLegemDAL.Models
 {
     public class TipoDocumento : INullable, IOracleCustomType
     {
