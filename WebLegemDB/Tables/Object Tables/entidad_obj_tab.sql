@@ -1,2 +1,2 @@
 CREATE TABLE entidad_obj_tab OF entidad_typ 
-    ( id PRIMARY KEY ) OBJECT IDENTIFIER IS PRIMARY KEY;
+    ( id PRIMARY KEY,nombre UNIQUE);

@@ -3,4 +3,4 @@ CREATE TYPE entidad_typ AS OBJECT (
     tipo_entidad            REF tipo_entidad_typ,
     nombre                  VARCHAR2( 50 )
 );
-/	
+/
