@@ -54,7 +54,7 @@ namespace WebLegemDAL.Models
                 return id;
             }
 
-            private set
+            set
             {
                 id = value;
             }
