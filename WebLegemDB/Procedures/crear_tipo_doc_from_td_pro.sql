@@ -12,3 +12,4 @@ BEGIN
 	INSERT INTO tipo_doc_obj_tab VALUES( tipo_doc );
 END crear_tipo_doc_from_td_pro;
 /
+--añado un comentario pendejo

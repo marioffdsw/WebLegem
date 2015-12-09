@@ -56,13 +56,28 @@
     <Content Include="Procedures\asociar_doc_a_tipo_entidad.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Procedures\crear_tipo_doc.sql">
+    <Content Include="Procedures\crear_contenido_pro.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\crear_documento_pro.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\crear_doc_sin_contenido.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\crear_entidad_pro.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\crear_tipo_doc_pro.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Procedures\crear_tipo_doc_from_td_pro.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Procedures\crear_tipo_entidad_pro.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\doc_id_typ_seq.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Sequences\entidad_seq.sql">
@@ -78,6 +93,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Tables\Object Tables\control_obj_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Object Tables\doc_contenido_obj_tab.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Tables\Object Tables\doc_id_obj_tab.sql">
