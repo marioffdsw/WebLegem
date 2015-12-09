@@ -71,6 +71,9 @@
     <Content Include="Procedures\crear_tipo_doc_pro.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Procedures\crear_tipo_doc_from_td_pro.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Procedures\crear_tipo_entidad_pro.sql">
       <SubType>Content</SubType>
     </Content>
