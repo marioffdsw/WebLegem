@@ -1,0 +1,18 @@
+﻿<div>        
+    <form>
+        <input type="text" ng-model="vm.tipoDoc.nombre" />
+        <button type="button" ng-show="!vm.editando" ng-click="vm.create()">Añadir</button>
+        <button type="button" ng-show="vm.editando" ng-click="vm.guardar()">Guardar</button>
+        <button type="button" ng-click="vm.cancelar()">Cancelar</button>
+    </form>
+
+    <select ng-disabled="vm.editando" ng-options="tipo as tipo.nombre for tipo in vm.tiposDoc" ng-model="vm.tipoDocSeleccionado">        
+    </select>
+
+    <button ng-disabled="vm.editando" type="button" ng-click="vm.remover()">
+        Remover
+    </button>
+    <button ng-disabled="vm.editando" type="button" ng-click="vm.editar()">
+        Editar
+    </button>
+</div>
