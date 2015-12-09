@@ -1,5 +1,5 @@
 CREATE OR REPLACE TYPE doc_typ AS OBJECT (	
-	id							NUMBER,
+	ref_id_documento            REF doc_id_typ,
 	asunto                      VARCHAR2(2000),
     fecha_expedicion            DATE,
     ruta_al_archivo             VARCHAR2(255),
