@@ -1,6 +1,7 @@
 ﻿using Oracle.DataAccess.Client;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using WebLegemDAL.Models;
@@ -10,39 +11,60 @@ namespace WebLegemAPI.Controllers
     [EnableCorsAttribute( "*", "*", "*" )]
     public class TipoDocumentoController : ApiController
     {
-        public List<TipoDocumento> Get()
+        public IQueryable<TipoDocumento> Get()
         {
             string constr = "user id=web_legem;password=web_legem;data source=ORCL";
-            string sql = "select VALUE(td) from tipo_doc_obj_tab td";
 
-            OracleConnection con = new OracleConnection() { ConnectionString = constr };
+            var tdDal = new TipoDocumentoDAL();
+            tdDal.OpenConnection( constr );
 
-            con.Open();
+            var tiposDocumento = tdDal.GetAllTipoDocumento();
 
-            OracleCommand cmd = new OracleCommand(sql, con);
-            cmd.CommandType = System.Data.CommandType.Text;
+            tdDal.CloseConnection();
 
-            OracleDataReader reader = cmd.ExecuteReader();
+            return tiposDocumento.AsQueryable<TipoDocumento>();
+        } // end GET Action Method
 
-            var documentList = new List<TipoDocumento>();            
+        public TipoDocumento Put( TipoDocumento tipoDoc )
+        {
+            string constr = "user id=web_legem;password=web_legem;data source=ORCL";
 
-            while (reader.Read())
-            {
-                TipoDocumento td;
-                if (reader.IsDBNull(0)) 
-                    td = TipoDocumento.Null;
-                else
-                    td = (TipoDocumento)reader.GetValue(0);
+            var tdDal = new TipoDocumentoDAL();
+            tdDal.OpenConnection(constr);
 
-                documentList.Add( td ); 
-            }
+            tdDal.UpdateTipoDocumento( ref tipoDoc );
 
-            reader.Dispose();
-            cmd.Dispose();
-            con.Close();
-            con.Dispose();
+            tdDal.CloseConnection();
 
-            return documentList;
+            return tipoDoc;
+        } // end GET Action Method
+
+        public TipoDocumento Post( TipoDocumento tipoDoc )
+        {
+            string constr = "user id=web_legem;password=web_legem;data source=ORCL";
+
+            var tdDal = new TipoDocumentoDAL();
+            tdDal.OpenConnection(constr);
+
+            tdDal.CreateTipoDocumento( ref tipoDoc );
+
+            tdDal.CloseConnection();
+
+            return tipoDoc;
         }
+
+        public IHttpActionResult Delete( int id )
+        {
+            string constr = "user id=web_legem;password=web_legem;data source=ORCL";
+
+            var tdDal = new TipoDocumentoDAL();
+            tdDal.OpenConnection(constr);
+
+            tdDal.DeleteTipoDocumento( id );
+
+            tdDal.CloseConnection();
+
+            return Ok();
+        } // end DELETE Action Method
     }
 }

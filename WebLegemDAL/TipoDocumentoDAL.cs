@@ -7,7 +7,7 @@ using Oracle.DataAccess.Client;
 using WebLegemDAL.Models;
 using System.Data;
 
-namespace WebLegemDAL
+namespace WebLegemDAL.Models
 {
     public class TipoDocumentoDAL
     {
@@ -86,6 +86,16 @@ namespace WebLegemDAL
             tipoDoc = GetTipoDocumento(tipoDoc.Id);
 
             return tipoDoc;
-        }        
+        } // end UpdateTipoDocumento method
+
+        public void DeleteTipoDocumento(int id)
+        {
+            string sql = "DELETE FROM tipo_doc_obj_tab td WHERE td.id = " + id;
+
+            OracleCommand cmd = new OracleCommand() { Connection = conn, CommandText = sql };
+            cmd.ExecuteNonQuery();
+                        
+        } // end DeleteTipoDocumento method
+
     }
 }

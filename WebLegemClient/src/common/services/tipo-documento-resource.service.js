@@ -7,7 +7,9 @@
 
     TipoDocumentoResource.$inject = ["$resource", "serviceUrl"];
     function TipoDocumentoResource($resource, serviceUrl) {
-        return $resource(serviceUrl + "/TipoDocumento");
+        return $resource(serviceUrl + "/TipoDocumento/:id", null, {
+            update: { method: "PUT" }
+        });
     } // end ProductResource Service
 
 })();

@@ -52,10 +52,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntidadRefArrayFactory.cs" />
     <Compile Include="TipoDocumento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoDocumentoDAL.cs" />
     <Compile Include="TipoDocumentoFactory.cs" />
+    <Compile Include="TipoEntidad.cs" />
+    <Compile Include="TipoEntidadDAL.cs" />
+    <Compile Include="TipoEntidadFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
