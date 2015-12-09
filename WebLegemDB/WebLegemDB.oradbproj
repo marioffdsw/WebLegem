@@ -56,6 +56,9 @@
     <Content Include="Procedures\asociar_doc_a_tipo_entidad.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Procedures\crear_anotacion_pro.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Procedures\crear_contenido_pro.sql">
       <SubType>Content</SubType>
     </Content>
@@ -66,6 +69,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Procedures\crear_entidad_pro.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\crear_tipo_anotacion.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Procedures\crear_tipo_doc_pro.sql">
@@ -81,6 +87,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Sequences\entidad_seq.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\tipo_anotacion_seq.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Sequences\tipo_entidad_seq.sql">
