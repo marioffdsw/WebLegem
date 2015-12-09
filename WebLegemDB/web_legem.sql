@@ -11,6 +11,7 @@ set sqlbl on
 @'User Defined Types\Nested Tables\tipo_doc_ref_tab_typ.sql'
 @'Tables\Object Tables\tipo_doc_obj_tab.sql'
 @'Procedures\crear_tipo_doc_pro.sql'
+@'Procedures\crear_tipo_doc_from_td_pro.sql'
 
 
 -- Tipo Entidad (definición de tipo y tablas asociadas)
@@ -22,10 +23,10 @@ set sqlbl on
 
 
 -- Entidad (definición de tipo de tablas asociadas)
---@'Sequences/entidad_seq.sql'
---@'User Defined Types\Objects\entidad_typ.sql'
---@'Tables\Object Tables\entidad_obj_tab.sql'
---@'Procedures\crear_entidad_pro.sql'
+@'Sequences/entidad_seq.sql'
+@'User Defined Types\Objects\entidad_typ.sql'
+@'Tables\Object Tables\entidad_obj_tab.sql'
+@'Procedures\crear_entidad_pro.sql'
 
 -- Identificador de Documento (definición de tipo y tablas asociadas)
 --@'User Defined Types\Objects\doc_id_typ.sql'
