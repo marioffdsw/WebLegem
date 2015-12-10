@@ -1,0 +1,86 @@
+﻿.contenedor_login{
+    width:50%;
+    margin:auto;
+    padding:2em 1em;
+}
+
+.contenedor_login H1,H2{
+    font-family:sans-serif;
+}
+
+.titulo{
+    color: white;
+    text-align:center;
+    height:auto;
+    background:  #37404A;
+    border-radius:10px 10px 0 0;
+    display:block;
+    padding:10px;
+    font-family:sans-serif;
+}
+
+.form{
+    background:#fff;
+    border-radius:0 0 10px 10px ;
+    padding:2em;
+    margin-bottom: 5em;
+    position:relative;
+}
+
+.submit_login{
+    width:100%;
+    background: #4DBD88;
+    border-radius: 0.5em;
+    border:none;
+    line-height: 2.5;
+    color:#fff;
+    font-size:1em;
+    cursor:pointer;
+    transition:all 1s;
+    -webkit-transition:all 1s;
+    -moz-transition: all 0.5s;
+
+}
+
+.submit_login:hover {
+    background: #309264;
+    font-weight:500;
+}
+
+
+
+.input_login{
+    width:95%;
+    margin-bottom: 2em;
+    line-height: 2.5em;
+    padding: 0 1em;
+    transition:all 1s;
+    -webkit-transition:all 1s;
+    -moz-transition: all 0.5s;
+    box-shadow: 1px 0 #309264 inset;
+   
+
+}
+
+.input_login:focus{
+    border:2px solid  #309264;
+    box-shadow: 600px 0 white inset;
+}
+
+.input_login:focus::-moz-placeholder{
+    color: #246848;
+    font-weight:bold;
+}
+
+.circulo {
+    position:absolute;
+    display:inline-block;
+    right: 35px;
+    top: 1.5em;
+    width: 50px;
+    height: 50px;
+     -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+     border-radius: 50%;
+     background: #5cb85c;
+}

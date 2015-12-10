@@ -1,4 +1,5 @@
-﻿(function () {
+﻿/// <reference path="login/login.tmpl.html" />
+(function () {
 	"use strict";
 
 	angular
@@ -14,7 +15,7 @@
 	    $stateProvider
 			.state('home', {
 			    url: '/',
-			    template: '<h1>Noticias</h1><div ui-view></div>',				
+			    templateUrl: 'app/noticias/noticias.tmpl.html',
 			})
             .state('administracion', {
                 url: '/administracion',
@@ -22,7 +23,7 @@
             })
 			.state('login', {
 			    url: '/login',
-			    template: '<h1>Login</h1><div ui-view></div>',				
+			    templateUrl: 'app/login/login.tmpl.html',
 			})
             .state('gestion-documental', {
                 url: "/gestion-documental",

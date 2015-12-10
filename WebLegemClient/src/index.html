@@ -62,32 +62,35 @@
     <script src="common/services/entidad-resource.service.js"></script>
     <script src="common/services/tipo-anotacion-resource.service.js"></script>
 
+    <!--Estilos-->
+    <link href="css/pagina_principal.css" rel="stylesheet" />
+    <link href="css/noticias.css" rel="stylesheet" />
+    <link href="css/login.css" rel="stylesheet" />
+
 </head>
 <body>
-    <header>
-        <h1>WebLegem</h1>        
-    </header>       
+    <header class="header_principal"></header>
+    <div class="contenedor_navegacion">
+        <div class="nombre_pagina">
+            <h1>WebLegem</h1>
+        </div>
+        <div class="navegacion">
+        </div>
+        <nav class="bar_nav">
+            <ul>
+                <li><a ui-sref="home">Home</a></li>
+                <li><a ui-sref="login">Login</a></li>
+                <li><a ui-sref="administracion">Administration</a></li>
+                <li><a ui-sref="gestion-documental.crear-documento.subir-archivo">Gestion Documental</a></li>
+            </ul>
+        </nav>
+    </div>
 
-    <nav>
-        <header>
-            <h1>Navegación</h1>            
-        </header>
-
-        <ul>
-            <li><a ui-sref="home">Home</a></li>
-            <li><a ui-sref="login.form">Login</a></li>
-            <li><a ui-sref="administracion">Administration</a></li>            
-            <li><a ui-sref="gestion-documental.crear-documento.subir-archivo">Gestion Documental</a></li>
-            <li>Auditoria</li>
-            <li><a ui-sref="otro">Otro</a></li>
-            <li><a ui-sref="no-existe">estado no existe</a></li>
-        </ul>
-    </nav>
-
-    <div ui-view></div>
+  
+    <div ui-view class="cuerpo"></div>
 
     <footer>
-        <p>&copy; Universidad de Nariño 2015-2016</p>        
-    </footer>    
+        <p>&copy; Universidad de Nariño 2015-2016</p>
+    </footer>
 </body>
 </html>
