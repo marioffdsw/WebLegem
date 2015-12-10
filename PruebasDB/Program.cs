@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebLegemDAL.Models;
+using WebLegemDAL.DAL;
 
 namespace PruebasDB
 {

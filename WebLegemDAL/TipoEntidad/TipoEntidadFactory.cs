@@ -1,6 +1,7 @@
 ﻿using Oracle.DataAccess.Types;
+using WebLegemDAL.Models;
 
-namespace WebLegemDAL.Models
+namespace WebLegemDAL.Factory
 {
     [OracleCustomTypeMappingAttribute("WEB_LEGEM.TIPO_ENTIDAD_TYP")]
     public class TipoEntidadFactory : IOracleCustomTypeFactory

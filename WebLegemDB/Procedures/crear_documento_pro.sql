@@ -17,7 +17,7 @@ PROCEDURE CREAR_DOCUMENTO_PRO
     contenedor doc_id_typ;
 BEGIN    
 
-      BEGIN  
+      BEGIN
         --buscar si existe un documento con el mismo id(4 campos)
         SELECT value(u) INTO contenedor FROM doc_id_sin_archivo_obj_tab u WHERE 
         u.entidad = entidad_i and u.tipo_doc = tipo_doc_i and
@@ -27,9 +27,7 @@ BEGIN
             when others then
             contenedor := null;
             DBMS_OUTPUT.PUT_LINE(TO_CHAR(contenedor.numero)); 
-      END;
-
-    
+      END;    
     
     IF( contenedor is null) THEN
                           

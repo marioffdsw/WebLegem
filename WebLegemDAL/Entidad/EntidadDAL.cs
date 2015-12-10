@@ -7,7 +7,7 @@ using Oracle.DataAccess.Client;
 using WebLegemDAL.Models;
 using System.Data;
 
-namespace WebLegemDAL.Models
+namespace WebLegemDAL.DAL
 {
     public class EntidadDAL
     {

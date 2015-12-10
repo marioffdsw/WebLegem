@@ -1,16 +1,15 @@
 ﻿using Oracle.DataAccess.Types;
-using WebLegemDAL.Models;
 
 namespace WebLegemDAL.Factory
 {
-    [OracleCustomTypeMappingAttribute("WEB_LEGEM.TIPO_DOC_TYP")]
-    public class TipoDocumentoFactory : IOracleCustomTypeFactory
+    [OracleCustomTypeMappingAttribute("WEB_LEGEM.DOC_TYP")]
+    public class DocumentoFactory : IOracleCustomTypeFactory
     {
         // Implementation of IOracleCustomTypeFactory.CreateObject()
         public IOracleCustomType CreateObject()
         {
             // Return a new custom object
-            return new TipoDocumento();
+            return new Documento();
         } // end CreateObject method
-    } // end TipoDocumentoFactory class
+    } // end DocumentoFactory class
 } // end namespace
