@@ -52,17 +52,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EntidadRefArrayFactory.cs" />
-    <Compile Include="TipoDocumento.cs" />
+    <Compile Include="Entidad\Entidad.cs" />
+    <Compile Include="Entidad\EntidadDAL.cs" />
+    <Compile Include="Entidad\EntidadFactory.cs" />
+    <Compile Include="IdDocumento\IdDocumento.cs" />
+    <Compile Include="IdDocumento\IdDocumentoFactory.cs" />
+    <Compile Include="TipoEntidad\EntidadRefArrayFactory.cs" />
+    <Compile Include="TipoDocumento\TipoDocumento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TipoDocumentoDAL.cs" />
-    <Compile Include="TipoDocumentoFactory.cs" />
-    <Compile Include="TipoEntidad.cs" />
-    <Compile Include="TipoEntidadDAL.cs" />
-    <Compile Include="TipoEntidadFactory.cs" />
+    <Compile Include="TipoDocumento\TipoDocumentoDAL.cs" />
+    <Compile Include="TipoDocumento\TipoDocumentoFactory.cs" />
+    <Compile Include="TipoEntidad\TipoEntidad.cs" />
+    <Compile Include="TipoEntidad\TipoEntidadDAL.cs" />
+    <Compile Include="TipoEntidad\TipoEntidadFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Documento\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
