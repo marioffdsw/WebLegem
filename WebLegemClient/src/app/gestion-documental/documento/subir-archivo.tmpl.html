@@ -1,16 +1,39 @@
-﻿<h3>Subir Documento</h3>
+﻿<div class="contenido">
+    <label class="titulo">Subir Documento</label>
+    <div>
+        <form>
+            <label class="texto_labels" for="archivo">Ingresar Archivo</label>
+            <input  id="archivo" type="file" />
 
-<form>
-    <label for="archivo">Ingresar Archivo</label>
-    <input id="archivo" type="file" />
+            <fieldset>
+                <legend>¿Cuantas col    umnas tiene tu documento?</legend>
+                <ul>
+                    <li class="a_thumbnail_container" >
+                        <input id="rad_una"  name="estructura" type="radio" value="Una columna" />
+                        <label for="rad_una">Una Columna</label>
+                        <img class="a_thumbnail" src="recursos/box68.svg" />
 
-    <fieldset>
-        <legend>¿Cuantas columnas tiene tu documento?</legend>
-        <input id="rad.una" name="estructura" type="radio" value="Una columna" /><label for="rad.una">Una Columna</label><br />
-        <input id="rad.dos" name="estructura" type="radio" value="Dos columnas" /><label for="rad.dos">Dos Columnnas</label><br />
-        <input id="rad.tres" name="estructura" type="radio" value="Tres columnas" /><label for="rad.tres">Tres Columnas</label><br />
-        <input id="rad.otro" name="estructura" type="radio" value="Otro" /><label for="rad.otro">Otro</label>
-    </fieldset>
-</form>
+                    </li>
+                    <li class="a_thumbnail_container">
+                        <input id="rad_dos" name="estructura" type="radio" value="Dos columnas" />
+                        <label for="rad_dos">Dos Columnnas</label>
+                        <img class="a_thumbnail" src="recursos/box68.svg" />
+                      
+                    </li>
+                    <li class="a_thumbnail_container">
+                        <input class="a_thumbnail" id="rad_tres" name="estructura" type="radio" value="Tres columnas" />
+                        <label for="rad_tres">Tres Columnas</label>
+                        <img class="a_thumbnail" src="recursos/box68.svg" />
+                    </li>
+                    <li class="a_thumbnail_container">
+                        <input class="a_thumbnail" id="rad_otro" name="estructura" type="radio" value="Otro" />
+                        <label for="rad_otro">Otro</label>
+                        <img class="a_thumbnail" src="recursos/box68.svg" />
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
 
-<button ui-sref="gestion-documental.crear-documento.informacion-documento">Siguiente</button>
+        <button class="a_boton" ui-sref="gestion-documental.crear-documento.informacion-documento">Siguiente</button>
+    </div>
+    </div>

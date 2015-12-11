@@ -1,16 +1,28 @@
-﻿<h1>Administración</h1>
+﻿<div class="contenedor_administracion" ng-show="val">
+    <div class="titulo">
+        <h3>Administracion</h3>
+    </div>
 
-<nav>
-    <header>
-        <h2>Menu</h2>
-    </header>
+    <div class="contenido">
 
-    <ul>
-        <li><a ui-sref="administracion.tipo-documento">Tipos Documento</a></li>
-        <li><a ui-sref="administracion.tipo-entidad">Tipos de Entidades</a></li>
-        <li><a ui-sref="administracion.entidad">Entidades</a></li>
-        <li><a ui-sref="administracion.tipo-anotacion">Tipos Anotaciones</a></li>
-    </ul>
-</nav>
+        <a class="a_thumbnail_container" ui-sref="administracion.tipo-documento">
+            <img class="a_thumbnail" src="recursos/documents7.svg" /><br />
+            <label>Tipo Documento</label>
+        </a>
+        <a class="a_thumbnail_container" ui-sref="administracion.tipo-entidad">
+            <img class="a_thumbnail" src="recursos/documents23.svg" /><br />
+            <label>Tipo Entidad</label>
+        </a>
 
+        <a class="a_thumbnail_container" ui-sref="administracion.entidad">
+            <img class="a_thumbnail" src="recursos/job4.svg" /><br />
+            <label>Entidad</label>
+        </a>
+        <a class="a_thumbnail_container" ui-sref="administracion.tipo-anotacion">
+            <img class="a_thumbnail" src="recursos/box68.svg" /><br />
+            <label>Tipo Anotacion</label>
+        </a>
+    </div>
+    <img />
+</div>
 <div ui-view></div>

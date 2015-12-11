@@ -1,21 +1,24 @@
-﻿<div>
-    <form>        
-        <label for="nombre-entidad">Nombre Entidad</label>
-        <input id="nombre-entidad" type="text" placeholder="Entidad" ng-model="vm.entidad.nombre" />
-        <label for="tipo-entidad">Tipo Entidad</label>
-        <select>            
-            <option ng-repeat="tipo in vm.tiposEntidad" value="{{ tipo.id }}">
-                {{ tipo.id }} {{ tipo.nombre }} 
+﻿<div class="contenido">
+    <label class="titulo">Entidad</label>
+    <div class="contenedor1">
+        <form>
+            <label class="texto_labels" for="nombre-entidad">Nombre Entidad</label>
+            <input class ="a_input" id="nombre-entidad" type="text" placeholder="Entidad" ng-model="vm.entidad.nombre" />
+            <label class="texto_labels" for="tipo-entidad">Tipo Entidad</label>
+            <select>
+                <option ng-repeat="tipo in vm.tiposEntidad" value="{{ tipo.id }}">
+                    {{ tipo.id }} {{ tipo.nombre }}
+                </option>
+            </select>
+            <button class="a_boton" type="button">Añadir</button>
+        </form>
+
+        <select multiple size="3">
+            <option ng-repeat="entidad in vm.entidades">
+                <p>{{ entidad.nombre }} {{ entidad.tipo.nombre }}</p>
             </option>
         </select>
-        <button type="button">Añadir</button>
-    </form>
-
-    <select multiple size="3">
-        <option ng-repeat="entidad in vm.entidades">
-            <p>{{ entidad.nombre }} {{ entidad.tipo.nombre }}</p>
-        </option>
-    </select>
-    <button type="button" value="Editar">Editar</button>
-    <button type="button" value="Eliminar">Eliminar</button>
+        <button class="a_boton" type="button" value="Editar">Editar</button>
+        <button class="a_boton" type="button" value="Eliminar">Eliminar</button>
+    </div>
 </div>

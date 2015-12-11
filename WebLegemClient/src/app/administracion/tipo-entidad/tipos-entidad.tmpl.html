@@ -1,11 +1,35 @@
-﻿<div>    
-    <form>
-        <input type="text" ng-model="vm.tipoEntidad.nombre" />
-        <input type="text" ng-model="vm.tipoEntidad.tipo" />
-        <button type="button">Añadir</button>
-    </form>
+﻿<div class="contenido">
+    <label class="titulo">Tipo de Entidad</label>
+    <div class="contenedor1">
+        <form class="form_tipo_documento">
+            <div style="display:inline-block; width:40%;">
+                <label class="texto_labels">Nombre de entidad</label>
+                <input class="a_input" style="width:80%;" type="text" ng-model="vm.tipoEntidad.nombre" placeholder="Ingrese el nombre Entidad" />
+            </div>
+            <div style="display:inline-block; width:40%;">
+                <label class="texto_labels">tipo de entidad</label>
+                <input class="a_input" style="width:80%;" type="text" ng-model="vm.tipoEntidad.tipo" placeholder="Ingrese el tipo de entidad" />
+            </div>
+            <div style="display:inline-block; width:40%;">
+                <button class="a_boton" type="button" style="display:inline-block;">Añadir</button>
+                <button class="a_boton" type="button" style="display:inline-block;" ng-click=" vm.cancelar()">Cancelar</button>
+            </div>
+        </form>
 
-    <select multiple size="3">
-        <option ng-repeat="tipo in vm.tiposEntidad">{{ tipo.nombre }}</option>
-    </select>
+        <label class="texto_labels" style="margin: 1rem 1rem; ">Lista de tipo de entidades</label>
+        <select multiple size="3" class="select_td_te">
+            <option ng-repeat="tipo in vm.tiposEntidad">{{ tipo.nombre }}</option>
+            <option>Resolucion</option>
+            <option>Carta</option>
+            <option>Resolucion</option>
+            <option>Carta</option>
+        </select>
+        <button class="a_boton btn_tipo_doc1" ng-disabled="vm.editando" type="button" ng-click="vm.remover()">
+            Remover
+        </button>
+        <button class="a_boton btn_tipo_doc1" ng-disabled="vm.editando" type="button" ng-click="vm.editar()">
+            Editar
+        </button>
+
+    </div>
 </div>
