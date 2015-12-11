@@ -120,7 +120,7 @@ namespace WebLegemDAL.DAL
 
         public Documento GetDocumento( int id )
         {
-            string sql = "select VALUE(d) from doc_obj_tab d WHERE (VALUE(d)).id = " + id;
+            string sql = "select VALUE(d) from doc_contenido_obj_tab d WHERE DEREF(d.ref_id_documento).id = " + id;
 
             OracleCommand cmd = new OracleCommand() { Connection = conn, CommandText = sql };
             OracleDataReader reader = cmd.ExecuteReader();

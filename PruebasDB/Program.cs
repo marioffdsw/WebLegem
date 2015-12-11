@@ -35,8 +35,9 @@ namespace PruebasDB
             ListarTiposEntidad();
             ListarEntidades();
             
-            CrearDocumentos();
+            //CrearDocumentos();
             ListarDocumentos();
+
             // close connections
             tipoDocumentoDal.CloseConnection();
             tipoEntidadDal.CloseConnection();
@@ -135,8 +136,8 @@ namespace PruebasDB
                     DocId = new IdDocumento() {
                         Entidad = listaEntidades.ElementAt(1).Id,
                         TipoDocumento = listaTiposDoc.ElementAt(2).Id,
-                        Numero = "0003",
-                        FechaPublicacion = "1993"
+                        Numero = "0004",
+                        FechaPublicacion = "1995"
                     },
                     Asunto = "Asunto del Doc 1",
                     NombreDocumentoProcesado = "1.txt",
