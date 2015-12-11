@@ -1,0 +1,115 @@
+﻿/*estilo general para botones*/
+/*----------------------------------------*/
+.a_boton{
+    width:auto;
+    background: #4DBD88;
+    border-radius: 0.4em;
+    border:none;
+    line-height: 2.5;
+    color:#fff;
+    font-family:sans-serif;
+    font-size:1em;
+    font-weight:600;
+    padding: 0 1em;
+    cursor:pointer;
+}
+
+.a_boton:hover {
+    background: #339a69;
+}
+
+.a_boton:active{
+    background: #4DBD88;
+}
+
+/*estilo general para inputs*/
+/*----------------------------------------*/
+.a_input{
+    width:auto;
+    margin-bottom: 2em;
+    line-height: 2.5em;
+    padding: 0 1em;
+    transition:        box-shadow 0.4s;
+    -webkit-transition:box-shadow 0.4s;
+    -moz-transition:   box-shadow 0.4s;
+    box-shadow: 1px 0 #309264 inset;
+}
+
+.a_input:focus{
+    border:2px solid  #309264;
+    box-shadow: 40em 0 white inset;
+}
+
+.a_input:focus::-moz-placeholder{
+    color: #246848;
+    font-weight:bold;
+}
+
+
+/*estilo general para thumbnail*/
+/*----------------------------------------*/
+.a_thumbnail{
+    height:100px;
+    width:80px;
+    margin: 2rem 3em;   
+}
+
+.a_thumbnail_container{
+    border: 0.2em solid #999;
+    display:inline-block;
+    box-shadow: 2px 2px 5px #636262;
+    margin:2rem 2em; 
+    border-radius:1em;
+}
+
+.a_thumbnail_container:hover{
+    border: 0.2em solid green;
+    display:inline-block;
+    box-shadow: 2px 2px 5px #999;
+    margin:2rem 2em; 
+}
+
+.a_thumbnail_container > label {
+   display: block;
+   text-align: center;
+}
+
+/*FOOTER*/
+/*------*/
+footer{
+    display:block;
+    text-align:center;
+    margin-top:3rem;
+    position: absolute;
+    bottom: -100px;
+    left:40%;
+}
+
+/*Titulos para los contenidos*/
+/*---------------------------*/
+
+.titulo{
+    color: white;
+    text-align:left;
+    height:auto;
+    background:  #37404A;
+    border-radius:10px 10px 0 0;
+    display:block;
+    padding:1em;
+    font-family:sans-serif;
+    font-size:1.1em;
+}
+
+
+/*Disposiciones en display/
+/*******************/
+.a_block{
+    display:block;
+}
+.a_inline_block{
+    display:inline-block;
+}
+.a_inline{
+    display:inline;
+}
+

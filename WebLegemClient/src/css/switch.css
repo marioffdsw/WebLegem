@@ -1,0 +1,77 @@
+﻿.a_mn{
+    position: absolute;
+    margin-top:1.5rem;
+    right:7%;
+}
+
+.a_cmn-toggle {
+  visibility: hidden;
+}
+.a_cmn-toggle + label {
+  display: block;
+  position: relative;
+  right:-94%;
+  top:1rem;
+  cursor: pointer;
+  outline: none;
+
+  -moz-user-select:none;
+  -ms-user-select:none;
+  -webkit-user-select:none;
+  user-select: none;
+}
+
+input.a_cmn-toggle-round-flat + label {
+  padding: 2px;
+  width: 5%;
+  height: 3rem;
+  background-color: #dddddd;
+  border-radius: 3rem;
+  transition: background 0.4s;
+  
+}
+
+input.a_cmn-toggle-round-flat + label:before,
+input.a_cmn-toggle-round-flat + label:after {
+  display: block;
+  position: absolute;
+  
+}
+input.a_cmn-toggle-round-flat + label:before {
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 2px;
+  background-color: #fff;
+  border-radius: 52px;
+  transition: background 0.4s;
+  content:"";
+}
+input.a_cmn-toggle-round-flat + label::after {
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 2px;
+  background-color: #fff;
+  border-radius: 52px;
+  transition: background 0.4s;
+}
+input.a_cmn-toggle-round-flat + label:after {
+  top: 4px;
+  left: 4px;
+  bottom: 4px;
+  width: 2.2rem;
+  background-color: #dddddd;
+  border-radius: 52px;
+  transition: margin 0.4s, background 0.4s;
+  content:"";
+}
+input.a_cmn-toggle-round-flat:checked + label {
+  background-color: #8ce196;
+  
+}
+input.a_cmn-toggle-round-flat:checked + label:after {
+  margin-left: 61%;
+  background-color: #8ce196;
+  
+}

@@ -1,4 +1,41 @@
-﻿.noticias{
-    background: #fff;
-    padding: 30px;
+﻿.container {
+  position: relative;
+  height: 660px;
+  width: 960px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.container a {
+  float: left;
+  margin: 20px;
+}
+
+.big {
+  position: absolute;
+  top: 30%;
+  right: 0;
+
+  -webkit-transition: linear 1s ease;
+  -moz-transition: linear 1s ease;
+    -o-transition: linear 1s ease; 
+  -ms-transition: linear 1s ease; 
+
+  transition: linear 1s ease;
+}
+
+.featured {
+  top: 400px;
+  left: 200px;
+  z-index: -3;
+}
+
+a:hover .thumb {
+  -webkit-box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.5);
+}
+ 
+a:hover .big {
+  right:600px;
 }

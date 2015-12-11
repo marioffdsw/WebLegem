@@ -1,0 +1,43 @@
+﻿.form_tipo_documento{
+    display:block;
+    background:#fff;
+}
+
+.texto_labels{
+    display:block;
+    font-size:1em;
+}
+
+#input1{
+    width:50%;
+}
+
+/*select igual para tipo_documento y tipo entidad*/
+.select_td_te{
+    -webkit-appearance: none;
+    display:block;
+    line-height:2.5;    
+    background:#f1f1f1;
+    width:50%;
+    margin-bottom:1rem;
+}
+
+/*botones remover y editar igual para tipo entidad y tipo documento*/
+.btn_tipo_doc1{
+    display:inline-block;
+    width:auto;  
+    margin:0.1em;
+}
+
+
+#contenedor2{
+    background:#f1f1f1;
+    border-radius:0 0 1em 1em ;
+    padding: 2rem;
+}
+
+#btn_aceptar{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
