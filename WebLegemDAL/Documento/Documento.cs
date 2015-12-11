@@ -39,7 +39,7 @@ namespace WebLegemDAL.Models
             set
             {                
                 docIdRef = value;
-                DocId = (IdDocumento)value.GetCustomObject(OracleUdtFetchOption.Server);
+                //DocId = (IdDocumento)value.GetCustomObject(OracleUdtFetchOption.Server);
             }
         } // end DocIdRef Property
 
@@ -115,13 +115,13 @@ namespace WebLegemDAL.Models
         public virtual void FromCustomObject(OracleConnection con, IntPtr pUdt)
         {            
             if (docIdRef != null)            
-                OracleUdt.SetValue(con, pUdt, "REF_ID_DOCUMENTO", docIdRef);                        
+                OracleUdt.SetValue(con, pUdt, "REF_ID_DOCUMENTO", docIdRef);
+
+            if (asunto != null)
+                OracleUdt.SetValue(con, pUdt, "ASUNTO", asunto);
 
             if (fechaExpedicion != null)            
                 OracleUdt.SetValue(con, pUdt, "FECHA_EXPEDICION", fechaExpedicion);            
-
-            if (asunto != null)            
-                OracleUdt.SetValue(con, pUdt, "ASUNTO", asunto);            
 
             if (RutaAlArchivo != null)            
                 OracleUdt.SetValue( con, pUdt, "RUTA_AL_ARCHIVO", rutaAlArchivoOriginal );            
@@ -136,8 +136,8 @@ namespace WebLegemDAL.Models
 
             asunto = (string)OracleUdt.GetValue(con, pUdt, "ASUNTO");
 
-            DocIdRef = (OracleRef)OracleUdt.GetValue(con, pUdt, "REF_DOC_ID");
-            DocId = (IdDocumento)docIdRef.GetCustomObject(OracleUdtFetchOption.Server);
+            DocIdRef = (OracleRef)OracleUdt.GetValue(con, pUdt, "REF_ID_DOCUMENTO");
+            DocId = (IdDocumento) docIdRef.GetCustomObject(OracleUdtFetchOption.Server);
 
             contenidoDocumento = (OracleBFile) OracleUdt.GetValue(con, pUdt, "CONTENIDO_DOCUMENTO");
             NombreDocumentoProcesado = contenidoDocumento.FileName;
@@ -149,12 +149,12 @@ namespace WebLegemDAL.Models
 
         public override string ToString()
         {
-            return String.Format( "Documento( {0}\n{1}, {2}, {3}, {4}, {5} )",
+            return String.Format( "Documento( {0}\n{1}, {2}, {3}, {4} )",
                     DocId,
                     RutaAlArchivo,
                     Asunto,
                     FechaExpedicion,
-                    ContenidoDocumento
+                    ContenidoDocumento.FileName
                 );
         }
     }

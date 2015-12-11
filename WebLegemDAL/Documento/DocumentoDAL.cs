@@ -1,4 +1,5 @@
 ﻿using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -33,26 +34,26 @@ namespace WebLegemDAL.DAL
             conn.Close();
         } // end CloseConnection method
 
-        public Documento CreateDocumento( ref Documento doc )
+        public Documento CreateDocumento( ref Documento docu )
         {
             OracleCommand cmd = new OracleCommand("CREAR_DOCUMENTO_PRO", conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             OracleParameter entidadId = cmd.Parameters.Add("ENTIDAD_I", OracleDbType.Int32);
             entidadId.Direction = ParameterDirection.Input;
-            entidadId.Value = doc.DocId.Entidad.Id;
+            entidadId.Value = docu.DocId.Entidad;
 
             OracleParameter tipoDocI = cmd.Parameters.Add("TIPO_DOC_I", OracleDbType.Int32);
             tipoDocI.Direction = ParameterDirection.Input;
-            tipoDocI.Value = doc.DocId.TipoDocumento.Id;
+            tipoDocI.Value = docu.DocId.TipoDocumento;
 
             OracleParameter numero = cmd.Parameters.Add("NUMERO_I", OracleDbType.Varchar2);
             numero.Direction = ParameterDirection.Input;
-            numero.Value = doc.DocId.Numero;
+            numero.Value = docu.DocId.Numero;
 
             OracleParameter fechaPub = cmd.Parameters.Add("FECHA_PUBLICACION_I", OracleDbType.Varchar2, 4);
             fechaPub.Direction = ParameterDirection.Input;
-            fechaPub.Value = doc.DocId.FechaPublicacion;
+            fechaPub.Value = docu.DocId.FechaPublicacion;
 
             int value = 0;
             OracleParameter val = cmd.Parameters.Add("VAL", OracleDbType.Int32);
@@ -61,35 +62,61 @@ namespace WebLegemDAL.DAL
 
             cmd.ExecuteNonQuery();
 
-            value = (int) val.Value;
+            value = int.Parse(cmd.Parameters["VAL"].Value.ToString());
 
             OracleCommand cmd2 = new OracleCommand( "CREAR_CONTENIDO_PRO", conn );
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd2.CommandType = CommandType.StoredProcedure;
 
-            OracleParameter idRef = cmd2.Parameters.Add( "ID_REFERENCIA", conn );
-            idRef.Direction = ParameterDirection.Input;
-            idRef.Value = value;
+            OracleParameter id_referencia = cmd2.Parameters.Add( "ID_REFERENCIA",  OracleDbType.Int32 );
+            id_referencia.Direction = ParameterDirection.Input;
+            id_referencia.Value = value;
 
-            OracleParameter asunto = cmd2.Parameters.Add( "ASUNTO", conn );
+            OracleParameter asunto = cmd2.Parameters.Add( "ASUNTO", OracleDbType.Varchar2 );
             asunto.Direction = ParameterDirection.Input;
-            asunto.Value = doc.Asunto;
+            asunto.Value = docu.Asunto;
 
-            OracleParameter fecha = cmd2.Parameters.Add( "FECHA", conn );
+            OracleParameter fecha = cmd2.Parameters.Add( "FECHA", OracleDbType.Varchar2 );
             fecha.Direction = ParameterDirection.Input;
-            fecha.Value = doc.FechaExpedicion;
+            fecha.Value = "1992/07/15";
 
-            OracleParameter ruta = cmd2.Parameters.Add( "RUTA", conn );
+            OracleParameter ruta = cmd2.Parameters.Add( "RUTA", OracleDbType.Varchar2 );
             ruta.Direction = ParameterDirection.Input;
-            ruta.Value = doc.RutaAlArchivo;
+            ruta.Value = docu.RutaAlArchivo;
 
-            OracleParameter nombre = cmd2.Parameters.Add( "NOMBRE", conn );
+            OracleParameter nombre = cmd2.Parameters.Add( "NOMBRE", OracleDbType.Varchar2 );
             nombre.Direction = ParameterDirection.Input;
-            nombre.Value = doc.NombreDocumentoProcesado;
+            nombre.Value = docu.NombreDocumentoProcesado;
 
             cmd2.ExecuteNonQuery();
 
-            return new Documento();
+            docu = GetDocumento( value );
+
+            return docu;
         } // end method CreateDocumento
+
+        public List<Documento> GetAllDocumentos()
+        {
+            string sql = "select VALUE(d) from doc_contenido_obj_tab d";
+
+            OracleCommand cmd = new OracleCommand() { Connection = conn, CommandText = sql };
+            OracleDataReader reader = cmd.ExecuteReader();
+
+            var listaDocumentos = new List<Documento>();
+
+            while (reader.Read())
+            {
+                Documento d;
+                if (reader.IsDBNull(0))
+                    d = Documento.Null;
+                else
+                    d = (Documento)reader.GetValue(0);
+
+                listaDocumentos.Add(d);
+            }
+
+            return listaDocumentos;
+
+        } // end method GetAllEntidad
 
         public Documento GetDocumento( int id )
         {
@@ -99,9 +126,9 @@ namespace WebLegemDAL.DAL
             OracleDataReader reader = cmd.ExecuteReader();
 
             reader.Read();
-            var tipoDoc = (Entidad)reader.GetValue(0);
+            var doc = (Documento)reader.GetValue(0);
 
-            return tipoDoc;
+            return doc;
         } // end method GetDocumento
 
     } // end DocumentoDAL class

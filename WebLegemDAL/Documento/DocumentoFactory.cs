@@ -1,4 +1,5 @@
 ﻿using Oracle.DataAccess.Types;
+using WebLegemDAL.Models;
 
 namespace WebLegemDAL.Factory
 {

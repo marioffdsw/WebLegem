@@ -29,16 +29,22 @@ set sqlbl on
 @'Procedures\crear_entidad_pro.sql'
 
 -- Identificador de Documento (definición de tipo y tablas asociadas)
---@'User Defined Types\Objects\doc_id_typ.sql'
---@'Sequences/doc_id_typ_seq.sql'
---@'Tables\Object Tables\doc_id_obj_tab.sql' -- tabla para los identificadores de documentos, cuyo archivo ya ha sido
+@'User Defined Types\Objects\doc_id_typ.sql'
+@'Sequences/doc_id_typ_seq.sql'
+@'Tables\Object Tables\doc_id_obj_tab.sql' -- tabla para los identificadores de documentos, cuyo archivo ya ha sido
 										   -- subido al sistema
 
---@'Tables\Object Tables\doc_id_sin_archivo_obj_tab.sql' -- tabla para identificadores de documentos
+
+
+@'Tables\Object Tables\doc_id_sin_archivo_obj_tab.sql' -- tabla para identificadores de documentos
 													   -- sin archivo (pendientes por subir).
 
---@'Tables\Object Tables\doc_typ.sql'
---@'Tables\Object Tables\doc_contenido_obj_tab.sql'
+
+-- Documento (definicion de tipo y tablas asociadas)
+@'User Defined Types\Objects\doc_typ.sql'
+@'Tables\Object Tables\doc_contenido_obj_tab.sql'
+@'Procedures\crear_doc_ret_doc_id_pro'
+@'Procedures\crear_documento_pro.sql'
 
 -- Tipos de Anotación (definicion de tipo y tablas asociadas)
 --@'User Defined Types\Objects\tipo_anotacion_typ.sql'

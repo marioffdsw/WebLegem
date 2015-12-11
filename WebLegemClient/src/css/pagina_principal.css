@@ -1,0 +1,80 @@
+﻿* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+.header_principal{
+    background: #37404A;
+    color: white;
+    height: 50px;
+}
+
+.contenedor_navegacion{
+    background: #4DBD88;
+    color: white;
+    height: 130px; 
+    position:relative; 
+    margin: 0.5em;
+    border-radius: 12px;
+}
+
+.nombre_pagina{
+    background: #4DBD88;
+    text-shadow:#fff 0 2px 0, #000 0 -1px 0;
+    line-height:2em; font-size:2em; font-weight:bold; 
+    color: white;
+    padding:20px;
+    border-radius: 12px;
+}
+
+.navegacion{
+    position:absolute;
+    color: white;
+    width:800px;
+    right:0;bottom:5px;
+    border-left: 50px solid #4DBD88;
+    border-bottom: 50px solid  #37404A;
+    border-radius: 0 0 12px 0 ;
+}
+
+.bar_nav{
+    position:relative;
+    bottom:0.7em;
+    color: #fff;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+nav ul{
+    list-style: none;
+    padding:0;
+    float: right;
+}
+nav a{
+    text-decoration: none;
+    padding: 0 2em;
+    color:#fff;
+    font-size:1.2em;
+}
+
+nav a:hover{
+    text-decoration: none;
+    padding: 0 2em;
+    color:#4DBD88;
+    text-shadow: 0px 0px 15px #fff;
+}
+
+nav li{
+    float: left;    
+}
+
+body {
+    background: #e5e5e5;
+}
+
+footer{
+    position: absolute;
+	bottom: 0;
+}
+

@@ -9,13 +9,10 @@ namespace WebLegemDAL.Models
     {
         private bool isNull;
         private int id;        
-        private Entidad entidad;
-        private TipoDocumento tipoDoc;
+        private int entidad;
+        private int tipoDoc;
         private string numero;
-        private string fechaPublicacion;
-
-        private OracleRef entidadRef;
-        private OracleRef tipoDocRef;
+        private string fechaPublicacion;        
 
         [JsonIgnore]
         public virtual bool IsNull
@@ -63,7 +60,8 @@ namespace WebLegemDAL.Models
             }
         }
 
-        public Entidad Entidad
+        [OracleObjectMappingAttribute( "ENTIDAD" )]
+        public int Entidad
         {
             get
             {
@@ -73,23 +71,10 @@ namespace WebLegemDAL.Models
             {
                 entidad = value;
             }
-        }
-
-        [JsonIgnore]
-        [OracleObjectMappingAttribute("ENTIDAD")]
-        public OracleRef TipoEntidadRef
-        {
-            get
-            {
-                return entidadRef;
-            }
-            set
-            {
-                entidadRef = value;
-            }
-        } // end prop TipoEntidadRef
+        }       
         
-        public TipoDocumento TipoDocumento
+        [OracleObjectMappingAttribute( "TIPO_DOC" )]
+        public int TipoDocumento
         {
             get
             {
@@ -101,21 +86,7 @@ namespace WebLegemDAL.Models
             }
         }
 
-        [JsonIgnore]
-        [OracleObjectMappingAttribute("TIPO_DOC")]
-        public OracleRef TipoDocRef
-        {
-            get
-            {
-                return tipoDocRef;
-            }
-            set
-            {
-                tipoDocRef = value;
-            }
-        } // end prop TipoEntidadRef
-
-        [OracleObjectMappingAttribute("fecha_publicacion")]
+        [OracleObjectMappingAttribute("FECHA_PUBLICACION")]
         public string FechaPublicacion
         {
             get
@@ -139,20 +110,10 @@ namespace WebLegemDAL.Models
 
             // establece el atributo "NOMBRE"
             // por defecto el atributo "NOMBRE" sera establecido a NULL                         
+            
+            OracleUdt.SetValue(con, pUdt, "ENTIDAD", entidad);                  
 
-            if (entidadRef != null)
-            {
-                OracleUdt.SetValue(con, pUdt, "ENTIDAD", entidadRef);
-            }
-
-            Entidad = (Entidad)entidadRef.GetCustomObject( OracleUdtFetchOption.Server );
-
-            if (tipoDocRef != null)
-            {
-                OracleUdt.SetValue( con, pUdt, "TIPO_DOC", tipoDocRef );
-            }
-
-            TipoDocumento = (TipoDocumento)tipoDocRef.GetCustomObject( OracleUdtFetchOption.Server );
+            OracleUdt.SetValue( con, pUdt, "TIPO_DOC", tipoDoc );
 
             if (fechaPublicacion != null)
             {
@@ -168,18 +129,16 @@ namespace WebLegemDAL.Models
 
             numero = (string)OracleUdt.GetValue(con, pUdt, "NUMERO");
 
-            entidadRef = (OracleRef) OracleUdt.GetValue(con, pUdt, "ENTIDAD");
-            Entidad = (Entidad) entidadRef.GetCustomObject(OracleUdtFetchOption.Server);
+            entidad = (int) OracleUdt.GetValue(con, pUdt, "ENTIDAD");            
 
-            tipoDocRef = (OracleRef) OracleUdt.GetValue( con, pUdt, "TIPO_DOC" );
-            TipoDocumento = (TipoDocumento)tipoDocRef.GetCustomObject( OracleUdtFetchOption.Server );
+            tipoDoc = (int) OracleUdt.GetValue( con, pUdt, "TIPO_DOC" );            
 
             FechaPublicacion = (string)OracleUdt.GetValue( con, pUdt, "FECHA_PUBLICACION" );
         } // end ToCustomObject method
 
         public override string ToString()
         {
-            return "Entidad( " + Id + ", " + TipoDocumento + ", " + Entidad + ", " + Numero + ", " + FechaPublicacion  + " )";
+            return "IdDocumento( " + Id + ", " + TipoDocumento + ", " + Entidad + ", " + Numero + ", " + FechaPublicacion  + " )";
         } // end ToString method
 
     } // end Entidad class
