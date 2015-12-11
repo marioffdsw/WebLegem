@@ -12,14 +12,14 @@
         $stateProvider
             .state("gestion-documental.crear-documento", {
                 url: "/crear-documento/",
-                templateUrl: "app/gestion-documental/documento/crear-documento.tmpl.html",                
+                templateUrl: "app/gestion-documental/documento/crear-documento.tmpl.html",
+                controller: "DocumentoController",
+                controllerAs: "vm",
                 abstract: true
             })
 			.state("gestion-documental.crear-documento.subir-archivo", {
 			    url: "subir-archivo/",
-			    templateUrl: "app/gestion-documental/documento/subir-archivo.tmpl.html",
-			    controller: "TipoDocumentoController",
-			    controllerAs: "vm"
+			    templateUrl: "app/gestion-documental/documento/subir-archivo.tmpl.html",			    
 			})
             .state("gestion-documental.crear-documento.informacion-documento", {
                 url: "/informacion-documento/:id",

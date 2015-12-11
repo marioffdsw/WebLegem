@@ -6,9 +6,11 @@ using System.Net.Http;
 using System.Web.Http;
 using WebLegemDAL.Models;
 using WebLegemDAL.DAL;
+using System.Web.Http.Cors;
 
 namespace WebLegemAPI.Controllers
 {
+    [EnableCorsAttribute("*", "*", "*")]
     public class DocumentoController : ApiController
     {
         public IQueryable<Documento> Get()
