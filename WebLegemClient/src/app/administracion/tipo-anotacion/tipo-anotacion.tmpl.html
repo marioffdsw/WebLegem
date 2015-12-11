@@ -1,25 +1,28 @@
-﻿<div>   
-    <form>
-        <label for="nombre">Nombre</label>
-        <input id="nombre" type="text" ng-model="vm.tipoAnot.nombre" />
-        
-        <label for="activo">Rol Activo de la anotación</label>
-        <input id="activo" type="text" ng-model="vm.tipoAnot.rol_activo" />
+﻿<div class="contenido">   
+    <label class="titulo">Tipo de Anotacion</label>
+    <div >
+        <form>
+            <label class="texto_labels" for="nombre">Nombre</label>
+            <input class="a_input" id="nombre" type="text" ng-model="vm.tipoAnot.nombre" />
 
-        <label for="pasivo">Rol Pasivo de la anotación</label>
-        <input id="pasivo" type="text" ng-model="vm.tipoAnot.rol_pasivo" />
+            <label class="texto_labels" for="activo">Rol Activo de la anotación</label>
+            <input class="a_input" id="activo" type="text" ng-model="vm.tipoAnot.rol_activo" />
 
-        <button type="submit">Añadir</button>
-    </form>
+            <label class="texto_labels" for="pasivo">Rol Pasivo de la anotación</label>
+            <input class="a_input" id="pasivo" type="text" ng-model="vm.tipoAnot.rol_pasivo" />
 
-    <select multiple>
-        <option ng-repeat="tipo in vm.tiposAnotaciones">{{ tipo.nombre }} {{ tipo.rolActivo }} {{ tipo.rolPasivo }}</option>
-    </select>
+            <button class="a_boton" type="submit">Añadir</button>
+        </form>
 
-    <button type="button">
-        Remover
-    </button>
-    <button type="button">
-        Editar
-    </button>
+        <select multiple>
+            <option ng-repeat="tipo in vm.tiposAnotaciones">{{ tipo.nombre }} {{ tipo.rolActivo }} {{ tipo.rolPasivo }}</option>
+        </select>
+
+        <button class="a_boton" type="button">
+            Remover
+        </button>
+        <button class="a_boton" type="button">
+            Editar
+        </button>
+    </div>
 </div>

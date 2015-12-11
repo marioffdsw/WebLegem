@@ -15,10 +15,11 @@
     <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
     <script src="../bower_components/angular-resource/angular-resource.min.js"></script>
-    <script src="../bower_components/angular-touch/angular-touch.min.js"></script>        
-    <script src="../bower_components/angular-mocks/angular-mocks.js"></script>    
+    <script src="../bower_components/angular-touch/angular-touch.min.js"></script>    
+    <script src="../bower_components/angular-mocks/angular-mocks.js"></script>
     <script src="../bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
-
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+   
     <!-- App Scripts -->
     <script src="app/app.core.js"></script>    
     <script src="app/app.core.dependencies.js"></script>    
@@ -63,24 +64,48 @@
     <script src="common/services/tipo-anotacion-resource.service.js"></script>
 
     <!--Estilos-->
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="css/estilos_weblegem.css" rel="stylesheet" />
     <link href="css/pagina_principal.css" rel="stylesheet" />
     <link href="css/noticias.css" rel="stylesheet" />
     <link href="css/login.css" rel="stylesheet" />
+    <link href="css/administracion.css" rel="stylesheet" />
+    <link href="css/tipo_documento.css" rel="stylesheet" />
+    <link href="css/asunto.css" rel="stylesheet" />
+    <link href="css/switch.css" rel="stylesheet" />
 
 </head>
-<body>
-    <header class="header_principal"></header>
+<body style="position:relative;min-height: 100%;">
+    <header class="header_principal">
+        <div>
+            <label class="a_mn">Modo Nocturno</label>
+            <input id="cmn-toggle-4" class="a_cmn-toggle a_cmn-toggle-round-flat a_mn" type="checkbox">
+            <label for="cmn-toggle-4"></label>
+        </div>
+    </header>
+
+    
+
     <div class="contenedor_navegacion">
         <div class="nombre_pagina">
             <h1>WebLegem</h1>
         </div>
         <div class="navegacion">
         </div>
-        <nav class="bar_nav">
+        <nav >
+            <ul class="bar_nav">
+                <li><a ui-sref="home">Inicio</a></li>
+                <li><a ui-sref="login">Ingresar</a></li>
+                <li>
+                    <a ui-sref="administracion" ng-click="val=true;">Administration</a>
             <ul>
-                <li><a ui-sref="home">Home</a></li>
-                <li><a ui-sref="login">Login</a></li>
-                <li><a ui-sref="administracion">Administration</a></li>
+                        <li><a ui-sref="administracion.tipo-documento" ng-click="val=false;">Tipos Documento</a></li>
+                        <li><a ui-sref="administracion.tipo-entidad" ng-click="val=false;">Tipos de Entidades</a></li>
+                        <li><a ui-sref="administracion.entidad" ng-click="val=false;">Entidades</a></li>
+                        <li><a ui-sref="administracion.tipo-anotacion" ng-click="val=false;">Tipos Anotaciones</a></li>
+                    </ul>
+
+                </li>
                 <li><a ui-sref="gestion-documental.crear-documento.subir-archivo">Gestion Documental</a></li>
             </ul>
         </nav>
@@ -89,8 +114,10 @@
   
     <div ui-view class="cuerpo"></div>
 
+    <div></div>
     <footer>
         <p>&copy; Universidad de Nariño 2015-2016</p>
     </footer>
 </body>
+
 </html>

@@ -1,20 +1,30 @@
 ﻿<form>
-    
-    <label for="tipo-documento">Tipo de Documento</label>
-    <select id="tipo-documento" ng-model="vm.documento.tipoDocumento">
-        <option ng-repeat="tipo in vm.tiposDocumento">{{ tipo.nombre }}</option>
-    </select>    
 
-    <label for="numero">Numero</label>
-    <input type="text" id="numero" ng-model="vm.documento.numero" />
+    <div style="display:inline-block; width:40%;">
+        <label class="texto_labels" for="tipo-documento">Tipo de Documento</label>
+        <select id="tipo-documento" ng-model="vm.documento.tipoDocumento">
+            <option ng-repeat="tipo in vm.tiposDocumento">{{ tipo.nombre }}</option>
+        </select>
+    </div>
 
-    <label for="año">Año</label>
-    <input id="año" type="date" />
+    <div style="display:inline-block; width:40%;">
+        <label class="texto_labels" for="entidad" ng-model="vm.documento.entidad">Entidad</label>
+        <select id="entidad">
+            <option ng-repeat="entidad in vm.entidades">{{ entidad.nombre }}</option>
+        </select>
+    </div>
 
-    <label for="entidad" ng-model="vm.documento.entidad">Entidad</label>
-    <select id="entidad">
-        <option ng-repeat="entidad in vm.entidades">{{ entidad.nombre }}</option>
-    </select>
-    
-    <button type="button" ui-sref="gestion-documental.crear-documento.asunto">Siguiente</button>
+    <div style="display:inline-block; width:40%;">
+        <label class="texto_labels" for="numero">Numero</label>
+        <input class="a_input" type="text" id="numero" ng-model="vm.documento.numero" />
+    </div>
+
+    <div style="display:inline-block; width:40%;">
+        <label class="texto_labels" for="año">Año</label>
+        <input class="a_input" id="año" type="date" />
+    </div>
+
+
+    <button class="a_boton a_block" type="button" ui-sref="gestion-documental.crear-documento.asunto">Siguiente</button>
+
 </form>
