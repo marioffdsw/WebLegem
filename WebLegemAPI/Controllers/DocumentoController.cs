@@ -26,5 +26,19 @@ namespace WebLegemAPI.Controllers
 
             return Documentos.AsQueryable<Documento>();
         } // end GET Action Method     
+
+        public Documento Post( Documento doc )
+        {
+            string constr = "user id=web_legem;password=web_legem;data source=ORCL";
+
+            var dDal = new DocumentoDAL();
+            dDal.OpenConnection(constr);
+
+            dDal.CreateDocumento(ref doc);
+
+            dDal.CloseConnection();
+
+            return doc;
+        }
     } // end class DocumentoController
 } // end namespace
