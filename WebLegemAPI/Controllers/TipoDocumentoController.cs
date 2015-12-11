@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using WebLegemDAL.Models;
+using WebLegemDAL.DAL;
 
 namespace WebLegemAPI.Controllers
 {

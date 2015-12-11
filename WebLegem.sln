@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{218574D1-FF94-4B95-8577-A6D58C11C315}") = "WebLegemDB", "WebLegemDB\WebLegemDB.oradbproj", "{3E5366AE-7A07-4557-BA24-1D6E9D08C0AB}"
 EndProject
@@ -29,14 +29,14 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebLegemClient", "WebLegemC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLegemAPI", "WebLegemAPI\WebLegemAPI.csproj", "{2FF09FF0-D2C5-45B2-B9ED-08DC21713F0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLegemDAL", "WebLegemDAL\WebLegemDAL.csproj", "{FE6E7495-A6A0-46E3-A072-3B9DBF33B5AE}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PruebasDB", "PruebasDB\PruebasDB.csproj", "{A792C316-7F9F-4416-95EA-286CD93B8A4E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1EE82A49-C4E8-47E2-9308-6E0A484E88F1}"
 	ProjectSection(SolutionItems) = preProject
 		WE-browsers.xml = WE-browsers.xml
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLegemDAL", "WebLegemDAL\WebLegemDAL.csproj", "{FE6E7495-A6A0-46E3-A072-3B9DBF33B5AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,14 +52,14 @@ Global
 		{2FF09FF0-D2C5-45B2-B9ED-08DC21713F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FF09FF0-D2C5-45B2-B9ED-08DC21713F0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FF09FF0-D2C5-45B2-B9ED-08DC21713F0D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE6E7495-A6A0-46E3-A072-3B9DBF33B5AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE6E7495-A6A0-46E3-A072-3B9DBF33B5AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE6E7495-A6A0-46E3-A072-3B9DBF33B5AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE6E7495-A6A0-46E3-A072-3B9DBF33B5AE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A792C316-7F9F-4416-95EA-286CD93B8A4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A792C316-7F9F-4416-95EA-286CD93B8A4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A792C316-7F9F-4416-95EA-286CD93B8A4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A792C316-7F9F-4416-95EA-286CD93B8A4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE6E7495-A6A0-46E3-A072-3B9DBF33B5AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE6E7495-A6A0-46E3-A072-3B9DBF33B5AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE6E7495-A6A0-46E3-A072-3B9DBF33B5AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE6E7495-A6A0-46E3-A072-3B9DBF33B5AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

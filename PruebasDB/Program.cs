@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebLegemDAL.Models;
+using WebLegemDAL.DAL;
 
 namespace PruebasDB
 {
@@ -13,6 +14,7 @@ namespace PruebasDB
         static TipoEntidadDAL tipoEntidadDal = new TipoEntidadDAL();
         static TipoDocumentoDAL tipoDocumentoDal = new TipoDocumentoDAL();
         static EntidadDAL entidadDal = new EntidadDAL();
+        static DocumentoDAL documentoDal = new DocumentoDAL();
 
         static void Main(string[] args)
         {
@@ -20,21 +22,27 @@ namespace PruebasDB
             tipoDocumentoDal.OpenConnection( connStr  );
             tipoEntidadDal.OpenConnection( connStr );
             entidadDal.OpenConnection( connStr );
+            documentoDal.OpenConnection( connStr );
 
             // do work
             //CrearTiposDocumento();
             //CrearTiposEntidad();
             //CrearEntidades();
+           
 
             //listar resultados
-            //ListarTiposDocumento();
-            //ListarTiposEntidad();
+            ListarTiposDocumento();
+            ListarTiposEntidad();
             ListarEntidades();
+            
+            //CrearDocumentos();
+            ListarDocumentos();
 
             // close connections
             tipoDocumentoDal.CloseConnection();
             tipoEntidadDal.CloseConnection();
             entidadDal.CloseConnection();
+            documentoDal.CloseConnection();
         }
 
         static void CrearTiposDocumento()
@@ -112,6 +120,47 @@ namespace PruebasDB
             foreach (var e in lista)
             {
                 Console.WriteLine( e );
+            }
+        }
+
+        static void CrearDocumentos()
+        {
+            var listaTiposDoc = tipoDocumentoDal.GetAllTipoDocumento();
+
+            var listaEntidades = entidadDal.GetAllEntidad();
+
+            var lista = new List<Documento>();
+
+            lista.Add(
+                new Documento() {
+                    DocId = new IdDocumento() {
+                        Entidad = listaEntidades.ElementAt(1).Id,
+                        TipoDocumento = listaTiposDoc.ElementAt(2).Id,
+                        Numero = "0004",
+                        FechaPublicacion = "1995"
+                    },
+                    Asunto = "Asunto del Doc 1",
+                    NombreDocumentoProcesado = "1.txt",
+                    //FechaExpedicion = new DateTime(),
+                    RutaAlArchivo = @"C:/oradata/web_legem" + @"/1.txt"
+
+                }                     
+            );
+
+            for (int i = 0; i < lista.Count; i++)
+            {
+                var te = lista.ElementAt(i);
+                documentoDal.CreateDocumento(ref te);
+            } // end foreach
+        }
+
+        static void ListarDocumentos()
+        {
+            var lista = documentoDal.GetAllDocumentos();
+
+            foreach (var e in lista)
+            {
+                Console.WriteLine(e);
             }
         }
     }

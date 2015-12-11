@@ -2,7 +2,6 @@
 using Oracle.DataAccess.Client;
 using Oracle.DataAccess.Types;
 using System;
-using WebLegemDAL.Models;
 
 namespace WebLegemDAL.Models
 {

@@ -62,7 +62,13 @@
     <Content Include="Procedures\crear_contenido_pro.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Procedures\crear_contenido_ret_ref.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Procedures\crear_documento_pro.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Procedures\crear_doc_ret_doc_id_pro.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Procedures\crear_doc_sin_contenido.sql">
