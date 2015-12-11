@@ -76,6 +76,7 @@ namespace WebLegemDAL.Models
             set { rutaAlArchivoOriginal = value; }
         }
 
+        [JsonIgnore]
         [OracleObjectMappingAttribute("CONTENIDO_DOCUMENTO")]
         public OracleBFile ContenidoDocumento
         {
@@ -90,6 +91,7 @@ namespace WebLegemDAL.Models
         }
 
 
+        [JsonIgnore]
         public bool IsNull
         {
             get

@@ -4,25 +4,25 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using WebLegemDAL.DAL;
 using WebLegemDAL.Models;
+using WebLegemDAL.DAL;
 
 namespace WebLegemAPI.Controllers
 {
-    public class TipoEntidadController : ApiController
+    public class DocumentoController : ApiController
     {
-        public IQueryable<TipoEntidad> Get()
+        public IQueryable<Documento> Get()
         {
             string constr = "user id=web_legem;password=web_legem;data source=ORCL";
 
-            var tdDal = new TipoEntidadDAL();
+            var tdDal = new DocumentoDAL();
             tdDal.OpenConnection(constr);
 
-            var tiposEntidad = tdDal.GetAllTipoEntidad();
+            var Documentos = tdDal.GetAllDocumentos();
 
             tdDal.CloseConnection();
 
-            return tiposEntidad.AsQueryable<TipoEntidad>();
-        } // end GET Action Method
-    }
-}
+            return Documentos.AsQueryable<Documento>();
+        } // end GET Action Method     
+    } // end class DocumentoController
+} // end namespace

@@ -9,20 +9,20 @@ using WebLegemDAL.Models;
 
 namespace WebLegemAPI.Controllers
 {
-    public class TipoEntidadController : ApiController
+    public class EntidadController : ApiController
     {
-        public IQueryable<TipoEntidad> Get()
+        public IQueryable<Entidad> Get()
         {
             string constr = "user id=web_legem;password=web_legem;data source=ORCL";
 
-            var tdDal = new TipoEntidadDAL();
+            var tdDal = new EntidadDAL();
             tdDal.OpenConnection(constr);
 
-            var tiposEntidad = tdDal.GetAllTipoEntidad();
+            var entidades = tdDal.GetAllEntidad();
 
             tdDal.CloseConnection();
 
-            return tiposEntidad.AsQueryable<TipoEntidad>();
+            return entidades.AsQueryable<Entidad>();
         } // end GET Action Method
     }
 }
