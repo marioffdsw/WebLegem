@@ -1,15 +1,50 @@
 ﻿<div class="contenedor_login">
-    <div class="titulo">
-        <h3>WEBLEGEM</h3>
-        <h3>Bienvenido, Ingresa tu Cuenta</h3>
+
+    <div class="titulo">WEBLEGEM</div>
+    <div class="subtitulo">
+        <p>Ingreso al Sistema</p>
     </div>
-    <div class="form">
-        <form>
-            <input class="input_login" id=" user" type="text" ng-model="vm.user" placeholder="Nombre de Usuario" />
-            <div class="circulo1"></div>
-            <input  class="input_login" type="password" ng-model="vm.password" placeholder="Contraseña" />
-            <div class="circulo2"></div>
-            <input  class="a_boton" type="submit" value="INGRESAR" />
+
+    <div>      
+        <form class="form">
+            <input class="input_login" id="user" type="text" ng-model="vm.user" placeholder="Nombre de Usuario" />
+            <div class="circulo1">
+                <div style="height:100%;">
+                    <svg version="1.1" id="user_login" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="0 0 248.349 248.349" style="enable-background:new 0 0 248.349 248.349;" xml:space="preserve">
+                          
+                    <path d="M9.954,241.305h228.441c3.051,0,5.896-1.246,7.805-3.416c1.659-1.882,2.393-4.27,2.078-6.723
+                    c-5.357-41.734-31.019-76.511-66.15-95.053c-14.849,14.849-35.348,24.046-57.953,24.046s-43.105-9.197-57.953-24.046
+                    C31.09,154.65,5.423,189.432,0.071,231.166c-0.315,2.453,0.424,4.846,2.078,6.723C4.058,240.059,6.903,241.305,9.954,241.305z" />
+
+                
+                    <path d="M72.699,127.09c1.333,1.398,2.725,2.73,4.166,4.019c12.586,11.259,29.137,18.166,47.309,18.166
+                    s34.723-6.913,47.309-18.166c1.441-1.289,2.834-2.622,4.166-4.019c1.327-1.398,2.622-2.828,3.84-4.329
+                    c9.861-12.211,15.8-27.717,15.8-44.6c0-39.216-31.906-71.116-71.116-71.116S53.059,38.95,53.059,78.16
+                    c0,16.883,5.939,32.39,15.8,44.6C70.072,124.262,71.366,125.687,72.699,127.09z" />
+                    </svg>
+                </div>
+            </div>
+            <input class="input_login" type="password" ng-model="vm.password" placeholder="Contraseña" />
+            <div class="circulo2">
+                <div style="height:100%;">
+                    <svg version="1.1" id="user_lock" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         width="512px" height="512px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                            <path d="M417.566,209.83h-9.484v-44.388c0-82.099-65.151-150.681-146.582-152.145c-2.224-0.04-6.671-0.04-8.895,0
+	                        c-81.432,1.464-146.582,70.046-146.582,152.145v44.388h-9.485C81.922,209.83,70,224.912,70,243.539v222.632
+	                        C70,484.777,81.922,500,96.539,500h321.028c14.617,0,26.539-15.223,26.539-33.829V243.539
+	                        C444.105,224.912,432.184,209.83,417.566,209.83z M287.129,354.629v67.27c0,7.704-6.449,14.222-14.159,14.222h-31.834
+	                        c-7.71,0-14.159-6.518-14.159-14.222v-67.27c-7.477-7.361-11.83-17.537-11.83-28.795c0-21.334,16.491-39.666,37.459-40.512
+	                        c2.222-0.09,6.673-0.09,8.895,0c20.968,0.846,37.459,19.178,37.459,40.512C298.959,337.092,294.605,347.268,287.129,354.629z
+	                         M345.572,209.83H261.5h-8.895h-84.072v-44.388c0-48.905,39.744-89.342,88.519-89.342s88.52,40.437,88.52,89.342V209.83z" />
+                    </svg>
+                </div>
+            </div>
+
+            <input class="a_boton" style="display:block; margin:auto;" type="submit" value="INGRESAR" />
+            
+            <a href="#" style="padding-top:30px; text-align:center; display:block;"> Olvide mi contraseña </a>
+
         </form>
     </div>
 </div>

@@ -1,18 +1,38 @@
 ﻿.contenedor_login{
     width:40%;
     margin:auto;
-    padding:2em 1em;
+    border-radius:0.5em 0.5em 0.5em 0.5em ;
+
+    -webkit-box-shadow: 0.5em 0.5em 1em 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0.5em 0.5em 1em 0 rgba(0,0,0,0.75);
+    box-shadow: 0.5em 0.5em 1em 0 rgba(0,0,0,0.75);
 }
 
-.contenedor_login H1,H2{
-    font-family:sans-serif;
+
+#user_login{
+    display:block;
+    margin:auto;
+    width:60%;
+    height:100%;
+}
+#user_login path{
+    fill: #fff;
 }
 
+#user_lock{
+    display:block;
+    margin:auto;
+    width:60%;
+    height:100%;
+}
+#user_lock path{
+    fill: #fff;
+}
 
 
 .form{
     background:#fff;
-    border-radius:0 0 10px 10px ;
+    border-radius:0 0 0.5em 0.5em ; 
     padding:2em;
     margin-bottom: 5em;
     position:relative;
@@ -27,27 +47,27 @@
     transition:        box-shadow 0.5s;
     -webkit-transition:box-shadow 0.5s;
     -moz-transition:   box-shadow 0.5s;
-    box-shadow: 1px 0 #309264 inset;
+    box-shadow: 1px 0 #3f9f43 inset;
 }
 
 .input_login:focus{
-    border:2px solid  #309264;
+    border:2px solid  #3f9f43;
     box-shadow: 500px 0 white inset;
 }
 
 
 .input_login:focus::-moz-placeholder{
-    color: #246848;
+    color: #3f9f43;
     font-weight:bold;
 }
 
 
 .input_login:focus + .circulo1{
-    background: #309264;
+    background: #3f9f43;
 }
 
 .input_login:focus + .circulo2{
-    background: #309264;
+    background: #3f9f43;
 }
 
 .circulo1 {
@@ -70,7 +90,7 @@
     position:absolute;
     display:inline-block;
     right: 1.5em;
-    top: 6em;
+    top: 6.2em;
     width: 50px;
     height: 50px;
      -moz-border-radius: 50%;
