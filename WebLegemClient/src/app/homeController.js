@@ -14,24 +14,44 @@
 
         vm.opcionesNoLoggeado = [
             {
-                texto: "Inicio",
-                estado: "home"
+                texto: "Ingresar",
+                estado: "login"
             },
             {
                 texto: "Buscar",
                 estado: "busqueda"
-            },
+            },            
             {
-                texto: "Ingresar",
-                estado: "login"
+                texto: "Inicio",
+                estado: "home"
             },
         ];
 
         vm.opcionesLoggeado = [
+        {
+                texto: "Salir",
+                estado: "home",
+                click: LogOut
+            },
             {
                 texto: "Administración",
-                estado: "administracion"
-            },
+                estado: "administracion.tipo-documento",
+                subEstados: [
+                    {                
+                        texto: "Tipos Documento",
+                        estado: "administracion.tipo-documento"
+                    },
+                    {
+                        texto: "Tipos Entidades",
+                        estado: "administracion.tipo-entidad"
+                    },
+                    {
+                        texto: "Entidades",
+                        estado: "administracion.entidad"
+                    }
+                ],
+                
+            },            
             {
                 texto: "Gestión Documental",
                 estado: "gestion-documental.crear-documento.subir-archivo"
@@ -39,11 +59,10 @@
             {
                 texto: "Buscar",
                 estado: "busqueda"
-            },
+            },            
             {
-                texto: "Salir",
-                estado: "home",
-                click: LogOut
+                texto: "Inicio",
+                estado: "home"
             },
         ];
 

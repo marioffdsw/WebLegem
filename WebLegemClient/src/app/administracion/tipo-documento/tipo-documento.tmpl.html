@@ -3,7 +3,7 @@
     <div>
         <form class="form_tipo_documento">
             <label class="texto_labels">Nombre del tipo documento</label>
-            <input class="a_input" id="input1" type="text" ng-model="vm.tipoDoc.nombre" placeholder="Ingrese nombre" />
+            <input class="a_input" id="input1" type="text" ng-model="vm.tipoDoc.nombre" required placeholder="Ingrese nombre" />
             <button class="a_boton" type="button" ng-show="!vm.editando" ng-click="vm.create()">Añadir</button>
             <button class="a_boton" type="button" ng-show="vm.editando" ng-click="vm.guardar()">Guardar</button>
             <button class="a_boton" type="button" ng-click="vm.cancelar()">Cancelar</button>

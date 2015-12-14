@@ -45,6 +45,7 @@
             TipoDocumentoResource.save(vm.tipoDoc, function (data) {
                 vm.tiposDoc.push( data );
             });
+            cancelar();
         } // end function create
 
         function cancelar() {            
@@ -53,7 +54,7 @@
         } // end function cancel
 
         function editar() {
-            vm.tipoDoc = angular.copy( vm.tipoDocSeleccionado );
+            vm.tipoDoc = angular.copy( vm.tipoDocSeleccionado[0] );
             vm.editando = true;            
         } // end function editar
 
@@ -71,7 +72,7 @@
         } // end method guardar   
 
         function remover() {            
-            TipoDocumentoResource.remove(vm.tipoDocSeleccionado, function () {
+            TipoDocumentoResource.remove(vm.tipoDocSeleccionado[0], function () {
                 TipoDocumentoResource.query(function (data) {
                     vm.tiposDoc = data;
                 });
