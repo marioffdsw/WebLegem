@@ -7,7 +7,9 @@
 
     <div>      
         <form class="form">
-            <input class="input_login" id="user" type="text" ng-model="vm.user.nombre" placeholder="Nombre de Usuario" />
+            <div class="candado">
+                <input class="input_login" id="user" type="text" ng-model="vm.user" placeholder="Nombre de Usuario" />
+
             <div class="circulo1">
                 <div style="height:100%;">
                     <svg version="1.1" id="user_login" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -18,6 +20,8 @@
                     C31.09,154.65,5.423,189.432,0.071,231.166c-0.315,2.453,0.424,4.846,2.078,6.723C4.058,240.059,6.903,241.305,9.954,241.305z" />
 
                 
+
+                
                     <path d="M72.699,127.09c1.333,1.398,2.725,2.73,4.166,4.019c12.586,11.259,29.137,18.166,47.309,18.166
                     s34.723-6.913,47.309-18.166c1.441-1.289,2.834-2.622,4.166-4.019c1.327-1.398,2.622-2.828,3.84-4.329
                     c9.861-12.211,15.8-27.717,15.8-44.6c0-39.216-31.906-71.116-71.116-71.116S53.059,38.95,53.059,78.16
@@ -25,7 +29,9 @@
                     </svg>
                 </div>
             </div>
-            <input class="input_login" type="password" ng-model="vm.user.password" placeholder="Contraseña" />
+            </div>
+            <div class="candado">
+                <input class="input_login" type="password" ng-model="vm.password" placeholder="Contraseña" />
             <div class="circulo2">
                 <div style="height:100%;">
                     <svg version="1.1" id="user_lock" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -40,8 +46,8 @@
                     </svg>
                 </div>
             </div>
-
-            <input class="a_boton" style="display:block; margin:auto;" type="submit" value="INGRESAR" ng-click="vm.logIn()" />
+            </div>
+            <input class="a_boton" style="display:block; margin:auto;" type="submit" value="INGRESAR" />
             
             <a href="#" style="padding-top:30px; text-align:center; display:block;"> Olvide mi contraseña </a>
 
