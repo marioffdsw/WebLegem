@@ -18,8 +18,7 @@
     <script src="../bower_components/angular-touch/angular-touch.min.js"></script>    
     <script src="../bower_components/angular-mocks/angular-mocks.js"></script>
     <script src="../bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
-    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-   
+  
     <!-- App Scripts -->
     <script src="app/app.core.js"></script>    
     <script src="app/app.core.dependencies.js"></script>    
@@ -64,7 +63,6 @@
     <script src="common/services/tipo-anotacion-resource.service.js"></script>
 
     <!--Estilos-->
-    <link href="../bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="css/estilos_weblegem.css" rel="stylesheet" />
     <link href="css/pagina_principal.css" rel="stylesheet" />
     <link href="css/noticias.css" rel="stylesheet" />
@@ -74,44 +72,79 @@
     <link href="css/asunto.css" rel="stylesheet" />
     <link href="css/switch.css" rel="stylesheet" />
 
+    <script src="app/homeController.js"></script>
+
 </head>
-<body style="position:relative;min-height: 100%;">
-    <header class="header_principal">
-        <div>
-            <label class="a_mn">Modo Nocturno</label>
-            <input id="cmn-toggle-4" class="a_cmn-toggle a_cmn-toggle-round-flat a_mn" type="checkbox">
-            <label for="cmn-toggle-4"></label>
+<body style="position:relative;min-height: 100%;" ng-controller="homeController as vm">
+    <div class="box_accesibilidad">
+
+        <div style="display:block;">
+            <ul style="list-style-type:none;  display:inline; text-decoration:none">
+                <li class="li-ac">
+                    <div class="boton_final">
+                        <p class="parra">Nocturno</p>
+                    </div>
+                </li>
+                <li class="li-ac">
+                    <div class="boton_final">
+                        <p class="parra">Ingles</p>
+                    </div>
+                </li>
+                <li class="li-ac">
+                    <div class="boton_final">
+                        <p class="parra"> AA </p>
+                    </div>
+                </li>
+            </ul>
         </div>
-    </header>
+    </div>
+
+    <div class="contenedor_nombres">
+
+        <p class="nombre_pagina">
+            Legem
+        </p>
+
+       <div class="navegacion">
+           <ul class="bar_nav">
+               <li>
+
+                   <a ui-sref="home">
+                       <svg version="1.1" id="Artwork" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            width="20px" height="20px" fill="#fff" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
+                       <g>
+                       <path d="M278.478,113.418c-6.144-7.192-15.125-11.341-24.581-11.341c-9.459,0-18.441,4.148-24.579,11.341L91.415,275.058
+		                        c-8.561,10.03-12.247,23.341-10.062,36.348l25.033,149.316c2.611,15.567,16.082,26.878,31.865,26.878H258.52
+		                        c-0.036-0.566,0.046-0.776,0.046-1.27V377.912c0-7.038,5.599-12.821,12.637-12.821h57.941c7.044,0,12.792,5.784,12.792,12.821
+		                        V487.6h27.607c15.785,0,29.259-11.311,31.866-26.878l25.032-149.357c2.186-13.012-1.5-26.277-10.066-36.307L278.478,113.418z
+		                         M221.127,416.43c0,7.044-5.712,12.756-12.75,12.756h-44.261c-7.044,0-12.75-5.712-12.75-12.756v-44.261
+		                        c0-7.038,5.707-12.75,12.75-12.75h44.261c7.038,0,12.75,5.712,12.75,12.75V416.43z" />
+                       <path d="M490.382,237.491l-171.3-190.533c-16.6-18.457-40.409-29.294-65.18-28.95c-24.822,0.063-48.533,10.725-65.036,29.264
+		                        L19.371,237.589c-9.855,11.074-8.869,28.029,2.19,37.885c5.121,4.556,11.491,6.792,17.84,6.792c7.383,0,14.745-3.033,20.046-8.992
+		                        l169.5-190.22c6.37-7.157,15.506-11.192,25.083-11.192c0.026,0,0.062,0,0.082,0c9.548,0,18.679,3.969,25.063,11.069
+		                        l171.305,190.487c9.903,11.039,26.884,11.907,37.891,1.99C499.39,265.506,500.289,248.519,490.382,237.491z" />
+                        </g>
+                    </svg>Inicio
+                   </a>
+               </li>
+               <li><a ui-sref="login">Ingresar</a></li>
+               <li>
+                   <a ui-sref="administracion" ng-click="val=true;">Administration</a>
+                   <ul>
+                       <li><a ui-sref="administracion.tipo-documento" ng-click="val=false;">Tipos Documento</a></li>
+                       <li><a ui-sref="administracion.tipo-entidad" ng-click="val=false;">Tipos de Entidades</a></li>
+                       <li><a ui-sref="administracion.entidad" ng-click="val=false;">Entidades</a></li>
+                       <li><a ui-sref="administracion.tipo-anotacion" ng-click="val=false;">Tipos Anotaciones</a></li>
+                   </ul>
+               </li>
+               <li><a ui-sref="gestion-documental.crear-documento.subir-archivo">Gestion Documental</a></li>
+           </ul>
+        </div>
+    </div>
 
     
 
-    <div class="contenedor_navegacion">
-        <div class="nombre_pagina">
-            <h1>WebLegem</h1>
-        </div>
-        <div class="navegacion">
-        </div>
-        <nav >
-            <ul class="bar_nav">
-                <li><a ui-sref="home">Inicio</a></li>
-                <li><a ui-sref="login">Ingresar</a></li>
-                <li>
-                    <a ui-sref="administracion" ng-click="val=true;">Administration</a>
-            <ul>
-                        <li><a ui-sref="administracion.tipo-documento" ng-click="val=false;">Tipos Documento</a></li>
-                        <li><a ui-sref="administracion.tipo-entidad" ng-click="val=false;">Tipos de Entidades</a></li>
-                        <li><a ui-sref="administracion.entidad" ng-click="val=false;">Entidades</a></li>
-                        <li><a ui-sref="administracion.tipo-anotacion" ng-click="val=false;">Tipos Anotaciones</a></li>
-                    </ul>
 
-                </li>
-                <li><a ui-sref="gestion-documental.crear-documento.subir-archivo">Gestion Documental</a></li>
-            </ul>
-        </nav>
-    </div>
-
-  
     <div ui-view class="cuerpo"></div>
 
     <div></div>
