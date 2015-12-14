@@ -45,6 +45,7 @@
             TipoDocumentoResource.save(vm.tipoDoc, function (data) {
                 vm.tiposDoc.push( data );
             });
+            cancelar();
         } // end function create
 
         function cancelar() {            

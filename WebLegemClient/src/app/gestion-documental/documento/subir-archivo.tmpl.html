@@ -2,16 +2,13 @@
     <label class="titulo">Subir Documento</label>
     <div>
 <form>
-    <label for="archivo">Ingresar Archivo</label>
+    <label class="texto_labels" for="archivo">Ingresar Archivo</label>
     <input type="file" nv-file-select uploader="vm.uploader" /><br />
 
-    {{ vm.documento.nombre }}
-    {{ vm.documento.ruta }}
-            <label class="texto_labels" for="archivo">Ingresar Archivo</label>
-            <input  id="archivo" type="file" />
-
+    <button type="button" ng-click="vm.uploader.uploadAll()">Subir</button>    
+               
     <fieldset>
-                <legend>¿Cuantas col    umnas tiene tu documento?</legend>
+                <legend>¿Cuantas columnas tiene tu documento?</legend>
                 <ul>
                     <li class="a_thumbnail_container" >
                         <input id="rad_una"  name="estructura" type="radio" value="Una columna" />
@@ -36,9 +33,7 @@
                         <img class="a_thumbnail" src="recursos/box68.svg" />
                     </li>
                 </ul>
-    </fieldset>
-
-    <button type="button" ng-click="vm.uploader.uploadAll()">Subir</button>
+    </fieldset>    
 </form>
 
         <button class="a_boton" ui-sref="gestion-documental.crear-documento.informacion-documento">Siguiente</button>

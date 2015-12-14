@@ -70,7 +70,7 @@ namespace WebLegemDAL.DAL
 
         public Entidad GetEntidad(int id)
         {
-            string sql = "select VALUE(td) from tipo_doc_obj_tab td WHERE td.id = " + id;
+            string sql = "select VALUE(td) from entidad_obj_tab td WHERE td.id = " + id;
 
             OracleCommand cmd = new OracleCommand() { Connection = conn, CommandText = sql };
             OracleDataReader reader = cmd.ExecuteReader();
@@ -94,21 +94,21 @@ namespace WebLegemDAL.DAL
             return tipoDoc;
         } // end GetEntidad method
 
-        public Entidad UpdateEntidad(ref Entidad tipoDoc)
+        public Entidad UpdateEntidad(ref Entidad entidad)
         {
-            string sql = "UPDATE tipo_doc_obj_tab td SET td.nombre = '" + tipoDoc.Nombre + "' where td.id = " + tipoDoc.Id;
+            string sql = "UPDATE entidad_obj_tab td SET td.nombre = '" + entidad.Nombre +"', td.tipo_entidad = (SELECT REF(te) FROM tipo_entidad_obj_tab te WHERE te.id = " + entidad.TipoEntidad.Id + ")" + " where td.id = " + entidad.Id;
 
             OracleCommand cmd = new OracleCommand() { Connection = conn, CommandText = sql };
             cmd.ExecuteNonQuery();
 
-            tipoDoc = GetEntidad(tipoDoc.Id);
+            entidad = GetEntidad(entidad.Id);
 
-            return tipoDoc;
+            return entidad;
         } // end UpdateEntidad method
 
         public void DeleteEntidad(int id)
         {
-            string sql = "DELETE FROM tipo_doc_obj_tab td WHERE td.id = " + id;
+            string sql = "DELETE FROM entidad_obj_tab td WHERE td.id = " + id;
 
             OracleCommand cmd = new OracleCommand() { Connection = conn, CommandText = sql };
             cmd.ExecuteNonQuery();

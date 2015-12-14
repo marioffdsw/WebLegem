@@ -26,7 +26,7 @@
     padding:10px;
 }
 
-.select_td_te option::checked { 
+.select_td_te option: { 
     background:red;
     background-color:blueviolet; 
     border-color:forestgreen;
