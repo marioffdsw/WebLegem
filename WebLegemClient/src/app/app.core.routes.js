@@ -24,6 +24,8 @@
 			.state('login', {
 			    url: '/login',
 			    templateUrl: 'app/login/login.tmpl.html',
+			    controller: "LoginController",
+                controllerAs: "vm"
 			})
             .state('gestion-documental', {
                 url: "/gestion-documental",

@@ -57,7 +57,6 @@ namespace WebLegemAPI.OCR
             string nombreArchivoSinExtencion = (nombreArchivo.Split('.'))[0];
             string outputFile = @"C:\oradata\web_legem\img\" + nombreArchivoSinExtencion + "-%03d.png";
             
-
             int pageFrom = 1;
             int pageTo = 50;
 
@@ -106,13 +105,7 @@ namespace WebLegemAPI.OCR
             NsOCR.Img_GetImgText(ImgObj, out txt, TNSOCR.FMT_EXACTCOPY);
             string lines = txt;
 
-            return txt;
-            //System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\Andres\Downloads\GhostScriptWebTest (1)\txt.txt");
-            //file.WriteLine(lines);
-            //file.Close();
+            return txt;            
         }
-
-
-
     }
 }
