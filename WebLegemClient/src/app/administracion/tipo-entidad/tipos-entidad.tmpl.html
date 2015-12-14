@@ -18,11 +18,7 @@
 
         <label class="texto_labels" style="margin: 1rem 1rem; ">Lista de tipo de entidades</label>
         <select multiple size="3" class="select_td_te">
-            <option ng-repeat="tipo in vm.tiposEntidad">{{ tipo.nombre }}</option>
-            <option>Resolucion</option>
-            <option>Carta</option>
-            <option>Resolucion</option>
-            <option>Carta</option>
+            <option ng-repeat="tipo in vm.tiposEntidad">{{ tipo.nombre }}</option>            
         </select>
         <button class="a_boton btn_tipo_doc1" ng-disabled="vm.editando" type="button" ng-click="vm.remover()">
             Remover

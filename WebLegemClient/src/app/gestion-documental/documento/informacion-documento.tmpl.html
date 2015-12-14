@@ -2,26 +2,27 @@
 
     <div style="display:inline-block; width:40%;">
         <label class="texto_labels" for="tipo-documento">Tipo de Documento</label>
-        <select id="tipo-documento" ng-model="vm.documento.tipoDocumento">
+        <select id="tipo-documento" ng-options="tipo as tipo.nombre for tipo in vm.tiposDocumento" ng-model="vm.tipoDocSeleccionado">
             <option ng-repeat="tipo in vm.tiposDocumento">{{ tipo.nombre }}</option>
         </select>
-    </div>
+    </div>    
+    
 
     <div style="display:inline-block; width:40%;">
         <label class="texto_labels" for="entidad" ng-model="vm.documento.entidad">Entidad</label>
-        <select id="entidad">
+        <select id="entidad" ng-options="entidad as entidad.nombre for entidad in vm.entidades" ng-model="vm.entidadSeleccionada" >
             <option ng-repeat="entidad in vm.entidades">{{ entidad.nombre }}</option>
         </select>
-    </div>
+    </div>    
 
     <div style="display:inline-block; width:40%;">
         <label class="texto_labels" for="numero">Numero</label>
-        <input class="a_input" type="text" id="numero" ng-model="vm.documento.numero" />
+        <input class="a_input" type="text" id="numero" ng-model="vm.documento.docId.numero" />
     </div>
 
     <div style="display:inline-block; width:40%;">
         <label class="texto_labels" for="año">Año</label>
-        <input class="a_input" id="año" type="date" />
+        <input class="a_input" id="año" type="date" ng-model="vm.documeno.fechaPublicacion"/>
     </div>
 
 

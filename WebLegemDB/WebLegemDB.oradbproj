@@ -53,6 +53,9 @@
     <Content Include="drop_web_legem.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Indexes\bfile_idx.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Procedures\asociar_doc_a_tipo_entidad.sql">
       <SubType>Content</SubType>
     </Content>

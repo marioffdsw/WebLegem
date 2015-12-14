@@ -8,63 +8,17 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using WebLegemAPI.OCR;
 
 namespace WebLegemAPI.Controllers
 {
     [EnableCorsAttribute("*", "*", "*")]
     public class FilesController : ApiController
     {
+        NiconsoftOcr ocr = new NiconsoftOcr();
+
         public Task<IHttpActionResult> Post()
-        {
-            //List<string> savedFilePath = new List<string>();
-            //if (!Request.Content.IsMimeMultipartContent())           
-            //    throw new HttpResponseException( HttpStatusCode.UnsupportedMediaType );            
-
-            //string rootPath = @"C:/oraData/web_legem/";
-            //var provider = new MultipartFileStreamProvider(rootPath);
-            //return Request.Content.ReadAsMultipartAsync(provider);
-
-
-            //var task = Request.Content.ReadAsMultipartAsync(provider).
-            //    ContinueWith<HttpResponseMessage>(t =>
-            //    {
-            //        if (t.IsCanceled || t.IsFaulted)
-            //        {
-            //            Request.CreateErrorResponse(HttpStatusCode.InternalServerError, t.Exception);
-            //        }
-            //        foreach (MultipartFileData item in provider.FileData)
-            //        {
-            //            try
-            //            {
-            //                string name = item.Headers.ContentDisposition.FileName.Replace("\"", "");
-            //                string newFileName = Guid.NewGuid() + Path.GetExtension(name);
-            //                File.Move(item.LocalFileName, Path.Combine(rootPath, newFileName));
-
-            //                Uri baseuri = new Uri(Request.RequestUri.AbsoluteUri.Replace(Request.RequestUri.PathAndQuery, string.Empty));
-            //                string fileRelativePath = rootPath + newFileName;
-            //                Uri fileFullPath = new Uri(baseuri, VirtualPathUtility.ToAbsolute(fileRelativePath));
-            //                savedFilePath.Add(fileFullPath.ToString());
-            //            }
-            //            catch (Exception ex)
-            //            {
-            //                string message = ex.Message;
-            //            }
-            //        }
-
-            //        return Request.CreateResponse(HttpStatusCode.Created, savedFilePath);
-            //    });
-            //return task;
-
-
-
-
-
-
-
-
-
-
-            
+        {         
             var rootUrl = "c:/oraData/web_legem";
             if (Request.Content.IsMimeMultipartContent())
             {
@@ -79,8 +33,10 @@ namespace WebLegemAPI.Controllers
 
                     var fileInfo = streamProvider.FileData.Select(i => {
                         var info = new FileInfo(i.LocalFileName);
-                        return new FileDesc(info.Name, rootUrl + "/" + info.Name, info.Length / 1024);
+                        String resultado = ocr.Convertir(rootUrl, info.Name );
+                        return new FileDesc(info.Name, rootUrl + "/" + info.Name, info.Length / 1024, resultado);
                     });
+                                        
                     return Ok(fileInfo);
                 });
 
@@ -90,17 +46,6 @@ namespace WebLegemAPI.Controllers
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotAcceptable, "This request is not properly formatted"));
             }
-
-
-
-
-
-
-
-
-
-
-
         } // end class
 
         public class FileDesc
@@ -108,26 +53,29 @@ namespace WebLegemAPI.Controllers
             public string Name { get; set; }
             public string Path { get; set; }
             public long Size { get; set; }
+            public string Result { get; set; }
 
-            public FileDesc(string n, string p, long s)
+            public FileDesc(string n, string p, long s, string r)
             {
                 Name = n;
                 Path = p;
                 Size = s;
+                Result = r;
             }
-        }
+        } // public class FileDesc
+
+        public class CustomMultipartFormDataStreamProvider : MultipartFormDataStreamProvider
+        {
+            public CustomMultipartFormDataStreamProvider(string path) 
+                : base(path)
+            {
+            } // end constructor
+
+            public override string GetLocalFileName(System.Net.Http.Headers.HttpContentHeaders headers)
+            {
+                var name = !string.IsNullOrWhiteSpace(headers.ContentDisposition.FileName) ? headers.ContentDisposition.FileName : "NoName";
+                return name.Replace("\"", string.Empty); //this is here because Chrome submits files in quotation marks which get treated as part of the filename and get escaped
+            }
+        } // end class CustomMultipartFromDataStreamProvider
     } // end namespace
-}
-
-
-public class CustomMultipartFormDataStreamProvider : MultipartFormDataStreamProvider
-{
-    public CustomMultipartFormDataStreamProvider(string path) : base(path)
-    { }
-
-    public override string GetLocalFileName(System.Net.Http.Headers.HttpContentHeaders headers)
-    {
-        var name = !string.IsNullOrWhiteSpace(headers.ContentDisposition.FileName) ? headers.ContentDisposition.FileName : "NoName";
-        return name.Replace("\"",string.Empty); //this is here because Chrome submits files in quotation marks which get treated as part of the filename and get escaped
-   }
 }
