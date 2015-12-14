@@ -104,7 +104,7 @@
     font-family:'Franklin Gothic';  
     background:  #37404A;
     padding: 50px 0;
-    border-top: 3px solid #53bf6b;
+    border-top: 3px solid rgba(100, 137,0,1);
     height: 200px;
     -webkit-box-shadow: 0 -8px 0 rgba(0, 0, 0, .1);
     -moz-box-shadow: 0 -8px 0 rgba(0, 0, 0, .1);
@@ -120,7 +120,7 @@
 
  
 #theme-footer a:hover {
-    color: #53bf6b;
+    color: rgba(100, 137,0,1);
 }
 
 #footer-widget-area {
@@ -181,7 +181,7 @@
 }
 
 .footer-widget-top {
-    border-bottom: 1px solid #53bf6b;
+    border-bottom: 1px solid rgba(100, 137,0,1);
     padding: 20px 0;
     margin-left:10px;
     margin-right:10px;
@@ -198,7 +198,7 @@
 
 .footer-widget-container {
     padding: 10px 0;
-    border-top: 1px solid #53bf6b;
+    border-top: 1px solid  rgba(100, 137,0,1);
     margin-right:10px; 
     margin-left:10px;    
 }
@@ -214,5 +214,5 @@
     padding: 6px  0;
     line-height: 18px;
     overflow: hidden;
-    border-bottom: 1px solid #53bf6b;
+    border-bottom: 1px solid  rgba(100, 137,0,1);
 }

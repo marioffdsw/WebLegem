@@ -14,11 +14,17 @@ body {
 .contenedor_nombres {
     position: relative;
     height: 120px;
-    background-image: url('../recursos/ppal.png');
+    background-image: url('../recursos/header/green-texture_1280x720_sc.jpg');
     -webkit-box-shadow: 0 10px 9px rgba(36, 38, 36, 0.93);
     -moz-box-shadow: 0 10px 9px rgba(36, 38, 36, 0.93);
-    0 1px 1px 10px rgba(36, 38, 36, 0.93);
+   
     box-shadow: 0 10px 9px rgba(36, 38, 36, 0.93);
+}
+
+.escudo{
+    margin-top:10px;
+    margin-left:10px;
+    height:100px;
 }
 
 .navegacion{
@@ -27,10 +33,44 @@ body {
     right:0;
 }
 
+.btn_nav{
+    cursor:pointer;
+    margin:0 10px  0 0;
+    padding:5px 15px;
+    line-height:5px;
+    height:9px;
+
+    font-family:'Century Gothic';
+    font-size:0.9em;
+    font-weight:bold;
+    border-radius:2px;
+
+    background: rgb(165,204,61); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(126,179,0,1) 48%, rgb(100, 137, 0) 100%);
+    background: -webkit-linear-gradient(top, rgba(126,179,0,1) 48%,rgba(100, 137,0,1) 100%);
+    background: linear-gradient(to bottom, rgba(126,179,0,1) 48%,rgba(100, 137,0,1) 100%);
+    background: linear-gradient(top, rgba(126,179,0,1) 48%, rgba(100, 137,0,1) 100%);
+
+    -webkit-box-shadow: 0.05em 0.05em 0.4em 0 rgba(0, 0, 0, 0.73);
+    -moz-box-shadow: 0.05em 0.05em 0.4em 0 rgba(0, 0, 0, 0.73);
+    box-shadow: 0.05em 0.05em 0.4em 0 rgba(0, 0, 0, 0.73);
+}
+
+.btn_nav:focus{
+    cursor:pointer;
+    margin:0 10px  0 0;
+    padding:5px 15px;
+    line-height:5px;
+    height:9px;
+
+    background:red;
+}
+
 
 .nombre_pagina {
     position:absolute;
-    bottom:6px;
+    bottom:0;
+    left:80px;
     padding:0 0 0 30px ;
     text-shadow: #fff 0 0 1px, #000 2px -2px 3px ;
     font-size: 6.5em;
@@ -132,7 +172,7 @@ body {
     background: #37404A;
     color: white;
     padding:0.5em 0;
-    height:45px;
+    height:43px;
 }
 
 .boton_final {
