@@ -1,4 +1,4 @@
-﻿.contenedor_administracion{
+﻿d.contenedor_administracion{
     width:80%;
     margin:auto;
     padding:1em 1em;
@@ -12,6 +12,12 @@
     margin-right:auto;
     border-radius:1em;
     background:#fff;
+
+    margin-bottom:6rem;
+
+    -webkit-box-shadow: 0.5em 0.5em 1em 0 rgba(0,0,0,0.75);
+    -moz-box-shadow: 0.5em 0.5em 1em 0 rgba(0,0,0,0.75);
+    box-shadow: 0.5em 0.5em 1em 0 rgba(0,0,0,0.75);
 }
 
 
