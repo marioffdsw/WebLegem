@@ -26,5 +26,47 @@ namespace WebLegemAPI.Controllers
 
             return entidades.AsQueryable<Entidad>();
         } // end GET Action Method
+
+        public Entidad Put(Entidad entidad)
+        {
+            string constr = "user id=web_legem;password=web_legem;data source=ORCL";
+
+            var eDal = new EntidadDAL();
+            eDal.OpenConnection(constr);
+
+            eDal.UpdateEntidad(ref entidad);
+
+            eDal.CloseConnection();
+
+            return entidad;
+        } // end PUT Action Method
+
+        public Entidad Post(Entidad entidad)
+        {
+            string constr = "user id=web_legem;password=web_legem;data source=ORCL";
+
+            var eDal = new EntidadDAL();
+            eDal.OpenConnection(constr);
+
+            eDal.CreateEntidad(ref entidad);
+
+            eDal.CloseConnection();
+
+            return entidad;
+        }
+
+        public IHttpActionResult Delete(int id)
+        {
+            string constr = "user id=web_legem;password=web_legem;data source=ORCL";
+
+            var eDal = new EntidadDAL();
+            eDal.OpenConnection(constr);
+
+            eDal.DeleteEntidad(id);
+
+            eDal.CloseConnection();
+
+            return Ok();
+        } // end DELETE Action Method
     }
 }

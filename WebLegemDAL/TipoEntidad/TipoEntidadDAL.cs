@@ -92,7 +92,7 @@ namespace WebLegemDAL.DAL
 
         public TipoEntidad UpdateTipoEntidad(ref TipoEntidad tipoDoc)
         {
-            string sql = "UPDATE tipo_doc_obj_tab td SET td.nombre = '" + tipoDoc.Nombre + "' where td.id = " + tipoDoc.Id;
+            string sql = "UPDATE tipo_entidad_obj_tab td SET td.nombre = '" + tipoDoc.Nombre + "' where td.id = " + tipoDoc.Id;
 
             OracleCommand cmd = new OracleCommand() { Connection = conn, CommandText = sql };
             cmd.ExecuteNonQuery();
@@ -104,7 +104,7 @@ namespace WebLegemDAL.DAL
 
         public void DeleteTipoEntidad(int id)
         {
-            string sql = "DELETE FROM tipo_doc_obj_tab td WHERE td.id = " + id;
+            string sql = "DELETE FROM tipo_entidad_obj_tab td WHERE td.id = " + id;
 
             OracleCommand cmd = new OracleCommand() { Connection = conn, CommandText = sql };
             cmd.ExecuteNonQuery();

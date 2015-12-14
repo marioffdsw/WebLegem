@@ -6,11 +6,11 @@
             <input class ="a_input" id="nombre-entidad" type="text" placeholder="Entidad" ng-model="vm.entidad.nombre" />
             <label class="texto_labels" for="tipo-entidad">Tipo Entidad</label>
             <select>
-                <option ng-repeat="tipo in vm.tiposEntidad" value="{{ tipo.id }}">
-                    {{ tipo.id }} {{ tipo.nombre }}
+                <option ng-repeat="tipo in vm.tiposEntidad" value="{{ tipo.id }}">{{ tipo.nombre }}
                 </option>
             </select>
             <button class="a_boton" type="button">Añadir</button>
+            <button class="a_boton" type="button">Cancelar</button>
         </form>
 
         <select multiple size="3">

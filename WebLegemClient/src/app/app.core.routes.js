@@ -30,16 +30,7 @@
             .state('gestion-documental', {
                 url: "/gestion-documental",
                 abstract: true,
-                template: "<h1>GestionDocumental</h1><div ui-view></div>"
-            })
-            .state("otro", {
-                url: "/otro",
-                template: "<p>Otro</p>",
-                resolve: {
-                    promise: function () {
-                        throw "error activating otro";
-                    }
-                }
+                template: "<h1>Gestion Documental</h1><div ui-view></div>"
             });
 	} // end config function	
 })();

@@ -54,7 +54,7 @@
         } // end function cancel
 
         function editar() {
-            vm.tipoDoc = angular.copy( vm.tipoDocSeleccionado[0] );
+            vm.tipoDoc = angular.copy( vm.tipoDocSeleccionado );
             vm.editando = true;            
         } // end function editar
 
@@ -72,7 +72,7 @@
         } // end method guardar   
 
         function remover() {            
-            TipoDocumentoResource.remove(vm.tipoDocSeleccionado[0], function () {
+            TipoDocumentoResource.remove(vm.tipoDocSeleccionado, function () {
                 TipoDocumentoResource.query(function (data) {
                     vm.tiposDoc = data;
                 });
