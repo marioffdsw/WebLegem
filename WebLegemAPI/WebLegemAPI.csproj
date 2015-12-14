@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ghostscript.NET, Version=1.2.0.0, Culture=neutral, PublicKeyToken=f85051de34525b59, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ghostscript.NET.1.2.0\lib\net40\Ghostscript.NET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="itextsharp, Version=5.5.8.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.8\lib\itextsharp.dll</HintPath>
       <Private>True</Private>
@@ -153,10 +157,6 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GhostScriptSharp\GhostscriptSharp.csproj">
-      <Project>{56605627-e6fa-4f47-9440-fb877cea5c84}</Project>
-      <Name>GhostscriptSharp</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WebLegemDAL\WebLegemDAL.csproj">
       <Project>{fe6e7495-a6a0-46e3-a072-3b9dbf33b5ae}</Project>
       <Name>WebLegemDAL</Name>

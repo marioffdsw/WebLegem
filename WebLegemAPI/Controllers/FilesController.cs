@@ -19,7 +19,7 @@ namespace WebLegemAPI.Controllers
 
         public Task<IHttpActionResult> Post()
         {         
-            var rootUrl = "c:/oraData/web_legem";
+            var rootUrl = @"c:\oraData\web_legem";
             if (Request.Content.IsMimeMultipartContent())
             {
                 var streamProvider = new CustomMultipartFormDataStreamProvider(rootUrl);
@@ -34,7 +34,7 @@ namespace WebLegemAPI.Controllers
                     var fileInfo = streamProvider.FileData.Select(i => {
                         var info = new FileInfo(i.LocalFileName);
                         String resultado = ocr.Convertir(rootUrl, info.Name );
-                        return new FileDesc(info.Name, rootUrl + "/" + info.Name, info.Length / 1024, resultado);
+                        return new FileDesc(info.Name, rootUrl + @"\" + info.Name, info.Length / 1024, resultado);
                     });
                                         
                     return Ok(fileInfo);
