@@ -9,7 +9,7 @@
     function homeController( $state ) {
         var vm = this;
         vm.a = "recursos/botones/jv.png";
-        vm.loggeado = true;
+        vm.loggeado = false;
         vm.usuario = { username:"admin", password: "1234" }
 
         vm.opcionesNoLoggeado = [
@@ -32,12 +32,16 @@
                 texto: "Salir",
                 estado: "home",
                 click: LogOut
+            },                       
+            {
+                texto: "Gestión Documental",
+                estado: "gestion-documental.crear-documento.subir-archivo"
             },
             {
                 texto: "Administración",
                 estado: "administracion.tipo-documento",
                 subEstados: [
-                    {                
+                    {
                         texto: "Tipos Documento",
                         estado: "administracion.tipo-documento"
                     },
@@ -50,11 +54,7 @@
                         estado: "administracion.entidad"
                     }
                 ],
-                
-            },            
-            {
-                texto: "Gestión Documental",
-                estado: "gestion-documental.crear-documento.subir-archivo"
+
             },
             {
                 texto: "Buscar",
