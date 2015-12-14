@@ -5,8 +5,8 @@
         .module("WebLegemApp.GestionDocumental")
         .controller("DocumentoController", DocumentoController);
 
-    DocumentoController.$inject = ["TipoDocumentoResource", "EntidadService", "DocumentoResource", "FileUploader"];
-    function DocumentoController(TipoDocumentoService, EntidadService, DocumentoResource,  FileUploader) {
+    DocumentoController.$inject = ["TipoDocumentoResource", "EntidadService", "DocumentoResource", "FileUploader", "$state"];
+    function DocumentoController(TipoDocumentoService, EntidadService, DocumentoResource,  FileUploader, $state) {
         var vm = this;
         vm.entidadSeleccionada = { id: 0 };
         vm.tipoDocSeleccionado = { id: 0 };
@@ -23,17 +23,19 @@
             nombreDocumentoProcesado: "nombre",
             fechaExpedicion: ""
         }
-        
-
-        vm.prueba = "Prueba";
+                
         vm.uploader = new FileUploader({ url: "http://localhost:50349/api/Files/" });
         vm.crear = crear;
 
         vm.uploader.onSuccessItem = function (item, response, status, headers) {
             vm.documento.rutaAlArchivo = response[0].path;
             vm.documento.nombreDocumentoProcesado = response[0].name;
+            vm.documento.resultadoOcr = response[0].result;
             console.log( response );
         };
+
+        vm.dialogo = dialogo;
+        vm.cancelar = cancelar;
 
         TipoDocumentoService.query(function(data){
             vm.tiposDocumento = data;
@@ -51,6 +53,15 @@
                 console.log( data );
             });
         }
+
+        function dialogo() {
+            alert("¡Felicidades!, El documento ha sido añadido con exito\nAhora regresara a la pantalla principal");
+            $state.go( "home" );
+        } // end method dialogo
+
+        function cancelar() {
+            $state.go( "home" );
+        } // end function cancelar
 
     } // end Documento Controller
 })();

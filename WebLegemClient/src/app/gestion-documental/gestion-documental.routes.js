@@ -32,6 +32,10 @@
             .state("gestion-documental.crear-documento.pergunta-anotacion", {
                 url: "/pregunta-anotacion",
                 templateUrl: "app/gestion-documental/anotacion/pregunta-añadir-anotaciones.tmpl.html"
+            })
+            .state("gestion-documental.crear-documento.resultado-ocr", {
+                url: "/resultado-ocr",
+                templateUrl: "app/gestion-documental/documento/resultado-ocr.tmpl.html"
             });
     } // end config function
 })();

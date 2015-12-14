@@ -52,7 +52,7 @@ namespace WebLegemAPI.OCR
 
         private String[] ConvertirPdfToImage(String absolutePath)
         {
-            string inputFile = @"C:\oradata\web_legem\prueba6.pdf";
+            string inputFile = absolutePath;
             string nombreArchivo = Path.GetFileName(absolutePath);
             string nombreArchivoSinExtencion = (nombreArchivo.Split('.'))[0];
             string outputFile = @"C:\oradata\web_legem\img\" + nombreArchivoSinExtencion + "-%03d.png";
