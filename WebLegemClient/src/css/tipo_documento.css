@@ -12,6 +12,7 @@
 /*select igual para tipo_documento y tipo entidad*/
 .select_td_te{
     -webkit-appearance: none;
+    border:none;
     display:block;
     line-height:2.5;    
     background:#f1f1f1;
@@ -19,13 +20,58 @@
     margin-bottom:1rem;
 }
 
+.select_td_te option{
+    border:1px solid #342;
+    border-radius:0.4em;
+    padding:10px;
+}
+
+.select_td_te option::checked { 
+    background:red;
+    background-color:blueviolet; 
+    border-color:forestgreen;
+    font-size:2em;
+    color:gray;
+    color-interpolation:red;
+    lighting-color:red;
+    outline-color:red;
+    text-emphasis-color:red;
+}
+
+.select_td_te   ::-moz-selection {
+    Background: #7BD6B3;
+    color: #5E5E5E;
+    text-shadow: none;
+}
+
+option::selection {
+background: #ccc;
+}
+
+option::-moz-selection {
+background: #ccc;
+}
+
 
 /*botones remover y editar igual para tipo entidad y tipo documento*/
 .btn_tipo_doc1{
-    display:inline-block;
-    width:auto;  
-    margin:0.1em;
+    display:inline;
 }
+
+#td_editar {
+    background-image: url('../recursos/tipo_doc/pencil30.svg');
+    background-repeat:no-repeat;
+    background-position:0 5px ;
+}
+
+#td_remover {
+    background-image: url('../recursos/tipo_doc/remove11.svg');
+    background-repeat:no-repeat;
+    background-position:3px 8px ;
+    background-size:20px;
+}
+
+
 
 
 #contenedor2{
