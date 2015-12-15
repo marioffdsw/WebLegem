@@ -1,29 +1,47 @@
 ﻿<div class="contenido">
     <label class="titulo">Tipo de Documento</label>
     <div>
-        <form class="form_tipo_documento">
-            <label class="texto_labels">Nombre del tipo documento</label>
-            <input class="a_input" id="input1" type="text" ng-model="vm.tipoDoc.nombre" required placeholder="Ingrese nombre" />
-            <button class="a_boton" type="button" ng-show="!vm.editando" ng-click="vm.create()">Añadir</button>
-            <button class="a_boton" type="button" ng-show="vm.editando" ng-click="vm.guardar()">Guardar</button>
-            <button class="a_boton" type="button" ng-click="vm.cancelar()">Cancelar</button>
-        </form>
+        <div style="margin: 0 25%; ">
+            <form class="form_tipo_documento">
+                <label class="texto_labels">Nombre del tipo documento</label>
+                <input class="a_input" id="input1" type="text" ng-model="vm.tipoDoc.nombre" required placeholder="Ingrese nombre" />
+                <div style="display:block; text-align:right;">
+                    <button class="a_boton btn_con_ico" type="button" ng-show="!vm.editando" ng-click="vm.create()">
+                        <img src="recursos/iconos_png/ico_agregar.png" />
+                        Añadir
+                    </button>
+                    <button class="a_boton btn_con_ico" type="button" ng-show="vm.editando" ng-click="vm.guardar()">
+                        <img src="recursos/iconos_png/ico_guardar.png" />
+                        Guardar
+                    </button>
+                    <button class="a_boton btn_con_ico" type="button" ng-click="vm.cancelar()">
+                        <img src="recursos/iconos_png/ico_cancelar.png" />
+                        Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
 
-        <label class="texto_labels">Lista de tipos de documentos</label>
+            <div style="display:block;">
 
-        <select size="3" class="select_td_te" ng-disabled="vm.editando" ng-options="tipo as tipo.nombre for tipo in vm.tiposDoc" ng-model="vm.tipoDocSeleccionado">
-        </select>
+                <div style="margin: 0 25%; ">
+                    <br /><br />
+                    <label class="texto_labels">Lista de tipos de documentos</label>
+                    <select size=6; class="select_td_te" ng-disabled="vm.editando" ng-options="tipo as tipo.nombre for tipo in vm.tiposDoc" ng-model="vm.tipoDocSeleccionado"></select>
 
-        <button class="a_boton btn_tipo_doc1" id="td_remover" ng-disabled="vm.editando" type="button" ng-click="vm.remover()">
-            Remover
-        </button>
-        <button class="a_boton btn_tipo_doc1" id="td_editar" " ng-disabled="vm.editando" type="button" ng-click="vm.editar()">
-            Editar
-        </button>
+                    <div style="display:block; text-align:right;">
+                        <button class="a_boton btn_con_ico" id="td_remover" ng-disabled="vm.editando" type="button" ng-click="vm.remover()">
+                            <img src="recursos/iconos_png/ico_borrar.png" />Remover
+                        </button>
+                        <button class="a_boton btn_con_ico" id="td_editar" ng-disabled="vm.editando" type="button" ng-click="vm.editar()">
+                            <img src="recursos/iconos_png/ico_editar.png" />Editar
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-        
-            
-        </object>
 
-    </div>
+            </object>
+
+        </div>
 </div>

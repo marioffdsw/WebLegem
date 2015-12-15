@@ -207,26 +207,28 @@
 /*-------------------*/
 /*form de Busqueda*/
 
+
+
 .a_search{
     position:relative;
     width: 200px;
 	height:34px;
     background: #37404A;
     border-radius: 2px;
-    -webkit-box-shadow: -0.1em 0.2em 0.4em 0 #123423;
-    -moz-box-shadow: -0.1em 0.2em 0.4em 0 #123423;
-    box-shadow: -0.1em 0.2em 0.4em 0 #123423;
+    -webkit-box-shadow: -0.1em 0.2em 0.4em  #123423;
+    -moz-box-shadow: -0.1em 0.2em 0.4em  #123423;
+    box-shadow: -0.1em 0.2em 0.4em  #123423;
 }
 
 .a_search input{
     position:absolute;
-    left:5px;
-    top:3px;
-    padding: 5px;
-    border: 1px solid black ;
+    width:70%;
+    left:10px;
+    top:4px;
+    padding: 4.5px;
+    border: 1px groove black ;
     background: #fff;
     border-radius: 3px 0 0 3px;
-    
 }
 
 .a_search #lupa {
@@ -237,7 +239,7 @@
 }  
 
  
-.a_search #lupa:before { /* flecha */
+/* .a_search #lupa:before { flecha 
     content: '';
     position: absolute;
     border-width: 18px 8px 8px 0;
@@ -245,7 +247,7 @@
     border-color: transparent #438cdb transparent;
     top: 8px;
     left: -5px;
-}
+}*/
 
 /*TEXTO PARA LOS LABELS*/
 .texto_labels{
