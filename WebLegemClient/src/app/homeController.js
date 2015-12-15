@@ -16,11 +16,7 @@
             {
                 texto: "Ingresar",
                 estado: "login"
-            },
-            {
-                texto: "Buscar",
-                estado: "busqueda"
-            },            
+            },       
             {
                 texto: "Inicio",
                 estado: "home"
@@ -29,9 +25,15 @@
 
         vm.opcionesLoggeado = [
         {
-                texto: "Salir",
+                texto: vm.usuario.username,
                 estado: "home",
-                click: LogOut
+                subEstados: [
+                    {
+                        texto: "Salir",
+                        estado: "home",
+                        click: LogOut
+                    }
+                ]
             },                       
             {
                 texto: "Gestión Documental",
@@ -55,11 +57,7 @@
                     }
                 ],
 
-            },
-            {
-                texto: "Buscar",
-                estado: "busqueda"
-            },            
+            },         
             {
                 texto: "Inicio",
                 estado: "home"

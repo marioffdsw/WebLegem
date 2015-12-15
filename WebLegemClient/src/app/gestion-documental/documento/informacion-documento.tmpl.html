@@ -2,7 +2,7 @@
 
     <div style="display:inline-block; width:40%;">
         <label class="texto_labels" for="tipo-documento">Tipo de Documento</label>
-        <select id="tipo-documento" ng-options="tipo as tipo.nombre for tipo in vm.tiposDocumento" ng-model="vm.tipoDocSeleccionado">
+        <select id="tipo-documento" ng-options="tipo as tipo.nombre for tipo in vm.tiposDocumento | orderBy: 'nombre'" ng-model="vm.tipoDocSeleccionado">
             <option ng-repeat="tipo in vm.tiposDocumento">{{ tipo.nombre }}</option>
         </select>
     </div>    
@@ -10,7 +10,7 @@
 
     <div style="display:inline-block; width:40%;">
         <label class="texto_labels" for="entidad" ng-model="vm.documento.entidad">Entidad</label>
-        <select id="entidad" ng-options="entidad as entidad.nombre for entidad in vm.entidades" ng-model="vm.entidadSeleccionada" >
+        <select id="entidad" ng-options="entidad as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'" ng-model="vm.entidadSeleccionada" >
             <option ng-repeat="entidad in vm.entidades">{{ entidad.nombre }}</option>
         </select>
     </div>    
