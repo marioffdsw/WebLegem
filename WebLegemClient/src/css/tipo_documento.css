@@ -6,7 +6,7 @@
 
 
 #input1{
-    width:50%;
+    width:100%;
 }
 
 /*select igual para tipo_documento y tipo entidad*/
@@ -14,62 +14,37 @@
     -webkit-appearance: none;
     border:none;
     display:block;
-    line-height:2.5;    
-    background:#f1f1f1;
-    width:50%;
+    line-height:2;    
+    background:rgba(55, 199, 49, 0.37);
+    width:100%;
     margin-bottom:1rem;
 }
 
 .select_td_te option{
-    border:1px solid #342;
+    border:1px solid #11761e;
     border-radius:0.4em;
-    padding:10px;
+    padding:9px;
 }
 
-.select_td_te option: { 
-    background:red;
-    background-color:blueviolet; 
-    border-color:forestgreen;
-    font-size:2em;
-    color:gray;
-    color-interpolation:red;
-    lighting-color:red;
-    outline-color:red;
-    text-emphasis-color:red;
-}
 
-.select_td_te   ::-moz-selection {
-    Background: #7BD6B3;
-    color: #5E5E5E;
-    text-shadow: none;
-}
 
-option::selection {
-background: #ccc;
-}
-
-option::-moz-selection {
-background: #ccc;
-}
 
 
 /*botones remover y editar igual para tipo entidad y tipo documento*/
-.btn_tipo_doc1{
-    display:inline;
+.btn_con_ico{
+    position:relative;  
+    padding-left:35px;
 }
 
-#td_editar {
-    background-image: url('../recursos/tipo_doc/pencil30.svg');
-    background-repeat:no-repeat;
-    background-position:0 5px ;
+.btn_con_ico img{
+    width:40px;
+    height:40px;
+    position:absolute;
+    left:0;
+    bottom:-2px;
 }
 
-#td_remover {
-    background-image: url('../recursos/tipo_doc/remove11.svg');
-    background-repeat:no-repeat;
-    background-position:3px 8px ;
-    background-size:20px;
-}
+
 
 
 
