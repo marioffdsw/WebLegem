@@ -15,10 +15,10 @@
             docId: {
                 entidad: 0,
                 tipoDocumento: 0,
-                numero: "1025",
-                fechaPublicacion: "1999"
+                numero: "",
+                fechaPublicacion: ""
             },
-            asunto: "Asunto",
+            asunto: "",
             rutaAlArchivo: "ruta",
             nombreDocumentoProcesado: "nombre",
             fechaExpedicion: ""

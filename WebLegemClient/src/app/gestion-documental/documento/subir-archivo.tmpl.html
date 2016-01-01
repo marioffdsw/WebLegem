@@ -1,41 +1,54 @@
-﻿<div class="contenido">
-    <label class="titulo">Subir Documento</label>
+﻿<div>
+
+    <label style="font-family:'Century Gothic';
+font-size:1.2em;
+font-weight:bold;
+color:darkslategray;">
+        Subir Documento
+    </label>
+
+
+    <!-- <fieldset>
+                 <legend>¿Cuantas columnas tiene tu documento?</legend>
+                 <ul>
+                     <li class="a_thumbnail_container" >
+                         <input id="rad_una"  name="estructura" type="radio" value="Una columna" />
+                         <label for="rad_una">Una Columna</label>
+                         <img class="a_thumbnail" src="recursos/box68.svg" />
+
+                     </li>
+                     <li class="a_thumbnail_container">
+                         <input id="rad_dos" name="estructura" type="radio" value="Dos columnas" />
+                         <label for="rad_dos">Dos Columnnas</label>
+                         <img class="a_thumbnail" src="recursos/box68.svg" />
+
+                     </li>
+                     <li class="a_thumbnail_container">
+                         <input class="a_thumbnail" id="rad_tres" name="estructura" type="radio" value="Tres columnas" />
+                         <label for="rad_tres">Tres Columnas</label>
+                         <img class="a_thumbnail" src="recursos/box68.svg" />
+                     </li>
+                     <li class="a_thumbnail_container">
+                         <input class="a_thumbnail" id="rad_otro" name="estructura" type="radio" value="Otro" />
+                         <label for="rad_otro">Otro</label>
+                         <img class="a_thumbnail" src="recursos/box68.svg" />
+                     </li>
+                 </ul>
+     </fieldset>  -->
+
+    <fieldset style="padding:20px; margin:20px 0;">
+        <form>
+            <label class="texto_labels" for="archivo">Ingresar Archivo</label><br />
+            <input style="font-family:'Century Gothic'; font-size:1.1em;
+                " type="file" nv-file-select uploader="vm.uploader" />
+            <br /><br />
+            <button type="button" class="a_boton btn_con_ico" ng-click="vm.uploader.uploadAll()">
+                <img src="recursos/iconos_png/ico_nuevo.png" />Subir
+            </button>
+        </form>
+    </fieldset>
+
     <div>
-<form>
-    <label class="texto_labels" for="archivo">Ingresar Archivo</label>
-    <input type="file" nv-file-select uploader="vm.uploader" /><br />
-
-    <button type="button" ng-click="vm.uploader.uploadAll()">Subir</button>    
-               
-    <fieldset>
-                <legend>¿Cuantas columnas tiene tu documento?</legend>
-                <ul>
-                    <li class="a_thumbnail_container" >
-                        <input id="rad_una"  name="estructura" type="radio" value="Una columna" />
-                        <label for="rad_una">Una Columna</label>
-                        <img class="a_thumbnail" src="recursos/box68.svg" />
-
-                    </li>
-                    <li class="a_thumbnail_container">
-                        <input id="rad_dos" name="estructura" type="radio" value="Dos columnas" />
-                        <label for="rad_dos">Dos Columnnas</label>
-                        <img class="a_thumbnail" src="recursos/box68.svg" />
-                      
-                    </li>
-                    <li class="a_thumbnail_container">
-                        <input class="a_thumbnail" id="rad_tres" name="estructura" type="radio" value="Tres columnas" />
-                        <label for="rad_tres">Tres Columnas</label>
-                        <img class="a_thumbnail" src="recursos/box68.svg" />
-                    </li>
-                    <li class="a_thumbnail_container">
-                        <input class="a_thumbnail" id="rad_otro" name="estructura" type="radio" value="Otro" />
-                        <label for="rad_otro">Otro</label>
-                        <img class="a_thumbnail" src="recursos/box68.svg" />
-                    </li>
-                </ul>
-    </fieldset>    
-</form>
-
-        <button class="a_boton" ui-sref="gestion-documental.crear-documento.informacion-documento">Siguiente</button>
+        <button class="a_boton" ui-sref="gestion-documental.crear-documento.informacion-documento">Siguiente   ></button>
     </div>
-    </div>
+</div>

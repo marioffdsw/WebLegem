@@ -1,7 +1,10 @@
 ﻿<form>
-    <textarea maxlength="50000" readonly>{{ vm.documento.resultadoOcr }}</textarea>
-    <br />
-    <button type="button" value="Editar">Editar</button>
-    <button type="button" value="Aceptar" ng-click="vm.dialogo()">Aceptar</button>
-    <button type="button" value="Cancelar" ng-click="vm.cancelar()">Cancelar</button>
+    <textarea maxlength="50000" style="margin:1.5em 0; min-width:95%; height:300px;" readonly>{{ vm.documento.resultadoOcr }}</textarea>
+    <br />    
+    <button type="button" class="a_boton btn_con_ico" value="Aceptar" ng-click="vm.dialogo()">
+        <img src="recursos/iconos_png/ico_aceptar.png" />Aceptar
+    </button>
+    <button type="button" class="a_boton btn_con_ico" value="Cancelar" ng-click="vm.cancelar()">
+        <img src="recursos/iconos_png/ico_cancelar.png" />Cancelar
+    </button>
 </form>
