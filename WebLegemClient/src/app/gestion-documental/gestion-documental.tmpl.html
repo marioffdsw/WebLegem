@@ -1,0 +1,12 @@
+﻿
+<h1>Gestion Documental</h1>
+
+<nav>
+    <ul>
+        <li ng-repeat="estado in vm.estados">
+            <a ng-click="estado.limpiarEstados( $index )">{{ estado.nombre }}</a>
+        </li>
+    </ul>
+</nav>
+
+<div ui-view></div>

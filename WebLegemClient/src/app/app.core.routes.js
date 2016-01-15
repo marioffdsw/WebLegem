@@ -1,5 +1,4 @@
-﻿/// <reference path="login/login.tmpl.html" />
-(function () {
+﻿(function () {
 	"use strict";
 
 	angular
@@ -18,8 +17,10 @@
 			    templateUrl: 'app/noticias/noticias.tmpl.html',
 			})
             .state('administracion', {
-                url: '/administracion',
-                templateUrl: 'app/administracion/administracion.tmpl.html',                
+                url: '/administracion',                
+                templateUrl: 'app/administracion/administracion.tmpl.html',
+                controller: "AdministracionController",
+                controllerAs: "vm"
             })
 			.state('login', {
 			    url: '/login',
@@ -28,9 +29,10 @@
                 controllerAs: "vm"
 			})
             .state('gestion-documental', {
-                url: "/gestion-documental",
-                abstract: true,
-                template: "<h1>Gestion Documental</h1><div ui-view></div>"
+                url: "/gestion-documental",                
+                templateUrl: "app/gestion-documental/gestion-documental.tmpl.html",
+                controller: "GestionDocumentalController",
+                controllerAs: "vm"
             });
 	} // end config function	
 })();

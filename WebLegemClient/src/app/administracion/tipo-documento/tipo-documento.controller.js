@@ -5,8 +5,8 @@
         .module("WebLegemApp.Administracion")
         .controller("TipoDocumentoController", TipoDocumentoController);
 
-    TipoDocumentoController.$inject = [ "TipoDocumentoResource" ];
-    function TipoDocumentoController( TipoDocumentoResource ) {
+    TipoDocumentoController.$inject = [ "TipoDocumentoResource", "$scope" ];
+    function TipoDocumentoController( TipoDocumentoResource, $scope ) {
         var vm = this;
 
         /*
@@ -17,6 +17,26 @@
         vm.tiposDoc = [];
         vm.tipoDocSeleccionado = {}
         vm.editando = false;
+        var estado = { nombre: "Tipo Documento", enlace: "administracion.tipo-documento" };
+        
+        var ban = false;
+        var i = 0;
+
+        while (!ban && i < $scope.$parent.vm.estados.length) {
+            if ($scope.$parent.vm.estados[i].nombre == estado.nombre) {
+                ban = true;
+            }
+            i++;
+        }
+
+        if ($scope.$parent.vm.estados.length > 1) {
+            $scope.$parent.vm.estados.pop();
+        }
+
+        if (ban == false) {
+            $scope.$parent.vm.estados.push(estado);
+        }
+
 
         /* 
          * public method definition 

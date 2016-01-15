@@ -9,7 +9,7 @@
     function homeController( $state ) {
         var vm = this;
         vm.a = "recursos/botones/jv.png";
-        vm.loggeado = false;
+        vm.loggeado = true;
         vm.usuario = { username:"admin", password: "1234" }
 
         vm.opcionesNoLoggeado = [

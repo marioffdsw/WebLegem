@@ -1,4 +1,5 @@
-﻿<div class="contenido">
+﻿<div class="contenido">    
+
     <label class="titulo">Entidad</label>
     <div class="contenedor1">
         <form>
@@ -11,7 +12,15 @@
             </select>
             <button class="a_boton" type="button">Añadir</button>
             <button class="a_boton" type="button">Cancelar</button>
-        </form>
+        </form>          
+        
+        <nav>
+            <ul>
+                <li ng-repeat="estado in vm.$scope.$parent.vm.estados">
+                    <a>{{ estado }}</a>
+                </li>
+            </ul>
+        </nav>                     
 
         <select multiple size="3">
             <option ng-repeat="entidad in vm.entidades">

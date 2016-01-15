@@ -5,8 +5,8 @@
         .module("WebLegemApp.Administracion")
         .controller("TipoEntidadController", TipoEntidadController);
 
-    TipoEntidadController.$inject = [ "TipoEntidadService" ];
-    function TipoEntidadController( TipoEntidadService ) {
+    TipoEntidadController.$inject = [ "TipoEntidadService", "$scope" ];
+    function TipoEntidadController( TipoEntidadService, $scope ) {
         var vm = this;
         
         //vm.tiposEntidad = [];
@@ -20,6 +20,26 @@
         vm.editar = editar;
         vm.guardar = guardar;
         vm.remover = remover;
+
+        var estado = { nombre: "Tipo Entidad", enlace: "administracion.tipo-entidad" };
+
+        var ban = false;
+        var i = 0;
+
+        while (!ban && i < $scope.$parent.vm.estados.length) {
+            if ($scope.$parent.vm.estados[i].nombre == estado.nombre) {
+                ban = true;
+            }
+            i++;
+        }
+
+        if ($scope.$parent.vm.estados.length > 1) {
+            $scope.$parent.vm.estados.pop();
+        }
+
+        if (ban == false) {
+            $scope.$parent.vm.estados.push(estado);
+        }
         
 
         TipoEntidadService.query(function (data) {
