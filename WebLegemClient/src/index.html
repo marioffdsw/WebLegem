@@ -177,12 +177,13 @@
                     </div>
                     <div id="contenedor_accesibilidad" class="contenedor_accesibilidad">
                         <div class="deslizador">
-                            <button class="btn_deslizable" onclick="document.getElementById('body_index').scrollTop = getPosition().y;">
+                            <button class="btn_deslizable" onclick="document.getElementById('body_index').scrollTop = getPosition().y;"
+                                    ng-show="vm.$state.current.name == 'home' || (vm.$state.current.name != 'busqueda')">
                                 <span class="ico-newspaper-o"></span>
                                 <p>Actualidad</p>
                             </button>
 
-                            <button class="btn_deslizable" ui-sref="busqueda">
+                            <button class="btn_deslizable" ui-sref="busqueda" onclick="document.getElementById('body_index').scrollTop = '0';">
                                 <span class="ico-search"></span>
                                 <p>Busqueda</p>
                             </button>

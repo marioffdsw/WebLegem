@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'escudos-legem';
+    src:    url('fonts/escudos-legem.eot?18k569');
+    src:    url('fonts/escudos-legem.eot?18k569#iefix') format('embedded-opentype'),
+        url('fonts/escudos-legem.ttf?18k569') format('truetype'),
+        url('fonts/escudos-legem.woff?18k569') format('woff'),
+        url('fonts/escudos-legem.svg?18k569#escudos-legem') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="escudo-"], [class*=" escudo-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'escudos-legem' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.escudo-udenar:before {
+    content: "\10ffff";
+}
+
