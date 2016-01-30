@@ -53,7 +53,7 @@
         } // fin function nuevo
 
         function create() {
-            TipoDocumentoResource.save(vm.tipoDoc, function (data) {
+            TipoDocumentoResource.save(vm.tipoDocSeleccionado, function (data) {
                 TipoDocumentoResource.query(function (data) {
                     vm.tiposDoc = data;
                 });
@@ -100,6 +100,7 @@
                     vm.tiposDoc = data;
                 });
             });
+            cancelar();
         } // end function remover
 
         function listadoTipoDocumento(tipoDocSeleccionado) {

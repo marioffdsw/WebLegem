@@ -5,11 +5,12 @@
             Asunto
         </label>
         <hr class="divisor_gestion_documental" />
-        <div style="display:flex;flex-direction:column; justify-content:center; text-align:center;">
+        <div style="display:flex;flex-direction:column; justify-content:center; text-align:center;"
+            ng-show="vm.documento.asunto.length < 2">
             <div class="loader" id="loader"></div>
             <p class="texto_labels">Procesando archivo...</p>
         </div>
-        <form class="tontera">
+        <form class="tontera" ng-show="vm.documento.asunto.length > 2">
 
             <ng-quill-editor ng-model="vm.documento.asunto" toolbar="true" link-tooltip="true" image-tooltip="true" toolbar-entries="font size bold list bullet italic underline strike align color background link image" editor-required="true" required="" error-class="input-error">
             </ng-quill-editor>

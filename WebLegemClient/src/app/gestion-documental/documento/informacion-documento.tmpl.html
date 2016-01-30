@@ -6,15 +6,6 @@
         </label>
         <hr class="divisor_gestion_documental" />
         <form id="informacion_documento">
-            <div class="a_1">
-                <label class="texto_labels" for="tipo-documento">Tipo de Documento:</label>
-                <div>
-                    <select id="tipo-documento" class="select" ng-options="tipo as tipo.nombre for tipo in vm.documento.entidad.tipoEntidad.documentosSoportados | orderBy: 'nombre'" ng-model="vm.documento.tipoDocumento">
-                        <option ng-repeat="tipo in vm.tiposDocumento">{{ tipo.nombre }}</option>
-                    </select>
-                    <span class="span_select zzz ico-angle-down"></span>
-                </div>
-            </div>
             <div class="zzz">
                 <label class="texto_labels" for="entidad" ng-model="vm.documento.entidad">Entidad:</label>
                 <div>
@@ -24,6 +15,16 @@
                     <span class="span_select ico-angle-down"></span>
                 </div>
             </div>
+            <div class="a_1">
+                <label class="texto_labels" for="tipo-documento">Tipo de Documento:</label>
+                <div>
+                    <select id="tipo-documento" class="select" ng-options="tipo as tipo.nombre for tipo in vm.documento.entidad.tipoEntidad.documentosSoportados | orderBy: 'nombre'" ng-model="vm.documento.tipoDocumento">
+                        <option ng-repeat="tipo in vm.tiposDocumento">{{ tipo.nombre }}</option>
+                    </select>
+                    <span class="span_select zzz ico-angle-down"></span>
+                </div>
+            </div>
+            
             <div class="b_1">
                 <label class="texto_labels" for="numero">Numero:</label>
                 <input class="a_input " type="text" id="numero" ng-model="vm.documento.numero" />
