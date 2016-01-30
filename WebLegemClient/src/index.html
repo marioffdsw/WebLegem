@@ -139,7 +139,7 @@
     <script src="common/directives/footer/wlegem-footer.directive.js"></script>
     <script src="common/directives/noticias/wlegem-news.directive.js"></script>
     <script src="common/directives/mini-footer/wlegem-mini-footer.directive.js"></script>
-
+    <link href="css/normalize.css" rel="stylesheet" />
 </head>
 
 <body id="body_index">
@@ -171,12 +171,16 @@
             <div id="contenedor_accesibilidad" class="contenedor_accesibilidad">
 
                 <div class="deslizador">
+                    <button class="btn_deslizable" onclick="document.getElementById('body_index').scrollTop = '600';">
+                        <span class="ico-newspaper-o"></span>
+                        <p>Actualidad</p>
+                    </button>
                     <button class="btn_deslizable" ui-sref="busqueda">
                         <span class="ico-search"></span>
                         <p>Busqueda</p>
                     </button>
 
-                    <button class="btn_deslizable" ui-sref="home">
+                    <button class="btn_deslizable" ui-sref="home" onclick="document.getElementById('body_index').scrollTop = '0';">
                         <span class="ico-home"></span>
                         <p>Inicio</p>
                     </button>

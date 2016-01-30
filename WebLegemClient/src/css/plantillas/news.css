@@ -71,6 +71,11 @@
     .tarjeta_news {
         min-width:100px;
         max-width:500px; 
+        margin:10px 20px;
+    }
+
+    .news_left{
+        justify-content:center;
     }
 }
 
@@ -81,6 +86,10 @@
     .tarjeta_news {
         min-width:100px;
         max-width:500px; 
+    }
+    
+    .news_left{
+        justify-content:center;
     }
 }
 
@@ -93,6 +102,11 @@
     .tarjeta_news {
         min-width:100px; 
     }
+     .news_left{
+    justify-content:space-around;
+
+    }
+    
 }
 
 @media (max-width: 800px) { 
@@ -113,11 +127,9 @@
     display:-webkit-flex;
     display:flex;
     -webkit-flex-wrap: wrap;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     overflow-y: auto;   
     margin:10px 0; 
-    justify-content:center;
-    justify-content:space-around;
 }
 
 
@@ -134,7 +146,6 @@
 
 /*--------  Tarjeta Noticias -------*/
 .tarjeta_news{
-    height:140px;
     box-shadow: 0 0 1px #888,0 1px 2px rgba(51, 51, 51, 0.3);
     font-family:'Lato-Regular';
     color:#555;
@@ -145,22 +156,20 @@
     justify-content:center;
     align-self:center;
     margin:10px 10px;
-    position: relative;
-}
-
-.tarjeta_news > hr{
-    margin: 0 20px;
-    border:1px solid green;
-    display:none;
+    position:relative;
+    
 }
 
 .titulo_tarjeta {
+    display:flexbox;
     color: #eee;
     font-weight: bold;
     font-family: 'OpenSans';
     font-size: .9em;
-    padding: 5px 20px;
+    padding: 10px 20px;
     background: rgba(53, 81, 107, 0.60);
+    
+    line-height:normal;
 }
 
 .contenido_tarjeta{
@@ -169,7 +178,7 @@
     font-size:small;
     font-family:'OpenSans';
     background:#eee;
-    height:100%;
+    height:100px;
 }
 
 .control_tarjeta{
