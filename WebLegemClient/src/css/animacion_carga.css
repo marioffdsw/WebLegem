@@ -1,16 +1,15 @@
 ﻿.loader {
   font-size: 10px;
-  margin: 30% auto;
-  text-indent: -9999em;
+  margin: 10px auto;
   width: 11em;
   height: 11em;
   border-radius: 50%;
-  background: #ffffff;
+  background: #2df1a3;
   background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
   background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
   background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
   background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
-  background: linear-gradient(to right, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: linear-gradient(to right, #2df1a3 10%, rgba(45, 241, 163, 0.00) 42%);
   position: relative;
   -webkit-animation: load3 1.4s infinite linear;
   animation: load3 1.4s infinite linear;
@@ -18,7 +17,7 @@
 .loader:before {
   width: 50%;
   height: 50%;
-  background: #FFF;
+  background: #1bba93;
   border-radius: 100% 0 0 0;
   position: absolute;
   top: 0;
@@ -26,7 +25,7 @@
   content: '';
 }
 .loader:after {
-  background: #0dcecb;
+  background: #0f7574;
   width: 75%;
   height: 75%;
   border-radius: 50%;
