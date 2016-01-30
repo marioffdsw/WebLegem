@@ -35,6 +35,10 @@
     -ms-flex-direction: row;
     -webkit-flex-direction: row;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-end;
+}
+
+.contenedor_back_next button{
+    margin-right:10px;
 }
 

@@ -76,6 +76,8 @@
     height:75vh;
     flex:1;
     overflow-y: auto;  
+    
+    display:none;
 }
 
 /*---fin container news-----*/
