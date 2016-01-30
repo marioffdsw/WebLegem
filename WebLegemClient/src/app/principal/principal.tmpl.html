@@ -1,0 +1,34 @@
+﻿<div class="contenido_principal">
+
+    <div class="contenido_nombre_buscador">
+        <div class="nombre_pagina"><p>Legem</p></div>
+        <div class="contenedor_mini_search">
+            <form class="mini_search">
+                <input id="mini_search" type="text" ng-model="vm.searchPattern.words" 
+                       placeholder="Buscar" 
+                       onfocus="atenuar_busqueda(this.id)"
+                       onblur="perder_foco(this.id)" />
+                <button class="ico2-search" ui-sref="busqueda"></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="contenedor_simbolos">
+
+        <div style="display:flex; flex-direction:row; width:100%; justify-content:space-around;  background:rgba(0, 0, 0, 0.6);">
+            <div>
+                <img src="recursos/escudos-logos/Logo-Acreditacion-01_blanco.png" style="height:100px;width:90px;" />
+            </div>
+
+            <div>
+                <img src="recursos/escudos-logos/planeacion.png" style="height:100px;width:200px;" />             
+            </div>
+
+            <div>
+                <img src="recursos/escudos-logos/escudo_111_years.png" style="height:100px;width:100px;" />
+            </div>
+        </div>
+    </div>
+
+</div>
+

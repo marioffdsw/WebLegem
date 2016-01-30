@@ -43,8 +43,7 @@
 /*-----------------------------------*/
 
 .bar_nav li a {
-    font-family:'Century Gothic';
-    font-weight:bold;
+    font-family:'Lato-Regular';
     text-decoration: none;
     padding: 0 1rem;
     color:#fff;

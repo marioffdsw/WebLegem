@@ -1,29 +1,32 @@
-﻿.a_news{
-    background: #eee;
+﻿.a_news {
+    background: #fff;
     width: 100%;
+    background-image: url('../../recursos/sneaker_mesh_fabric.png');
+    background-image: url('../../recursos/header/descarga.jpg');
+    background-size:cover;
     height: 100vh;
-    display:flex;
-    flex-direction:column;
-    border-bottom:5px solid #aaa;   
+    display: flex;
+    flex-direction: column;
+    border-bottom: 5px solid #aaa;
 }
 
 .titulo_news{
     display:flex;
-    flex-direction:row;
-    background:#fff;
-    font-family:'OpenSans-Bold';
-    font-size:30px;
-    height:110px;
+    flex-direction:column;
+    
+    justify-content:center;
+    align-content:center;
+
+    background:rgba(44, 63, 82, 0.68);
+    color:#eee;
+    font-family:'Lato-Regular';
+    font-size:40px;
+    height:130px;
     width:100%;
     padding:0 20px;
     position:relative;
-    box-shadow:0 1px 2px #555;
     overflow:hidden;
-    padding-top:10px;
-    background-image:
-    linear-gradient(
-      #fff, #ccc
-    );
+    text-align:center;
 
 }
 
@@ -56,21 +59,23 @@
 .container_news {
     height:70vh;
     width: 100%;
+    align-self:center;
     display:flex;
-    flex-direction:row;
-    padding: 20px;
+    flex-direction:column;
+    padding: 20px 120px 5px 120px;
 
 }
 
 .news_left{
-    height:75vh;
+    height:auto;
     flex:3;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap; 
     overflow-y: auto;   
-    margin-right:10px 0; 
+    margin:10px 0; 
 }
+
 
 .news_right{
     height:75vh;
@@ -88,47 +93,66 @@
     position:relative;
     width:300px;
     height:140px;
-    background:white;
-    box-shadow: 0 0 2px #aaa,1px 1px 3px #aaa,0 0 0 1px #ccc;
-    font-family:'Arial Unicode MS';
+    box-shadow: 0 0 1px #888,0 1px 2px rgba(51, 51, 51, 0.3);
+    font-family:'Lato-Regular';
     color:#555;
     margin-right:10px;
     margin-left:2px;
     margin-top:5px;
-
+    overflow:hidden;
 }
 
 .tarjeta_news > hr{
-    margin: 0 10px;
+    margin: 0 20px;
     border:1px solid green;
+    display:none;
 }
 
 .titulo_tarjeta{
-    padding:10px;
-    padding-bottom:0;
+    color:#eee;
+    font-weight:bold;
+    font-family:'OpenSans';
+    padding:10px 20px;
+    background:rgba(0, 169, 157, 0.6);
 }
 
 .contenido_tarjeta{
-    padding:10px;
+    color:#676e87;
+    padding:20px;
     font-size:small;
+    font-family:'OpenSans';
+    background:#eee;
+    height:100%;
 }
 
 .control_tarjeta{
     position:absolute;
-    bottom:0;
+    bottom:-30px;
     height:30px;
     width:100%;
     display:flex;
     justify-content:flex-end;
-    cursor:pointer;
+    transition:all .6s;   
+    background: #2C3F52;
 }
+
+.tarjeta_news:hover > div:last-child {
+    -moz-transform: translateY(-30px);
+    -ms-transform: translateY(-30px); 
+    -o-transform: translateY(-30px);
+    -webkit-transform: translateY(-30px);
+    transform: translateY(-30px);
+}
+
 
 .control_tarjeta > span{
     position:relative;
     margin-right:15px;
     padding-left:18px;
     overflow:hidden;
-    color:green;
+    color:#fff;
+    
+    cursor:pointer;
 }
 
 .control_tarjeta > span > span{
@@ -168,3 +192,19 @@
     margin-bottom:5px;
 }
 /*---- Fin Mini Tarjeta -----*/
+
+.select_news{
+    border:none;
+    padding:10px;
+}
+
+.select_news option{
+    border-style:dashed;
+    border:none;
+    padding:10px;
+    font-family:'Lato-Regular';
+}
+
+.select_news::backdrop{
+    background:red;
+}

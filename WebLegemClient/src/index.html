@@ -28,7 +28,7 @@
     <script src="app/app.core.run.js"></script>
     <script src="app/app.core.config.js"></script>
     <script src="app/app.core.routes.js"></script>
-    <script src="app/app.core.constants.js"></script>    
+    <script src="app/app.core.constants.js"></script>
     <script src="app/app.core.values.js"></script>
 
     <!-- Login -->
@@ -94,23 +94,22 @@
     <link href="css/elementos/tabs.css" rel="stylesheet" />
     <link href="css/plantillas/informacion_documento.css" rel="stylesheet" />
     <link href="css/plantillas/tipo_documento.css" rel="stylesheet" />
-    <link href="css/noticias.css" rel="stylesheet" />
+    <link href="css/principal.css" rel="stylesheet" />
     <link href="css/plantillas/header2.css" rel="stylesheet" />
     <link href="css/plantillas/header.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
-    <link href="css/plantillas/header_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />    
     <link href="css/plantillas/accesibilidad.css" rel="stylesheet" />
     <link href="css/plantillas/administracion.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
-    <link href="css/plantillas/administracion_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
     <link href="css/plantillas/login.css" rel="stylesheet" />
     <link href="css/plantillas/tipo_entidad.css" rel="stylesheet" />
     <link href="css/plantillas/busqueda.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
-    <link href="css/plantillas/busqueda_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
     <link href="css/plantillas/gestion_documental.css" rel="stylesheet" />
+    <link href="css/plantillas/mini_footer.css" rel="stylesheet" />
     <link href="../bower_components/quill/dist/quill.snow.css" rel="stylesheet" />
- 
+
     <!--Iconografia-->
-    <link href="iconos-legem/styles.css" rel="stylesheet" />
-    <link href="iconos-legem2/style.css" rel="stylesheet" />
+    <link href="iconografia/iconos-legem/styles.css" rel="stylesheet" />
+    <link href="iconografia/iconos-legem2/style.css" rel="stylesheet" />
+    <link href="iconografia/escudos-legem/style.css" rel="stylesheet" />
 
     <script src="app/homeController.js"></script>
     <script src="app/uploader-andres.js"></script>
@@ -118,13 +117,8 @@
     <script src="scripts/busqueda.js"></script>
 
     <link href="css/pagina_principal.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
-    <link href="css/pagina_principal_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
-
     <link href="css/elementos/button.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
-    <link href="css/elementos/button_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
-
     <link href="css/estilos_weblegem.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
-    <link href="css/estilos_weblegem_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
 
     <script src="app/busqueda/busqueda_controller.js"></script>
 
@@ -134,19 +128,25 @@
     <link href="fuentes/Hotel Coral Essex/fonts.css" rel="stylesheet" />
     <link href="fuentes/open-sans-regular/sample.css" rel="stylesheet" />
     <link href="fuentes/open-sans-bold/sample.css" rel="stylesheet" />
+    <link href="fuentes/abril-fatface/sample.css" rel="stylesheet" />
+    <link href="fuentes/frederica/sample.css" rel="stylesheet" />
+    <link href="fuentes/lato/sample.css" rel="stylesheet" />
+    <link href="fuentes/lato-regular/sample.css" rel="stylesheet" />
 
     <link href="css/plantillas/footer.css" rel="stylesheet" />
     <link href="css/plantillas/news.css" rel="stylesheet" />
     <!--directivas-->
     <script src="common/directives/footer/wlegem-footer.directive.js"></script>
     <script src="common/directives/noticias/wlegem-news.directive.js"></script>
+    <script src="common/directives/mini-footer/wlegem-mini-footer.directive.js"></script>
+
 </head>
 
 <body id="body_index">
     <div style=" width:100%; min-height:100vh;">
 
         <div class="header">
-            <div class="figura_logo" ng-show="vm.$state.current.name == 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
+            <div class="figura_logo" ng-show="vm.$state.current.name == 'home'">
                 <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" width="100%" height="100%">
                     <defs>
                         <defs>
@@ -163,8 +163,13 @@
                     <img class="escudo_pagina" src="recursos/header/udenar_bl.png" />
                 </div>
             </div>
-
+            <div style="position:absolute; left:0; display:flex;"
+                 ng-show="vm.$state.current.name != 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
+                <img src="recursos/escudos-logos/planeacion.png" style="height:65px;margin-top:-5px;" />
+                <p style="font-family:'AbrilFatface-Regular'; color:white; font-size:40px; line-height:1.2;">Legem</p>
+            </div>
             <div id="contenedor_accesibilidad" class="contenedor_accesibilidad">
+
                 <div class="deslizador">
                     <button class="btn_deslizable" ui-sref="busqueda">
                         <span class="ico-search"></span>
@@ -200,7 +205,7 @@
                         <span class="ico2-font-size"></span>
                     </button>
                 </div>
-            </div>        
+            </div>
         </div>
 
         <div class="header2" ng-show="vm.loggeado">
@@ -219,10 +224,13 @@
         </div>
 
         <div ui-view class="animatio ng-enter"></div>
-    </div>    
+    </div>
 
     <wlegem-news ng-show="vm.$state.current.name == 'home'"></wlegem-news>
-    <wlegem-footer></wlegem-footer>
+    <wlegem-footer ng-show="vm.$state.current.name == 'home'"></wlegem-footer>
+    <wlegem-mini-footer ng-show="vm.$state.current.name != 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
+    </wlegem-mini-footer>
+
 </body>
 
 </html>

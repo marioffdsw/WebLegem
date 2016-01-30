@@ -23,13 +23,14 @@
 
 
 .nombre_pagina {
-    text-align:center;
-    padding-bottom:40px;
+    align-self:center;
+    padding-top:20px;
+    padding-bottom:30px;
     font-family:'AbrilFatface-Regular';
-    margin-bottom:-80px;
     font-size: 100px;
     color:white;
     text-shadow: 1px 1px 2px rgba(140,140,140,0.6), -1px -1px 3px rgba(0, 0, 0, .67);
+    cursor:default;
 }
 
 .escudo_pagina{
