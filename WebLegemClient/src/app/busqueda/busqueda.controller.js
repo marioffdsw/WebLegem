@@ -41,12 +41,12 @@
 
         function buscar( palabras ) {
             // documentos service get + OData query
-            if ( (typeof palabras == "string" && palabras.length > 3) || vm.anioPublicacion || vm.entidadEmisora || vm.tipoDocumento || vm.numero ) {
+            if ( (typeof palabras == "string" && palabras.length > 3) || vm.fechaPublicacion || vm.entidadEmisora || vm.tipoDocumento || vm.numero ) {
 
                 var query = { $filter: "" };
 
-                if (vm.anioPublicacion != "")
-                    query.$filter += "contains(AnioPublicacion, '" + vm.anioPublicacion + "')";
+                //if (vm.fechaPublicacion != "")
+                //    query.$filter += "contains(FechaPublicacion, '" + vm.fechaPublicacion + "')";
 
                 if (vm.numero != "")
                     query.$filter += (query.$filter.length > 0 ? " and " : "") +

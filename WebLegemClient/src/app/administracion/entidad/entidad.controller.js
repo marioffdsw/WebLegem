@@ -12,6 +12,7 @@
         vm.entidades = [];
         vm.entidad = { id: 0, nombre: "", tipoEntidad: {} };
         vm.tipoEntidad = { id: 0, nombre: "" };
+        vm.nuevaEntidad = false;
 
         vm.editando = false;
         vm.entidadSeleccionada;
@@ -76,13 +77,15 @@
             vm.entidad = { id: 0, nombre: "", tipoEntidad: {} };
             vm.tipoEntidad = { id: 0, nombre: "", documentosSoportados: [] };            
             vm.editando = false;
+            vm.nuevaEntidad = false;
             algo.checked = false;
             elemento = null;
         } // fin function cancelar
 
         function nuevo() {
             vm.entidad = { id: 0, nombre: "", tipoEntidad: {} };
-            vm.editando = true; 
+            vm.editando = true;
+            vm.nuevaEntidad = true;
         } // fin function nuevo
 
         function seleccionarEntidad(entidadSeleccionada) {            

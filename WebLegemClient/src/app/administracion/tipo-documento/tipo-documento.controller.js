@@ -18,6 +18,7 @@
         vm.tiposDoc = [];
         vm.tipoDocSeleccionado = {}
         vm.editando = false;
+        vm.nuevoDoc = false;
 
         /* 
          * public method definition 
@@ -48,6 +49,7 @@
             vm.tipoDoc = { id: 0, nombre: "" };
             vm.tipoDocSeleccionado = {};
             vm.editando = true;
+            vm.nuevoDoc = true;
         } // fin function nuevo
 
         function create() {
@@ -61,6 +63,7 @@
 
         function cancelar() {            
             vm.editando = false;
+            vm.nuevoDoc = false;
             vm.tipoDoc = { id: 0, nombre: "" };
             var algo = document.getElementById(vm.tipoDocSeleccionado.id);
             algo.checked = false;

@@ -51,8 +51,11 @@
                 <span class="span_select ico-angle-down"></span>
             </div>
 
-            <button class="btn_con_ico" type="button" ng-show="vm.editando" ng-click="vm.actualizar( vm.entidad )">
+            <button class="btn_con_ico" type="button" ng-show="vm.editando && !vm.nuevaEntidad" ng-click="vm.actualizar( vm.entidad )">
                 <span class="ico-plus tamano_botones_1"></span>Actualizar
+            </button>
+            <button class="btn_con_ico" type="button" ng-show="vm.editando && vm.nuevaEntidad" ng-click="vm.crear( vm.entidad )">
+                <span class="ico-plus tamano_botones_1"></span>Crear
             </button>
             <button class="btn_con_ico" type="button" ng-show="vm.editando" ng-click="vm.cancelar()">
                 <span class="ico-times tamano_botones_1"></span>Cancelar

@@ -5,6 +5,6 @@ CREATE OR REPLACE TYPE documento_typ AS OBJECT
     entidad							entidad_typ,
     tipo_documento				    tipo_documento_typ,
     numero							VARCHAR2(10),
-    anio_publicacion				    CHAR(4)
+    fecha_publicacion				DATE
 ) NOT FINAL;
 /

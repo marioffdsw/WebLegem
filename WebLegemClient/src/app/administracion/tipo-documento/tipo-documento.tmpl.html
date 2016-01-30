@@ -34,8 +34,11 @@
             </form>
 
             <div>
-                <button class="btn_con_ico" type="button" style="display:inline-block;" ng-show="vm.editando" ng-click="vm.guardar()">
+                <button class="btn_con_ico" type="button" style="display:inline-block;" ng-show="vm.editando && !vm.nuevoDoc" ng-click="vm.guardar()">
                     <span class="ico-floppy-o tamano_botones_1"></span>Guardar
+                </button>
+                <button class="btn_con_ico" type="button" style="display:inline-block;" ng-show="vm.editando && vm.nuevoDoc" ng-click="vm.create()">
+                    <span class="ico-floppy-o tamano_botones_1"></span>Crear
                 </button>
                 <button class="btn_con_ico" ng-show="vm.editando" type="button" style="display:inline-block;" ng-click="vm.cancelar()">
                     <span class="ico-times tamano_botones_1"></span>Cancelar

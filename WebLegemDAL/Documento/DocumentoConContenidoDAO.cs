@@ -89,7 +89,7 @@ namespace WebLegemDAL.DAL
             OracleCommand cmd = new OracleCommand("WEB_LEGEM.CREAR_DOCUMENTO_CONT_PROC", connection);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            documentoConContenido.Asunto = documentoConContenido.Asunto.Substring(0, 1000);
+            documentoConContenido.Asunto = documentoConContenido.Asunto.Substring( 0, 995 );
 
             OracleParameter doc = cmd.Parameters.Add("doc", OracleDbType.Object );
             doc.UdtTypeName = UdtTypeName;
@@ -157,7 +157,7 @@ namespace WebLegemDAL.DAL
                             (SELECT * FROM entidades_view ev WHERE ev.entidad.id = ide.entidad  ),
                           (SELECT * FROM tipos_documento_view tdv WHERE tdv.tipo_documento.id = ide.tipo_documento),
                             ide.numero,
-                            ide.anio_publicacion,
+                            ide.fecha_publicacion,
                             ca.id,
                             ca.archivo,
                             ca.asunto,

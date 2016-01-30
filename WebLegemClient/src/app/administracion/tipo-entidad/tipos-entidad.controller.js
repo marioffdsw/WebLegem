@@ -13,9 +13,9 @@
         var algo;
         
         //vm.tiposEntidad = [];
-        vm.tipoEntSeleccionada = {}
+        vm.tipoEntSeleccionada = { id: 0, nombre:"", documentosSoportados: [] }
         vm.editando = false;
-        vm.tipoEntidad = { id: 0, nombre: "", tipo: "" };
+        //vm.tipoEntidad = { id: 0, nombre: "", documentosSoportados: [] };
         vm.tiposDocumento = [];
         vm.tiposSoportados = []; // arreglo de booleanos
         vm.tiposEntidad;
@@ -46,7 +46,16 @@
          */
 
         function create() {
-            TipoEntidadService.save(vm.tipoEntidad, function (data) {
+
+            vm.tipoEntSeleccionada.id = 0;
+            vm.tipoEntSeleccionada.documentosSoportados = [];
+            for (var i = 0; i < vm.tiposSoportados.length; i++ ){
+                if( vm.tiposSoportados[ i ] === true ){
+                    vm.tipoEntSeleccionada.documentosSoportados.push( vm.tiposDocumento[i] );
+                }
+            } // end for
+
+            TipoEntidadService.save(vm.tipoEntSeleccionada, function (data) {
                 TipoEntidadService.query(function (data) {
                     vm.tiposEntidad = data;
                 });
@@ -56,7 +65,7 @@
 
         function cancelar() {
             vm.editando = false;
-            vm.tipoEntSeleccionada = {};
+            vm.tipoEntSeleccionada = { id:0, nombre:"", documentosSoportados:[] };
             inicializarDocumentosSoportados();
             vm.nuevo = false;
             algo.checked = false;
@@ -100,7 +109,7 @@
                 document.getElementById('remover_te').style.visibility = 'hidden';
                 document.getElementById('editar_te').style.visibility = 'hidden';
                 inicializarDocumentosSoportados();
-                vm.tipoEntSeleccionada = {};
+                vm.tipoEntSeleccionada = { id:0, nombre:"", documentosSoportados:[] };
             }
             else {
                 elemento = algo;

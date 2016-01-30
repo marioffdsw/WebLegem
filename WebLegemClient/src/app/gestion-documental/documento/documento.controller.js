@@ -18,7 +18,7 @@
             entidad: 0,
             tipoDocumento: 0,
             numero: "",
-            anioPublicacion: "",
+            fechaPublicacion: new Date(),
             idContenido: 0,
             archivo: 0,
             asunto: "",
@@ -32,9 +32,7 @@
         vm.uploader.onSuccessItem = function (item, response, status, headers) {            
             vm.documento.asunto = response[0].result;            
             vm.documento.ruta = response[0].path;
-            vm.documento.archivo = response[0].name;
-            console.log(response);
-            console.log( vm.documento );
+            vm.documento.archivo = response[0].name;            
         };
 
         vm.uploader.autoUpload = true;
@@ -72,8 +70,7 @@
             vm.documento.entidad.id = vm.entidadSeleccionada.id;
             vm.documento.tipoDocumento.id = vm.tipoDocSeleccionado.id;
             vm.documento.numero = vm.numero;
-            vm.documento.asunto = vm.
-            console.log(vm.documento);
+            vm.documento.asunto = vm.asunto;
             DocumentoResource.save(vm.documento, function (data) {
                 console.log( data );
             });
@@ -89,6 +86,7 @@
         } // end function cancelar
 
         function aceptar() {
+            console.log( vm.documento );
             $state.go("gestion-documental.crear-documento.resultado");
             DocumentoResource.save(vm.documento, function exitoAlCrearDocumento (data) {
                 vm.error = "";
@@ -101,8 +99,8 @@
 
         function validarDocumento() {
             var query = { $filter: ""};
-            query.$filter = "contains(AnioPublicacion, '" + vm.documento.anioPublicacion + "')" +
-                " and contains(Numero, '" + vm.documento.numero + "')" +
+            query.$filter = //"contains(FechPublicacion, '" + vm.documento.anioPublicacion + "')" +
+                "contains(Numero, '" + vm.documento.numero + "')" +
                 " and Entidad/Id eq " + vm.documento.entidad.id +
                 " and TipoDocumento/Id eq " + vm.documento.tipoDocumento.id;
 
