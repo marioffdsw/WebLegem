@@ -171,7 +171,8 @@
             <div id="contenedor_accesibilidad" class="contenedor_accesibilidad">
 
                 <div class="deslizador">
-                    <button class="btn_deslizable" onclick="document.getElementById('body_index').scrollTop = '600';">
+                    
+                    <button class="btn_deslizable" ng-click="vm.scrollTo( 'noticias_container' )">
                         <span class="ico-newspaper-o"></span>
                         <p>Actualidad</p>
                     </button>
@@ -235,7 +236,7 @@
         <div ui-view class="animatio ng-enter"></div>
     </div>   
     
-    <wlegem-news ng-show="vm.$state.current.name == 'home'"></wlegem-news>
+    <wlegem-news id="noticias_container" ng-show="vm.$state.current.name == 'home'"></wlegem-news>
     <wlegem-footer ng-show="vm.$state.current.name == 'home'"></wlegem-footer>
     <wlegem-mini-footer ng-show="vm.$state.current.name != 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
     </wlegem-mini-footer>

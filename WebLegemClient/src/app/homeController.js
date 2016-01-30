@@ -5,11 +5,15 @@
         .module("WebLegemApp")
         .controller("homeController", homeController);
 
-    homeController.$inject = ["$state", "DocumentosResource"];
+    homeController.$inject = ["$state", "DocumentosResource", "$anchorScroll", "$location"];
 
-    function homeController($state, DocumentosResource) {
+    function homeController($state, DocumentosResource, $anchorScroll, $location) {
         var vm = this;
-        vm.$state = $state;        
+        vm.$state = $state;
+        vm.scrollTo = function (id) {
+            $location.hash(id);
+            $anchorScroll();
+        }
 
         vm.tamano_letra = 'btn_tamano0';
         vm.val_tamano = 0;
