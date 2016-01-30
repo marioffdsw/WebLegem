@@ -5,15 +5,21 @@
         .module("WebLegemApp")
         .controller("homeController", homeController);
 
-    homeController.$inject = ["$state", "DocumentosResource", "$anchorScroll", "$location"];
+    homeController.$inject = ["$state", "DocumentosResource", "$anchorScroll", "$location", "EntidadService"];
 
-    function homeController($state, DocumentosResource, $anchorScroll, $location) {
+    function homeController($state, DocumentosResource, $anchorScroll, $location, EntidadService) {
         var vm = this;
         vm.$state = $state;
         vm.scrollTo = function (id) {
             $location.hash(id);
             $anchorScroll();
         }
+
+        vm.cargarDocumentos = cargarDocumentos;
+
+        EntidadService.query(function (data) {
+            vm.entidades = data;
+        });
 
         vm.tamano_letra = 'btn_tamano0';
         vm.val_tamano = 0;
@@ -148,6 +154,21 @@
                     break;
             }
         };
+
+        function cargarDocumentos() {
+            console.log( vm.entidadFiltro);
+            if (vm.entidadFiltro !== "Ninguna") {
+                DocumentosResource.query({ $filter: "contains(toupper(Entidad/Nombre), toupper('" + vm.entidadFiltro + "'))" },
+                    function (data) {
+                        vm.documentos = data;
+                    });
+            }
+            else {
+                DocumentosResource.query(function (data) {
+                    vm.documentos = data;
+                });
+            }
+        }
 
 
     } // end TipoEntidadController

@@ -29,12 +29,9 @@
 
     <div class="container_news">
         <div style="align-self:center;">
-            <select class="select a_input" style="width:400px;">
-                <option value="-1" selected>Choose an animal</option>
-                <option value="1" class="icon-monkey">Monkey</option>
-                <option value="2" class="icon-bear">Bear</option>
-                <option value="3" class="icon-squirrel">Squirrel</option>
-                <option value="4" class="icon-elephant">Elephant</option>
+            <select class="select a_input" style="width:400px;" ng-model="vm.entidadFiltro" ng-change="vm.cargarDocumentos()">
+                <option ng-repeat="entidad in vm.entidades" ng-value="entidad.nombre">{{entidad.nombre}}</option>
+                <option ng-value="null">Ninguna</option>
             </select>
             <span class="span_select  ico-angle-down"></span>
             <button class="btn_sin_ico">ver todos</button>
