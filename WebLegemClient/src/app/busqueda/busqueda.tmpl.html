@@ -184,14 +184,21 @@
                                 </ul>
 
                                 <ul class="res_bus">
-                                    <li ng-repeat="documento in vm.documentosEncontrados | orderBy : vm.predicate : vm.reverse">
-                                        <p id="titulo_bus">{{documento.tipoDocumento.nombre}} {{documento.numero}}</p>
-                                        <p id="contenido_bus">
-                                            {{documento.asunto}}
-                                        </p>
-                                        <p id="entidad_bus">Entidad:<i>{{documento.entidad.nombre}}  </i> </p> <p id="fecha_bus">  Fecha: <i>{{ documento.fechaPublicacion | date: 'dd/MM/yyyy'}} {{ documento.fechaPublicacion }}</i>  </p>
-                                        <a ng-click="vm.verDocumento(documento.archivo)">Ver</a>
-                                        <a href="http://localhost:50555/api/Files/{{ documento.archivo }}"> Descargar</a>
+                                    <li class="tarjeta_news"
+                                        ng-repeat="documento in vm.documentosEncontrados | orderBy : vm.predicate : vm.reverse">
+                                        <div class="titulo_tarjeta">
+                                            <p id="titulo_bus">{{documento.tipoDocumento.nombre}} {{documento.numero}}</p>
+                                        </div>
+                                        <div class="contenido_tarjeta">
+                                            <p id="contenido_bus">
+                                                {{documento.asunto}}
+                                            </p>
+                                            <p id="entidad_bus">Entidad:<i>{{documento.entidad.nombre}}  </i> </p> <p id="fecha_bus">  Fecha: <i>{{ documento.fechaPublicacion | date: 'dd/MM/yyyy'}} {{ documento.fechaPublicacion }}</i>  </p>
+                                        </div>
+                                        <div class="control_tarjeta">
+                                            <a ng-click="vm.verDocumento(documento.archivo)">Ver</a>
+                                            <a href="http://localhost:50555/api/Files/{{ documento.archivo }}"> Descargar</a>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>
