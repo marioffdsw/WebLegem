@@ -25,7 +25,7 @@
   content: '';
 }
 .loader:after {
-  background: #0f7574;
+  background: #ffffff;
   width: 75%;
   height: 75%;
   border-radius: 50%;

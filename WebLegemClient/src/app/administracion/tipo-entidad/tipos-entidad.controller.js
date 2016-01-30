@@ -115,17 +115,18 @@
 
             if (elemento == algo) {
                 algo.checked = false;
-                elemento = null;
+                elemento = null;                
                 document.getElementById('remover_te').style.visibility = 'hidden';
                 document.getElementById('editar_te').style.visibility = 'hidden';
                 inicializarDocumentosSoportados();
-                vm.tipoEntSeleccionada = { id:0, nombre:"", documentosSoportados:[] };
+                vm.tipoEntSeleccionada = { id: 0, nombre: "", documentosSoportados: [] };
+                cancelar();
             }
-            else {
+            else {                
                 elemento = algo;
                 checkearDocumentosSoportados(vm.tipoEntSeleccionada.documentosSoportados);
                 document.getElementById('remover_te').style.visibility = 'visible';
-                document.getElementById('editar_te').style.visibility = 'visible';
+                document.getElementById('editar_te').style.visibility = 'visible';                 
             }            
             
         }
