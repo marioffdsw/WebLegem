@@ -187,7 +187,7 @@
                                     <li class="tarjeta_news"
                                         ng-repeat="documento in vm.documentosEncontrados | orderBy : vm.predicate : vm.reverse">
                                         <div class="titulo_tarjeta">
-                                            <p id="titulo_bus">{{documento.tipoDocumento.nombre}} {{documento.numero}}</p>
+                                            <p id="titulo_bus">{{documento.tipoDocumento.nombre}} {{documento.numero}} de {{ documento.fechaPublicacion | date:'yyyy' }}</p>
                                         </div>
                                         <div class="contenido_tarjeta">
                                             <div style="overflow-y:hidden; margin-bottom:15px;">
