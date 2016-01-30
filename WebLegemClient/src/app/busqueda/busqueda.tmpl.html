@@ -7,7 +7,7 @@
         <div id="tabs">
             <ul>
                 <li id="tabHeader_1" ng-click="vm.cambiarTab(1)">Busqueda Básica</li>
-                <li id="tabHeader_2" ng-click="vm.cambiarTab(2)">Busqueda Avanzada</li>
+                <li id="tabHeader_2" ng-click="limpiar();vm.cambiarTab(2)">Busqueda Avanzada</li>
             </ul>
         </div>
 
@@ -16,7 +16,7 @@
 
                     <div class="a_centrado">
                         <input required name="busqueda" type="text" class="a_input input_busqueda" 
-                               ng-model="vm.palabrasABuscar" placeholder="Escriba aquí su busqueda(Ejemplo:Decreto)"
+                               ng-model="vm.palabrasABuscar" placeholder="Escriba aquí su busqueda (Ejemplo:Decreto)"
                                maxlength="50" id="nombre" />
                         <button class="btn_con_ico" ng-click="vm.buscar( vm.palabrasABuscar)">
                             <span class="ico-search tamano_botones_1"></span>Buscar
