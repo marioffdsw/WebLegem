@@ -119,7 +119,7 @@
                 }
             }, function (error) {
                 console.log(error);
-            });            
+            });                       
         }
     } // end Documento Controller
 })();

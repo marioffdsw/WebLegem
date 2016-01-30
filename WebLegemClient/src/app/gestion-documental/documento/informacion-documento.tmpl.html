@@ -29,8 +29,9 @@
                 <input class="a_input " type="text" id="numero" ng-model="vm.documento.numero" />
             </div>
             <div class="b_1">
-                <label class="texto_labels" for="año">Fecha Publicación:</label>
-                <input class="a_input" id="año" datepiker-popup type="date" maxlength="4" ng-model="vm.documento.fechaPublicacion" />
+                <label class="texto_labels" for="año">Fecha Publicación:</label>                
+                <input class="a_input" type="date" id="exampleInput" name="input" ng-model="vm.documento.fechaPublicacion"
+                       placeholder="yyyy-MM-dd" min="2013-01-01" max="2020-12-31" required />                
             </div>
 
         </form>
