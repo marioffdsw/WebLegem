@@ -64,12 +64,14 @@
         function cancelar() {            
             vm.editando = false;
             vm.nuevoDoc = false;
-            vm.tipoDoc = { id: 0, nombre: "" };
             var algo = document.getElementById(vm.tipoDocSeleccionado.id);
             algo.checked = false;
             elemento = null;
+            vm.tipoDoc.id = 0;
+            vm.tipoDoc.nombre = "";
+            vm.tipoDocSeleccionado = { id: 0, nombre: "" };            
             document.getElementById('remover_td').style.visibility = 'hidden';
-            document.getElementById('editar_td').style.visibility = 'hidden';
+            document.getElementById('editar_td').style.visibility = 'hidden';            
         } // end function cancel
 
         function editar() {
@@ -104,17 +106,16 @@
             var algo = document.getElementById(tipoDocSeleccionado.id);
             vm.tipoDocSeleccionado = tipoDocSeleccionado
             if (elemento == algo) {
-                vm.tipoDoc = angular.copy(tipoDocSeleccionado);
-                algo.checked = false;
-                elemento = null;
+                vm.tipoDoc = angular.copy(tipoDocSeleccionado);                
                 document.getElementById('remover_td').style.visibility = 'hidden';
                 document.getElementById('editar_td').style.visibility = 'hidden';
+                cancelar();
             }
             else {
                 vm.tipoDoc = { id: 0, nombre: "" };
                 elemento = algo;
                 document.getElementById('remover_td').style.visibility = 'visible';
-                document.getElementById('editar_td').style.visibility = 'visible';
+                document.getElementById('editar_td').style.visibility = 'visible';                
             }
 
             vm.tipoDoc = angular.copy(tipoDocSeleccionado);

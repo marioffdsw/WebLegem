@@ -15,14 +15,14 @@
         </div>
 
         <div class="hijo_right">
-            <div class="control_administracion">
+            <div class="control_administracion" style="justify-content: flex-end;">
                 <button class="btn_con_ico" type="button" ng-click="vm.nuevo();">
                     <span class="ico-plus tamano_botones_1"></span>Nuevo
                 </button>
-                <button id="editar_td" class="btn_con_ico" ng-show="!vm.editando" type="button" ng-click="vm.editar()">
+                <button id="editar_td" class="btn_con_ico" ng-show="!vm.editando && vm.tipoDocSeleccionado.nombre" type="button" ng-click="vm.editar()">
                     <span class="ico-pencil tamano_botones_1"></span>Editar
                 </button>
-                <button id="remover_td" class="btn_con_ico" ng-show="!vm.editando" type="button" ng-click="vm.remover()">
+                <button id="remover_td" class="btn_con_ico" ng-show="!vm.editando && vm.tipoDocSeleccionado.nombre" type="button" ng-click="vm.remover()">
                     <span class="ico-trash tamano_botones_1"></span>Remover
                 </button>
             </div>
@@ -30,7 +30,7 @@
             <label class="texto_labels">Nombre del tipo documento</label>
 
             <form class="form_tipo_entidad">
-                <input class="a_input input_administracion" ng-disabled="!vm.editando" type="text" ng-model="vm.tipoDoc.nombre" required placeholder="Ingrese nombre" />
+                <input class="a_input input_administracion" ng-disabled="!vm.editando" type="text" ng-model="vm.tipoDocSeleccionado.nombre" required placeholder="Ingrese nombre" />
             </form>
 
             <div>

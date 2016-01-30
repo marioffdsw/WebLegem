@@ -41,6 +41,7 @@
             vm.documentos = data;
         });
 
+
         vm.opcionesNoLoggeado = [
             {
                 texto: "Ingresar",
