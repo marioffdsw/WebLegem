@@ -45,7 +45,7 @@
     <script src="app/busqueda/ver/ver-documento.controller.js"></script>
 
     <!-- Noticias -->
-    <script src="app/principal/noticias.controller.js"></script>
+    <script src="app/noticias/noticias.controller.js"></script>
 
     <!-- Administration -->
     <script src="app/administracion/administracion.js"></script>
@@ -224,8 +224,8 @@
         </div>
 
         <div ui-view class="animatio ng-enter"></div>
-    </div>
-
+    </div>   
+    
     <wlegem-news ng-show="vm.$state.current.name == 'home'"></wlegem-news>
     <wlegem-footer ng-show="vm.$state.current.name == 'home'"></wlegem-footer>
     <wlegem-mini-footer ng-show="vm.$state.current.name != 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">

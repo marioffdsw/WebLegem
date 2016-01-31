@@ -41,6 +41,24 @@
         </div>
         <div class="news_left">
             
+            <style>
+                .ico-download span a {
+                    color: gray;
+                    text-decoration: none;
+                }
+            </style>
+
+            <div class="tarjeta_news" ng-repeat="documento in vm.documentos">
+                <div class="titulo_tarjeta">{{ documento.tipoDocumento.nombre }} {{ documento.numero }} del {{ documento.fechaPublicacion | date: 'yyyy' }}</div><hr />
+                <div class="contenido_tarjeta">
+                    {{ documento.asunto }}
+                </div>
+                <div class="control_tarjeta">
+                    <span><span class="ico-download"></span><a href="http://localhost:50555/api/Files/{{ documento.archivo }}">descargar</a></span>
+                    <span><span class="ico-eye"></span>ver</span>
+                </div>
+            </div>
+            <!--
             <div class="tarjeta_news">
                 <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
                 <div class="contenido_tarjeta">
@@ -149,7 +167,7 @@
                     <span><span class="ico-eye"></span>ver</span>
                 </div>
             </div>
-
+                -->
         </div>
        <!-- <div class="news_right">
             <div class="mini_tarjeta">

@@ -5,9 +5,9 @@
         .module("WebLegemApp")
         .controller("homeController", homeController);
 
-    homeController.$inject = ["$state"];
+    homeController.$inject = ["$state", "DocumentosResource"];
 
-    function homeController( $state) {
+    function homeController($state, DocumentosResource) {
         var vm = this;
         vm.$state = $state;        
 
@@ -21,13 +21,15 @@
         vm.icono_contraste = "ico-moon-o";
         vm.clase_contraste = "btn_tamano0";
         vm.val_contraste = 0;
-
+        vm.documentos = [];
 
         vm.loggeado = false;
         vm.LogOut = LogOut;
         vm.usuario = { username: "admin", password: "1234" }
 
-
+        DocumentosResource.query({ $top: 14 },function (data) {
+            vm.documentos = data;
+        });
 
         vm.opcionesNoLoggeado = [
             {
