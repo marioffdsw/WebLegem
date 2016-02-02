@@ -1,10 +1,10 @@
-﻿<div class="contenedor_permisos" ng-repeat="recurso in vm.permisosAsignados">
-    <div class="titulo_modulo">
-        <p class="texto_labels">{{ recurso.nombre }}</p>        
+﻿<div class="contenedor_permisos">
+    <div class="titulo_modulo" ng-repeat="recurso in vm.permisosAsignados">
+        <p class="texto_labels">{{ recurso.nombre }}</p>
         <div class="switch_container">
             <input type="checkbox" id="swt-rec{{recurso.id}}" name="swt-rec{{recurso.id}}"
                    class="switch" ng-model="recurso.valor" />
             <label for="swt-rec{{recurso.id}}"></label>
         </div>
-    </div>        
+    </div>   
 </div>

@@ -143,7 +143,6 @@
             vm.procesando = true;
         }
         function stopAnimation() {
-            console.log("entro");
             document.getElementById(vm.idLoad).style.visibility = "hidden";
             vm.procesando = false;
         }

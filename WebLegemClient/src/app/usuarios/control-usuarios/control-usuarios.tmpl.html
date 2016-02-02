@@ -199,23 +199,19 @@
     </div>
 </div>
 
-
 <!-- Modales -->
 
-<div class='a-modal' ng-if='vm.subido'>
-    <div class='a-modal-overlay' ng-click='vm.subido=false'></div><!--Simula la opacidad de fondo del dialogo-->
-    <div class='a-modal-dialog'>
-
-        <div class='a-modal-close verde'>
-            <div class="a-titulo-modal verde">Información</div>
-            <button title="Cerrar dialogo" ng-click="vm.subido=false">
-                <span class="ico-times"></span>
-            </button>
+<wl-info show="vm.dialogResponse" title="Error" color="verde">
+    <div class='a-modal-contenido'>
+        <div class="generic-box-vertical">
+            <div class="generic-box-horizontal center">
+                <label class="texto_labels">{{vm.responseMessage}}</label>
+            </div>
+            <div class="generic-box-horizontal flex-1 center" style="margin-top:15px;">
+                <button class="btn_sin_ico" ng-click="vm.dialogResponse=false">
+                    Aceptar
+                </button>
+            </div>
         </div>
-
-        <div class='a-modal-contenido'>
-            <p>Se creo usuario Correctamente</p>
-        </div>
-
     </div>
-</div>
+</wl-info>

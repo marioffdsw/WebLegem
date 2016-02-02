@@ -1,7 +1,10 @@
 ﻿/*###### Control Roles #######*/
 .contenedor_permisos {
-    border:1px solid #ccc;
-    margin: 10px;
+    border:1px solid #ccc;   
+}
+
+.contenedor_permisos:last-child {
+    border-bottom:none;   
 }
 
 .contenedor_permisos p{
@@ -12,8 +15,7 @@
     display: flex;
     width: 100%;
     justify-content: space-between;
-    font-family:"lato-Regular";
-    margin-bottom:10px;
+    font-family:"lato-Regular";   
 }
 
 

@@ -9,6 +9,8 @@
 
     function uploaderController($state) {
         var an = this;
+        an.error = false;
+        an.documentExist = false;
         var dropBox;
         var reader;
         var progress;
@@ -22,6 +24,7 @@
         progress = document.querySelector(".percent");
 
         an.abortRead = function () {
+            reader.abort();
             progress.style.width = '0%';
             progress.textContent = '0%';
             setTimeout(cambiarClase, 1300);
@@ -34,7 +37,6 @@
             document.getElementById('ico_no_cargado').style.display= 'block';
             document.getElementById('ico_cargado').style.display = 'none';
             document.getElementById('cancelar_lectura').style.display = 'none';
-            reader.abort();
         }
 
         function processFiles(files, ban) {
@@ -51,6 +53,14 @@
             progress.textContent = '0%';
 
             if (file) {
+                var fname = file.name;
+                var rex = /(\.pdf)$/i;
+
+                if (!rex.exec(fname)) {
+                    return;
+                }
+
+
                 var fileSize = 0;
                 if (file.size > 1048576) {
                     fileSize = (Math.round(file.size * 100 / 1048576) / 100).toString() + ' MB';
@@ -66,7 +76,7 @@
 
             document.getElementById('cancelar_lectura').style.display = 'block';
 
-            var reader = new FileReader();
+            reader = new FileReader();
             reader.onerror = errorHandler;
             reader.onprogress = updateProgress;
             reader.onabort = function (e) { alert('Carga Cancelada'); };
@@ -84,7 +94,7 @@
             };
 
             //reader.readAsDataURL(file);
-            reader.readAsBinaryString(file);
+            reader.readAsBinaryString(file);            
         }
 
         // ---------------------------------------      

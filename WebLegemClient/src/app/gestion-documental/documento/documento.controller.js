@@ -5,8 +5,8 @@
         .module("WebLegemApp.GestionDocumental")
         .controller("DocumentoController", DocumentoController);
 
-    DocumentoController.$inject = ["TipoDocumentoResource", "EntidadService", "DocumentosResource", "FileUploader", "$state","language", "$resource", "serviceUrl"];
-    function DocumentoController(TipoDocumentoService, EntidadService, DocumentoResource,  FileUploader, $state,language, $resource, serviceUrl) {
+    DocumentoController.$inject = ["TipoDocumentoResource", "EntidadService", "DocumentosResource", "FileUploader", "$state", "language", "$resource", "serviceUrl", "$scope"];
+    function DocumentoController(TipoDocumentoService, EntidadService, DocumentoResource,  FileUploader, $state,language, $resource, serviceUrl, $scope) {
         var vm = this;
         vm.language = language;
         vm.entidadSeleccionada = { id: 0 };
@@ -14,10 +14,12 @@
         vm.aceptar = aceptar;
         vm.validarDocumento = validarDocumento;
         vm.default = "Seleccione una opción";
-        vm.errorType = false;
-        vm.existDocument = false;
+        vm.errorLoad = true;
+        vm.existDocument = true;
+        vm.formatError = false;
 
         vm.validarArchivo = validarArchivo;
+        vm.siguiente = siguiente;
 
         vm.documento = {
             id: 0,
@@ -39,8 +41,35 @@
             vm.documento.asunto = response[0].result;            
             vm.documento.ruta = response[0].path;
             vm.documento.archivo = response[0].name;
-            vm.documento.archivoGuid = response[0].guid
+            vm.documento.archivoGuid = response[0].guid           
         };
+
+        vm.uploader.onBeforeUploadItem = function (item) {
+            vm.existDocument = false;            
+            var file = item.file.name;
+            var rex = /(\.pdf)$/i;
+            
+            if (file == "") {
+                vm.uploader.cancelItem(item);
+                vm.existDocument = false;
+                vm.errorLoad = true;
+            } else {
+                vm.existDocument = true;
+                vm.errorLoad = false;
+                vm.formatError = false;
+
+                if (!rex.exec(file)) {                    
+                    vm.formatError = true;
+                    return;
+                }
+                else {                    
+                    vm.formatError = false;
+                    return;
+                }
+
+                
+            }
+        }
 
         vm.uploader.autoUpload = true;
         vm.uploader.removeAfterUpload = true;
@@ -175,26 +204,25 @@
             //});                       
         }
 
-        function validarArchivo() {
-            var fname = document.getElementById('fileType').innerHTML;
-            var re = /(\.jpg|\.jpeg|\.bmp|\.gif|\.png)$/i;
-            var rex = /(\.gif)$/i;
-            if (fname == "") {
-                vm.errorType = false;
-                vm.existDocument = true;
 
-            }
-            else if(!rex.exec(fname))
-            {
-                vm.existDocument = false;
-                vm.errorType = true;
+        function validarArchivo() {
+        //    vm.existDocument = false;
+        //    var fname = document.getElementById('files');
+        //    var file = fname.files[0];
+
+        //    vm.existDocument = (!file.name == "");          
+        //    vm.error =  (file.name == "");
+        }
+
+        function siguiente() {
+            if (vm.existDocument && !vm.errorLoad) {
+                vm.existDocument = false;                
+                $state.go("gestion-documental.crear-documento.informacion-documento");                                                
             }
             else {
                 vm.existDocument = false;
-                vm.errorType = false;
-                $state.go("gestion-documental.crear-documento.informacion-documento");
+                vm.errorLoad = true;
             }
-            
         }
 
     } // end Documento Controller
