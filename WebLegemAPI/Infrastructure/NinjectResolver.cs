@@ -8,6 +8,7 @@ using WebLegemDAL;
 //using WebLegemDAL.QueryObjects;
 using WebLegemAPI.OCR;
 using WebLegemDAL.Dao;
+using WebLegemAPI.Models;
 
 namespace WebLegemAPI.Infrastructure
 {
@@ -77,6 +78,8 @@ namespace WebLegemAPI.Infrastructure
             kernel.Bind<DocumentoDao>().To<DocumentoDao>().InRequestScope();
             kernel.Bind<RecursoDao>().To<RecursoDao>().InRequestScope();
             kernel.Bind<RolDao>().To<RolDao>().InRequestScope();
+            kernel.Bind<AnotacionDao>().To<AnotacionDao>().InRequestScope();
+            kernel.Bind<AnalizadorAnotaciones>().To<AnalizadorAnotaciones>().InRequestScope();
 
             kernel.Bind<IPdfToText>().To<NiconsoftOcr>().InRequestScope();
         }

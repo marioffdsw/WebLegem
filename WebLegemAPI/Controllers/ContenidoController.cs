@@ -58,7 +58,7 @@ namespace WebLegemAPI.Controllers
 
         [HttpGet]
         [Route("api/Contenido/Anotaciones")]
-        public IHttpActionResult BuscarTiposAnotaciones(int id)
+        public IHttpActionResult BuscarPosiblesAnotaciones(int id)
         {
             var result = dao.Exist(id);
             if (result.IsSuccess)

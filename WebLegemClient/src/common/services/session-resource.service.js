@@ -52,13 +52,13 @@
         {                        
             if (usuario == null || usuario == undefined)
                 console.log("Tienes que pasar como parametro el usuario!!!");
+            // TODO - cambiar el console, log por un mensaje de retroalimentación adecuado
 
             service.usuario = usuario;
 
             service.opcionesAMostrar = mappearPermisosAOpciones(usuario.rol.permisosAsignados);
 
-            if (service.opcionesAMostrar.length > 0) {
-                console.log( "paso" );
+            if (service.opcionesAMostrar.length > 0) {                
                 service.loggeado = true;
                 $state.go("home");
             }
