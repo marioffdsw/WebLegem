@@ -6,7 +6,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using WebLegemDAL.Models;
 using WebLegemDAL.DAL;
-
+/*
 namespace WebLegemAPI.Controllers
 {
     [EnableCorsAttribute( "*", "*", "*" )]
@@ -68,4 +68,4 @@ namespace WebLegemAPI.Controllers
             return Ok();
         } // end DELETE Action Method
     }
-}
+}*/

@@ -52,12 +52,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseDAO.cs" />
+    <Compile Include="DALExtensionMethods.cs" />
     <Compile Include="Documento\Documento.cs" />
     <Compile Include="Documento\DocumentoDAL.cs" />
     <Compile Include="Documento\DocumentoFactory.cs" />
     <Compile Include="Entidad\Entidad.cs" />
     <Compile Include="Entidad\EntidadDAL.cs" />
     <Compile Include="Entidad\EntidadFactory.cs" />
+    <Compile Include="IDataAccessObject.cs" />
     <Compile Include="IdDocumento\IdDocumento.cs" />
     <Compile Include="IdDocumento\IdDocumentoFactory.cs" />
     <Compile Include="TipoEntidad\EntidadRefArrayFactory.cs" />
@@ -70,6 +73,7 @@
     <Compile Include="TipoEntidad\TipoEntidadFactory.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

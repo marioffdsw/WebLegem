@@ -1,8 +1,5 @@
--- Drop the existig sequence (if any)
 
-DROP SEQUENCE tipo_doc_seq;
-
--- Create new sequence
+DROP SEQUENCE tipos_documento_seq;
 
 CREATE SEQUENCE tipo_doc_seq
   MINVALUE 0

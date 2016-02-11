@@ -10,6 +10,7 @@ namespace WebLegemDAL.Models
         private bool isNull; // implementacion de INUllable
         private int id; // atributo id del typ
         private string nombre; // atributo nombre del typ
+        private TipoDocumento[] documentosSoportados; // atributo documentos_soportados del typ
 
         [JsonIgnore]        
         public virtual bool IsNull
@@ -58,6 +59,19 @@ namespace WebLegemDAL.Models
             }
         }
 
+        [OracleObjectMappingAttribute( "DOCUMENTOS_SOPORTADOS" )]
+        public TipoDocumento[] DocumentosSoportados
+        {
+            get
+            {
+                return documentosSoportados;
+            }
+            set
+            {
+                documentosSoportados = value;
+            }
+        }
+
         public virtual void FromCustomObject(OracleConnection con, IntPtr pUdt)
         {
             OracleUdt.SetValue(con, pUdt, "ID", id);
@@ -66,6 +80,8 @@ namespace WebLegemDAL.Models
             {
                 OracleUdt.SetValue(con, pUdt, "NOMBRE", nombre);
             }
+
+            OracleUdt.SetValue( con, pUdt, "DOCUMENTOS_SOPORTADOS", DocumentosSoportados );
         } // end method FromCustomObject
 
         public virtual void ToCustomObject(OracleConnection con, IntPtr pUdt)
@@ -75,11 +91,27 @@ namespace WebLegemDAL.Models
             id = (Int32)OracleUdt.GetValue(con, pUdt, "ID");
 
             nombre = (string)OracleUdt.GetValue(con, pUdt, "NOMBRE");
+
+            documentosSoportados = (TipoDocumento[])OracleUdt.GetValue( con, pUdt, "DOCUMENTOS_SOPORTADOS" );
         } // end ToCustomObject method
 
         public override string ToString()
         {
-            return "TipoEntidad( " + Id + ", " + Nombre + " )";
+            return "TipoEntidad( " + Id + ", '" + Nombre + "', " + ListarDocumentosSoportados() +  " )";
         } // end ToString method
+
+        private string ListarDocumentosSoportados()
+        {
+            string listaDocumentos = "[ ";
+
+            foreach (var documento in DocumentosSoportados)
+            {
+                listaDocumentos += documento + ", ";
+            }
+
+            listaDocumentos += "]";
+
+            return listaDocumentos;
+        }
     } // end TipoEntidad class
 } // end namespace

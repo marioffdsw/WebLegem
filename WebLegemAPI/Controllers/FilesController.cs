@@ -20,7 +20,7 @@ namespace WebLegemAPI.Controllers
         public Task<IHttpActionResult> Post()
         {         
             var rootUrl = @"c:\oraData\web_legem";
-            if (Request.Content.IsMimeMultipartContent())
+            if (Request.Content.IsMimeMultipartContent() )
             {
                 var streamProvider = new CustomMultipartFormDataStreamProvider(rootUrl);
                 var file = Request.Content.ReadAsMultipartAsync(streamProvider).ContinueWith<IHttpActionResult>(t =>

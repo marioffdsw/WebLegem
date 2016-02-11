@@ -4,7 +4,7 @@ set sqlbl on
 
 -- Creacion y configuración de la Base de Datos
 @usuario_tablespace_permisos.sql
-
+/*
 -- Tipo Documento (definición de tipo y tablas asociadas)
 @'Sequences/tipo_doc_seq.sql'
 @'User Defined Types\Objects\tipo_doc_typ.sql'
@@ -45,6 +45,7 @@ set sqlbl on
 @'Tables\Object Tables\doc_contenido_obj_tab.sql'
 @'Procedures\crear_doc_ret_doc_id_pro'
 @'Procedures\crear_documento_pro.sql'
+@'Procedures\crear_contenido_pro.sql'
 
 -- Tipos de Anotación (definicion de tipo y tablas asociadas)
 --@'User Defined Types\Objects\tipo_anotacion_typ.sql'
@@ -53,3 +54,14 @@ set sqlbl on
 -- Anotación (definicion de tipo y tablas asociadas)
 --@'User Defined Types\Objects\anotacion_typ.sql'
 --@'Tables\Object Tables\anotacion_obj_tab.sql'
+
+@'Indexes\bfile_idx.sql'*/
+
+@@'Tables/Relational Tables/tipos_documento_tab.sql'
+@@'Tables/Relational Tables/tipos_entidad_tab.sql'
+@@'Tables/Relational Tables/documentos_soportados_tab.sql'
+@@'Tables/Relational Tables/entidades_tab.sql'
+@@'Tables/Relational Tables/identificadores_documentos_tab.sql'
+@@'Tables/Relational Tables/archivos_tab.sql'
+@@'Tables/Relational Tables/contenidos_archivos_tab.sql'
+@@'Indexes/contenido_text_idx.sql'

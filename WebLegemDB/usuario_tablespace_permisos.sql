@@ -22,4 +22,4 @@ ALTER USER web_legem DEFAULT TABLESPACE tb_web_legem;
 
 CONNECT web_legem/web_legem;
 
-CREATE OR REPLACE DIRECTORY bfile_dir AS 'C:/oradata/web_legem';
+CREATE OR REPLACE DIRECTORY contenidos_dir AS 'C:/oradata/web_legem/text';

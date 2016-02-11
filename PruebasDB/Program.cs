@@ -9,61 +9,53 @@ using WebLegemDAL.DAL;
 namespace PruebasDB
 {
     class Program
-    {
-        static string connStr = "user id=web_legem;password=web_legem;data source=ORCL";
-        static TipoEntidadDAL tipoEntidadDal = new TipoEntidadDAL();
-        static TipoDocumentoDAL tipoDocumentoDal = new TipoDocumentoDAL();
+    {                        
+        static TipoDocumentoDAO tipoDocumentoDal = new TipoDocumentoDAO();
+        static TipoEntidadDAO tipoEntidadDal = new TipoEntidadDAO();
+
         static EntidadDAL entidadDal = new EntidadDAL();
         static DocumentoDAL documentoDal = new DocumentoDAL();
 
         static void Main(string[] args)
         {
-            // open Connection
-            tipoDocumentoDal.OpenConnection( connStr  );
-            tipoEntidadDal.OpenConnection( connStr );
-            entidadDal.OpenConnection( connStr );
-            documentoDal.OpenConnection( connStr );
-
             // do work
+            ListarTiposDocumento();
+            ListarTiposEntidad();
             //CrearTiposDocumento();
             //CrearTiposEntidad();
             //CrearEntidades();
-           
+            Console.WriteLine( $"{tipoEntidadDal.Get(2)}" );
+
+
+            //ActualizarTiposDocumento();
+            //EliminarTiposDocumento();
 
             //listar resultados
-            ListarTiposDocumento();
-            ListarTiposEntidad();
-            ListarEntidades();
-            
-            //CrearDocumentos();
-            ListarDocumentos();
+            //ListarTiposDocumento();
+            //ListarTiposEntidad();
+            //ListarEntidades();
 
-            // close connections
-            tipoDocumentoDal.CloseConnection();
-            tipoEntidadDal.CloseConnection();
-            entidadDal.CloseConnection();
-            documentoDal.CloseConnection();
+
+            //CrearDocumentos();
+            //ListarDocumentos();  
+            Console.ReadKey();       
         }
 
         static void CrearTiposDocumento()
         {            
             var lista = new List<TipoDocumento>();
-            lista.Add( new TipoDocumento() { Id = 0, Nombre = "Resolución" } );
-            lista.Add(new TipoDocumento() { Id = 0, Nombre = "Carta" });
-            lista.Add(new TipoDocumento() { Id = 0, Nombre = "Acuerdo" });
-            lista.Add(new TipoDocumento() { Id = 0, Nombre = "Ley" });
-            lista.Add(new TipoDocumento() { Id = 0, Nombre = "Circular" });
+            lista.Add( new TipoDocumento() { Id = 0, Nombre = "Tipo desde .NET" } );            
             
             for( int i = 0; i < lista.Count; i++ )
             {
                 var td = lista.ElementAt(i);
-                tipoDocumentoDal.CreateTipoDocumento( ref td );                
+                tipoDocumentoDal.Create( td );                
             } // end foreach                        
         }
 
         static void ListarTiposDocumento()
         {            
-            var lista = tipoDocumentoDal.GetAllTipoDocumento();
+            var lista = tipoDocumentoDal.GetAll();
 
             foreach (var td in lista)
             {
@@ -82,13 +74,13 @@ namespace PruebasDB
             for (int i = 0; i < lista.Count; i++)
             {
                 var te = lista.ElementAt(i);
-                tipoEntidadDal.CreateTipoEntidad(ref te);
+                tipoEntidadDal.Create( te );
             } // end foreach
         }
 
         static void ListarTiposEntidad()
         {
-            var lista = tipoEntidadDal.GetAllTipoEntidad();
+            var lista = tipoEntidadDal.GetAll();
 
             foreach (var te in lista)
             {
@@ -98,7 +90,7 @@ namespace PruebasDB
 
         static void CrearEntidades()
         {
-            var listaTipos = tipoEntidadDal.GetAllTipoEntidad();
+            var listaTipos = tipoEntidadDal.GetAll();
 
             var lista = new List<Entidad>();
             lista.Add(new Entidad() { Id = 0, Nombre = "Rectoria", TipoEntidad = listaTipos.ElementAt(0) } );
@@ -125,7 +117,7 @@ namespace PruebasDB
 
         static void CrearDocumentos()
         {
-            var listaTiposDoc = tipoDocumentoDal.GetAllTipoDocumento();
+            var listaTiposDoc = tipoDocumentoDal.GetAll();
 
             var listaEntidades = entidadDal.GetAllEntidad();
 
@@ -162,6 +154,23 @@ namespace PruebasDB
             {
                 Console.WriteLine(e);
             }
+        }
+
+        static void ActualizarTiposDocumento()
+        {
+            var lista = new List<TipoDocumento>();
+            lista.Add(new TipoDocumento() { Id = 5, Nombre = "Resolución" });
+
+            for (int i = 0; i < lista.Count; i++)
+            {
+                var td = lista.ElementAt(i);
+                tipoDocumentoDal.Update(td);
+            } // end foreach                        
+        }
+
+        static void EliminarTiposDocumento()
+        {
+            tipoDocumentoDal.Delete( 7 );
         }
     }
 }

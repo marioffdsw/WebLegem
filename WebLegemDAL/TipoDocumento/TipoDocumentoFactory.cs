@@ -3,7 +3,7 @@ using WebLegemDAL.Models;
 
 namespace WebLegemDAL.Factory
 {
-    [OracleCustomTypeMappingAttribute("WEB_LEGEM.TIPO_DOC_TYP")]
+    [OracleCustomTypeMappingAttribute("WEB_LEGEM.TIPO_DOCUMENTO_TYP")]
     public class TipoDocumentoFactory : IOracleCustomTypeFactory
     {
         // Implementation of IOracleCustomTypeFactory.CreateObject()

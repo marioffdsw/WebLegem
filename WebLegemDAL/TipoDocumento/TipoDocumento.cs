@@ -92,7 +92,7 @@ namespace WebLegemDAL.Models
 
         public override string ToString()
         {
-            return "TipoDocumento( " + Id + ", " + Nombre + " )";
+            return "TipoDocumento( " + Id + ", '" + Nombre + "' )";
         } // end ToString method
     } // end TipoDocumento class
 } // end namespace

@@ -1,13 +1,14 @@
 ﻿using Oracle.DataAccess.Types;
 using System;
+using WebLegemDAL.Models;
 
-[OracleCustomTypeMappingAttribute("WEB_LEGEM.TIPO_DOC_REF_TAB_TYP")]
-public class PersonArrayFactory : IOracleArrayTypeFactory
+[OracleCustomTypeMappingAttribute("WEB_LEGEM.TIPO_DOCUMENTO_TAB_TYP")]
+public class TipoDocumentoArrayFactory : IOracleArrayTypeFactory
 {
     // IOracleArrayTypeFactory Inteface
     public Array CreateArray(int numElems)
     {
-        return new OracleRef[numElems];
+        return new TipoDocumento[numElems];
     }
 
     public Array CreateStatusArray(int numElems)

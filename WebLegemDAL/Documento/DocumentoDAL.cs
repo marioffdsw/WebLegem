@@ -130,6 +130,5 @@ namespace WebLegemDAL.DAL
 
             return doc;
         } // end method GetDocumento
-
     } // end DocumentoDAL class
 } // end namespace
