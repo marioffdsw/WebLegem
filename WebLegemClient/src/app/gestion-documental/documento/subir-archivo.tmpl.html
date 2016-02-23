@@ -1,54 +1,66 @@
-﻿<div>
+﻿<div class="contenido animatio ng-enter" id="holas">
+    <label class="titulo">Crear Documento</label>
 
-    <label style="font-family:'Century Gothic';
-font-size:1.2em;
+    <div ng-controller="uploaderController as an">
+        <label style="font-family:'Century Gothic';
+font-size:1.0em;
 font-weight:bold;
 color:darkslategray;">
-        Subir Documento
-    </label>
+            Subir Documento
+        </label>
 
 
-    <!-- <fieldset>
-                 <legend>¿Cuantas columnas tiene tu documento?</legend>
-                 <ul>
-                     <li class="a_thumbnail_container" >
-                         <input id="rad_una"  name="estructura" type="radio" value="Una columna" />
-                         <label for="rad_una">Una Columna</label>
-                         <img class="a_thumbnail" src="recursos/box68.svg" />
+        <!-- <fieldset>
+                     <legend>¿Cuantas columnas tiene tu documento?</legend>
+                     <ul>
+                         <li class="a_thumbnail_container" >
+                             <input id="rad_una"  name="estructura" type="radio" value="Una columna" />
+                             <label for="rad_una">Una Columna</label>
+                             <img class="a_thumbnail" src="recursos/box68.svg" />
 
-                     </li>
-                     <li class="a_thumbnail_container">
-                         <input id="rad_dos" name="estructura" type="radio" value="Dos columnas" />
-                         <label for="rad_dos">Dos Columnnas</label>
-                         <img class="a_thumbnail" src="recursos/box68.svg" />
+                         </li>
+                         <li class="a_thumbnail_container">
+                             <input id="rad_dos" name="estructura" type="radio" value="Dos columnas" />
+                             <label for="rad_dos">Dos Columnnas</label>
+                             <img class="a_thumbnail" src="recursos/box68.svg" />
 
-                     </li>
-                     <li class="a_thumbnail_container">
-                         <input class="a_thumbnail" id="rad_tres" name="estructura" type="radio" value="Tres columnas" />
-                         <label for="rad_tres">Tres Columnas</label>
-                         <img class="a_thumbnail" src="recursos/box68.svg" />
-                     </li>
-                     <li class="a_thumbnail_container">
-                         <input class="a_thumbnail" id="rad_otro" name="estructura" type="radio" value="Otro" />
-                         <label for="rad_otro">Otro</label>
-                         <img class="a_thumbnail" src="recursos/box68.svg" />
-                     </li>
-                 </ul>
-     </fieldset>  -->
-
-    <fieldset style="padding:20px; margin:20px 0;">
+                         </li>
+                         <li class="a_thumbnail_container">
+                             <input class="a_thumbnail" id="rad_tres" name="estructura" type="radio" value="Tres columnas" />
+                             <label for="rad_tres">Tres Columnas</label>
+                             <img class="a_thumbnail" src="recursos/box68.svg" />
+                         </li>
+                         <li class="a_thumbnail_container">
+                             <input class="a_thumbnail" id="rad_otro" name="estructura" type="radio" value="Otro" />
+                             <label for="rad_otro">Otro</label>
+                             <img class="a_thumbnail" src="recursos/box68.svg" />
+                         </li>
+                     </ul>
+         </fieldset>  -->
+        <hr />
         <form>
-            <label class="texto_labels" for="archivo">Ingresar Archivo</label><br />
-            <input style="font-family:'Century Gothic'; font-size:1.1em;
-                " type="file" nv-file-select uploader="vm.uploader" />
-            <br /><br />
-            <button type="button" class="a_boton btn_con_ico" ng-click="vm.uploader.uploadAll()">
-                <img src="recursos/iconos_png/ico_nuevo.png" />Subir
-            </button>
-        </form>
-    </fieldset>
+            <label class="uploader" id="fileOutput">
+                <span id="ico_no_cargado" class="icon ico-upload"></span>
+                <span id="ico_cargado" class="icon ico-check"></span>
 
-    <div>
-        <button class="a_boton" ng-click="vm.avanzar(1)">Siguiente   ></button>
+                <label><b>Escoga un archivo</b> ó arrastrelo aquí.</label>
+                <label id="fileSize"></label>
+                <label id="fileType"></label>
+                <input type="file" id="files" accept="image/*">
+            </label>
+            <div id="progress_bar"><div class="percent">0%</div></div>
+
+            <button id="cancelar_lectura" type="button" class="btn_con_ico" ng-click="an.abortRead()">
+                <!--ng-click="vm.uploader.uploadAll()"-->
+                <span class="ico-times tamano_botones_1"></span>Cancelar
+            </button>
+            <br />
+        </form>
+
+        <div>
+            <button class="btn_con_ico inverso" ui-sref="gestion-documental.crear-documento.informacion-documento">
+                Siguiente<span class="ico-chevron-right tamano_botones_1 derecha"></span>
+            </button>
+        </div>
     </div>
 </div>

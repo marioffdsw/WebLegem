@@ -11,5 +11,5 @@ SELECT tipo_entidad_typ(
                         WHERE te.id = te_extern.id                
             ) AS tipo_documento_tab_typ ) 
 
-        ) AS tipos_entidad
+        ) AS tipo_entidad
     FROM tipos_entidad_tab te_extern;

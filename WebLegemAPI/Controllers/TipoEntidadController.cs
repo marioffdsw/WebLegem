@@ -13,58 +13,31 @@ namespace WebLegemAPI.Controllers
     [EnableCorsAttribute("*", "*", "*")]
     public class TipoEntidadController : ApiController
     {
-        public IQueryable<TipoEntidad> Get()
+        private IDataAccessObject<TipoEntidad> DAO;
+
+        public TipoEntidadController( IDataAccessObject<TipoEntidad> dao ) : base()
         {
-            string constr = "user id=web_legem;password=web_legem;data source=ORCL";
+            this.DAO = dao;
+        }
 
-            var tdDal = new TipoEntidadDAL();
-            tdDal.OpenConnection(constr);
-
-            var tiposEntidad = tdDal.GetAllTipoEntidad();
-
-            tdDal.CloseConnection();
-
-            return tiposEntidad.AsQueryable<TipoEntidad>();
+        public IQueryable<TipoEntidad> Get()
+        {            
+            return DAO.GetAll();
         } // end GET Action Method
 
         public TipoEntidad Put(TipoEntidad tipoEntidad)
-        {
-            string constr = "user id=web_legem;password=web_legem;data source=ORCL";
-
-            var teDal = new TipoEntidadDAL();
-            teDal.OpenConnection(constr);
-
-            teDal.UpdateTipoEntidad(ref tipoEntidad);
-
-            teDal.CloseConnection();
-
-            return tipoEntidad;
+        {            
+            return DAO.Update( tipoEntidad );
         } // end PUT Action Method
 
         public TipoEntidad Post(TipoEntidad tipoEntidad)
         {
-            string constr = "user id=web_legem;password=web_legem;data source=ORCL";
-
-            var teDal = new TipoEntidadDAL();
-            teDal.OpenConnection(constr);
-
-            teDal.CreateTipoEntidad(ref tipoEntidad);
-
-            teDal.CloseConnection();
-
-            return tipoEntidad;
+            return DAO.Create( tipoEntidad );
         }
 
         public IHttpActionResult Delete(int id)
         {
-            string constr = "user id=web_legem;password=web_legem;data source=ORCL";
-
-            var teDal = new TipoEntidadDAL();
-            teDal.OpenConnection(constr);
-
-            teDal.DeleteTipoEntidad(id);
-
-            teDal.CloseConnection();
+            DAO.Delete( id );
 
             return Ok();
         } // end DELETE Action Method

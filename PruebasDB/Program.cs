@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebLegemDAL.Models;
 using WebLegemDAL.DAL;
+using WebLegemDAL.QueryObjects;
 
 namespace PruebasDB
 {
@@ -13,19 +14,21 @@ namespace PruebasDB
         static TipoDocumentoDAO tipoDocumentoDal = new TipoDocumentoDAO();
         static TipoEntidadDAO tipoEntidadDal = new TipoEntidadDAO();
 
-        static EntidadDAL entidadDal = new EntidadDAL();
-        static DocumentoDAL documentoDal = new DocumentoDAL();
+        static EntidadDAO entidadDal = new EntidadDAO();
+        static DocumentoConContenidoDAO documentoDal = new DocumentoConContenidoDAO();
 
         static void Main(string[] args)
         {
             // do work
-            ListarTiposDocumento();
-            ListarTiposEntidad();
+            //ListarTiposDocumento();
+            //ListarTiposEntidad();
+            //ListarEntidades();
+            //ListarDocumentos();
             //CrearTiposDocumento();
             //CrearTiposEntidad();
             //CrearEntidades();
-            Console.WriteLine( $"{tipoEntidadDal.Get(2)}" );
-
+            //Console.WriteLine( $"{tipoEntidadDal.Get(2)}" );            
+            // ConsultarDocumentos();
 
             //ActualizarTiposDocumento();
             //EliminarTiposDocumento();
@@ -39,6 +42,19 @@ namespace PruebasDB
             //CrearDocumentos();
             //ListarDocumentos();  
             Console.ReadKey();       
+        }
+
+        static void ConsultarDocumentos()
+        {
+            var documentoConContenido = new DocumentoConContenidoQueryObject() { PalabrasABuscar = "CONTROL INTERNO" };
+            
+
+            var lista = documentoDal.Consultar(documentoConContenido);
+            
+            foreach (var documento in lista)
+            {
+                Console.WriteLine( documento );
+            }
         }
 
         static void CrearTiposDocumento()
@@ -101,25 +117,25 @@ namespace PruebasDB
             for (int i = 0; i < lista.Count; i++)
             {
                 var e = lista.ElementAt(i);
-                entidadDal.CreateEntidad( ref e );
+                entidadDal.Create( e );
             }
         }
 
         static void ListarEntidades()
         {
-            var lista = entidadDal.GetAllEntidad();
+            var lista = entidadDal.GetAll();
 
             foreach (var e in lista)
             {
                 Console.WriteLine( e );
             }
         }
-
+        /*
         static void CrearDocumentos()
         {
             var listaTiposDoc = tipoDocumentoDal.GetAll();
 
-            var listaEntidades = entidadDal.GetAllEntidad();
+            var listaEntidades = entidadDal.GetAll();
 
             var lista = new List<Documento>();
 
@@ -145,10 +161,10 @@ namespace PruebasDB
                 documentoDal.CreateDocumento(ref te);
             } // end foreach
         }
-
+        */
         static void ListarDocumentos()
         {
-            var lista = documentoDal.GetAllDocumentos();
+            var lista = documentoDal.GetAll();
 
             foreach (var e in lista)
             {

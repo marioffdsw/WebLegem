@@ -11,86 +11,104 @@ namespace WebLegemDAL.Models
 {
     public class Documento : INullable, IOracleCustomType
     {
-        /*
-         * Private Fields
-         */
+        /**********************************************************************************
+         **********************************************************************************
+         *
+         *   ATRIBUTES
+         *            
+         **********************************************************************************/
+        
+        private int id;
+        private Entidad entidad;
+        private TipoDocumento tipoDocumento;
+        private string numero;
+        private string anioPublicacion;                       
 
-        private OracleRef docIdRef;
-        private IdDocumento docId;
-        private string asunto;
-        private DateTime fechaExpedicion;
-        private string rutaAlArchivoOriginal;
-        private OracleBFile contenidoDocumento;
-        private bool isNull;
-        private string nombreArchivoProcesado;
+        protected bool isNull;
 
-        /*
-         * Properties 
-         */
 
-        [JsonIgnore]
-        [OracleObjectMappingAttribute( "REF_ID_DOCUMENTO" )]
-        public OracleRef DocIdRef
+
+        /**********************************************************************************
+         **********************************************************************************
+         *
+         *   PROPERTIES
+         *            
+         **********************************************************************************/
+
+        [OracleObjectMappingAttribute("ID")]
+        public int Id
         {
             get
             {
-                return docIdRef;
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+        } // fin prop Id
+        
+        [OracleObjectMappingAttribute( "TIPO_DOCUMENTO" )]
+        public TipoDocumento TipoDocumento
+        {
+            get
+            {
+                return tipoDocumento;
             }
             set
             {                
-                docIdRef = value;
+                tipoDocumento = value;
                 //DocId = (IdDocumento)value.GetCustomObject(OracleUdtFetchOption.Server);
             }
-        } // end DocIdRef Property
+        } // fin prop TipoDocumento
 
-        public IdDocumento DocId
+        [OracleObjectMappingAttribute("ENTIDAD")]
+        public Entidad Entidad
         {
             get
             {
-                return docId;
+                return entidad;
             }
             set
             {
-                docId = value;
+                entidad = value;
+                //DocId = (IdDocumento)value.GetCustomObject(OracleUdtFetchOption.Server);
             }
-        } // end DocId Prop
+        } // fin prop Entidad
 
-        [OracleObjectMappingAttribute("ASUNTO")]
-        public string Asunto
+        [OracleObjectMappingAttribute("NUMERO")]
+        public string Numero
         {
-            get { return asunto; }
-            set { asunto = value; }
-        } // end Asunto Prop
+            get
+            {
+                return numero;
+            }
 
-        [OracleObjectMappingAttribute("FECHA_EXPEDICION")]
-        public DateTime FechaExpedicion
+            set
+            {
+                numero = value;
+            }
+        } // fin prop Numero
+
+        [OracleObjectMappingAttribute( "ANIO_PUBLICACION" )]
+        public string AnioPublicacion
         {
-            get { return fechaExpedicion; }
-            set { fechaExpedicion = value; }
-        }
+            get
+            {
+                return anioPublicacion;
+            }
 
-        [OracleObjectMappingAttribute("RUTA_AL_ARCHIVO")]
-        public string RutaAlArchivo
-        {
-            get { return rutaAlArchivoOriginal; }
-            set { rutaAlArchivoOriginal = value; }
-        }
-
-        [JsonIgnore]
-        [OracleObjectMappingAttribute("CONTENIDO_DOCUMENTO")]
-        public OracleBFile ContenidoDocumento
-        {
-            get { return contenidoDocumento; }
-            set { contenidoDocumento = value; }
-        }
-
-        public string NombreDocumentoProcesado
-        {
-            get { return nombreArchivoProcesado; }
-            set { nombreArchivoProcesado = value; }
-        }
-
-
+            set
+            {
+                // TODO - modificar la excepcion, a un nombre significativo
+                // TODO - validar que sean todos numeros
+                if (value.Length > 4)
+                    throw new Exception();
+                
+                anioPublicacion = value;
+            }
+        } // fin prop AñoPublicacion
+             
         [JsonIgnore]
         public bool IsNull
         {
@@ -98,7 +116,7 @@ namespace WebLegemDAL.Models
             {
                 return isNull;
             }
-        } // end property IsNull
+        } // fin prop IsNull
         
         public static Documento Null
         {
@@ -108,55 +126,55 @@ namespace WebLegemDAL.Models
                 doc.isNull = true;
                 return doc;
             }
-        } // end Null prop
+        } // fin Null prop
 
-        /*
-         * Metodos
-         */
+
+
+        /**********************************************************************************
+         **********************************************************************************
+         *
+         *   OVERWRITTEN METHODS
+         *            
+         **********************************************************************************/
 
         public virtual void FromCustomObject(OracleConnection con, IntPtr pUdt)
-        {            
-            if (docIdRef != null)            
-                OracleUdt.SetValue(con, pUdt, "REF_ID_DOCUMENTO", docIdRef);
+        {
+            OracleUdt.SetValue( con, pUdt, "ID", id );
 
-            if (asunto != null)
-                OracleUdt.SetValue(con, pUdt, "ASUNTO", asunto);
+            if (entidad != null)
+                OracleUdt.SetValue( con, pUdt, "ENTIDAD", entidad );
 
-            if (fechaExpedicion != null)            
-                OracleUdt.SetValue(con, pUdt, "FECHA_EXPEDICION", fechaExpedicion);            
+            if (tipoDocumento != null)            
+                OracleUdt.SetValue(con, pUdt, "TIPO_DOCUMENTO", tipoDocumento);
 
-            if (RutaAlArchivo != null)            
-                OracleUdt.SetValue( con, pUdt, "RUTA_AL_ARCHIVO", rutaAlArchivoOriginal );            
+            if (numero != null)
+                OracleUdt.SetValue( con, pUdt, "NUMERO", numero );
 
-            if (contenidoDocumento != null)            
-                OracleUdt.SetValue( con, pUdt, "CONTENIDO_DOCUMENTO", contenidoDocumento );            
+            if (anioPublicacion != null)
+                OracleUdt.SetValue( con, pUdt, "ANIO_PUBLICACION", anioPublicacion );
+            
         } // end method FromCustomObject
 
         public virtual void ToCustomObject(OracleConnection con, IntPtr pUdt)
         {
-            // Convert from the Oracle Object to a Custom Type            
+            // Convert from the Oracle Object to a Custom Type   
 
-            asunto = (string)OracleUdt.GetValue(con, pUdt, "ASUNTO");
-
-            DocIdRef = (OracleRef)OracleUdt.GetValue(con, pUdt, "REF_ID_DOCUMENTO");
-            DocId = (IdDocumento) docIdRef.GetCustomObject(OracleUdtFetchOption.Server);
-
-            contenidoDocumento = (OracleBFile) OracleUdt.GetValue(con, pUdt, "CONTENIDO_DOCUMENTO");
-            NombreDocumentoProcesado = contenidoDocumento.FileName;
-
-            rutaAlArchivoOriginal = (string)OracleUdt.GetValue( con, pUdt, "RUTA_AL_ARCHIVO" );
-
-            fechaExpedicion = (DateTime)OracleUdt.GetValue(con, pUdt, "FECHA_EXPEDICION");
-        } // end ToCustomObject method
+            Id = (int) OracleUdt.GetValue( con, pUdt, "ID" );
+            Entidad = (Entidad) OracleUdt.GetValue( con, pUdt, "ENTIDAD" );
+            TipoDocumento = (TipoDocumento) OracleUdt.GetValue( con, pUdt, "TIPO_DOCUMENTO" );
+            Numero = (string) OracleUdt.GetValue( con, pUdt, "NUMERO" );
+            AnioPublicacion = (String) OracleUdt.GetValue( con, pUdt, "ANIO_PUBLICACION" );            
+        } // fin method ToCustomObject
 
         public override string ToString()
         {
-            return String.Format( "Documento( {0}\n{1}, {2}, {3}, {4} )",
-                    DocId,
-                    RutaAlArchivo,
-                    Asunto,
-                    FechaExpedicion,
-                    ContenidoDocumento.FileName
+            return String
+                .Format( "Documento(Id: {0}, {1},\n{2}, Numero: {3}, AñoPublicacion: {4} )",
+                    Id,
+                    Entidad,
+                    TipoDocumento,
+                    Numero,
+                    AnioPublicacion
                 );
         }
     }

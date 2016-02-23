@@ -1,33 +1,94 @@
-﻿<div class="contenido">    
-
+﻿<div class="contenido">
     <label class="titulo">Entidad</label>
-    <div class="contenedor1">
-        <form>
-            <label class="texto_labels" for="nombre-entidad">Nombre Entidad</label>
-            <input class ="a_input" id="nombre-entidad" type="text" placeholder="Entidad" ng-model="vm.entidad.nombre" />
-            <label class="texto_labels" for="tipo-entidad">Tipo Entidad</label>
-            <select>
-                <option ng-repeat="tipo in vm.tiposEntidad" value="{{ tipo.id }}">{{ tipo.nombre }}
+    <div>
+        <form class="form_administracion">
+            <label class="texto_labels" for="nombre-entidad">Nombre de la entidad</label>
+            <input class="a_input input_administracion" id="nombre-entidad" type="text" placeholder="Entidad" ng-model="vm.entidad.nombre" />
+            <label class="texto_labels" for="tipo-entidad">Tipo de la entidad</label>
+
+            <div class="span_select">
+                <select class="select">
+                    <option ng-repeat="tipo in vm.tiposEntidad" value="{{ tipo.id }}">
+                        {{ tipo.nombre }}
+                    </option>
+                    <option value="pedro">
+                        pedro
+                    </option>
+                    <option value="hola">
+                        hola
+                    </option>
+                </select>
+                <span class="span_select ico-angle-down"></span>
+            </div>
+
+            <button class="btn_con_ico" type="button">
+                <span class="ico-plus tamano_botones_1"></span>Añadir
+            </button>
+            <button class="btn_con_ico" type="button">
+                <span class="ico-times tamano_botones_1"></span>Cancelar
+            </button>
+        </form>
+
+        <!--<div>
+            <select multiple size="3">
+                <option ng-repeat="entidad in vm.entidades">
+                    <p>{{ entidad.nombre }} {{ entidad.tipo.nombre }}</p>
                 </option>
             </select>
-            <button class="a_boton" type="button">Añadir</button>
-            <button class="a_boton" type="button">Cancelar</button>
-        </form>          
-        
-        <nav>
-            <ul>
-                <li ng-repeat="estado in vm.$scope.$parent.vm.estados">
-                    <a>{{ estado }}</a>
-                </li>
-            </ul>
-        </nav>                     
+        </div>-->
 
-        <select multiple size="3">
-            <option ng-repeat="entidad in vm.entidades">
-                <p>{{ entidad.nombre }} {{ entidad.tipo.nombre }}</p>
-            </option>
-        </select>
-        <button class="a_boton" type="button" value="Editar">Editar</button>
-        <button class="a_boton" type="button" value="Eliminar">Eliminar</button>
+        <div class="entidad_control">
+            <div style="background:#37404A;  height:40px; width:100%; word-spacing:-4px; padding:3px; border-top-left-radius:3px; border-top-right-radius:3px; ">
+                <div class="iconos_control"><span class="ico-align-justify"></span></div>
+                <div class="iconos_control"><span class="ico-th"></span></div>
+                <div class="iconos_control"><span class="ico-plus-circle"></span></div>
+            </div>
+            <div class="panel_control">
+                <ul class="a_bloques">
+                    <li>
+                        <input type="checkbox" name="check_name" id="b_1" >
+                        <label class=" styled1 note rounded" for="b_1">item 1</label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" name="check_name" id="b_2" >
+                        <label class="note rounded" for="b_2">item 2</label>
+                    </li>
+
+                    <li>
+                        <input type="checkbox" name="check_name" id="b_3">
+                        <label class="note rounded" for="b_3">item 3</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="check_name" id="b_4">
+                        <label class="note rounded" for="b_4">item 4</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="check_name" id="b_5">
+                        <label class="note rounded" for="b_5">item 5</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="check_name" id="b_6">
+                        <label class="note rounded" for="b_6">item 6</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="check_name" id="b_7">
+                        <label class="note rounded" for="b_7">item 7</label>
+                    </li>
+                   
+                </ul>
+
+            </div>
+        </div>
+
+        <div style=" width:50%; float:right;">
+            <button class="btn_con_ico" type="button" value="Editar" style="margin: 0 0 0 5px;">
+                <span class="ico-pencil tamano_botones_1"></span>Editar
+            </button>
+            <button class="btn_con_ico" type="button" value="Eliminar">
+                <span class="ico-trash tamano_botones_1"></span>Remover
+            </button>
+        </div>
+        <div style="clear:both;"></div>
     </div>
 </div>

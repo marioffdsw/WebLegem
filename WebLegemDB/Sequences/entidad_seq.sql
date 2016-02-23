@@ -1,8 +1,5 @@
--- Drop the existig sequence (if any)
 
 DROP SEQUENCE entidad_seq;
-
--- Create new sequence
 
 CREATE SEQUENCE entidad_seq
   MINVALUE 0

@@ -1,27 +1,27 @@
 ﻿<!DOCTYPE html>
-<html ng-app="WebLegemApp">
+<html ng-app="WebLegemApp" ng-controller="homeController as vm">
 <head>
     <title>Web Legem</title>
-	<meta charset="utf-8" />    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Library Styles -->
     <link href="../bower_components/animate.css/animate.min.css" rel="stylesheet" />
 
     <!-- App Styles -->
-    
     <!-- Library Scripts -->
     <script src="../bower_components/angular/angular.min.js"></script>
     <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
     <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
     <script src="../bower_components/angular-resource/angular-resource.min.js"></script>
-    <script src="../bower_components/angular-touch/angular-touch.min.js"></script>    
+    <script src="../bower_components/angular-touch/angular-touch.min.js"></script>
     <script src="../bower_components/angular-mocks/angular-mocks.js"></script>
     <script src="../bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
-  
+
     <!-- App Scripts -->
-    <script src="app/app.core.js"></script>    
-    <script src="app/app.core.dependencies.js"></script>    
+    <script src="app/app.core.js"></script>
+    <script src="app/app.core.dependencies.js"></script>
     <script src="app/app.core.modules.js"></script>
     <script src="app/app.core.run.js"></script>
     <script src="app/app.core.routes.js"></script>
@@ -36,9 +36,8 @@
     <!-- Administration -->
     <script src="app/administracion/administracion.js"></script>
     <script src="app/administracion/administracion.dependencies.js"></script>
-    <script src="app/administracion/administracion.routes.js"></script>  
-    <script src="app/administracion/administracion.controller.js"></script>
-    <script src="app/administracion/tipo-documento/tipo-documento.controller.js"></script>    
+    <script src="app/administracion/administracion.routes.js"></script>
+    <script src="app/administracion/tipo-documento/tipo-documento.controller.js"></script>
     <script src="app/administracion/tipo-entidad/tipos-entidad.controller.js"></script>
     <script src="app/administracion/entidad/entidad.controller.js"></script>
     <script src="app/administracion/tipo-anotacion/tipo-anotacion.controller.js"></script>
@@ -46,11 +45,10 @@
     <!-- Gestion Documntal -->
     <script src="app/gestion-documental/gestion-documental.js"></script>
     <script src="app/gestion-documental/gestion-documental.dependencies.js"></script>
-    <script src="app/gestion-documental/gestion-documental.routes.js"></script>   
-    <script src="app/gestion-documental/gestion-documental.controller.js"></script>
+    <script src="app/gestion-documental/gestion-documental.routes.js"></script>
     <script src="app/gestion-documental/documento/documento.controller.js"></script>
-    
-    <!-- Mocks -->    
+
+    <!-- Mocks -->
     <script src="common/mocks/common.mocks.dependencies.js"></script>
     <script src="common/mocks/tipo-documento-resource.mock.js"></script>
     <script src="common/mocks/tipo-entidad-resource.mock.js"></script>
@@ -67,117 +65,126 @@
     <script src="common/services/documento-resource.service.js"></script>
 
     <!--Estilos-->
+
+
+    <link href="css/elementos/text_area.css" rel="stylesheet" />
+    <link href="css/elementos/input_text.css" rel="stylesheet" />
+    <link href="css/elementos/button.css" rel="stylesheet" />
+    <link href="css/elementos/select.css" rel="stylesheet" />
+    <link href="css/elementos/listado.css" rel="stylesheet" />
+    <link href="css/elementos/barra_navegacion.css" rel="stylesheet" />
+    <link href="css/elementos/boton_movedizo.css" rel="stylesheet" />
+    <link href="css/elementos/mini_search.css" rel="stylesheet" />
+    <link href="css/elementos/imagen_inicial.css" rel="stylesheet" />
+    <link href="css/elementos/gadget_control_entidad.css" rel="stylesheet" />
+    <link href="css/elementos/uploader.css" rel="stylesheet" />
+
+
+    <link href="css/plantillas/informacion_documento.css" rel="stylesheet" />
+    <link href="css/plantillas/tipo_entidad.css" rel="stylesheet" />
+    <link href="css/plantillas/tipo_documento.css" rel="stylesheet" />
+    <link href="css/plantillas/header.css" rel="stylesheet" />
+    <link href="css/plantillas/header2.css" rel="stylesheet" />
+    <link href="css/plantillas/accesibilidad.css" rel="stylesheet" />
+    <link href="css/plantillas/administracion.css" rel="stylesheet" />
+    <link href="css/plantillas/login.css" rel="stylesheet" />
+
+
     <link href="css/estilos_weblegem.css" rel="stylesheet" />
-    <link href="css/pagina_principal.css" rel="stylesheet" />
     <link href="css/noticias.css" rel="stylesheet" />
-    <link href="css/login.css" rel="stylesheet" />
-    <link href="css/administracion.css" rel="stylesheet" />
-    <link href="css/tipo_documento.css" rel="stylesheet" />
-    <link href="css/asunto.css" rel="stylesheet" />
-    <link href="css/switch.css" rel="stylesheet" />
+
+    <!--Iconografia-->
+    <link href="iconos-legem/styles.css" rel="stylesheet" />
+    <link href="iconos-legem2/style.css" rel="stylesheet" />
+
     <script src="app/homeController.js"></script>
+    <script src="app/uploader-andres.js"></script>
+    <script src="scripts/generales.js"></script>
+
+
+    <link href="css/pagina_principal.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
+    <link href="css/pagina_principal_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
 
 </head>
-<body style="position:relative;min-height: 100%;" ng-controller="homeController as vm">
-    <div class="box_accesibilidad">
 
-        <div style="display:block;float:right;padding-right:20px; margin-top:2px;">
-            <a class="btn_nav" href="#">
-                <svg version="1.1" id="acc1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                     width="20px" height="20px" style="fill:#fff;" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-                <path d="M96,272l-32,0.031l-0.063-32H96V272z M97.719,146.125l-16,27.75l27.719,16l16-27.75L97.719,146.125z M448,256.031
-	                c0-106.031-85.969-192-192-192v384C362.031,448.031,448,362.063,448,256.031z M173.844,81.719l-27.719,16l16,27.719l27.719-16
-	                L173.844,81.719z M109.438,322.156l-27.75,16.031l16.031,27.688l27.719-16.031L109.438,322.156z M256,512
-	                C114.625,512,0,397.375,0,256S114.625,0,256,0s256,114.625,256,256S397.375,512,256,512z M256,480c123.5,0,224-100.5,224-224
-	                S379.5,32,256,32S32,132.5,32,256S132.5,480,256,480z M162.156,386.563l-16.031,27.75l27.719,15.969l16-27.719L162.156,386.563z" />
-                </svg>Modo Nocturno
-            </a>
-            <a class="btn_nav" href="#"><svg version="1.1" id="acc2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-     width="25px" height="25px" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
-<path fill="#fff" d="M32,7.173c-13.689,0-24.826,11.137-24.826,24.826c0,5.613,1.828,10.909,5.285,15.314c4.743,6.046,11.866,9.514,19.542,9.514
-	s14.799-3.468,19.543-9.515c3.456-4.406,5.283-9.702,5.283-15.313C56.826,18.31,45.689,7.173,32,7.173z M41.525,30.543
-	c-0.109-2.41-0.472-4.68-1.003-6.784c3.066-0.744,5.701-1.81,7.858-2.912c1.914,2.802,3.111,6.12,3.373,9.696H41.525z M31.83,51.822
-	c-0.07-0.001-0.139-0.005-0.208-0.006c-1.283-1.658-3.306-4.707-4.782-8.936c1.611-0.254,3.33-0.411,5.161-0.411
-	c1.614,0,3.143,0.121,4.592,0.322C35.089,46.914,33.082,50.079,31.83,51.822z M32,39.469c-2.15,0-4.151,0.204-6.022,0.521
-	c-0.488-1.96-0.833-4.112-0.94-6.448h13.494c-0.121,2.252-0.498,4.38-1.025,6.349C35.782,39.627,33.946,39.469,32,39.469z
-	 M12.248,30.543c0.262-3.576,1.459-6.894,3.373-9.696c2.034,1.039,4.504,2.048,7.36,2.785c-0.499,2.106-0.834,4.414-0.932,6.912
-	H12.248z M25.037,30.543c0.099-2.267,0.423-4.363,0.887-6.281c1.89,0.321,3.917,0.511,6.076,0.511c1.97,0,3.826-0.162,5.572-0.433
-	c0.5,1.928,0.853,4.005,0.964,6.202H25.037z M31.837,12.181c1.277,1.773,3.334,5.021,4.844,9.258
-	c-1.476,0.209-3.035,0.334-4.682,0.334c-1.853,0-3.597-0.154-5.233-0.414c1.482-4.338,3.552-7.473,4.856-9.167
-	C31.695,12.191,31.765,12.182,31.837,12.181z M46.442,18.459c-1.896,0.923-4.16,1.796-6.761,2.415
-	c-1.168-3.427-2.681-6.264-3.985-8.343C39.899,13.328,43.626,15.457,46.442,18.459z M27.597,12.683
-	c-1.284,2.001-2.711,4.708-3.809,8.06c-2.382-0.609-4.466-1.426-6.23-2.284C20.215,15.627,23.683,13.575,27.597,12.683z
-	 M12.237,33.543h9.814c0.107,2.564,0.465,4.925,0.99,7.073c-2.907,0.746-5.359,1.747-7.289,2.723
-	C13.71,40.426,12.506,37.086,12.237,33.543z M17.692,45.718c1.685-0.808,3.77-1.608,6.172-2.218c1.091,3.254,2.49,5.883,3.747,7.839
-	C23.837,50.491,20.401,48.552,17.692,45.718z M35.689,51.48c1.277-2.034,2.756-4.796,3.916-8.129
-	c2.589,0.61,4.833,1.471,6.702,2.369C43.431,48.726,39.736,50.722,35.689,51.48z M48.252,43.333
-	c-2.122-1.072-4.733-2.126-7.788-2.862c0.556-2.143,0.939-4.462,1.057-6.928h10.242C51.494,37.083,50.291,40.422,48.252,43.333z" />
-</svg>EN</a>
-            <a class="btn_nav" href="#"><svg version="1.1" id="acc3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                 width="35px" height="22px" viewBox="0 0 216 146" enable-background="new 0 0 216 146" xml:space="preserve">
-            <path fill="#fff" d="M179.371,67.378c-7.605-12.438-17.831-22.432-30.676-29.982c-12.846-7.55-26.41-11.325-40.695-11.325
-	            s-27.85,3.774-40.696,11.325c-12.846,7.55-23.071,17.544-30.675,29.982C35.543,69.279,35,71.153,35,73s0.543,3.721,1.629,5.621
-	            c7.604,12.439,17.829,22.434,30.675,29.982c12.846,7.551,26.411,11.324,40.696,11.324s27.85-3.761,40.695-11.283
-	            s23.072-17.53,30.676-30.023C180.457,76.721,181,74.848,181,73C181,71.153,180.457,69.279,179.371,67.378z M90.523,45.095
-	            c4.861-4.861,10.686-7.292,17.476-7.292c1.086,0,2.01,0.381,2.771,1.141c0.76,0.76,1.141,1.684,1.141,2.77
-	            c0,1.087-0.381,2.01-1.139,2.769c-0.76,0.761-1.685,1.141-2.771,1.141c-4.671,0-8.664,1.657-11.977,4.97
-	            c-3.314,3.314-4.97,7.306-4.97,11.977c0,1.087-0.381,2.01-1.141,2.771c-0.761,0.761-1.684,1.141-2.77,1.141
-	            c-1.087,0-2.01-0.381-2.771-1.141c-0.761-0.761-1.141-1.685-1.141-2.771C83.231,55.782,85.662,49.956,90.523,45.095z M143.4,99.602
-	            C132.51,106.2,120.71,109.5,108,109.5s-24.51-3.299-35.4-9.898S52.653,84.135,45.429,73c8.256-12.819,18.603-22.406,31.041-28.76
-	            c-3.313,5.648-4.97,11.759-4.97,18.331c0,10.049,3.572,18.643,10.714,25.786C89.356,95.5,97.952,99.071,108,99.071
-	            c10.049,0,18.643-3.572,25.786-10.714C140.93,81.215,144.5,72.62,144.5,62.571c0-6.572-1.657-12.684-4.971-18.331
-	            c12.438,6.354,22.785,15.942,31.041,28.76C163.348,84.135,154.291,93.002,143.4,99.602z" />
-            </svg>AA
-            </a>
+<body id="body_index" style="position:relative;min-height: 100%; font-size:100%;">
+
+    <div class="imagen_inicial">
+        <div class="header">
+
+            <div class="figura_logo">
+                <img class="escudo_pagina" src="recursos/header/udenar_bl.png" />
+                <p class="nombre_pagina">Legem</p>
+            </div>
+
+
+            <div id="contenedor_accesibilidad" class="contenedor_accesibilidad">
+                <div class="deslizador">
+                    <button class="btn_deslizable">
+                        <span class="ico-search"></span>
+                        <p>Busqueda</p>
+                    </button>
+
+                    <button class="btn_deslizable">
+                        <span class="ico-home"></span>
+                        <p>Inicio</p>
+                    </button>
+
+                    <button class="btn_deslizable">
+                        <span class="ico-sign-in"></span>
+                        <p>Ingresar</p>
+                    </button>
+
+                    <button id="lanzador_accesibilidad" class="boton_accesibilidad" onclick="estado_accesibilidad(this.id)">
+                        <span class="ico-angle-left"></span>
+                        <span class="ico-child"></span>
+                    </button>
+                    <button class="boton_accesibilidad {{vm.clase_contraste}}" ng-click="vm.funcion_contraste()">
+                        <span class="{{vm.icono_contraste}}"></span>
+                    </button>
+                    <button class="boton_accesibilidad  {{vm.clase_idioma}}" ng-click="vm.funcion_idioma()">
+                        <span class="ico2-earth"></span>
+                    </button>
+                    <button class="boton_accesibilidad {{vm.tamano_letra}}" ng-click="vm.funcion_tamano()">
+                        <span class="ico2-font-size"></span>
+                    </button>
+                </div>
+            </div>
         </div>
+
+        <div class="header2">
+            <div id="contenedor_mini_search" class="contenedor_mini_search" >
+                <form class="mini_search">
+                    <input id="mini_search" type="text" placeholder="Buscar" onfocus="atenuar_busqueda(this.id)" />
+                    <span class="ico-search"></span>
+                </form>
+            </div>
+        </div>
+
+        <div class="contenedor_navegacion">
+            <div class="navegacion">
+                <ul class="bar_nav">
+                    <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
+                        <a ui-sref="{{opcion.estado}}">
+                            {{ opcion.texto }}
+                        </a>
+                        <ul ng-if="opcion.subEstados">
+                            <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>
+                        </ul>
+                    <li>
+                </ul>
+            </div>
+        </div>
+
     </div>
 
-    <div class="contenedor_nombres">
-
-
-        <img class="escudo" src="recursos/header/udenar_bl.png" />
-
-        <div style=" position:absolute;	right:10px;top:10px;">
-            <form class="a_search">
-                <input type="text" placeholder="Buscar" />
-                <svg version="1.1" id="lupa" height="22px" width="22px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                     viewBox="0 0 339.921 339.921" style="enable-background:new 0 0 339.921 339.921;" xml:space="preserve">
-<g>
-                <path style="fill:#fff;" d="M335.165,292.071l-81.385-84.077c-5.836-6.032-13.13-8.447-16.29-5.363
-		c-3.171,3.062-10.47,0.653-16.306-5.379l-1.164-1.207c36.425-47.907,32.89-116.499-10.851-160.24
-		c-47.739-47.739-125.142-47.739-172.875,0c-47.739,47.739-47.739,125.131,0,172.87c44.486,44.492,114.699,47.472,162.704,9.045
-		l0.511,0.533c5.825,6.032,7.995,13.402,4.814,16.469c-3.166,3.068-1.012,10.443,4.83,16.464l81.341,84.11
-		c5.836,6.016,15.452,6.195,21.49,0.354l22.828-22.088C340.827,307.735,340.99,298.125,335.165,292.071z M182.306,181.81
-		c-32.852,32.857-86.312,32.857-119.159,0.011c-32.852-32.852-32.847-86.318,0-119.164c32.847-32.852,86.307-32.847,119.148,0.005
-		C215.152,95.509,215.152,148.964,182.306,181.81z" />
-</g>
-</svg>
-            </form>
-        </div>
-
-        <p class="nombre_pagina">
-            Legem
-        </p>
-
-        <div class="navegacion">
-            <ul class="bar_nav">
-                <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
-                    <a ui-sref="{{opcion.estado}}">
-                        {{ opcion.texto }}
-                    </a>
-                    <ul ng-if="opcion.subEstados">                            
-                        <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>    
-                    </ul>
-                <li>
-            </ul>
-        </div>
-    </div>
+   
 
 
 
 
-    <div ui-view class="cuerpo"></div>
-
+    <div ui-view class="vistas animatio ng-enter"></div>
+    <!--
     <footer id="theme-footer">
         <div id="footer-widget-area" class="footer-3c">
 
@@ -187,65 +194,65 @@
                     <div class="footer-widget-container">
                         <div>
                             2015  Universidad de Nariño</br>
-                            Torobajo - Clle 18 Crr 50, Bloque VI</br>
-                            Teléfono: (2) - 7313034</br>
-                            Correo electrónico: insistemas@udenar.edu.co</br>
+        Torobajo - Clle 18 Crr 50, Bloque VI</br>
+        Teléfono: (2) - 7313034</br>
+        Correo electrónico: insistemas@udenar.edu.co</br>
 
-                        </div><div class="clear"></div>
-                    </div>
-                </div>
+    </div><div class="clear"></div>
+    </div>
+    </div>
+    </div>
+
+    <div id="footer-second" class="footer-widgets-box">
+        <div id="text-html-widget-9" class="footer-widget text-html">
+            <div class="footer-widget-top"><h4>Atención al Ciudadano</h4></div>
+            <div class="footer-widget-container">
+                <div>
+                    <ul id="menu-atencion-al-ciudadano" class="menu">
+                        <li id="menu-item-388" class="text"><a style="text-decoration:none" href="http://akane.udenar.edu.co/quejasudenar/" target="_blank">Sistema de Quejas y Reclamos</a></li>
+                    </ul>
+
+                    <ul id="menu-atencion-al-ciudadano" class="menu">
+                        <li id="menu-item-388" class="text"><a style="text-decoration:none" href="http://sistemas.udenar.edu.co/contacto/" target="_blank">Contacto</a></li>
+                    </ul>
+                    <ul id="menu-atencion-al-ciudadano" class="menu">
+                        <li id="menu-item-388" class="text"><a style="text-decoration:none" href="http://sistemas.udenar.edu.co/wp-content/uploads/2015/11/SiteMap.png" target="_blank">Mapa del Sitio</a></li>
+                    </ul>
+                </div><div class="clear"></div>
             </div>
-
-            <div id="footer-second" class="footer-widgets-box">
-                <div id="text-html-widget-9" class="footer-widget text-html">
-                    <div class="footer-widget-top"><h4>Atención al Ciudadano</h4></div>
-                    <div class="footer-widget-container">
-                        <div>
-                            <ul id="menu-atencion-al-ciudadano" class="menu">
-                                <li id="menu-item-388" class="text"><a style="text-decoration:none" href="http://akane.udenar.edu.co/quejasudenar/" target="_blank">Sistema de Quejas y Reclamos</a></li>
-                            </ul>
-
-                            <ul id="menu-atencion-al-ciudadano" class="menu">
-                                <li id="menu-item-388" class="text"><a style="text-decoration:none" href="http://sistemas.udenar.edu.co/contacto/" target="_blank">Contacto</a></li>
-                            </ul>
-                            <ul id="menu-atencion-al-ciudadano" class="menu">
-                                <li id="menu-item-388" class="text"><a style="text-decoration:none" href="http://sistemas.udenar.edu.co/wp-content/uploads/2015/11/SiteMap.png" target="_blank">Mapa del Sitio</a></li>
-                            </ul>
-                        </div><div class="clear"></div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div id="footer-third" class="footer-widgets-box">
-                <div id="text-html-widget-5" class="footer-widget text-html">
-                    <div class="footer-widget-top"><h4>CONTÁCTENOS</h4></div>
-                    <div class="footer-widget-container">
-                        <div>
-                            <a href="mailto:insistemas@udenar.edu.co" target="_blank"><img src="http://sistemas.udenar.edu.co/wp-content/uploads/2014/11/email-1.png" /></a>
-                            <a href="https://twitter.com/Udenar" target="_blank"><img src="http://sistemas.udenar.edu.co/wp-content/uploads/2014/11/twitter.png" /></a>
-                            <a href="https://www.facebook.com/udenar" target="_blank"><img src="http://sistemas.udenar.edu.co/wp-content/uploads/2014/11/facebook-1.png" /></a>
-
-                        </div><div class="clear"></div>
-                    </div>
-                </div>
-
-
-                <div id="text-html-widget-11" class="footer-widget text-html">
-                    <div class="footer-widget-top"><h4> </h4></div>
-                    <div class="footer-widget-container">
-                        <div>
-                            <ul id="menu-atencion-al-ciudadano" class="menu">
-                                <li id="menu-item-388" class="m"><a style="text-decoration:none" href="http://sistemas.udenar.edu.co/gobierno-en-linea/" target="_blank">Gobierno en Línea</a></li>
-                            </ul>
-
-                        </div><div class="clear"></div>
-                    </div>
-                </div>
-            </div>
-
         </div>
-        <div class="clear"></div>
+    </div>
+
+
+    <div id="footer-third" class="footer-widgets-box">
+        <div id="text-html-widget-5" class="footer-widget text-html">
+            <div class="footer-widget-top"><h4>CONTÁCTENOS</h4></div>
+            <div class="footer-widget-container">
+                <div>
+                    <a href="mailto:insistemas@udenar.edu.co" target="_blank"><img src="http://sistemas.udenar.edu.co/wp-content/uploads/2014/11/email-1.png" /></a>
+                    <a href="https://twitter.com/Udenar" target="_blank"><img src="http://sistemas.udenar.edu.co/wp-content/uploads/2014/11/twitter.png" /></a>
+                    <a href="https://www.facebook.com/udenar" target="_blank"><img src="http://sistemas.udenar.edu.co/wp-content/uploads/2014/11/facebook-1.png" /></a>
+
+                </div><div class="clear"></div>
+            </div>
+        </div>
+
+
+        <div id="text-html-widget-11" class="footer-widget text-html">
+            <div class="footer-widget-top"><h4> </h4></div>
+            <div class="footer-widget-container">
+                <div>
+                    <ul id="menu-atencion-al-ciudadano" class="menu">
+                        <li id="menu-item-388" class="m"><a style="text-decoration:none" href="http://sistemas.udenar.edu.co/gobierno-en-linea/" target="_blank">Gobierno en Línea</a></li>
+                    </ul>
+
+                </div><div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    </div>
+    <div class="clear"></div>
     </footer>
 
 
@@ -256,7 +263,7 @@
             </div>
         </div>
     </div>
-
+            -->
 </body>
 
 </html>

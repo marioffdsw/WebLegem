@@ -21,7 +21,7 @@ namespace WebLegemDAL.DAL
             "user id = web_legem; password=web_legem;data source=ORCL";
         protected OracleConnection connection;
         protected static OracleCommand command;
-        protected static string queryString;
+        protected static string queryString;        
 
 
 
@@ -33,11 +33,36 @@ namespace WebLegemDAL.DAL
 
         public abstract string TableName{ get;  }                              
 
+        public OracleConnection Connection
+        {
+            get
+            {
+                return connection;
+            }
+
+            set
+            {
+                value.ConnectionString = connectionString;
+                connection = value;
+            }
+        }
 
 
         /**********************************************************************************
          *
-         *   PUBLIC METHODS
+         *   CONSTRUCTORS
+         *   
+         **********************************************************************************/
+        public BaseDAO()
+        {
+            this.connection = new OracleConnection( connectionString );
+        } // fin constructor
+
+
+
+        /**********************************************************************************
+         *
+         *   OVERWRITTEN METHODS
          *   
          **********************************************************************************/
 
@@ -87,10 +112,10 @@ namespace WebLegemDAL.DAL
         private void CloseConnection()
         {
             connection.Close();
-            connection.Dispose();
+            connection.Dispose();        
         }
 
-        private TResult DBOperation<TResult>(Func<TResult> operation)
+        protected TResult DBOperation<TResult>(Func<TResult> operation)
         {
             OpenConnection();
             TResult result = operation();
@@ -98,7 +123,7 @@ namespace WebLegemDAL.DAL
             return result;
         }
 
-        private TResult DBOperation<TParam, TResult>(Func<TParam, TResult> operation, TParam parametro)
+        protected TResult DBOperation<TParam, TResult>(Func<TParam, TResult> operation, TParam parametro)
         {
             OpenConnection();
             TResult result = operation(parametro);
@@ -106,7 +131,7 @@ namespace WebLegemDAL.DAL
             return result;
         }
 
-        private void DBOperation<TParam>(Action<TParam> operation, TParam parametro)
+        protected void DBOperation<TParam>(Action<TParam> operation, TParam parametro)
         {
             OpenConnection();
             operation(parametro);

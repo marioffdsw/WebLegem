@@ -25,7 +25,6 @@
             .state("administracion.entidad", {
                 url: "/entidad/:id",
                 templateUrl: "app/administracion/entidad/entidad.tmpl.html",
-                parent: "administracion",
                 controller: "EntidadController",
                 controllerAs: "vm"
             })

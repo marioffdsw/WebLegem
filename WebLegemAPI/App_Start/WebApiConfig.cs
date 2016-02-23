@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using WebLegemAPI.Infrastructure;
 
 namespace WebLegemAPI
 {
@@ -10,6 +11,8 @@ namespace WebLegemAPI
     {
         public static void Register(HttpConfiguration config)
         {
+            config.DependencyResolver = new NinjectResolver();
+            
             // Web API configuration and services
 
             // Web API routes

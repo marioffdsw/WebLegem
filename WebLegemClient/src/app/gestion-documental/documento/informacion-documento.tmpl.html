@@ -1,33 +1,43 @@
-﻿<form>
+﻿<div class="contenido animatio ng-enter" id="holas">
+    <label class="titulo">Crear Documento</label>
+    <div>
+        <form id="informacion_documento">
+            <div>
+                <label class="texto_labels" for="tipo-documento">Tipo de Documento:</label>
+                <div>
+                    <select id="tipo-documento" class="select" ng-options="tipo as tipo.nombre for tipo in vm.tiposDocumento | orderBy: 'nombre'" ng-model="vm.tipoDocSeleccionado">
+                        <option ng-repeat="tipo in vm.tiposDocumento">{{ tipo.nombre }}</option>
+                    </select>
+                    <span class="span_select_a ico-angle-down"></span>
+                </div>
+            </div>
 
-    <fieldset style="padding:1em; margin-bottom:1em;">
-        <div style="display:inline-block; width:40%;">
-            <label class="texto_labels" for="tipo-documento">Tipo de Documento</label>
-            <select id="tipo-documento" ng-options="tipo as tipo.nombre for tipo in vm.tiposDocumento | orderBy: 'nombre'" ng-model="vm.tipoDocSeleccionado">
-                <option ng-repeat="tipo in vm.tiposDocumento">{{ tipo.nombre }}</option>
-            </select>
-        </div>
+            <div>
+                <label class="texto_labels" for="entidad" ng-model="vm.documento.entidad">Entidad:</label>
+                <div>
+                    <select id="entidad" class="select" ng-options="entidad as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'" ng-model="vm.entidadSeleccionada">
+                        <option ng-repeat="entidad in vm.entidades">{{ entidad.nombre }}</option>
+                    </select>
+                    <span class="span_select_a ico-angle-down"></span>
+                </div>
+            </div>
 
+            <div>
+                <label class="texto_labels" for="numero">Numero:</label>
+                <input class="a_input " type="text" id="numero" ng-model="vm.documento.docId.numero" />
+            </div>
 
-        <div style="display:inline-block; width:40%; margin-bottom:1em;">
-            <label class="texto_labels" for="entidad" ng-model="vm.documento.entidad">Entidad</label>
-            <select id="entidad" ng-options="entidad as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'" ng-model="vm.entidadSeleccionada">
-                <option ng-repeat="entidad in vm.entidades">{{ entidad.nombre }}</option>
-            </select>
-        </div>
+            <div>
+                <label class="texto_labels" for="año">Año:</label>
+                <input class="a_input" id="año" type="date" ng-model="vm.documeno.fechaPublicacion" />
+            </div>
 
-        <div style="display:inline-block; width:40%;margin-bottom:1em;">
-            <label class="texto_labels" for="numero">Numero</label>
-            <input class="a_input " type="text" id="numero" ng-model="vm.documento.docId.numero" />
-        </div>
+            <div>
+                <button class="btn_con_ico inverso" ui-sref="gestion-documental.crear-documento.asunto">
+                    Siguiente<span class="ico-chevron-right tamano_botones_1 derecha"></span>
+                </button>
+            </div>
 
-        <div style="display:inline-block; width:40%;margin-bottom:1em;">
-            <label class="texto_labels" for="año">Año</label>
-            <input class="a_input" id="año" type="date" ng-model="vm.documeno.fechaPublicacion" />
-        </div>
-
-    </fieldset>
-
-    <button class="a_boton a_block" type="button" ng-click="vm.avanzar(2)">Siguiente  ></button>
-
-</form>
+        </form>
+    </div>
+</div>

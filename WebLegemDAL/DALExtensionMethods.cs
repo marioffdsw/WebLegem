@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
+using System.Collections.Generic;
 using System.Data;
 
 namespace WebLegemDAL.DAL
@@ -16,6 +18,6 @@ namespace WebLegemDAL.DAL
             }
 
             return list;
-        }
+        }        
     }
 }

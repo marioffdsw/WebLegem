@@ -9,10 +9,11 @@ using System.Data;
 
 namespace WebLegemDAL.DAL
 {
-    public class TipoDocumentoDAO : BaseDAO<TipoDocumento>
+    public class EntidadDAO : BaseDAO<Entidad>
     {
 
         /**********************************************************************************
+         **********************************************************************************
          *
          *   PROPERTIES
          *   
@@ -22,89 +23,89 @@ namespace WebLegemDAL.DAL
         {
             get
             {
-                return "tipos_documento_view";
+                return "entidades_view";
             }
-        }     
-        
+        } // fin prop TableName
+
         public string UdtTypeName
         {
             get
             {
-                return "WEB_LEGEM.TIPO_DOCUMENTO_TYP";
+                return "WEB_LEGEM.ENTIDAD_TYP";
             }
-        }
+        } // fin prop UdtTypeName
 
 
 
         /**********************************************************************************
+         **********************************************************************************
          *
-         *   OVERRIDED METHODS
+         *   OVERWRITTEN METHODS
          *   
          **********************************************************************************/
 
-        protected sealed override IQueryable<TipoDocumento> RetrieveAll()
+        protected sealed override IQueryable<Entidad> RetrieveAll()
         {
-            queryString = $"SELECT * FROM {TableName} tdv";
+            queryString = $"SELECT * FROM {TableName} tev";
 
             OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
             OracleDataReader reader = cmd.ExecuteReader();
 
             queryString = null;
-            
-            return reader.ToList<TipoDocumento>().AsQueryable();
+
+            return reader.ToList<Entidad>().AsQueryable();
         }
 
-        protected sealed override TipoDocumento Retrieve(int id)
+        protected sealed override Entidad Retrieve(int id)
         {
-            queryString = $"SELECT VALUE(td) FROM {TableName} td WHERE td.tipos_documento.id = {id}";
+            queryString = $"SELECT * FROM {TableName} te WHERE te.entidad.id = {id}";
             OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
             OracleDataReader reader = cmd.ExecuteReader();
 
             queryString = null;
 
-            return reader.ToList<TipoDocumento>().AsQueryable().First();
+            return reader.ToList<Entidad>().AsQueryable().First();
         }
 
-        protected sealed override TipoDocumento Insert( TipoDocumento tipoDocumento)
+        protected sealed override Entidad Insert(Entidad entidad)
         {
-            OracleCommand cmd = new OracleCommand( $"INSERT INTO {TableName} VALUES( :td )", connection);
+            OracleCommand cmd = new OracleCommand($"INSERT INTO {TableName} VALUES( :td )", connection);
             OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);
-            td.UdtTypeName = "WEB_LEGEM.TIPO_DOCUMENTO_TYP";
-            td.Direction = ParameterDirection.InputOutput;            
-            td.Value = tipoDocumento;
-
-            cmd.ExecuteNonQuery();
-            
-            return (TipoDocumento) td.Value;
-        }             
-
-        protected sealed override TipoDocumento Modify( TipoDocumento tipoDocumento )
-        {            
-            queryString = $"UPDATE {TableName} tdv SET tdv.tipos_documento = :td WHERE tdv.tipos_documento.id = :id";
-
-            OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
-
-            OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);            
             td.UdtTypeName = UdtTypeName;
             td.Direction = ParameterDirection.InputOutput;
-            td.Value = tipoDocumento;
+            td.Value = entidad;
+
+            cmd.ExecuteNonQuery();
+
+            return (Entidad)td.Value;
+        }
+
+        protected sealed override Entidad Modify(Entidad entidad)
+        {
+            queryString = $"UPDATE {TableName} tev SET tev.entidades = :td WHERE tev.entidad.id = :id";
+
+            OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
+
+            OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);
+            td.UdtTypeName = UdtTypeName;
+            td.Direction = ParameterDirection.InputOutput;
+            td.Value = entidad;
 
             OracleParameter id = cmd.Parameters.Add(":td", OracleDbType.Int32);
             id.UdtTypeName = UdtTypeName;
-            id.Value = tipoDocumento.Id;
+            id.Value = entidad.Id;
 
-            cmd.ExecuteNonQuery();            
+            cmd.ExecuteNonQuery();
 
-            return (TipoDocumento) td.Value;
+            return (Entidad) td.Value;
         } // end UpdateTipoDocumento method
-
 
         protected sealed override void Remove(int id)
         {
-            queryString = $"DELETE FROM {TableName} tdv WHERE tdv.tipos_documento.id = {id}";
+            queryString = $"DELETE FROM {TableName} tev WHERE tev.entidad.id = {id}";
 
             OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
             cmd.ExecuteNonQuery();
-        }       
-    }    
+        }
+    }
 }

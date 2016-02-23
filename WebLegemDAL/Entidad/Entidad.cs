@@ -7,11 +7,27 @@ namespace WebLegemDAL.Models
 {
     public class Entidad : INullable, IOracleCustomType
     {
-        private bool isNull;
+
+        /**********************************************************************************
+         **********************************************************************************
+         *
+         *   ATRIBUTES
+         *            
+         **********************************************************************************/
+
         private int id;
         private string nombre;
         private TipoEntidad tipoEntidad;
-        private OracleRef tipoEntidadRef;
+
+        private bool isNull;
+
+
+        /**********************************************************************************
+         **********************************************************************************
+         *
+         *   PROPERTIES
+         *            
+         **********************************************************************************/
 
         [JsonIgnore]
         public virtual bool IsNull
@@ -19,9 +35,9 @@ namespace WebLegemDAL.Models
             get {
                 return isNull;
             }
-        }
+        } // fin prop IsNull
 
-        // Person.Null is used to return a NULL Person object
+        // la propiedad Entidad.Null es usada para retornar un objeto Entidad sin datos        
         public static Entidad Null
         {
             get
@@ -30,7 +46,20 @@ namespace WebLegemDAL.Models
                 e.isNull = true;
                 return e;
             }
-        } // end Null prop
+        } // fin prop Null
+
+        [OracleObjectMappingAttribute("ID")]
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
+        } // fin prop Id
 
         [OracleObjectMappingAttribute("NOMBRE")]
         public string Nombre
@@ -43,21 +72,9 @@ namespace WebLegemDAL.Models
             {
                 nombre = value;
             }
-        } // end prop Nombre
+        } // fin prop Nombre        
 
-        [OracleObjectMappingAttribute( "ID" )]
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
-            set
-            {
-                id = value;
-            }
-        }
-
+        [OracleObjectMappingAttribute("TIPO_ENTIDAD")]
         public TipoEntidad TipoEntidad
         {
             get
@@ -68,60 +85,40 @@ namespace WebLegemDAL.Models
             {
                 tipoEntidad = value;
             }
-        }
+        } // fin prop TipoEntidad
 
-        [JsonIgnore]
-        [OracleObjectMappingAttribute( "TIPO_ENTIDAD" )]
-        public OracleRef TipoEntidadRef
-        {
-            get
-            {
-                return tipoEntidadRef;
-            }
-            set
-            {
-                tipoEntidadRef = value;
-            }
-        } // end prop TipoEntidadRef
+
+
+        /**********************************************************************************
+         **********************************************************************************
+         *
+         *  OVERWRITTEN METHODS
+         *                     
+         **********************************************************************************/
 
         public virtual void FromCustomObject(OracleConnection con, IntPtr pUdt)
-        {
-            // Convierte de Custom Type a Oracle Object
-
-            // establece el atributo "ID"
-            // por defecto el atributo id sera establecido a NULL            
+        {                      
             OracleUdt.SetValue(con, pUdt, "ID", id);
 
-            // establece el atributo "NOMBRE"
-            // por defecto el atributo "NOMBRE" sera establecido a NULL             
-            if (nombre != null)
-            {
-                OracleUdt.SetValue(con, pUdt, "NOMBRE", nombre);
-            }
+            if (nombre != null)            
+                OracleUdt.SetValue(con, pUdt, "NOMBRE", nombre);            
 
-            if (tipoEntidadRef != null) {
-                OracleUdt.SetValue( con, pUdt, "TIPO_ENTIDAD", tipoEntidadRef );
-            }
+            if (tipoEntidad != null)
+                OracleUdt.SetValue( con, pUdt, "TIPO_ENTIDAD", tipoEntidad );            
 
-        } // end method FromCustomObject
+        } // fin method FromCustomObject
 
+        // Convierte de Oracle Object a Custom .NET Type
         public virtual void ToCustomObject(OracleConnection con, IntPtr pUdt)
-        {
-            // Convert from the Oracle Object to a Custom Type
-            
-            id = (Int32)OracleUdt.GetValue(con, pUdt, "ID");
-            
-            nombre = (string) OracleUdt.GetValue(con, pUdt, "NOMBRE");
-
-            tipoEntidadRef = (OracleRef) OracleUdt.GetValue( con, pUdt, "TIPO_ENTIDAD" );
-
-            TipoEntidad = (TipoEntidad) tipoEntidadRef.GetCustomObject(  OracleUdtFetchOption.Server );
+        {            
+            Id = (Int32)OracleUdt.GetValue(con, pUdt, "ID");            
+            Nombre = (string) OracleUdt.GetValue(con, pUdt, "NOMBRE");
+            TipoEntidad = (TipoEntidad) OracleUdt.GetValue( con, pUdt, "TIPO_ENTIDAD" );            
         } // end ToCustomObject method
 
         public override string ToString()
         {
             return "Entidad( " + Id + ", " + Nombre + ", " + tipoEntidad + " )";
-        } // end ToString method
-
-    } // end Entidad class
-} // end namespace
+        } // fin ToString method
+    } // fin Entidad class
+} // fin namespace

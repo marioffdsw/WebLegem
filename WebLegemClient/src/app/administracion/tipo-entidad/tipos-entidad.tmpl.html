@@ -1,25 +1,23 @@
 ﻿<div class="contenido">
     <label class="titulo">Tipo de Entidad</label>
-    <div class="contenedor1">
-        <div style="margin: 0 25%; ">
-            <form class="form_tipo_documento">
-                <div style="display:inline-block; width:100%;">
-                    <label class="texto_labels">Nombre de entidad</label>
-                    <input class="a_input" style="width:100%;" type="text" ng-model="vm.tipoEntidad.nombre" placeholder="Ingrese el nombre Entidad" />
-                </div>
+    <div>
+        <div>
+            <form class="form_administracion">
+                <label class="texto_labels">Nombre de entidad</label>
+                <input class="a_input input_administracion" type="text" ng-model="vm.tipoEntidad.nombre" placeholder="Ingrese el nombre Entidad" />
                 <!--<div style="display:inline-block; width:40%;">
                     <label class="texto_labels">tipo de entidad</label>
                     <input class="a_input" style="width:80%;" type="text" ng-model="vm.tipoEntidad.tipo" placeholder="Ingrese el tipo de entidad" />
                 </div>-->
-                <div style="display:inline-block; width:100%;">
-                    <button class="a_boton btn_con_ico" type="button" style="display:inline-block;" ng-if="!vm.editando" ng-click="vm.create()">
-                        <img src="recursos/iconos_png/ico_agregar.png" />Añadir
+                <div style="display:inline;padding: 0 0 0 10px;">
+                    <button class="btn_con_ico" type="button" style="display:inline-block;" ng-if="!vm.editando" ng-click="vm.create()">
+                        <span class="ico-plus tamano_botones_1"></span>Añadir
                     </button>
-                    <button class="a_boton btn_con_ico" type="button" style="display:inline-block;" ng-if="vm.editando" ng-click="vm.guardar()">
-                        <img src="recursos/iconos_png/ico_guardar.png" />Guardar
+                    <button class="btn_con_ico" type="button" style="display:inline-block;" ng-if="vm.editando" ng-click="vm.guardar()">
+                        <span class="ico-floppy-o tamano_botones_1"></span>Guardar
                     </button>
-                    <button class="a_boton btn_con_ico" type="button" style="display:inline-block;" ng-click=" vm.cancelar()">
-                        <img src="recursos/iconos_png/ico_cancelar.png" />Cancelar
+                    <button class="btn_con_ico" type="button" style="display:inline-block;" ng-click=" vm.cancelar()">
+                        <span class="ico-times tamano_botones_1"></span>Cancelar
                     </button>
                 </div>
             </form>
@@ -27,19 +25,34 @@
 
         <div style="display:block;">
 
-            <div style="margin: 0 25%; ">
-                <br /><br />
+            <div>
                 <label class="texto_labels">Lista de tipo de entidades</label>
 
-                <select size="3" class="select_td_te" ng-disabled="vm.editando" ng-options="tipo as tipo.nombre for tipo in vm.tiposEntidad" ng-model="vm.tipoEntSeleccionada"></select>
+                <!--<select size="3" class="select_td_te" ng-disabled="vm.editando" ng-options="tipo as tipo.nombre for tipo in vm.tiposEntidad" ng-model="vm.tipoEntSeleccionada"></select>-->
 
-                <button class="a_boton btn_con_ico" ng-disabled="vm.editando" type="button" ng-click="vm.remover()">
-                    <img src="recursos/iconos_png/ico_borrar.png" />Remover
-                </button>
-                <button class="a_boton btn_con_ico" ng-disabled="vm.editando" type="button" ng-click="vm.editar()">
-                    <img src="recursos/iconos_png/ico_editar.png" />Editar
-                </button>
+                <ul class="a_listado">
+                    <li ng-repeat="tipoEntidad in vm.tiposEntidad">
+                        <input type="radio" name="tipo_entidad_rad" class="styled" id="{{tipoEntidad.id}}"
+                            ng-value="tipoEntidad"
+                            ng-click="vm.listadoTipoEntidad(tipoEntidad)"/>
+                        <label class="styled" for="{{tipoEntidad.id}}">{{ tipoEntidad.nombre }}</label>
+                    </li>
+                    <!--
+                    <li>
+                        <input type="radio" name="radio_name" class="styled" id="b_1" ng-click="vm.listadoTipoEntidad('b_1')">
+                        <label class=" styled" for="b_1">item 1</label>
+                    </li>-->
+                </ul>
+
+                <div style=" width:50%; margin-top:10px; float:right;">
+                    <button id="remover_te" class="btn_con_ico" ng-disabled="vm.editando" type="button" ng-click="vm.remover()">
+                        <span class="ico-trash tamano_botones_1"></span>Remover
+                    </button>
+                    <button id="editar_te" class="btn_con_ico" ng-disabled="vm.editando" type="button" ng-click="vm.editar()">
+                        <span class="ico-pencil tamano_botones_1"></span>Editar
+                    </button>
+                </div>
+                <div style="clear:both;"></div>
             </div>
         </div>
     </div>
-</div>

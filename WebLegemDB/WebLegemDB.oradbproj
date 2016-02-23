@@ -53,6 +53,9 @@
     <Content Include="drop_web_legem.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Functions\obtener_archivo_seq_fun.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Indexes\bfile_idx.sql">
       <SubType>Content</SubType>
     </Content>
@@ -95,10 +98,16 @@
     <Content Include="Procedures\crear_tipo_entidad_pro.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Sequences\archivo_seq.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Sequences\doc_id_typ_seq.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Sequences\entidad_seq.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\identificadores_documentos_seq.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Sequences\tipo_anotacion_seq.sql">
@@ -164,10 +173,31 @@
     <Content Include="Triggers\View Triggers\actualizar_tipo_doc_trig.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Triggers\View Triggers\actualizar_entidad_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Triggers\View Triggers\actualizar_tipo_entidad_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Triggers\View Triggers\crear_doc_contenido_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Triggers\View Triggers\crear_entidad_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Triggers\View Triggers\crear_tipo_documento_trig.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Triggers\View Triggers\crear_tipo_entidad_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Triggers\View Triggers\eliminar_entidad_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Triggers\View Triggers\eliminar_tipo_doc_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Triggers\View Triggers\eliminar_tipo_entidad_trig.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="User Defined Types\Nested Tables\tipo_documento_tab_typ.sql">

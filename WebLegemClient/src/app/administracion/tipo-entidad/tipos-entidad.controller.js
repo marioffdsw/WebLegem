@@ -5,9 +5,11 @@
         .module("WebLegemApp.Administracion")
         .controller("TipoEntidadController", TipoEntidadController);
 
-    TipoEntidadController.$inject = [ "TipoEntidadService", "$scope" ];
-    function TipoEntidadController( TipoEntidadService, $scope ) {
+    TipoEntidadController.$inject = [ "TipoEntidadService" ];
+    function TipoEntidadController( TipoEntidadService ) {
         var vm = this;
+        //variables de andres
+        var elemento;
         
         //vm.tiposEntidad = [];
         vm.tipoEntSeleccionada = {}
@@ -20,26 +22,7 @@
         vm.editar = editar;
         vm.guardar = guardar;
         vm.remover = remover;
-
-        var estado = { nombre: "Tipo Entidad", enlace: "administracion.tipo-entidad" };
-
-        var ban = false;
-        var i = 0;
-
-        while (!ban && i < $scope.$parent.vm.estados.length) {
-            if ($scope.$parent.vm.estados[i].nombre == estado.nombre) {
-                ban = true;
-            }
-            i++;
-        }
-
-        if ($scope.$parent.vm.estados.length > 1) {
-            $scope.$parent.vm.estados.pop();
-        }
-
-        if (ban == false) {
-            $scope.$parent.vm.estados.push(estado);
-        }
+        vm.listadoTipoEntidad = listadoTipoEntidad;
         
 
         TipoEntidadService.query(function (data) {
@@ -88,6 +71,23 @@
             });
             console.log( vm.tipoEntSeleccionada );
         } // end function remover
+
+        function listadoTipoEntidad(tipoEntidad) {
+            vm.tipoEntSeleccionada = angular.copy( tipoEntidad );
+            var algo = document.getElementById(tipoEntidad.id);
+
+            if (elemento == algo) {
+                algo.checked = false;
+                elemento = null;
+                document.getElementById('remover_te').style.visibility = 'hidden';
+                document.getElementById('editar_te').style.visibility = 'hidden';
+            }
+            else {
+                elemento = algo;
+                document.getElementById('remover_te').style.visibility = 'visible';
+                document.getElementById('editar_te').style.visibility = 'visible';
+            }       
+        }
 
 
         /*

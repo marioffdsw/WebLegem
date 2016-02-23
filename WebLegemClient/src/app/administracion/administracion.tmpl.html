@@ -1,9 +1,28 @@
-﻿<h1>Administración</h1>
-<nav>
-    <ul>
-        <li ng-repeat="estado in vm.estados">
-            <a ui-sref="{{ estado.enlace }}">{{ estado.nombre }}</a>
-        </li>
-    </ul>
-</nav>
-<div ui-view></div>
+﻿<div class="contenedor_administracion" ng-show="val">
+    <div class="titulo">
+        <h3>Administracion</h3>
+    </div>
+
+    <div class="contenido">
+
+        <a class="a_thumbnail_container" ui-sref="administracion.tipo-documento">
+            <img class="a_thumbnail" src="recursos/documents7.svg" /><br />
+            <label>Tipo Documento</label>
+        </a>
+        <a class="a_thumbnail_container" ui-sref="administracion.tipo-entidad">
+            <img class="a_thumbnail" src="recursos/documents23.svg" /><br />
+            <label>Tipo Entidad</label>
+        </a>
+
+        <a class="a_thumbnail_container" ui-sref="administracion.entidad">
+            <img class="a_thumbnail" src="recursos/job4.svg" /><br />
+            <label>Entidad</label>
+        </a>
+        <a class="a_thumbnail_container" ui-sref="administracion.tipo-anotacion">
+            <img class="a_thumbnail" src="recursos/box68.svg" /><br />
+            <label>Tipo Anotacion</label>
+        </a>
+    </div>
+    <img />
+</div>
+<div ui-view class="view_administracion"></div>

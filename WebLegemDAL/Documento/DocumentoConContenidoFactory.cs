@@ -3,14 +3,14 @@ using WebLegemDAL.Models;
 
 namespace WebLegemDAL.Factory
 {
-    [OracleCustomTypeMappingAttribute("WEB_LEGEM.DOC_ID_TYP")]
-    public class IdDocumentoFactory : IOracleCustomTypeFactory
+    [OracleCustomTypeMappingAttribute("WEB_LEGEM.DOCUMENTO_CONTENIDO_TYP")]
+    public class DocumentoConContenidoFactory : IOracleCustomTypeFactory
     {
         // Implementation of IOracleCustomTypeFactory.CreateObject()
         public IOracleCustomType CreateObject()
         {
             // Return a new custom object
-            return new IdDocumento();
-        } // end CreateObject method
-    } // end TipoDocumentoFactory class
-} // end namespace
+            return new DocumentoConContenido();
+        } // end CreateObject method        
+    }
+}

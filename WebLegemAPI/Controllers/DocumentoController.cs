@@ -1,44 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Linq;
 using System.Web.Http;
 using WebLegemDAL.Models;
 using WebLegemDAL.DAL;
 using System.Web.Http.Cors;
+using WebLegemDAL;
+using WebLegemDAL.QueryObjects;
+using System.Collections.Generic;
+using System.Web.OData;
 
 namespace WebLegemAPI.Controllers
 {
     [EnableCorsAttribute("*", "*", "*")]
     public class DocumentoController : ApiController
     {
-        public IQueryable<Documento> Get()
+        private IDataAccessObject<DocumentoConContenido> DAO;
+        private IGestorDeConsultas<DocumentoConContenidoQueryObject, DocumentoConContenido> gestorConsultas;
+
+        public DocumentoController( IDataAccessObject<DocumentoConContenido> dao,
+            IGestorDeConsultas<DocumentoConContenidoQueryObject, DocumentoConContenido> gestor ) : base()
         {
-            string constr = "user id=web_legem;password=web_legem;data source=ORCL";
-
-            var tdDal = new DocumentoDAL();
-            tdDal.OpenConnection(constr);
-
-            var Documentos = tdDal.GetAllDocumentos();
-
-            tdDal.CloseConnection();
-
-            return Documentos.AsQueryable<Documento>();
+            this.DAO = dao;
+            this.gestorConsultas = gestor;
+        } // fin contructor
+        
+        [EnableQuery()]       
+        public IQueryable<DocumentoConContenido> Get()
+        {            
+            return DAO.GetAll();
         } // end GET Action Method     
 
-        public Documento Post( Documento doc )
+        [EnableQuery()]
+        public IQueryable<DocumentoConContenido> Get( string palabrasABuscar )
         {
-            string constr = "user id=web_legem;password=web_legem;data source=ORCL";
-
-            var dDal = new DocumentoDAL();
-            dDal.OpenConnection(constr);
-
-            dDal.CreateDocumento(ref doc);
-
-            dDal.CloseConnection();
-
-            return doc;
+            return gestorConsultas.Consultar( new DocumentoConContenidoQueryObject() { PalabrasABuscar = palabrasABuscar } );
         }
-    } // end class DocumentoController
-} // end namespace
+
+        public DocumentoConContenido Post( DocumentoConContenido doc )
+        {
+            return DAO.Create( doc );
+        } // fin action method POST
+    } // fin class DocumentoController
+} // fin namespace

@@ -5,9 +5,10 @@
         .module("WebLegemApp.Administracion")
         .controller("TipoDocumentoController", TipoDocumentoController);
 
-    TipoDocumentoController.$inject = [ "TipoDocumentoResource", "$scope" ];
-    function TipoDocumentoController( TipoDocumentoResource, $scope ) {
+    TipoDocumentoController.$inject = [ "TipoDocumentoResource" ];
+    function TipoDocumentoController( TipoDocumentoResource ) {
         var vm = this;
+        var elemento;
 
         /*
          * vm properties 
@@ -17,26 +18,6 @@
         vm.tiposDoc = [];
         vm.tipoDocSeleccionado = {}
         vm.editando = false;
-        var estado = { nombre: "Tipo Documento", enlace: "administracion.tipo-documento" };
-        
-        var ban = false;
-        var i = 0;
-
-        while (!ban && i < $scope.$parent.vm.estados.length) {
-            if ($scope.$parent.vm.estados[i].nombre == estado.nombre) {
-                ban = true;
-            }
-            i++;
-        }
-
-        if ($scope.$parent.vm.estados.length > 1) {
-            $scope.$parent.vm.estados.pop();
-        }
-
-        if (ban == false) {
-            $scope.$parent.vm.estados.push(estado);
-        }
-
 
         /* 
          * public method definition 
@@ -47,6 +28,7 @@
         vm.editar = editar;
         vm.guardar = guardar;
         vm.remover = remover;
+        vm.listadoTipoDocumento = listadoTipoDocumento;
         
 
         /*
@@ -63,7 +45,9 @@
 
         function create() {
             TipoDocumentoResource.save(vm.tipoDoc, function (data) {
-                vm.tiposDoc.push( data );
+                TipoDocumentoResource.query(function (data) {
+                    vm.tiposDoc = data;
+                });
             });
             cancelar();
         } // end function create
@@ -74,7 +58,8 @@
         } // end function cancel
 
         function editar() {
-            vm.tipoDoc = angular.copy( vm.tipoDocSeleccionado );
+            vm.tipoDoc = angular.copy(vm.tipoDocSeleccionado);
+            console.log( vm.tipoDoc );
             vm.editando = true;            
         } // end function editar
 
@@ -89,16 +74,32 @@
             });
 
             cancelar();
-        } // end method guardar   
+        } // end method guardar
 
-        function remover() {            
-            TipoDocumentoResource.remove(vm.tipoDocSeleccionado, function () {
+        function remover() {
+            console.log(vm.tipoDocSeleccionado);
+            TipoDocumentoResource.remove(vm.tipoDocSeleccionado, function () {                
                 TipoDocumentoResource.query(function (data) {
                     vm.tiposDoc = data;
                 });
             });
         } // end function remover
 
+        function listadoTipoDocumento(tipoDocSeleccionado) {
+            var algo = document.getElementById(tipoDocSeleccionado.id);
+            vm.tipoDocSeleccionado = tipoDocSeleccionado
+            if (elemento == algo) {
+                algo.checked = false;
+                elemento = null;
+                document.getElementById('remover_td').style.visibility = 'hidden';
+                document.getElementById('editar_td').style.visibility = 'hidden';
+            }
+            else {
+                elemento = algo;
+                document.getElementById('remover_td').style.visibility = 'visible';
+                document.getElementById('editar_td').style.visibility = 'visible';
+            }
+        }
 
         /*
          * private methods

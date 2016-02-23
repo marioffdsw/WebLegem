@@ -1,4 +1,5 @@
-﻿(function () {
+﻿/// <reference path="login/login.tmpl.html" />
+(function () {
 	"use strict";
 
 	angular
@@ -17,10 +18,8 @@
 			    templateUrl: 'app/noticias/noticias.tmpl.html',
 			})
             .state('administracion', {
-                url: '/administracion',                
-                templateUrl: 'app/administracion/administracion.tmpl.html',
-                controller: "AdministracionController",
-                controllerAs: "vm"
+                url: '/administracion',
+                templateUrl: 'app/administracion/administracion.tmpl.html',                
             })
 			.state('login', {
 			    url: '/login',
@@ -29,10 +28,15 @@
                 controllerAs: "vm"
 			})
             .state('gestion-documental', {
-                url: "/gestion-documental",                
-                templateUrl: "app/gestion-documental/gestion-documental.tmpl.html",
-                controller: "GestionDocumentalController",
-                controllerAs: "vm"
-            });
+                url: "/gestion-documental",
+                abstract: true,
+                template: "<div ui-view></div>",
+            })
+
+	        .state('busqueda', {
+	            url: "/busqueda",
+	            templateUrl: 'app/busqueda/busqueda.tmpl.html'
+	        });
+
 	} // end config function	
 })();

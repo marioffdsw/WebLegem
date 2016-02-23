@@ -1,40 +1,54 @@
 ﻿.contenedor_login{
-    width:40%;
-    margin:auto;
-    border-radius:0.5em 0.5em 0.5em 0.5em ;
+    width:420px;
+    margin: 0 auto;
+    padding: 40px 0 0 0;
+    border-radius:0.2rem ;    
+    z-index: 9999;
+}
 
-    -webkit-box-shadow: 0.5em 0.5em 1em 0 rgba(0,0,0,0.75);
-    -moz-box-shadow: 0.5em 0.5em 1em 0 rgba(0,0,0,0.75);
-    box-shadow: 0.5em 0.5em 1em 0 rgba(0,0,0,0.75);
+.contenedor_login:before {
+    content: '';
+    background-image: url('../recursos/header/pexels-photo-46274 (2).jpeg');
+    background-size: cover;
+    -webkit-filter: brightness(50%);
+    filter: brightness(50%);
+    width: 100%;
+    height: 80vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -3;
+}
+
+.subtitulo {
+    background:transparent;
+}
+
+.subtitulo > p{
+    font-family:sans-serif;
+    font-size:2rem;
+    text-align:center;
+    color: #37404A;
+    padding: 10px 0 10px 0 ;
 }
 
 
 #user_login{
-    display:block;
-    margin:auto;
-    width:60%;
-    height:100%;
-}
-#user_login path{
-    fill: #fff;
+    color:white;
+    font-size:xx-large;
 }
 
 #user_lock{
-    display:block;
-    margin:auto;
-    width:60%;
-    height:100%;
-}
-#user_lock path{
-    fill: #fff;
+    color:white;
+    font-size:xx-large;
 }
 
 
-.form{
-    background:#fff;
-    border-radius:0 0 0.5em 0.5em ; 
-    padding:2em;
-    margin-bottom: 5em;
+
+.form_login{
+    background:rgb(255, 255, 255);
+    border-radius:0 0 4px 4px ; 
+    padding: 0 24px 24px 24px;
     position:relative;
 }
 
@@ -73,11 +87,13 @@
 
 .circulo1 {
     position:absolute;
-    display:inline-block;
+    display:flex;
     right: 0;
     top: -6px;
     width: 50px;
     height: 50px;
+    justify-content:center;
+
      -moz-border-radius: 50%;
      -webkit-border-radius: 50%;
      border-radius: 50%;
@@ -93,17 +109,28 @@
 
 .circulo2 {
     position:absolute;
-    display:block;
+    display:flex;
     right:0;
     top: -6px;
     width: 50px;
     height: 50px;
+    justify-content:center;
+    
      -moz-border-radius: 50%;
      -webkit-border-radius: 50%;
      border-radius: 50%;
+
      background: #a5a3a3;
      transition:all 0.5s;
     -webkit-transition:all 0.5s;
     -moz-transition: all 0.5s; 
+}
+
+.olvide_contraseña{
+    padding-top:20px; 
+    text-align: center;
+    display:    block;
+    font-family: 'Century Gothic';
+    font-size:small;
 }
 

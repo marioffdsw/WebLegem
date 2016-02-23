@@ -1,6 +1,5 @@
--- drop everything as system
-connect system/1234
 
-drop tablespace tb_web_legem including contents;
+CONNECT system/1234
 
-drop user web_legem cascade;
+DROP USER web_legem CASCADE;
+DROP TABLESPACE tb_web_legem INCLUDING CONTENTS;

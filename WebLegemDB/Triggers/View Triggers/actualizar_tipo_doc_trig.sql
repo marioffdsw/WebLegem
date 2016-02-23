@@ -6,7 +6,7 @@ CREATE TRIGGER actualizar_tipo_doc_trig
    FOR EACH ROW
 BEGIN
     UPDATE tipos_documento_tab td
-        SET nombre = :NEW.tipos_documento.nombre
-        WHERE td.id = :NEW.tipos_documento.id;    
+        SET nombre = :NEW.tipo_documento.nombre
+        WHERE td.id = :NEW.tipo_documento.id;    
 END actualizar_tipo_doc_trig;
 /
