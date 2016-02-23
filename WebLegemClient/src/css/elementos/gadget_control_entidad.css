@@ -1,0 +1,133 @@
+﻿.entidad_control{
+    float:left;
+    height:50vh;
+    width:50%;
+    position:relative;
+}
+
+.iconos_control{
+    color:#37404A;
+    background:white;
+    font-size-adjust:.8;
+    cursor:pointer;
+    height:100%;
+    margin-left:3px;
+    padding:6px;
+    padding-top:4px;
+    display:inline-block;
+    border-radius:3px;
+    float:right;
+}
+
+.panel_control{
+    background:rgb(237, 237, 237); 
+    display:block; 
+    position:absolute; 
+    width:100%; 
+    top:40px; 
+    bottom:0; 
+    overflow:auto; 
+    padding:5px;
+    border:2px solid #a1a1a1;
+    border-top:none;
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
+}
+
+.a_bloques  li{
+    display:inline-block;
+    margin:4px;
+}
+
+.a_bloques  li label{
+
+}
+
+.a_bloques li input {
+    cursor: pointer;
+    display:none;
+}
+
+.a_bloques input:hover + label{
+    cursor:pointer;
+    box-shadow:#a1a1a1 0 0 0 2px inset;
+}
+
+.a_bloques input:checked + label{        
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    box-shadow:#29c44b 0 0 1px 2px inset;
+}
+
+
+.note {
+   display:inline-block;
+   height:18vh;/*alto de la hoja*/
+   width:7vw;/*ancho de la hoja*/
+
+   padding:14px;
+   /*Pendiente script para auto ajustar el texto*/
+
+   position:relative;
+   background:#fff;
+    -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.4);
+   -moz-box-shadow: 0 0 1px rgba(0,0,0,0.4);
+   box-shadow: 0 0 1px rgba(0,0,0,0.4);
+}
+.note:before {
+   content:"";
+   position:absolute;
+   top:-2px;
+   right:-1px;
+   border-width:0 16px 16px 0;
+   border-style:solid;
+   border-color:#fff rgb(237, 237, 237) ; 
+   display:block;
+   width:0;
+   -webkit-box-shadow: -1px 2px 1px rgba(0,0,0,0.4);
+   -moz-box-shadow: -1px 2px 1px rgba(0,0,0,0.4); 
+   box-shadow: -1px 2px 1px rgba(0,0,0,0.4);
+   overflow:hidden;
+}
+.note:after {
+   content:"✓";
+   position:absolute;
+   font-size:x-large;
+   font-weight:900;
+   bottom:0;
+   right:80%;
+   opacity:0;
+ 
+   -webkit-transition: all 0.3s ease-in ;
+   -moz-transition: all 0.3s ease-in ; 
+   transition: all 0.3s ease-in ;
+   visibility:hidden;
+
+   display:block;
+   overflow:hidden;
+}
+.a_bloques input:checked + label::after {
+   content:"✓";
+   position:absolute;
+   font-size:x-large;
+   font-weight:900;
+   bottom:0;
+   right:0;
+   padding-right:4px;
+   opacity:1;
+   text-shadow:0 0 1px green;
+
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   transition: all 0.3s ease-out;
+   visibility:visible;
+
+   display:block;
+   overflow:hidden;
+}
+.note.rounded {
+   -webkit-border-radius:3px 0 3px 3px;
+   -moz-border-radius:5px 0 5px 5px;
+   border-radius:3px 0 3px 3px;
+}

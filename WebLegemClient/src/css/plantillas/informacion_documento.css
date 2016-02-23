@@ -1,0 +1,60 @@
+﻿#informacion_documento{
+    
+}
+
+
+
+#informacion_documento div{
+    
+    display:flex;
+    display: -webkit-flex;
+    
+    -ms-flex-direction:row;
+    -webkit-flex-direction:row;
+    flex-direction:row;
+
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;/*hace que se adapte si lo es necesario*/
+
+    align-items:center;
+    
+    width: auto;
+
+    -webkit-transition: width 0.7s ease-out;
+    transition: width 0.7s ease-out;
+
+  
+}
+
+#informacion_documento div label{
+    flex-basis:200px;
+}
+
+#informacion_documento div input
+{
+    flex-grow:1;
+    width:auto;
+    min-width:200px;
+    max-width:400px;
+}
+
+
+#informacion_documento div div{
+
+    width:auto;
+    min-width:200px;
+    max-width:400px;
+    display:inline-block;
+    position:relative;
+}
+
+#informacion_documento div div select{
+    width:100%;
+}
+
+#informacion_documento div div span{
+    position: absolute;
+    right: 10px;
+    top: 20px;
+}

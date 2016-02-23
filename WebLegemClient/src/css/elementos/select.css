@@ -1,0 +1,34 @@
+﻿.select{
+    margin-top:10px;
+    margin-bottom:10px;
+    width:50%;
+    border-radius:3px;
+    border:1px solid #a1a1a1;
+    height:35px;
+    cursor:pointer;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+}
+
+.select:hover ~ .span_select:before {
+    color: #3d9851;
+    text-shadow: 0 0 3px #45b15d;
+}
+
+.span_select {
+    display:inline;
+    position:relative;
+    color: #a1a1a1;
+    font-size:x-large;
+}
+
+.span_select:before {        
+    content: '';
+    right: 9px;
+    top: 4px;
+    position: absolute;
+    pointer-events:none;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    transition: all 0.5s;
+}

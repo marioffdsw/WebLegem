@@ -1,0 +1,13 @@
+﻿.input_administracion{
+    margin-top:10px;
+    width:auto;
+    min-width:50%;
+    max-width:100%;
+}
+
+#remover_td, #editar_td {
+    display:block; 
+    visibility:hidden; 
+    margin: 0 0 5px 15px; 
+}
+

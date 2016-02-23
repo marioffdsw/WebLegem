@@ -1,0 +1,23 @@
+﻿.text_area{
+    border:0.1em solid #246848;
+    font-family:'Century Gothic';
+    font-size:small;
+    width:100%;
+    min-width:100%;
+    max-width:100%;
+    margin: 10px 0;
+
+    padding: 10px 10px;
+    border-radius:3px;
+    border:1px solid #a1a1a1;
+    -o-transition:     box-shadow 0.4s;
+    -webkit-transition:box-shadow 0.4s;
+    -moz-transition:   box-shadow 0.4s;
+    transition:        box-shadow 0.4s;
+}
+
+
+.text_area:focus{
+    border:1px solid  #3f9f43;
+    box-shadow: 0 0 4px rgb(75 , 187, 79) ;
+}

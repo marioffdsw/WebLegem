@@ -1,0 +1,97 @@
+﻿.contenedor_navegacion{
+    position: relative;
+    height: 40px;
+    background:rgba(0, 0, 0,1);
+/*    background-image: url('../recursos/header/green-texture_1280x720_sc.jpg');*/
+    
+}
+
+/*barra de navegacion*/
+.navegacion{
+    position:relative;
+    bottom: 2px;
+    right:0;
+    z-index:8;
+}
+
+.bar_nav{
+    height:30px;
+    /*
+    -webkit-box-shadow: 0 1px 2px 0 rgba(36, 38, 36, 0.93);
+    -moz-box-shadow: 0 1px 2px 0 rgba(36, 38, 36, 0.93);
+    box-shadow: 0 1px 2px 0 rgba(36, 38, 36, 0.93);*/
+}
+
+.bar_nav > li {
+    list-style:none;
+    background:rgba(55, 64, 74, 0.31);
+    float:right;
+    line-height:2.1;
+    position:relative; 
+    
+    z-index:8;
+    
+   /* border-right:2px solid green;*/
+}
+
+
+/*animacion de las items de navegacion*/
+.bar_nav > li:before{
+    content:"";
+    width:0;
+    height:4px;
+    background:#F39C22;
+    position:absolute;
+    left:50%;
+    bottom:0;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+.bar_nav > li:hover:before{
+
+    width:100%;
+    left:0;
+}
+
+.bar_nav > li:hover{
+    
+    background: #37404A;
+}
+/*-----------------------------------*/
+
+.bar_nav li a {
+    font-family:'Century Gothic';
+    font-weight:bold;
+    text-decoration: none;
+    padding: 0 1rem;
+    color:#fff;
+    font-size:1rem;
+    text-align:center;
+}
+
+
+.bar_nav li ul {
+    list-style:none;
+    position:absolute;
+    width:120%;
+    display:none;
+    padding: 1em 0;
+    background:rgba(55, 64, 74,0.95);
+    margin-bottom:.5rem;
+    
+    z-index:8;
+}
+
+.bar_nav li:hover > ul {
+    display:block;
+    position:absolute;
+    z-index:3;
+}
+
+.bar_nav > li > ul > li:hover a{
+    color:#F39C22;
+}
+
