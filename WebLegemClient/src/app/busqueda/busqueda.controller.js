@@ -50,6 +50,12 @@
 
         } // fin function buscar
 
+        function borrar_filtro(id) {
+//            var li = document.getElementById(id).parentNode;
+            console.log("hola");
+           
+
+        };
 
         return vm;
     } // fin Busqueda Controller
