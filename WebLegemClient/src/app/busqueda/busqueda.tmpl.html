@@ -7,14 +7,14 @@
         <div id="tabContainer">
             <div id="tabs">
                 <ul>
-                    <li id="tabHeader_1">Busqueda Básica</li>
+                    <li id="tabHeader_1" ng-click="vm.limpiar()">Busqueda Básica</li>
                     <li id="tabHeader_2">Busqueda Avanzada</li>
                 </ul>
             </div>
 
             <div id="tabscontent">
                 <div class="tabpage" id="tabpage_1">
-                    <input required name="busqueda" type="text" class="a_input input_busqueda" placeholder="Escriba aquí su busqueda(Ejemplo:Decreto 104 de 2015)" maxlength="50" id="nombre" />
+                    <input required name="busqueda" type="text" class="a_input input_busqueda" ng-model="vm.palabrasABuscar" placeholder="Escriba aquí su busqueda(Ejemplo:Decreto 104 de 2015)" maxlength="50" id="nombre" />
                     <button class="btn_con_ico " ng-click="vm.buscar( vm.palabrasABuscar)">
                         <span class="ico-search tamano_botones_1"></span>Buscar
                     </button>

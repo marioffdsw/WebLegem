@@ -14,6 +14,7 @@
         vm.entidadEmisora = "";
         vm.tipoDocumento = "";
         vm.documentosEncontrados = [];
+        vm.limpiar = limpiar;
         
 
         vm.buscar = buscar;
@@ -56,6 +57,14 @@
            
 
         };
+
+        function limpiar (){
+            vm.anioPublicacion = "";
+            vm.documentosEncontrados = [];
+            vm.numero = "";
+            vm.entidadEmisora = "";
+            vm.tipoDocumento = "";
+        }
 
         return vm;
     } // fin Busqueda Controller
