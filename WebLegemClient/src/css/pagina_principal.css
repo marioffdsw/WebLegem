@@ -11,14 +11,13 @@
     align-items: center;
     justify-content:center;
     position:relative;
-    width:100vw;
+    width:100%;
 }
 
 body {
     background-image: url('../recursos/cheap_diagonal_fabric.png');
+    background-image: url('../recursos/grey_wash_wall.png');
 }
-
-
 
 /*----------------------------------------------*/
 
