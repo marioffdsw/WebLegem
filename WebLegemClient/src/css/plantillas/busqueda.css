@@ -1,0 +1,169 @@
+﻿
+#wrapper{
+	width:100%;
+}
+
+#tabContainer {
+	width:100%;
+	background-color:white;
+}
+
+#tabs{
+	height:30px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+#tabs > ul{
+	font: 1em;
+	list-style:none;
+}
+
+#tabs > ul > li{
+	margin:0 2px 0 0;
+	padding:5px 10px;
+	display:inline;
+	color:#999999;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+    font-family:'Century Gothic';
+    font-size:small;    
+    cursor:pointer;	
+}
+
+#tabs > ul > li:hover{	
+	color: #3f9f43;
+    font-weight:bold;
+}
+
+#tabs > ul > li.tabActiveHeader{/*tab activa*/	
+	border-bottom: 3px solid #3bc742;   
+    color: #999999;
+    font-weight:bold;
+    font-size:14px;
+}
+
+#tabscontent{/*contenido de las tabs*/
+    padding: 10px 0; 
+}
+
+.input_busqueda{
+    width:80%;
+}
+
+/*------Busqueda Avanzada-------*/
+#busqueda_padre{
+    display:flex;
+    width:100%;
+}
+
+#busqueda_left{
+     -ms-flex-direction:column;
+    -webkit-flex-direction:column;
+    flex-direction:column;
+    padding:10px;
+    width:30%; 
+    height:100%;
+    background:rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 0 0 1px rgba(153, 153, 153, 0.40);
+    -moz-box-shadow: 0 0 0 1px rgba(153, 153, 153, 0.40);
+    box-shadow: 0 0 0 1px rgba(153, 153, 153, 0.40);
+}
+
+#busqueda_right{
+    -ms-flex-direction:column;
+    -webkit-flex-direction:column;
+    flex-direction:column;
+    padding:10px 30px;
+    width:90%; 
+    height:auto;
+}
+
+.input_busqueda_a{
+    width:80%;
+}
+
+.btn_search_avanzada{
+    background:rgba(55, 64, 74, 0.31);
+    line-height:1.8;
+    border:1px solid rgba(153, 153, 153, 0.40);
+    width:30px;
+    height:30px;
+    color:white;
+    font-size:large;
+    cursor:pointer;
+}
+.btn_search_avanzada:hover{
+    background:#999999;
+}
+.btn_search_avanzada:active{
+    background:rgba(153, 153, 153, 0.3);
+}
+
+/*------FIN Busqueda Avanzada-------*/
+
+/*-------Filtros--------*/
+
+#filtros_busqueda{
+    width:100%;
+    display: -webkit-flex;
+    display:flex;
+    -webkit-flex-direction:column;
+    flex-direction:column;
+    padding:5px;
+    background:white;
+    -webkit-box-shadow: 1px 1px 2px  rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 2px  rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 2px  rgba(0, 0, 0, 0.5);
+}
+
+.content_li_filtro{
+    display: -webkit-flex;
+    display:flex;
+    width:100%;
+    background:white;
+    border-radius:5px;
+    margin-bottom:10px;
+}
+
+.li_left{
+     -ms-flex-direction:column;
+    -webkit-flex-direction:column;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    width:80%;
+}
+
+.li_right{
+    width:20%;
+    text-align:end;
+}
+
+.tip{
+    padding:0 5px;
+    color:#4DBD88;    
+    font-size:1em;
+    font-family:'Franklin Gothic'; 
+    text-align:left;    
+   }
+.descripcion{   
+     padding:0 5px;
+     color:#3f4042;     
+     font-size:1em;     
+     font-family:'Franklin Gothic Book'; 
+}
+
+.btn_filtro_avanzada{
+    border:none;
+    background:transparent;
+    color:#ff6262;
+    font-size:x-large;
+    cursor:pointer;
+}
+
+/*------Fin Filtros------*/
+
+
+
+

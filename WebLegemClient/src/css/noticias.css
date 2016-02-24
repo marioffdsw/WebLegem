@@ -4,7 +4,7 @@
     padding-right: 5%;
     padding-top: 20px;
     font-family: Arial, "Helvetica", sans-serif;
-    background:rgba(255, 255, 255, 0.83);
+    background:rgb(255, 255, 255);
 }
 
 
@@ -133,7 +133,8 @@
 .masonry h1, .masonry h2 {
     -ms-word-wrap: break-word;
     word-wrap: break-word;
-    color:#53bf6b;
+    color:#515c68;
+    font-size:1.1em;
 }
 
 @media (min-width: 480px) {

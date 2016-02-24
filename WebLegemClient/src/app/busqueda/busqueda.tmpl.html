@@ -1,9 +1,125 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title></title>
-</head>
-<body>
-    hola mundo
-</body>
-</html>
+﻿
+<div class="contenido" ng-controller="busquedaController as bc">
+
+    <label class="titulo">Buscador de normatividad de la  Universidad de Nariño</label>
+
+    <div id="wrapper">
+        <div id="tabContainer">
+            <div id="tabs">
+                <ul>
+                    <li id="tabHeader_1">Busqueda Básica</li>
+                    <li id="tabHeader_2">Busqueda Avanzada</li>
+                </ul>
+            </div>
+
+            <div id="tabscontent">
+                <div class="tabpage" id="tabpage_1">
+                    <input required name="busqueda" type="text" class="a_input input_busqueda" placeholder="Escriba aquí su busqueda(Ejemplo:Decreto 104 de 2015)" maxlength="50" id="nombre" />
+                    <button class="btn_con_ico ">
+                        <span class="ico-search tamano_botones_1"></span>Buscar
+                    </button>
+                </div>
+
+                <div class="tabpage" id="tabpage_2">
+                    <content id="busqueda_padre">
+                        <content id="busqueda_left">
+
+                            <content id="filtros_busqueda">
+                                <label class="subtitulos_labels">Tus filtros</label>
+                                <hr />
+                                <ul>
+                                    <li class="content_li_filtro">
+                                        <content class="li_left">
+                                            <label class="tip">Tipo de documento:</label>
+                                            <label class="descripcion">vacio</label>
+                                        </content>
+                                        <content class="li_right">
+                                            <button id="fba_1" class="btn_filtro_avanzada" ng-click="bc.borrar_filtro(fba_1);">
+                                                <span class="ico-times-circle"></span>
+                                            </button>
+                                        </content> 
+                                    </li>
+                                    <li class="content_li_filtro">
+                                        <content class="li_left">
+                                            <label class="tip">Número de documento:</label>
+                                            <label class="descripcion">vacio</label>
+                                        </content>
+                                        <content class="li_right">
+                                            <button id="fba_1" class="btn_filtro_avanzada" ng-click="bc.borrar_filtro(fba_1);">
+                                                <span class="ico-times-circle"></span>
+                                            </button>
+                                        </content>
+                                    </li>
+                                    <li class="content_li_filtro">
+                                        <content class="li_left">
+                                            <label class="tip">Año de publicacion:</label>
+                                            <label class="descripcion">vacio</label>
+                                        </content>
+                                        <content class="li_right">
+                                            <button id="fba_1" class="btn_filtro_avanzada" ng-click="bc.borrar_filtro(fba_1);">
+                                                <span class="ico-times-circle"></span>
+                                            </button>
+                                        </content>
+                                    </li>
+                                    <li class="content_li_filtro">
+                                        <content class="li_left">
+                                            <label class="tip">Palabras a buscar:</label>
+                                            <label class="descripcion">vacio</label>
+                                        </content>
+                                        <content class="li_right">
+                                            <button id="fba_1" class="btn_filtro_avanzada" ng-click="bc.borrar_filtro(fba_1);">
+                                                <span class="ico-times-circle"></span>
+                                            </button>
+                                        </content>
+                                    </li>
+                                </ul>
+
+                            </content>
+
+                            <content class="form_busqueda_ava" >
+                                <br />
+                                <label class="subtitulos_labels">Tipo de documento</label>
+                                <input required name="TipoDoc" type="text" class="a_input input_busqueda_a" maxlength="50" id="tipodoc" placeholder="Escriba tipo de documento" />
+                                <button class="btn_search_avanzada">
+                                    <span class="ico-plus"></span>
+                                </button>
+                                <br />
+                                <label class="subtitulos_labels">Número de documento</label>
+                                <input required name="TipoDoc" type="text" class="a_input input_busqueda_a" maxlength="50" id="tipodoc" placeholder="Escriba número de documento" />
+                                <button class="btn_search_avanzada">
+                                    <span class="ico-plus"></span>
+                                </button>
+                                <br>
+                                <label class="subtitulos_labels">Año de publicación</label>
+                                <input required name="TipoDoc" type="date" class="a_input input_busqueda_a" maxlength="50" id="tipodoc" placeholder="Escriba año de publicación" />
+                                <button class="btn_search_avanzada">
+                                    <span class="ico-plus"></span>
+                                </button>
+                                <br />
+                                <label class="subtitulos_labels">Entidad emisora</label>
+                                <input required name="TipoDoc" type="text" class="a_input input_busqueda_a" maxlength="50" id="tipodoc" placeholder="Escriba entidad emisora" />
+                                <button class="btn_search_avanzada">
+                                    <span class="ico-plus"></span>
+                                </button>
+                                <br />
+                                <label class="subtitulos_labels">Palabras a buscar</label>
+                                <input required name="TipoDoc" type="text" class="a_input input_busqueda_a" maxlength="50" id="tipodoc" placeholder="Escriba palabras clave a buscar" />
+                                <button class="btn_search_avanzada">
+                                    <span class="ico-plus"></span>
+                                </button>
+                            </content>
+                        </content>
+                        <content id="busqueda_right">
+
+                        </content>
+                    </content>
+
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
