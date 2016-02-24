@@ -104,26 +104,22 @@
         vm.funcion_tamano = function () {
 
             var obj = document.getElementById("body_index");
-            var obj2 = document.getElementById("nombre_pagina");
 
             switch (vm.val_tamano){
                 case 0:
                     vm.tamano_letra = 'btn_tamano1';
                     vm.val_tamano = 1;
                     obj.style.fontSize = 110 + "%";
-                    obj2.style.fontSize = 100 + "px";
                     break;
                 case 1:
                     vm.tamano_letra = 'btn_tamano2';
                     vm.val_tamano = 2;
                     obj.style.fontSize = 120 + "%";
-                    obj2.style.fontSize = 100 + "px";
                     break;
                 case 2:
                     vm.tamano_letra = 'btn_tamano0';
                     vm.val_tamano = 0;
                     obj.style.fontSize = 100 + "%";
-                    obj2.style.fontSize = 100 + "px";
                     break;
             }
         };
