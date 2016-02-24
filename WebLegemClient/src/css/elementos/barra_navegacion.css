@@ -1,7 +1,7 @@
 ﻿.contenedor_navegacion{
     position: relative;
     height: 40px;
-    background:rgba(0, 0, 0,1);
+    background:#000000
 /*    background-image: url('../recursos/header/green-texture_1280x720_sc.jpg');*/
     
 }
@@ -9,7 +9,7 @@
 /*barra de navegacion*/
 .navegacion{
     position:relative;
-    bottom: 2px;
+    bottom: 0;
     right:0;
     z-index:8;
 }
@@ -24,7 +24,6 @@
 
 .bar_nav > li {
     list-style:none;
-    background:rgba(55, 64, 74, 0.31);
     float:right;
     line-height:2.1;
     position:relative; 

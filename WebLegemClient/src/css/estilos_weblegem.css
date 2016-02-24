@@ -1,33 +1,4 @@
-﻿/*estilo general para botones*/
-/*----------------------------------------*/
-.a_boton{
-    background-color: #45b15d;
-    padding: 0.6em 2em;
-    font-family:'Century Gothic';
-	font-size: 0.8em;
-	font-weight: 600;
-	text-transform: uppercase;
-	letter-spacing: 0.04rem;
-	color: #fff;
-	border:none;
-    border-radius:0.2em;
-
-	-webkit-transition: all 0.2s;
-	-moz-transition: all 0.2s;
-	transition: all 0.2s;
-}
-
-.a_boton:hover {
-    background-color:  #3d9851;
-}
-
-.a_boton:active{
-    background-color: #3d9851;
-    -webkit-box-shadow: inset 0 0 1px 3px #2f753f;
-    -moz-box-shadow: inset 0 0 1px 3px #2f753f;
-    box-shadow: inset 0 0 1px 3px #2f753f;
-}
-
+﻿
 /*estilo general para thumbnail*/
 /*----------------------------------------*/
 .a_thumbnail{
@@ -73,25 +44,6 @@
     overflow: hidden;
 }
 
-
-
-
-/*Disposiciones en display/
-/*******************/
-.a_block{
-    display:block;
-}
-.a_inline_block{
-    display:inline-block;
-}
-.a_inline{
-    display:inline;
-}
-/*cuerpo del cocumento*/
-.cuerpo{
-    margin-top:20px;
-}
-
 /*-------------------*/
 
 /*menesajes de validacion*/
@@ -101,21 +53,21 @@
     font-size:small;
 }
 
- 
-/* .a_search #lupa:before { flecha 
-    content: '';
-    position: absolute;
-    border-width: 18px 8px 8px 0;
-    border-style: solid solid solid none;
-    border-color: transparent #438cdb transparent;
-    top: 8px;
-    left: -5px;
-}*/
-
 /*TEXTO PARA LOS LABELS*/
 .texto_labels{
     display:block;
-    color:#21262c;
+    color:#434e58;
     font-size:1em;
     font-family:'Franklin Gothic';
+}
+
+.subtitulos_labels{
+    display:block;
+    color:#434e58;
+    font-size:.9em;
+    font-family:'Franklin Gothic';
+}
+
+.divisor_gestion_documental{
+    border: solid 1px #434e58;
 }

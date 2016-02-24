@@ -1,17 +1,21 @@
 ﻿<div class="contenido animatio ng-enter" id="holas">
     <label class="titulo">Crear Documento</label>
     <div>
+        <label class="subtitulos_labels">
+            Resultado Ocr
+        </label>
+        <hr class="divisor_gestion_documental" />
         <form>
             <textarea maxlength="50000" style="margin:1.5em 0; min-width:95%; height:300px;" readonly>{{ vm.documento.resultadoOcr }}</textarea>
             <br />
-            <button type="button" class="a_boton btn_con_ico" value="Editar">
-                <img src="recursos/iconos_png/ico_editar.png" /> Editar
+            <button type="button" class="btn_con_ico" value="Editar">
+                <span class="ico-pencil tamano_botones_1"></span>Editar
             </button>
-            <button type="button" class="a_boton btn_con_ico" value="Aceptar" ng-click="vm.dialogo()">
-                <img src="recursos/iconos_png/ico_aceptar.png" />Aceptar
+            <button type="button" class="btn_con_ico" value="Aceptar" ng-click="vm.dialogo()">
+                <span class="ico-check tamano_botones_1"></span>Cancelar
             </button>
-            <button type="button" class="a_boton btn_con_ico" value="Cancelar" ng-click="vm.cancelar()">
-                <img src="recursos/iconos_png/ico_cancelar.png" />Cancelar
+            <button type="button" class="btn_con_ico" value="Cancelar" ng-click="vm.cancelar()">
+                <span class="ico-times tamano_botones_1"></span>Cancelar
             </button>
         </form>
     </div>
