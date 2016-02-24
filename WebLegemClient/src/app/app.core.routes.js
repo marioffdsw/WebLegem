@@ -34,8 +34,10 @@
             })
 
 	        .state('busqueda', {
-	            url: "/busqueda",
-	            templateUrl: 'app/busqueda/busqueda.tmpl.html'
+	            url: "/search",
+	            templateUrl: 'app/busqueda/busqueda.tmpl.html',
+	            controller: "BusquedaController",
+                controllerAs: "vm"
 	        });
 
 	} // end config function	

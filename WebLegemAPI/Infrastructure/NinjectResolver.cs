@@ -7,6 +7,7 @@ using WebLegemDAL.Models;
 using Ninject.Web.Common;
 using WebLegemDAL;
 using WebLegemDAL.QueryObjects;
+using WebLegemDAL.Archivo;
 
 namespace WebLegemAPI.Infrastructure
 {
@@ -48,6 +49,7 @@ namespace WebLegemAPI.Infrastructure
             kernel.Bind<IDataAccessObject<TipoDocumento>>().To<TipoDocumentoDAO>().InRequestScope();
             kernel.Bind<IDataAccessObject<TipoEntidad>>().To<TipoEntidadDAO>().InRequestScope();
             kernel.Bind<IDataAccessObject<Entidad>>().To<EntidadDAO>().InRequestScope();
+            kernel.Bind<IDataAccessObject<Archivo>>().To<ArchivoDAO>().InRequestScope();
             kernel.Bind<IDataAccessObject<DocumentoConContenido>>().To<DocumentoConContenidoDAO>().InRequestScope();
 
             // bindings para gestor de consultas

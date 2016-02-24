@@ -135,7 +135,7 @@ namespace WebLegemDAL.DAL
                         documento_contenido_typ
                         (
                             ide.id,
-                            (SELECT * FROM entidades_view ev WHERE ev.entidad.id = ide.entidad  ), --TODO - cambiar el nombre de las vistas a plural
+                            (SELECT * FROM entidades_view ev WHERE ev.entidad.id = ide.entidad  ),
                           (SELECT * FROM tipos_documento_view tdv WHERE tdv.tipo_documento.id = ide.tipo_documento),
                             ide.numero,
                             ide.anio_publicacion,
@@ -146,8 +146,7 @@ namespace WebLegemDAL.DAL
                         ) AS documento_con_contenido
                         FROM identificadores_documentos_tab ide JOIN
                             contenidos_archivos_tab ca ON ide.id = ca.identificador_documento
-                        WHERE ca.estado LIKE '%A%' AND CONTAINS( ca.contenido, '{queryObject.PalabrasABuscar}', 1 ) > 0
-                        ORDER BY SCORE(1)";
+                        WHERE ca.estado LIKE '%A%'" + (queryObject.PalabrasABuscar != null && queryObject.PalabrasABuscar.Length != 0 ? $" AND CONTAINS( ca.contenido, '{queryObject.PalabrasABuscar}', 1 ) > 0 ORDER BY SCORE(1)" : "");
 
                 OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
                 OracleDataReader reader = cmd.ExecuteReader();

@@ -7,7 +7,8 @@ CREATE TRIGGER crear_entidad_trig
 BEGIN
     IF :NEW.entidad.id = 0
     THEN
-        INSERT INTO entidades_tab( id, tipo_entidad, nombre ) VALUES ( entidad_seq.NEXTVAL, :NEW.entidad.tipo_entidad.id, :NEW.entidad.nombre);         
+        INSERT INTO entidades_tab( id, tipo_entidad, nombre ) 
+            VALUES ( entidad_seq.NEXTVAL, :NEW.entidad.tipo_entidad.id, :NEW.entidad.nombre );
     END IF;
 END crear_tipo_documento_trig;
 /

@@ -7,21 +7,22 @@
         </label>
         <hr class="divisor_gestion_documental" />
         <form>
-            <label class="uploader" id="fileOutput">
+            <label class="uploader" id="fileOutput" nv-file-drop uploader="vm.uploader">
                 <span id="ico_no_cargado" class="icon ico-upload"></span>
                 <span id="ico_cargado" class="icon ico-check"></span>
 
                 <label><b>Escoga un archivo</b> ó arrastrelo aquí.</label>
                 <label id="fileSize"></label>
                 <label id="fileType"></label>
-                <input type="file" id="files" accept="image/*">
+                <input type="file" id="files" accept="*/*" nv-file-select nv-file-drop uploader="vm.uploader" />
+                
             </label>
             <div id="progress_bar"><div class="percent">0%</div></div>
 
             <button id="cancelar_lectura" type="button" class="btn_con_ico" ng-click="an.abortRead()">
                 <!--ng-click="vm.uploader.uploadAll()"-->
                 <span class="ico-times tamano_botones_1"></span>Cancelar
-            </button>
+            </button>            
             <br />
         </form>
 

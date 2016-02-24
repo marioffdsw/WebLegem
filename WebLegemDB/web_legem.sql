@@ -84,7 +84,8 @@ set sqlbl on
 
 @@'Sequences/tipos_documento_seq.sql'
 @@'Sequences/tipo_entidad_seq.sql'
-
+@@'Sequences/entidad_seq.sql'
+@@'Sequences/archivo_seq.sql'
 
 @@'Triggers/View Triggers/crear_tipo_documento_trig.sql'
 @@'Triggers/View Triggers/actualizar_tipo_doc_trig.sql'
@@ -92,3 +93,8 @@ set sqlbl on
 
 @@'Triggers/View Triggers/crear_tipo_entidad_trig.sql'
 @@'Triggers/View Triggers/eliminar_tipo_entidad_trig.sql'
+@@'Triggers/View Triggers/actualizar_tipo_entidad_trig.sql'
+
+@@'Triggers/View Triggers/crear_entidad_trig.sql'
+@@'Triggers/View Triggers/actualizar_entidad_trig.sql'
+@@'Triggers/View Triggers/eliminar_entidad_trig.sql'

@@ -9,6 +9,9 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using WebLegemAPI.OCR;
+using WebLegemDAL.Archivo;
+using WebLegemDAL.DAL;
+using WebLegemDAL.Models;
 
 namespace WebLegemAPI.Controllers
 {
@@ -16,6 +19,12 @@ namespace WebLegemAPI.Controllers
     public class FilesController : ApiController
     {
         NiconsoftOcr ocr = new NiconsoftOcr();
+        IDataAccessObject<Archivo> archivoDAO;
+
+        public FilesController(IDataAccessObject<Archivo> archivoDAO) : base()
+        {
+            this.archivoDAO = archivoDAO;
+        }
 
         public Task<IHttpActionResult> Post()
         {         
@@ -34,6 +43,11 @@ namespace WebLegemAPI.Controllers
                     var fileInfo = streamProvider.FileData.Select(i => {
                         var info = new FileInfo(i.LocalFileName);
                         String resultado = ocr.Convertir(rootUrl, info.Name );
+                        var test = rootUrl + @"\text\" + info.Name + ".txt";
+
+                        var archivo = archivoDAO.Create( new Archivo() { Nombre = info.Name } );
+
+                        File.WriteAllText( test, resultado );
                         return new FileDesc(info.Name, rootUrl + @"\" + info.Name, info.Length / 1024, resultado);
                     });
                                         

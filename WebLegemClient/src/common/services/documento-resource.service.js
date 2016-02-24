@@ -3,10 +3,10 @@
 
     angular
         .module("common.services")
-        .factory("DocumentoResource", DocumentoResource);
+        .factory("DocumentosResource", DocumentosResource);
 
-    DocumentoResource.$inject = [ "$resource", "serviceUrl" ];
-    function DocumentoResource($resource, serviceUrl) {
+    DocumentosResource.$inject = [ "$resource", "serviceUrl" ];
+    function DocumentosResource($resource, serviceUrl) {
         return $resource( serviceUrl + "/Documento" );
     }
 })();

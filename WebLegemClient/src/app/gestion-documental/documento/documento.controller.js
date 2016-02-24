@@ -5,7 +5,7 @@
         .module("WebLegemApp.GestionDocumental")
         .controller("DocumentoController", DocumentoController);
 
-    DocumentoController.$inject = ["TipoDocumentoResource", "EntidadService", "DocumentoResource", "FileUploader", "$state"];
+    DocumentoController.$inject = ["TipoDocumentoResource", "EntidadService", "DocumentosResource", "FileUploader", "$state"];
     function DocumentoController(TipoDocumentoService, EntidadService, DocumentoResource,  FileUploader, $state) {
         var vm = this;
         vm.entidadSeleccionada = { id: 0 };
@@ -22,9 +22,9 @@
             rutaAlArchivo: "ruta",
             nombreDocumentoProcesado: "nombre",
             fechaExpedicion: ""
-        }
+        };
                 
-        vm.uploader = new FileUploader({ url: "http://localhost:50349/api/Files/" });
+        vm.uploader = new FileUploader({ url: "http://localhost:50555/api/Files/" });
         vm.crear = crear;
 
         vm.uploader.onSuccessItem = function (item, response, status, headers) {
@@ -32,6 +32,26 @@
             vm.documento.nombreDocumentoProcesado = response[0].name;
             vm.documento.resultadoOcr = response[0].result;
             console.log( response );
+        };
+
+        vm.uploader.autoUpload = true;
+        vm.uploader.removeAfterUpload = true;
+
+        //vm.uploader.onAfterAddingFile = function (item) {
+        //    vm.uploader.uploadAll();
+        //};
+
+        vm.uploader.onConpleteAll = function () {
+            vm.uploader.clearQueue();
+        };
+
+        vm.uploader.onErorItem = function (item, response, status, headers) {
+            vm.uploader.clearQueue();
+        };
+
+        vm.uploader.onCompleteItem = function (item, response, status, headers) {
+            vm.uploader.clearQueue();
+            vm.uploader = new FileUploader({ url: "http://localhost:50555/api/Files/" });
         };
 
         vm.dialogo = dialogo;

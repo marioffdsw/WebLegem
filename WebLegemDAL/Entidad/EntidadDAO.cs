@@ -77,12 +77,12 @@ namespace WebLegemDAL.DAL
 
             cmd.ExecuteNonQuery();
 
-            return (Entidad)td.Value;
+            return (Entidad) td.Value;
         }
 
         protected sealed override Entidad Modify(Entidad entidad)
         {
-            queryString = $"UPDATE {TableName} tev SET tev.entidades = :td WHERE tev.entidad.id = :id";
+            queryString = $"UPDATE {TableName} tev SET tev.entidad = :td WHERE tev.entidad.id = :id";
 
             OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
 

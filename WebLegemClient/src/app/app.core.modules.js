@@ -6,6 +6,7 @@
 		"WebLegemApp.Administracion",
         "WebLegemApp.Login",
         "WebLegemApp.GestionDocumental",
+        "WebLegemApp.Busqueda",
         "common.services"/*,
         "common.mocks",
 		"WebLegemApp.Auditoria",		

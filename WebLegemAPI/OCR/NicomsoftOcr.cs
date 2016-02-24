@@ -20,13 +20,11 @@ namespace WebLegemAPI.OCR
         public String Convertir( String path, String fileN)
         {
             String fileName = path + @"\" + fileN;
-            String ruta = path + @"\img\";
+            /*String ruta = path + @"\img\";
             String extension;
 
-            extension = Path.GetExtension(fileName);
-
-            string texto = "";
-
+            extension = Path.GetExtension(fileName);            
+            
             if (extension.Equals(".pdf"))
             {
                 String[] Imagenes;
@@ -47,65 +45,71 @@ namespace WebLegemAPI.OCR
                 //path = ConvertirImageToText(fileName);
             }
 
-            return texto;
-        }
+            return texto;*/
 
-        private String[] ConvertirPdfToImage(String absolutePath)
-        {
-            string inputFile = absolutePath;
-            string nombreArchivo = Path.GetFileName(absolutePath);
-            string nombreArchivoSinExtencion = (nombreArchivo.Split('.'))[0];
-            string outputFile = @"C:\oradata\web_legem\img\" + nombreArchivoSinExtencion + "-%03d.png";
-            
-            int pageFrom = 1;
-            int pageTo = 50;
+            int CfgObj, OcrObj, ImgObj, SvrObj, res;
+            string txt;
 
-            using (GhostscriptProcessor ghostscript = new GhostscriptProcessor())
-            {
-                List<string> switches = new List<string>();
-                switches.Add("-empty");
-                switches.Add("-dSAFER");
-                switches.Add("-dBATCH");
-                switches.Add("-dNOPAUSE");
-                switches.Add("-dNOPROMPT");
-                switches.Add("-dFirstPage=" + pageFrom.ToString());
-                switches.Add("-dLastPage=" + pageTo.ToString());
-                switches.Add("-sDEVICE=png16m");
-                switches.Add("-r96");
-                switches.Add("-dTextAlphaBits=4");
-                switches.Add("-dGraphicsAlphaBits=4");
-                switches.Add(@"-sOutputFile=" + outputFile);
-                switches.Add(@"-f");
-                switches.Add(inputFile);
+            NSOCRClass NsOCR = new NSOCRClass();
+            NsOCR.Engine_Initialize();
 
-                ghostscript.Process(switches.ToArray());
-            }
+            NsOCR.Cfg_Create(out CfgObj);
 
-            string[] dirs = Directory.GetFiles(@"C:\oradata\web_legem\img\");
+            //NsOCR.Cfg_LoadOptions( CfgObj, @"C:\pruebas\niconsoft\Config.dat");
 
-            var archivos = from files in dirs
-                           where files.Contains(nombreArchivoSinExtencion)
-                           select files;
+            NsOCR.Ocr_Create(CfgObj, out OcrObj);
+            NsOCR.Img_Create(OcrObj, out ImgObj);
+            NsOCR.Svr_Create(CfgObj, TNSOCR.SVR_FORMAT_TXT_UNICODE, out SvrObj);
 
-            return archivos.ToArray();
-        }
-
-        private String ConvertirImageToText(String absolutePath)
-        {
-            int CfgObj, OcrObj, ImgObj;
-            NSOCRLib.NSOCRClassClass NsOCR = new NSOCRLib.NSOCRClassClass();
-            NsOCR.Engine_InitializeAdvanced(out CfgObj, out OcrObj, out ImgObj);
-
+            #region language and character configuration
             NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Languages/Spanish", "1");
             NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Languages/English", "0");
+            #endregion
 
-            NsOCR.Img_LoadFile(ImgObj, absolutePath);
-            NsOCR.Img_OCR(ImgObj, TNSOCR.OCRSTEP_FIRST, TNSOCR.OCRSTEP_LAST, 0);
-            string txt;
-            NsOCR.Img_GetImgText(ImgObj, out txt, TNSOCR.FMT_EXACTCOPY);
-            string lines = txt;
+            #region ghostScript configuration and pdf support
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Main/GhostScriptDLL", @"C:\gs\gs9.18\bin\gsdll32.dll");
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Main/PdfDPI", "600");
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Main/PdfByExt", "2");
+            #endregion
 
-            return txt;            
+            #region thread configuration
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Main/MaxKernels", "16");
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Main/NumKernels", "0");
+            #endregion
+
+            #region performance configuration
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "ImgAlizer/Inversion", "0");
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "ImgAlizer/AutoRotate", "0");
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "ImgAlizer/AutoScale", "1");
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "ImgAlizer/NoiseFilter", "0");
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Main/FastMode", "2");
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Main/GrayMode", "2");
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Zoning/OneZone", "1");
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "WordAlizer/SplitCombine", "0");
+            #endregion
+
+            //NsOCR.Cfg_SaveOptions( CfgObj, @"C:\pruebas\Config.dat" );
+
+            res = NsOCR.Img_LoadFile(ImgObj, fileName);
+
+            if (res > TNSOCR.ERROR_FIRST) { }; //insert error handler here
+            if (res == TNSOCR.ERROR_CANNOTLOADGS) { Console.WriteLine("Cannot load GS"); }
+
+            Console.WriteLine("Stating OCR");
+            //res = NsOCR.Img_OCR(ImgObj, TNSOCR.OCRSTEP_FIRST, TNSOCR.OCRSTEP_LAST, TNSOCR.OCRFLAG_NONE);
+            int pages = NsOCR.Img_GetPageCount(ImgObj);
+            res = NsOCR.Ocr_ProcessPages(ImgObj, SvrObj, 0, pages, 0, TNSOCR.OCRFLAG_NONE);
+            Console.WriteLine($"The image has {pages} pages");
+            Console.WriteLine("OCR has finished");
+
+            if (res > TNSOCR.ERROR_FIRST) { };
+
+            //NsOCR.Img_GetImgText(ImgObj, out txt, TNSOCR.FMT_EXACTCOPY);
+            NsOCR.Svr_GetText(SvrObj, -1, out txt);
+
+            NsOCR.Engine_Uninitialize();
+
+            return txt;
         }
     }
 }
