@@ -32,7 +32,7 @@ namespace WebLegemAPI.Controllers
 
         public Entidad Post(Entidad entidad)
         {
-            var resultado = DAO.Create( entidad );            
+            var resultado = DAO.Create( entidad );          
 
             return entidad;
         }

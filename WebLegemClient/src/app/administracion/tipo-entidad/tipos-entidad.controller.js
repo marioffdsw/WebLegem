@@ -35,7 +35,9 @@
 
         function create() {
             TipoEntidadService.save(vm.tipoEntidad, function (data) {
-                vm.tiposEntidad.push(data);
+                TipoEntidadService.query(function (data) {
+                    vm.tiposEntidad = data;
+                });
             });
             cancelar();
         } // end function create
@@ -68,8 +70,7 @@
                 TipoEntidadService.query(function (data) {
                     vm.tiposEntidad = data;
                 });
-            });
-            console.log( vm.tipoEntSeleccionada );
+            });        
         } // end function remover
 
         function listadoTipoEntidad(tipoEntidad) {
