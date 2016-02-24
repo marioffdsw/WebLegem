@@ -87,17 +87,26 @@
 
     <link href="css/plantillas/informacion_documento.css" rel="stylesheet" />
     <link href="css/plantillas/tipo_documento.css" rel="stylesheet" />
-    <link href="css/plantillas/header.css" rel="stylesheet" />
-    <link href="css/plantillas/header2.css" rel="stylesheet" />
-    <link href="css/plantillas/accesibilidad.css" rel="stylesheet" />
-    <link href="css/plantillas/administracion.css" rel="stylesheet" />
-    <link href="css/plantillas/login.css" rel="stylesheet" />
-    <link href="css/plantillas/tipo_entidad.css" rel="stylesheet" />
-    <link href="css/plantillas/busqueda.css" rel="stylesheet" />
-
-    <link href="css/estilos_weblegem.css" rel="stylesheet" />
     <link href="css/noticias.css" rel="stylesheet" />
 
+    <link href="css/plantillas/header2.css" rel="stylesheet" />
+
+    <link href="css/plantillas/header.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
+    <link href="css/plantillas/header_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
+
+
+    
+    <link href="css/plantillas/accesibilidad.css" rel="stylesheet" />
+
+    <link href="css/plantillas/administracion.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
+    <link href="css/plantillas/administracion_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
+
+    <link href="css/plantillas/login.css" rel="stylesheet" />
+    <link href="css/plantillas/tipo_entidad.css" rel="stylesheet" />
+    <link href="css/plantillas/busqueda.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
+    <link href="css/plantillas/busqueda_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
+
+ 
     <!--Iconografia-->
     <link href="iconos-legem/styles.css" rel="stylesheet" />
     <link href="iconos-legem2/style.css" rel="stylesheet" />
@@ -109,6 +118,13 @@
 
     <link href="css/pagina_principal.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
     <link href="css/pagina_principal_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
+
+    <link href="css/elementos/button.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
+    <link href="css/elementos/button_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
+
+    <link href="css/estilos_weblegem.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
+    <link href="css/estilos_weblegem_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
+
     <script src="app/busqueda/busqueda_controller.js"></script>
 
 
@@ -160,7 +176,7 @@
         </div>
 
         <div class="header2">
-            <div id="contenedor_mini_search" class="contenedor_mini_search" >
+            <div id="contenedor_mini_search" class="contenedor_mini_search">
                 <form class="mini_search">
                     <input id="mini_search" type="text" placeholder="Buscar" onfocus="atenuar_busqueda(this.id)" />
                     <span class="ico-search"></span>
@@ -185,7 +201,7 @@
 
     </div>
 
-   
+
 
 
 

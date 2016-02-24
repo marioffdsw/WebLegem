@@ -1,0 +1,41 @@
+﻿
+.contenedor_administracion{/* no sirve por que esta oculto el html*/
+    margin:auto;
+    padding:10px;
+}
+
+/*-----------------------------------*/
+
+.form_administracion{/*contiene imputs del modulo administracion*/
+    display:block;
+    background:#000;
+}
+
+/*CONTENIDO DEL MODULO ADMINISTRACION Y GESTION DOCUMENTAL*/
+/*-----------------------------------*/
+.view_administracion{
+    width:100vw;
+    display:flex;
+    justify-content:center;
+}
+
+.view_gestion_documental{
+    width:100vw;
+    display:flex;
+    justify-content:center;
+    
+}
+
+.contenido{
+    margin:10px 0;
+    width:90%;
+    border-radius:5px;
+    background:#000; 
+    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.contenido > div{
+    padding:2em;
+}
