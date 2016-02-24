@@ -98,3 +98,5 @@ set sqlbl on
 @@'Triggers/View Triggers/crear_entidad_trig.sql'
 @@'Triggers/View Triggers/actualizar_entidad_trig.sql'
 @@'Triggers/View Triggers/eliminar_entidad_trig.sql'
+
+@@'Functions/obtener_archivo_seq_fun.sql'

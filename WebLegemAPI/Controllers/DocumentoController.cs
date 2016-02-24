@@ -7,6 +7,7 @@ using WebLegemDAL;
 using WebLegemDAL.QueryObjects;
 using System.Collections.Generic;
 using System.Web.OData;
+using Oracle.DataAccess.Types;
 
 namespace WebLegemAPI.Controllers
 {

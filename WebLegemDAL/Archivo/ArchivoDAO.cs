@@ -1,4 +1,5 @@
 ﻿using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -28,17 +29,17 @@ namespace WebLegemDAL.Archivo
             var cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
             cmd.CommandType = CommandType.StoredProcedure;
 
-            var param = new OracleParameter( "secuencia", OracleDbType.Int32 );
+            var param = new OracleParameter( "secuencia", OracleDbType.Decimal );
             param.Direction = ParameterDirection.ReturnValue;
 
             cmd.Parameters.Add( param );
             cmd.ExecuteNonQuery();
 
-            queryString = $"INSERT INTO archivos_tab VALUES( {(int)param.Value}, '{(int)param.Value + registro.Extension}' );";
+            queryString = $"INSERT INTO archivos_tab VALUES( {((OracleDecimal) param.Value).ToInt32()}, '{registro.Nombre}' )";
             var cmd2 = new OracleCommand() { Connection = connection, CommandText = queryString };
-            cmd.ExecuteNonQuery();
+            cmd2.ExecuteNonQuery();
 
-            return new Archivo { Id = (int)param.Value, Nombre = (int) param.Value + registro.Extension };
+            return new Archivo { Id = ((OracleDecimal)param.Value).ToInt32(), Nombre = registro.Nombre };
         }
 
         protected override Archivo Modify(Archivo registro)

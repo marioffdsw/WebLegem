@@ -9,7 +9,7 @@
             <div>
                 <label class="texto_labels" for="tipo-documento">Tipo de Documento:</label>
                 <div>
-                    <select id="tipo-documento" class="select" ng-options="tipo as tipo.nombre for tipo in vm.tiposDocumento | orderBy: 'nombre'" ng-model="vm.tipoDocSeleccionado">
+                    <select id="tipo-documento" class="select" ng-options="tipo as tipo.nombre for tipo in vm.tiposDocumento | orderBy: 'nombre'" ng-model="vm.documento.tipoDocumento">
                         <option ng-repeat="tipo in vm.tiposDocumento">{{ tipo.nombre }}</option>
                     </select>
                     <span class="span_select_a ico-angle-down"></span>
@@ -19,7 +19,7 @@
             <div>
                 <label class="texto_labels" for="entidad" ng-model="vm.documento.entidad">Entidad:</label>
                 <div>
-                    <select id="entidad" class="select" ng-options="entidad as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'" ng-model="vm.entidadSeleccionada">
+                    <select id="entidad" class="select" ng-options="entidad as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'" ng-model="vm.documento.entidad">
                         <option ng-repeat="entidad in vm.entidades">{{ entidad.nombre }}</option>
                     </select>
                     <span class="span_select_a ico-angle-down"></span>
@@ -28,14 +28,13 @@
 
             <div>
                 <label class="texto_labels" for="numero">Numero:</label>
-                <input class="a_input " type="text" id="numero" ng-model="vm.documento.docId.numero" />
+                <input class="a_input " type="text" id="numero" ng-model="vm.documento.numero" />
             </div>
-
+            
             <div>
                 <label class="texto_labels" for="año">Año:</label>
-                <input class="a_input" id="año" type="date" ng-model="vm.documeno.fechaPublicacion" />
-            </div>
-
+                <input class="a_input" id="año" type="text" maxlength="4" ng-model="vm.documento.anioPublicacion" />
+            </div>                
             <div>
                 <button class="btn_con_ico inverso" ui-sref="gestion-documental.crear-documento.asunto">
                     Siguiente<span class="ico-chevron-right tamano_botones_1 derecha"></span>

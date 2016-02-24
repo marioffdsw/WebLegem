@@ -8,6 +8,7 @@ using WebLegemDAL.Models;
 using WebLegemDAL.QueryObjects;
 using System.Data;
 using Oracle.DataAccess.Types;
+using System.IO;
 
 namespace WebLegemDAL.DAL
 {
@@ -83,10 +84,10 @@ namespace WebLegemDAL.DAL
 
         protected sealed override DocumentoConContenido Insert(DocumentoConContenido documentoConContenido)
         {
-            OracleCommand cmd = new OracleCommand($"INSERT INTO {TableName} VALUES( :td )", connection);
+            OracleCommand cmd = new OracleCommand($"INSERT INTO {TableName} VALUES( :td )", connection);            
 
             if (documentoConContenido.Contenido == null)
-                documentoConContenido.Contenido = new OracleBFile( connection, "CONTENIDOS_DIR", documentoConContenido.Archivo + ".txt"  );
+                documentoConContenido.Contenido = new OracleBFile( connection, "CONTENIDOS_DIR", Path.GetFileName( documentoConContenido.Ruta ) + ".txt"  );
 
             OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);
             td.UdtTypeName = UdtTypeName;

@@ -9,7 +9,7 @@
             <textarea class="text_area" rows="4" cols="50" ng-model="vm.documento.asunto"></textarea>
 
             <!--<button class="a_boton a_block" type="button" ui-sref="gestion-documental.crear-documento.pergunta-anotacion">Siguiente</button>-->
-            <button class="btn_con_ico inverso" ui-sref="gestion-documental.crear-documento.resultado-ocr">
+            <button class="btn_con_ico inverso" ng-click="vm.aceptar()">
                 Siguiente<span class="ico-chevron-right tamano_botones_1 derecha"></span>
             </button>
 
