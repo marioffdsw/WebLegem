@@ -31,14 +31,14 @@ namespace WebLegemAPI.Controllers
             var rootUrl = @"c:\oraData\web_legem";
             if (Request.Content.IsMimeMultipartContent() )
             {
-                var streamProvider = new CustomMultipartFormDataStreamProvider(rootUrl);
+                var streamProvider = new MultipartFormDataStreamProvider(rootUrl);
                 var file = Request.Content.ReadAsMultipartAsync(streamProvider).ContinueWith<IHttpActionResult>(t =>
                 {
 
                     if (t.IsFaulted || t.IsCanceled)
                     {
                         throw new HttpResponseException(HttpStatusCode.InternalServerError);
-                    }
+                    }                    
 
                     var fileInfo = streamProvider.FileData.Select(i => {
                         var info = new FileInfo(i.LocalFileName);
