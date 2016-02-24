@@ -85,6 +85,7 @@ set sqlbl on
 @@'Sequences/tipos_documento_seq.sql'
 @@'Sequences/tipo_entidad_seq.sql'
 @@'Sequences/entidad_seq.sql'
+@@'Sequences/archivo_seq.sql'
 
 @@'Triggers/View Triggers/crear_tipo_documento_trig.sql'
 @@'Triggers/View Triggers/actualizar_tipo_doc_trig.sql'
