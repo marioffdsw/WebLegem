@@ -1,6 +1,4 @@
 ﻿<div class="contenido">
-    <label class="titulo">Tipo de Entidad</label>
-
     <section class="layout_padre">
         <div class="hijo_left">
 
@@ -23,29 +21,29 @@
         <div class="hijo_right">
 
             <label class="texto_labels">Nombre del tipo entidad</label>
-                <form class="form_tipo_entidad">
-                    <input class="a_input input_administracion" style="width:auto;" type="text" ng-model="vm.tipoEntidad.nombre" placeholder="Ingrese el nombre Entidad" />
-                    <button class="btn_con_ico" type="button" ng-if="!vm.editando" ng-click="vm.create()">
-                        <span class="ico-pencil tamano_botones_1"></span>Editar
-                    </button>
-                    <button id="remover_tes" class="btn_con_ico" ng-disabled="vm.editando" type="button" ng-click="vm.remover()">
-                        <span class="ico-trash tamano_botones_1"></span>Remover
-                    </button>
-                </form>
+            <form class="form_tipo_entidad">
+                <input class="a_input input_administracion" style="width:auto;" type="text" ng-model="vm.tipoEntidad.nombre" placeholder="Ingrese el nombre Entidad" />
+                <button class="btn_con_ico" type="button" ng-if="!vm.editando" ng-click="vm.create()">
+                    <span class="ico-pencil tamano_botones_1"></span>Editar
+                </button>
+                <button id="remover_tes" class="btn_con_ico" ng-disabled="vm.editando" type="button" ng-click="vm.remover()">
+                    <span class="ico-trash tamano_botones_1"></span>Remover
+                </button>
+            </form>
+
             <div class="entidad_control" style="width:100%; margin-bottom:10px;">
                 <div style="background:#37404A;  height:40px; width:100%; word-spacing:-4px; padding:3px; border-top-left-radius:3px; border-top-right-radius:3px; ">
-                    <div class="iconos_control"><span class="ico-align-justify"></span></div>
-                    <div class="iconos_control"><span class="ico-th"></span></div>
+                    <div class="iconos_control" ng-click="vm.cambiar_vista_lista()"><span class="ico-align-justify"></span></div>
+                    <div class="iconos_control" ng-click="vm.cambiar_vista_bloque()"><span class="ico-th"></span></div>
                     <div class="iconos_control"><span class="ico-plus-circle"></span></div>
                 </div>
                 <div class="panel_control">
                     <ul class="a_bloques">
-                        <li>
+                        <li id="te_li_lista">
                             <input type="checkbox" name="check_name" id="b_1">
-                            <label class=" styled1 note rounded" for="b_1">item 1</label>
+                            <label class="styled1 note rounded" for="b_1">item 1</label>
                         </li>
                     </ul>
-
                 </div>
             </div>
 

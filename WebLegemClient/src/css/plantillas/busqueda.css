@@ -8,14 +8,6 @@
 	background-color:white;
 }
 
-.tabpage{
-    display:none;
-}
-#tabpage_1{
-    display:block;
-}
-
-
 #tabs{
 	height:30px;
     border-bottom: 1px solid #e5e5e5;

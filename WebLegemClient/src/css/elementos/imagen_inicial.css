@@ -6,7 +6,7 @@
 
     .imagen_inicial:before {
         content: '';
-        background-image: url('../../recursos/rtttt.jpg');
+        background-image: url('../../recursos/header/green-texture_1280x720_sc.jpg');
         background-size: cover;
         width: 100%;
         height: 100px;
