@@ -10,28 +10,30 @@
         var vm = this;
         vm.entidadSeleccionada = { id: 0 };
         vm.tipoDocSeleccionado = { id: 0 };
+        vm.aceptar = aceptar;
 
         vm.documento = {
-            docId: {
-                entidad: 0,
-                tipoDocumento: 0,
-                numero: "1025",
-                fechaPublicacion: "1999"
-            },
+            id: 0,
+            entidad: 0,
+            tipoDocumento: 0,
+            numero: "1025",
+            anioPublicacion: "1999",
+            idContenido: 0,
+            archivo: 0,
             asunto: "Asunto",
-            rutaAlArchivo: "ruta",
-            nombreDocumentoProcesado: "nombre",
-            fechaExpedicion: ""
+            ruta: "ruta",            
+            //fechaExpedicion: ""
         };
                 
         vm.uploader = new FileUploader({ url: "http://localhost:50555/api/Files/" });
         vm.crear = crear;
 
-        vm.uploader.onSuccessItem = function (item, response, status, headers) {
-            vm.documento.rutaAlArchivo = response[0].path;
-            vm.documento.nombreDocumentoProcesado = response[0].name;
-            vm.documento.resultadoOcr = response[0].result;
-            console.log( response );
+        vm.uploader.onSuccessItem = function (item, response, status, headers) {            
+            vm.documento.asunto = response[0].result;            
+            vm.documento.ruta = response[0].path;
+            vm.documento.archivo = response[0].name;
+            console.log(response);
+            console.log( vm.documento );
         };
 
         vm.uploader.autoUpload = true;
@@ -66,8 +68,10 @@
         });
 
         function crear() {
-            vm.documento.docId.entidad = vm.entidadSeleccionada.id;
-            vm.documento.docId.tipoDocumento = vm.tipoDocSeleccionado.id;
+            vm.documento.entidad.id = vm.entidadSeleccionada.id;
+            vm.documento.tipoDocumento.id = vm.tipoDocSeleccionado.id;
+            vm.documento.numero = vm.numero;
+            vm.documento.asunto = vm.
             console.log(vm.documento);
             DocumentoResource.save(vm.documento, function (data) {
                 console.log( data );
@@ -83,5 +87,11 @@
             $state.go( "home" );
         } // end function cancelar
 
+        function aceptar() {
+            DocumentoResource.save(vm.documento, function (data) {
+                alert("¡Felicidades!, El documento ha sido añadido con exito\nAhora regresara a la pantalla principal");
+            });
+            $state.go("home");
+        }
     } // end Documento Controller
 })();

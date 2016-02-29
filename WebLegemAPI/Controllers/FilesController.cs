@@ -31,7 +31,7 @@ namespace WebLegemAPI.Controllers
             var rootUrl = @"c:\oraData\web_legem";
             if (Request.Content.IsMimeMultipartContent() )
             {
-                var streamProvider = new MultipartFormDataStreamProvider(rootUrl);
+                var streamProvider = new CustomMultipartFormDataStreamProvider(rootUrl);
                 var file = Request.Content.ReadAsMultipartAsync(streamProvider).ContinueWith<IHttpActionResult>(t =>
                 {
 
@@ -43,12 +43,13 @@ namespace WebLegemAPI.Controllers
                     var fileInfo = streamProvider.FileData.Select(i => {
                         var info = new FileInfo(i.LocalFileName);
                         String resultado = ocr.Convertir(rootUrl, info.Name );
+
                         var test = rootUrl + @"\text\" + info.Name + ".txt";
 
                         var archivo = archivoDAO.Create( new Archivo() { Nombre = info.Name } );
 
                         File.WriteAllText( test, resultado );
-                        return new FileDesc(info.Name, rootUrl + @"\" + info.Name, info.Length / 1024, resultado);
+                        return new FileDesc( archivo.Id.ToString(), rootUrl + @"\text" + @"\" + info.Name + ".txt", info.Length / 1024, resultado);
                     });
                                         
                     return Ok(fileInfo);
@@ -79,16 +80,18 @@ namespace WebLegemAPI.Controllers
         } // public class FileDesc
 
         public class CustomMultipartFormDataStreamProvider : MultipartFormDataStreamProvider
-        {
+        {            
             public CustomMultipartFormDataStreamProvider(string path) 
                 : base(path)
-            {
+            {                
             } // end constructor
 
             public override string GetLocalFileName(System.Net.Http.Headers.HttpContentHeaders headers)
             {
                 var name = !string.IsNullOrWhiteSpace(headers.ContentDisposition.FileName) ? headers.ContentDisposition.FileName : "NoName";
-                return name.Replace("\"", string.Empty); //this is here because Chrome submits files in quotation marks which get treated as part of the filename and get escaped
+                //; //this is here because Chrome submits files in quotation marks which get treated as part of the filename and get escaped
+
+                return base.GetLocalFileName( headers ) + Path.GetExtension(name.Replace("\"", string.Empty)) ;
             }
         } // end class CustomMultipartFromDataStreamProvider
     } // end namespace

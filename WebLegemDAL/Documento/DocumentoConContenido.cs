@@ -21,7 +21,8 @@ namespace WebLegemDAL.Models
         private int idContenido;
         private int archivo;
         private string asunto;
-        private OracleBFile contenido;        
+        private OracleBFile contenido;    
+        private string ruta;    
 
 
 
@@ -60,6 +61,12 @@ namespace WebLegemDAL.Models
             get { return contenido; }
             set { contenido = value; }
         } // fin prop Contenido
+
+        public string Ruta
+        {
+            get { return ruta; }
+            set { ruta = value;  }
+        }
 
         public static new DocumentoConContenido Null
         {
