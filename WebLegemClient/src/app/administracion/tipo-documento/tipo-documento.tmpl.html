@@ -11,30 +11,33 @@
                 </li>
             </ul>
         </div>
+
         <div class="hijo_right">
             <div class="control_administracion">
-                <button class="btn_con_ico" type="button" ng-if="!vm.editando" ng-click="vm.create()">
+                <button class="btn_con_ico" type="button" ng-show="!vm.editando" ng-click="vm.nuevo()">
                     <span class="ico-plus tamano_botones_1"></span>Nuevo
                 </button>
-                <button id="editar_td" class="btn_con_ico" ng-disabled="vm.editando" type="button" ng-click="vm.editar()">
+                <button id="editar_td" class="btn_con_ico" ng-show="!vm.editando" type="button" ng-click="vm.editar()">
                     <span class="ico-pencil tamano_botones_1"></span>Editar
                 </button>
-                <button id="remover_td" class="btn_con_ico" ng-disabled="vm.editando" type="button" ng-click="vm.remover()">
+                <button id="remover_td" class="btn_con_ico" ng-show="!vm.editando" type="button" ng-click="vm.remover()">
                     <span class="ico-trash tamano_botones_1"></span>Remover
                 </button>
             </div>
+
             <label class="texto_labels">Nombre del tipo documento</label>
+
             <form class="form_tipo_entidad">
-                <input class="a_input input_administracion" type="text" ng-model="vm.tipoDoc.nombre" required placeholder="Ingrese nombre" />
+                <input class="a_input input_administracion" ng-disabled="!vm.editando" type="text" ng-model="vm.tipoDoc.nombre" required placeholder="Ingrese nombre" />
             </form>
 
             <div>
-                <button class="btn_con_ico" type="button" style="display:inline-block;" ng-click="vm.cancelar()">
-                    <span class="ico-times tamano_botones_1"></span>Cancelar
-                </button>
                 <button class="btn_con_ico" type="button" style="display:inline-block;" ng-show="vm.editando" ng-click="vm.guardar()">
                     <span class="ico-floppy-o tamano_botones_1"></span>Guardar
                 </button>               
+                <button class="btn_con_ico" ng-show="vm.editando" type="button" style="display:inline-block;" ng-click="vm.cancelar()">
+                    <span class="ico-times tamano_botones_1"></span>Cancelar
+                </button>                
             </div>
         </div>
     </section>
