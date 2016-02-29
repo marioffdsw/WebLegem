@@ -60,27 +60,8 @@
             },
             {
                 texto: "Administración",
-                estado: "administracion.tipo-documento",
-                subEstados: [
-                    {
-                        texto: "Tipos Documento",
-                        estado: "administracion.tipo-documento"
-                    },
-                    {
-                        texto: "Tipos Entidades",
-                        estado: "administracion.tipo-entidad"
-                    },
-                    {
-                        texto: "Entidades",
-                        estado: "administracion.entidad"
-                    }
-                ],
-
-            },         
-            {
-                texto: "Inicio",
-                estado: "home"
-            },
+                estado: "administracion.tipo-documento"                
+            }            
         ];
 
         vm.opcionesAMostrar =  vm.loggeado ? vm.opcionesLoggeado : vm.opcionesNoLoggeado;
