@@ -19,7 +19,9 @@
 			})
             .state('administracion', {
                 url: '/administracion',
-                templateUrl: 'app/administracion/administracion.tmpl.html',                
+                templateUrl: 'app/administracion/administracion.tmpl.html',
+                controller: "AdministracionController",
+                controllerAs: "vm"
             })
 			.state('login', {
 			    url: '/login',

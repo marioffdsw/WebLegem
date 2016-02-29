@@ -1,10 +1,8 @@
 ﻿/*select --ESTILOS PARA LOS SELECT--*/
-.a_listado{
-    
+.a_listado{ 
     margin-top:10px;
     list-style:none;
     float:left;
-    
     overflow-y:auto;
     display:inline;
     line-height:2;    

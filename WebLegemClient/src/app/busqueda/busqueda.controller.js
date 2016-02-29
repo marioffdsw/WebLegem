@@ -15,6 +15,10 @@
         vm.tipoDocumento = "";
         vm.documentosEncontrados = [];
         vm.limpiar = limpiar;
+
+        vm.cambiarTab = cambiarTab;
+        vm.tab_1 = true;
+        vm.tab_2 = false;
         
 
         vm.buscar = buscar;
@@ -64,6 +68,17 @@
             vm.numero = "";
             vm.entidadEmisora = "";
             vm.tipoDocumento = "";
+        }
+
+        function cambiarTab(id_tab) {
+            if (id_tab == 1) {
+                vm.tab_1 = true;
+                vm.tab_2 = false;
+            }
+            else {
+                vm.tab_2 = true;
+                vm.tab_1 = false;
+            }
         }
 
         return vm;

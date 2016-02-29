@@ -1,28 +1,23 @@
-﻿<div class="contenedor_administracion" ng-show="val">
-    <div class="titulo">
-        <h3>Administracion</h3>
+﻿<div class="contenedor_administracion" ng-show="true">
+    <label class="titulo">Administración</label>
+    <div class="contenedor_tabs">
+        <ul>
+            <li class="active_tab" ui-sref="administracion.tipo-documento" ng-click="vm.activo($event)">
+                Tipo Documento
+            </li>
+            <li ui-sref="administracion.tipo-entidad" ng-click="vm.activo($event)">
+                Tipo Entidad
+            </li>
+
+            <li ui-sref="administracion.entidad" ng-click="vm.activo($event)">
+                Entidad
+            </li>
+            <li ui-sref="administracion.tipo-anotacion" ng-click="vm.activo($event)">
+                Tipo Anotacion
+            </li>
+        </ul>
     </div>
-
-    <div class="contenido">
-
-        <a class="a_thumbnail_container" ui-sref="administracion.tipo-documento">
-            <img class="a_thumbnail" src="recursos/documents7.svg" /><br />
-            <label>Tipo Documento</label>
-        </a>
-        <a class="a_thumbnail_container" ui-sref="administracion.tipo-entidad">
-            <img class="a_thumbnail" src="recursos/documents23.svg" /><br />
-            <label>Tipo Entidad</label>
-        </a>
-
-        <a class="a_thumbnail_container" ui-sref="administracion.entidad">
-            <img class="a_thumbnail" src="recursos/job4.svg" /><br />
-            <label>Entidad</label>
-        </a>
-        <a class="a_thumbnail_container" ui-sref="administracion.tipo-anotacion">
-            <img class="a_thumbnail" src="recursos/box68.svg" /><br />
-            <label>Tipo Anotacion</label>
-        </a>
-    </div>
-    <img />
+    <div ui-view class="view_administracion a_desvanecer"></div>
 </div>
-<div ui-view class="view_administracion"></div>
+
+

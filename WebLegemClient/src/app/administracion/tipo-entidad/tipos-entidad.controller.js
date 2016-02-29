@@ -23,6 +23,9 @@
         vm.guardar = guardar;
         vm.remover = remover;
         vm.listadoTipoEntidad = listadoTipoEntidad;
+        vm.cambiar_vista_lista = cambiar_vista_lista;
+        vm.cambiar_vista_bloque = cambiar_vista_bloque;
+
         
 
         TipoEntidadService.query(function (data) {
@@ -90,6 +93,29 @@
             }       
         }
 
+        function cambiar_vista_lista() {
+            var aux = document.getElementById("te_li_lista");
+            var padre = aux.parentElement;
+            var hijo = aux.lastElementChild;
+            var hijo2 = aux.firstElementChild;
+
+            padre.className = "a_listado";
+            hijo.className = "styled";
+            hijo2.className = "styled";
+            padre.parentElement.style.justifyContent = "center";
+        }
+
+        function cambiar_vista_bloque() {
+            var aux = document.getElementById("te_li_lista");
+            var padre = aux.parentElement;
+            var hijo = aux.lastElementChild;
+            var hijo2 = aux.firstElementChild;
+
+            padre.className = "a_bloques";
+            hijo.className = "styled1 note rounded";
+            hijo2.className = " ";
+            padre.parentElement.style.justifyContent = "flex-start";
+        }
 
         /*
          * private methods

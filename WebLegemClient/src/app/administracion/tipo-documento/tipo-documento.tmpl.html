@@ -1,62 +1,46 @@
 ﻿<div class="contenido">
-    <label class="titulo">Tipo de Documento</label>
-    <div>
-        <div>
-            <form class="form_administracion">
-                <label class="texto_labels">Nombre del tipo documento</label>
-                <input class="a_input input_administracion" type="text" ng-model="vm.tipoDoc.nombre" required placeholder="Ingrese nombre" />
-                <div style="display:inline;padding: 0 0 0 10px;">
-                    <button class="btn_con_ico " type="button" ng-show="!vm.editando" ng-click="vm.create()">
-                        <span class="ico-plus tamano_botones_1"></span>
-                        Añadir
-                    </button>
-                    <button class="btn_con_ico" type="button" ng-show="vm.editando" ng-click="vm.guardar()">
-                        <span class="ico-floppy-o tamano_botones_1"></span>
-                        Guardar
-                    </button>
-                    <button class="btn_con_ico" type="button" ng-click="vm.cancelar()">
-                        <span class="ico-times tamano_botones_1"></span>
-                        Cancelar
-                    </button>
-                </div>
-            </form>
-        </div>
-        <div style="display:block;">
-            <div>
-                <label class="texto_labels">Lista de tipos de documentos</label>
+    <section class="layout_padre">
+        <div class="hijo_left">
+            <label class="texto_labels" style="margin-bottom:10px;">"Nuevo" para crear un tipo documento.</label>
+            <button class="btn_con_ico" type="button" ng-if="!vm.editando" ng-click="vm.create()">
+                <span class="ico-plus tamano_botones_1"></span>Nuevo
+            </button>
 
-                <!--<select size="3" class="select_td_te" ng-disabled="vm.editando" 
-                        ng-options="tipo as tipo.nombre for tipo in vm.tiposDoc | orderBy: 'nombre'" 
-                        ng-model="vm.tipoDocSeleccionado"></select>-->
+            <label class="texto_labels" style="margin-top:10px;">Lista de tipos de documentos</label>
+            <ul class="a_listado">
 
-                <ul class="a_listado">
-
-                    <li ng-repeat="tipo in vm.tiposDoc">
-                        <input type="radio" name="entidad_rad" class="styled" id="{{tipo.id}}"
+                <li ng-repeat="tipo in vm.tiposDoc">
+                    <input type="radio" name="entidad_rad" class="styled" id="{{tipo.id}}"
                             ng-value="tipo"
                             ng-click="vm.listadoTipoDocumento(tipo)" ng-disabled="vm.editando" />
-                        <label class="styled" for="{{tipo.id}}">{{ tipo.nombre }}</label>
-                    </li>                    
-                    <!-- <li>
-                        <input type="radio" name="radio_name" class="styled" id="b_f" ng-click="vm.listadoTipoDocumento('b_f')">
-                        <label class=" styled" for="b_f">item 1</label>
-                    </li> -->
-                </ul>
+                    <label class="styled" for="{{tipo.id}}">{{ tipo.nombre }}</label>
+                </li>
+            </ul>
+        </div>
+        <div class="hijo_right">
 
-                <div style="width:50%; margin-top:10px; float:right;">
-                   
-                    <button id="remover_td" class="btn_con_ico" ng-disabled="vm.editando" type="button" ng-click="vm.remover()">
-                        <span class="ico-trash tamano_botones_1"></span>Remover
-                    </button>
-                    <button id="editar_td" class="btn_con_ico" ng-disabled="vm.editando" type="button" ng-click="vm.editar()">
-                        <span class="ico-pencil tamano_botones_1"></span>
-                        Editar
-                    </button>
-                        
-                </div>
-                <div style="clear:both;"></div>
+            <label class="texto_labels">Nombre del tipo documento</label>
+            <form class="form_tipo_entidad">
+                <input class="a_input input_administracion" type="text" ng-model="vm.tipoDoc.nombre" required placeholder="Ingrese nombre" />
+
+                <button id="editar_td" style="display:inline-block;" class="btn_con_ico" ng-disabled="vm.editando" type="button" ng-click="vm.editar()">
+                    <span class="ico-pencil tamano_botones_1"></span>Editar
+                </button>
+
+                <button id="remover_td" style="display:inline-block;" class="btn_con_ico" ng-disabled="vm.editando" type="button" ng-click="vm.remover()">
+                    <span class="ico-trash tamano_botones_1"></span>Remover
+                </button>
+
+            </form>
+
+            <div>
+                <button class="btn_con_ico" type="button" style="display:inline-block;" ng-click="vm.cancelar()">
+                    <span class="ico-times tamano_botones_1"></span>Cancelar
+                </button>
+                <button class="btn_con_ico" type="button" style="display:inline-block;" ng-show="vm.editando" ng-click="vm.guardar()">
+                    <span class="ico-floppy-o tamano_botones_1"></span>Guardar
+                </button>               
             </div>
         </div>
-    </div>
-
+    </section>
 </div>

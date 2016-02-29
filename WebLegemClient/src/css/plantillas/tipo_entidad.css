@@ -33,7 +33,30 @@
     height:auto;
 }
 
-.form_tipo_entidad{
-    width:100%;
-    display:block;
+.form_tipo_entidad {
+    display: flex;
+    -ms-flex-flow: row;
+    -webkit-flex-flow: row;
+    flex-flow: row;
+    align-items: baseline;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    
+}
+
+.form_tipo_entidad > button{
+    min-width:110px;
+    max-height:35px;
+    flex-grow:0;
+    margin:5px;
+}
+
+.form_tipo_entidad > input{
+    flex-grow:1;
+}
+
+.form_tipo_entidad > div{
+    flex-grow:1;
 }

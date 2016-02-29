@@ -7,13 +7,13 @@
         <div id="tabContainer">
             <div id="tabs">
                 <ul>
-                    <li id="tabHeader_1" ng-click="vm.limpiar()">Busqueda Básica</li>
-                    <li id="tabHeader_2">Busqueda Avanzada</li>
+                    <li id="tabHeader_1" ng-click="vm.limpiar();vm.cambiarTab(1)">Busqueda Básica</li>
+                    <li id="tabHeader_2" ng-click="vm.limpiar();vm.cambiarTab(2)">Busqueda Avanzada</li>
                 </ul>
             </div>
 
             <div id="tabscontent">
-                <div class="tabpage" id="tabpage_1">
+                <div class="tabpage" id="tabpage_1" ng-show="vm.tab_1">
                     <input required name="busqueda" type="text" class="a_input input_busqueda" ng-model="vm.palabrasABuscar" placeholder="Escriba aquí su busqueda(Ejemplo:Decreto 104 de 2015)" maxlength="50" id="nombre" />
                     <button class="btn_con_ico " ng-click="vm.buscar( vm.palabrasABuscar)">
                         <span class="ico-search tamano_botones_1"></span>Buscar
@@ -32,7 +32,7 @@
                     
                 </div>
 
-                <div class="tabpage" id="tabpage_2">
+                <div class="tabpage" id="tabpage_2" ng-show="vm.tab_2">
                     <content id="busqueda_padre">
                         <content id="busqueda_left">
 
@@ -40,14 +40,15 @@
                                 <ul>
                                     <li class="content_li_filtro">
                                         <content class="li_left">
-                                            <label class="tip">Tipo de documento:</label><br />
+                                            <label class="tip">Tipo de documento:</label>
+                                            <br />
                                             <label class="descripcion">{{vm.tipoDocumento}}</label>
                                         </content>
                                         <content class="li_right">
                                             <button id="fba_1" class="btn_filtro_avanzada" ng-click="vm.borrar_filtro('fba_1');">
                                                 <span class="ico-times-circle"></span>
                                             </button>
-                                        </content> 
+                                        </content>
                                     </li>
                                     <li class="content_li_filtro">
                                         <content class="li_left">
@@ -84,10 +85,11 @@
                                                 <span class="ico-times-circle"></span>
                                             </button>
                                         </content>
-                                    </li>                               
+                                    </li>
                                     <li class="content_li_filtro">
                                         <content class="li_left">
-                                            <label class="tip">Palabras a buscar:</label><br />
+                                            <label class="tip">Palabras a buscar:</label>
+                                            <br />
                                             <label class="descripcion">{{vm.palabrasABuscar}}</label>
                                         </content>
                                         <content class="li_right">
@@ -96,12 +98,12 @@
                                             </button>
                                         </content>
                                     </li>
-                                    
+
                                 </ul>
 
                             </content>
 
-                            <content class="form_busqueda_ava" >
+                            <content class="form_busqueda_ava">
                                 <br />
                                 <label class="subtitulos_labels">Tipo de documento</label>
                                 <input type="text" class="a_input input_busqueda_a" maxlength="50"
@@ -113,7 +115,7 @@
                                 <br />
                                 <label class="subtitulos_labels">Número de documento</label>
                                 <input type="text" class="a_input input_busqueda_a" maxlength="10"
-                                       name="numero" id="numero" ng-model="vm.numero" 
+                                       name="numero" id="numero" ng-model="vm.numero"
                                        placeholder="Escriba número de documento" />
                                 <button class="btn_search_avanzada" ng-click="vm.buscar( vm.palabrasABuscar)">
                                     <span class="ico-plus"></span>
@@ -130,7 +132,7 @@
                                 <label class="subtitulos_labels">Entidad emisora</label>
                                 <input type="text" class="a_input input_busqueda_a" maxlength="50"
                                        name="entidad-emisora" id="entidad-emisora" ng-model="vm.entidadEmisora"
-                                        placeholder="Escriba entidad emisora" />
+                                       placeholder="Escriba entidad emisora" />
                                 <button class="btn_search_avanzada" ng-click="vm.buscar( vm.palabrasABuscar)">
                                     <span class="ico-plus"></span>
                                 </button>
