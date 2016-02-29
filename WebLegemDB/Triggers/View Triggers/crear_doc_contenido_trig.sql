@@ -16,7 +16,7 @@ BEGIN
                 :NEW.documento_con_contenido.anio_publicacion );
         
         INSERT INTO contenidos_archivos_tab( id, archivo, identificador_documento, asunto, contenido, estado )
-            VALUES ( :NEW.documento_con_contenido.id_contenido,
+            VALUES ( :NEW.documento_con_contenido.archivo,
                 :NEW.documento_con_contenido.archivo,
                 identificadores_documentos_seq.CURRVAL,
                 :NEW.documento_con_contenido.asunto,

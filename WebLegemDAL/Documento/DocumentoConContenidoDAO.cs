@@ -15,6 +15,7 @@ namespace WebLegemDAL.DAL
     public class DocumentoConContenidoDAO: BaseDAO<DocumentoConContenido>,
         IGestorDeConsultas<DocumentoConContenidoQueryObject, DocumentoConContenido>
     {
+        private const int VarcharMaxLenght = 4000;
 
         /**********************************************************************************
          **********************************************************************************
@@ -84,21 +85,36 @@ namespace WebLegemDAL.DAL
 
         protected sealed override DocumentoConContenido Insert(DocumentoConContenido documentoConContenido)
         {
-            OracleCommand cmd = new OracleCommand($"INSERT INTO {TableName} VALUES( :td )", connection);            
 
-            if (documentoConContenido.Contenido == null)
-                documentoConContenido.Contenido = new OracleBFile( connection, "CONTENIDOS_DIR", Path.GetFileName( documentoConContenido.Ruta ) + ".txt"  );
+            OracleCommand cmd = new OracleCommand("WEB_LEGEM.CREAR_DOCUMENTO_CONT_PROC", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
 
-            OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);
-            td.UdtTypeName = UdtTypeName;
-            td.Direction = ParameterDirection.InputOutput;
-            td.Value = documentoConContenido;
+            OracleParameter doc = cmd.Parameters.Add("doc", OracleDbType.Object );
+            doc.UdtTypeName = UdtTypeName;
+            doc.Direction = ParameterDirection.InputOutput;
+            doc.Value = documentoConContenido;
+
+            OracleParameter archivo = cmd.Parameters.Add( "archivo", OracleDbType.Varchar2, 255);
+            archivo.Direction = ParameterDirection.Input;
+            archivo.Value = Path.GetFileName( documentoConContenido.Ruta );
 
             cmd.ExecuteNonQuery();
 
-            return (DocumentoConContenido)td.Value;
-        }
+            documentoConContenido = (DocumentoConContenido) doc.Value;
 
+
+            //OracleCommand cmd = new OracleCommand($"INSERT INTO {TableName} VALUES( :td )", connection);
+            
+            //OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);
+            //td.UdtTypeName = UdtTypeName;
+            //td.Direction = ParameterDirection.InputOutput;
+            //td.Value = documentoConContenido;
+
+            //cmd.ExecuteNonQuery();
+
+            return documentoConContenido;
+        }
+            
         protected sealed override DocumentoConContenido Modify(DocumentoConContenido documentoConContenido)
         {
             queryString = $"UPDATE {TableName} tev SET tev.documento_contenido = :td WHERE tev.documento_contenido.id = :id";

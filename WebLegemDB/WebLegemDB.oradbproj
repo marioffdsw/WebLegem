@@ -53,6 +53,12 @@
     <Content Include="drop_web_legem.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Functions\crear_bfile_fun.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\crear_contenido_doc_fun.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Functions\obtener_archivo_seq_fun.sql">
       <SubType>Content</SubType>
     </Content>

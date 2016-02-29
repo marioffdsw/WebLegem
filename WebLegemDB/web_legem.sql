@@ -100,3 +100,5 @@ set sqlbl on
 @@'Triggers/View Triggers/eliminar_entidad_trig.sql'
 
 @@'Functions/obtener_archivo_seq_fun.sql'
+@@'Sequences/identificadores_documentos_seq.sql'
+@@'Functions/crear_bfile_fun.sql'
