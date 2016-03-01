@@ -1,4 +1,4 @@
-﻿<div class="contenido animatio ng-enter" id="holas">
+﻿<div class="contenido_gd animatio ng-enter" id="holas">
     <label class="titulo">Crear Documento</label>
     <div>
         <label class="subtitulos_labels">
@@ -9,6 +9,10 @@
             <textarea class="text_area" rows="4" cols="50" ng-model="vm.documento.asunto"></textarea>
 
             <!--<button class="a_boton a_block" type="button" ui-sref="gestion-documental.crear-documento.pergunta-anotacion">Siguiente</button>-->
+
+            <button class="btn_con_ico" ng-click="vm.aceptar()">
+                <span class="ico-chevron-left tamano_botones_1"></span>Atras
+            </button>
             <button class="btn_con_ico inverso" ng-click="vm.aceptar()">
                 Siguiente<span class="ico-chevron-right tamano_botones_1 derecha"></span>
             </button>

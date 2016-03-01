@@ -1,4 +1,4 @@
-﻿.contenedor_administracion{/* no sirve por que esta oculto el html*/
+﻿.contenedor_administracion{
     margin:10px 0;
     width:90vw;
     border-radius:5px;
@@ -7,7 +7,6 @@
     -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
-
 /*-----------------------------------*/
 
 .form_administracion{/*contiene imputs del modulo administracion*/
@@ -37,12 +36,6 @@
   100% {opacity:1;}
 }
 
-/*MOVER DE AUI, ESTO NO VA*/
-.view_gestion_documental{
-    width:100vw;
-    display:flex;
-    justify-content:center;   
-}
 
 .contenido{
     width:100%;
@@ -98,3 +91,4 @@
     width:90%; 
     height:auto;
 }
+

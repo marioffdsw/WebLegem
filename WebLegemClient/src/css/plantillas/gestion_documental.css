@@ -1,0 +1,15 @@
+﻿.view_gestion_documental{
+    width:100vw;
+    display:flex;
+    justify-content:center;   
+}
+
+.contenido_gd{
+    background:white;
+    width:90vw;
+    margin-top:10px;
+}
+
+.contenido_gd > div{
+    padding:2em;
+}
