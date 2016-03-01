@@ -23,6 +23,7 @@
          * public method definition 
          */
 
+        vm.nuevo = nuevo;
         vm.create = create;
         vm.cancelar = cancelar;
         vm.editar = editar;
@@ -43,6 +44,12 @@
          * public method implementation 
          */
 
+        function nuevo() {
+            vm.tipoDoc = { id: 0, nombre: "" };
+            vm.tipoDocSeleccionado = {};
+            vm.editando = true;
+        } // fin function nuevo
+
         function create() {
             TipoDocumentoResource.save(vm.tipoDoc, function (data) {
                 TipoDocumentoResource.query(function (data) {
@@ -54,7 +61,12 @@
 
         function cancelar() {            
             vm.editando = false;
-            vm.tipoDoc = { id: 0, nombre: "" }
+            vm.tipoDoc = { id: 0, nombre: "" };
+            var algo = document.getElementById(vm.tipoDocSeleccionado.id);
+            algo.checked = false;
+            elemento = null;
+            document.getElementById('remover_td').style.visibility = 'hidden';
+            document.getElementById('editar_td').style.visibility = 'hidden';
         } // end function cancel
 
         function editar() {
@@ -63,7 +75,7 @@
             vm.editando = true;            
         } // end function editar
 
-        function guardar() {
+        function guardar() {            
             TipoDocumentoResource.update(vm.tipoDoc, function (data) {                
                 for (var i = 0; i < vm.tiposDoc.length; i++) {
                     if (vm.tiposDoc[i].id == data.id) {                        
@@ -89,16 +101,20 @@
             var algo = document.getElementById(tipoDocSeleccionado.id);
             vm.tipoDocSeleccionado = tipoDocSeleccionado
             if (elemento == algo) {
+                vm.tipoDoc = angular.copy(tipoDocSeleccionado);
                 algo.checked = false;
                 elemento = null;
                 document.getElementById('remover_td').style.visibility = 'hidden';
                 document.getElementById('editar_td').style.visibility = 'hidden';
             }
             else {
+                vm.tipoDoc = { id: 0, nombre: "" };
                 elemento = algo;
                 document.getElementById('remover_td').style.visibility = 'visible';
                 document.getElementById('editar_td').style.visibility = 'visible';
             }
+
+            vm.tipoDoc = angular.copy(tipoDocSeleccionado);
         }
 
         /*
