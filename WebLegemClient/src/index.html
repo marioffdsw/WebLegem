@@ -189,20 +189,6 @@
                         <span class="ico-search"></span>
                     </form>
                 </div>
-
-                
-                    <div class="navegacion">
-                        <ul class="bar_nav">
-                            <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
-                                <a ui-sref="{{opcion.estado}}">
-                                    {{ opcion.texto }}
-                                </a>
-                                <ul ng-if="opcion.subEstados">
-                                    <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>
-                                </ul>
-                            <li>
-                        </ul>
-                    </div>
                 
             </div>
         </div>

@@ -10,19 +10,23 @@
         var vm = this;
         vm.tiposEntidad = [];
         vm.entidades = [];
+        vm.entidad = { id: 0, nombre: "", tipoEntidad: {} };
+        vm.tipoEntidad = { id: 0, nombre: "" };
+
         vm.editando = false;
+        vm.entidadSeleccionada;
+        var elemento;        
+        var algo;
+
         vm.crear = crear;
         vm.eliminar = eliminar;
         vm.actualizar = actualizar;
         vm.entidad = { id: 0, nombre: "", tipoEntidad: {} };
         vm.tipoEntidad = { id: 0, nombre: "", documentosSoportados: [] };
         vm.editar = editar;
+        vm.nuevo = nuevo;
         vm.cancelar = cancelar;
-
-        vm.log = function () {
-            console.log(vm.entidad);
-            console.log( vm.entidades );
-        };
+        vm.seleccionarEntidad = seleccionarEntidad;        
 
 
         TipoEntidadService.query(function (data) {
@@ -64,21 +68,42 @@
 
         function editar(entidad) {
             vm.entidad = angular.copy(entidad);
-            for (var i = 0; i < vm.tiposEntidad.length; i++) {                
-                if (vm.tiposEntidad[i]['id'] === entidad.tipoEntidad.id) {
-                    vm.tipoEntidad = vm.tiposEntidad[i];
-                    break;
-                }
-            }                        
+            vm.tipoEntidad = vm.entidad.tipoEntidad;
+            vm.editando = true;
         } // fin function editar
 
-        function cancelar() {
+        function cancelar() {            
             vm.entidad = { id: 0, nombre: "", tipoEntidad: {} };
-            vm.tipoEntidad = { id: 0, nombre: "", documentosSoportados: [] };
+            vm.tipoEntidad = { id: 0, nombre: "", documentosSoportados: [] };            
+            vm.editando = false;
+            algo.checked = false;
+            elemento = null;
         } // fin function cancelar
 
         function nuevo() {
-            vm.entidad = { id: 0, nombre: "", tipoEntidad: {} };            
+            vm.entidad = { id: 0, nombre: "", tipoEntidad: {} };
+            vm.editando = true; 
         } // fin function nuevo
+
+        function seleccionarEntidad(entidadSeleccionada) {            
+            algo = document.getElementById("e_" + entidadSeleccionada.id);
+            vm.entidadSeleccionada = entidadSeleccionada;
+
+            if (elemento == algo) { // ya estaba seleccionado                                                                             
+                algo.checked = false;
+                elemento = null;
+                //document.getElementById('remover_td').style.visibility = 'hidden';
+                //document.getElementById('editar_td').style.visibility = 'hidden';
+                vm.cancelar();
+            }
+            else { // no estaba seleccionado
+                vm.entidad = angular.copy(entidadSeleccionada);
+                elemento = algo;
+                document.getElementById('remover_td').style.visibility = 'visible';
+                document.getElementById('editar_td').style.visibility = 'visible';
+            }
+
+            //vm.entidad = angular.copy(entidadSeleccionada);
+        }
     } // end EntidadController
 })();
