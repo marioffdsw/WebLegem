@@ -126,19 +126,18 @@
     <link href="css/estilos_weblegem_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
 
     <script src="app/busqueda/busqueda_controller.js"></script>
-
-
+    <link href="fuentes/CREAMPUF/fonts.css" rel="stylesheet" />
+    <link href="fuentes/exmouth/fonts.css" rel="stylesheet" />
+    <link href="fuentes/Hotel Coral Essex/fonts.css" rel="stylesheet" />
 </head>
 
 <body id="body_index" style="position:relative;min-height: 100%; font-size:100%;">
 
-    <div class="imagen_inicial">
+    <div>
         <div class="header">
-
+            <!--
             <div class="figura_logo">
-                <img class="escudo_pagina" src="recursos/header/udenar_bl.png" />
-                <p class="nombre_pagina">Legem</p>
-            </div>
+            </div>-->
 
 
             <div id="contenedor_accesibilidad" class="contenedor_accesibilidad">
@@ -175,36 +174,39 @@
             </div>
         </div>
 
-        <div class="header2">
-            <div id="contenedor_mini_search" class="contenedor_mini_search">
-                <form class="mini_search">
-                    <input id="mini_search" type="text" placeholder="Buscar" onfocus="atenuar_busqueda(this.id)" />
-                    <span class="ico-search"></span>
-                </form>
+        <div class="header2 ">
+            <div class="contenedor_nombre_escudo">
+                <img class="escudo_pagina" src="recursos/header/udenar_bl.png" />
+                <p class="nombre_pagina">Legem</p>
             </div>
-        </div>
 
-        <div class="contenedor_navegacion">
-            <div class="navegacion">
-                <ul class="bar_nav">
-                    <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
-                        <a ui-sref="{{opcion.estado}}">
-                            {{ opcion.texto }}
-                        </a>
-                        <ul ng-if="opcion.subEstados">
-                            <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>
+            <div class="hijo_right_header2">
+
+                
+                <div id="contenedor_mini_search" class="contenedor_mini_search">
+                    <form class="mini_search">
+                        <input id="mini_search" type="text" placeholder="Buscar" onfocus="atenuar_busqueda(this.id)" />
+                        <span class="ico-search"></span>
+                    </form>
+                </div>
+
+                
+                    <div class="navegacion">
+                        <ul class="bar_nav">
+                            <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
+                                <a ui-sref="{{opcion.estado}}">
+                                    {{ opcion.texto }}
+                                </a>
+                                <ul ng-if="opcion.subEstados">
+                                    <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>
+                                </ul>
+                            <li>
                         </ul>
-                    <li>
-                </ul>
+                    </div>
+                
             </div>
         </div>
-
     </div>
-
-
-
-
-
 
     <div ui-view class="vistas animatio ng-enter"></div>
     <!--

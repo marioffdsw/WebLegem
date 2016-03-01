@@ -1,6 +1,10 @@
 ﻿/*div de mini Busqueda*/
 .contenedor_mini_search{
-    margin:0 10px;
+    margin:10px 10px;
+    height:50%;
+    display:flex;
+    align-items:flex-end;
+    justify-content:flex-end;
 }
 
 .mini_search{

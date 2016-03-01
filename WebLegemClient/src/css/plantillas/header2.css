@@ -1,12 +1,47 @@
 ﻿.header2 {
-    width:100%;
-    height:50px;
-
-    display:flex;
+    width: 100%;
+    height: 100px;
+    display: flex;
     display: -webkit-flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('../../recursos/header/green-texture_1280x720_sc.jpg');
+    border-bottom:5px solid #37404A;
+}
+
+
+.nombre_pagina{
+    font-family:'Conv_exmouth_';
+    font-weight:900;
+    font-size: 75px;
+    color:white;
+    text-shadow: 1px 1px  rgba(140,140,140,0.6), -1px -1px 1px rgba(0, 0, 0, .67);
     
-    justify-content:flex-end;
-    align-items:center;
-    
-    background:rgba(0, 0, 0,.2);
+}
+
+.escudo_pagina{
+    margin-left: 20px;
+    margin-top: 5px;
+    height: 80px;
+}
+
+.contenedor_nombre_escudo {
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+}
+
+.hijo_right_header2 {
+    display: -webkit-flex;
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+
+    -ms-align-content: flex-end;
+    -webkit-align-content: flex-end;
+    align-content: flex-end;
+
+    height: 100%;
 }
