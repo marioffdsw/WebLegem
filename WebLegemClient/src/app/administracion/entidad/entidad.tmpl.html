@@ -1,15 +1,18 @@
 ﻿<div class="contenido">
     <section class="layout_padre">
 
-        <div class="hijo_left">
+        <div class="hijo_left" style="width:40%;">
             <label class="texto_labels" style="margin-top:10px;">Lista de entidades</label>
-            <ul>
+            <ul class="a_listado" style="width:100%;">
                 <li ng-repeat="entidad in vm.entidades">
-                    <span>{{entidad.nombre}}</span>
-                    <span>{{entidad.tipoEntidad.nombre}}</span>
-                    <span ng-click="vm.eliminar(entidad)">eliminar</span>
-                    <span ng-click="vm.editar(entidad)">editar</span>
+                    <input type="radio" class="styled" id="xxx" />
+                    <label class="styled" style="line-height:1.5;" for="xxx">
+                        {{entidad.nombre}}</br>
+                        <span style="font-size:smaller; color:#005e00;">{{entidad.tipoEntidad.nombre}}</span>
+                    </label>           
                 </li>
+                    <!--<span ng-click="vm.eliminar(entidad)">eliminar</span>
+                    <span ng-click="vm.editar(entidad)">editar</span>-->
             </ul>
         </div>
 

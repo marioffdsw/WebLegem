@@ -1,7 +1,6 @@
 ﻿#remover_te, #editar_te {
     display:block; 
-    visibility:hidden; 
-    margin: 0 0 5px 15px; 
+    visibility:collapse;
 }
 
 .form_tipo_entidad {
