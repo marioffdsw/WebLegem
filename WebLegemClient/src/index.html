@@ -88,14 +88,9 @@
     <link href="css/plantillas/informacion_documento.css" rel="stylesheet" />
     <link href="css/plantillas/tipo_documento.css" rel="stylesheet" />
     <link href="css/noticias.css" rel="stylesheet" />
-
     <link href="css/plantillas/header2.css" rel="stylesheet" />
-
     <link href="css/plantillas/header.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
-    <link href="css/plantillas/header_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
-
-
-    
+    <link href="css/plantillas/header_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />    
     <link href="css/plantillas/accesibilidad.css" rel="stylesheet" />
 
     <link href="css/plantillas/administracion.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
@@ -186,6 +181,19 @@
                         <input id="mini_search" type="text" placeholder="Buscar" onfocus="atenuar_busqueda(this.id)" />
                         <span class="ico-search"></span>
                     </form>
+                </div>
+
+                <div class="navegacion">
+                    <ul class="bar_nav">                        
+                        <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
+                            <a ui-sref="{{opcion.estado}}">
+                                {{ opcion.texto }}                                
+                            </a>
+                            <ul ng-if="opcion.subEstados">                                
+                                <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>                                
+                            </ul>                            
+                        <li>                            
+                    </ul>                    
                 </div>
                 
             </div>
