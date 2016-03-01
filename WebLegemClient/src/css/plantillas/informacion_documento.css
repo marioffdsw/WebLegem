@@ -1,34 +1,19 @@
-﻿#informacion_documento{
-    
-}
+﻿#informacion_documento {
+    height: 90px;
+    width: 100%;
 
-
-
-#informacion_documento div{
-    
-    display:flex;
+    display: flex;
     display: -webkit-flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
     
-    -ms-flex-direction:row;
-    -webkit-flex-direction:row;
-    flex-direction:row;
-
-    -ms-flex-wrap: wrap;
-    -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;/*hace que se adapte si lo es necesario*/
-
-    align-items:center;
-    
-    width: auto;
-
-    -webkit-transition: width 0.7s ease-out;
-    transition: width 0.7s ease-out;
-
-  
+    background: red;
 }
 
 #informacion_documento div label{
     flex-basis:200px;
+    background:blue;
 }
 
 #informacion_documento div input
