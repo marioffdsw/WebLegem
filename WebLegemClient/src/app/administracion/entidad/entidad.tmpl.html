@@ -5,47 +5,55 @@
             <label class="texto_labels" style="margin-top:10px;">Lista de entidades</label>
             <ul class="a_listado" style="width:100%;">
                 <li ng-repeat="entidad in vm.entidades">
-                    <input type="radio" class="styled" id="xxx" />
-                    <label class="styled" style="line-height:1.5;" for="xxx">
-                        {{entidad.nombre}}</br>
+                    <input type="radio" class="styled" id="e_{{entidad.id}}" name="entidad_rad"
+                           ng-value="vm.entidad"
+                           ng-click="vm.seleccionarEntidad(entidad)" ng-disabled="vm.editando" />
+                    <label class="styled" style="line-height:1.5;" for="e_{{entidad.id}}">
+                        {{entidad.nombre}}<br />
                         <span style="font-size:smaller; color:#005e00;">{{entidad.tipoEntidad.nombre}}</span>
                     </label>           
-                </li>
-                    <!--<span ng-click="vm.eliminar(entidad)">eliminar</span>
-                    <span ng-click="vm.editar(entidad)">editar</span>-->
+                </li>                    
             </ul>
         </div>
 
         <div class="hijo_right">
             <div class="control_administracion">
-                <button class="btn_con_ico" type="button" ng-click="vm.log(); vm.crear(vm.entidad)">
+                <button class="btn_con_ico" type="button" ng-click="vm.nuevo();">
                     <span class="ico-plus tamano_botones_1"></span>Nuevo
                 </button>
-                <button class="btn_con_ico" type="button" value="Editar">
+                <button class="btn_con_ico" type="button" value="Editar" ng-click="vm.editar(vm.entidad)" ng-show="!vm.editando && vm.entidad.nombre">
                     <span class="ico-pencil tamano_botones_1"></span>Editar
                 </button>
-                <button class="btn_con_ico" type="button" value="Eliminar">
+                <button class="btn_con_ico" type="button" value="Eliminar" ng-show="!vm.editando  && vm.entidad.nombre">
                     <span class="ico-trash tamano_botones_1"></span>Remover
                 </button>
             </div>
 
             <label class="texto_labels" for="nombre-entidad">Nombre de la entidad</label>
 
-            <input class="a_input input_administracion" id="nombre-entidad" type="text"
+            <input class="a_input input_administracion" id="nombre-entidad" type="text" ng-disabled="!vm.editando"
                     placeholder="Ingrese el nombre de la entidad" ng-model="vm.entidad.nombre" />
             
 
 
             <label class="texto_labels" for="tipo-entidad">Tipo de la entidad</label>
             <div class="span_select">
-                <select id="tipoEntidadSelect" class="select" ng-options="tipoEntidad as tipoEntidad.nombre for tipoEntidad in vm.tiposEntidad " ng-model="vm.tipoEntidad"></select>
+                <input type="text" ng-show="!vm.editando" class="select"
+                    ng-disabled="!vm.editando"   
+                    ng-model="vm.entidad.tipoEntidad.nombre" />
+            </div>
+            <div class="span_select">
+                <select id="tipoEntidadSelect" ng-show="vm.editando" class="select" ng-disabled="!vm.editando"
+                    ng-options="tipoEntidad as tipoEntidad.nombre for tipoEntidad in vm.tiposEntidad"
+                    ng-model="vm.tipoEntidad" >
+                </select>
                 <span class="span_select ico-angle-down"></span>
             </div>
 
-            <button class="btn_con_ico" type="button" ng-click="vm.actualizar( vm.entidad )">
+            <button class="btn_con_ico" type="button" ng-show="vm.editando" ng-click="vm.actualizar( vm.entidad )">
                 <span class="ico-plus tamano_botones_1"></span>Actualizar
             </button>
-            <button class="btn_con_ico" type="button" ng-click="vm.cancelar()">
+            <button class="btn_con_ico" type="button" ng-show="vm.editando" ng-click="vm.cancelar()">
                 <span class="ico-times tamano_botones_1"></span>Cancelar
             </button>
 
