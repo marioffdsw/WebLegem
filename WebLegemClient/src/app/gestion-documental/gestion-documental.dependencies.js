@@ -4,6 +4,7 @@
     angular.module("WebLegemApp.GestionDocumental", [
         /* Third party modules */
         "ui.router",
-        "angularFileUpload"
+        "angularFileUpload",
+        "ngQuill"
     ]);
 })();

@@ -18,6 +18,8 @@
     <script src="../bower_components/angular-touch/angular-touch.min.js"></script>
     <script src="../bower_components/angular-mocks/angular-mocks.js"></script>
     <script src="../bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
+    <script src="../bower_components/quill/dist/quill.min.js"></script>
+    <script src="../bower_components/ngQuill/src/ng-quill.min.js"></script>
 
     <!-- App Scripts -->
     <script src="app/app.core.js"></script>
@@ -25,7 +27,7 @@
     <script src="app/app.core.modules.js"></script>
     <script src="app/app.core.run.js"></script>
     <script src="app/app.core.routes.js"></script>
-    <script src="app/app.core.constants.js"></script>
+    <script src="app/app.core.constants.js"></script>    
 
     <!-- Login -->
     <script src="app/login/login.js"></script>
@@ -43,7 +45,6 @@
     <script src="app/administracion/administracion.dependencies.js"></script>
     <script src="app/administracion/administracion.routes.js"></script>
     <script src="app/administracion/administracion.controller.js"></script>
-
     <script src="app/administracion/tipo-documento/tipo-documento.controller.js"></script>
     <script src="app/administracion/tipo-entidad/tipos-entidad.controller.js"></script>
     <script src="app/administracion/entidad/entidad.controller.js"></script>
@@ -84,7 +85,6 @@
     <link href="css/elementos/gadget_control_entidad.css" rel="stylesheet" />
     <link href="css/elementos/uploader.css" rel="stylesheet" />
     <link href="css/elementos/tabs.css" rel="stylesheet" />
-
     <link href="css/plantillas/informacion_documento.css" rel="stylesheet" />
     <link href="css/plantillas/tipo_documento.css" rel="stylesheet" />
     <link href="css/noticias.css" rel="stylesheet" />
@@ -92,15 +92,15 @@
     <link href="css/plantillas/header.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
     <link href="css/plantillas/header_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />    
     <link href="css/plantillas/accesibilidad.css" rel="stylesheet" />
-
     <link href="css/plantillas/administracion.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
     <link href="css/plantillas/administracion_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
-
     <link href="css/plantillas/login.css" rel="stylesheet" />
     <link href="css/plantillas/tipo_entidad.css" rel="stylesheet" />
     <link href="css/plantillas/busqueda.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
     <link href="css/plantillas/busqueda_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
     <link href="css/plantillas/gestion_documental.css" rel="stylesheet" />
+    <link href="../bower_components/quill/dist/quill.base.css" rel="stylesheet" />
+    <link href="../bower_components/quill/dist/quill.snow.css" rel="stylesheet" />
  
     <!--Iconografia-->
     <link href="iconos-legem/styles.css" rel="stylesheet" />
