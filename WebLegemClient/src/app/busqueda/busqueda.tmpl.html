@@ -95,19 +95,19 @@
 
                             </content>
 
-                            <content class="form_busqueda_ava">
-                                <br />
+                            <content class="form_busqueda_ava">                                
                                 <label class="subtitulos_labels" ng-show="!vm.tipoDocumento">Tipo de documento</label>
-                                <input type="text" class="a_input input_busqueda_a" maxlength="50"
-                                       name="tipo-documento" id="tipo-documento" ng-model="vm.tipoDocumentoAux"
-                                       ng-show="!vm.tipoDocumento"
-                                       placeholder="Escriba tipo de documento" />
+                                <select id="tipo-documento" class="select a_input input_busqueda_a"
+                                        ng-options="tipoDocumento.nombre as tipoDocumento.nombre for tipoDocumento in vm.tiposDocumento| orderBy: 'nombre'"
+                                        ng-model="vm.tipoDocumentoAux"
+                                        placeholder="Escriba entidad emisora"
+                                        ng-show="!vm.tipoDocumento"></select>
+                                <span class="span_select ico-angle-down"></span>                                 
                                 <button class="btn_search_avanzada"
                                     ng-show="!vm.tipoDocumento"
                                     ng-click="vm.tipoDocumento = vm.tipoDocumentoAux">
                                     <span class="ico-plus"></span>
-                                </button>
-                                <br />
+                                </button>                                
                                 <label class="subtitulos_labels" ng-show="!vm.numero">Número de documento</label>
                                 <input type="text" class="a_input input_busqueda_a" maxlength="10"
                                        name="numero" id="numero" ng-model="vm.numeroAux"
@@ -117,8 +117,7 @@
                                     ng-show="!vm.numero"
                                     ng-click="vm.numero = vm.numeroAux">
                                     <span class="ico-plus"></span>
-                                </button>
-                                <br>
+                                </button>                                
                                 <label
                                     ng-show="!vm.anioPublicacion"
                                     class="subtitulos_labels">Año de publicación</label>
@@ -129,21 +128,22 @@
                                     ng-show="!vm.anioPublicacion"    
                                     ng-click="vm.anioPublicacion = vm.anioPublicacionAux">
                                     <span class="ico-plus"></span>
-                                </button>
-                                <br />
+                                </button>                                
                                 <label
                                     ng-show="!vm.entidadEmisora"
-                                    class="subtitulos_labels">Entidad emisora</label>
-                                <input type="text" class="a_input input_busqueda_a" maxlength="50"
-                                       name="entidad-emisora" id="entidad-emisora" ng-model="vm.entidadEmisoraAux"
-                                       ng-show="!vm.entidadEmisora"
-                                       placeholder="Escriba entidad emisora" />
+                                    class="subtitulos_labels">Entidad emisora</label>                                
+                                    <select id="entidad" class="select a_input input_busqueda_a"
+                                            ng-options="entidad.nombre as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'"
+                                            ng-model="vm.entidadEmisoraAux"                                            
+                                        placeholder="Escriba entidad emisora"
+                                        ng-show="!vm.entidadEmisora" >                                        
+                                    </select>
+                                    <span class="span_select ico-angle-down"></span>                                
                                 <button class="btn_search_avanzada"
                                     ng-show="!vm.entidadEmisora"
                                     ng-click="vm.entidadEmisora = vm.entidadEmisoraAux">
                                     <span class="ico-plus"></span>
-                                </button>
-                                
+                                </button>                                                                
                             </content>
                         </content>
                         <content id="busqueda_right">

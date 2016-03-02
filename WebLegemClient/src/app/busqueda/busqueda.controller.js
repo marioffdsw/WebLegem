@@ -5,8 +5,8 @@
         .module("WebLegemApp.Busqueda")
         .controller("BusquedaController", BusquedaController);
 
-    BusquedaController.$inject = [ "DocumentosResource" ];
-    function BusquedaController( DocumentosResource ) {
+    BusquedaController.$inject = ["DocumentosResource", "EntidadService", "TipoDocumentoResource"];
+    function BusquedaController(DocumentosResource, entidadService, TipoDocumentoService) {
         var vm = this;
         vm.palabrasABuscar = "";
         vm.anioPublicacion = "";
@@ -15,7 +15,8 @@
         vm.tipoDocumento = "";
         vm.documentosEncontrados = [];
         vm.limpiar = limpiar;
-
+        vm.entidades;
+        vm.tiposDocumento;
         vm.cambiarTab = cambiarTab;
         vm.tab_1 = true;
         vm.tab_2 = false;
@@ -23,6 +24,14 @@
 
         vm.buscar = buscar;
         
+        entidadService.query(function (data) {
+            vm.entidades = data;
+        });
+
+        TipoDocumentoService.query(function (data) {
+            vm.tiposDocumento = data;
+        });
+
         function buscar( palabras ) {
             // documentos service get + OData query
 
