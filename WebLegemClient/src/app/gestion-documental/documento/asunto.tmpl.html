@@ -5,21 +5,21 @@
             Asunto
         </label>
         <hr class="divisor_gestion_documental" />
-        <form>            
-            <ng-quill-editor ng-model="vm.documento.asunto" toolbar="true" link-tooltip="true" image-tooltip="true" toolbar-entries="font size bold list bullet italic underline strike align color background link image" editor-required="true" required="" error-class="input-error">
+        <form class="tontera">            
+            <ng-quill-editor 
+                             ng-model="vm.documento.asunto" toolbar="true" link-tooltip="true" image-tooltip="true" toolbar-entries="font size bold list bullet italic underline strike align color background link image" editor-required="true" required="" error-class="input-error">
             </ng-quill-editor>
 
             <!--<button class="a_boton a_block" type="button" ui-sref="gestion-documental.crear-documento.pergunta-anotacion">Siguiente</button>-->
-
-            <div class="contenedor_back_next">
-                <button class="btn_con_ico" ng-click="vm.aceptar()">
-                    <span class="ico-chevron-left tamano_botones_1"></span>Atras
-                </button>
-                <button class="btn_con_ico inverso" ng-click="vm.aceptar()">
-                    Siguiente<span class="ico-chevron-right tamano_botones_1 derecha"></span>
-                </button>
-            </div>
-
         </form>
+        <div class="contenedor_back_next">
+            <button class="btn_con_ico" ng-click="vm.aceptar()">
+                <span class="ico-chevron-left tamano_botones_1"></span>Atras
+            </button>
+            <button class="btn_con_ico inverso" ng-click="vm.aceptar()">
+                Siguiente<span class="ico-chevron-right tamano_botones_1 derecha"></span>
+            </button>
+        </div>
+
     </div>
 </div>

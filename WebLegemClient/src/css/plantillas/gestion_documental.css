@@ -13,3 +13,17 @@
 .contenido_gd > div{
     padding:2em;
 }
+
+.tontera {
+    border: 1px solid gray;
+    margin: 10px;
+    height: 46vh;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.tontera ng-quill-editor{
+    background:red;
+    
+}
