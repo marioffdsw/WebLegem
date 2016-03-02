@@ -33,117 +33,117 @@
                 </div>
 
                 <div class="tabpage" id="tabpage_2" ng-show="vm.tab_2">
+                    <input required name="busqueda" type="text" class="a_input input_busqueda" ng-model="vm.palabrasABuscar" placeholder="Escriba aquí su busqueda(Ejemplo:Decreto 104 de 2015)" maxlength="50" id="nombre" />
+                    <button class="btn_con_ico " ng-click="vm.buscar( vm.palabrasABuscar)">
+                        <span class="ico-search tamano_botones_1"></span>Buscar
+                    </button>
                     <content id="busqueda_padre">
                         <content id="busqueda_left">
 
-                            <content id="filtros_busqueda">
+                            <content id="filtros_busqueda" ng-show="vm.tipoDocumento || vm.numero || vm.anioPublicacion || vm.entidadEmisora">
                                 <ul>
-                                    <li class="content_li_filtro">
+                                    <li class="content_li_filtro" ng-show="vm.tipoDocumento">
                                         <content class="li_left">
                                             <label class="tip">Tipo de documento:</label>
                                             <br />
                                             <label class="descripcion">{{vm.tipoDocumento}}</label>
                                         </content>
                                         <content class="li_right">
-                                            <button id="fba_1" class="btn_filtro_avanzada" ng-click="vm.borrar_filtro('fba_1');">
+                                            <button id="fba_1" class="btn_filtro_avanzada" ng-click="vm.tipoDocumento = ''">
                                                 <span class="ico-times-circle"></span>
                                             </button>
                                         </content>
                                     </li>
-                                    <li class="content_li_filtro">
+                                    <li class="content_li_filtro" ng-show="vm.numero">
                                         <content class="li_left">
                                             <label class="tip">Número de documento:</label>
                                             <br />
                                             <label class="descripcion">{{vm.numero}}</label>
                                         </content>
                                         <content class="li_right">
-                                            <button id="fba_2" class="btn_filtro_avanzada" ng-click="vm.borrar_filtro('fba_2');">
+                                            <button id="fba_2" class="btn_filtro_avanzada" ng-click="vm.numero = ''">
                                                 <span class="ico-times-circle"></span>
                                             </button>
                                         </content>
                                     </li>
-                                    <li class="content_li_filtro">
+                                    <li class="content_li_filtro" ng-show="vm.anioPublicacion">
                                         <content class="li_left">
                                             <label class="tip">Año de publicacion:</label>
                                             <br />
                                             <label class="descripcion">{{vm.anioPublicacion}}</label>
                                         </content>
                                         <content class="li_right">
-                                            <button id="fba_3" class="btn_filtro_avanzada" ng-click="vm.borrar_filtro('fba_3');">
+                                            <button id="fba_3" class="btn_filtro_avanzada" ng-click="vm.anioPublicacion = ''">
                                                 <span class="ico-times-circle"></span>
                                             </button>
                                         </content>
                                     </li>
-                                    <li class="content_li_filtro">
+                                    <li class="content_li_filtro" ng-show="vm.entidadEmisora">
                                         <content class="li_left">
                                             <label class="tip">Entidad emisora:</label>
                                             <br />
                                             <label class="descripcion">{{vm.entidadEmisora}}</label>
                                         </content>
                                         <content class="li_right">
-                                            <button id="fba_4" class="btn_filtro_avanzada" ng-click="vm.borrar_filtro('fba_4');">
+                                            <button id="fba_4" class="btn_filtro_avanzada" ng-click="vm.entidadEmisora = ''">
                                                 <span class="ico-times-circle"></span>
                                             </button>
                                         </content>
                                     </li>
-                                    <li class="content_li_filtro">
-                                        <content class="li_left">
-                                            <label class="tip">Palabras a buscar:</label>
-                                            <br />
-                                            <label class="descripcion">{{vm.palabrasABuscar}}</label>
-                                        </content>
-                                        <content class="li_right">
-                                            <button id="fba_5" class="btn_filtro_avanzada" ng-click="vm.borrar_filtro('fba_5');">
-                                                <span class="ico-times-circle"></span>
-                                            </button>
-                                        </content>
-                                    </li>
-
+                                    
                                 </ul>
 
                             </content>
 
                             <content class="form_busqueda_ava">
                                 <br />
-                                <label class="subtitulos_labels">Tipo de documento</label>
+                                <label class="subtitulos_labels" ng-show="!vm.tipoDocumento">Tipo de documento</label>
                                 <input type="text" class="a_input input_busqueda_a" maxlength="50"
-                                       name="tipo-documento" id="tipo-documento" ng-model="vm.tipoDocumento"
+                                       name="tipo-documento" id="tipo-documento" ng-model="vm.tipoDocumentoAux"
+                                       ng-show="!vm.tipoDocumento"
                                        placeholder="Escriba tipo de documento" />
-                                <button class="btn_search_avanzada" ng-click="vm.buscar( vm.palabrasABuscar)">
+                                <button class="btn_search_avanzada"
+                                    ng-show="!vm.tipoDocumento"
+                                    ng-click="vm.tipoDocumento = vm.tipoDocumentoAux">
                                     <span class="ico-plus"></span>
                                 </button>
                                 <br />
-                                <label class="subtitulos_labels">Número de documento</label>
+                                <label class="subtitulos_labels" ng-show="!vm.numero">Número de documento</label>
                                 <input type="text" class="a_input input_busqueda_a" maxlength="10"
-                                       name="numero" id="numero" ng-model="vm.numero"
+                                       name="numero" id="numero" ng-model="vm.numeroAux"
+                                       ng-show="!vm.numero"
                                        placeholder="Escriba número de documento" />
-                                <button class="btn_search_avanzada" ng-click="vm.buscar( vm.palabrasABuscar)">
+                                <button class="btn_search_avanzada"
+                                    ng-show="!vm.numero"
+                                    ng-click="vm.numero = vm.numeroAux">
                                     <span class="ico-plus"></span>
                                 </button>
                                 <br>
-                                <label class="subtitulos_labels">Año de publicación</label>
+                                <label
+                                    ng-show="!vm.anioPublicacion"
+                                    class="subtitulos_labels">Año de publicación</label>
                                 <input type="text" class="a_input input_busqueda_a" maxlength="4"
-                                       name="anioPublicacion" id="anioPublicacion" ng-model="vm.anioPublicacion"
+                                       name="anioPublicacion" id="anioPublicacion" ng-model="vm.anioPublicacionAux"
                                        placeholder="Escriba año de publicación" />
-                                <button class="btn_search_avanzada" ng-click="vm.buscar( vm.palabrasABuscar)">
+                                <button class="btn_search_avanzada"
+                                    ng-show="!vm.anioPublicacion"    
+                                    ng-click="vm.anioPublicacion = vm.anioPublicacionAux">
                                     <span class="ico-plus"></span>
                                 </button>
                                 <br />
-                                <label class="subtitulos_labels">Entidad emisora</label>
+                                <label
+                                    ng-show="!vm.entidadEmisora"
+                                    class="subtitulos_labels">Entidad emisora</label>
                                 <input type="text" class="a_input input_busqueda_a" maxlength="50"
-                                       name="entidad-emisora" id="entidad-emisora" ng-model="vm.entidadEmisora"
+                                       name="entidad-emisora" id="entidad-emisora" ng-model="vm.entidadEmisoraAux"
+                                       ng-show="!vm.entidadEmisora"
                                        placeholder="Escriba entidad emisora" />
-                                <button class="btn_search_avanzada" ng-click="vm.buscar( vm.palabrasABuscar)">
+                                <button class="btn_search_avanzada"
+                                    ng-show="!vm.entidadEmisora"
+                                    ng-click="vm.entidadEmisora = vm.entidadEmisoraAux">
                                     <span class="ico-plus"></span>
                                 </button>
-                                <br />
-                                <label class="subtitulos_labels">Palabras a buscar</label>
-                                <input type="text" class="a_input input_busqueda_a" maxlength="50"
-                                       name="palabrasABuscar" id="palabrasABuscar" ng-model="vm.palabrasABuscar"
-                                       placeholder="Escriba palabras clave a buscar" />
-                                <button class="btn_search_avanzada" ng-click="vm.buscar( vm.palabrasABuscar)">
-                                    <span class="ico-plus"></span>
-                                </button>
+                                
                             </content>
                         </content>
                         <content id="busqueda_right">
@@ -159,16 +159,11 @@
                                 </li>
                             </ul>
 
-
                         </content>
                     </content>
-
                 </div>
-
-
             </div>
         </div>
-
     </div>
 </div>
 
