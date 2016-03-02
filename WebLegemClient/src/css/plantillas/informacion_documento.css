@@ -1,5 +1,4 @@
 ﻿#informacion_documento {
-    height: 90px;
     width: 100%;
 
     display: flex;
@@ -8,38 +7,26 @@
     -webkit-flex-direction: row;
     flex-direction: row;
     
-    background: red;
+    justify-content:space-between;
+    margin:10px 0;
 }
 
-#informacion_documento div label{
-    flex-basis:200px;
-    background:blue;
+.a_1{
+    flex-basis: 260px;
 }
 
-#informacion_documento div input
-{
-    flex-grow:1;
-    width:auto;
-    min-width:200px;
-    max-width:400px;
+.zzz {
+    flex-basis: 300px;
+}
+
+.a_1 > div > select,.zzz > div > select {
+    width:95%;
 }
 
 
-#informacion_documento div div{
-
-    width:auto;
-    min-width:200px;
-    max-width:400px;
-    display:inline-block;
-    position:relative;
+.b_1 input{
+    margin:10px 0;
+    width:150px;
 }
 
-#informacion_documento div div select{
-    width:100%;
-}
 
-#informacion_documento div div span{
-    position: absolute;
-    right: 10px;
-    top: 20px;
-}
