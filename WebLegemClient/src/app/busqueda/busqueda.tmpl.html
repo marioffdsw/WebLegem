@@ -49,7 +49,7 @@
                                             <label class="descripcion">{{vm.tipoDocumento}}</label>
                                         </content>
                                         <content class="li_right">
-                                            <button id="fba_1" class="btn_filtro_avanzada" ng-click="vm.tipoDocumento = ''">
+                                            <button id="fba_1" class="btn_filtro_avanzada" ng-click="vm.tipoDocumento = ''; vm.buscar(vm.palabrasABuscar);">
                                                 <span class="ico-times-circle"></span>
                                             </button>
                                         </content>
@@ -61,7 +61,7 @@
                                             <label class="descripcion">{{vm.numero}}</label>
                                         </content>
                                         <content class="li_right">
-                                            <button id="fba_2" class="btn_filtro_avanzada" ng-click="vm.numero = ''">
+                                            <button id="fba_2" class="btn_filtro_avanzada" ng-click="vm.numero = ''; vm.buscar(vm.palabrasABuscar);">
                                                 <span class="ico-times-circle"></span>
                                             </button>
                                         </content>
@@ -73,7 +73,7 @@
                                             <label class="descripcion">{{vm.anioPublicacion}}</label>
                                         </content>
                                         <content class="li_right">
-                                            <button id="fba_3" class="btn_filtro_avanzada" ng-click="vm.anioPublicacion = ''">
+                                            <button id="fba_3" class="btn_filtro_avanzada" ng-click="vm.anioPublicacion = ''; vm.buscar(vm.palabrasABuscar);">
                                                 <span class="ico-times-circle"></span>
                                             </button>
                                         </content>
@@ -85,14 +85,12 @@
                                             <label class="descripcion">{{vm.entidadEmisora}}</label>
                                         </content>
                                         <content class="li_right">
-                                            <button id="fba_4" class="btn_filtro_avanzada" ng-click="vm.entidadEmisora = ''">
+                                            <button id="fba_4" class="btn_filtro_avanzada" ng-click="vm.entidadEmisora = ''; vm.buscar(vm.palabrasABuscar);">
                                                 <span class="ico-times-circle"></span>
                                             </button>
                                         </content>
-                                    </li>
-                                    
+                                    </li>                                    
                                 </ul>
-
                             </content>
 
                             <content class="form_busqueda_ava">                                
@@ -105,7 +103,7 @@
                                 <span class="span_select ico-angle-down"></span>                                 
                                 <button class="btn_search_avanzada"
                                     ng-show="!vm.tipoDocumento"
-                                    ng-click="vm.tipoDocumento = vm.tipoDocumentoAux">
+                                    ng-click="vm.tipoDocumento = vm.tipoDocumentoAux; vm.buscar(vm.palabrasABuscar);    ">
                                     <span class="ico-plus"></span>
                                 </button>                                
                                 <label class="subtitulos_labels" ng-show="!vm.numero">Número de documento</label>
@@ -115,18 +113,19 @@
                                        placeholder="Escriba número de documento" />
                                 <button class="btn_search_avanzada"
                                     ng-show="!vm.numero"
-                                    ng-click="vm.numero = vm.numeroAux">
+                                    ng-click="vm.numero = vm.numeroAux; vm.buscar(vm.palabrasABuscar);">
                                     <span class="ico-plus"></span>
                                 </button>                                
                                 <label
                                     ng-show="!vm.anioPublicacion"
                                     class="subtitulos_labels">Año de publicación</label>
                                 <input type="text" class="a_input input_busqueda_a" maxlength="4"
-                                       name="anioPublicacion" id="anioPublicacion" ng-model="vm.anioPublicacionAux"
-                                       placeholder="Escriba año de publicación" />
+                                    name="anioPublicacion" id="anioPublicacion" ng-model="vm.anioPublicacionAux"
+                                    ng-show="!vm.anioPublicacion"
+                                    placeholder="Escriba año de publicación" />
                                 <button class="btn_search_avanzada"
                                     ng-show="!vm.anioPublicacion"    
-                                    ng-click="vm.anioPublicacion = vm.anioPublicacionAux">
+                                    ng-click="vm.anioPublicacion = vm.anioPublicacionAux; vm.buscar(vm.palabrasABuscar);">
                                     <span class="ico-plus"></span>
                                 </button>                                
                                 <label
@@ -141,22 +140,34 @@
                                     <span class="span_select ico-angle-down"></span>                                
                                 <button class="btn_search_avanzada"
                                     ng-show="!vm.entidadEmisora"
-                                    ng-click="vm.entidadEmisora = vm.entidadEmisoraAux">
+                                    ng-click="vm.entidadEmisora = vm.entidadEmisoraAux; vm.buscar(vm.palabrasABuscar);">
                                     <span class="ico-plus"></span>
                                 </button>                                                                
                             </content>
                         </content>
                         <content id="busqueda_right">
+                            <div ng-show="!vm.errorMessage && vm.documentosEncontrados.length > 0">
+                                <h2>Ordenamiento</h2>
+                                <ul>
+                                    <li ng-click="vm.predicate = 'entidad.nombre'; vm.reverse= !vm.reverse;">entidad</li>
+                                    <li ng-click="vm.predicate = 'tipoDocumento.nombre'; vm.reverse= !vm.reverse;">tipo Documento</li>
+                                    <li ng-click="vm.predicate = 'numero'; vm.reverse= !vm.reverse;">numero</li>
+                                    <li ng-click="vm.predicate = 'anioPublicacion'; vm.reverse= !vm.reverse;">Año publicación</li>
+                                </ul>
 
-                            <ul class="res_bus">
-                                <li ng-repeat="documento in vm.documentosEncontrados">
-                                    <p id="titulo_bus">{{documento.tipoDocumento.nombre}} {{documento.numero}}</p>
-                                    <p id="contenido_bus">
-                                        {{documento.asunto}}
-                                    </p>
-                                    <p id="entidad_bus">Entidad:<i>{{documento.entidad.nombre}}  </i> </p> <p id="fecha_bus">  Fecha: <i>{{documento.anioPublicacion}} </i>  </p>
-                                </li>
-                            </ul>
+                                <ul class="res_bus">
+                                    <li ng-repeat="documento in vm.documentosEncontrados | orderBy : vm.predicate : vm.reverse">
+                                        <p id="titulo_bus">{{documento.tipoDocumento.nombre}} {{documento.numero}}</p>
+                                        <p id="contenido_bus">
+                                            {{documento.asunto}}
+                                        </p>
+                                        <p id="entidad_bus">Entidad:<i>{{documento.entidad.nombre}}  </i> </p> <p id="fecha_bus">  Fecha: <i>{{documento.anioPublicacion}} </i>  </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p>{{ vm.errorMessage }}</p>
+                            </div>                            
                         </content>
                     </content>
                 </div>

@@ -20,6 +20,8 @@
         vm.cambiarTab = cambiarTab;
         vm.tab_1 = true;
         vm.tab_2 = false;
+        vm.reverse = false;
+        vm.errorMessage = undefined;
         
 
         vm.buscar = buscar;
@@ -34,33 +36,47 @@
 
         function buscar( palabras ) {
             // documentos service get + OData query
+            if (palabras.length > 3 || vm.anioPublicacion || vm.entidadEmisora || vm.tipoDocumento || vm.numero ) {
 
-            var query = { $filter: "" };
+                var query = { $filter: "" };
 
-            if (vm.anioPublicacion != "")
-                query.$filter += "contains(AnioPublicacion, '" + vm.anioPublicacion + "')";
+                if (vm.anioPublicacion != "")
+                    query.$filter += "contains(AnioPublicacion, '" + vm.anioPublicacion + "')";
 
-            if (vm.numero != "") 
-                query.$filter += (query.$filter.length > 0 ? " and " : "") +
-                    "contains(Numero, '" + vm.numero + "')";            
+                if (vm.numero != "")
+                    query.$filter += (query.$filter.length > 0 ? " and " : "") +
+                        "contains(Numero, '" + vm.numero + "')";
 
-            if (vm.entidadEmisora != "")
-                query.$filter += (query.$filter.length > 0 ? " and " : "") +
-                    "contains(toupper(Entidad/Nombre), toupper('" + vm.entidadEmisora + "'))";            
-            
-            if (vm.tipoDocumento != "") 
-                query.$filter += (query.$filter.length > 0 ? " and " : "") +
-                    "contains(toupper(TipoDocumento/Nombre), toupper('" + vm.tipoDocumento + "'))";            
+                if (vm.entidadEmisora != "")
+                    query.$filter += (query.$filter.length > 0 ? " and " : "") +
+                        "contains(toupper(Entidad/Nombre), toupper('" + vm.entidadEmisora + "'))";
 
-            if (query.$filter === "") 
-                query = {};            
+                if (vm.tipoDocumento != "")
+                    query.$filter += (query.$filter.length > 0 ? " and " : "") +
+                        "contains(toupper(TipoDocumento/Nombre), toupper('" + vm.tipoDocumento + "'))";
 
-            if (palabras != "")
-                query.palabrasABuscar = palabras;            
+                if (query.$filter === "")
+                    query = {};
 
-            DocumentosResource.query( query, function (data) {
-                vm.documentosEncontrados = data;
-            });
+                if (palabras != "")
+                    query.palabrasABuscar = palabras;
+
+                DocumentosResource.query(query, function (data) {
+                    vm.documentosEncontrados = data;
+                    if (vm.documentosEncontrados.length == 0) {
+                        console.log("no se encontraron");
+                        vm.errorMessage = "No se encontraron coincidencias para las palabras de busqueda";
+                    }
+                    else {
+                        vm.errorMessage = undefined;
+                    }
+                }, function (response) {
+                    vm.errorMessage = response.statusText + "\r\n";
+                });
+            }
+            else {
+                vm.errorMessage = "Por favor, introduce una palabra o frase de mas de 3 letras, o marca al menos una de las categorias de busqueda";
+            }
 
         } // fin function buscar
 

@@ -8,6 +8,8 @@ using WebLegemDAL.QueryObjects;
 using System.Collections.Generic;
 using System.Web.OData;
 using Oracle.DataAccess.Types;
+using System.Web.Http.Description;
+using System;
 
 namespace WebLegemAPI.Controllers
 {
@@ -31,9 +33,17 @@ namespace WebLegemAPI.Controllers
         } // end GET Action Method     
 
         [EnableQuery()]
-        public IQueryable<DocumentoConContenido> Get( string palabrasABuscar )
+        [ResponseType(typeof ( DocumentoConContenido ) )]
+        public IHttpActionResult Get( string palabrasABuscar )
         {
-            return gestorConsultas.Consultar( new DocumentoConContenidoQueryObject() { PalabrasABuscar = palabrasABuscar } );
+            try
+            {
+                return Ok(gestorConsultas.Consultar(new DocumentoConContenidoQueryObject() { PalabrasABuscar = palabrasABuscar }));
+            }
+            catch ( Exception exception )
+            {
+                return InternalServerError( exception );
+            }
         }
 
         public DocumentoConContenido Post( DocumentoConContenido doc )
