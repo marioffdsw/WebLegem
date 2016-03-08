@@ -8,6 +8,7 @@
     background:white;
     width:90vw;
     margin-top:10px;
+    box-shadow:1px 1px 3px rgba(118, 117, 117, 0.50);
 }
 
 .contenido_gd > div{
@@ -24,6 +25,5 @@
 }
 
 .tontera ng-quill-editor{
-    background:red;
-    
+    background:red; 
 }

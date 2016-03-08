@@ -6,18 +6,13 @@
     box-sizing: border-box; 
 }
 
-.vistas{/*es el ui-view que muestra todo el contenido*/
-    display: flex;
-    align-items: center;
-    justify-content:center;
-    position:relative;
-    width:100%;
+.vistas { /*es el ui-view que muestra todo el contenido*/
 }
 
 body {
-    background-image: url('../recursos/cheap_diagonal_fabric.png');
-    background-image: url('../recursos/grey_wash_wall.png');
+    background-image: url('../recursos/header/tileable_wood_texture_azul.png');
 }
+
 
 /*----------------------------------------------*/
 

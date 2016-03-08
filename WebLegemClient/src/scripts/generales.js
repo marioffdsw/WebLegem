@@ -30,6 +30,6 @@ function in_accesibilidad(id) {
 
 function out_accesibilidad(id) {
     var aux = document.getElementById(id).parentNode;
-    aux.style.transform = 'translateX(150px)';
+    aux.style.transform = 'translateX(165px)';
     document.getElementById(id).childNodes[1].className = 'ico-angle-left';
 }

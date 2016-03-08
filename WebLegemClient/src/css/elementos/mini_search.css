@@ -1,23 +1,26 @@
 ﻿/*div de mini Busqueda*/
 .contenedor_mini_search{
-    margin:10px 10px;
+    margin:auto;
+    display:block;
+    width:50%;
+    vertical-align:middle;
+    /*margin:10px 10px;
     height:50%;
     display:flex;
     align-items:flex-end;
-    justify-content:flex-end;
+    justify-content:flex-end;*/
 }
 
 .mini_search{
-    position:relative;
-    width: 200px;
-	height:30px;
+    width:100%;
+	height:60px;
     background:white;
-
-    -webkit-box-shadow: 1px 1px 2px rgba(98, 98, 98, 0.86);
-    -moz-box-shadow: 1px 1px 2px rgba(98, 98, 98, 0.86);
-    box-shadow: 1px 1px 2px rgba(98, 98, 98, 0.86);
-
+    -webkit-box-shadow: 0 0 0 8px rgba(17, 21, 21, 0.3);
+    -moz-box-shadow: 0 0 0 8px rgba(17, 21, 21, 0.3);
+    box-shadow: 0 0 0 8px rgba(17, 21, 21, 0.3);
+    position:relative;
     opacity:1;
+    overflow:hidden;
 
     -moz-transition:all .2s;
     -webkit-transition:all .2s;
@@ -26,21 +29,22 @@
 }
 
 .mini_search input{
-    position:absolute;
-    width:80%;
-    left:4px;
-    top:3px;
-    padding: 4.5px;
+    font-size:x-large;
+    padding:17px;
     border: none;
-    background: transparent;
+    width:99%;
+    color:#444;
 }
 
-.mini_search span {
-    color:rgb(167, 167, 167);
-    padding:5px 10px;
+.mini_search button{
+    border:none;
+    background:rgb(24, 156, 100);
+    color:#fff;
     position: absolute;
-    font-size:large;
+    font-size:35px;
     right:0;
+    padding:13px;
+
     cursor: pointer;
 }  
 

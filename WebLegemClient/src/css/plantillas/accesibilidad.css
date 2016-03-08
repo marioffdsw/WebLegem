@@ -13,8 +13,8 @@
     -ms-flex-direction:row;
     flex-direction:row;
   
-    -webkit-transform:translateX(150px);
-    transform:translateX(150px);
+    -webkit-transform:translateX(165px);
+    transform:translateX(165px);
     
     -moz-transition:ease-in .5s;
     -o-transition:ease-in .5s;
@@ -23,11 +23,11 @@
 }
 
 #lanzador_accesibilidad{
-    background:rgba(255, 106, 0, 0.5);
+    background:rgba(36, 168, 112, 0.50);
 }
 
 #lanzador_accesibilidad:hover{
-    background:rgba(255, 106, 0, 1);
+    background:rgb(24, 156, 100);
 }
 
 
@@ -35,8 +35,8 @@
 .boton_accesibilidad{  
     background:rgba(55, 64, 74, 0.31);
     border:none;
-    width:50px;
-    height:40px;
+    width:55px;
+    height:55px;
     color:white;
     font-size:large;
 }

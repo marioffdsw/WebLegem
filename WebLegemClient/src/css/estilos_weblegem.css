@@ -5,7 +5,7 @@
     color: white;
     text-align:center;
     height:auto;
-    background:  #37404A;
+    background:  #00443a;
     display:block;
     padding:0.5em;
     font-family:sans-serif;
@@ -41,3 +41,4 @@
 .divisor_gestion_documental{
     border: solid 1px #434e58;
 }
+

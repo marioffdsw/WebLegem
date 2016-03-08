@@ -3,7 +3,7 @@
 
 .btn_con_ico{
     position:relative;
-    background-color: #45b15d;
+    background-color: #0f745b;
     font-family:'Century Gothic';
 	font-size: 0.7em;
 	font-weight: 600;
@@ -14,7 +14,6 @@
     margin:0;
     padding:7px 5px 7px 30px;
     min-width:110px;
-    border-radius:3px;
     cursor:pointer;
 
 	-webkit-transition:  all 0.2s;
@@ -33,7 +32,7 @@
 }
 
 .btn_con_ico:hover {
-    background-color:  #3d9851;
+    background-color:  #099472;
 }
 
 .btn_con_ico:active{
@@ -41,7 +40,7 @@
     -o-transition: all 0.05s;
 	transition: all 0.05s;
 
-    background-color: #90c803;
+    background-color: #064234;
 }
 
 /*---------------------------------*/

@@ -1,18 +1,24 @@
 ﻿.imagen_inicial {
-    z-index: 9999;
-    width:100%;
-    height:100%;
+    width: 100%;
+    height:100vh;
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    border-top: 5px solid #0e975c;
 }
 
-    .imagen_inicial:before {
+    .imagen_inicial:before {       
         content: '';
-        background-image: url('../../recursos/header/green-texture_1280x720_sc.jpg');
+        /*background-image: url('../../recursos/header/azufral.png');*/
+        background-image: url('../../recursos/header/paisaje.jpg');
         background-size: cover;
         width: 100%;
-        height: 100px;
+        height: 100vh;
         position: absolute;
+        /*-webkit-filter: brightness(80%); /* Normal */
+        /*filter: brightness(80%);*/
         top: 0;
         left: 0;
         z-index: -3;
-        margin-bottom: 30px;
     }
