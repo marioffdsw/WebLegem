@@ -89,6 +89,8 @@ namespace WebLegemDAL.DAL
             OracleCommand cmd = new OracleCommand("WEB_LEGEM.CREAR_DOCUMENTO_CONT_PROC", connection);
             cmd.CommandType = CommandType.StoredProcedure;
 
+            documentoConContenido.Asunto = documentoConContenido.Asunto.Substring(0, 1000);
+
             OracleParameter doc = cmd.Parameters.Add("doc", OracleDbType.Object );
             doc.UdtTypeName = UdtTypeName;
             doc.Direction = ParameterDirection.InputOutput;
