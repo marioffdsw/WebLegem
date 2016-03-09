@@ -38,10 +38,7 @@
 
             <div class="tabpage" id="tabpage_2" ng-show="vm.tab_2">
 
-                <input required name="busqueda" type="text" class="a_input input_busqueda" ng-model="vm.palabrasABuscar" placeholder="Escriba aquí su busqueda(Ejemplo:Decreto)" maxlength="50" id="nombre" />
-                <button class="btn_con_ico " ng-click="vm.buscar( vm.palabrasABuscar)">
-                    <span class="ico-search tamano_botones_1"></span>Buscar
-                </button>
+                
                 <content id="busqueda_padre">
                     <content id="busqueda_left">
 
@@ -105,7 +102,7 @@
                                     ng-model="vm.tipoDocumentoAux"
                                     placeholder="Escriba entidad emisora"
                                     ng-show="!vm.tipoDocumento"></select>
-                            <span class="span_select ico-angle-down"></span>
+                            <span class="span_select ico-angle-down" ng-show="!vm.tipoDocumento"></span>
                             <button class="btn_search_avanzada"
                                     ng-show="!vm.tipoDocumento"
                                     ng-click="vm.tipoDocumento = vm.tipoDocumentoAux; vm.buscar(vm.palabrasABuscar);    ">
@@ -140,7 +137,7 @@
                                     ng-model="vm.entidadEmisoraAux"
                                     placeholder="Escriba entidad emisora"
                                     ng-show="!vm.entidadEmisora"></select>
-                            <span class="span_select ico-angle-down"></span>
+                            <span class="span_select ico-angle-down" ng-show="!vm.entidadEmisora"></span>
                             <button class="btn_search_avanzada"
                                     ng-show="!vm.entidadEmisora"
                                     ng-click="vm.entidadEmisora = vm.entidadEmisoraAux; vm.buscar(vm.palabrasABuscar);">
@@ -149,13 +146,35 @@
                         </content>
                     </content>
                     <content id="busqueda_right">
+                        <div style="display:flex;">
+                            <input required name="busqueda" type="text" class="a_input" style="margin-right:10px;" ng-model="vm.palabrasABuscar" placeholder="Escriba aquí su busqueda(Ejemplo:Decreto)" maxlength="50" id="nombre" />
+                            <button class="btn_con_ico " ng-click="vm.buscar( vm.palabrasABuscar)">
+                                <span class="ico-search tamano_botones_1"></span>Buscar
+                            </button>
+                        </div>
+
                         <div ng-show="!vm.errorMessage && vm.documentosEncontrados.length > 0">
-                            <h2>Ordenamiento</h2>
-                            <ul>
-                                <li ng-click="vm.predicate = 'entidad.nombre'; vm.reverse= !vm.reverse;">entidad</li>
-                                <li ng-click="vm.predicate = 'tipoDocumento.nombre'; vm.reverse= !vm.reverse;">tipo Documento</li>
-                                <li ng-click="vm.predicate = 'numero'; vm.reverse= !vm.reverse;">numero</li>
-                                <li ng-click="vm.predicate = 'anioPublicacion'; vm.reverse= !vm.reverse;">Año publicación</li>
+                            <ul class="bar_filtrado">
+                                <li ng-click="vm.predicate = 'entidad.nombre'; vm.reverse= !vm.reverse;" ng-class="vm.predicate == 'entidad.nombre' ? 'active_filter':'' ">
+                                    entidad
+                                    <span class="ico-sort-alpha-asc" ng-show="vm.predicate == 'entidad.nombre' && vm.reverse"></span>
+                                    <span class="ico-sort-alpha-desc" ng-show="vm.predicate == 'entidad.nombre' && !vm.reverse"></span>
+                                </li>
+                                <li ng-click="vm.predicate = 'tipoDocumento.nombre'; vm.reverse= !vm.reverse;" ng-class="vm.predicate == 'tipoDocumento.nombre' ? 'active_filter':'' ">
+                                    tipo Documento
+                                    <span class="ico-sort-alpha-asc" ng-show="vm.predicate == 'tipoDocumento.nombre' && vm.reverse"></span>
+                                    <span class="ico-sort-alpha-desc" ng-show="vm.predicate == 'tipoDocumento.nombre' && !vm.reverse"></span>
+                                </li>
+                                <li ng-click="vm.predicate = 'numero'; vm.reverse= !vm.reverse;" ng-class="vm.predicate == 'numero' ? 'active_filter':'' ">
+                                    numero
+                                    <span class="ico-sort-asc" ng-show="vm.predicate == 'numero' && vm.reverse"></span>
+                                    <span class="ico-sort-desc" ng-show="vm.predicate == 'numero' && !vm.reverse"></span>
+                                </li>
+                                <li ng-click="vm.predicate = 'anioPublicacion'; vm.reverse= !vm.reverse;" ng-class="vm.predicate == 'anioPublicacion' ? 'active_filter':'' ">
+                                    Año publicación
+                                    <span class="ico-sort-asc" ng-show="vm.predicate == 'anioPublicacion' && vm.reverse"></span>
+                                    <span class="ico-sort-desc" ng-show="vm.predicate == 'anioPublicacion' && !vm.reverse"></span>
+                                </li>
                             </ul>
 
                             <ul class="res_bus">

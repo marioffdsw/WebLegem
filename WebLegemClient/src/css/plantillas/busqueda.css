@@ -89,7 +89,7 @@
     -webkit-flex: 1;
     flex: 1;
     display:flex;
-    padding: 10px 30px;
+    padding: 0 30px 10px 30px;
     width: 90%;
 }
 
@@ -299,3 +299,35 @@
 
 
 /*---Fin Dibujo Busqueda----------*/
+
+
+/*--bar filtrado--*/
+
+.bar_filtrado{
+    list-style:none;
+    margin:0;
+    padding:0;
+    padding-bottom:5px;
+    border-bottom:2px solid #0f745b;
+}
+
+
+.bar_filtrado li{
+    font-family:'Arial Unicode MS';
+    color:#555;
+    display:inline;
+    cursor:pointer;
+    padding:5px 10px;
+}
+
+.bar_filtrado li.active_filter{ 
+    background-color:#099472;
+    color:white;
+}
+
+.bar_filtrado li:hover{
+    color:white;
+    background-color:#099472;
+}
+
+/*--fin bar filtrado--*/
