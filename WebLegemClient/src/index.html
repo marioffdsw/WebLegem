@@ -128,7 +128,7 @@
 <body id="body_index">
 
     <div class="header">
-        <div class="figura_logo" ng-show="!vm.loggeado || vm.$state.current.name == 'home'">
+        <div class="figura_logo" ng-show="vm.$state.current.name == 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
             <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" width="100%" height="100%">
                 <defs>
                     <defs>

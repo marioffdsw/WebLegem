@@ -3,14 +3,16 @@
         <label class="titulo">Administración</label>
         <div class="contenedor_tabs">
             <ul>
-                <li class="active_tab" ui-sref="administracion.tipo-documento" ng-click="vm.activo($event)">
+                <li ng-class="vm.$state.current.name =='administracion.tipo-documento' ? 'active_tab' : ''" ui-sref="administracion.tipo-documento" ng-click="vm.activo($event)">
                     Tipo Documento
                 </li>
-                <li ui-sref="administracion.tipo-entidad" ng-click="vm.activo($event)">
+                <li ng-class="vm.$state.current.name =='administracion.tipo-entidad' ? 'active_tab' : ''"
+                     ui-sref="administracion.tipo-entidad" ng-click="vm.activo($event)">
                     Tipo Entidad
                 </li>
 
-                <li ui-sref="administracion.entidad" ng-click="vm.activo($event)">
+                <li ng-class="vm.$state.current.name== 'administracion.entidad' ? 'active_tab': ''"
+                     ui-sref="administracion.entidad" ng-click="vm.activo($event)">
                     Entidad
                 </li>
                 <!--<li ui-sref="administracion.tipo-anotacion" ng-click="vm.activo($event)">

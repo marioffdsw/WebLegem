@@ -14,13 +14,13 @@
 
         <div class="hijo_right">
             <div class="control_administracion">
-                <button class="btn_con_ico" ng-if="!vm.editando" ng-click="vm.create()">
+                <button class="btn_con_ico" ng-if="!vm.editando" ng-click="vm.tipoEntSeleccionada = {}; vm.editando = true; vm.nuevo = true;">
                     <span class="ico-plus tamano_botones_1"></span>Nuevo
                 </button>
                 <button id="editar_te" class="btn_con_ico" type="button" ng-if="!vm.editando" ng-click="vm.editando = true;">
                     <span class="ico-pencil tamano_botones_1"></span>Editar
                 </button>
-                <button id="remover_te" class="btn_con_ico" ng-disabled="vm.editando" type="button" ng-click="vm.remover()">
+                <button id="remover_te" class="btn_con_ico" ng-if="!vm.editando" type="button" ng-click="vm.remover()">
                     <span class="ico-trash tamano_botones_1"></span>Remover
                 </button>
             </div>
@@ -51,9 +51,14 @@
 
             <div>
                 <button class="btn_con_ico" type="button" style="display:inline-block;"
-                    ng-show="vm.editando"
+                    ng-show="vm.editando && !vm.nuevo"
                     ng-click="vm.guardar()">
                     <span class="ico-floppy-o tamano_botones_1"></span>Guardar
+                </button>
+                <button class="btn_con_ico" type="button" style="display:inline-block;"
+                        ng-show="vm.editando && vm.nuevo"
+                        ng-click="vm.create()">
+                    <span class="ico-floppy-o tamano_botones_1"></span>Crear
                 </button>
                 <button class="btn_con_ico" type="button" style="display:inline-block;"
                     ng-show="vm.editando"

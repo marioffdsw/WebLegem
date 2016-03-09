@@ -10,6 +10,7 @@
         var vm = this;
         //variables de andres
         var elemento;
+        var algo;
         
         //vm.tiposEntidad = [];
         vm.tipoEntSeleccionada = {}
@@ -17,6 +18,7 @@
         vm.tipoEntidad = { id: 0, nombre: "", tipo: "" };
         vm.tiposDocumento = [];
         vm.tiposSoportados = []; // arreglo de booleanos
+        vm.tiposEntidad;
 
 
         vm.create = create;
@@ -36,7 +38,7 @@
 
         TipoDocumentoResource.query(function(data) {
             vm.tiposDocumento = data;
-            inicialiarDocumentosSoportados();
+            inicializarDocumentosSoportados();
         });
 
         /*
@@ -54,7 +56,15 @@
 
         function cancelar() {
             vm.editando = false;
-            vm.tipoEntidad = { id: 0, nombre: "" }
+            vm.tipoEntSeleccionada = {};
+            inicializarDocumentosSoportados();
+            vm.nuevo = false;
+            algo.checked = false;
+            algo = undefined;
+            elemento = null;
+            
+            //vm.tipoEntidad = { id: 0, nombre: "" }
+            
         } // end function cancel
 
         function editar() {
@@ -63,13 +73,10 @@
         } // end function editar
 
         function guardar() {
-            TipoEntidadService.update(vm.tipoEntidad, function (data) {
-                for (var i = 0; i < vm.tiposEntidad.length; i++) {
-                    if (vm.tiposEntidad[i].id == data.id) {
-                        vm.tiposEntidad[i] = data;
-                        break;
-                    }
-                }
+            TipoEntidadService.update(vm.tipoEntSeleccionada, function (data) {
+                TipoEntidadService.query(function ( data ) {
+                    vm.tiposEntidad = data;
+                });
             });
 
             cancelar();
@@ -85,7 +92,7 @@
 
         function listadoTipoEntidad(tipoEntidad) {
             vm.tipoEntSeleccionada = angular.copy( tipoEntidad );
-            var algo = document.getElementById(tipoEntidad.id);
+            algo = document.getElementById(tipoEntidad.id);
 
             if (elemento == algo) {
                 algo.checked = false;
