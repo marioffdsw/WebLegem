@@ -5,8 +5,8 @@
         .module("WebLegemApp.Administracion")
         .controller("TipoEntidadController", TipoEntidadController);
 
-    TipoEntidadController.$inject = [ "TipoEntidadService" ];
-    function TipoEntidadController( TipoEntidadService ) {
+    TipoEntidadController.$inject = ["TipoEntidadService", "TipoDocumentoResource"];
+    function TipoEntidadController(TipoEntidadService, TipoDocumentoResource) {
         var vm = this;
         //variables de andres
         var elemento;
@@ -15,6 +15,8 @@
         vm.tipoEntSeleccionada = {}
         vm.editando = false;
         vm.tipoEntidad = { id: 0, nombre: "", tipo: "" };
+        vm.tiposDocumento = [];
+        vm.tiposSoportados = []; // arreglo de booleanos
 
 
         vm.create = create;
@@ -30,6 +32,11 @@
 
         TipoEntidadService.query(function (data) {
             vm.tiposEntidad = data;
+        });
+
+        TipoDocumentoResource.query(function(data) {
+            vm.tiposDocumento = data;
+            inicialiarDocumentosSoportados();
         });
 
         /*
@@ -52,7 +59,7 @@
 
         function editar() {
             vm.tipoEntidad = angular.copy(vm.tipoEntSeleccionada);
-            vm.editando = true;
+            vm.editando = true;            
         } // end function editar
 
         function guardar() {
@@ -85,12 +92,16 @@
                 elemento = null;
                 document.getElementById('remover_te').style.visibility = 'hidden';
                 document.getElementById('editar_te').style.visibility = 'hidden';
+                inicializarDocumentosSoportados();
+                vm.tipoEntSeleccionada = {};
             }
             else {
                 elemento = algo;
+                checkearDocumentosSoportados(vm.tipoEntSeleccionada.documentosSoportados);
                 document.getElementById('remover_te').style.visibility = 'visible';
                 document.getElementById('editar_te').style.visibility = 'visible';
-            }       
+            }            
+            
         }
 
         function cambiar_vista_lista() {
@@ -120,6 +131,24 @@
         /*
          * private methods
          */
+
+        function inicializarDocumentosSoportados() {
+            vm.tiposSoportados = [];
+            for (var i = 0; i < vm.tiposDocumento.length; i++) {
+                vm.tiposSoportados[i] = false;
+            }
+        } // fin funcition inicializarDocumentosSoportados
+
+        function checkearDocumentosSoportados(documentosACheckear) {
+            inicializarDocumentosSoportados();
+            for (var i = 0; i < vm.tiposDocumento.length; i++) {
+                for (var j = 0; j < documentosACheckear.length; j++ ){
+                    if (vm.tiposDocumento[i].id == documentosACheckear[j].id) {
+                        vm.tiposSoportados[i] = true;
+                    }                    
+                }
+            } // fin for
+        } // fin function checkearDocumentosSoportados
        
     } // end TipoEntidadController
 

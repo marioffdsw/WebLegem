@@ -128,7 +128,7 @@
 <body id="body_index">
 
     <div class="header">
-        <div class="figura_logo">
+        <div class="figura_logo" ng-show="!vm.loggeado || vm.$state.current.name == 'home'">
             <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" width="100%" height="100%">
                 <defs>
                     <defs>
@@ -158,9 +158,14 @@
                     <p>Inicio</p>
                 </button>
 
-                <button class="btn_deslizable" ui-sref="login">
+                <button class="btn_deslizable" ui-sref="login" ng-show="!vm.loggeado">
                     <span class="ico-sign-in"></span>
                     <p>Ingresar</p>
+                </button>
+
+                <button class="btn_deslizable" ng-click="vm.LogOut()" ng-show="vm.loggeado">
+                    <span class="ico-sign-in"></span>
+                    <p>Salir</p>
                 </button>
 
                 <button id="lanzador_accesibilidad" class="boton_accesibilidad" onclick="estado_accesibilidad(this.id)">
@@ -181,7 +186,7 @@
 
         
     </div>
-    <div class="header2">
+    <div class="header2" ng-show="vm.loggeado">
         <div class="navegacion">
             <ul class="bar_nav">
                 <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">

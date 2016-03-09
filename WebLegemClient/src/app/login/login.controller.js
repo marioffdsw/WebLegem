@@ -16,10 +16,12 @@
         function logIn() {
             if (vm.user.nombre == $scope.$parent.vm.usuario.username && vm.user.password == $scope.$parent.vm.usuario.password) {
                 $scope.$parent.vm.opcionesAMostrar = $scope.$parent.vm.opcionesLoggeado;
+                $scope.$parent.vm.loggeado = true;
                 $state.go( "home" );
             }
             else {
                 $scope.$parent.vm.opcionesAMostrar = $scope.$parent.vm.opcionesNoLoggeado;
+                $scope.$parent.vm.loggeado = false;
             }
         } // end function logIn
     } // end Login controller 

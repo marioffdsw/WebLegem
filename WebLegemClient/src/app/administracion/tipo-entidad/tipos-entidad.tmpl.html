@@ -17,7 +17,7 @@
                 <button class="btn_con_ico" ng-if="!vm.editando" ng-click="vm.create()">
                     <span class="ico-plus tamano_botones_1"></span>Nuevo
                 </button>
-                <button id="editar_te" class="btn_con_ico" type="button" ng-if="!vm.editando" ng-click="vm.create()">
+                <button id="editar_te" class="btn_con_ico" type="button" ng-if="!vm.editando" ng-click="vm.editando = true;">
                     <span class="ico-pencil tamano_botones_1"></span>Editar
                 </button>
                 <button id="remover_te" class="btn_con_ico" ng-disabled="vm.editando" type="button" ng-click="vm.remover()">
@@ -27,7 +27,7 @@
 
             <label class="texto_labels">Nombre del tipo entidad</label>
             <form class="form_tipo_entidad">
-                <input class="a_input input_administracion" style="width:auto;" type="text" ng-model="vm.tipoEntidad.nombre" placeholder="Ingrese el nombre Entidad" />                
+                <input class="a_input input_administracion" ng-disabled="!vm.editando" style="width:auto;" type="text" ng-model="vm.tipoEntSeleccionada.nombre" placeholder="Ingrese el nombre Entidad" />                
             </form>
 
             <div class="entidad_control" style="width:100%; margin-bottom:10px;">
@@ -38,10 +38,10 @@
                 </div>
                 <div class="panel_control">
                     <ul class="a_bloques">
-                        <li id="te_li_lista">
-                            <input type="checkbox" name="check_name" id="b_1">
-                            <label class="styled1 note rounded" for="b_1">
-                                item 1
+                        <li id="te_li_lista" ng-repeat="tipoDoc in vm.tiposDocumento | orderBy: 'nombre'">
+                            <input ng-disabled="!vm.editando" type="checkbox" name="check_name" ng-model="vm.tiposSoportados[$index]" id="chk-td-{{tipoDoc.id}}">
+                            <label class="styled1 note rounded" for="chk-td-{{tipoDoc.id}}">
+                                {{ tipoDoc.nombre }}
                             </label>
                         </li>
                         
@@ -50,10 +50,14 @@
             </div>
 
             <div>
-                <button class="btn_con_ico" type="button" style="display:inline-block;" ng-click="vm.guardar()">
+                <button class="btn_con_ico" type="button" style="display:inline-block;"
+                    ng-show="vm.editando"
+                    ng-click="vm.guardar()">
                     <span class="ico-floppy-o tamano_botones_1"></span>Guardar
                 </button>
-                <button class="btn_con_ico" type="button" style="display:inline-block;" ng-click=" vm.cancelar()">
+                <button class="btn_con_ico" type="button" style="display:inline-block;"
+                    ng-show="vm.editando"
+                    ng-click="vm.cancelar()">
                     <span class="ico-times tamano_botones_1"></span>Cancelar
                 </button>
             </div>

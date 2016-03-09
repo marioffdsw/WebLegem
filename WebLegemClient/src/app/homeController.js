@@ -9,6 +9,7 @@
 
     function homeController( $state ) {
         var vm = this;
+        vm.$state = $state;
 
         vm.tamano_letra = 'btn_tamano0';
         vm.val_tamano = 0;
@@ -23,6 +24,7 @@
        
 
         vm.loggeado = false;
+        vm.LogOut = LogOut;
         vm.usuario = { username: "admin", password: "1234" }
 
 
@@ -43,17 +45,17 @@
         ];
 
         vm.opcionesLoggeado = [
-        {
-                texto: vm.usuario.username,
-                estado: "home",
-                subEstados: [
-                    {
-                        texto: "Salir",
-                        estado: "home",
-                        click: LogOut
-                    }
-                ]
-            },                       
+            //{
+            //    texto: vm.usuario.username,
+            //    estado: "home",
+            //    subEstados: [
+            //        {
+            //            texto: "Salir",
+            //            estado: "home",
+            //            click: LogOut
+            //        }
+            //    ]
+            //},                       
             {
                 texto: "Gestión Documental",
                 estado: "gestion-documental.crear-documento.subir-archivo"
@@ -69,6 +71,7 @@
         function LogOut() {
             $state.go("home");
             vm.opcionesAMostrar = vm.opcionesNoLoggeado;
+            vm.loggeado = false;
         }
 
         
