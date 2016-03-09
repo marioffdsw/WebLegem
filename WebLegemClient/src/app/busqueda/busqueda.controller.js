@@ -76,7 +76,7 @@
                 });
             }
             else {
-                vm.errorMessage = "Por favor, introduce una palabra o frase de mas de 3 letras, o marca al menos una de las categorias de busqueda";
+                vm.errorMessage = "Por favor, introduce una palabra o frase de mas de 3 letras o marca al menos una de las categorias de busqueda";
             }
 
         } // fin function buscar
