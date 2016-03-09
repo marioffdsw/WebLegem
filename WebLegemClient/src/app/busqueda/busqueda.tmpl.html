@@ -172,7 +172,7 @@
                             <p>{{ vm.errorMessage }}</p>
                             <span class="ico-frown-o"></span>
                         </div>
-                        <div class="dibujo_busqueda" ng-if="!vm.errorMessage">
+                        <div class="dibujo_busqueda" ng-if="!vm.errorMessage && vm.documentosEncontrados.length < 1">
                             <span class="ico2-file-openoffice">
                                 <span class="ico-search"></span>
                             </span>
