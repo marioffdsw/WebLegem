@@ -91,20 +91,20 @@
 }
 
 .btn_search_avanzada{
-    background:rgba(55, 64, 74, 0.31);
-    line-height:1.8;
-    border:1px solid rgba(153, 153, 153, 0.40);
+    background:#0f745b;
+    border:none;
     width:30px;
     height:30px;
     color:white;
     font-size:large;
     cursor:pointer;
 }
+
 .btn_search_avanzada:hover{
-    background:#999999;
+    background:#099472;
 }
 .btn_search_avanzada:active{
-    background:rgba(153, 153, 153, 0.3);
+    background:#064234;
 }
 
 /*------FIN Busqueda Avanzada-------*/
@@ -221,3 +221,70 @@
 
 
 
+/*--------Mensajes Busqueda-------*/
+
+.mensaje_busqueda {
+    margin: 10px;
+    padding: 15px;
+    font-size: large;
+    font-family: 'Arial Unicode MS';
+    color: ActiveCaption;
+    width: 100%;
+    text-align: center;
+    border: 1px dashed ActiveCaption;
+}
+
+.mensaje_busqueda span{
+    color:ActiveCaption;
+    font-size:60px;
+    font-weight:900;
+}
+
+.a_gordo {
+    -moz-animation: .8s a_gordo;
+    -o-animation: .8s a_gordo;
+    -webkit-animation: .8s a_gordo;
+    animation: .8s a_gordo;
+}
+
+@keyframes a_gordo {
+  0%{opacity:0;}
+  10%{opacity:0;}
+  50% {opacity:.8;
+      transform:scale(1.1);
+  }
+  100% {opacity:1;}
+}
+/*-----Fin Mensajes Busqueda------*/
+
+/*-------Dibujo Busqueda----------*/
+.dibujo_busqueda{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100%;
+}
+
+.dibujo_busqueda span{
+    font-size:70px;
+    color:#ddd;
+    cursor:default;
+    position:relative;
+    right:10px;
+}
+
+.dibujo_busqueda > span{
+    font-size:140px;
+    position:relative;
+}
+.dibujo_busqueda > span > span{
+    font-size:70px;
+    position:absolute;
+    left:90px;
+    bottom:-40px;
+}
+
+
+
+
+/*---Fin Dibujo Busqueda----------*/

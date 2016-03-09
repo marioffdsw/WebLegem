@@ -23,7 +23,7 @@
                         </button>
                     </div>
 
-                <ul class="res_bus" ng-show="!vm.errorMessage && vm.documentosEncontrados.length > 0">
+                <ul class="res_bus">
                     <li ng-repeat="documento in vm.documentosEncontrados">
                         <p id="titulo_bus">{{documento.tipoDocumento.nombre}} {{documento.numero}}</p>
                         <p id="contenido_bus">
@@ -34,14 +34,11 @@
                     </li>
                 </ul>
 
-                <div ng-show="vm.errorMessage">
-                    <p>{{ vm.errorMessage }}</p>
-                </div>
-
             </div>
 
             <div class="tabpage" id="tabpage_2" ng-show="vm.tab_2">
-                <input required name="busqueda" type="text" class="a_input input_busqueda" ng-model="vm.palabrasABuscar" placeholder="Escriba aquí su busqueda(Ejemplo:Decreto 104 de 2015)" maxlength="50" id="nombre" />
+
+                <input required name="busqueda" type="text" class="a_input input_busqueda" ng-model="vm.palabrasABuscar" placeholder="Escriba aquí su busqueda(Ejemplo:Decreto)" maxlength="50" id="nombre" />
                 <button class="btn_con_ico " ng-click="vm.buscar( vm.palabrasABuscar)">
                     <span class="ico-search tamano_botones_1"></span>Buscar
                 </button>
@@ -171,8 +168,14 @@
                                 </li>
                             </ul>
                         </div>
-                        <div>
+                        <div class="mensaje_busqueda a_gordo" ng-if="vm.errorMessage">
                             <p>{{ vm.errorMessage }}</p>
+                            <span class="ico-frown-o"></span>
+                        </div>
+                        <div class="dibujo_busqueda" ng-if="!vm.errorMessage">
+                            <span class="ico2-file-openoffice">
+                                <span class="ico-search"></span>
+                            </span>
                         </div>
                     </content>
                 </content>
