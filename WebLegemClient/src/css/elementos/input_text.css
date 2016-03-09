@@ -1,13 +1,13 @@
 ﻿/*estilo general para inputs*/
 /*----------------------------------------*/
 .a_input{
-    width:auto;
-    margin-bottom: 2em;
+    width:100%;
+    margin:10px 0;
     line-height: 2.5em;
     padding: 0 10px;
     
     display:inline;
-    border-radius:3px;
+    border-radius:2px;
     border:1px solid #a1a1a1;
     -o-transition:     box-shadow 0.4s;
     -webkit-transition:box-shadow 0.4s;
@@ -15,12 +15,26 @@
     transition:        box-shadow 0.4s;
 }
 
-.a_input:focus{
-    border:1px solid  #3f9f43;
-    box-shadow: 0 0 2px rgb(75, 187, 79) ;
+
+.a_input:-webkit-autofill {
+    outline:0;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
-.a_input:focus::-moz-placeholder{
-    color: #3f9f43;
-    font-weight:bold;
+.a_input:focus{
+    outline:0;
+    border:1px solid  #3f9f43; 
+    -webkit-box-shadow: 0 0 1px  #3f9f43,0 0 1px green;  
+    box-shadow: 0 0 1px  #3f9f43,0 0 1px green;
 }
+  
+.a_input:-webkit-autofill:active,
+.a_input:-webkit-autofill:focus
+ {  
+    outline:0;
+    -webkit-box-shadow: 0 0 0px 1000px white inset, 0 0 1px  #3f9f43,0 0 1px green;
+    border:1px solid  #3f9f43; 
+}
+
+
+

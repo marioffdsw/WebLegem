@@ -2,15 +2,14 @@
     width:420px;
     margin: 0 auto;
     padding: 40px 0 0 0;
-    border-radius:0.2rem ;
 }
 
 .contenedor_login:before {
     content: '';
     background-image: url('../../recursos/header/pexels-photo-46274 (2).jpeg');
     background-size: cover;
-    -webkit-filter: brightness(50%);
-    filter: brightness(50%);
+    -webkit-filter: brightness(80%);
+    filter: brightness(80%);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -24,71 +23,45 @@
 }
 
 .subtitulo > p{
-    font-family:sans-serif;
+    font-family:'Arial Unicode MS';
     font-size:2rem;
     text-align:center;
-    color: #37404A;
+    color: #444;
     padding: 10px 0 10px 0 ;
 }
 
 
-#user_login{
-    color:white;
-    font-size:xx-large;
-}
-
+#user_login,
 #user_lock{
     color:white;
     font-size:xx-large;
 }
 
 
-
 .form_login{
-    background:rgb(255, 255, 255);
-    border-radius:0 0 4px 4px ; 
+    background:rgba(255, 255, 255, 0.6);
     padding: 0 24px 24px 24px;
     position:relative;
 }
 
 
-.input_login{
-    width:95%;
-    margin-bottom: 2em;
-    line-height: 2.5em;
-    padding: 0 1em;
-    position:relative;
-    transition:        box-shadow 0.5s;
-    -webkit-transition:box-shadow 0.5s;
-    -moz-transition:   box-shadow 0.5s;
-    box-shadow: 1px 0 #3f9f43 inset;
-}
-
-.input_login:focus{
-    border:2px solid  #3f9f43;
-    box-shadow: 500px 0 white inset;
-}
-
-
-.input_login:focus::-moz-placeholder{
-    color: #3f9f43;
+.a_input:focus::-moz-placeholder{
+    color: #156815;
     font-weight:bold;
 }
 
 
-.input_login:focus + .circulo1{
-    background: #3f9f43;
+.a_input:focus + .circulo1,
+.a_input:focus + .circulo2{
+    background: #156815;
 }
 
-.input_login:focus + .circulo2{
-    background: #3f9f43;
-}
 
-.circulo1 {
+.circulo1,.circulo2 {
     position:absolute;
     display:flex;
-    right: 0;
-    top: -6px;
+    right: -5%;
+    top: 0;
     width: 50px;
     height: 50px;
     justify-content:center;
@@ -96,40 +69,29 @@
      -moz-border-radius: 50%;
      -webkit-border-radius: 50%;
      border-radius: 50%;
-     background: #a5a3a3;
+     background: #a1a1a1;
      transition:all 0.5s;
     -webkit-transition:all 0.5s;
     -moz-transition: all 0.5s; 
 }
 
-.candado{
+.input_container_login{
     position:relative;
+    width:95%;
 }
 
-.circulo2 {
-    position:absolute;
-    display:flex;
-    right:0;
-    top: -6px;
-    width: 50px;
-    height: 50px;
-    justify-content:center;
+.input_container_login > div > span{
+    margin-top:10px;
+}
+
     
-     -moz-border-radius: 50%;
-     -webkit-border-radius: 50%;
-     border-radius: 50%;
-
-     background: #a5a3a3;
-     transition:all 0.5s;
-    -webkit-transition:all 0.5s;
-    -moz-transition: all 0.5s; 
-}
-
 .olvide_contraseña{
-    padding-top:20px; 
-    text-align: center;
-    display:    block;
+    padding-top:20px;
+    display:inline-block;
     font-family: 'Century Gothic';
     font-size:small;
 }
 
+.size_input_login{
+    padding-right:30px;
+}

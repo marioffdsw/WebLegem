@@ -1,5 +1,5 @@
 ﻿.view_gestion_documental{
-    width:100vw;
+    width:100%;
     display:flex;
     justify-content:center;   
 }
@@ -7,7 +7,7 @@
 .contenido_gd{
     background:white;
     width:90vw;
-    margin-top:10px;
+    margin:10px 0;
     box-shadow:1px 1px 3px rgba(118, 117, 117, 0.50);
 }
 

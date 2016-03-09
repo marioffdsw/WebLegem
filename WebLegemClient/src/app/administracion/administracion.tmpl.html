@@ -1,23 +1,25 @@
-﻿<div class="contenedor_administracion" ng-show="true">
-    <label class="titulo">Administración</label>
-    <div class="contenedor_tabs">
-        <ul>
-            <li class="active_tab" ui-sref="administracion.tipo-documento" ng-click="vm.activo($event)">
-                Tipo Documento
-            </li>
-            <li ui-sref="administracion.tipo-entidad" ng-click="vm.activo($event)">
-                Tipo Entidad
-            </li>
+﻿<div class="tapiz">
+    <div class="contenedor_administracion" ng-show="true">
+        <label class="titulo">Administración</label>
+        <div class="contenedor_tabs">
+            <ul>
+                <li class="active_tab" ui-sref="administracion.tipo-documento" ng-click="vm.activo($event)">
+                    Tipo Documento
+                </li>
+                <li ui-sref="administracion.tipo-entidad" ng-click="vm.activo($event)">
+                    Tipo Entidad
+                </li>
 
-            <li ui-sref="administracion.entidad" ng-click="vm.activo($event)">
-                Entidad
-            </li>
-            <!--<li ui-sref="administracion.tipo-anotacion" ng-click="vm.activo($event)">
-                Tipo Anotacion
-            </li>-->
-        </ul>
+                <li ui-sref="administracion.entidad" ng-click="vm.activo($event)">
+                    Entidad
+                </li>
+                <!--<li ui-sref="administracion.tipo-anotacion" ng-click="vm.activo($event)">
+                    Tipo Anotacion
+                </li>-->
+            </ul>
+        </div>
+        <div ui-view class="view_administracion a_desvanecer"></div>
     </div>
-    <div ui-view class="view_administracion a_desvanecer"></div>
 </div>
 
 
