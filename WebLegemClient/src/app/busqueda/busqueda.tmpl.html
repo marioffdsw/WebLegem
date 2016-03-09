@@ -23,7 +23,7 @@
                         </button>
                     </div>
 
-                <ul class="res_bus">
+                <ul class="res_bus" ng-show="!vm.errorMessage && vm.documentosEncontrados.length > 0">
                     <li ng-repeat="documento in vm.documentosEncontrados">
                         <p id="titulo_bus">{{documento.tipoDocumento.nombre}} {{documento.numero}}</p>
                         <p id="contenido_bus">
@@ -33,6 +33,10 @@
 
                     </li>
                 </ul>
+
+                <div ng-show="vm.errorMessage">
+                    <p>{{ vm.errorMessage }}</p>
+                </div>
 
             </div>
 

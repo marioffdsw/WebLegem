@@ -36,7 +36,7 @@
 
         function buscar( palabras ) {
             // documentos service get + OData query
-            if (palabras.length > 3 || vm.anioPublicacion || vm.entidadEmisora || vm.tipoDocumento || vm.numero ) {
+            if ( (typeof palabras == "string" && palabras.length > 3) || vm.anioPublicacion || vm.entidadEmisora || vm.tipoDocumento || vm.numero ) {
 
                 var query = { $filter: "" };
 
@@ -63,15 +63,16 @@
 
                 DocumentosResource.query(query, function (data) {
                     vm.documentosEncontrados = data;
-                    if (vm.documentosEncontrados.length == 0) {
-                        console.log("no se encontraron");
+                    vm.errorMessage = undefined;
+                    if (vm.documentosEncontrados.length == 0) {                        
                         vm.errorMessage = "No se encontraron coincidencias para las palabras de busqueda";
-                    }
-                    else {
-                        vm.errorMessage = undefined;
-                    }
+                    }                    
                 }, function (response) {
-                    vm.errorMessage = response.statusText + "\r\n";
+                    console.log( response );
+                    if (response.statusText) {
+                        vm.errorMessage = response.statusText + "\r\n";
+                    }
+                    
                 });
             }
             else {
