@@ -5,11 +5,12 @@
         .module("WebLegemApp.Administracion")
         .controller("AdministracionController", AdministracionController);
 
-    AdministracionController.$inject = ["DocumentosResource"];
+    AdministracionController.$inject = ["DocumentosResource", "$state"];
 
-    function AdministracionController(DocumentosResource) {
+    function AdministracionController(DocumentosResource, $state) {
         var vm = this;
         vm.activo = activo;
+        vm.$state = $state;
 
         function activo($event) {
             if ($event.target.className.match(/(?:^|\s)active_tab(?!\S)/)) {
