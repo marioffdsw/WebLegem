@@ -1,0 +1,17 @@
+﻿<div class="contenido_gd animatio ng-enter" id="holas">
+    <label class="titulo">Crear Documento</label>
+    <div>
+        <label class="subtitulos_labels">
+            Resultado
+        </label>
+        <hr class="divisor_gestion_documental" />
+        <div>
+            <div ng-show="!vm.error && !vm.success">Trabajando</div>
+            <div ng-show="vm.success">Documento Creado Con Exito</div>
+            <div ng-show="vm.error">Error al crear el documento</div>
+            <button type="button"
+                ng-show="vm.error || vm.success"
+                ui-sref="home">Regresar</button>
+        </div>
+    </div>
+</div>
