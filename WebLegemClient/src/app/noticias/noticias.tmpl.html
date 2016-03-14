@@ -3,8 +3,8 @@
         <div class="nombre_pagina"><p>Legem</p></div>
         <div id="contenedor_mini_search" class="contenedor_mini_search">
             <form class="mini_search">
-                <input id="mini_search" type="text" placeholder="Buscar" onfocus="atenuar_busqueda(this.id)" />
-                <button class="ico2-search"></button>
+                <input id="mini_search" type="text" ng-model="vm.searchPattern.words" placeholder="Buscar" onfocus="atenuar_busqueda(this.id)" />
+                <button class="ico2-search" ui-sref="busqueda"></button>
             </form>
         </div>
     </div>

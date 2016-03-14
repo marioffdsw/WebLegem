@@ -27,7 +27,8 @@
     <script src="app/app.core.modules.js"></script>
     <script src="app/app.core.run.js"></script>
     <script src="app/app.core.routes.js"></script>
-    <script src="app/app.core.constants.js"></script>    
+    <script src="app/app.core.constants.js"></script>
+    <script src="app/app.core.values.js"></script>
 
     <!-- Login -->
     <script src="app/login/login.js"></script>
@@ -39,6 +40,9 @@
     <script src="app/busqueda/busqueda.depedencies.js"></script>
     <script src="app/busqueda/busqueda.routes.js"></script>
     <script src="app/busqueda/busqueda.controller.js"></script>
+
+    <!-- Noticias -->
+    <script src="app/noticias/noticias.controller.js"></script>
 
     <!-- Administration -->
     <script src="app/administracion/administracion.js"></script>
@@ -90,7 +94,7 @@
     <link href="css/noticias.css" rel="stylesheet" />
     <link href="css/plantillas/header2.css" rel="stylesheet" />
     <link href="css/plantillas/header.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
-    <link href="css/plantillas/header_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />    
+    <link href="css/plantillas/header_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
     <link href="css/plantillas/accesibilidad.css" rel="stylesheet" />
     <link href="css/plantillas/administracion.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
     <link href="css/plantillas/administracion_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
@@ -100,7 +104,7 @@
     <link href="css/plantillas/busqueda_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
     <link href="css/plantillas/gestion_documental.css" rel="stylesheet" />
     <link href="../bower_components/quill/dist/quill.snow.css" rel="stylesheet" />
- 
+
     <!--Iconografia-->
     <link href="iconos-legem/styles.css" rel="stylesheet" />
     <link href="iconos-legem2/style.css" rel="stylesheet" />
@@ -184,7 +188,7 @@
             </div>
         </div>
 
-        
+
     </div>
     <div class="header2" ng-show="vm.loggeado">
         <div class="navegacion">

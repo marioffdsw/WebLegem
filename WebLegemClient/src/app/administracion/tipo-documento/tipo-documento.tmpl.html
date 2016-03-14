@@ -2,15 +2,16 @@
     <section class="layout_padre">
         <div class="hijo_left">
             <label class="texto_labels" style="margin-top:10px;">Lista de tipos de documentos</label>
+            <input type="text" ng-model="vm.filtro" />
             <ul class="a_listado" style="width: 100%">
-                <li ng-repeat="tipo in vm.tiposDoc">
+                <li ng-repeat="tipo in vm.tiposDoc | filter:vm.filtro">
                     <input type="radio" name="entidad_rad" class="styled" id="{{tipo.id}}"
                             ng-value="tipo"
                             ng-click="vm.listadoTipoDocumento(tipo)" ng-disabled="vm.editando" />
                     <label class="styled" for="{{tipo.id}}">{{ tipo.nombre }}</label>
                 </li>
-                
-            </ul>            
+
+            </ul>
         </div>
 
         <div class="hijo_right">
@@ -35,10 +36,10 @@
             <div>
                 <button class="btn_con_ico" type="button" style="display:inline-block;" ng-show="vm.editando" ng-click="vm.guardar()">
                     <span class="ico-floppy-o tamano_botones_1"></span>Guardar
-                </button>               
+                </button>
                 <button class="btn_con_ico" ng-show="vm.editando" type="button" style="display:inline-block;" ng-click="vm.cancelar()">
                     <span class="ico-times tamano_botones_1"></span>Cancelar
-                </button>                
+                </button>
             </div>
         </div>
     </section>

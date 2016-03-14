@@ -5,10 +5,10 @@
 	angular
 		.module("WebLegemApp")
 		.config(config);
-	
+
 	config.$inject = ['$logProvider', '$stateProvider', "$urlRouterProvider"];
 	function config( $logProvider, $stateProvider, $urlRouterProvider ) {
-	    $logProvider.debugEnabled(true);		
+	    $logProvider.debugEnabled(true);
 
 	    $urlRouterProvider.otherwise('/');
 
@@ -16,6 +16,8 @@
 			.state('home', {
 			    url: '/',
 			    templateUrl: 'app/noticias/noticias.tmpl.html',
+				controller: "NoticiasController",
+				controllerAs: "vm"
 			})
             .state('administracion', {
                 url: '/administracion',
@@ -42,5 +44,5 @@
                 controllerAs: "vm"
 	        });
 
-	} // end config function	
+	} // end config function
 })();

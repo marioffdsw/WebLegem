@@ -5,10 +5,10 @@
         .module("WebLegemApp.Busqueda")
         .controller("BusquedaController", BusquedaController);
 
-    BusquedaController.$inject = ["DocumentosResource", "EntidadService", "TipoDocumentoResource"];
-    function BusquedaController(DocumentosResource, entidadService, TipoDocumentoService) {
+    BusquedaController.$inject = ["DocumentosResource", "EntidadService", "TipoDocumentoResource", "searchPattern"];
+    function BusquedaController(DocumentosResource, entidadService, TipoDocumentoService, searchPattern) {
         var vm = this;
-        vm.palabrasABuscar = "";
+        vm.palabrasABuscar = searchPattern.words ? searchPattern.words : "";
         vm.anioPublicacion = "";
         vm.numero = "";
         vm.entidadEmisora = "";
@@ -22,10 +22,14 @@
         vm.tab_2 = false;
         vm.reverse = false;
         vm.errorMessage = undefined;
-        
+
+        if(vm.palabrasABuscar){
+            buscar( vm.palabrasABuscar );
+        }
+
 
         vm.buscar = buscar;
-        
+
         entidadService.query(function (data) {
             vm.entidades = data;
         });
@@ -64,15 +68,15 @@
                 DocumentosResource.query(query, function (data) {
                     vm.documentosEncontrados = data;
                     vm.errorMessage = undefined;
-                    if (vm.documentosEncontrados.length == 0) {                        
+                    if (vm.documentosEncontrados.length == 0) {
                         vm.errorMessage = "No se encontraron coincidencias para las palabras de busqueda";
-                    }                    
+                    }
                 }, function (response) {
                     console.log( response );
                     if (response.statusText) {
                         vm.errorMessage = response.statusText + "\r\n";
                     }
-                    
+
                 });
             }
             else {
@@ -84,7 +88,7 @@
         function borrar_filtro(id) {
 //            var li = document.getElementById(id).parentNode;
             console.log("hola");
-           
+
 
         };
 
