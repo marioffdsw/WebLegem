@@ -7,9 +7,9 @@
 
     homeController.$inject = ["$state"];
 
-    function homeController( $state ) {
+    function homeController( $state) {
         var vm = this;
-        vm.$state = $state;
+        vm.$state = $state;        
 
         vm.tamano_letra = 'btn_tamano0';
         vm.val_tamano = 0;
@@ -21,7 +21,7 @@
         vm.icono_contraste = "ico-moon-o";
         vm.clase_contraste = "btn_tamano0";
         vm.val_contraste = 0;
-       
+
 
         vm.loggeado = false;
         vm.LogOut = LogOut;
@@ -33,7 +33,7 @@
             {
                 texto: "Ingresar",
                 estado: "login"
-            },       
+            },
             {
                 texto: "Inicio",
                 estado: "home"
@@ -55,15 +55,15 @@
             //            click: LogOut
             //        }
             //    ]
-            //},                       
+            //},
             {
                 texto: "Gestión Documental",
                 estado: "gestion-documental.crear-documento.subir-archivo"
             },
             {
                 texto: "Administración",
-                estado: "administracion.tipo-documento"                
-            }            
+                estado: "administracion.tipo-documento"
+            }
         ];
 
         vm.opcionesAMostrar =  vm.loggeado ? vm.opcionesLoggeado : vm.opcionesNoLoggeado;
@@ -74,7 +74,7 @@
             vm.loggeado = false;
         }
 
-        
+
 
         vm.funcionPerro = function () {
             if (vm.a=="recursos/botones/jv.png") {
@@ -84,7 +84,7 @@
                 vm.a = "recursos/botones/jv.png";
             }
         };
-        
+
         vm.funcion_tamano = function () {
 
             var obj = document.getElementById("body_index");
@@ -145,6 +145,6 @@
 
     } // end TipoEntidadController
 
-    
+
 
 })();

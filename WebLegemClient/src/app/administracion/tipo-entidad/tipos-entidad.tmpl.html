@@ -1,9 +1,10 @@
 ﻿<div class="contenido">
     <section class="layout_padre">
-        <div class="hijo_left">    
+        <div class="hijo_left">
             <label class="texto_labels" style="margin-top:10px;">Lista de tipo de entidades</label>
+            <input type="text" ng-model="vm.filter" />
             <ul class="a_listado" style="width:100%;">
-                <li ng-repeat="tipoEntidad in vm.tiposEntidad">
+                <li ng-repeat="tipoEntidad in vm.tiposEntidad | filter: vm.filter">
                     <input type="radio" name="tipo_entidad_rad" class="styled" id="{{tipoEntidad.id}}"
                            ng-value="tipoEntidad"
                            ng-click="vm.listadoTipoEntidad(tipoEntidad)" />
@@ -27,12 +28,12 @@
 
             <label class="texto_labels">Nombre del tipo entidad</label>
             <form class="form_tipo_entidad">
-                <input class="a_input input_administracion" ng-disabled="!vm.editando" style="width:auto;" type="text" ng-model="vm.tipoEntSeleccionada.nombre" placeholder="Ingrese el nombre Entidad" />                
+                <input class="a_input input_administracion" ng-disabled="!vm.editando" style="width:auto;" type="text" ng-model="vm.tipoEntSeleccionada.nombre" placeholder="Ingrese el nombre Entidad" />
             </form>
 
             <div class="entidad_control" style="width:100%; margin-bottom:10px;">
                 <div style="background:#37404A;  height:40px; width:100%; word-spacing:-4px; padding:3px; border-top-left-radius:3px; border-top-right-radius:3px; ">
-                    <div class="iconos_control" ng-click="vm.cambiar_vista_lista()"><span class="ico-align-justify"></span></div>
+                    <!--<div class="iconos_control" ng-click="vm.cambiar_vista_lista()"><span class="ico-align-justify"></span></div>-->
                     <div class="iconos_control" ng-click="vm.cambiar_vista_bloque()"><span class="ico-th"></span></div>
                     <div class="iconos_control"><span class="ico-plus-circle"></span></div>
                 </div>
@@ -44,7 +45,7 @@
                                 {{ tipoDoc.nombre }}
                             </label>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>
