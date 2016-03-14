@@ -1,13 +1,13 @@
 ﻿.contenedor_login{
     width:420px;
     margin: 0 auto;
-    padding: 70px 0 0 0;
+    padding: 150px 0 0 0;
 }
 
     .contenedor_login:before {
         content: '';
-        background-image: url('../../recursos/header/paisaje.jpg');
-        background-size: 1400px;
+        background-image: url('../../recursos/header/entrada.jpg');
+        background-size: cover;
         -webkit-filter: brightness(100%);
         filter: brightness(100%);
         width: 100%;
