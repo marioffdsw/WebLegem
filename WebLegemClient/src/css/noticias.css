@@ -1,9 +1,9 @@
-﻿.contenido_noticias {
+﻿.contenido_noticias {    
     display: flex;
     -ms-flex-direction: column;
     -webkit-flex-direction: column;
     flex-direction: column;
-    height:100vh;
+    min-height: 100vh;
     position:absolute;
     top:0;
     width:100%;
