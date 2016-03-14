@@ -8,10 +8,11 @@
     border-top: 5px solid #0e975c;
 }
 
-    .imagen_inicial:before {       
+    .imagen_inicial:before {
         content: '';
         /*background-image: url('../../recursos/header/azufral.png');*/
-        background-image: url('../../recursos/header/paisaje.jpg');
+        /*background-image: url('../../recursos/header/paisaje.jpg');*/
+        background-image: url('recursos/header/udenar_bloque.jpg');
         background-size: cover;
         width: 100%;
         height: 100vh;

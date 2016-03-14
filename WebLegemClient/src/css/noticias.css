@@ -3,23 +3,31 @@
     -ms-flex-direction: column;
     -webkit-flex-direction: column;
     flex-direction: column;
-    align-items: center;
-    justify-content:center;
-    margin-top:100px;
-    height:100%;
+    height:100vh;
+    position:absolute;
+    top:0;
     width:100%;
-    
+    flex:1;
 }
 
-.contenido_noticias:before {
-    content: '';
-    background-image: url('../recursos/header/paisaje.jpg');
-    background-size: cover;
-    background-attachment:fixed;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
+.contenido_noticias > div{
+    display:flex;
+    flex-direction:column;
+    height:100%;
 }
+
+    .contenido_noticias:before {
+        content: '';
+        /*background-image: url('../recursos/header/paisaje.jpg');*/
+        /*background-imaget: url('../recursos/header/udenar_bloque.jpg');*/
+        /*background-image: url('../recursos/header/VIPRI-1.jpg');*/
+        background-image: url('../recursos/header/VIPRI-12.jpg');
+        background-size: cover;
+        background-attachment: fixed;
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }

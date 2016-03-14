@@ -27,7 +27,7 @@
     <script src="app/app.core.modules.js"></script>
     <script src="app/app.core.run.js"></script>
     <script src="app/app.core.routes.js"></script>
-    <script src="app/app.core.constants.js"></script>    
+    <script src="app/app.core.constants.js"></script>
 
     <!-- Login -->
     <script src="app/login/login.js"></script>
@@ -90,7 +90,7 @@
     <link href="css/noticias.css" rel="stylesheet" />
     <link href="css/plantillas/header2.css" rel="stylesheet" />
     <link href="css/plantillas/header.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
-    <link href="css/plantillas/header_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />    
+    <link href="css/plantillas/header_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
     <link href="css/plantillas/accesibilidad.css" rel="stylesheet" />
     <link href="css/plantillas/administracion.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
     <link href="css/plantillas/administracion_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
@@ -100,7 +100,7 @@
     <link href="css/plantillas/busqueda_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
     <link href="css/plantillas/gestion_documental.css" rel="stylesheet" />
     <link href="../bower_components/quill/dist/quill.snow.css" rel="stylesheet" />
- 
+
     <!--Iconografia-->
     <link href="iconos-legem/styles.css" rel="stylesheet" />
     <link href="iconos-legem2/style.css" rel="stylesheet" />
@@ -120,170 +120,106 @@
     <link href="css/estilos_weblegem_contraste.css" rel="stylesheet" ng-if="vm.val_contraste==1" />
 
     <script src="app/busqueda/busqueda_controller.js"></script>
+
+    <!----Fuentes-Tipografia-->
     <link href="fuentes/CREAMPUF/fonts.css" rel="stylesheet" />
     <link href="fuentes/exmouth/fonts.css" rel="stylesheet" />
     <link href="fuentes/Hotel Coral Essex/fonts.css" rel="stylesheet" />
+    <link href="fuentes/open-sans-regular/sample.css" rel="stylesheet" />
+    <link href="fuentes/open-sans-bold/sample.css" rel="stylesheet" />
+
+    <link href="css/plantillas/footer.css" rel="stylesheet" />
+    <link href="css/plantillas/news.css" rel="stylesheet" />
+    <!--directivas-->
+    <script src="common/directives/footer/wlegem-footer.directive.js"></script>
+    <script src="common/directives/noticias/wlegem-news.directive.js"></script>
 </head>
 
 <body id="body_index">
+    <div style=" width:100%; min-height:100vh;">
 
-    <div class="header">
-        <div class="figura_logo" ng-show="vm.$state.current.name == 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
-            <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" width="100%" height="100%">
-                <defs>
+        <div class="header">
+            <div class="figura_logo" ng-show="vm.$state.current.name == 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
+                <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" width="100%" height="100%">
                     <defs>
-                        <radialGradient id="rgrad" cx="50%" cy="50%" r="75%">
-                            <stop offset="0%" style="stop-color:rgb(0,133,99);stop-opacity:1" />
-                            <stop offset="16%" style="stop-color:rgb(0,133,99);stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:rgb(7,48,33);stop-opacity:1" />
-                        </radialGradient>
+                        <defs>
+                            <radialGradient id="rgrad" cx="50%" cy="50%" r="75%">
+                                <stop offset="0%" style="stop-color:rgb(0,133,99);stop-opacity:1" />
+                                <stop offset="16%" style="stop-color:rgb(0,133,99);stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:rgb(7,48,33);stop-opacity:1" />
+                            </radialGradient>
+                        </defs>
                     </defs>
-                </defs>
-                <polygon id="svg_image" points="0,0 1000,0 1000,500 500,1000 0,500" fill="url(#rgrad)"></polygon>
-            </svg>
-            <div class="contenedor_nombre_escudo">
-                <img class="escudo_pagina" src="recursos/header/udenar_bl.png" />
+                    <polygon id="svg_image" points="0,0 1000,0 1000,500 500,1000 0,500" fill="url(#rgrad)"></polygon>
+                </svg>
+                <div class="contenedor_nombre_escudo">
+                    <img class="escudo_pagina" src="recursos/header/udenar_bl.png" />
+                </div>
+            </div>
+
+            <div id="contenedor_accesibilidad" class="contenedor_accesibilidad">
+                <div class="deslizador">
+                    <button class="btn_deslizable" ui-sref="busqueda">
+                        <span class="ico-search"></span>
+                        <p>Busqueda</p>
+                    </button>
+
+                    <button class="btn_deslizable" ui-sref="home">
+                        <span class="ico-home"></span>
+                        <p>Inicio</p>
+                    </button>
+
+                    <button class="btn_deslizable" ui-sref="login" ng-show="!vm.loggeado">
+                        <span class="ico-sign-in"></span>
+                        <p>Ingresar</p>
+                    </button>
+
+                    <button class="btn_deslizable" ng-click="vm.LogOut()" ng-show="vm.loggeado">
+                        <span class="ico-sign-in"></span>
+                        <p>Salir</p>
+                    </button>
+
+                    <button id="lanzador_accesibilidad" class="boton_accesibilidad" onclick="estado_accesibilidad(this.id)">
+                        <span class="ico-angle-left"></span>
+                        <span class="ico-child"></span>
+                    </button>
+                    <button class="boton_accesibilidad {{vm.clase_contraste}}" ng-click="vm.funcion_contraste()">
+                        <span class="{{vm.icono_contraste}}"></span>
+                    </button>
+                    <button class="boton_accesibilidad  {{vm.clase_idioma}}" ng-click="vm.funcion_idioma()">
+                        <span class="ico2-earth"></span>
+                    </button>
+                    <button class="boton_accesibilidad {{vm.tamano_letra}}" ng-click="vm.funcion_tamano()">
+                        <span class="ico2-font-size"></span>
+                    </button>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="header2" ng-show="vm.loggeado">
+            <div class="navegacion">
+                <ul class="bar_nav">
+                    <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
+                        <a ui-sref="{{opcion.estado}}">
+                            {{ opcion.texto }}
+                        </a>
+                        <ul ng-if="opcion.subEstados">
+                            <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>
+                        </ul>
+                    <li>
+                </ul>
             </div>
         </div>
 
-        <div id="contenedor_accesibilidad" class="contenedor_accesibilidad">
-            <div class="deslizador">
-                <button class="btn_deslizable" ui-sref="busqueda">
-                    <span class="ico-search"></span>
-                    <p>Busqueda</p>
-                </button>
-
-                <button class="btn_deslizable" ui-sref="home">
-                    <span class="ico-home"></span>
-                    <p>Inicio</p>
-                </button>
-
-                <button class="btn_deslizable" ui-sref="login" ng-show="!vm.loggeado">
-                    <span class="ico-sign-in"></span>
-                    <p>Ingresar</p>
-                </button>
-
-                <button class="btn_deslizable" ng-click="vm.LogOut()" ng-show="vm.loggeado">
-                    <span class="ico-sign-in"></span>
-                    <p>Salir</p>
-                </button>
-
-                <button id="lanzador_accesibilidad" class="boton_accesibilidad" onclick="estado_accesibilidad(this.id)">
-                    <span class="ico-angle-left"></span>
-                    <span class="ico-child"></span>
-                </button>
-                <button class="boton_accesibilidad {{vm.clase_contraste}}" ng-click="vm.funcion_contraste()">
-                    <span class="{{vm.icono_contraste}}"></span>
-                </button>
-                <button class="boton_accesibilidad  {{vm.clase_idioma}}" ng-click="vm.funcion_idioma()">
-                    <span class="ico2-earth"></span>
-                </button>
-                <button class="boton_accesibilidad {{vm.tamano_letra}}" ng-click="vm.funcion_tamano()">
-                    <span class="ico2-font-size"></span>
-                </button>
-            </div>
-        </div>
-
-        
-    </div>
-    <div class="header2" ng-show="vm.loggeado">
-        <div class="navegacion">
-            <ul class="bar_nav">
-                <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
-                    <a ui-sref="{{opcion.estado}}">
-                        {{ opcion.texto }}
-                    </a>
-                    <ul ng-if="opcion.subEstados">
-                        <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>
-                    </ul>
-                <li>
-            </ul>
-        </div>
-    </div>
-
-    <div ui-view class="animatio ng-enter"></div>
-
-
-    <!--
-    <footer id="theme-footer">
-        <div id="footer-widget-area" class="footer-3c">
-
-            <div id="footer-first" class="footer-widgets-box">
-                <div id="text-html-widget-2" class="footer-widget text-html">
-                    <div class="footer-widget-top"><h4>Programa de Ingeniería de Sistemas</h4></div>
-                    <div class="footer-widget-container">
-                        <div>
-                            2015  Universidad de Nariño</br>
-        Torobajo - Clle 18 Crr 50, Bloque VI</br>
-        Teléfono: (2) - 7313034</br>
-        Correo electrónico: insistemas@udenar.edu.co</br>
-
-    </div><div class="clear"></div>
-    </div>
-    </div>
-    </div>
-
-    <div id="footer-second" class="footer-widgets-box">
-        <div id="text-html-widget-9" class="footer-widget text-html">
-            <div class="footer-widget-top"><h4>Atención al Ciudadano</h4></div>
-            <div class="footer-widget-container">
-                <div>
-                    <ul id="menu-atencion-al-ciudadano" class="menu">
-                        <li id="menu-item-388" class="text"><a style="text-decoration:none" href="http://akane.udenar.edu.co/quejasudenar/" target="_blank">Sistema de Quejas y Reclamos</a></li>
-                    </ul>
-
-                    <ul id="menu-atencion-al-ciudadano" class="menu">
-                        <li id="menu-item-388" class="text"><a style="text-decoration:none" href="http://sistemas.udenar.edu.co/contacto/" target="_blank">Contacto</a></li>
-                    </ul>
-                    <ul id="menu-atencion-al-ciudadano" class="menu">
-                        <li id="menu-item-388" class="text"><a style="text-decoration:none" href="http://sistemas.udenar.edu.co/wp-content/uploads/2015/11/SiteMap.png" target="_blank">Mapa del Sitio</a></li>
-                    </ul>
-                </div><div class="clear"></div>
-            </div>
-        </div>
-    </div>
-
-
-    <div id="footer-third" class="footer-widgets-box">
-        <div id="text-html-widget-5" class="footer-widget text-html">
-            <div class="footer-widget-top"><h4>CONTÁCTENOS</h4></div>
-            <div class="footer-widget-container">
-                <div>
-                    <a href="mailto:insistemas@udenar.edu.co" target="_blank"><img src="http://sistemas.udenar.edu.co/wp-content/uploads/2014/11/email-1.png" /></a>
-                    <a href="https://twitter.com/Udenar" target="_blank"><img src="http://sistemas.udenar.edu.co/wp-content/uploads/2014/11/twitter.png" /></a>
-                    <a href="https://www.facebook.com/udenar" target="_blank"><img src="http://sistemas.udenar.edu.co/wp-content/uploads/2014/11/facebook-1.png" /></a>
-
-                </div><div class="clear"></div>
-            </div>
-        </div>
-
-
-        <div id="text-html-widget-11" class="footer-widget text-html">
-            <div class="footer-widget-top"><h4> </h4></div>
-            <div class="footer-widget-container">
-                <div>
-                    <ul id="menu-atencion-al-ciudadano" class="menu">
-                        <li id="menu-item-388" class="m"><a style="text-decoration:none" href="http://sistemas.udenar.edu.co/gobierno-en-linea/" target="_blank">Gobierno en Línea</a></li>
-                    </ul>
-
-                </div><div class="clear"></div>
-            </div>
-        </div>
-    </div>
+        <div ui-view class="animatio ng-enter"></div>   
 
     </div>
-    <div class="clear"></div>
-    </footer>
 
 
-    <div class="footer-bottom">
-        <div class="container">
-            <div class="social-icons">
-                <a class="ttip-none" title="Facebook" href="https://www.facebook.com/udenar" target="_blank"><i class="fa fa-facebook"></i></a><a class="ttip-none" title="Twitter" href="https://twitter.com/Udenar" target="_blank"><i class="fa fa-twitter"></i></a>
-            </div>
-        </div>
-    </div>
-            -->
+    <wlegem-news></wlegem-news>
+
+    <wlegem-footer></wlegem-footer>
 </body>
 
 </html>
