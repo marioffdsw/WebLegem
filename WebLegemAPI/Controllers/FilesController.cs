@@ -61,7 +61,31 @@ namespace WebLegemAPI.Controllers
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotAcceptable, "This request is not properly formatted"));
             }
-        } // end class
+        } // end action method POST
+
+        public HttpResponseMessage Get(int id)
+        {
+            if (id == 0)
+                return Request.CreateResponse( HttpStatusCode.BadRequest );
+
+            try
+            {
+                string fileName = archivoDAO.Get(id).Nombre;
+                string localFilePath = @"c:\oradata\web_legem\";
+
+                HttpResponseMessage response = new HttpResponseMessage( HttpStatusCode.OK );
+                response.Content = new StreamContent( new FileStream( localFilePath + fileName, FileMode.Open, FileAccess.Read ) );
+                response.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
+                response.Content.Headers.ContentDisposition.FileName = fileName;                
+
+                return response;
+            }
+            catch ( Exception exception )
+            {
+                return Request.CreateResponse( HttpStatusCode.InternalServerError );
+            }
+                                   
+        } // end action method POST
 
         public class FileDesc
         {

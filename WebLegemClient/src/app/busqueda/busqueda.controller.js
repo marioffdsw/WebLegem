@@ -5,8 +5,8 @@
         .module("WebLegemApp.Busqueda")
         .controller("BusquedaController", BusquedaController);
 
-    BusquedaController.$inject = ["DocumentosResource", "EntidadService", "TipoDocumentoResource", "searchPattern"];
-    function BusquedaController(DocumentosResource, entidadService, TipoDocumentoService, searchPattern) {
+    BusquedaController.$inject = ["DocumentosResource", "EntidadService", "TipoDocumentoResource", "searchPattern", "fileId", "$state"];
+    function BusquedaController(DocumentosResource, entidadService, TipoDocumentoService, searchPattern, fileId, $state) {
         var vm = this;
         vm.palabrasABuscar = searchPattern.words ? searchPattern.words : "";
         vm.anioPublicacion = "";
@@ -22,6 +22,7 @@
         vm.tab_2 = false;
         vm.reverse = false;
         vm.errorMessage = undefined;
+        vm.verDocumento = verDocumento;
 
         if(vm.palabrasABuscar){
             buscar( vm.palabrasABuscar );
@@ -40,12 +41,12 @@
 
         function buscar( palabras ) {
             // documentos service get + OData query
-            if ( (typeof palabras == "string" && palabras.length > 3) || vm.anioPublicacion || vm.entidadEmisora || vm.tipoDocumento || vm.numero ) {
+            if ( (typeof palabras == "string" && palabras.length > 3) || vm.fechaPublicacion || vm.entidadEmisora || vm.tipoDocumento || vm.numero ) {
 
                 var query = { $filter: "" };
 
-                if (vm.anioPublicacion != "")
-                    query.$filter += "contains(AnioPublicacion, '" + vm.anioPublicacion + "')";
+                //if (vm.fechaPublicacion != "")
+                //    query.$filter += "contains(FechaPublicacion, '" + vm.fechaPublicacion + "')";
 
                 if (vm.numero != "")
                     query.$filter += (query.$filter.length > 0 ? " and " : "") +
@@ -109,6 +110,13 @@
                 vm.tab_1 = false;
             }
         }
+
+        function verDocumento( archivoId ){
+            if (archivoId > 0) {
+                fileId.id = archivoId
+                $state.go( "ver-documento" );
+            }
+        } // fin function verDocumento
 
         return vm;
     } // fin Busqueda Controller

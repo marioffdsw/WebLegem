@@ -22,7 +22,7 @@ namespace WebLegemDAL.Models
         private Entidad entidad;
         private TipoDocumento tipoDocumento;
         private string numero;
-        private string anioPublicacion;                       
+        private DateTime fechaPublicacion;                       
 
         protected bool isNull;
 
@@ -90,22 +90,20 @@ namespace WebLegemDAL.Models
             }
         } // fin prop Numero
 
-        [OracleObjectMappingAttribute( "ANIO_PUBLICACION" )]
-        public string AnioPublicacion
+        [OracleObjectMappingAttribute( "FECHA_PUBLICACION" )]
+        public DateTime FechaPublicacion
         {
             get
             {
-                return anioPublicacion;
+                return fechaPublicacion;
             }
 
             set
             {
                 // TODO - modificar la excepcion, a un nombre significativo
-                // TODO - validar que sean todos numeros
-                if (value.Length > 4)
-                    throw new Exception();
+                // TODO - validar que sean todos numeros                
                 
-                anioPublicacion = value;
+                fechaPublicacion = value;
             }
         } // fin prop AñoPublicacion
              
@@ -150,8 +148,8 @@ namespace WebLegemDAL.Models
             if (numero != null)
                 OracleUdt.SetValue( con, pUdt, "NUMERO", numero );
 
-            if (anioPublicacion != null)
-                OracleUdt.SetValue( con, pUdt, "ANIO_PUBLICACION", anioPublicacion );
+            if (fechaPublicacion != null)
+                OracleUdt.SetValue( con, pUdt, "FECHA_PUBLICACION", fechaPublicacion );
             
         } // end method FromCustomObject
 
@@ -163,18 +161,18 @@ namespace WebLegemDAL.Models
             Entidad = (Entidad) OracleUdt.GetValue( con, pUdt, "ENTIDAD" );
             TipoDocumento = (TipoDocumento) OracleUdt.GetValue( con, pUdt, "TIPO_DOCUMENTO" );
             Numero = (string) OracleUdt.GetValue( con, pUdt, "NUMERO" );
-            AnioPublicacion = (String) OracleUdt.GetValue( con, pUdt, "ANIO_PUBLICACION" );            
+            FechaPublicacion = (DateTime) OracleUdt.GetValue( con, pUdt, "FECHA_PUBLICACION" );            
         } // fin method ToCustomObject
 
         public override string ToString()
         {
             return String
-                .Format( "Documento(Id: {0}, {1},\n{2}, Numero: {3}, AñoPublicacion: {4} )",
+                .Format( "Documento(Id: {0}, {1},\n{2}, Numero: {3}, FechaPublicacion: {4} )",
                     Id,
                     Entidad,
                     TipoDocumento,
                     Numero,
-                    AnioPublicacion
+                    FechaPublicacion
                 );
         }
     }

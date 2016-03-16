@@ -6,7 +6,7 @@ CREATE TABLE identificadores_documentos_tab
     entidad                     NUMBER              NOT NULL,
     tipo_documento              NUMBER              NOT NULL,
     numero                      VARCHAR2(20)        NOT NULL,
-    anio_publicacion            CHAR(4)             NOT NULL,
+    fecha_publicacion           DATE                NOT NULL,
 
     CONSTRAINT identificador_documento_PK
         PRIMARY KEY ( id ),
@@ -18,7 +18,7 @@ CREATE TABLE identificadores_documentos_tab
         FOREIGN KEY ( tipo_documento ) REFERENCES tipos_documento_tab( id ),
 
     CONSTRAINT id_identificador_doc_unique
-        UNIQUE ( entidad, tipo_documento, numero, anio_publicacion )
+        UNIQUE ( entidad, tipo_documento, numero, fecha_publicacion )
 );
 
 -- TODO revisar si se puede usar la ñ en un identifiador

@@ -58,7 +58,9 @@ namespace WebLegemDAL.Archivo
             var cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
             var reader = cmd.ExecuteReader();
 
-            return new Archivo { Id = (int)reader.GetValue(0), Nombre = (string) reader.GetValue(1) };
+            reader.Read();
+
+            return new Archivo { Id = reader.GetInt32(0), Nombre = reader.GetString(1) };                        
         }
 
         protected override IQueryable<Archivo> RetrieveAll()

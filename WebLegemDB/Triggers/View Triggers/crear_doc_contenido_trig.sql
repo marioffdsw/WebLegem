@@ -8,12 +8,12 @@ BEGIN
     IF :NEW.documento_con_contenido.id = 0
     THEN
         
-        INSERT INTO identificadores_documentos_tab(id, entidad, tipo_documento, numero, anio_publicacion) 
+        INSERT INTO identificadores_documentos_tab(id, entidad, tipo_documento, numero, fecha_publicacion) 
             VALUES ( identificadores_documentos_seq.NEXTVAL, 
                 :NEW.documento_con_contenido.entidad.id,
                 :NEW.documento_con_contenido.tipo_documento.id,
                 :NEW.documento_con_contenido.numero,
-                :NEW.documento_con_contenido.anio_publicacion );
+                :NEW.documento_con_contenido.fecha_publicacion );
         
         INSERT INTO contenidos_archivos_tab( id, archivo, identificador_documento, asunto, contenido, estado )
             VALUES ( :NEW.documento_con_contenido.archivo,

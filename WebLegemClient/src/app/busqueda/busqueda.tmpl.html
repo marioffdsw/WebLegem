@@ -75,7 +75,7 @@
                                         <label class="descripcion">{{vm.anioPublicacion}}</label>
                                     </content>
                                     <content class="li_right">
-                                        <button id="fba_3" class="btn_filtro_avanzada" ng-click="vm.anioPublicacion = ''; vm.buscar(vm.palabrasABuscar);">
+                                        <button id="fba_3" class="btn_filtro_avanzada" ng-click="vm.fechaPublicacion = ''; vm.buscar(vm.palabrasABuscar);">
                                             <span class="ico-times-circle"></span>
                                         </button>
                                     </content>
@@ -187,7 +187,9 @@
                                     <p id="contenido_bus">
                                         {{documento.asunto}}
                                     </p>
-                                    <p id="entidad_bus">Entidad:<i>{{documento.entidad.nombre}}  </i> </p> <p id="fecha_bus">  Fecha: <i>{{documento.anioPublicacion}} </i>  </p>
+                                    <p id="entidad_bus">Entidad:<i>{{documento.entidad.nombre}}  </i> </p> <p id="fecha_bus">  Fecha: <i>{{ documento.fechaPublicacion | date: 'dd/MM/yyyy'}} {{ documento.fechaPublicacion }}</i>  </p>
+                                    <a ng-click="vm.verDocumento(documento.archivo)">Ver</a>
+                                    <a href="http://localhost:50555/api/Files/{{ documento.archivo }}"> Descargar</a>
                                 </li>
                             </ul>
                         </div>
