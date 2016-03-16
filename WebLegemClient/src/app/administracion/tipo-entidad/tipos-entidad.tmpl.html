@@ -2,7 +2,7 @@
     <section class="layout_padre">
         <div class="hijo_left">
             <label class="texto_labels" style="margin-top:10px;">Lista de tipo de entidades</label>
-            <input type="text" ng-model="vm.filter" />
+            <input type="text" ng-model="vm.filter" class="a_input" />
             <ul class="a_listado" style="width:100%;">
                 <li ng-repeat="tipoEntidad in vm.tiposEntidad | filter: vm.filter">
                     <input type="radio" name="tipo_entidad_rad" class="styled" id="{{tipoEntidad.id}}"

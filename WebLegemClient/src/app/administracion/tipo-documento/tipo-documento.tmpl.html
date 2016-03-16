@@ -2,7 +2,7 @@
     <section class="layout_padre">
         <div class="hijo_left">
             <label class="texto_labels" style="margin-top:10px;">Lista de tipos de documentos</label>
-            <input type="text" ng-model="vm.filtro" />
+            <input type="text" ng-model="vm.filtro" class="a_input" />
             <ul class="a_listado" style="width: 100%">
                 <li ng-repeat="tipo in vm.tiposDoc | filter:vm.filtro">
                     <input type="radio" name="entidad_rad" class="styled" id="{{tipo.id}}"

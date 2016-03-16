@@ -93,8 +93,7 @@
         };
 
         function limpiar (){
-            vm.anioPublicacion = "";
-            vm.documentosEncontrados = [];
+            vm.anioPublicacion = "";            
             vm.numero = "";
             vm.entidadEmisora = "";
             vm.tipoDocumento = "";
