@@ -1,39 +1,56 @@
 ﻿/*div de mini Busqueda*/
+
+
 .contenedor_mini_search{
-    margin:auto;
-    display:block;
-    width:50%;
-    vertical-align:middle;
-    /*margin:10px 10px;
-    height:50%;
-    display:flex;
-    align-items:flex-end;
-    justify-content:flex-end;*/
+    width:100%;
+    align-self:center;
+}
+
+@media (min-width: 500px) {/*comprobar puntos de break*/
+    .contenedor_mini_search{
+        width:60%;
+    }
+}
+
+@media (min-width: 700px) {/*comprobar puntos de break*/ 
+    .contenedor_mini_search{
+        width:50%;
+    }
 }
 
 .mini_search{
     width:100%;
 	height:60px;
-    background:white;
     -webkit-box-shadow: 0 0 0 8px rgba(17, 21, 21, 0.3);
     -moz-box-shadow: 0 0 0 8px rgba(17, 21, 21, 0.3);
     box-shadow: 0 0 0 8px rgba(17, 21, 21, 0.3);
     position:relative;
-    opacity:1;
     overflow:hidden;
 
-    -moz-transition:all .2s;
-    -webkit-transition:all .2s;
-    -o-transition:all .2s;
-    transition:all .2s;
+    display:flex;
+
+    -moz-transition:all .4s;
+    -webkit-transition:all .4s;
+    -o-transition:all .4s;
+    transition:all .4s;
 }
 
 .mini_search input{
     font-size:x-large;
     padding:17px;
     border: none;
-    width:99%;
     color:#444;
+    flex:1;
+    background:white;
+    opacity:.8;
+}
+
+.mini_search input:focus{
+    opacity:1;
+}
+
+.mini_search button:hover{  
+    background:rgb(20, 108, 71);
 }
 
 .mini_search button{
@@ -43,11 +60,33 @@
     position: absolute;
     font-size:35px;
     right:0;
-    padding:13px;
-
+    padding:13px;   
     cursor: pointer;
-}  
+    -moz-transition:all .2s;
+    -webkit-transition:all .2s;
+    -o-transition:all .2s;
+    transition:all .2s;
+}
 
-.mini_search input:hover{
-	outline:0;
+.mini_search.animacion_mini_search {
+    -moz-animation: a_crecer .3s;
+    -o-animation: a_crecer .3s;
+    -webkit-animation: a_crecer .3s;
+    animation: a_crecer .3s;
+    
+    -webkit-box-shadow: 0 0 0 6px rgba(24, 156, 100,.6);
+    -moz-box-shadow: 0 0 0 6px rgba(24, 156, 100,.6);
+    box-shadow: 0 0 0 6px rgba(24, 156, 100,.6);
+}
+
+
+
+@keyframes a_crecer {
+  0%{transform:scale(1);}
+  50%{
+      transform:scale(1.05);
+  }
+  100% {transform:scale(1);
+
+  }
 }

@@ -60,3 +60,46 @@
     right: 0;
     text-align:center;
 }
+
+
+.btn_sin_ico{
+    position:relative;
+    background-color: #0f745b;
+    font-family:'Century Gothic';
+	font-size: 0.7em;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04rem;
+	color: #fff;
+	border:0;
+    margin:auto 0;
+    padding:8px 5px 8px 8px;
+    min-width:110px;
+    cursor:pointer;
+
+	-webkit-transition:  all 0.2s;
+    -o-transition: all 0.2s;
+	transition:  all 0.2s;
+}
+
+.btn_sin_ico::-moz-focus-inner{
+    margin-top:-2px; 
+    margin-bottom: -2px; 
+}
+
+.btn_sin_ico.inverso{
+    padding:7px 0 7px 10px;
+    text-align:left;
+}
+
+.btn_sin_ico:hover {
+    background-color:  #099472;
+}
+
+.btn_sin_ico:active{
+    -webkit-transition: all 0.05s;
+    -o-transition: all 0.05s;
+	transition: all 0.05s;
+
+    background-color: #064234;
+}

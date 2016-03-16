@@ -26,7 +26,7 @@
 
 .sub_footer2{
     text-align:center;
-    padding:10px;
+    padding:20px;
     color:#aaa;
 }
 
@@ -34,7 +34,8 @@
     -ms-flex: 1;
     -webkit-flex: 1;
     flex: 1;
-    margin: 20px;
+    margin:20px 40px;
+    padding:0 30px;
     min-width:320px;
     color:#d8d8d8;
 }
@@ -74,7 +75,6 @@
 
 @media (max-width: 1200px) { 
     .a_footer{
-        background:red;
     }
 }
 

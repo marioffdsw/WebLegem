@@ -15,7 +15,7 @@
 	    $stateProvider
 			.state('home', {
 			    url: '/',
-			    templateUrl: 'app/noticias/noticias.tmpl.html',
+			    templateUrl: 'app/principal/principal.tmpl.html',
 				controller: "NoticiasController",
 				controllerAs: "vm"
 			})
