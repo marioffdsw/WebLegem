@@ -112,27 +112,33 @@
         }
 
         function cambiar_vista_lista() {
-            var aux = document.getElementById("te_li_lista");
-            var padre = aux.parentElement;
-            var hijo = aux.lastElementChild;
-            var hijo2 = aux.firstElementChild;
+            var aux = document.getElementsByClassName("te_li_lista");
 
-            padre.className = "a_listado";
-            hijo.className = "styled";
-            hijo2.className = "styled";
-            padre.parentElement.style.justifyContent = "center";
+            for (var i = 0; i < aux.length; i++) {
+                var padre = aux[i].parentElement;
+                var hijo = aux[i].lastElementChild;
+                var hijo2 = aux[i].firstElementChild;
+
+                padre.className = "a_listado";
+                hijo.className = "styled";
+                hijo2.className = "styled";
+                padre.parentElement.style.justifyContent = "center";
+            }            
         }
 
         function cambiar_vista_bloque() {
-            var aux = document.getElementById("te_li_lista");
-            var padre = aux.parentElement;
-            var hijo = aux.lastElementChild;
-            var hijo2 = aux.firstElementChild;
+            var aux = document.getElementsByClassName("te_li_lista");
 
-            padre.className = "a_bloques";
-            hijo.className = "styled1 note rounded";
-            hijo2.className = " ";
-            padre.parentElement.style.justifyContent = "flex-start";
+            for (var i = 0; i < aux.length; i++) {
+                var padre = aux[i].parentElement;
+                var hijo = aux[i].lastElementChild;
+                var hijo2 = aux[i].firstElementChild;
+
+                padre.className = "a_bloques";
+                hijo.className = "styled1 note rounded";
+                hijo2.className = " ";
+                padre.parentElement.style.justifyContent = "flex-start";
+            }
         }
 
         /*

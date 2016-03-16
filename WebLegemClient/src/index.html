@@ -27,7 +27,7 @@
     <script src="app/app.core.modules.js"></script>
     <script src="app/app.core.run.js"></script>
     <script src="app/app.core.routes.js"></script>
-    <script src="app/app.core.constants.js"></script>    
+    <script src="app/app.core.constants.js"></script>
     <script src="app/app.core.values.js"></script>
 
     <!-- Login -->
@@ -100,11 +100,13 @@
     <link href="css/plantillas/tipo_entidad.css" rel="stylesheet" />
     <link href="css/plantillas/busqueda.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
     <link href="css/plantillas/gestion_documental.css" rel="stylesheet" />
+    <link href="css/plantillas/mini_footer.css" rel="stylesheet" />
     <link href="../bower_components/quill/dist/quill.snow.css" rel="stylesheet" />
- 
+
     <!--Iconografia-->
-    <link href="iconos-legem/styles.css" rel="stylesheet" />
-    <link href="iconos-legem2/style.css" rel="stylesheet" />
+    <link href="iconografia/iconos-legem/styles.css" rel="stylesheet" />
+    <link href="iconografia/iconos-legem2/style.css" rel="stylesheet" />
+    <link href="iconografia/escudos-legem/style.css" rel="stylesheet" />
 
     <script src="app/homeController.js"></script>
     <script src="app/uploader-andres.js"></script>
@@ -133,93 +135,99 @@
     <!--directivas-->
     <script src="common/directives/footer/wlegem-footer.directive.js"></script>
     <script src="common/directives/noticias/wlegem-news.directive.js"></script>
-    <link href="scripts/style4.css" rel="stylesheet" />
-    <!--Animacion dropdown-->
-    <script src="scripts/jquery.dropdown.js"></script>
-    <script src="scripts/modernizr.custom.63321.js"></script>
+    <script src="common/directives/mini-footer/wlegem-mini-footer.directive.js"></script>
+
 </head>
 
 <body id="body_index">
     <div style=" width:100%; min-height:100vh;">
 
-    <div class="header">
-        <div class="figura_logo" ng-show="vm.$state.current.name == 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
-            <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" width="100%" height="100%">
-                <defs>
+        <div class="header">
+            <div class="figura_logo" ng-show="vm.$state.current.name == 'home'">
+                <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" width="100%" height="100%">
                     <defs>
-                        <radialGradient id="rgrad" cx="50%" cy="50%" r="75%">
-                            <stop offset="0%" style="stop-color:rgb(0,133,99);stop-opacity:1" />
-                            <stop offset="16%" style="stop-color:rgb(0,133,99);stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:rgb(7,48,33);stop-opacity:1" />
-                        </radialGradient>
+                        <defs>
+                            <radialGradient id="rgrad" cx="50%" cy="50%" r="75%">
+                                <stop offset="0%" style="stop-color:rgb(0,133,99);stop-opacity:1" />
+                                <stop offset="16%" style="stop-color:rgb(0,133,99);stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:rgb(7,48,33);stop-opacity:1" />
+                            </radialGradient>
+                        </defs>
                     </defs>
-                </defs>
-                <polygon id="svg_image" points="0,0 1000,0 1000,500 500,1000 0,500" fill="url(#rgrad)"></polygon>
-            </svg>
-            <div class="contenedor_nombre_escudo">
-                <img class="escudo_pagina" src="recursos/header/udenar_bl.png" />
+                    <polygon id="svg_image" points="0,0 1000,0 1000,500 500,1000 0,500" fill="url(#rgrad)"></polygon>
+                </svg>
+                <div class="contenedor_nombre_escudo">
+                    <img class="escudo_pagina" src="recursos/header/udenar_bl.png" />
+                </div>
+            </div>
+            <div style="position:absolute; left:0; display:flex;"
+                 ng-show="vm.$state.current.name != 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
+                <img src="recursos/escudos-logos/planeacion.png" style="height:65px;margin-top:-5px;" />
+                <p style="font-family:'AbrilFatface-Regular'; color:white; font-size:40px; line-height:1.2;">Legem</p>
+            </div>
+            <div id="contenedor_accesibilidad" class="contenedor_accesibilidad">
+
+                <div class="deslizador">
+                    <button class="btn_deslizable" ui-sref="busqueda">
+                        <span class="ico-search"></span>
+                        <p>Busqueda</p>
+                    </button>
+
+                    <button class="btn_deslizable" ui-sref="home">
+                        <span class="ico-home"></span>
+                        <p>Inicio</p>
+                    </button>
+
+                    <button class="btn_deslizable" ui-sref="login" ng-show="!vm.loggeado">
+                        <span class="ico-sign-in"></span>
+                        <p>Ingresar</p>
+                    </button>
+
+                    <button class="btn_deslizable" ng-click="vm.LogOut()" ng-show="vm.loggeado">
+                        <span class="ico-sign-in"></span>
+                        <p>Salir</p>
+                    </button>
+
+                    <button id="lanzador_accesibilidad" class="boton_accesibilidad" onclick="estado_accesibilidad(this.id)">
+                        <span class="ico-angle-left"></span>
+                        <span class="ico-child"></span>
+                    </button>
+                    <button class="boton_accesibilidad {{vm.clase_contraste}}" ng-click="vm.funcion_contraste()">
+                        <span class="{{vm.icono_contraste}}"></span>
+                    </button>
+                    <button class="boton_accesibilidad  {{vm.clase_idioma}}" ng-click="vm.funcion_idioma()">
+                        <span class="ico2-earth"></span>
+                    </button>
+                    <button class="boton_accesibilidad {{vm.tamano_letra}}" ng-click="vm.funcion_tamano()">
+                        <span class="ico2-font-size"></span>
+                    </button>
+                </div>
             </div>
         </div>
 
-        <div id="contenedor_accesibilidad" class="contenedor_accesibilidad">
-            <div class="deslizador">
-                <button class="btn_deslizable" ui-sref="busqueda">
-                    <span class="ico-search"></span>
-                    <p>Busqueda</p>
-                </button>
-
-                <button class="btn_deslizable" ui-sref="home">
-                    <span class="ico-home"></span>
-                    <p>Inicio</p>
-                </button>
-
-                <button class="btn_deslizable" ui-sref="login" ng-show="!vm.loggeado">
-                    <span class="ico-sign-in"></span>
-                    <p>Ingresar</p>
-                </button>
-
-                <button class="btn_deslizable" ng-click="vm.LogOut()" ng-show="vm.loggeado">
-                    <span class="ico-sign-in"></span>
-                    <p>Salir</p>
-                </button>
-
-                <button id="lanzador_accesibilidad" class="boton_accesibilidad" onclick="estado_accesibilidad(this.id)">
-                    <span class="ico-angle-left"></span>
-                    <span class="ico-child"></span>
-                </button>
-                <button class="boton_accesibilidad {{vm.clase_contraste}}" ng-click="vm.funcion_contraste()">
-                    <span class="{{vm.icono_contraste}}"></span>
-                </button>
-                <button class="boton_accesibilidad  {{vm.clase_idioma}}" ng-click="vm.funcion_idioma()">
-                    <span class="ico2-earth"></span>
-                </button>
-                <button class="boton_accesibilidad {{vm.tamano_letra}}" ng-click="vm.funcion_tamano()">
-                    <span class="ico2-font-size"></span>
-                </button>
+        <div class="header2" ng-show="vm.loggeado">
+            <div class="navegacion">
+                <ul class="bar_nav">
+                    <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
+                        <a ui-sref="{{opcion.estado}}">
+                            {{ opcion.texto }}
+                        </a>
+                        <ul ng-if="opcion.subEstados">
+                            <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>
+                        </ul>
+                    <li>
+                </ul>
             </div>
         </div>
-    </div>
 
-    <div class="header2" ng-show="vm.loggeado">
-        <div class="navegacion">
-            <ul class="bar_nav">
-                <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
-                    <a ui-sref="{{opcion.estado}}">
-                        {{ opcion.texto }}
-                    </a>
-                    <ul ng-if="opcion.subEstados">
-                        <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>
-                    </ul>
-                <li>
-            </ul>
-        </div>
-    </div>
-
-    <div ui-view class="animatio ng-enter"></div>
+        <div ui-view class="animatio ng-enter"></div>
     </div>
 
     <wlegem-news ng-show="vm.$state.current.name == 'home'"></wlegem-news>
-    <wlegem-footer></wlegem-footer>
+    <wlegem-footer ng-show="vm.$state.current.name == 'home'"></wlegem-footer>
+    <wlegem-mini-footer ng-show="vm.$state.current.name != 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
+    </wlegem-mini-footer>
+
 </body>
 
 </html>
