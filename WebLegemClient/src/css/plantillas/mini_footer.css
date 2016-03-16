@@ -37,18 +37,22 @@
     padding:0 90px;
     color:#d8d8d8;
     align-self:center;
+    min-width:20px;
 }
 
 @media (max-width: 1200px) { 
     .a_mini_footer{
+        
+        flex-direction:column;
     }
 }
 
 @media (max-width: 600px) { 
     .a_mini_footer{
         flex-direction:column;
+        padding:0 10px;
     }
     .a_mini_footer > div{
-        min-width:unset;
+        min-width:10px;
     }
 }

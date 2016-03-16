@@ -1,10 +1,10 @@
 ﻿.a_news {
     background: #fff;
     width: 100%;
-    background-image: url('../../recursos/sneaker_mesh_fabric.png');
-    background-image: url('../../recursos/header/descarga.jpg');
-    background-size:cover;
-    height: 100vh;
+    background-image: url('../../recursos/header/VIPRI-1.jpg');
+    background-image: url('../../recursos/header/beige_paper.png');
+    
+    background: height: 100vh;
     display: flex;
     flex-direction: column;
     border-bottom: 5px solid #aaa;
@@ -108,12 +108,13 @@
     display:none;
 }
 
-.titulo_tarjeta{
-    color:#eee;
-    font-weight:bold;
-    font-family:'OpenSans';
-    padding:10px 20px;
-    background:rgba(0, 169, 157, 0.6);
+.titulo_tarjeta {
+    color: #eee;
+    font-weight: bold;
+    font-family: 'OpenSans';
+    font-size: .9em;
+    padding: 5px 20px;
+    background: rgba(53, 81, 107, 0.60);
 }
 
 .contenido_tarjeta{
