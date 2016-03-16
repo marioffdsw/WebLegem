@@ -188,6 +188,8 @@
                                         {{documento.asunto}}
                                     </p>
                                     <p id="entidad_bus">Entidad:<i>{{documento.entidad.nombre}}  </i> </p> <p id="fecha_bus">  Fecha: <i>{{documento.anioPublicacion}} </i>  </p>
+                                    <a ng-click="vm.verDocumento(documento.archivo)">Ver</a>
+                                    <a href="http://localhost:50555/api/Files/{{ documento.archivo }}"> Descargar</a>
                                 </li>
                             </ul>
                         </div>

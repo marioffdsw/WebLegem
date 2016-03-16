@@ -111,6 +111,7 @@ namespace WebLegemDAL.Models
             archivo = (int)OracleUdt.GetValue( con, pUdt, "ARCHIVO" );
             asunto = (string)OracleUdt.GetValue(con, pUdt, "ASUNTO");
             contenido = (OracleBFile)OracleUdt.GetValue( con, pUdt, "CONTENIDO" );
+            ruta = contenido.FileName;
         } // end ToCustomObject method
 
         public override string ToString()

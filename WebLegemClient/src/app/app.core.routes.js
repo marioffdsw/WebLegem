@@ -42,7 +42,13 @@
 	            templateUrl: 'app/busqueda/busqueda.tmpl.html',
 	            controller: "BusquedaController",
                 controllerAs: "vm"
-	        });
+	        })
+            .state('ver-documento', {
+                url: "/ver-documento",
+                templateUrl: "app/busqueda/ver/ver-documento.tmpl.html",
+                controller: "VerDocumentoController",
+                controllerAs: "vm"
+            });
 
 	} // end config function
 })();
