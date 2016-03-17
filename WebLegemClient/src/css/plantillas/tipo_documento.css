@@ -6,7 +6,7 @@
 }
 
 #remover_td, #editar_td {
-    display:block; 
+    display:none; 
     visibility:collapse;     
 }
 
