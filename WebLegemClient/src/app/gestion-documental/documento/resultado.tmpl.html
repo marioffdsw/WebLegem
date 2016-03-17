@@ -1,17 +1,20 @@
 ﻿<div class="contenido_gd animatio ng-enter" id="holas">
     <label class="titulo">Crear Documento</label>
-    <div>
+    <div style="width:100%;">
         <label class="subtitulos_labels">
             Resultado
         </label>
         <hr class="divisor_gestion_documental" />
-        <div>
-            <div ng-show="!vm.error && !vm.success">Trabajando</div>
-            <div ng-show="vm.success">Documento Creado Con Exito</div>
-            <div ng-show="vm.error">Error al crear el documento</div>
+        <div style="display:flex; flex-direction:column; justify-content:center; align-self:center; align-content:center;">
+            <div class="texto_labels" ng-show="!vm.error && !vm.success">Trabajando</div>
+            <div class="texto_labels" ng-show="vm.success">Documento Creado Con Exito</div>
+            <div class="texto_labels" ng-show="vm.error">Error al crear el documento</div>
+            <br />
             <button type="button"
-                ng-show="vm.error || vm.success"
-                ui-sref="home">Regresar</button>
+                    ng-show="vm.error || vm.success"
+                    ui-sref="home" class="btn_con_ico">
+                <span class="ico-chevron-right tamano_botones_1 derecha"></span>Regresar
+            </button>
         </div>
     </div>
 </div>
