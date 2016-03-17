@@ -38,7 +38,6 @@ function out_accesibilidad(id) {
 function getPosition() {
     
     var el = document.getElementById("homero");
-    console.log(el);
     var xPos = 0;
     var yPos = 0;
 
@@ -58,8 +57,6 @@ function getPosition() {
 
         el = el.offsetParent;
 
-        console.log(xPos + " posiciony " + yPos);
-        
     }
     return {
         x: xPos,

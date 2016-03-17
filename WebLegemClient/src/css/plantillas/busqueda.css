@@ -155,14 +155,14 @@
     padding:0 5px;
     color:#4DBD88;    
     font-size:.9em;
-    font-family:'Franklin Gothic'; 
+    font-family:'Lato-Regular'; 
     text-align:left;    
    }
 .descripcion{   
      padding:0 5px;
      color:#3f4042;     
      font-size:1em;     
-     font-family:'Franklin Gothic Book'; 
+     font-family:'Lato-Regular'; 
 }
 
 .btn_filtro_avanzada{
@@ -193,13 +193,13 @@
 #titulo_bus{
     color:#009900;
     font-size:1em;
-    font-family:'Arial Rounded MT';
+    font-family:'Lato-Regular';
     font-weight:bold;
     padding-bottom:5px;
 }
 #contenido_bus {
     color: #000;
-    font-family: 'Arial Unicode MS';
+    font-family: 'Lato-Regular';
     font-size: .9em;
     text-align: justify;
 }
@@ -234,7 +234,7 @@
     margin: 10px;
     padding: 15px;
     font-size: large;
-    font-family: 'Arial Unicode MS';
+    font-family: 'Lato-Regular';
     color: ActiveCaption;
     width: 100%;
     text-align: center;
