@@ -15,7 +15,7 @@
 
         <div class="hijo_right">
             <div class="control_administracion">
-                <button class="btn_con_ico" ng-if="!vm.editando" ng-click="vm.tipoEntSeleccionada = {}; vm.editando = true; vm.nuevo = true;">
+                <button class="btn_con_ico" ng-if="!vm.editando" ng-click="vm.nuevoFuncion()">
                     <span class="ico-plus tamano_botones_1"></span>Nuevo
                 </button>
                 <button id="editar_te" class="btn_con_ico" type="button" ng-if="!vm.editando" ng-click="vm.editando = true;">
@@ -38,30 +38,14 @@
                     <div class="iconos_control"><span class="ico-plus-circle"></span></div>
                 </div>
                 <div class="panel_control">
-                    <ul class="a_bloques" ><!--ng-repeat="tipoDoc in vm.tiposDocumento | orderBy: 'nombre'"
+                    <ul class="a_bloques" ng-repeat="tipoDoc in vm.tiposDocumento | orderBy: 'nombre'">
                         <li class="te_li_lista">
                             <input ng-disabled="!vm.editando" type="checkbox" name="check_name" ng-model="vm.tiposSoportados[$index]" id="chk-td-{{tipoDoc.id}}">
                             <label class="styled1 note rounded" for="chk-td-{{tipoDoc.id}}">
-                                <span class="escudo-udenar" style="font-size:60px;"> </span><!--Controlar tamaño con media query
+                                <span class="escudo-udenar" style="font-size:60px;"> </span><!--Controlar tamaño con media query-->
                                 {{ tipoDoc.nombre }}
                             </label>
-                        </li>-->
-
-                        <li class="te_li_lista">
-                            <input id="chk-td-{{tipoDoc.id}}">
-                            <label class="styled1 note rounded" for="chk-td-{{tipoDoc.id}}">
-                                <span class="escudo-udenar" style="font-size:60px;"> </span><!--Controlar tamaño con media query-->
-                                acta
-                            </label>
                         </li>
-                        <li class="te_li_lista">
-                            <input id="chk-td-{{tipoDoc.id}}">
-                            <label class="styled1 note rounded" for="chk-td-{{tipoDoc.id}}">
-                                <span class="escudo-udenar" style="font-size:60px;"> </span><!--Controlar tamaño con media query-->
-                                acta
-                            </label>
-                        </li>
-
                     </ul>
                 </div>
             </div>

@@ -1,1 +1,237 @@
-﻿
+﻿<div class="a_news">
+
+    <div class="titulo_news">
+
+        <!--<img src="recursos/header/escudo_negro.png" />-->
+        <div>
+            <p>Actualidad Documental</p>
+            <p style="font-size:25px;">Universidad de nariño</p>
+        </div>
+
+        
+    </div>
+       <!-- <div class="forma_institucional">
+            <svg viewBox="0 0 1000 500" preserveAspectRatio="none" width="100%" height="100%">
+                <polygon points="0,500 500,0 1000,0 1000,500 0,500" fill="#076633"></polygon>
+                <polygon points="750,500 899,300 1000,500 650,500" fill="#F8EA1B"></polygon>
+                <polygon points="750,0 1000,0 1000,500 750,0" fill="#3AAA35"></polygon>
+                <text x=350 y=250 font-family="arial" font-size="75px" fill="#eee" font-stretch="extra-expanded">
+                    Acreditación
+                </text>
+                <text x=350 y=320 font-family="arial" font-size="75" font-weight="bolder" fill="#eee">
+                    Institucional
+                </text>
+                <text x=350 y=370 font-family="OpenSans" font-size="35" fill="#eef">
+                    Una expresión de atonomía
+                </text>
+            </svg>
+        </div>-->
+
+    <div class="container_news">
+        <div style="align-self:center;">
+            <select class="select a_input" style="width:400px;">
+                <option value="-1" selected>Choose an animal</option>
+                <option value="1" class="icon-monkey">Monkey</option>
+                <option value="2" class="icon-bear">Bear</option>
+                <option value="3" class="icon-squirrel">Squirrel</option>
+                <option value="4" class="icon-elephant">Elephant</option>
+            </select>
+            <span class="span_select  ico-angle-down"></span>
+            <button class="btn_sin_ico">ver todos</button>
+        </div>
+        <div class="news_left">
+            
+            <style>
+                .ico-download span a {
+                    color: gray;
+                    text-decoration: none;
+                }
+            </style>
+
+            <div class="tarjeta_news" ng-repeat="documento in vm.documentos">
+                <div class="titulo_tarjeta">{{ documento.tipoDocumento.nombre }} {{ documento.numero }} del {{ documento.fechaPublicacion | date: 'yyyy' }}</div><hr />
+                <div class="contenido_tarjeta">
+                    {{ documento.asunto }}
+                </div>
+                <div class="control_tarjeta">
+                    <span><span class="ico-download"></span><a href="http://localhost:50555/api/Files/{{ documento.archivo }}">descargar</a></span>
+                    <span><span class="ico-eye"></span>ver</span>
+                </div>
+            </div>
+            <!--
+            <div class="tarjeta_news">
+                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
+                <div class="contenido_tarjeta">
+                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
+                </div>
+                <div class="control_tarjeta">
+                    <span><span class="ico-download"></span>descargar</span>
+                    <span><span class="ico-eye"></span>ver</span>
+                </div>
+            </div>
+
+            <div class="tarjeta_news">
+                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
+                <div class="contenido_tarjeta">
+                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
+                </div>
+                <div class="control_tarjeta">
+                    <span><span class="ico-download"></span>descargar</span>
+                    <span><span class="ico-eye"></span>ver</span>
+                </div>
+            </div>
+            <div class="tarjeta_news">
+                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
+                <div class="contenido_tarjeta">
+                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
+                </div>
+                <div class="control_tarjeta">
+                    <span><span class="ico-download"></span>descargar</span>
+                    <span><span class="ico-eye"></span>ver</span>
+                </div>
+            </div>
+
+            <div class="tarjeta_news">
+                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
+                <div class="contenido_tarjeta">
+                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
+                </div>
+                <div class="control_tarjeta">
+                    <span><span class="ico-download"></span>descargar</span>
+                    <span><span class="ico-eye"></span>ver</span>
+                </div>
+            </div>
+
+            <div class="tarjeta_news">
+                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
+                <div class="contenido_tarjeta">
+                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
+                </div>
+                <div class="control_tarjeta">
+                    <span><span class="ico-download"></span>descargar</span>
+                    <span><span class="ico-eye"></span>ver</span>
+                </div>
+            </div>
+
+            <div class="tarjeta_news">
+                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
+                <div class="contenido_tarjeta">
+                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
+                </div>
+                <div class="control_tarjeta">
+                    <span><span class="ico-download"></span>descargar</span>
+                    <span><span class="ico-eye"></span>ver</span>
+                </div>
+            </div>
+
+            <div class="tarjeta_news">
+                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
+                <div class="contenido_tarjeta">
+                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
+                </div>
+                <div class="control_tarjeta">
+                    <span><span class="ico-download"></span>descargar</span>
+                    <span><span class="ico-eye"></span>ver</span>
+                </div>
+            </div>
+
+            <div class="tarjeta_news">
+                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
+                <div class="contenido_tarjeta">
+                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
+                </div>
+                <div class="control_tarjeta">
+                    <span><span class="ico-download"></span>descargar</span>
+                    <span><span class="ico-eye"></span>ver</span>
+                </div>
+            </div>
+
+            <div class="tarjeta_news">
+                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
+                <div class="contenido_tarjeta">
+                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
+                </div>
+                <div class="control_tarjeta">
+                    <span><span class="ico-download"></span>descargar</span>
+                    <span><span class="ico-eye"></span>ver</span>
+                </div>
+            </div>
+
+            <div class="tarjeta_news">
+                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
+                <div class="contenido_tarjeta">
+                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
+                </div>
+                <div class="control_tarjeta">
+                    <span><span class="ico-download"></span>descargar</span>
+                    <span><span class="ico-eye"></span>ver</span>
+                </div>
+            </div>
+                -->
+        </div>
+       <!-- <div class="news_right">
+            <div class="mini_tarjeta">
+                <p class="mt_title">Resolucion No 123A8</p>
+                <p class="mt_content">por medio del cual se modifica el estatuto general con 2 dias de sancion </p>
+                <p class="mt_date">21 de enero de 2015</p>
+                <hr class="mt_div" />
+            </div>
+
+            <div class="mini_tarjeta">
+                <p class="mt_title">Resolucion No 123A8</p>
+                <p class="mt_content">
+                    por medio del cual se modifica el estatuto general con 2 dias de
+                    todo los prin ofour sancion
+                </p>
+                <p class="mt_date">21 de enero de 2015</p>
+                <hr class="mt_div" />
+            </div>
+
+            <div class="mini_tarjeta">
+                <p class="mt_title">Resolucion No 123A8</p>
+                <p class="mt_content">por medio del cual se modifica el estatuto general con 2 dias de sancion </p>
+                <p class="mt_date">21 de enero de 2015</p>
+                <hr class="mt_div" />
+            </div>
+
+            <div class="mini_tarjeta">
+                <p class="mt_title">Resolucion No 123A8</p>
+                <p class="mt_content">
+                    por medio del ahora todo es ley
+                    foujo white house cual se modifica el estatuto general con 2 dias de sancion
+                </p>
+                <p class="mt_date">21 de enero de 2015</p>
+                <hr class="mt_div" />
+            </div>
+
+            <div class="mini_tarjeta">
+                <p class="mt_title">Resolucion No 123A8</p>
+                <p class="mt_content">
+                    por medio del cual se modifica el estatuto general con 2 dias de
+                    todo los prin ofour sancion
+                </p>
+                <p class="mt_date">21 de enero de 2015</p>
+                <hr class="mt_div" />
+            </div>
+
+            <div class="mini_tarjeta">
+                <p class="mt_title">Resolucion No 123A8</p>
+                <p class="mt_content">por medio del cual se modifica el estatuto general con 2 dias de sancion </p>
+                <p class="mt_date">21 de enero de 2015</p>
+                <hr class="mt_div" />
+            </div>
+
+            <div class="mini_tarjeta">
+                <p class="mt_title">Resolucion No 123A8</p>
+                <p class="mt_content">
+                    por medio del ahora todo es ley
+                    foujo white house cual se modifica el estatuto general con 2 dias de sancion
+                </p>
+                <p class="mt_date">21 de enero de 2015</p>
+                <hr class="mt_div" />
+            </div>
+        </div>-->
+
+
+    </div>
+</div>

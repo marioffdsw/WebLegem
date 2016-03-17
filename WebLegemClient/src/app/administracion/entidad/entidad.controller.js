@@ -48,13 +48,14 @@
             cancelar();
         } // fin funcion crear
 
-        function eliminar(entidad) {
+        function eliminar(entidad) {            
             EntidadService.remove(entidad, function () {
                 EntidadService.query(function (data) {
                     vm.entidades = data;
+                    
                 });
             });
-            cancelar();
+            cancelar();            
         } // end function remover
 
         function actualizar(entidad) {
