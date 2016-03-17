@@ -64,8 +64,8 @@
 
 .note {
    display:inline-block;
-   height:18vh;/*alto de la hoja*/
-   width:7vw;/*ancho de la hoja*/
+   min-height:18vh;/*alto de la hoja*/
+   min-width:7vw;/*ancho de la hoja*/
 
    padding:14px;
    /*Pendiente script para auto ajustar el texto*/
