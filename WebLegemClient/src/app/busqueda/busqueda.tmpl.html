@@ -190,9 +190,11 @@
                                             <p id="titulo_bus">{{documento.tipoDocumento.nombre}} {{documento.numero}}</p>
                                         </div>
                                         <div class="contenido_tarjeta">
-                                            <p id="contenido_bus">
-                                                {{documento.asunto}}
-                                            </p>
+                                            <div style="overflow-y:hidden; margin-bottom:15px;">
+                                                <p id="contenido_bus">
+                                                    {{documento.asunto}}
+                                                </p>
+                                            </div>
                                             <p id="entidad_bus">Entidad:<i>{{documento.entidad.nombre}}  </i> </p> <p id="fecha_bus">  Fecha: <i>{{ documento.fechaPublicacion | date: 'dd/MM/yyyy'}} {{ documento.fechaPublicacion }}</i>  </p>
                                         </div>
                                         <div class="control_tarjeta">
@@ -207,8 +209,7 @@
                                 <span class="ico-frown-o"></span>
                             </div>
                             <div class="dibujo_busqueda" ng-if="!vm.errorMessage && vm.documentosEncontrados.length < 1">
-                                <span class="ico2-file-openoffice">
-                                    <span class="ico-search"></span>
+                                <span class="escudo-udenar">
                                 </span>
                             </div>
                         </content>
