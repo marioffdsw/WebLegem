@@ -40,17 +40,16 @@
     min-width:20px;
 }
 
-@media (max-width: 1200px) { 
+@media (max-width: 800px) { 
     .a_mini_footer{
         
         flex-direction:column;
     }
 }
 
-@media (max-width: 600px) { 
+@media (max-width: 300px) { 
     .a_mini_footer{
         flex-direction:column;
-        padding:0 10px;
     }
     .a_mini_footer > div{
         min-width:10px;
