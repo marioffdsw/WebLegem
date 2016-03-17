@@ -23,7 +23,7 @@
         vm.val_contraste = 0;
         vm.documentos = [];
 
-        vm.loggeado = false;
+        vm.loggeado = true;
         vm.LogOut = LogOut;
         vm.usuario = { username: "admin", password: "1234" }
 
@@ -47,17 +47,18 @@
         ];
 
         vm.opcionesLoggeado = [
-            //{
-            //    texto: vm.usuario.username,
-            //    estado: "home",
-            //    subEstados: [
-            //        {
-            //            texto: "Salir",
-            //            estado: "home",
-            //            click: LogOut
-            //        }
-            //    ]
-            //},
+            {
+                texto: vm.usuario.username,
+                estado: "home",
+                click: LogOut,
+                //subEstados: [
+                //    {
+                //        texto: "Salir",
+                //        estado: "home",
+                //        click: LogOut
+                //    }
+                //]
+            },
             {
                 texto: "Gestión Documental",
                 estado: "gestion-documental.crear-documento.subir-archivo"

@@ -25,7 +25,7 @@
                 <button class="btn_con_ico" type="button" value="Editar" ng-click="vm.editar(vm.entidad)" ng-show="!vm.editando && vm.entidad.nombre">
                     <span class="ico-pencil tamano_botones_1"></span>Editar
                 </button>
-                <button class="btn_con_ico" type="button" value="Eliminar" ng-show="!vm.editando  && vm.entidad.nombre">
+                <button class="btn_con_ico" type="button" value="Eliminar" ng-click="vm.eliminar( vm.entidadSeleccionada )" ng-show="!vm.editando  && vm.entidad.nombre">
                     <span class="ico-trash tamano_botones_1"></span>Remover
                 </button>
             </div>

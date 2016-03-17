@@ -207,12 +207,17 @@
                 </div>
             </div>
         </div>
-
+        
         <div class="header2" ng-show="vm.loggeado">
-            <div class="navegacion">
-                <ul class="bar_nav">
+            <div class="navegacion">                
+                <ul class="bar_nav">                    
+
+                    <!--<li class="myFockingItem">
+                        <a ng-click="vm.LogOut()">Bienvenido: Admin</a>
+                    </li-->
+
                     <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
-                        <a ui-sref="{{opcion.estado}}">
+                        <a ui-sref="{{opcion.estado}}" >
                             {{ opcion.texto }}
                         </a>
                         <ul ng-if="opcion.subEstados">
@@ -230,7 +235,5 @@
     <wlegem-footer ng-show="vm.$state.current.name == 'home'"></wlegem-footer>
     <wlegem-mini-footer ng-show="vm.$state.current.name != 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
     </wlegem-mini-footer>
-
 </body>
-
 </html>

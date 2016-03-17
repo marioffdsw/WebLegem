@@ -15,7 +15,7 @@
 
         <div class="hijo_right">
             <div class="control_administracion">
-                <button class="btn_con_ico" ng-if="!vm.editando" ng-click="vm.tipoEntSeleccionada = {}; vm.editando = true; vm.nuevo = true;">
+                <button class="btn_con_ico" ng-if="!vm.editando" ng-click="vm.nuevoFuncion()">
                     <span class="ico-plus tamano_botones_1"></span>Nuevo
                 </button>
                 <button id="editar_te" class="btn_con_ico" type="button" ng-if="!vm.editando" ng-click="vm.editando = true;">
