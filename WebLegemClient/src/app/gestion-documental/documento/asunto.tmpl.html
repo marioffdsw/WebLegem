@@ -5,9 +5,14 @@
             Asunto
         </label>
         <hr class="divisor_gestion_documental" />
-        <form class="tontera">            
-            <ng-quill-editor 
-                             ng-model="vm.documento.asunto" toolbar="true" link-tooltip="true" image-tooltip="true" toolbar-entries="font size bold list bullet italic underline strike align color background link image" editor-required="true" required="" error-class="input-error">
+        <form class="tontera">
+
+
+            <div id="contenedor">
+                <div class="loader" id="loader">Loading...</div>
+            </div>
+
+            <ng-quill-editor ng-model="vm.documento.asunto" toolbar="true" link-tooltip="true" image-tooltip="true" toolbar-entries="font size bold list bullet italic underline strike align color background link image" editor-required="true" required="" error-class="input-error">
             </ng-quill-editor>
 
             <!--<button class="a_boton a_block" type="button" ui-sref="gestion-documental.crear-documento.pergunta-anotacion">Siguiente</button>-->
