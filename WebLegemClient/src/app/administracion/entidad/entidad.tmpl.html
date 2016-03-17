@@ -32,16 +32,16 @@
 
             <label class="texto_labels" for="nombre-entidad">Nombre de la entidad</label>
 
-            <input class="a_input input_administracion" id="nombre-entidad" type="text" ng-disabled="!vm.editando"
+            <input class="a_input input_administracion" style="width:99%;" id="nombre-entidad" type="text" ng-disabled="!vm.editando"
                     placeholder="Ingrese el nombre de la entidad" ng-model="vm.entidad.nombre" />
             
 
 
             <label class="texto_labels" for="tipo-entidad">Tipo de la entidad</label>
-            <div class="span_select">
-                <input type="text" ng-show="!vm.editando" class="select"
-                    ng-disabled="!vm.editando"   
-                    ng-model="vm.entidad.tipoEntidad.nombre" />
+            <div class="span_select" style="width:100%;">
+                <input type="text" ng-show="!vm.editando" style="width:99%;" class="select"
+                       ng-disabled="!vm.editando"
+                       ng-model="vm.entidad.tipoEntidad.nombre" />
             </div>
             <div class="span_select">
                 <select id="tipoEntidadSelect" ng-show="vm.editando" class="select" ng-disabled="!vm.editando"
