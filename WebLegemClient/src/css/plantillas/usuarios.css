@@ -60,43 +60,42 @@
 
 .contenedor_radios{
     font-family:"Lato-Regular";
-    line-height:35px;
+    height:35px;
     display:flex;
     align-items:center;
     color:#444;
-    
 }
-
-/*
-.contenedor_radios label{
-    margin:0 20px 0 4px;
-    cursor:pointer;
+.contenedor_radios span{
+    margin-right:30px;
 }
-
-.contenedor_radios > input[type="radio"]{
-    cursor:pointer;
-}
-
-    
-.contenedor_radios > input[type="radio"]:checked + label{ 
-    font-weight: bold; }
-*/
 
 .a_radio{
-    visibility:hidden;
+    display:none;
 }
 
+.a_radio ~ label{
+    cursor:pointer;
+}
     .a_radio ~ label:before {
         content: '';
         display: inline-block;
         vertical-align: middle;
-        background: red;
-        height: 25px;
-        width: 25px;
+        background: #5e5f64;
+        border-radius:50%;
+        border:3px solid #b4b4b4;
+        height: 11px;
+        width: 11px;
+        margin-right:2px;
+        cursor:pointer;
+        transition: all .3s linear;
     }
 
 .a_radio:checked ~ label:before{ 
-    background:green;
+    background:#36c34f;
+    border-color:#5e5f64;
+}
+.a_radio:checked + label{ 
+    color: #000;
 }
 
 
