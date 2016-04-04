@@ -6,8 +6,17 @@
         .module("WebLegemApp")
         .controller("wlegemResultadoBusquedaController", wlegemResultadoBusquedaController);
 
-    function wlegemResultadoBusquedaController() {
+    wlegemResultadoBusquedaController.$inject = [ "fileId", "$state" ];
+    function wlegemResultadoBusquedaController( fileId, $state ) {
         var vm = this;
+
+
+        vm.ver = ver;
+
+        function ver( id ) {
+            fileId.id = id;
+            $state.go( "ver-documento" );
+        } // end function ver
                 
-    } // end
+    } // end controller
 })();
