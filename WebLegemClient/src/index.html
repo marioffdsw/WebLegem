@@ -5,10 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!--    <script src="scripts/onepagescroll.js"></script>
-    <link href="scripts/onepage-scroll.css" rel="stylesheet" />-->
-
-
+    <!--    <script src="scripts/onepagescroll.js"></script>
+        <link href="scripts/onepage-scroll.css" rel="stylesheet" />-->
     <!-- Library Styles -->
     <link href="../bower_components/animate.css/animate.min.css" rel="stylesheet" />
 
@@ -16,7 +14,8 @@
     <!-- Library Scripts -->
     <script src="../bower_components/angular/angular.min.js"></script>
     <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="../bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+
     <script src="../bower_components/angular-aria/angular-aria.min.js"></script>
     <script src="../bower_components/angular-resource/angular-resource.min.js"></script>
     <script src="../bower_components/angular-touch/angular-touch.min.js"></script>
@@ -67,6 +66,13 @@
     <script src="app/gestion-documental/gestion-documental.routes.js"></script>
     <script src="app/gestion-documental/documento/documento.controller.js"></script>
 
+    <!-- Usuarios  -->
+    <script src="app/usuarios/usuarios.dependencies.js"></script>
+    <script src="app/usuarios/usuarios.routes.js"></script>
+    <script src="app/usuarios/control-roles/control-roles.controller.js"></script>
+    <script src="app/usuarios/control-usuarios/control-usuarios.controller.js"></script>
+    <script src="app/usuarios/usuarios.controller.js"></script>
+
     <!-- Mocks -->
     <script src="common/mocks/common.mocks.dependencies.js"></script>
     <script src="common/mocks/tipo-documento-resource.mock.js"></script>
@@ -108,7 +114,10 @@
     <link href="css/plantillas/busqueda.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
     <link href="css/plantillas/gestion_documental.css" rel="stylesheet" />
     <link href="css/plantillas/mini_footer.css" rel="stylesheet" />
+    <link href="css/plantillas/usuarios.css" rel="stylesheet" />
     <link href="../bower_components/quill/dist/quill.snow.css" rel="stylesheet" />
+    <link href="css/elementos/switch.css" rel="stylesheet" />
+    <link href="css/plantillas/layout_general.css" rel="stylesheet" />
 
     <!--Iconografia-->
     <link href="iconografia/iconos-legem/styles.css" rel="stylesheet" />
@@ -117,7 +126,6 @@
 
     <script src="app/homeController.js"></script>
     <script src="app/uploader-andres.js"></script>
-    <script src="scripts/generales.js"></script>
     <script src="scripts/busqueda.js"></script>
 
     <link href="css/pagina_principal.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
@@ -136,24 +144,38 @@
     <link href="fuentes/frederica/sample.css" rel="stylesheet" />
     <link href="fuentes/lato/sample.css" rel="stylesheet" />
     <link href="fuentes/lato-regular/sample.css" rel="stylesheet" />
+    <link href="fuentes/Raleway-Medium/fonts.css" rel="stylesheet" />
 
+    <!--Estilos Directivas-->
     <link href="css/plantillas/footer.css" rel="stylesheet" />
     <link href="css/plantillas/news.css" rel="stylesheet" />
+    <link href="css/directivas/filtro_busqueda.css" rel="stylesheet" />
+    <link href="css/directivas/sort_busqueda.css" rel="stylesheet" />
+    <link href="css/directivas/resultado_busqueda.css" rel="stylesheet" />
+
     <!--directivas-->
     <script src="common/directives/footer/wlegem-footer.directive.js"></script>
     <script src="common/directives/noticias/wlegem-news.directive.js"></script>
     <script src="common/directives/mini-footer/wlegem-mini-footer.directive.js"></script>
+    <script src="common/directives/filtro-busqueda/wlegem-filtro-busqueda.directive.js"></script>
+    <script src="common/directives/sort-busqueda/wlegem-sort-busqueda.directive.js"></script>
+
+    <script src="common/directives/resultado-busqueda/wlegem-resultado-busqueda.controller.js"></script>
+    <script src="common/directives/resultado-busqueda/wlegem-resultado-busqueda.directive.js"></script>
+
     <!--<link href="css/normalize.css" rel="stylesheet" />-->
     <link href="css/animacion_carga.css" rel="stylesheet" />
+
+    <script src="scripts/generales.js"></script>
 </head>
 
-<body id="body_index" >
+<body id="body_index" ng-init='vm.load()'>
     <div class="main">
         <section>
             <div style=" width:100%; min-height:100vh;">
 
-                <div class="header">
-                    <div class="figura_logo" ng-show="vm.$state.current.name == 'home'">
+                <div class="header" id="header1">
+                    <div class="figura_logo pruebaAnime" ng-show="vm.$state.current.name == 'home'">
                         <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" width="100%" height="100%">
                             <defs>
                                 <defs>
@@ -183,7 +205,7 @@
                                 <p>Actualidad</p>
                             </button>
 
-                            <button class="btn_deslizable" ui-sref="busqueda" onclick="document.getElementById('body_index').scrollTop = '0';">
+                            <button class="btn_deslizable" ui-sref="busqueda" ng-show="vm.$state.current.name !='busqueda'">
                                 <span class="ico-search"></span>
                                 <p>Busqueda</p>
                             </button>
@@ -220,7 +242,7 @@
                     </div>
                 </div>
 
-                <div class="header2" ng-show="vm.loggeado">
+                <div class="header2" id="header2" ng-show="vm.loggeado">
                     <div class="navegacion">
                         <ul class="bar_nav">
                             <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
@@ -235,17 +257,23 @@
                     </div>
                 </div>
 
-                <div ui-view class="animatio ng-enter"></div>
+                <div ui-view class="animatio ng-enter contenedor_global">
+                </div>
             </div>
         </section>
-        <section id="homero" >
+        <section id="homero">
             <wlegem-news ng-show="vm.$state.current.name == 'home'"></wlegem-news>
         </section>
+
+        <a href='#' onclick='subir();return false' title='Ir Arriba' class="ir_arriba" id="ir_arriba">
+            <p class="ico-chevron-up"></p>
+        </a>
+
         <wlegem-footer ng-show="vm.$state.current.name == 'home'"></wlegem-footer>
         <wlegem-mini-footer ng-show="vm.$state.current.name != 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
         </wlegem-mini-footer>
     </div>
-   
+
 
 
 </body>

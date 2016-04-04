@@ -29,6 +29,14 @@
     font-family:'Lato-Regular';
 }
 
+.texto_labels.green{
+    color:#0f745b;
+}
+
+.texto_labels.bold{
+    font-family:"Lato-Bold";
+}
+
 .subtitulos_labels{
     display:block;
     color:#434e58;

@@ -48,7 +48,15 @@
                 templateUrl: "app/busqueda/ver/ver-documento.tmpl.html",
                 controller: "VerDocumentoController",
                 controllerAs: "vm"
-            });
+            })
+            .state('usuarios', {
+                url: "/usuarios",
+                templateUrl: "app/usuarios/usuarios.tmpl.html",
+                controller: "UsuariosController",
+                controllerAs: "vm"
+            })
+
+	    ;
 
 	} // end config function
 })();

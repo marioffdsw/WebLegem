@@ -1,5 +1,5 @@
 ﻿(function () {
     "use strict";
 
-    angular.module("WebLegemApp.Busqueda", ["ui.router"]);
+    angular.module("WebLegemApp.Busqueda", ["ui.router","ngAnimate"]);
 })();

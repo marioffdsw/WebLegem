@@ -1,0 +1,48 @@
+﻿/*--bar ordenamiento--*/
+
+.bar_ordenamiento{
+    display:flex;
+    flex-wrap:wrap;
+    list-style:none;
+    margin:0;
+    padding:0;
+    padding-bottom:5px;
+    margin-bottom:4px;
+}
+
+.bar_ordenamiento li{
+    margin-right:5px;
+    margin-bottom:2px;
+    font-family:'lato-Regular';
+    color:#222;
+    display:inline;
+    cursor:pointer;
+    padding:5px 10px;
+    border:1px solid #ccc;
+    min-width:60px;
+    transition:linear .2s;
+}
+
+.bar_ordenamiento li.active_filter{ 
+    box-shadow:inset 0 0 0 2px #099472;
+    color:#099472;
+    border-color:#099472;
+}
+
+.bar_ordenamiento li:hover{
+    box-shadow:inset 0 0 0 2px #099472;
+    color:#099472;
+    border-color:#099472;
+}
+
+.bar_ordenamiento li:first-child,
+.bar_ordenamiento:hover li:first-child{
+    border:none;
+    background:transparent;
+    color:#222;
+    cursor:default;
+    box-shadow:inset 0 0 0 0;
+}
+
+
+/*--fin bar ordenamiento--*/

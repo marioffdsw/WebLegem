@@ -1,84 +1,58 @@
-﻿.tapiz{
+﻿.tapiz {
     display: flex;
     -ms-flex-direction: column;
     -webkit-flex-direction: column;
     flex-direction: column;
     align-items: center;
-    justify-content:flex-start;
-    height:100%;
-    width:100%;
+    justify-content: flex-start;
+    min-height: 100vh;
+    width: 100%;
+    background-color:#e9eaed;
 }
 
-#tabContainer {
-	width:100%;
-	background-color:white;
+.contenedor_busqueda{
+    background:transparent;
+    width:90%;
+    margin-bottom:20px;
 }
 
-#tabs{
-	height:30px;
-    border-bottom: 1px solid #e5e5e5;
+.contenedor_filtros{
+    padding:20px; 
+    box-shadow:0 0 0 1px rgba(0, 0, 0, 0.05),0 1px 2px rgba(0, 0, 0, 0.3);
+    background:#fff;
 }
 
-#tabs > ul{
-	font: 1em;
-	list-style:none;
+.contenedor_filtros > p{    
+    font-family:lato-Bold;
+    color:#0f745b; 
+    font-size:large;
+    margin-bottom:10px;
+    padding-bottom:5px; 
+    border-bottom:2px solid #0f745b;
 }
 
-#tabs > ul > li{
-	margin:0 2px 0 0;
-	padding:5px 10px;
-	display:inline;
-	color:#999999;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	user-select: none;
-    font-family:'Lato-Regular';
-    font-size:small;    
-    cursor:pointer;	
-}
 
-#tabs > ul > li:hover{	
-	color: #3f9f43;
-    font-weight:bold;
-}
-
-#tabs > ul > li.tabActiveHeader{/*tab activa*/	
-	border-bottom: 3px solid #3bc742;   
-    color: #999999;
-    font-weight:bold;
-    font-size:14px;
-}
-
-#tabscontent{/*contenido de las tabs*/
-    padding: 10px 0; 
-}
-
-.input_busqueda{
-    width:50%;
-    margin-right:10px;
+.contenedor_resulados_sort{
+    box-shadow:0 0 0 1px rgba(0, 0, 0, 0.05),0 1px 2px rgba(0, 0, 0, 0.3);
+    padding: 10px 0;
+    background:#fff;
 }
 
 /*------Busqueda Avanzada-------*/
 #busqueda_padre{
-
     display:flex;
     display:-webkit-flex;
-
     width:100%;
     height:100%;
+    margin-top:10px;
 }
 
 #busqueda_left{
-     -ms-flex-direction:column;
+     -ms-flex-direction:column; 
     -webkit-flex-direction:column;
     flex-direction:column;
-    padding:10px;
-    width:30%; 
-    height:100%;
-    background:rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 0 0 1px rgba(153, 153, 153, 0.40);
-    -moz-box-shadow: 0 0 0 1px rgba(153, 153, 153, 0.40);
-    box-shadow: 0 0 0 1px rgba(153, 153, 153, 0.40);
+    padding:0 30px;
+    width:35%; 
 }
 
 #busqueda_right {
@@ -90,148 +64,31 @@
     flex: 1;
     display:flex;
     padding: 0 30px 10px 30px;
-    width: 90%;
+    width: 100%;
 }
 
-.input_busqueda_a{
-    width:80%;
-}
-
-.btn_search_avanzada{
-    background:#0f745b;
-    border:none;
-    width:30px;
-    height:30px;
-    color:white;
-    font-size:large;
-    cursor:pointer;
-}
-
-.btn_search_avanzada:hover{
-    background:#099472;
-}
-.btn_search_avanzada:active{
-    background:#064234;
-}
-
-/*------FIN Busqueda Avanzada-------*/
-
-/*-------Filtros--------*/
-
-#filtros_busqueda{
-    width:100%;
-    display: -webkit-flex;
-    display:flex;
-    -webkit-flex-direction:column;
-    flex-direction:column;
-    padding:5px;
-    border: 1px dotted rgba(153, 153, 153, 0.40);
-}
-
-.content_li_filtro{
-    display: -webkit-flex;
-    display:flex;
-    width:100%;
-    margin-bottom:5px;
-    border-bottom:1px dotted rgba(153, 153, 153, 0.40);
-}
-
-.li_left {
-    -ms-flex-direction: column;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-direction:column;
-    width: 80%;
-}
-
-.li_right{
-    width:20%;
-    text-align:end;
-}
-
-.tip{
-    padding:0 5px;
-    color:#4DBD88;    
-    font-size:.9em;
-    font-family:'Lato-Regular'; 
-    text-align:left;    
-   }
-.descripcion{   
-     padding:0 5px;
-     color:#3f4042;     
-     font-size:1em;     
-     font-family:'Lato-Regular'; 
-}
-
-.btn_filtro_avanzada{
-    border:none;
-    background:transparent;
-    color: #636262;
-    font-size:x-large;
-    cursor:pointer;
-}
-
-.btn_filtro_avanzada:hover{
-    color: rgba(99, 98, 98, 0.7);
-}
-
-.btn_filtro_avanzada:active{
-    color: rgba(99, 98, 98, 0.4);
-}
-
-/*------Fin Filtros------*/
-
-
-/*--------Resultados---------*/
+/*-----Contenedor Resultados---------*/
     
 .res_bus{
-    list-style:none;
+    padding:0 50px;
 }
 
-#titulo_bus{
-    color:#fff;
-    font-size:1em;
-    font-family:'Lato-Regular';
-    font-weight:bold;
-    padding-bottom:5px;
+.res_bus > p{
+    margin:10px;
+    border-bottom:1px solid #bbb;
+    font-family:'lato-Regular'; 
+    font-size:medium; 
+    color:#888;"
 }
-#contenido_bus {
-    color: #224;
-    font-family: 'Lato-Regular';
-    font-size: .9em;
-    text-align: justify;
-}
-#entidad_bus, #fecha_bus{
-    display:inline;
-    color:#757575;
-    font-size:.8em;
-    font-family:Arial;
-    padding-right:3px;
-}
+/*-----Fin Contenedor Resultados-------------*/
 
-#entidad_bus:after, #fecha_bus:after{
-    content:'|';
-    color:#333;
-    display:inline-block;
-    white-space:nowrap; 
-}
-
-.res_bus > li{
-    padding-bottom:10px;
-    margin-bottom:30px;
-}
-
-/*------Fin Resultados--------*/
 
 
 
 /*--------Mensajes Busqueda-------*/
 
 .mensaje_busqueda {
-    margin: 10px;
-    padding: 15px;
+    padding: 15px 10px;
     font-size: large;
     font-family: 'Lato-Regular';
     color: ActiveCaption;
@@ -246,21 +103,7 @@
     font-weight:900;
 }
 
-.a_gordo {
-    -moz-animation: .8s a_gordo;
-    -o-animation: .8s a_gordo;
-    -webkit-animation: .8s a_gordo;
-    animation: .8s a_gordo;
-}
 
-@keyframes a_gordo {
-  0%{opacity:0;}
-  10%{opacity:0;}
-  50% {opacity:.8;
-      transform:scale(1.1);
-  }
-  100% {opacity:1;}
-}
 /*-----Fin Mensajes Busqueda------*/
 
 /*-------Dibujo Busqueda----------*/
@@ -300,34 +143,19 @@
 /*---Fin Dibujo Busqueda----------*/
 
 
-/*--bar filtrado--*/
-
-.bar_filtrado{
-    list-style:none;
-    margin:0;
-    padding:0;
-    padding-bottom:5px;
-    border-bottom:2px solid #0f745b;
+.box_input_busqueda_principal{
+    display:flex;
     margin-bottom:10px;
 }
 
+    .box_input_busqueda_principal div:first-child{
+        -ms-flex: 1;-webkit-flex: 1;flex: 1;
+    }
 
-.bar_filtrado li{
-    font-family:'Arial Unicode MS';
-    color:#555;
-    display:inline;
-    cursor:pointer;
-    padding:5px 10px;
+    .box_input_busqueda_principal div:last-child{
+        flex-basis:35px;
+    }
+
+.box_input_busqueda_principal div:last-child span:before{
+    line-height:.9;
 }
-
-.bar_filtrado li.active_filter{ 
-    background-color:#099472;
-    color:white;
-}
-
-.bar_filtrado li:hover{
-    color:white;
-    background-color:#099472;
-}
-
-/*--fin bar filtrado--*/

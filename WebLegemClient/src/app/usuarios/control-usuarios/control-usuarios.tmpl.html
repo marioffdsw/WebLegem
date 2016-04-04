@@ -1,0 +1,109 @@
+﻿<div class="box_father">
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~1-->
+    <div class="box_left">
+        <div class="box_input_ico">
+            <input type="text" class="input_text_ico" maxlength="20" placeholder="Filtro" />
+            <button class="btn_cancel" title="Quitar filtro" disabled>
+                <span class="ico-plus"></span>
+            </button>
+        </div>
+
+        <p class="texto_labels green bold">Usuarios</p>
+        <ul class="a_listado" style="width:100%;">
+            <li>
+                <input type="radio" class="styled" id="a" name="a" />
+                <label class="styled" for="a">
+                    Juan pablo segundo
+                </label>
+            </li>
+            <li>
+                <input type="radio" class="styled" id="b" name="b" />
+                <label class="styled" for="b">
+                    pedro perez elmismo
+                </label>
+            </li>
+        </ul>
+    </div>
+
+
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~2-->
+    <div class="box_right">
+        <div class="controles_box_right">
+            <button class="btn_con_ico">
+                <span class="ico-plus tamano_botones_1"></span>nuevo
+            </button>
+            <button class="btn_con_ico">
+                <span class="ico-pencil tamano_botones_1"></span>editar
+            </button>
+            <button class="btn_con_ico">
+                <span class="ico-trash tamano_botones_1"></span>remover
+            </button>
+        </div>
+
+        <div class="box_duo_input">
+            <div>
+                <p class="texto_labels green">Nombres</p>
+                <input class="a_input" />
+            </div>
+            <div>
+                <p class="texto_labels green">Apellidos</p>
+                <input class="a_input" />
+            </div>
+        </div>
+
+        <div class="box_duo_input">
+            <div>
+                <p class="texto_labels green">Rol del usuario</p>
+                <input class="a_input" />
+            </div>
+            <div>
+                <p class="texto_labels green">Estado del usuario</p>
+                <div class="contenedor_radios">
+                    <input class="a_radio" id="rad1" type="radio" name="rad"><label for="rad1">Radio 1</label>
+                    <input class="a_radio" id="rad2" type="radio" name="rad"><label for="rad2">Radio 2</label>
+                </div>
+            </div>
+        </div>
+
+
+        <p class="texto_labels green bold">Permisos</p>
+        <!--Modulo Administracion-->
+        <div class="contenedor_permisos">
+            <div class="titulo_modulo">
+                <p class="texto_labels">Administracion</p>
+                <p class="estado_permiso">Permitir todo</p>
+                <div class="switch_container">
+                    <input type="checkbox" id="switch1" name="switch1"
+                           class="switch" />
+                    <label for="switch1"></label>
+                </div>
+            </div>
+            <!--aqui va el ng-repeat-->
+            <div class="permiso_submodulo">
+                <p>Tipo Entidad</p>
+                <p class="estado_permiso">No permitido</p>
+                <div class="switch_container">
+                    <input type="checkbox" id="switch1" name="switch1"
+                           class="switch" />
+                    <label for="switch1"></label>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="controles_box_right down">
+            <button class="btn_con_ico" type="button">
+                <span class="ico-plus tamano_botones_1"></span>Actualizar
+            </button>
+            <button class="btn_con_ico" type="button">
+                <span class="ico-plus tamano_botones_1"></span>Crear
+            </button>
+            <button class="btn_con_ico" type="button">
+                <span class="ico-times tamano_botones_1"></span>Cancelar
+            </button>
+        </div>
+
+    </div>
+
+</div>

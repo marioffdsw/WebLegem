@@ -2,13 +2,19 @@
     width:100%;
     height:55px;
     position:relative;
-    background:rgba(17, 21, 21, 0.70);
+    /*background:rgba(17, 21, 21, 0.70);*/
+    background:#2d7e74;
     border-bottom:1px solid #6c767d;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.50);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.50);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.50);
     z-index:2;
     position:fixed;
+}
+
+.header.solido{ 
+    transition:background .5s linear;
+    background:rgba(17, 21, 21, 1);
 }
 
 .figura_logo{

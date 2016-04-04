@@ -1,0 +1,179 @@
+﻿
+/*------inputs y select ------*/
+
+.box_input_busqueda{
+    display:flex; 
+    height:35px; 
+    margin-bottom:8px;
+    margin-top:2px;
+    padding:0;
+}
+
+    .box_input_busqueda div:first-child{
+        -ms-flex: 1;-webkit-flex: 1;flex: 1;
+    }
+
+    .box_input_busqueda div:last-child{
+        flex-basis:35px;
+    }
+
+/*------Input tex Busqueda------*/
+.input_text_busqueda{
+    display:block;
+    width:100%;
+    height:35px;
+    padding:0 10px;
+    border:1px solid #999; 
+    border-right:none;
+}
+/*---Fin Input tex Busqueda---*/
+
+/*------Select input Busqueda---------*/
+
+.select_busqueda{
+    display:flex; 
+    border-right:none;
+    position:relative;
+}
+
+.select_busqueda select{
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    background:#fff;
+    width:100%;
+    height:35px;
+    overflow:hidden;
+    border:1px solid #999;
+}
+
+    .select_busqueda:before{
+        font-family: 'iconos-legem';  
+        font-size:25px;
+        font-weight:900;
+        color:#999;
+        content:'\71';
+        position:absolute;
+        top:4px;
+        right:0;
+        width:30px;
+        height:35px;
+        pointer-events:none;
+    }
+
+    .select_busqueda:hover::before{
+        color:#099472;
+    }    /*------ Fin select Busqueda ------*/
+
+
+/*---------Fin Inputs y selects---------*/
+
+
+
+
+/*---------Lista de Filtros---------*/
+
+.filtros_busqueda{
+    width:100%;
+    display: -webkit-flex;
+    display:flex;
+    -webkit-flex-direction:column;
+    flex-direction:column;
+}
+
+.lista_filtro{
+
+}
+
+.lista_filtro li{
+    display: -webkit-flex;
+    display:flex; 
+    height:35px; 
+    margin:5px 0;
+    padding:0;
+}
+
+    .lista_filtro li div:first-child {
+        -ms-flex: 1;-webkit-flex: 1;flex: 1;    
+        font-size:.9em;
+        font-family:'Lato-Regular';
+        line-height:.9;
+        border: 1px dotted rgba(153, 153, 153, 0.40); 
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        padding:0 4px;   
+    }
+    .lista_filtro li div:last-child{
+        flex-basis:35px;
+    }
+
+.lista_filtro li.ng-hide-remove{
+    animation: .8s fadeIn;
+}
+
+.animacion_filtro.ng-hide-remove{
+    animation: .8s fadeIn;
+}
+
+.tip{
+    color:#099472;  
+   }
+.descripcion{
+    color:#777;    
+}
+
+/*------fin Lista de Filtros---------*/
+
+/*----Boton para agregar----*/
+.btn_search_avanzada{
+    background:#0f745b;
+    display:block;
+    border:none;
+    width:100%; 
+    height:35px;
+    color:white;
+    font-size:large;
+    cursor:pointer;
+    overflow:hidden;
+}
+
+.btn_search_avanzada:hover{
+    background:#099472;
+}
+.btn_search_avanzada:active{
+    background:#064234;
+}
+
+.btn_search_avanzada span:before{
+    height:100%;
+    display:block;
+    padding-top:9px;
+}
+/*----Fin boton para agregar----*/
+
+/*----Boton para eliminar----*/
+.btn_delete_avanzada{
+    background:#dc4747;
+    display:block;
+    border:none;
+    width:100%; 
+    height:35px;
+    color:white;
+    font-size:x-large;
+    cursor:pointer;
+    overflow:hidden;
+}
+
+.btn_delete_avanzada:hover{
+    background:#ff5b5b;
+}
+.btn_delete_avanzada:active{
+    background:#8f0000;
+}
+
+.btn_delete_avanzada span:before{
+    height:100%;
+    display:block;
+    padding-top:6px;
+}
+/*----Fin boton para eliminar----*/
