@@ -1,0 +1,26 @@
+﻿<div>
+    <div class="entidad_control" style="width:100%; margin-bottom:10px;">
+        
+        <div style="background:#37404A;  height:40px; width:100%; word-spacing:-4px; padding:3px; border-top-left-radius:3px; border-top-right-radius:3px; ">
+            <div class="iconos_control" ng-click="vm.cambiarVistaLista()"><span class="ico-align-justify"></span></div>
+            <div class="iconos_control" ng-click="vm.cambiarVistaBloque()"><span class="ico-th"></span></div>
+            <div class="iconos_control"><span class="ico-plus-circle"></span></div>
+        </div>
+
+        <div class="panel_control">
+            <ul class="a_bloques">
+                <li class="te_li_lista" ng-repeat="tipoDoc in vm.tiposDocumentos | orderBy: 'nombre'" >
+                    <input id="chk-td-{{tipoDoc.id}}"
+                           name="check_name" 
+                           type="checkbox" 
+                           ng-disabled="!vm.editando" >
+                    <label class="styled1 note rounded" for="chk-td-{{tipoDoc.id}}" ng-class="vm.isAlreadyChecked(tipoDoc)? 'checked':''"
+                           ng-click="vm.checkearObjeto( tipoDoc )">
+                        <span class="escudo-udenar" style="font-size:60px;"> </span>
+                        {{ tipoDoc.nombre }}
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
