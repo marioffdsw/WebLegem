@@ -1,7 +1,7 @@
 ﻿<div class="tarjeta_news" ng-repeat="documento in vm.arregloDocs | orderBy: vm.predicate: vm.reverse">
 
     <div class="titulo_tarjeta">        
-        <a href="#">{{ documento.tipoDocumento.nombre }} {{ documento.numero }} del {{ documento.fechaPublicacion | date: 'yyyy' }}</a>
+        <a ng-click="vm.ver(documento.archivo)">{{ documento.tipoDocumento.nombre }} {{ documento.numero }} del {{ documento.fechaPublicacion | date: 'yyyy' }}</a>
     </div>
 
     <div class="contenido_tarjeta">
@@ -15,7 +15,7 @@
 
     <div class="control_tarjeta">
         <a href="http://localhost:50555/api/Files/{{ documento.archivo }}">
-            <span class="ico-download"></span>   Descargar
+            <span class="ico-download"></span>Descargar
         </a> 
     </div>
 
