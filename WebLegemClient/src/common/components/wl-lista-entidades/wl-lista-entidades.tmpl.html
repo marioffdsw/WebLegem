@@ -1,0 +1,18 @@
+﻿<div>
+    <label class="texto_labels" style="margin-top:10px;">Lista de entidades</label>
+    <input type="text" ng-model="vm.filtro" class="a_input" />
+
+    <ul class="a_listado" style="width:100%;">
+        <li ng-repeat="entidad in vm.lista | filter:vm.filtro">
+            <input type="radio" class="styled" id="e_{{entidad.id}}" name="entidad_rad"                   
+                    ng-disabled="!vm.editando" />
+            <label class="styled" for="e_{{entidad.id}}"
+                    ng-class="vm.checkear(entidad)? 'animated': ''"
+                    ng-click="vm.seleccionarObjeto(entidad)"
+                    ng-checked="vm.checkear(entidad)">
+                {{entidad.nombre}}<br />
+                <span>{{entidad.tipoEntidad.nombre}}</span>
+            </label>
+        </li>
+    </ul>
+</div>

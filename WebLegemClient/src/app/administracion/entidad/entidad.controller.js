@@ -8,106 +8,107 @@
     EntidadController.$inject = [ "TipoEntidadService", "EntidadService" ];
     function EntidadController( TipoEntidadService, EntidadService ) {
         var vm = this;
-        vm.tiposEntidad = [];
+        
+        /**********************************************************************************
+         *
+         *   PROPERTIES
+         *   
+         **********************************************************************************/
+        
         vm.entidades = [];
-        vm.entidad = { id: 0, nombre: "", tipoEntidad: {} };
-        vm.tipoEntidad = { id: 0, nombre: "" };
-        vm.nuevaEntidad = false;
-
+        vm.tiposEntidades = [];
+        vm.entidadSeleccionada = undefined;
         vm.editando = false;
-        vm.entidadSeleccionada;
-        var elemento;        
-        var algo;
 
-        vm.crear = crear;
-        vm.eliminar = eliminar;
-        vm.actualizar = actualizar;
-        vm.entidad = { id: 0, nombre: "", tipoEntidad: {} };
-        vm.tipoEntidad = { id: 0, nombre: "", documentosSoportados: [] };
-        vm.editar = editar;
-        vm.nuevo = nuevo;
+
+
+
+        /**********************************************************************************
+         *
+         *   PUBLIC METHOD DEFINITION
+         *   
+         **********************************************************************************/
+        
+        vm.remover = remover;
         vm.cancelar = cancelar;
-        vm.seleccionarEntidad = seleccionarEntidad;        
+        vm.aceptar = aceptar;
 
 
-        TipoEntidadService.query(function (data) {
-            vm.tiposEntidad = data;
-        });
 
-        EntidadService.query(function (data) {
-            vm.entidades = data;
-        });
 
-        function crear(entidad) {
-            entidad.tipoEntidad = vm.tipoEntidad;
+        /**********************************************************************************
+         *
+         *   DATA RETRIEVING CALLS
+         *   
+         **********************************************************************************/
+
+        retrieveData();                
+
+
+
+        /**********************************************************************************
+         *
+         *   PRIVATE METHODS
+         *   
+         **********************************************************************************/                                             
+
+
+        function aceptar() {            
+            if (vm.entidadSeleccionada.id == 0) {
+                crear( vm.entidadSeleccionada );
+            }
+            else {
+                guardar(vm.entidadSeleccionada);
+            }
+            cancelar();
+        }
+
+
+        function cancelar() {
+            vm.editando = false;
+            vm.entidadSeleccionada = undefined;
+        }
+
+
+        function retrieveData() {
+
+            TipoEntidadService.query( function( data ){
+                vm.tiposEntidades = data;
+            });
+
+            EntidadService.query(function (data) {
+                vm.entidades = data;                
+            });
+        }
+
+
+        function crear( entidad ) {
             EntidadService.save(entidad, function (data) {
-                EntidadService.query(function (data) {
-                    vm.entidades = data;
-                });
+                retrieveData();
             });
             cancelar();
-        } // fin funcion crear
+        } // end function create       
 
-        function eliminar(entidad) {            
-            EntidadService.remove(entidad, function () {
-                EntidadService.query(function (data) {
-                    vm.entidades = data;
-                    
-                });
+
+        function guardar(entidad) {
+            EntidadService.update(entidad, function (data) {
+                for (var i = 0; i < vm.entidades.length; i++) {
+                    if (vm.entidades[i].id == data.id) {
+                        vm.entidades[i] = data;
+                        break;
+                    }
+                }
             });
-            cancelar();            
+            cancelar();
+        } // end method guardar
+
+        function remover(entidad) {
+            EntidadService.remove(entidad, function () {
+                retrieveData();
+            });
+            cancelar();
         } // end function remover
 
-        function actualizar(entidad) {
-            entidad.tipoEntidad = vm.tipoEntidad;
-            EntidadService.update(entidad, function () {
-                EntidadService.query(function (data) {
-                    vm.entidades = data;
-                });
-            });
-            cancelar();
-        } // fin function actualizar                        
-
-        function editar(entidad) {
-            vm.entidad = angular.copy(entidad);
-            vm.tipoEntidad = vm.entidad.tipoEntidad;
-            vm.editando = true;
-        } // fin function editar
-
-        function cancelar() {            
-            vm.entidad = { id: 0, nombre: "", tipoEntidad: {} };
-            vm.tipoEntidad = { id: 0, nombre: "", documentosSoportados: [] };            
-            vm.editando = false;
-            vm.nuevaEntidad = false;
-            algo.checked = false;
-            elemento = null;
-        } // fin function cancelar
-
-        function nuevo() {
-            vm.entidad = { id: 0, nombre: "", tipoEntidad: {} };
-            vm.editando = true;
-            vm.nuevaEntidad = true;
-        } // fin function nuevo
-
-        function seleccionarEntidad(entidadSeleccionada) {            
-            algo = document.getElementById("e_" + entidadSeleccionada.id);
-            vm.entidadSeleccionada = entidadSeleccionada;
-
-            if (elemento == algo) { // ya estaba seleccionado                                                                             
-                algo.checked = false;
-                elemento = null;
-                //document.getElementById('remover_td').style.visibility = 'hidden';
-                //document.getElementById('editar_td').style.visibility = 'hidden';
-                vm.cancelar();
-            }
-            else { // no estaba seleccionado
-                vm.entidad = angular.copy(entidadSeleccionada);
-                elemento = algo;
-                document.getElementById('remover_td').style.visibility = 'visible';
-                document.getElementById('editar_td').style.visibility = 'visible';
-            }
-
-            //vm.entidad = angular.copy(entidadSeleccionada);
         }
     } // end EntidadController
-})();
+)();

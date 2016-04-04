@@ -1,73 +1,28 @@
 ﻿<div class="contenido">
     <section class="layout_padre">
-        <div class="hijo_left">
-            <label class="texto_labels" style="margin-top:10px;">Lista de tipo de entidades</label>
-            <input type="text" ng-model="vm.filter" class="a_input" />
-            <ul class="a_listado" style="width:100%;">
-                <li ng-repeat="tipoEntidad in vm.tiposEntidad | filter: vm.filter">
-                    <input type="radio" name="tipo_entidad_rad" class="styled" id="{{tipoEntidad.id}}"
-                           ng-value="tipoEntidad"
-                           ng-click="vm.listadoTipoEntidad(tipoEntidad)" />
-                    <label class="styled" for="{{tipoEntidad.id}}">{{ tipoEntidad.nombre }}</label>
-                </li>
-            </ul>
-        </div>
+        <wl-lista-tipos-entidades class="hijo_left" lista="vm.tiposEntidades"
+                objeto-seleccionado="vm.tipoEntidadSeleccionado"
+                editando="vm.editando">
+        </wl-lista-tipos-entidades>
 
         <div class="hijo_right">
-            <div class="control_administracion">
-                <button class="btn_con_ico" ng-if="!vm.editando" ng-click="vm.nuevoFuncion()">
-                    <span class="ico-plus tamano_botones_1"></span>Nuevo
-                </button>
-                <button id="editar_te" class="btn_con_ico" type="button" ng-show="!vm.editando && vm.tipoEntSeleccionada.nombre" ng-click="vm.editando = true;">
-                    <span class="ico-pencil tamano_botones_1"></span>Editar
-                </button>
-                <button id="remover_te" class="btn_con_ico" ng-show="!vm.editando && vm.tipoEntSeleccionada.nombre" type="button" ng-click="vm.remover()">
-                    <span class="ico-trash tamano_botones_1"></span>Remover
-                </button>
-            </div>
-
+            <wl-admin-crud objeto-seleccionado="vm.tipoEntidadSeleccionado"
+                editando="vm.editando"
+                eliminar="vm.remover">
+            </wl-admin-crud>
+            
             <label class="texto_labels">Nombre del tipo entidad</label>
             <form class="form_tipo_entidad">
-                <input class="a_input input_administracion" ng-disabled="!vm.editando" style="width:auto;" type="text" ng-model="vm.tipoEntSeleccionada.nombre" placeholder="Ingrese el nombre Entidad" />
+                <input class="a_input input_administracion" ng-disabled="!vm.editando" style="width:auto;" type="text" ng-model="vm.tipoEntidadSeleccionado.nombre" placeholder="Ingrese el nombre Entidad" />
             </form>
 
-            <div class="entidad_control" style="width:100%; margin-bottom:10px;">
-                <div style="background:#37404A;  height:40px; width:100%; word-spacing:-4px; padding:3px; border-top-left-radius:3px; border-top-right-radius:3px; ">
-                    <div class="iconos_control" ng-click="vm.cambiar_vista_lista()"><span class="ico-align-justify"></span></div>
-                    <div class="iconos_control" ng-click="vm.cambiar_vista_bloque()"><span class="ico-th"></span></div>
-                    <div class="iconos_control"><span class="ico-plus-circle"></span></div>
-                </div>
-                <div class="panel_control">
-                    <ul class="a_bloques" ng-repeat="tipoDoc in vm.tiposDocumento | orderBy: 'nombre'">
-                        <li class="te_li_lista">
-                            <input ng-disabled="!vm.editando" type="checkbox" name="check_name" ng-model="vm.tiposSoportados[$index]" id="chk-td-{{tipoDoc.id}}">
-                            <label class="styled1 note rounded" for="chk-td-{{tipoDoc.id}}">
-                                <span class="escudo-udenar" style="font-size:60px;"> </span><!--Controlar tamaño con media query-->
-                                {{ tipoDoc.nombre }}
-                            </label>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <wl-lista-tipo-doc-hojitas editando="vm.editando"
+                documentos-soportados="vm.tipoEntidadSeleccionado.documentosSoportados"></wl-lista-tipo-doc-hojitas>
 
-            <div>
-                <button class="btn_con_ico" type="button" style="display:inline-block;"
-                    ng-show="vm.editando && !vm.nuevo"
-                    ng-click="vm.guardar()">
-                    <span class="ico-floppy-o tamano_botones_1"></span>Guardar
-                </button>
-                <button class="btn_con_ico" type="button" style="display:inline-block;"
-                        ng-show="vm.editando && vm.nuevo"
-                        ng-click="vm.create()">
-                    <span class="ico-floppy-o tamano_botones_1"></span>Crear
-                </button>
-                <button class="btn_con_ico" type="button" style="display:inline-block;"
-                    ng-show="vm.editando"
-                    ng-click="vm.cancelar()">
-                    <span class="ico-times tamano_botones_1"></span>Cancelar
-                </button>
-            </div>
-
+            <wl-confirmacion editando="vm.editando"
+                             aceptar="vm.aceptar"
+                             cancelar="vm.cancelar">
+            </wl-confirmacion>
         </div>
     </section>
 </div>

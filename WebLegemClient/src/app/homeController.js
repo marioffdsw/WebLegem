@@ -5,9 +5,9 @@
         .module("WebLegemApp")
         .controller("homeController", homeController);
 
-    homeController.$inject = ["$state", "DocumentosResource", "$anchorScroll", "$location", "EntidadService"];
+    homeController.$inject = ["$state", "DocumentosResource", "$anchorScroll", "$location", "EntidadService", "fileId"];
 
-    function homeController($state, DocumentosResource, $anchorScroll, $location, EntidadService) {
+    function homeController($state, DocumentosResource, $anchorScroll, $location, EntidadService, fileId) {
         var vm = this;
         vm.$state = $state;
         vm.scrollTo = function (id) {
@@ -32,6 +32,7 @@
         vm.clase_contraste = "btn_tamano0";
         vm.val_contraste = 0;
         vm.documentos = [];
+        vm.verDocumento = verDocumento;
 
         vm.loggeado = true;
         vm.LogOut = LogOut;
@@ -170,6 +171,13 @@
                 });
             }
         }
+
+        function verDocumento(archivoId) {
+            if (archivoId > 0) {
+                fileId.id = archivoId
+                $state.go("ver-documento");
+            }
+        } // fin function verDocumento
 
 
     } // end TipoEntidadController

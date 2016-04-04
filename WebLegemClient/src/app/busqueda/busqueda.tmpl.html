@@ -198,8 +198,8 @@
                                             <p id="entidad_bus">Entidad:<i>{{documento.entidad.nombre}}  </i> </p> <p id="fecha_bus">  Fecha: <i>{{ documento.fechaPublicacion | date: 'dd/MM/yyyy'}} {{ documento.fechaPublicacion }}</i>  </p>
                                         </div>
                                         <div class="control_tarjeta">
-                                            <a ng-click="vm.verDocumento(documento.archivo)">Ver</a>
-                                            <a href="http://localhost:50555/api/Files/{{ documento.archivo }}"> Descargar</a>
+                                            <span><a ng-click="vm.verDocumento(documento.archivo)"><span class="ico-eye"></span>Ver</a></span>
+                                            <span><a style="color: #fff;" href="http://localhost:50555/api/Files/{{ documento.archivo }}"><span class="ico-download"></span>Descargar</a></span>
                                         </div>
                                     </li>
                                 </ul>

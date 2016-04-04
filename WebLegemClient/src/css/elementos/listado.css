@@ -1,4 +1,6 @@
 ﻿/*select --ESTILOS PARA LOS SELECT--*/
+
+
 .a_listado{ 
     margin-top:10px;
     list-style:none;
@@ -11,7 +13,7 @@
 }
 
 
-.a_listado li{
+.a_listado li{  
     border-left:1.5px solid #a1a1a1;
     border-right:1.5px solid #a1a1a1;
     border-bottom:1.5px solid #a1a1a1;
@@ -43,22 +45,7 @@ label.styled {
   overflow: hidden;
   cursor: pointer;
 }
-label.styled:before {
-  content: '✓';
-  padding:0 8px;
-  line-height: 30px;
-  font-size: 20px;
-  color: #fff;
-  width:15px;
-  height:100%; 
-  background-color:  #45b15d;
-  position: absolute;
- 
-  right:50%;
-  opacity:0;
-  transition: linear .3s ;
-  border-right: 2px solid #fff;
-}
+
 label.styled:hover{
     background-color:  rgba(69, 177, 93, 0.20);
 }
@@ -75,7 +62,24 @@ input.styled:checked ~ label.styled {
   -o-animation:  linear 0.3s;
   animation:  linear 0.3s;
 }
-input.styled:checked ~ label.styled:before {
-  right:-2px;
-  opacity: 1;
+
+label.styled:before {
+    content: '✓';
+    padding:0 8px;
+    line-height: 30px;
+    font-size: 20px;
+    color: #fff;        
+    height: 100%;         
+    position: absolute;       
+    right: 50%;
+    width: 15px;
+    opacity: 0;    
+    transition: linear .3s;
+    background-color: #45b15d;
 }
+
+label.styled.animated:before {
+    opacity: 1;
+    right: 0;
+}
+

@@ -1,65 +1,38 @@
 ﻿<div class="contenido">
     <section class="layout_padre">
-
-        <div class="hijo_left" style="width:40%;">
-            <label class="texto_labels" style="margin-top:10px;">Lista de entidades</label>
-            <input type="text" ng-model="vm.filtro" class="a_input" />
-            <ul class="a_listado" style="width:100%;">
-                <li ng-repeat="entidad in vm.entidades | filter:vm.filtro">
-                    <input type="radio" class="styled" id="e_{{entidad.id}}" name="entidad_rad"
-                           ng-value="vm.entidad"
-                           ng-click="vm.seleccionarEntidad(entidad)" ng-disabled="vm.editando" />
-                    <label class="styled" style="line-height:1.5;" for="e_{{entidad.id}}">
-                        {{entidad.nombre}}<br />
-                        <span style="font-size:smaller; color:#005e00;">{{entidad.tipoEntidad.nombre}}</span>
-                    </label>           
-                </li>                    
-            </ul>
-        </div>
+        
+        <wl-lista-entidades class="hijo_left"
+                lista="vm.entidades"
+                objeto-seleccionado="vm.entidadSeleccionada"
+                editando="vm.editando">
+        </wl-lista-entidades>    
 
         <div class="hijo_right">
-            <div class="control_administracion">
-                <button class="btn_con_ico" type="button" ng-click="vm.nuevo();">
-                    <span class="ico-plus tamano_botones_1"></span>Nuevo
-                </button>
-                <button class="btn_con_ico" type="button" value="Editar" ng-click="vm.editar(vm.entidad)" ng-show="!vm.editando && vm.entidad.nombre">
-                    <span class="ico-pencil tamano_botones_1"></span>Editar
-                </button>
-                <button class="btn_con_ico" type="button" value="Eliminar" ng-click="vm.eliminar( vm.entidadSeleccionada )" ng-show="!vm.editando  && vm.entidad.nombre">
-                    <span class="ico-trash tamano_botones_1"></span>Remover
-                </button>
-            </div>
+            <wl-admin-crud objeto-seleccionado="vm.entidadSeleccionada"
+                           editando="vm.editando"
+                           eliminar="vm.remover">
+            </wl-admin-crud>
 
             <label class="texto_labels" for="nombre-entidad">Nombre de la entidad</label>
-
             <input class="a_input input_administracion" style="width:95%;" id="nombre-entidad" type="text" ng-disabled="!vm.editando"
-                    placeholder="Ingrese el nombre de la entidad" ng-model="vm.entidad.nombre" />
-            
-
-
+                    placeholder="Ingrese el nombre de la entidad" ng-model="vm.entidadSeleccionada.nombre" />           
             <label class="texto_labels" for="tipo-entidad">Tipo de la entidad</label>
             <div class="span_select" style="width:100%;">
                 <input type="text" ng-show="!vm.editando" style="width:95%;" class="select"
                        ng-disabled="!vm.editando"
-                       ng-model="vm.entidad.tipoEntidad.nombre" />
+                       ng-model="vm.entidadSeleccionada.tipoEntidad.nombre" />
             </div>
             <div class="span_select" style="width:95%;">
-                <select id=" tipoentidadselect" ng-show="vm.editando" class="select" style="width:95%;" ng-disabled=" !vm.editando"
-                        ng-options="tipoEntidad as tipoEntidad.nombre for tipoEntidad in vm.tiposEntidad"
-                        ng-model="vm.tipoEntidad"></select>
+                <select id=" tipoentidadselect" ng-show="vm.editando" class="select" style="width:95%;" ng-disabled="!vm.editando"
+                        ng-options="tipoEntidad as tipoEntidad.nombre for tipoEntidad in vm.tiposEntidades"
+                        ng-model="vm.entidadSeleccionada.tipoEntidad"></select>
                 <span class="span_select ico-angle-down"></span>
             </div>
 
-            <button class="btn_con_ico" type="button" ng-show="vm.editando && !vm.nuevaEntidad" ng-click="vm.actualizar( vm.entidad )">
-                <span class="ico-plus tamano_botones_1"></span>Actualizar
-            </button>
-            <button class="btn_con_ico" type="button" ng-show="vm.editando && vm.nuevaEntidad" ng-click="vm.crear( vm.entidad )">
-                <span class="ico-plus tamano_botones_1"></span>Crear
-            </button>
-            <button class="btn_con_ico" type="button" ng-show="vm.editando" ng-click="vm.cancelar()">
-                <span class="ico-times tamano_botones_1"></span>Cancelar
-            </button>
-
+            <wl-confirmacion editando="vm.editando"
+                 aceptar="vm.aceptar"
+                 cancelar="vm.cancelar">
+            </wl-confirmacion>
         </div>
     </section>
 </div>
