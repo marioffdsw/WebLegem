@@ -35,7 +35,8 @@
             <span class="span_select  ico-angle-down"></span>
             <button class="btn_sin_ico">ver todos</button>
         </div>
-        <div class="news_left">
+
+        <div class="news_left" style="display:flex; flex-wrap:wrap;">
             
             <style>
                 .ico-download span a {
@@ -44,7 +45,7 @@
                 }
             </style>
             
-            <div class="tarjeta_news" ng-repeat="documento in vm.documentos">
+            <div class="tarjeta_news" style="min-width:400px;" ng-repeat="documento in vm.documentos">
 
                 <div class="titulo_tarjeta">
                     <a href="#">{{ documento.tipoDocumento.nombre }} {{ documento.numero }} del {{ documento.fechaPublicacion | date: 'yyyy' }}</a>
