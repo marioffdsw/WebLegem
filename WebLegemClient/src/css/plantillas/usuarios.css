@@ -100,10 +100,6 @@
 }
 
 
-.a_radio:checked ~ label{ 
-    color:blue;
-}
-
 
 
 /*==========  Mobile First Method  ==========*/
