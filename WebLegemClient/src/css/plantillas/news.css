@@ -6,15 +6,14 @@
     display: flex;
     flex-direction: column;
     border-bottom: 5px solid #aaa;
+    padding: 0 80px;
 }
 
 .titulo_news{
     display:flex;
-    flex-direction:column;
-    
+    flex-direction:column;    
     justify-content:center;
     align-content:center;
-
     color:#777;
     border-top: 10px solid #777;
     border-bottom:1px solid #ccc;
@@ -46,11 +45,12 @@
 
 /*-----container news-----*/
 .container_news {
-    min-height:70vh;
+    min-height:100vh;
     align-self:center;
     display:flex;
     flex-direction:column;
     flex-wrap:wrap;
+    overflow-y: auto;
 }
 
     
