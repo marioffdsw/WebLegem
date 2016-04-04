@@ -54,16 +54,29 @@
 
         <div class="box_duo_input">
             <div>
+                <p class="texto_labels green">Contraseña</p>
+                <input class="a_input" type="password"/>
+            </div>
+            <div>
+                <p class="texto_labels green">Confirmar contraseña</p>
+                <input class="a_input" type="password" />
+            </div>
+        </div>
+
+        <div class="box_duo_input">
+            <div>
                 <p class="texto_labels green">Rol del usuario</p>
                 <input class="a_input" />
             </div>
             <div>
                 <p class="texto_labels green">Estado del usuario</p>
                 <div class="contenedor_radios">
-                    <input class="a_radio" id="rad1" type="radio" name="rad"><label for="rad1">Radio 1</label>
-                    <div>
-                        <input class="a_radio" id="rad2" type="radio" name="rad"><label for="rad2">Radio 2</label>
-                    </div>
+                    <span>
+                        <input class="a_radio" id="rad1" type="radio" name="rad" checked><label for="rad1">Activo</label>
+                    </span>
+                    <span>
+                        <input class="a_radio" id="rad2" type="radio" name="rad"><label for="rad2">Bloqueado</label>
+                    </span>
                 </div>
             </div>
         </div>
