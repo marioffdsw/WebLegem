@@ -17,12 +17,3 @@
 body {
     background-image: url('../recursos/cheap_diagonal_fabric.png');
 }
-
-/*----------------------------------------------*/
-
-
-.animatio.ng-enter  {
-        -webkit-animation:.5s fadeIn ease-out;  
-        -moz-animation:-5s fadeIn ease-out;  
-        animation:.5s fadeIn ease-out;
-    }
