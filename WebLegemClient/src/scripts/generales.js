@@ -2,9 +2,6 @@
 
 function atenuar_busqueda(id) {
     var aux = document.getElementById(id).parentNode;
-    console.log(aux);
-    console.log(btn_arriba);
-
     aux.className = 'mini_search animacion_mini_search';
 }
 

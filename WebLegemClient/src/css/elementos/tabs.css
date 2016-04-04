@@ -17,13 +17,12 @@
 .contenedor_tabs > ul > li{
     flex:1;
     display:block;
-    padding:0 25px;
+    padding:15px 25px;
 
     vertical-align:middle;
     justify-content:center;
     text-align:center;
 
-    line-height:4em;
 
     cursor:pointer;
     -moz-transition: ease-out .3s;
