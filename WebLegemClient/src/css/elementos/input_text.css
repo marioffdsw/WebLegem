@@ -8,12 +8,16 @@
     padding: 0 10px;
     
     display:inline;
-    border-radius:2px;
-    border:1px solid #a1a1a1;
+    border:1px solid #bbb; 
     -o-transition:     box-shadow 0.4s;
     -webkit-transition:box-shadow 0.4s;
     -moz-transition:   box-shadow 0.4s;
     transition:        box-shadow 0.4s;
+}
+
+
+.a_input:hover{
+    border-color:#999;
 }
 
 
@@ -23,18 +27,16 @@
 }
 
 .a_input:focus{
-    outline:0;
-    border:1px solid  #3f9f43; 
-    -webkit-box-shadow: 0 0 1px  #3f9f43,0 0 1px green;  
-    box-shadow: 0 0 1px  #3f9f43,0 0 1px green;
+    outline:0; 
+    border-color:#38ba8f;
+    border-width:2px;
 }
   
 .a_input:-webkit-autofill:active,
 .a_input:-webkit-autofill:focus
  {  
     outline:0;
-    -webkit-box-shadow: 0 0 0px 1000px white inset, 0 0 1px  #3f9f43,0 0 1px green;
-    border:1px solid  #3f9f43; 
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
 
@@ -59,7 +61,22 @@
     border-right:none;
 }
 
+
+.input_text_ico:-webkit-autofill {
+    outline:0;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+
+.input_text_ico:-webkit-autofill:active,
+.input_text_ico:-webkit-autofill:focus
+ {  
+    outline:0;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
 .input_text_ico:focus, .input_text_ico:focus ~ button{
+    outline:0; 
     border-color:#38ba8f;
     border-width:2px;
 }
