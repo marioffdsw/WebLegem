@@ -7,7 +7,7 @@
         .contenedor_login:before {
             content: '';
             background-image: url('../../recursos/header/entrada.jpg');
-            background-image: url('../../recursos/índice2.png');
+            /*background-image: url('../../recursos/índice2.png');*/
             background-size: cover;
             -webkit-filter: brightness(100%);
             filter: brightness(100%);

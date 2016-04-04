@@ -91,14 +91,14 @@
     padding: 15px 10px;
     font-size: large;
     font-family: 'Lato-Regular';
-    color: ActiveCaption;
+    color: #666;
     width: 100%;
     text-align: center;
-    border: 1px dashed ActiveCaption;
+    border: 1px dashed #666;
 }
 
 .mensaje_busqueda span{
-    color:ActiveCaption;
+    color:#666;
     font-size:60px;
     font-weight:900;
 }
@@ -120,7 +120,7 @@
 
 .dibujo_busqueda span{
     font-size:70px;
-    color:#ddd;
+    color:#999;
     cursor:default;
     position:relative;
     right:10px;

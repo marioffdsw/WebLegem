@@ -25,7 +25,6 @@
         function load() {
             btn_arriba = document.getElementById('ir_arriba');
             box_header = document.getElementById('header1');
-            box_header2 = document.getElementById('header2');
         }
 
 
@@ -42,11 +41,9 @@
 
         function volverSolido() {//Vuelve solido el header
             if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25){
-                box_header.classList.add('solido');
-                box_header2.classList.add('solido');
+                box_header.classList.add('solido');                
             } else {
-                box_header.classList.remove('solido');
-                box_header2.classList.remove('solido');
+                box_header.classList.remove('solido');                
             }
         }
         
