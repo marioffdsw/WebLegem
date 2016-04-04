@@ -1,0 +1,24 @@
+﻿<div class="tarjeta_news" ng-repeat="documento in vm.arregloDocs">
+
+    <div class="titulo_tarjeta">
+        <!--{{ documento.tipoDocumento.nombre }} {{ documento.numero }} del {{ documento.fechaPublicacion | date: 'yyyy' }}-->
+        <a href="#">{{ documento.tipoDocumento }} {{ documento.numero }}</a>
+    </div>
+
+    <div class="contenido_tarjeta">
+        {{ documento.asunto }}
+    </div>
+
+    <div class="subcontenido_tarjeta">
+        <a>Entidad: <i>{{ documento.entidad }} </i> | </a>
+        <a>Fecha: <i>{{ documento.fecha }} </i> | </a>
+    </div>
+
+    <div class="control_tarjeta">
+        <a href="http://localhost:50555/api/Files/{{ documento.archivo }}">
+            <span class="ico-download"></span>   Descargar
+        </a> 
+    </div>
+
+</div>
+

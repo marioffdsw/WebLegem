@@ -2,6 +2,9 @@
 
 function atenuar_busqueda(id) {
     var aux = document.getElementById(id).parentNode;
+    console.log(aux);
+    console.log(btn_arriba);
+
     aux.className = 'mini_search animacion_mini_search';
 }
 
@@ -38,6 +41,7 @@ function out_accesibilidad(id) {
 function getPosition() {
     
     var el = document.getElementById("homero");
+    
     var xPos = 0;
     var yPos = 0;
 
@@ -70,3 +74,13 @@ function updatePosition() {
 
 window.addEventListener("scroll", updatePosition, false);
 window.addEventListener("resize", updatePosition, false);
+
+//--efecto subir con estilo al tope XD --//
+function subir(){
+    if (document.body.scrollTop != 0 || document.documentElement.scrollTop != 0) {
+        //que suba en 10% de la posicion de donde este
+        window.scrollBy(0, -200);//LO QUE VA SUBIENDO
+        arriba = setTimeout('subir()', 10);//cada cuanto se ejecuta el metodo, entre mas pequeñomejor
+    }
+    else clearTimeout(arriba);
+}

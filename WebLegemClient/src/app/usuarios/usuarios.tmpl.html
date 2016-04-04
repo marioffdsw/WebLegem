@@ -1,0 +1,24 @@
+﻿<div class="tapiz">
+
+    <div style="height:100px;"></div>
+
+    <div class="tapiz_contenido">
+
+        <div class="contenedor_tabs">
+            <ul>
+                <li ui-sref="usuarios.control-roles" ng-click="vm.tabActivo($event);">
+                    <span class="ico-cogs">
+                        <a>ROLES</a>
+                    </span>
+                </li>
+                <li ui-sref="usuarios.control-usuarios" ng-click="vm.tabActivo($event);">
+                    <span class="ico-users">
+                        <a>USUARIOS</a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div ui-view></div>
+    </div>
+
+</div>

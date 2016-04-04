@@ -12,14 +12,56 @@
 
 body {
     background-image: url('../recursos/header/beige_paper.png');
+    
+    background-image: url('../recursos/indice.png');
+    background-size:cover;
 }
 
+.contenedor_global {
+}
+
+.ir_arriba{
+    text-decoration:none;
+    position:absolute;
+    right:5px;
+    bottom:5px;
+    position:fixed;
+    background:rgba(25, 159, 101, .8);  
+    padding:5px 6px;
+    font-family:"Lato-Bold";
+    font-size:xx-large;
+    color:white;
+    display:block;
+    text-align:center;
+    opacity:0;
+    transition: opacity 500ms;
+}
+
+.ir_arriba.visible{
+  opacity:1;
+}
+
+.ir_arriba > p{
+    
+}
 
 /*----------------------------------------------*/
 
 
 .animatio.ng-enter  {
-        -webkit-animation:.2s zoomIn ease-out;  
-        -moz-animation:-5s fadeIn ease-out;  
-        animation:.2s zoomIn ease-out;
+        -webkit-animation:1s fadeOutLeft;  
+        -moz-animation:1s fadeOutLeft;  
+        animation:1s fadeOutLeft;
     }
+
+.a_gordo {
+    animation: .8s a_gordo;
+}
+@keyframes a_gordo {
+  0%{opacity:0;}
+  10%{opacity:0;}
+  50% {opacity:.8;
+      transform:scale(1.1);
+  }
+  100% {opacity:1;}
+}

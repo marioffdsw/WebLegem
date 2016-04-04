@@ -9,6 +9,11 @@
 
     function homeController($state, DocumentosResource, $anchorScroll, $location, EntidadService, fileId) {
         var vm = this;
+        var btn_arriba;
+        var box_header;
+        var box_header2;
+
+        vm.load = load;
         vm.$state = $state;
         vm.scrollTo = function (id) {
             $location.hash(id);
@@ -16,6 +21,38 @@
         }
 
         vm.cargarDocumentos = cargarDocumentos;
+
+        function load() {
+            btn_arriba = document.getElementById('ir_arriba');
+            box_header = document.getElementById('header1');
+            box_header2 = document.getElementById('header2');
+        }
+
+
+        
+        window.onscroll = function () { llevameArriba(); volverSolido(); };
+
+        function llevameArriba() {//funcion llevame arriba
+            if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+                btn_arriba.classList.add('visible');
+            } else {
+                btn_arriba.classList.remove('visible');
+            }
+        }
+
+        function volverSolido() {//Vuelve solido el header
+            if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25){
+                box_header.classList.add('solido');
+                box_header2.classList.add('solido');
+            } else {
+                box_header.classList.remove('solido');
+                box_header2.classList.remove('solido');
+            }
+        }
+        
+     
+
+
 
         EntidadService.query(function (data) {
             vm.entidades = data;
@@ -78,6 +115,10 @@
             {
                 texto: "Administración",
                 estado: "administracion.tipo-documento"
+            },
+            {
+                texto: "Usuarios",
+                estado:"usuarios"
             }
         ];
 
@@ -88,17 +129,6 @@
             vm.opcionesAMostrar = vm.opcionesNoLoggeado;
             vm.loggeado = false;
         }
-
-
-
-        vm.funcionPerro = function () {
-            if (vm.a=="recursos/botones/jv.png") {
-                vm.a = "recursos/botones/path4.png";
-            }
-            else {
-                vm.a = "recursos/botones/jv.png";
-            }
-        };
 
         vm.funcion_tamano = function () {
 

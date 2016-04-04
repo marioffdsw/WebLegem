@@ -3,6 +3,7 @@
     width: 100%;
     background-image: url('../../recursos/header/VIPRI-1.jpg');
     background-image: url('../../recursos/header/beige_paper.png');
+    background:#2ec488;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -16,7 +17,7 @@
     justify-content:center;
     align-content:center;
 
-    background:rgba(44, 63, 82, 0.68);
+    background:rgb(57, 57, 57);
     color:#eee;
     font-family:'Lato-Regular';
     font-size:40px;
@@ -69,8 +70,7 @@
         width: 100%;
     }
     .tarjeta_news {
-        min-width:100px;
-        max-width:500px; 
+        min-width:100px; 
         margin:10px 20px;
     }
 
@@ -84,8 +84,7 @@
     width: 100%;
     }
     .tarjeta_news {
-        min-width:100px;
-        max-width:500px; 
+        min-width:100px; 
     }
     
     .news_left{
@@ -141,83 +140,7 @@
 /*---fin container news-----*/
 
 
-/*--------  Tarjeta Noticias -------*/
-.tarjeta_news{
-    box-shadow: 0 0 1px #888,0 1px 2px rgba(51, 51, 51, 0.3);
-    font-family:'Lato-Regular';
-    color:#555;
-    overflow:hidden;
-    display: -webkit-flex;
-    display: flex;
-    flex-direction:column;
-    justify-content:center;
-    align-self:center;
-    margin:10px 10px;
-    position:relative;
-    
-}
 
-.titulo_tarjeta {
-    display:flexbox;
-    color: #eee;
-    font-weight: bold;
-    font-family: 'OpenSans';
-    font-size: .9em;
-    padding: 10px 20px;
-    background: rgba(53, 81, 107, 0.60);
-    
-    line-height:normal;
-}
-
-.contenido_tarjeta{
-    color:#676e87;
-    padding:20px;
-    font-size:small;
-    font-family:'OpenSans';
-    background:#eee;
-    height:100px;
-}
-
-.control_tarjeta{
-    position:absolute;
-    bottom:-30px;
-    height:30px;
-    width:100%;
-    display:flex;
-    justify-content:flex-end;
-    transition:all .6s;   
-    background: #2C3F52;
-}
-
-.tarjeta_news:hover > div:last-child {
-    -moz-transform: translateY(-30px);
-    -ms-transform: translateY(-30px); 
-    -o-transform: translateY(-30px);
-    -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
-}
-
-
-.control_tarjeta > span{
-    position:relative;
-    margin-right:15px;
-    padding-left:18px;
-    overflow:hidden;
-    color:#fff;
-    
-    cursor:pointer;
-}
-
-.control_tarjeta > span > span{
-    position:absolute;
-    left:0;
-    line-height:2;
-}
-
-
-
-
-/*-----Fin Tarjeta Noticias -------*/
 
 /*--------Mini Tarjeta ------*/
 

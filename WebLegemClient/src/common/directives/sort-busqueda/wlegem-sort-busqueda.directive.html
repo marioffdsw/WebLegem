@@ -1,0 +1,37 @@
+﻿<ul class="bar_ordenamiento" ng-controller="WlegemSortBusquedaController as vms">
+
+    <li>Ordenar por:</li>
+    <!--------------------------------------------------------------------------------------------------------->
+    <li ng-click="vm.predicate = 'entidad.nombre'; vm.reverse= !vm.reverse;"
+        ng-class="vm.predicate == 'entidad.nombre' ? 'active_filter':'' ">
+        Entidad
+        <span class="ico-sort-alpha-asc" ng-show="vm.predicate == 'entidad.nombre' && !vm.reverse"></span>
+        <span class="ico-sort-alpha-desc" ng-show="vm.predicate == 'entidad.nombre' && vm.reverse"></span>
+    </li>
+    <!--------------------------------------------------------------------------------------------------------->
+    <li ng-click="vm.predicate = 'tipoDocumento.nombre'; vm.reverse= !vm.reverse;"
+        ng-class="vm.predicate == 'tipoDocumento.nombre' ? 'active_filter':'' ">
+        Tipo Documento
+        <span class="ico-sort-alpha-asc" ng-show="vm.predicate == 'tipoDocumento.nombre' && !vm.reverse"></span>
+        <span class="ico-sort-alpha-desc" ng-show="vm.predicate == 'tipoDocumento.nombre' && vm.reverse"></span>
+    </li>
+    <!--------------------------------------------------------------------------------------------------------->
+    <li ng-click="vm.predicate = 'numero'; vm.reverse= !vm.reverse;"
+        ng-class="vm.predicate == 'numero' ? 'active_filter':'' ">
+        Número
+        <span class="ico-sort-asc" ng-show="vm.predicate == 'numero' && vm.reverse"></span>
+        <span class="ico-sort-desc" ng-show="vm.predicate == 'numero' && !vm.reverse"></span>
+    </li>
+    <!--------------------------------------------------------------------------------------------------------->
+    <li ng-click="vm.predicate = 'anioPublicacion'; vm.reverse= !vm.reverse;"
+        ng-class="vm.predicate == 'anioPublicacion' ? 'active_filter':'' ">
+        Año publicación
+        <span class="ico-sort-asc" ng-show="vm.predicate == 'anioPublicacion' && vm.reverse"></span>
+        <span class="ico-sort-desc" ng-show="vm.predicate == 'anioPublicacion' && !vm.reverse"></span>
+    </li>
+    <!--------------------------------------------------------------------------------------------------------->
+    <li ng-click="vm.predicate = ''; vm.reverse = false;"
+        ng-class="vm.predicate == '' ? 'active_filter' : ''">
+        Relevancia
+    </li>
+</ul>

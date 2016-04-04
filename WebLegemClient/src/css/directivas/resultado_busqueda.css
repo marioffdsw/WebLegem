@@ -1,0 +1,81 @@
+﻿/*--------  Tarjeta Noticias -------*/
+.tarjeta_news{
+    font-family:'Lato-Regular';
+    color:#555;
+    overflow:hidden;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-self:center;
+    margin:0;
+    position:relative;
+    padding:15px;
+}
+
+
+
+.titulo_tarjeta {
+    display:flexbox; 
+    font-family: 'OpenSans-Bold';
+    font-size: .9em;
+    line-height:normal;
+    padding-bottom:5px;
+}
+
+    .titulo_tarjeta a {
+        color:#0f745b;
+        -moz-text-decoration-color: #0f745b;
+        text-decoration-color: #0f745b;
+
+    }
+
+.contenido_tarjeta{
+    color:#222;
+    font-size:small;
+    font-family:'OpenSans';
+    text-align:justify;
+}
+
+.subcontenido_tarjeta{
+    padding-top:5px;
+    color:#666;
+    font-size:small;
+    font-family:'OpenSans';
+    text-align:justify;
+}
+
+.control_tarjeta{
+    width:100%;
+    display:flex;
+    justify-content:flex-end;
+    align-items:center;
+    transition:all .6s;
+    padding-top:5px;   
+    padding-bottom:10px;
+    margin-bottom:-10px;
+    border-bottom:1px solid #ccc;
+}
+
+
+.control_tarjeta > a{
+    color:#0f745b;
+    text-decoration:none;
+    cursor:pointer;
+    font-size:small;
+    font-family:"lato-Regular";
+    position:relative;
+    padding-left:5px;
+}
+
+.control_tarjeta a > span{
+    position:absolute;
+    left:-10px;
+    top:2px;
+}
+
+.control_tarjeta > a:hover{
+    text-decoration:underline;
+}
+
+/*-----Fin Tarjeta Noticias -------*/   
