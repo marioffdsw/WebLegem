@@ -43,19 +43,8 @@
                     text-decoration: none;
                 }
             </style>
-
-            <div class="tarjeta_news" ng-repeat="documento in vm.documentos">
-                <div class="titulo_tarjeta">{{ documento.tipoDocumento.nombre }} {{ documento.numero }} del {{ documento.fechaPublicacion | date: 'yyyy' }}</div><hr />
-                <div class="contenido_tarjeta">
-                    {{ documento.asunto }}
-                </div>
-                <div class="control_tarjeta">
-                    <span><span class="ico-download"></span><a href="http://localhost:50555/api/Files/{{ documento.archivo }}">descargar</a></span>
-                    <span ng-click="vm.verDocumento( documento.archivo )"><span class="ico-eye"></span>ver</span>
-                </div>
-            </div>
             
-            <div class="tarjeta_news" ng-repeat="documento in vm.arregloDocs | orderBy: vm.predicate: vm.reverse">
+            <div class="tarjeta_news" ng-repeat="documento in vm.documentos">
 
                 <div class="titulo_tarjeta">
                     <a href="#">{{ documento.tipoDocumento.nombre }} {{ documento.numero }} del {{ documento.fechaPublicacion | date: 'yyyy' }}</a>

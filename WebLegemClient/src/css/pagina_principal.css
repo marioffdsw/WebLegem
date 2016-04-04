@@ -11,9 +11,6 @@
 }
 
 body {
-    background-image: url('../recursos/header/beige_paper.png');
-    
-    background-image: url('../recursos/indice.png');
     background-size:cover;
 }
 
@@ -49,9 +46,9 @@ body {
 
 
 .animatio.ng-enter  {
-        -webkit-animation:1s fadeOutLeft;  
-        -moz-animation:1s fadeOutLeft;  
-        animation:1s fadeOutLeft;
+        -webkit-animation:1s fadeIn;  
+        -moz-animation:1s fadeIn;  
+        animation:1s fadeIn;
     }
 
 .a_gordo {
