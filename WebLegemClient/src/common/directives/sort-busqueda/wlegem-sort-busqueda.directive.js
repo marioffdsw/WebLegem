@@ -10,7 +10,7 @@
     function wlegemSortBusqueda() {
         return {
             templateUrl: "common/directives/sort-busqueda/wlegem-sort-busqueda.directive.html",
-            restrict: "E"
+            restrict: "E",
         }
     } // end directive
 

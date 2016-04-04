@@ -13,7 +13,9 @@
             controller: "wlegemResultadoBusquedaController",
             controllerAs: "vm",
             scope: {
-                arregloDocs: "=loquesea"//el nombre debe ser igual a arreglosDocs  de la plantilla pero sin el vm
+                arregloDocs: "=loquesea", //el nombre debe ser igual a arreglosDocs  de la plantilla pero sin el vm
+                predicate: "=predicate",
+                reverse: "=reverse"
             },
             bindToController:true
         }

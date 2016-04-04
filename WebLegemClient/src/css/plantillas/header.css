@@ -111,3 +111,7 @@
     left:0;
 }
 
+
+.transparente {
+    background: rgba( 0,0,0, .75 );
+}

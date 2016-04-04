@@ -193,9 +193,9 @@
 <body id="body_index" ng-init='vm.load()'>
     <div class="main">
         <section>
-            <div style=" width:100%; min-height:100vh;">
+            <div style="width:100%; min-height:100vh;">
 
-                <div class="header" id="header1">
+                <div class="header" ng-class="vm.$state.current.name == 'home' ? 'transparente': ''" id="header1">
                     <div class="figura_logo pruebaAnime" ng-show="vm.$state.current.name == 'home'">
                         <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" width="100%" height="100%">
                             <defs>
@@ -224,6 +224,21 @@
                                     ng-show="vm.$state.current.name == 'home'">
                                 <span class="ico-newspaper-o"></span>
                                 <p>Actualidad</p>
+                            </button>
+
+                            <button class="btn_deslizable" ng-show="vm.loggeado">
+                                <span class="ico-adn"></span>
+                                <p>Menu</p>
+                                <ul class="bar_nav">
+                                    <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
+                                        <a ui-sref="{{opcion.estado}}">
+                                            {{ opcion.texto }}
+                                        </a>
+                                        <ul ng-if="opcion.subEstados">
+                                            <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>
+                                        </ul>
+                                    <li>
+                                </ul>
                             </button>
 
                             <button class="btn_deslizable" ui-sref="busqueda" ng-show="vm.$state.current.name !='busqueda'">
@@ -262,7 +277,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!--
                 <div class="header2" id="header2" ng-show="vm.loggeado">
                     <div class="navegacion">
                         <ul class="bar_nav">
@@ -276,7 +291,7 @@
                             <li>
                         </ul>
                     </div>
-                </div>
+                </div>-->
 
                 <div ui-view class="animatio ng-enter contenedor_global">
                 </div>

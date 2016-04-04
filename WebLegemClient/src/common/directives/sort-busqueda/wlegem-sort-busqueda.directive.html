@@ -1,6 +1,7 @@
 ﻿<ul class="bar_ordenamiento" ng-controller="WlegemSortBusquedaController as vms">
 
-    <li>Ordenar por:</li>
+    <li>Ordenar por: </li>
+    
     <!--------------------------------------------------------------------------------------------------------->
     <li ng-click="vm.predicate = 'entidad.nombre'; vm.reverse= !vm.reverse;"
         ng-class="vm.predicate == 'entidad.nombre' ? 'active_filter':'' ">
@@ -23,15 +24,15 @@
         <span class="ico-sort-desc" ng-show="vm.predicate == 'numero' && !vm.reverse"></span>
     </li>
     <!--------------------------------------------------------------------------------------------------------->
-    <li ng-click="vm.predicate = 'anioPublicacion'; vm.reverse= !vm.reverse;"
-        ng-class="vm.predicate == 'anioPublicacion' ? 'active_filter':'' ">
+    <li ng-click="vm.predicate = 'fechaPublicacion'; vm.reverse= !vm.reverse;"
+        ng-class="vm.predicate == 'fechaPublicacion' ? 'active_filter':'' ">
         Año publicación
-        <span class="ico-sort-asc" ng-show="vm.predicate == 'anioPublicacion' && vm.reverse"></span>
-        <span class="ico-sort-desc" ng-show="vm.predicate == 'anioPublicacion' && !vm.reverse"></span>
+        <span class="ico-sort-asc" ng-show="vm.predicate == 'fechaPublicacion' && vm.reverse"></span>
+        <span class="ico-sort-desc" ng-show="vm.predicate == 'fechaPublicacion' && !vm.reverse"></span>
     </li>
     <!--------------------------------------------------------------------------------------------------------->
     <li ng-click="vm.predicate = ''; vm.reverse = false;"
-        ng-class="vm.predicate == '' ? 'active_filter' : ''">
+        ng-class="vm.predicate == '' || vm.predicate == undefined ? 'active_filter' : ''">
         Relevancia
     </li>
 </ul>
