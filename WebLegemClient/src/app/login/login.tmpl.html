@@ -12,18 +12,35 @@
             <div ng-messages ng-show="form_login.usuario.$invalid">
                 <div class="a_validacion" ng-message ng-show="form_login.usuario.$dirty">Complete este campo.</div>
             </div>
-            <div class="input_container_login">
-                <input required name="usuario" class="a_input" id="user" type="text" ng-model="vm.user.nombre" placeholder="Nombre de Usuario *" />
-                <div class="circulo1"><span class="ico-user" id="user_login"></span></div>
+                
+
+            <div class="box_input_busqueda" >
+                <div style=" background:#fff;">
+                <input required name="usuario" class="input_text_busqueda" id="user" type="text" ng-model="vm.user.nombre"
+                       placeholder="Nombre de Usuario *" />
+            </div>
+                <div>
+                    <button class="btn_search_avanzada">
+                        <span class=" ico-user"></span>
+                    </button>
+                </div>
             </div>
 
             <!----------------------------------------------------->
             <div ng-messages ng-show="form_login.password.$invalid">
                 <div class="a_validacion" ng-message ng-show="form_login.password.$dirty">Complete este campo.</div>
             </div>
-            <div class="input_container_login">
-                <input required class="a_input size_input_login" name="password" type="password" ng-model="vm.user.password" placeholder="Contraseña *" />
-                <div class="circulo2"><span class="ico-lock" id="user_lock"></span></div>
+
+            <div class="box_input_busqueda ">
+                <div style="background:#fff;">
+                    <input required class="input_text_busqueda" name="password" type="password" ng-model="vm.user.password"
+                           placeholder="Contraseña *" />
+                </div>
+                <div>
+                    <button class="btn_search_avanzada">
+                        <span class=" ico-lock"></span>
+                    </button>
+                </div>
             </div>
 
             <!----------------------------------------------------->

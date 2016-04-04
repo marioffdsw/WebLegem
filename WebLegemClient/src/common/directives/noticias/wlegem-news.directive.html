@@ -5,7 +5,6 @@
         <!--<img src="recursos/header/escudo_negro.png" />-->
         <div>
             <p>Actualidad Documental</p>
-            <p style="font-size:25px;">Universidad de nariño</p>
         </div>
 
         
@@ -56,180 +55,28 @@
                 </div>
             </div>
             
-            <div class="tarjeta_news">
-                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
-                <div class="contenido_tarjeta">
-                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
-                </div>
-                <div class="control_tarjeta">
-                    <span><span class="ico-download"></span>descargar</span>
-                    <span><span class="ico-eye"></span>ver</span>
-                </div>
-            </div>
+            <div class="tarjeta_news" ng-repeat="documento in vm.arregloDocs | orderBy: vm.predicate: vm.reverse">
 
-            <div class="tarjeta_news">
-                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
-                <div class="contenido_tarjeta">
-                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
+                <div class="titulo_tarjeta">
+                    <a href="#">{{ documento.tipoDocumento.nombre }} {{ documento.numero }} del {{ documento.fechaPublicacion | date: 'yyyy' }}</a>
                 </div>
-                <div class="control_tarjeta">
-                    <span><span class="ico-download"></span>descargar</span>
-                    <span><span class="ico-eye"></span>ver</span>
-                </div>
-            </div>
-            <div class="tarjeta_news">
-                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
-                <div class="contenido_tarjeta">
-                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
-                </div>
-                <div class="control_tarjeta">
-                    <span><span class="ico-download"></span>descargar</span>
-                    <span><span class="ico-eye"></span>ver</span>
-                </div>
-            </div>
 
-            <div class="tarjeta_news">
-                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
                 <div class="contenido_tarjeta">
-                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
+                    {{ documento.asunto | limitTo: 250: 200 }}
                 </div>
-                <div class="control_tarjeta">
-                    <span><span class="ico-download"></span>descargar</span>
-                    <span><span class="ico-eye"></span>ver</span>
-                </div>
-            </div>
 
-            <div class="tarjeta_news">
-                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
-                <div class="contenido_tarjeta">
-                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
+                <div class="subcontenido_tarjeta">
+                    <a>Entidad: <i>{{ documento.entidad.nombre }} </i> | </a>
+                    <a>Fecha: <i>{{ documento.fechaPublicacion | date: 'dd/MM/yyyy' }} </i> | </a>
                 </div>
-                <div class="control_tarjeta">
-                    <span><span class="ico-download"></span>descargar</span>
-                    <span><span class="ico-eye"></span>ver</span>
-                </div>
-            </div>
 
-            <div class="tarjeta_news">
-                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
-                <div class="contenido_tarjeta">
-                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
-                </div>
                 <div class="control_tarjeta">
-                    <span><span class="ico-download"></span>descargar</span>
-                    <span><span class="ico-eye"></span>ver</span>
+                    <a href="http://localhost:50555/api/Files/{{ documento.archivo }}">
+                        <span class="ico-download"></span>   Descargar
+                    </a>
                 </div>
-            </div>
 
-            <div class="tarjeta_news">
-                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
-                <div class="contenido_tarjeta">
-                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
-                </div>
-                <div class="control_tarjeta">
-                    <span><span class="ico-download"></span>descargar</span>
-                    <span><span class="ico-eye"></span>ver</span>
-                </div>
-            </div>
-
-            <div class="tarjeta_news">
-                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
-                <div class="contenido_tarjeta">
-                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
-                </div>
-                <div class="control_tarjeta">
-                    <span><span class="ico-download"></span>descargar</span>
-                    <span><span class="ico-eye"></span>ver</span>
-                </div>
-            </div>
-
-            <div class="tarjeta_news">
-                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
-                <div class="contenido_tarjeta">
-                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
-                </div>
-                <div class="control_tarjeta">
-                    <span><span class="ico-download"></span>descargar</span>
-                    <span><span class="ico-eye"></span>ver</span>
-                </div>
-            </div>
-
-            <div class="tarjeta_news">
-                <div class="titulo_tarjeta">Acuerdo 25 del 2014</div><hr />
-                <div class="contenido_tarjeta">
-                    Por el cual se decreta la suspencion de clases dela jornada de a de la clase b de la universidad
-                </div>
-                <div class="control_tarjeta">
-                    <span><span class="ico-download"></span>descargar</span>
-                    <span><span class="ico-eye"></span>ver</span>
-                </div>
             </div>
                 
         </div>
-</div>
-       <!-- <div class="news_right">
-            <div class="mini_tarjeta">
-                <p class="mt_title">Resolucion No 123A8</p>
-                <p class="mt_content">por medio del cual se modifica el estatuto general con 2 dias de sancion </p>
-                <p class="mt_date">21 de enero de 2015</p>
-                <hr class="mt_div" />
-            </div>
-
-            <div class="mini_tarjeta">
-                <p class="mt_title">Resolucion No 123A8</p>
-                <p class="mt_content">
-                    por medio del cual se modifica el estatuto general con 2 dias de
-                    todo los prin ofour sancion
-                </p>
-                <p class="mt_date">21 de enero de 2015</p>
-                <hr class="mt_div" />
-            </div>
-
-            <div class="mini_tarjeta">
-                <p class="mt_title">Resolucion No 123A8</p>
-                <p class="mt_content">por medio del cual se modifica el estatuto general con 2 dias de sancion </p>
-                <p class="mt_date">21 de enero de 2015</p>
-                <hr class="mt_div" />
-            </div>
-
-            <div class="mini_tarjeta">
-                <p class="mt_title">Resolucion No 123A8</p>
-                <p class="mt_content">
-                    por medio del ahora todo es ley
-                    foujo white house cual se modifica el estatuto general con 2 dias de sancion
-                </p>
-                <p class="mt_date">21 de enero de 2015</p>
-                <hr class="mt_div" />
-            </div>
-
-            <div class="mini_tarjeta">
-                <p class="mt_title">Resolucion No 123A8</p>
-                <p class="mt_content">
-                    por medio del cual se modifica el estatuto general con 2 dias de
-                    todo los prin ofour sancion
-                </p>
-                <p class="mt_date">21 de enero de 2015</p>
-                <hr class="mt_div" />
-            </div>
-
-            <div class="mini_tarjeta">
-                <p class="mt_title">Resolucion No 123A8</p>
-                <p class="mt_content">por medio del cual se modifica el estatuto general con 2 dias de sancion </p>
-                <p class="mt_date">21 de enero de 2015</p>
-                <hr class="mt_div" />
-            </div>
-
-            <div class="mini_tarjeta">
-                <p class="mt_title">Resolucion No 123A8</p>
-                <p class="mt_content">
-                    por medio del ahora todo es ley
-                    foujo white house cual se modifica el estatuto general con 2 dias de sancion
-                </p>
-                <p class="mt_date">21 de enero de 2015</p>
-                <hr class="mt_div" />
-            </div>
-        </div>
-
-
-    </div>
 </div>

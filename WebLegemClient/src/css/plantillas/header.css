@@ -3,7 +3,7 @@
     height:55px;
     position:relative;
     /*background:rgba(17, 21, 21, 0.70);*/
-    background:#2d7e74;
+    background: #0f745b;
     border-bottom:1px solid #6c767d;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.50);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.50);
@@ -114,4 +114,73 @@
 
 .transparente {
     background: rgba( 0,0,0, .75 );
+}
+
+
+/*btn Desplegable para el menu*/
+
+.btn_desplegable{
+    background:rgba(55, 64, 74, 0.0);
+    border:none;
+    width:auto;
+    color:white;
+    font-size:medium;
+    font-family:"Lato-regular";
+    text-align:center;
+    margin-right:10px;
+    padding: 15px 0;
+    padding-bottom:0;
+    position:relative;
+    cursor:pointer;
+}
+
+.btn_desplegable > span{
+    -webkit-transform:translateY(3px);
+    transform:translateY(3px);
+    display:inline-block;
+    font-size:large;
+}
+
+.btn_desplegable > p{
+    display:inline-block;
+    font-size:medium;
+}
+
+.btn_desplegable:hover span, .btn_deslizable:hover p{ 
+    color:#fff;
+}
+
+.btn_desplegable ul{
+    display:none;
+}
+
+.btn_desplegable:hover ul{
+    display:block;
+}
+
+.btn_desplegable ul{
+    list-style:none;
+    text-decoration:none;
+    background:rgba(8, 14, 34, 0.86); 
+    margin-bottom:-20px; 
+}
+
+.btn_desplegable ul li{
+    padding:10px;
+}
+
+.btn_desplegable ul li:hover{
+    background:rgba(255, 255, 255, 0.40);
+}
+
+.btn_desplegable ul li a{
+    -moz-text-decoration:none;
+    text-decoration: none;
+    font-family:"Lato-Regular";
+    color:#fff;
+}
+
+
+.btn_desplegable ul li:first-child{
+    margin-top:18px;
 }

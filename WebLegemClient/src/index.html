@@ -220,26 +220,29 @@
                     </div>
                     <div id="contenedor_accesibilidad" class="contenedor_accesibilidad">
                         <div class="deslizador">
+
+                            <div class=" btn_desplegable" ng-show="vm.loggeado">
+                                <span class="ico-adn"></span>
+                                <p>Menu</p>
+                                <ul>
+                                    <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
+                                        <a ui-sref="{{opcion.estado}}">
+                                            {{ opcion.texto }}
+                                        </a>
+                                        <!--<ul ng-if="opcion.subEstados">
+                    <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>
+                </ul>-->
+                                    <li>
+                                </ul>
+                            </div>
+
                             <button class="btn_deslizable" onclick="document.getElementById('body_index').scrollTop = getPosition().y;"
                                     ng-show="vm.$state.current.name == 'home'">
                                 <span class="ico-newspaper-o"></span>
                                 <p>Actualidad</p>
                             </button>
 
-                            <button class="btn_deslizable" ng-show="vm.loggeado">
-                                <span class="ico-adn"></span>
-                                <p>Menu</p>
-                                <ul class="bar_nav">
-                                    <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
-                                        <a ui-sref="{{opcion.estado}}">
-                                            {{ opcion.texto }}
-                                        </a>
-                                        <ul ng-if="opcion.subEstados">
-                                            <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>
-                                        </ul>
-                                    <li>
-                                </ul>
-                            </button>
+
 
                             <button class="btn_deslizable" ui-sref="busqueda" ng-show="vm.$state.current.name !='busqueda'">
                                 <span class="ico-search"></span>
@@ -278,20 +281,20 @@
                     </div>
                 </div>
                 <!--
-                <div class="header2" id="header2" ng-show="vm.loggeado">
-                    <div class="navegacion">
-                        <ul class="bar_nav">
-                            <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
-                                <a ui-sref="{{opcion.estado}}">
-                                    {{ opcion.texto }}
-                                </a>
-                                <ul ng-if="opcion.subEstados">
-                                    <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>
-                                </ul>
-                            <li>
-                        </ul>
-                    </div>
-                </div>-->
+            <div class="header2" id="header2" ng-show="vm.loggeado">
+                <div class="navegacion">
+                    <ul class="bar_nav">
+                        <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
+                            <a ui-sref="{{opcion.estado}}">
+                                {{ opcion.texto }}
+                            </a>
+                            <ul ng-if="opcion.subEstados">
+                                <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>
+                            </ul>
+                        <li>
+                    </ul>
+                </div>
+            </div>-->
 
                 <div ui-view class="animatio ng-enter contenedor_global">
                 </div>
