@@ -16,7 +16,7 @@
         var tiposAnotacionesUrl = "/api/TipoAnotacion";
 
         $httpBackend.whenGET(tiposAnotacionesUrl).respond(tiposAnotaciones);
-        $httpBackend.expectGET(tiposAnotacionesUrl);
+        //$httpBackend.expectGET(tiposAnotacionesUrl);
 
         var tipoAnotacionRegExp = new RegExp(tiposAnotacionesUrl + "/[0.-9][0-9]*");
         $httpBackend.whenGET(tipoAnotacionRegExp).respond(function (method, url, data) {
@@ -57,5 +57,6 @@
         });
 
         $httpBackend.whenGET(/app/).passThrough();
+        $httpBackend.resetExpectations();
     } // end run function
 })();

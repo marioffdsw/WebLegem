@@ -19,7 +19,7 @@
         
         vm.tiposDoc = [];
         vm.tipoDocSeleccionado = undefined;
-        vm.editando = false;
+        vm.editando = false;        
 
 
 
@@ -34,6 +34,7 @@
         vm.remover = remover;
         vm.cancelar = cancelar;
         vm.aceptar = aceptar;
+        vm.nuevo = nuevo;
 
 
 
@@ -45,6 +46,7 @@
          **********************************************************************************/
 
         retrieveData();        
+
 
 
 
@@ -77,6 +79,10 @@
             TipoDocumentoResource.query(function (data) {
                 vm.tiposDoc = data;                
             });
+        }
+
+        function nuevo() {
+            vm.tipoDocSeleccionado = { id: 0, nombre: "" }
         }
 
 

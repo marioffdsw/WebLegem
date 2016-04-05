@@ -5,8 +5,8 @@
         .module("WebLegemApp")
         .controller("WebLegemAdminCrudController", WebLegemAdminCrudController);
 
-    WebLegemAdminCrudController.$inject = [ "$scope" ];
-    function WebLegemAdminCrudController( $scope ) {
+    WebLegemAdminCrudController.$inject = [ ];
+    function WebLegemAdminCrudController() {
         var vm = this;        
         vm.creando = false;
 
@@ -15,7 +15,8 @@
         vm.eliminar = eliminar;
 
         function nuevo() {            
-            vm.objetoSeleccionado = { id: 0, nombre: "" };
+            //vm.objetoSeleccionado = { id: 0, nombre: "" };
+            vm.nuevoCallback();
             vm.editando = true;
         } // end function nuevo
 

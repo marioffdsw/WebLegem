@@ -32,6 +32,7 @@
         vm.remover = remover;
         vm.cancelar = cancelar;
         vm.aceptar = aceptar;
+        vm.nuevo = nuevo;
 
 
 
@@ -82,6 +83,11 @@
         }
 
 
+        function nuevo() {
+            vm.tipoEntidadSeleccionado = { id: 0, nombre: "", documentosSoportados: [] };
+        }
+
+
         function crear(tipoEntidad) {
             TipoEntidadService.save(tipoEntidad, function (data) {
                 retrieveData();
@@ -92,7 +98,7 @@
 
         function guardar(tipoEntidad) {
             TipoEntidadService.update(tipoEntidad, function (data) {
-                for (var i = 0; i < vm.entidades.length; i++) {
+                for (var i = 0; i < vm.tiposEntidades.length; i++) {
                     if (vm.tiposEntidades[i].id == data.id) {
                         vm.tiposEntidades[i] = data;
                         break;

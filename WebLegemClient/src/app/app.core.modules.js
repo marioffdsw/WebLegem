@@ -8,8 +8,8 @@
         "WebLegemApp.GestionDocumental",
         "WebLegemApp.Busqueda",
         "WebLegemApp.Usuarios",
-        "common.services"/*,
-        "common.mocks",
+        "common.services",
+        "common.mocks",/*
 		"WebLegemApp.Auditoria",		
         "WebLegemApp.Noticias"*/
 	]);

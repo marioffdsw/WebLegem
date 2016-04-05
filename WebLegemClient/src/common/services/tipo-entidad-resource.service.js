@@ -7,7 +7,7 @@
 
     TipoEntidadService.$inject = [ "$resource", "serviceUrl" ]
     function TipoEntidadService($resource, serviceUrl) {
-        return $resource(serviceUrl + "/TipoEntidad", null, {
+        return $resource(serviceUrl + "/TipoEntidad/:id", null, {
             update: { method: "PUT" }
         });
     } // end TipoEntidad Service
