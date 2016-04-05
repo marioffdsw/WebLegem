@@ -33,7 +33,14 @@
 
                 <!--------------------------------------------------------------------------------------------------------->
 
-                <div ng-show="!vm.errorMessage && vm.documentosEncontrados.length > 0" class="contenedor_resulados_sort">
+                
+                
+                
+                <!-- ***********************************************
+                    QUITAAAAAAAAAAAAAAAAAAAAAAAAR LA PRIMERA PARTE DE
+                    LA COMPROBACION, SOLO CREADA PARA EL MOCK DE ANDRES
+                    ***********************************************-->
+                <div ng-show="(vm.arregloDocs) || (!vm.errorMessage && vm.documentosEncontrados.length > 0)" class="contenedor_resulados_sort">
 
                     <div style="margin:0 15px; border-bottom:1px solid #bbb;">
                         <wlegem-sort-busqueda style="margin-bottom:10px;"></wlegem-sort-busqueda>
@@ -42,7 +49,7 @@
                     <div class="res_bus">
                         <p>Documentos encontrados</p>
                         <div>
-                            <wlegem-resultado-busqueda loquesea="vm.documentosEncontrados" predicate="vm.predicate" reverse="vm.reverse"></wlegem-resultado-busqueda>
+                            <wlegem-resultado-busqueda loquesea="vm.arregloDocs" predicate="vm.predicate" reverse="vm.reverse"></wlegem-resultado-busqueda>
                         </div>
                     </div>
                 </div>
