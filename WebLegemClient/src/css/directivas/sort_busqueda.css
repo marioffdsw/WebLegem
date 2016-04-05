@@ -18,13 +18,13 @@
     display:inline;
     cursor:pointer;
     padding:5px 10px;
-    border:1px solid #ccc;
+    border:1px solid transparant;
     min-width:60px;
     transition:linear .2s;
 }
 
 .bar_ordenamiento li.active_filter{ 
-    box-shadow:inset 0 3px 0 #099472;
+    box-shadow: 0 3px 0 #099472;
     color:#099472;
     border-color:#099472;
 }
@@ -32,7 +32,7 @@
 .bar_ordenamiento li:hover{
     box-shadow:inset 0 0 0 2px #099472;
     color:#099472;
-    border-color:#099472;
+    border-color:#099472;    
 }
 
 .bar_ordenamiento li:first-child,

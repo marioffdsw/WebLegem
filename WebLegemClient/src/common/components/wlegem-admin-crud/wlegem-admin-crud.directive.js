@@ -15,7 +15,8 @@
             scope: {
                 objetoSeleccionado: "=",
                 editando: "=",                                  
-                eliminarCallback: "=eliminar"
+                eliminarCallback: "=eliminar",
+                nuevoCallback: "=nuevo"
             },
             bindToController: true
         };

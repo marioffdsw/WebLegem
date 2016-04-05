@@ -15,10 +15,10 @@
             { id: 5, nombre: "Carta" }
         ];
 
-        var tiposDocumentoUrl = "/api/TipoDocumento";
+        var tiposDocumentoUrl = "/api/TipoDocumento";        
 
         $httpBackend.whenGET(tiposDocumentoUrl).respond( tiposDocumento );
-        $httpBackend.expectGET( tiposDocumentoUrl );
+        //$httpBackend.expectGET( tiposDocumentoUrl );
 
         var tipoDocRegExp = new RegExp( tiposDocumentoUrl + "/[0.-9][0-9]*");
         $httpBackend.whenGET(tipoDocRegExp).respond(function (method, url, data) {
@@ -81,12 +81,11 @@
             var tipoDoc = { id: 0 };
             var parameters = url.split("/");
             var id = parameters[parameters.length - 1];
-            var id = parseInt(id);
-            console.log(id);
+            var id = parseInt(id);            
 
             if (id > 0) {
                 for (var i = 0; tiposDocumento.length; i++) {
-                    if (tiposDocumento[i].id = id) {
+                    if (tiposDocumento[i].id == id) {
                         tiposDocumento.splice(i, 1);
                         break;
                     } // end if
@@ -96,7 +95,7 @@
             return [200, null, {}];
         });
 
-        $httpBackend.expectDELETE(tipoDocRegExp);
+        //$httpBackend.expectDELETE(tipoDocRegExp);
 
         //$httpBackend.whenGET(/\.html$/).passThrough();
         //$httpBackend.whenGET(/\.css$/).passThrough();

@@ -24,7 +24,7 @@
                 vm.objetoSeleccionado = undefined;
             }
             else {
-                vm.objetoSeleccionado = tipo;
+                vm.objetoSeleccionado = angular.copy(tipo, {});
             }            
         } // end function                        
 

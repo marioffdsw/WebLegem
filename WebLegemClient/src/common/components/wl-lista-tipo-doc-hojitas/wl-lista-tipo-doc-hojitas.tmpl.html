@@ -14,9 +14,10 @@
                            name="check_name" 
                            type="checkbox" 
                            ng-disabled="!vm.editando" >
-                    <label class="styled1 note rounded" for="chk-td-{{tipoDoc.id}}" ng-class="vm.isAlreadyChecked(tipoDoc)? 'checked':''"
+                    <label class="styled1 note rounded" for="chk-td-{{tipoDoc.id}}"                            
+                           ng-class="vm.isAlreadyChecked(tipoDoc) ? 'checked' : ''"
                            ng-click="vm.checkearObjeto( tipoDoc )">
-                        <span class="escudo-udenar" style="font-size:60px;"> </span>
+                        <span class="escudo-udenar" style="font-size:60px;"></span>
                         {{ tipoDoc.nombre }}
                     </label>
                 </li>

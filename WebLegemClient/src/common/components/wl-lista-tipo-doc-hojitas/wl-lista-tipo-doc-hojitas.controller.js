@@ -8,12 +8,11 @@
     WlListaTipoDocHojitasController.$inject = ["TipoDocumentoResource"];
     function WlListaTipoDocHojitasController(TipoDocumentoResource) {
         var vm = this;        
-        vm.tiposDocumentos = [];
-        vm.documentosSoportados = [];
+        vm.tiposDocumentos = [];        
         //vm.editando = true;
         vm.checkearObjeto = checkearObjeto;
 
-        retrieveData();
+        retrieveData();        
 
         function retrieveData() {
             TipoDocumentoResource.query(function (data) {
@@ -21,7 +20,10 @@
             });
         }
 
-        function checkearObjeto( tipoDocumento ) {
+        function checkearObjeto(tipoDocumento) {            
+
+            console.log( vm.documentosSoportados );
+
             if (isAlreadyChecked(tipoDocumento)) {
                 var index = vm.documentosSoportados.indexOf(tipoDocumento);
                 vm.documentosSoportados.splice( index, 1 );

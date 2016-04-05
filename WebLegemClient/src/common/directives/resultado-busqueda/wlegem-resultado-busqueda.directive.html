@@ -1,4 +1,4 @@
-﻿<div class="tarjeta_news" ng-repeat="documento in vm.arregloDocs | orderBy: vm.predicate: vm.reverse">
+﻿<div ng-if="false" class="tarjeta_news" ng-repeat="documento in vm.arregloDocs | orderBy: vm.predicate: vm.reverse">
 
     <div class="titulo_tarjeta">        
         <a ng-click="vm.ver(documento.archivo)">{{ documento.tipoDocumento.nombre }} {{ documento.numero }} del {{ documento.fechaPublicacion | date: 'yyyy' }}</a>
@@ -17,7 +17,34 @@
         <a href="http://localhost:50555/api/Files/{{ documento.archivo }}">
             <span class="ico-download"></span>Descargar
         </a> 
-    </div>
-
+    </div>    
 </div>
 
+<!-- Mocks de Andres -->
+
+<!-- ***********************************************
+    QUITAAAAAAAAAAAAAAAAAAAAAAAAR LA PRIMERA PARTE DE
+    LA COMPROBACION, SOLO CREADA PARA EL MOCK DE ANDRES
+    ***********************************************-->
+
+<div ng-if="true" class="tarjeta_news" ng-repeat="documento in vm.arregloDocs">
+
+    <div class="titulo_tarjeta">
+        <a ng-click="vm.ver(documento.archivo)">{{ documento.tipoDocumento }} {{ documento.numero }} del {{ documento.fecha }}</a>
+    </div>
+
+    <div class="contenido_tarjeta">
+        {{ documento.asunto | limitTo: 250: 200 }}
+    </div>
+
+    <div class="subcontenido_tarjeta">
+        <a>Entidad: <i>{{ documento.entidad }} </i> | </a>
+        <a>Fecha: <i>{{ documento.fecha  }} </i> | </a>
+    </div>
+
+    <div class="control_tarjeta">
+        <a href="http://localhost:50555/api/Files/{{ documento.archivo }}">
+            <span class="ico-download"></span>Descargar
+        </a>
+    </div>
+</div>

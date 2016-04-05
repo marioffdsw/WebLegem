@@ -32,6 +32,7 @@
         vm.remover = remover;
         vm.cancelar = cancelar;
         vm.aceptar = aceptar;
+        vm.nuevo = nuevo;
 
 
 
@@ -79,6 +80,11 @@
             EntidadService.query(function (data) {
                 vm.entidades = data;                
             });
+        }
+
+
+        function nuevo() {
+            vm.entidadSeleccionada = { id: 0, nombre: "", tipoEntidad: {} };
         }
 
 
