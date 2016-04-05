@@ -1,48 +1,18 @@
 ﻿/*estilo general para inputs*/
 /*----------------------------------------*/
 .a_input{
+    display:flex;
     width:100%;
-    max-width:600px;
-    margin:0 0 10px 0;
-    line-height: 2.5em;
+    height:35px;
+    margin-bottom:8px;
+    margin-top:2px;
     padding: 0 10px;
-    
-    display:inline;
     border:1px solid #bbb; 
-    -o-transition:     box-shadow 0.4s;
-    -webkit-transition:box-shadow 0.4s;
-    -moz-transition:   box-shadow 0.4s;
-    transition:        box-shadow 0.4s;
 }
-
-
-.a_input:hover{
-    border-color:#999;
-}
-
-
-.a_input:-webkit-autofill {
-    outline:0;
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
-}
-
-.a_input:focus{
-    outline:0; 
-    border-color:#38ba8f;
-    border-width:2px;
-}
-  
-.a_input:-webkit-autofill:active,
-.a_input:-webkit-autofill:focus
- {  
-    outline:0;
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
-}
-
 
 /*-------------Input con boton----------------*/
 
-.box_input_ico{
+.box_input_btn,.box_input_ico{
     display:flex; 
     height:35px; 
     margin-bottom:8px;
@@ -50,8 +20,7 @@
     padding:0;
 }
 
-
-.input_text_ico{
+.input_text_btn{
     -ms-flex: 1;-webkit-flex: 1;flex: 1;
     display:block;
     width:100%;
@@ -61,40 +30,52 @@
     border-right:none;
 }
 
-
-.input_text_ico:-webkit-autofill {
-    outline:0;
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
-}
-
-
-.input_text_ico:-webkit-autofill:active,
-.input_text_ico:-webkit-autofill:focus
- {  
-    outline:0;
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
-}
-
-.input_text_ico:focus, .input_text_ico:focus ~ button{
-    outline:0; 
-    border-color:#38ba8f;
-    border-width:2px;
-}
-
-.input_text_ico:focus:hover, .input_text_ico:focus:hover ~ button{
+.input_text_btn:focus:hover, .input_text_btn:focus:hover ~ button{
     border-color:#38ba8f;
 }
-
-.input_text_ico:hover, .input_text_ico:hover ~ button{
-    border-color:#999;
-}
-
-.input_text_ico:focus ~ button > span{
+.input_text_btn:focus ~ button > span{
     visibility:visible;
 }
-.input_text_ico:focus ~ button:hover{
+.input_text_btn:focus ~ button:hover{
     background:rgba(0, 0, 0, 0.08);
 }
+
+
+/*------Input tex con icono------*/
+
+    .box_input_ico div:first-child{
+        -ms-flex: 1;-webkit-flex: 1;flex: 1;
+    }
+
+    .box_input_ico div:last-child{
+        flex-basis:35px;
+    }
+
+.input_text_ico{
+    display:block;
+    width:100%;
+    height:35px;
+    padding:0 10px;
+    border:1px solid #bbb; 
+    border-right:none;
+}
+.ico_input_text{
+    background:#0f745b;
+    width:100%; 
+    height:35px;
+    color:white;
+    font-size:large;
+}
+
+.ico_input_text span:before{
+    text-align:center;
+    height:100%;
+    display:block;
+    padding-top:9px;
+}
+
+/*---Fin Input tex con icono------*/
+
 /****************************/
 
 .btn_cancel{  
@@ -138,3 +119,57 @@
 /*--------- FIN Input con boton------------*/
 
 
+
+/*////////////////////// Eventos de los inputs //////////////////////////*/
+.a_input:hover,
+.input_text_ico:hover,
+.input_text_btn:hover,
+.input_text_btn:hover ~ button{
+    border-color:#888;
+}
+
+
+/*---- placeholder en mozilla y chrome ----*/
+.a_input:focus::-moz-placeholder,
+.input_text_ico:focus::-moz-placeholder,
+.input_text_btn:focus::-moz-placeholder{
+    color: #156815;
+    opacity:1;
+}
+
+.a_input:focus::-webkit-input-placeholder,
+.input_text_ico:focus::-webkit-input-placeholder,
+.input_text_btn:focus::-webkit-input-placeholder
+{
+    color: #156815;
+}
+/* ---FIN placeholder en mozilla y chrome----*/
+
+
+.a_input:-webkit-autofill,
+.input_text_btn:-webkit-autofill 
+.input_text_ico:-webkit-autofill 
+{
+    outline:0;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+.a_input:focus,
+.input_text_ico:focus,
+.input_text_btn:focus, 
+.input_text_btn:focus ~ button{
+    outline:0; 
+    border-color:#38ba8f;
+    border-width:2px;
+}
+  
+.a_input:-webkit-autofill:active,
+.a_input:-webkit-autofill:focus,
+.input_text_ico:-webkit-autofill:active,
+.input_text_ico:-webkit-autofill:focus,
+.input_text_btn:-webkit-autofill:active,
+.input_text_btn:-webkit-autofill:focus
+ {  
+    outline:0;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}

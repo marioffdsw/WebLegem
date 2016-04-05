@@ -4,13 +4,13 @@
 
     .box_left {
         flex: 1.5;
-        padding: 15px;
+        padding: 20px;
         box-shadow: 1px 0 0 #e2e2e2;
     }
 
     .box_right {
         flex: 3;
-        padding: 15px;
+        padding: 20px;
     }
 
     .controles_box_right {

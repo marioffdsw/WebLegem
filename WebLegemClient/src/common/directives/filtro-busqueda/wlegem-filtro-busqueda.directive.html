@@ -69,7 +69,7 @@
     <!----------------------------------------------------------------------------------------------------->
 
     <label class="subtitulos_labels animacion_filtro" ng-show="!vm.entidadEmisora ">Entidad emisora</label>
-    <div class="box_input_busqueda animacion_filtro" ng-show="!vm.entidadEmisora">
+    <div class="box_input_ico animacion_filtro" ng-show="!vm.entidadEmisora">
         <div>
             <div class="select_busqueda">
                 <select type="text" ng-options="entidad.nombre as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'"
@@ -87,7 +87,7 @@
     <!----------------------------------------------------------------------------------------------------->
 
     <label class="subtitulos_labels animacion_filtro" ng-show="!vm.tipoDocumento">Tipo de documento</label>
-    <div class="box_input_busqueda animacion_filtro" ng-show="!vm.tipoDocumento">
+    <div class="box_input_ico animacion_filtro" ng-show="!vm.tipoDocumento">
         <div>
             <div class="select_busqueda">
                 <select type="text" placeholder="Escriba entidad emisora" ng-model="vm.tipoDocumentoAux"
@@ -105,9 +105,9 @@
     <!----------------------------------------------------------------------------------------------------->
 
     <label class="subtitulos_labels animacion_filtro" ng-show="!vm.numero">Número de documento</label>
-    <div class="box_input_busqueda animacion_filtro" ng-show="!vm.numero">
+    <div class="box_input_ico animacion_filtro" ng-show="!vm.numero">
         <div>
-            <input type="text" class="input_text_busqueda" maxlength="10"
+            <input type="text" class="input_text_ico" maxlength="10"
                    name="numero" id="numero" ng-model="vm.numeroAux"
                    placeholder="Escriba número de documento" />
         </div>
@@ -122,9 +122,9 @@
     <!----------------------------------------------------------------------------------------------------->
 
     <label class="subtitulos_labels animacion_filtro" ng-show="!vm.anioPublicacion ">Año de publicación</label>
-    <div class="box_input_busqueda animacion_filtro" ng-show="!vm.anioPublicacion">
+    <div class="box_input_ico animacion_filtro" ng-show="!vm.anioPublicacion">
         <div>
-            <input type="text" class="input_text_busqueda" maxlength="4"
+            <input type="text" class="input_text_ico" maxlength="4"
                    name="anioPublicacion" id="anioPublicacion" ng-model="vm.anioPublicacionAux"
                    placeholder="Escriba año de publicación" />
         </div>

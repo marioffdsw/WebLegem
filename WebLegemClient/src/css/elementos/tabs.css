@@ -4,6 +4,8 @@
     width:100%;
     background:transparent;
     box-shadow: inset 0 -1px 0 0 #ccc;
+    
+    background:#eee;
 }
 
 .contenedor_tabs ul{
@@ -16,14 +18,10 @@
 
 .contenedor_tabs > ul > li{
     flex:1;
-    display:block;
-    padding:15px 25px;
-
-    vertical-align:middle;
+    display:flex;
+    padding:10px 25px;
     justify-content:center;
-    text-align:center;
-
-
+    background:white;
     cursor:pointer;
     -moz-transition: ease-out .3s;
     -o-transition: ease-out .3s;
@@ -63,7 +61,7 @@
 
 
 .contenedor_tabs > ul > li:hover {
-    background:rgba(0, 0, 0, 0.06);
+    background:rgba(0, 0, 0, 0.01);
     color:#2dbf85;
     -moz-transition: ease-in .3s;
     -o-transition: ease-in .3s;

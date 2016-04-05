@@ -7,16 +7,25 @@
             <ul>
                 <li ng-class="vm.$state.current.name =='administracion.tipo-documento' ? 'active_tab' : ''" 
                     ui-sref="administracion.tipo-documento" ng-click="vm.activo($event)">
-                    Tipo Documento
+                    
+                    <span class="ico-pagelines">
+                        <a>Tipo Documento</a>
+                    </span>
                 </li>
                 <li ng-class="vm.$state.current.name =='administracion.tipo-entidad' ? 'active_tab' : ''"
                      ui-sref="administracion.tipo-entidad" ng-click="vm.activo($event)">
-                    Tipo Entidad
+                    
+                    <span class="ico-krw">
+                        <a>Tipo Entidad</a>
+                    </span>
                 </li>
 
                 <li ng-class="vm.$state.current.name== 'administracion.entidad' ? 'active_tab': ''"
                      ui-sref="administracion.entidad" ng-click="vm.activo($event)">
-                    Entidad
+                    
+                    <span class="ico-envelope">
+                        <a>Entidad</a>
+                    </span>
                 </li>
                 <!--<li ui-sref="administracion.tipo-anotacion" ng-click="vm.activo($event)">
                     Tipo Anotacion

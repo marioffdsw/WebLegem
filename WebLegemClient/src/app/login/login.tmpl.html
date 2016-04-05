@@ -1,28 +1,26 @@
-﻿<div class="contenedor_login">
-
+﻿<div class="espacio_blanco"></div>
+<div class="contenedor_login">
+    
     <div>
-        <div class="titulo">LEGEM</div>
-        <form class="form_login" name="form_login" novalidate>
+        <div class="titulo">
+            Ingreso al sistema
+        </div>
 
-            <div class="subtitulo">
-                <p>Ingreso al Sistema</p>
-            </div>
+        <form class="form_login" name="form_login" novalidate>   
 
             <!----------------------------------------------------->
             <div ng-messages ng-show="form_login.usuario.$invalid">
                 <div class="a_validacion" ng-message ng-show="form_login.usuario.$dirty">Complete este campo.</div>
             </div>
-                
 
-            <div class="box_input_busqueda" >
+
+            <div class="box_input_ico inputs_login">
                 <div style=" background:#fff;">
-                <input required name="usuario" class="input_text_busqueda" id="user" type="text" ng-model="vm.user.nombre"
-                       placeholder="Nombre de Usuario *" />
-            </div>
-                <div>
-                    <button class="btn_search_avanzada">
-                        <span class=" ico-user"></span>
-                    </button>
+                    <input required name="usuario" class="input_text_ico" id="user" type="text" ng-model="vm.user.nombre"
+                           placeholder="Nombre de Usuario *" />
+                </div>
+                <div class="ico_input_text">
+                    <span class=" ico-user"></span>
                 </div>
             </div>
 
@@ -31,27 +29,28 @@
                 <div class="a_validacion" ng-message ng-show="form_login.password.$dirty">Complete este campo.</div>
             </div>
 
-            <div class="box_input_busqueda ">
+            <div class="box_input_ico inputs_login">
                 <div style="background:#fff;">
-                    <input required class="input_text_busqueda" name="password" type="password" ng-model="vm.user.password"
+                    <input required class="input_text_ico" name="password" type="password" ng-model="vm.user.password"
                            placeholder="Contraseña *" />
                 </div>
-                <div>
-                    <button class="btn_search_avanzada">
-                        <span class=" ico-lock"></span>
-                    </button>
+                <div class="ico_input_text">
+                    <span class=" ico-lock"></span>
                 </div>
             </div>
-
             <!----------------------------------------------------->
+            
+
             <div>
-                <div class="a_validacion" style="padding-bottom:20px; color:#444">* Campos obligatorios.</div>
+                <div class="a_validacion" style="padding-bottom:10px; color:#444">* Campos obligatorios.</div>
             </div>
+
             <div class="a_centrado">
                 <button class="btn_con_ico" type="submit" ng-click="vm.logIn()">
                     <span class="ico-sign-in tamano_botones_1"></span>INGRESAR
                 </button>
             </div>
+
 
             <a href="#" class="olvide_contraseña"> Olvide mi contraseña </a>
         </form>

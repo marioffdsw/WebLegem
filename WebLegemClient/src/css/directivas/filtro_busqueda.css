@@ -1,34 +1,4 @@
-﻿
-/*------inputs y select ------*/
-
-.box_input_busqueda{
-    display:flex; 
-    height:35px; 
-    margin-bottom:8px;
-    margin-top:2px;
-    padding:0;
-}
-
-    .box_input_busqueda div:first-child{
-        -ms-flex: 1;-webkit-flex: 1;flex: 1;
-    }
-
-    .box_input_busqueda div:last-child{
-        flex-basis:35px;
-    }
-
-/*------Input tex Busqueda------*/
-.input_text_busqueda{
-    display:block;
-    width:100%;
-    height:35px;
-    padding:0 10px;
-    border:1px solid #999; 
-    border-right:none;
-}
-/*---Fin Input tex Busqueda---*/
-
-/*------Select input Busqueda---------*/
+﻿/*------Select input Busqueda---------*/
 
 .select_busqueda{
     display:flex; 
