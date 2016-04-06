@@ -1,7 +1,10 @@
 ﻿.a_news {
     background: #fff;
     width: 100%;
-    background:#fafbfe;
+    background: #fafbfe;
+    background-image: url('../../recursos/header/IMG_2713P.jpg');
+    background-size:cover;
+    
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -14,7 +17,8 @@
     flex-direction:column;    
     justify-content:center;
     align-content:center;
-    color:#777;
+    color:#FFF;
+    background:rgba(0, 0, 0, 0.66);
     border-top: 10px solid #777;
     border-bottom:1px solid #ccc;
     font-family:'Lato-Regular';
@@ -31,7 +35,6 @@
 /*-----container news-----*/
 .container_news {
     min-height:100vh;
-    background:red;
     align-self:center;
     display:flex;
     flex-direction:column;
@@ -52,33 +55,24 @@
 /*---fin container news-----*/
 
 .tarjeta_news{
-    max-width:48%;
-    min-width:10%;
-    width:45%;
     padding:20px; 
     box-shadow:0 0 0 1px rgba(0, 0, 0, 0.05),0 1px 2px rgba(0, 0, 0, 0.3);
-    background:#fff;
+    background:rgba(255, 255, 255, 0.82);
     margin:10px;
 }
 
-
 /*==========  Mobile First Method  ==========*/
 
-/* Custom, iPhone Retina */ 
-@media only screen and (max-width : 320px) {
-    .form_login{
-        height:100vh;
-    }
-    .contenedor_login{
+@media only screen and (min-width : 0) {
+    .tarjeta_news {
+        width: 100%;
     }
 }
 
-
+/* Custom, iPhone Retina */ 
 @media only screen and (min-width : 320px) {
-    .contenedor_login{
-        margin: auto;
-        
-        margin-top:10vh;
+    .tarjeta_news {
+        width: 100%;
     }
 }
 
@@ -93,8 +87,14 @@
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
+    .tarjeta_news {
+        width: 45%;
+    }
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
+    .tarjeta_news {
+        width: 48%;
+    }
 }

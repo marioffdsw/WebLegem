@@ -1,4 +1,19 @@
 ﻿/*--------  Tarjeta Noticias -------*/
+.tarjeta_busqueda{
+    font-family:'Lato-Regular';
+    color:#555;
+    overflow:hidden;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-self:center;
+    margin:0;
+    position:relative;
+    padding:15px;
+}
+
+
 .titulo_tarjeta {
     display:flexbox; 
     font-family: 'OpenSans-Bold';

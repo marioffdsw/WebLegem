@@ -1,4 +1,4 @@
-﻿<div ng-if="false" class="tarjeta_news" ng-repeat="documento in vm.arregloDocs | orderBy: vm.predicate: vm.reverse">
+﻿<div ng-if="false" class="tarjeta_busqueda" ng-repeat="documento in vm.arregloDocs | orderBy: vm.predicate: vm.reverse">
 
     <div class="titulo_tarjeta">        
         <a ng-click="vm.ver(documento.archivo)">{{ documento.tipoDocumento.nombre }} {{ documento.numero }} del {{ documento.fechaPublicacion | date: 'yyyy' }}</a>
@@ -27,7 +27,7 @@
     LA COMPROBACION, SOLO CREADA PARA EL MOCK DE ANDRES
     ***********************************************-->
 
-<div ng-if="true" class="tarjeta_news" ng-repeat="documento in vm.arregloDocs">
+<div ng-if="true" class="tarjeta_busqueda" ng-repeat="documento in vm.arregloDocs">
 
     <div class="titulo_tarjeta">
         <a ng-click="vm.ver(documento.archivo)">{{ documento.tipoDocumento }} {{ documento.numero }} del {{ documento.fecha }}</a>
