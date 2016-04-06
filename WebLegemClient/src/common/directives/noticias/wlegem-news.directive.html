@@ -1,30 +1,13 @@
-﻿<div class="a_news">
+﻿<div class="a_news" ng-controller="Homero as vm">
 
     <div class="titulo_news">
 
-        <!--<img src="recursos/header/escudo_negro.png" />-->
         <div>
             <p>Actualidad Documental</p>
         </div>
 
-        
     </div>
-       <!-- <div class="forma_institucional">
-            <svg viewBox="0 0 1000 500" preserveAspectRatio="none" width="100%" height="100%">
-                <polygon points="0,500 500,0 1000,0 1000,500 0,500" fill="#076633"></polygon>
-                <polygon points="750,500 899,300 1000,500 650,500" fill="#F8EA1B"></polygon>
-                <polygon points="750,0 1000,0 1000,500 750,0" fill="#3AAA35"></polygon>
-                <text x=350 y=250 font-family="arial" font-size="75px" fill="#eee" font-stretch="extra-expanded">
-                    Acreditación
-                </text>
-                <text x=350 y=320 font-family="arial" font-size="75" font-weight="bolder" fill="#eee">
-                    Institucional
-                </text>
-                <text x=350 y=370 font-family="OpenSans" font-size="35" fill="#eef">
-                    Una expresión de atonomía
-                </text>
-            </svg>
-        </div>-->
+
 
     <div class="container_news">
         <div style="align-self:center;">
@@ -36,37 +19,40 @@
             <button class="btn_sin_ico">ver todos</button>
         </div>
 
-        <div class="news_left" style="display:flex; flex-wrap:wrap;">
-            
+        <div class="news_left" style="display:flex; flex-wrap:wrap;" >
+
             <style>
                 .ico-download span a {
                     color: gray;
                     text-decoration: none;
                 }
             </style>
-            
-            <div class="tarjeta_news" style="min-width:400px;" ng-repeat="documento in vm.documentos">
 
-                <div class="titulo_tarjeta">
-                    <a href="#">{{ documento.tipoDocumento.nombre }} {{ documento.numero }} del {{ documento.fechaPublicacion | date: 'yyyy' }}</a>
+
+            <div style="width:100%;display:flex; flex-wrap:wrap;justify-content:space-between;margin:0 20px;">
+                <div ng-if="true" class="tarjeta_news" ng-repeat="documento in vm.arregloDocs">
+
+                    <div class="titulo_tarjeta">
+                        <a ng-click="vm.ver(documento.archivo)">{{ documento.tipoDocumento }} {{ documento.numero }} del {{ documento.fecha }}</a>
+                    </div>
+
+                    <div class="contenido_tarjeta">
+                        {{ documento.asunto | limitTo: 250: 200 }}
+                    </div>
+
+                    <div class="subcontenido_tarjeta">
+                        <a>Entidad: <i>{{ documento.entidad }} </i> | </a>
+                        <a>Fecha: <i>{{ documento.fecha  }} </i> | </a>
+                    </div>
+
+                    <div class="control_tarjeta">
+                        <a href="http://localhost:50555/api/Files/{{ documento.archivo }}">
+                            <span class="ico-download"></span>Descargar
+                        </a>
+                    </div>
                 </div>
-
-                <div class="contenido_tarjeta">
-                    {{ documento.asunto | limitTo: 250: 200 }}
-                </div>
-
-                <div class="subcontenido_tarjeta">
-                    <a>Entidad: <i>{{ documento.entidad.nombre }} </i> | </a>
-                    <a>Fecha: <i>{{ documento.fechaPublicacion | date: 'dd/MM/yyyy' }} </i> | </a>
-                </div>
-
-                <div class="control_tarjeta">
-                    <a href="http://localhost:50555/api/Files/{{ documento.archivo }}">
-                        <span class="ico-download"></span>   Descargar
-                    </a>
-                </div>
-
             </div>
-                
+
         </div>
+    </div>
 </div>

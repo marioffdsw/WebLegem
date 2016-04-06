@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     border-bottom: 5px solid #aaa;
-    padding: 0 80px;
+    padding: 0;
 }
 
 .titulo_news{
@@ -25,27 +25,13 @@
     position:relative;
     overflow:hidden;
     text-align:center;
-
-}
-
-.titulo_news img{
-    width:95px;
-    height:95px;
-    margin-right:20px;
-}
-
-.forma_institucional{
-    position:absolute;
-    top:0;
-    right:0;
-    width:400px; 
-    height:110px;
 }
 
 
 /*-----container news-----*/
 .container_news {
     min-height:100vh;
+    background:red;
     align-self:center;
     display:flex;
     flex-direction:column;
@@ -63,61 +49,52 @@
     margin:10px 0; 
 }
 
-@media (min-width: 1200px) { 
-    .container_news {
-        width: 100%;
-    }
-    .tarjeta_news {
-        min-width:100px; 
-        margin:10px 20px;
-    }
-
-    .news_left{
-        justify-content:center;
-    }
-}
-
-
-
-@media (max-width: 1200px) { 
-    .container_news {
-    width: 100%;
-    }
-    .tarjeta_news {
-        min-width:100px; 
-    }
-    
-    .news_left{
-        justify-content:center;
-    }
-}
-
-
-@media (max-width: 1100px) { 
-    .container_news {
-    width: 100%;
-    }
-    .tarjeta_news {
-        min-width:100px; 
-    }
-     .news_left{
-    justify-content:space-around;
-
-    }
-    
-}
-
-@media (max-width: 800px) { 
-    .container_news {
-    width: 90%;
-    }
-}
-
-@media (max-width: 600px) { 
-    .container_news {
-    width: 100%;
-    }
-}
-
-
 /*---fin container news-----*/
+
+.tarjeta_news{
+    max-width:48%;
+    min-width:10%;
+    width:45%;
+    padding:20px; 
+    box-shadow:0 0 0 1px rgba(0, 0, 0, 0.05),0 1px 2px rgba(0, 0, 0, 0.3);
+    background:#fff;
+    margin:10px;
+}
+
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+    .form_login{
+        height:100vh;
+    }
+    .contenedor_login{
+    }
+}
+
+
+@media only screen and (min-width : 320px) {
+    .contenedor_login{
+        margin: auto;
+        
+        margin-top:10vh;
+    }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+}
