@@ -1,24 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq;
-using System.Web;
 using NSOCRLib;
-using System.Diagnostics;
-using System.IO;
-using Ghostscript.NET.Processor;
-using System.Drawing;
-using System.Text;
-using System.Threading.Tasks;
-using Ghostscript.NET;
 
-namespace WebLegemAPI.OCR
+namespace OcrApi.Models.Ocr.Nicomsoft
 {
-    public partial class NiconsoftOcr : IPdfToText
-    {      
-        public String Convertir( String path, String fileName)
+    public partial class NiconsoftOcr
+    {
+
+        public String Convertir(String path, String fileN)
         {
-            String fullFileName = path + @"\" + fileName;            
+            String fileName = path + @"\" + fileN;            
 
             int CfgObj, OcrObj, ImgObj, SvrObj, res;
             string txt;
@@ -63,7 +53,7 @@ namespace WebLegemAPI.OCR
 
             //NsOCR.Cfg_SaveOptions( CfgObj, @"C:\pruebas\Config.dat" );
 
-            res = NsOCR.Img_LoadFile(ImgObj, fullFileName);
+            res = NsOCR.Img_LoadFile(ImgObj, fileName);
 
             if (res > TNSOCR.ERROR_FIRST) { }; //insert error handler here
             if (res == TNSOCR.ERROR_CANNOTLOADGS) { Console.WriteLine("Cannot load GS"); }
