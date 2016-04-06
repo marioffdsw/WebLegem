@@ -10,23 +10,24 @@
 
 
     <div class="container_news">
-        <div style="align-self:center;">
-            <select class="select a_input" style="width:400px;" ng-model="vm.entidadFiltro" ng-change="vm.cargarDocumentos()">
-                <option ng-repeat="entidad in vm.entidades" ng-value="entidad.nombre">{{entidad.nombre}}</option>
-                <option ng-value="null">Ninguna</option>
-            </select>
-            <span class="span_select  ico-angle-down"></span>
-            <button class="btn_sin_ico">ver todos</button>
+
+        <div style="align-self:center;padding: 0 40px;  display:flex;">
+            <div class="box_input_ico" style="width:400px;">
+                    <div class="select_busqueda">
+                        <select ng-model="vm.entidadFiltro" ng-change="vm.cargarDocumentos()">
+                            <option ng-repeat="entidad in vm.entidades" ng-value="entidad.nombre">{{entidad.nombre}}</option>
+                            <option ng-value="null">Ninguna</option>
+                        </select>
+                    </div>       
+            </div>
+
+            <button class="btn_sin_ico" style="margin-left:20px;">ver todos</button>
         </div>
+
 
         <div class="news_left" style="display:flex; flex-wrap:wrap;" >
 
-            <style>
-                .ico-download span a {
-                    color: gray;
-                    text-decoration: none;
-                }
-            </style>
+           
 
 
             <div style="width:100%;display:flex; flex-wrap:wrap;justify-content:space-between;margin:0 20px;">
