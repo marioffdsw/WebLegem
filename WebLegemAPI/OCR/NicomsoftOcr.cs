@@ -14,38 +14,11 @@ using Ghostscript.NET;
 
 namespace WebLegemAPI.OCR
 {
-    public partial class NiconsoftOcr
-    {
-
-        public String Convertir( String path, String fileN)
+    public partial class NiconsoftOcr : IPdfToText
+    {      
+        public String Convertir( String path, String fileName)
         {
-            String fileName = path + @"\" + fileN;
-            /*String ruta = path + @"\img\";
-            String extension;
-
-            extension = Path.GetExtension(fileName);            
-            
-            if (extension.Equals(".pdf"))
-            {
-                String[] Imagenes;
-                Imagenes = ConvertirPdfToImage(fileName);
-
-                for (int i = 0; i < Imagenes.Length; i++)
-                {
-                    texto += ConvertirImageToText(Imagenes[i]);
-                }
-
-                foreach (string filePath in Imagenes)
-                {
-                    //File.Delete(filePath);
-                }
-            }
-            else
-            {
-                //path = ConvertirImageToText(fileName);
-            }
-
-            return texto;*/
+            String fullFileName = path + @"\" + fileName;            
 
             int CfgObj, OcrObj, ImgObj, SvrObj, res;
             string txt;
@@ -82,20 +55,31 @@ namespace WebLegemAPI.OCR
             NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "ImgAlizer/AutoRotate", "0");
             NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "ImgAlizer/AutoScale", "1");
             NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "ImgAlizer/NoiseFilter", "0");
-            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Main/FastMode", "2");
-            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Main/GrayMode", "2");
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Main/FastMode", "0");
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Main/GrayMode", "1");
             NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Zoning/OneZone", "1");
             NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "WordAlizer/SplitCombine", "0");
             #endregion
 
+            #region optimizations
+            NsOCR.Cfg_SetOption( CfgObj, TNSOCR.BT_DEFAULT, "Main/CharFactors", "[|!#$%&/()=?¿¡[]{}`^¬ 0.25][ñÑ 1.5][abcdefghijklmnopqrstuvxyz.,123456789 1.2]" );
+            NsOCR.Cfg_SetOption( CfgObj, TNSOCR.BT_DEFAULT, "Zoning/ZonesFactor", "0.5" );
+            NsOCR.Cfg_SetOption( CfgObj, TNSOCR.BT_DEFAULT, "Zoning/OneColumn", "1" ); // 0 = more columns, 1 = just one column
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Zoning/FindTables", "1"); // 0 = do not find tables, 1 = search for tables
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Linezer/RemoveGarbage", "1"); // 1 = apply algorithm to remove garbage, 0 = do not apply algorithm
+            NsOCR.Cfg_SetOption(CfgObj, TNSOCR.BT_DEFAULT, "Linezer/RemoveGarbage", "1"); // 1 = apply algorithm to remove garbage, 0 = do not apply algorithm
+            NsOCR.Cfg_SetOption( CfgObj, TNSOCR.BT_DEFAULT, "Dictionaries/UseDictionary", "1" ); // 0= do not use dictionary, 1 = use dictionary
+            #endregion
+
             //NsOCR.Cfg_SaveOptions( CfgObj, @"C:\pruebas\Config.dat" );
 
-            res = NsOCR.Img_LoadFile(ImgObj, fileName);
+            res = NsOCR.Img_LoadFile(ImgObj, fullFileName);
 
             if (res > TNSOCR.ERROR_FIRST) { }; //insert error handler here
             if (res == TNSOCR.ERROR_CANNOTLOADGS) { Console.WriteLine("Cannot load GS"); }
 
             Console.WriteLine("Stating OCR");
+
             //res = NsOCR.Img_OCR(ImgObj, TNSOCR.OCRSTEP_FIRST, TNSOCR.OCRSTEP_LAST, TNSOCR.OCRFLAG_NONE);
             int pages = NsOCR.Img_GetPageCount(ImgObj);
             res = NsOCR.Ocr_ProcessPages(ImgObj, SvrObj, 0, pages, 0, TNSOCR.OCRFLAG_NONE);

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace WebLegemAPI.OCR
 {
-    interface IOcrPdfToText
+    public interface IPdfToText
     {
-        String Convertir(String path);
+        String Convertir(String path, String fileName );        
     }
 }

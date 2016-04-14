@@ -8,6 +8,7 @@ using Ninject.Web.Common;
 using WebLegemDAL;
 using WebLegemDAL.QueryObjects;
 using WebLegemDAL.Archivo;
+using WebLegemAPI.OCR;
 
 namespace WebLegemAPI.Infrastructure
 {
@@ -51,9 +52,13 @@ namespace WebLegemAPI.Infrastructure
             kernel.Bind<IDataAccessObject<Entidad>>().To<EntidadDAO>().InRequestScope();
             kernel.Bind<IDataAccessObject<Archivo>>().To<ArchivoDAO>().InRequestScope();
             kernel.Bind<IDataAccessObject<DocumentoConContenido>>().To<DocumentoConContenidoDAO>().InRequestScope();
+            
 
             // bindings para gestor de consultas
-            kernel.Bind<IGestorDeConsultas<DocumentoConContenidoQueryObject, DocumentoConContenido>>().To<DocumentoConContenidoDAO>().InRequestScope();                       
+            kernel.Bind<IGestorDeConsultas<DocumentoConContenidoQueryObject, DocumentoConContenido>>().To<DocumentoConContenidoDAO>().InRequestScope();
+
+            // bindings para el servicio OCR
+            kernel.Bind<IPdfToText>().To<NiconsoftOcr>().InRequestScope();
         }
     }
 }

@@ -18,12 +18,13 @@ namespace WebLegemAPI.Controllers
     [EnableCorsAttribute("*", "*", "*")]
     public class FilesController : ApiController
     {
-        NiconsoftOcr ocr = new NiconsoftOcr();
+        IPdfToText ocr;
         IDataAccessObject<Archivo> archivoDAO;
 
-        public FilesController(IDataAccessObject<Archivo> archivoDAO) : base()
+        public FilesController(IDataAccessObject<Archivo> archivoDAO, IPdfToText ocr) : base()
         {
             this.archivoDAO = archivoDAO;
+            this.ocr = ocr;
         }
 
         public Task<IHttpActionResult> Post()
