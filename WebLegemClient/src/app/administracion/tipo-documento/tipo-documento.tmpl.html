@@ -1,34 +1,33 @@
-﻿<div class="contenido">
-    <section class="layout_padre">
-        
-        <wl-lista-tipo-doc class="hijo_left"
-            lista="vm.tiposDoc" 
-            objeto-seleccionado="vm.tipoDocSeleccionado"
-            editando="vm.editando">
-        </wl-lista-tipo-doc>        
-        
-        <div class="hijo_right">
-            <wl-admin-crud  objeto-seleccionado="vm.tipoDocSeleccionado"
-                editando="vm.editando"
-                nuevo="vm.nuevo"
-                eliminar="vm.remover">
-            </wl-admin-crud>
+﻿<div class="box_father">
 
-            <label class="texto_labels">Nombre del tipo documento</label>
+    <div class="box_left">
+        <wl-lista-tipo-doc lista="vm.tiposDoc"
+                           objeto-seleccionado="vm.tipoDocSeleccionado"
+                           editando="vm.editando">
+        </wl-lista-tipo-doc>
+    </div>
 
-            <form class="form_tipo_entidad">
-                <input class="a_input input_administracion"
-                    ng-disabled="!vm.editando || !vm.tipoDocSeleccionado" 
-                    type="text"
-                    ng-model="vm.tipoDocSeleccionado.nombre" 
-                    required placeholder="Ingrese nombre" />
-            </form>
+    <div class="box_right">
+        <wl-admin-crud objeto-seleccionado="vm.tipoDocSeleccionado"
+                       editando="vm.editando"
+                       nuevo="vm.nuevo"
+                       eliminar="vm.remover">
+        </wl-admin-crud>
+
+        <label class="texto_labels">Nombre del tipo documento</label>
+
+        <form>
+            <input class="a_input"
+                   ng-disabled="!vm.editando || !vm.tipoDocSeleccionado"
+                   type="text"
+                   ng-model="vm.tipoDocSeleccionado.nombre"
+                   required placeholder="Ingrese nombre" />
+        </form>
 
 
-            <wl-confirmacion editando="vm.editando"
-                aceptar="vm.aceptar"
-                cancelar="vm.cancelar">
-            </wl-confirmacion>
-        </div>
-    </section>
+        <wl-confirmacion editando="vm.editando"
+                         aceptar="vm.aceptar"
+                         cancelar="vm.cancelar">
+        </wl-confirmacion>
+    </div>
 </div>

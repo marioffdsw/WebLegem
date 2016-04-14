@@ -178,6 +178,7 @@
     <script src="common/directives/mini-footer/wlegem-mini-footer.directive.js"></script>
     <script src="common/directives/filtro-busqueda/wlegem-filtro-busqueda.directive.js"></script>
     <script src="common/directives/sort-busqueda/wlegem-sort-busqueda.directive.js"></script>
+    <script src="common/directives/fotografia/fotografia.directive.js"></script>
 
     <script src="common/directives/resultado-busqueda/wlegem-resultado-busqueda.controller.js"></script>
     <script src="common/directives/resultado-busqueda/wlegem-resultado-busqueda.directive.js"></script>
@@ -238,6 +239,7 @@
                                     ng-show="vm.$state.current.name == 'home'">
                                 <span class="ico-newspaper-o"></span>
                                 <p>Actualidad</p>
+                                
                             </button>
 
 
@@ -278,26 +280,12 @@
                         </div>
                     </div>
                 </div>
-                <!--
-            <div class="header2" id="header2" ng-show="vm.loggeado">
-                <div class="navegacion">
-                    <ul class="bar_nav">
-                        <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
-                            <a ui-sref="{{opcion.estado}}">
-                                {{ opcion.texto }}
-                            </a>
-                            <ul ng-if="opcion.subEstados">
-                                <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>
-                            </ul>
-                        <li>
-                    </ul>
-                </div>
-            </div>-->
 
                 <div ui-view class="animatio ng-enter contenedor_global">
                 </div>
             </div>
         </section>
+
         <section id="homero">
             <wlegem-news ng-show="vm.$state.current.name == 'home'"></wlegem-news>
         </section>

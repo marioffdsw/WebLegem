@@ -1,16 +1,4 @@
-﻿.tapiz {
-    display: flex;
-    -ms-flex-direction: column;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    width: 100%;
-    background-color:#e9eaed;
-}
-
-.contenedor_busqueda{
+﻿.contenedor_busqueda{
     background:transparent;
     width:90%;
     margin-bottom:20px;
