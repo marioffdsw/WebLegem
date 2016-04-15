@@ -1,82 +1,36 @@
 ﻿<div class="box_father">
-
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~1-->
+   
     <div class="box_left">
-        <div class="box_input_btn">           
-            <input type="text" class="input_text_btn" maxlength="20" placeholder="Filtro" />           
-            <button class="btn_cancel" title="Quitar filtro" disabled>
-                <span class="ico-plus"></span>
-            </button>           
-        </div>
-
-        <p class="texto_labels green bold">Roles</p>
-        <ul class="a_listado" style="width:100%;">
-            <li>
-                <input type="radio" class="styled" id="a" name="a"/>
-                <label class="styled"  for="a">
-                    super su
-                </label>
-            </li>
-            <li>
-                <input type="radio" class="styled" id="b" name="b" />
-                <label class="styled" for="b">
-                    administrador
-                </label>
-            </li>
-            <li>
-                <input type="radio" class="styled" id="b" name="b" />
-                <label class="styled" for="b">
-                    administrador
-                </label>
-            </li>
-        </ul>
+        <wl-lista-roles lista="vm.roles"
+                objeto-seleccionado="vm.rolSeleccionado"
+                editando="vm.editando">
+        </wl-lista-roles>
     </div>
-
-
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~2-->
+        
     <div class="box_right">
-        <wl-admin-crud objeto-seleccionado="vm.entidadSeleccionada"
-                       editando="vm.editando"
-                       nuevo="vm.nuevo"
-                       eliminar="vm.remover">
+        <wl-admin-crud objeto-seleccionado="vm.rolSeleccionado"
+                editando="vm.editando"
+                nuevo="vm.nuevo"
+                eliminar="vm.remover">
         </wl-admin-crud>
 
         <p class="texto_labels green bold">Nombre</p>
-        <input class="a_input" />
+        <input  class="a_input"
+                type="text"
+                required
+                placeholder="Ingrese Nombre"
+                ng-disabled="!vm.editando || !vm.rolSeleccionado"                
+                ng-model="vm.rolSeleccionado.nombre" />
 
         <p class="texto_labels green bold">Permisos</p>
 
         
-        <div class="contenedor_permisos" ng-repeat="modulo in vm.modulos">
-            <div class="titulo_modulo">
-                <p class="texto_labels">{{ modulo.nombre }}</p>
-                <p class="estado_permiso">Permitir todo</p>
-                <div class="switch_container">
-                    <input type="checkbox" id="switch1" name="switch1"
-                           class="switch" />
-                    <label for="switch1"></label>
-                </div>
-            </div>
-            <!--aqui va el ng-repeat-->
-            <div class="permiso_submodulo" ng-repeat="permiso in vm.permisos | filter:modulo.nombre ">
-                <hr ng-if="permiso.id % 4 === 0" />
-                <p>{{ permiso.id }} {{ permiso.accion.nombre }} {{ permiso.recurso.nombre }}</p>
-                <p class="estado_permiso">No permitido</p>
-                
-                <div class="switch_container">
-                    <input type="checkbox" id="sw_permisos_{{permiso.id}}" name="sw_permisos_{{permiso.id}}"
-                           class="switch" />
-                    <label for="sw_permisos_{{permiso.id}}"></label>
-                </div>
-                
-            </div>            
-        </div>        
+        <wl-lista-permisos editando="vm.editando"
+                permisos-asignados="vm.rolSeleccionado.permisos"></wl-lista-permisos>
 
         <wl-confirmacion editando="vm.editando"
                          aceptar="vm.aceptar"
                          cancelar="vm.cancelar">
         </wl-confirmacion>
-
     </div>
-
 </div>

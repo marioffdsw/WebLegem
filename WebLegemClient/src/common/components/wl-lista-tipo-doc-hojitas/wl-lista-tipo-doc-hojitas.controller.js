@@ -20,25 +20,25 @@
             });
         }
 
-        function checkearObjeto(tipoDocumento) {            
-
-            console.log( vm.documentosSoportados );
+        function checkearObjeto(tipoDocumento) {                       
 
             if (isAlreadyChecked(tipoDocumento)) {
                 var index = vm.documentosSoportados.indexOf(tipoDocumento);
                 vm.documentosSoportados.splice( index, 1 );
-            }
+            } // end if
             else {
                 vm.documentosSoportados.push( tipoDocumento );
-            }            
+            } // end else
         } // end function
 
         function isAlreadyChecked(tipoDocumento) {
+
             for (var i = 0; i < vm.documentosSoportados.length; i++) {
                 if (angular.equals(vm.documentosSoportados[i].id, tipoDocumento.id)) {
                     return true;
                 }
             } // end for
+
             return false;                
         } // end function
 
