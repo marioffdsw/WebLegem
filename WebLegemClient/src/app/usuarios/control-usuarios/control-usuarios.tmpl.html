@@ -24,10 +24,6 @@
                 </label>
             </li>
         </ul>
-        <button ewl wl-onload="vm.doIt()">Do It</button>
-
-        <button ewl wl-onhover="vm.doIts()">Do It2</button>
-
     </div>
 
 
@@ -39,16 +35,40 @@
                        nuevo="vm.nuevo"
                        eliminar="vm.remover">
         </wl-admin-crud>
+        <modal-dialog show="vm.camaraToggle">
+            <div class='ng-modal-close'>
+                <button class="btn_ico" title="Cerrar dialogo" ng-click="vm.cerrarCamara()">
+                    <span class=" ico-times"></span>
+                </button>
+            </div>
 
+            <div class="canvas_container">
+                <video ng-show="vm.foto" id="camaraUsu" width="320" height="240" autoplay></video>
+                <canvas ng-show="!vm.foto" id="fotoUsu" width="320" height="240"></canvas>
+            </div>
+
+            <div id="botonera">
+                <button ng-show="vm.foto" class="btn_con_ico" ng-click="vm.snapshot(); vm.foto = !vm.foto;">
+                    <span class="ico-camera tamano_botones_1"></span>Tomar foto
+                </button>
+                <button ng-show="!vm.foto" class="btn_con_ico" ng-click="vm.repetirFoto();vm.foto = !vm.foto;">
+                    <span class="ico-camera tamano_botones_1"></span>Repetir foto
+                </button>
+                <button ng-show="!vm.foto" class="btn_con_ico" ng-click="vm.guardarFoto()">
+                    <span class="ico-camera tamano_botones_1"></span>Guardar foto
+                </button>
+            </div>
+        </modal-dialog>
         <div class="box_duo_input">
             <div>
                 <p class="texto_labels green">Fotografia</p>
                 <div class="box_fotografia">
                     <div class="foto_usuarios">
-                        <img src="" id="laimagen" style="height:100%; width:100%;"/>
-                        <input type="file" id="input_usu_foto"/>
+                        <span class="ico-user" ng-show="!vm.trash"></span>
+                        <img src="" id="laimagen" ewl wl-load="vm.mostrarFoto();" />
+                        <input type="file" id="input_usu_foto" />
                     </div>
-                    <div>
+                    <div class="botonera_camara">
                         <button class="btn_ico" title="Tomar foto" ng-click="vm.abrirCamara();">
                             <span class="ico-camera"></span>
                         </button>
@@ -56,41 +76,12 @@
                         <button class="btn_ico" title="Subir foto" ng-click="vm.seleccionarArchivo();">
                             <span class="ico-upload"></span>
                         </button>
-                        {{vm.trash}}
-                        <button  class="btn_ico" title="Borrar Foto" ng-show="vm.trash">
+
+                        <button class="btn_ico" title="Borrar Foto" ng-show="vm.trash" ng-click="vm.borrarFoto();">
                             <span class="ico-trash"></span>
-                            
                         </button>
-
-
-                        <modal-dialog show="vm.camaraToggle">
-                            <div class='ng-modal-close' >
-                                <button class="btn_ico" title="Cerrar dialogo" ng-click="vm.cerrarCamara()">
-                                    <span class=" ico-times"></span>
-                                </button>
-                            </div>
-
-                            <div class="canvas_container">
-                                <video ng-show="vm.foto"   id="camaraUsu" width="320" height="240" autoplay></video>
-                                <canvas ng-show="!vm.foto" id="fotoUsu" width="320" height="240"></canvas>
-                            </div>
-
-                            <div id="botonera">
-                                <button ng-show="vm.foto" class="btn_con_ico" ng-click="vm.snapshot(); vm.foto = !vm.foto;">
-                                    <span class="ico-camera tamano_botones_1"></span>Tomar foto
-                                </button>
-                                <button ng-show="!vm.foto" class="btn_con_ico" ng-click="vm.repetirFoto();vm.foto = !vm.foto;">
-                                    <span class="ico-camera tamano_botones_1"></span>Repetir foto
-                                </button>
-                                <button ng-show="!vm.foto" class="btn_con_ico" ng-click="vm.guardarFoto()">
-                                    <span class="ico-camera tamano_botones_1"></span>Guardar foto
-                                </button>
-                            </div>
-
-                        </modal-dialog>
                     </div>
                 </div>
-
             </div>
             <div>
                 <div>
@@ -110,22 +101,17 @@
 
         <div class="box_duo_input">
             <div>
-                <p class="texto_labels green">Nombres</p>
-                <input class="a_input" />
-            </div>
-            <div>
-                <p class="texto_labels green">Apellidos</p>
-                <input class="a_input" />
-            </div>
-        </div>
-
-        <div class="box_duo_input">
-            <div>
                 <p class="texto_labels green">Contraseña</p>
-                <input class="a_input" type="password" />
+                <input class="a_input" type="password" ng-model="vm.pass_usu"/>
+                <div id="widget_seguridad">
+                    <div>
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <p>Nivel de seguridad: {{vm.val_seguridad}} </p>
+                </div>
             </div>
             <div>
-                <p class="texto_labels green">Confirmar contraseña</p>
+                <p class="texto_labels green">Confirmar Contraseña</p>
                 <input class="a_input" type="password" />
             </div>
         </div>

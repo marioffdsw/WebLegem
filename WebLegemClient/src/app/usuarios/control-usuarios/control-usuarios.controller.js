@@ -5,33 +5,6 @@
     angular
         .module("WebLegemApp.Usuarios")
         .controller("controlUsuariosController", controlUsuariosController)
-        .directive("ngWlonload", function ($window) {
-            return {
-                scope: {
-                    ngWlonload: "="
-                },
-                link: function ($scope, element, attrs) {
-                    angular.element($window).on("load", function () {
-                        $scope.ngWlonload = "Smith";
-                        $scope.$apply();
-                    });
-                }
-            }
-        })
-
-            .directive("ngWlonchange", function ($window) {
-                return {
-                    scope: {
-                        ngWlonchange: "="
-                    },
-                    link: function ($scope, element, attrs) {
-                        angular.element($window).on("change", function () {
-                            $scope.ngWlonchange = "Smith";
-                            $scope.$apply();
-                        });
-                    }
-                }
-            })
 
     .directive('ewl', function ($parse) {
         return {
@@ -39,18 +12,19 @@
             scope: true,
             link: function (scope, element, attrs) {
 
-                element.bind('click', function (e) {
-                    scope.$apply(attrs.wlOnload);
+                element.bind('load', function (e) {
+                    scope.$apply(attrs.wlLoad);
                 })
                 element.bind('mouseenter', function (e) {
-                    scope.$apply(attrs.wlOnhover);
+                    scope.$apply(attrs.wlHover);
                 });
+
             }
         };
     });
         
 
-    controlUsuariosController.$inject = ["$scope","$window","$parse"];
+    controlUsuariosController.$inject = ["$scope","$window"];
 
     function controlUsuariosController( $scope,$window) {
         var vm = this;
@@ -63,40 +37,103 @@
         vm.cerrarCamara = cerrarCamara;
         vm.repetirFoto = repetirFoto;
         vm.seleccionarArchivo = seleccionarArchivo;
-        vm.unavez = unavez;
         vm.foto = true;
         vm.trash = false;
-        vm.name = "John";
         vm.cargarFoto = vm.cargarFoto;
+        vm.pass_usu;
 
-        vm.doIt = function () {
-            alert('hihola');
+        var img = $window.document.getElementById("laimagen");
+        var btn_input = document.getElementById("input_usu_foto");
+        btn_input.onchange = cargarFoto;
+
+
+
+        /*......Seguridad Widget......*/
+        var grep = function(arr, callback) {
+            var newArr = [],
+                len = arr.length,
+                i;
+            for (i = 0; i < len; i++) {
+                var e = arr[i];
+                if (callback(e)) {
+                    newArr.push(e);
+                }
+            }
+            return newArr;
         }
-        vm.doIts = function () {
-            alert('homero');
+
+        var strength = {
+            colors: ['#F00', '#F90', '#FF0', '#9F0', '#0F0'],
+            mesureStrength: function (p) {
+                var _force = 0;
+
+                var _lowerLetters = /[a-z]+/.test(p);
+                var _upperLetters = /[A-Z]+/.test(p);
+                var _numbers = /[0-9]+/.test(p);    
+
+                var _flags = [_lowerLetters, _upperLetters, _numbers];
+                var _passedMatches = grep(_flags, function (el) { return el === true; }).length;
+                
+                _force += 2 * p.length + ((p.length >= 10) ? 1 : 0);
+                _force += _passedMatches * 10;
+
+                // penality (short password)
+                _force = (p.length <= 6) ? Math.min(_force, 10) : _force;
+
+                // penality (poor variety of characters)
+                _force = (_passedMatches == 1) ? Math.min(_force, 10) : _force;
+                _force = (_passedMatches == 2) ? Math.min(_force, 20) : _force;
+
+                return _force;
+            },
+
+            getColor: function (s) {
+
+            var idx = 0;
+            if (s <= 10) { idx = 0; }
+            else if (s <= 20) { idx = 1; }
+            else if (s <= 30) { idx = 2; }
+            else if (s <= 40) { idx = 3; }
+            else { idx = 4; }
+
+            return { idx: idx + 1, col: this.colors[idx] };
+
+        }
+
+        }
+        
+        $scope.$watch('vm.pass_usu', function () {
+            var widget_seguridad = document.getElementById("widget_seguridad");
+            if(vm.pass_usu ===''){
+                widget_seguridad.style.display = "none";
+            }
+            else {
+                var c = strength.getColor(strength.mesureStrength(vm.pass_usu));
+                console.log(c);
+                widget_seguridad.style.display = "unset";
+
+                if (vm.pass_usu == "a") {
+                    widget_seguridad.style.display = "unset";
+                }
+            }
+        }, true);
+
+        /*....Fin Seguridad Widget......*/
+
+        vm.borrarFoto = function () {
+            img.src = "";
+            vm.trash = false;
+            img.style.visibility = "hidden";
         };
 
-        var btn_input = document.getElementById("input_usu_foto");
-
-        btn_input.onchange = cargarFoto;//existe otra forma de asignar eventos, pero con angular 
-        //al parecer no funciona (addevenlistener)
-
-        var img2 = $window.document.getElementById("laimagen");
-        img2.onload = holamundo;
-
-        function unavez() {
+        vm.mostrarFoto = function () {
+            vm.trash = true;
+            img.style.visibility = " unset";
         }
 
-
-        function holamundo() {
-            console.log(vm.trash);
-        }
-
-        
-
+   
         function seleccionarArchivo() {
             btn_input.click();
-            img2.onload = holamundo(vm);
         };
 
 
@@ -104,8 +141,7 @@
 
             var files = e.target.files;
             var f = files[0];
-            var leerArchivo = new FileReader();
-            var img = document.getElementById("laimagen");            
+            var leerArchivo = new FileReader();          
 
             leerArchivo.onloadstart = function (e) {
                 
@@ -208,7 +244,7 @@
 
             context.drawImage(img,85, 40, 150, 170, 0, 0, 150, 170);
             img.src = canvasAux.toDataURL("../../../common/directives/fotografia/png");
-            trash = true;
+            img.style.visibility = "unset";
         }
 
         function repetirFoto() {
