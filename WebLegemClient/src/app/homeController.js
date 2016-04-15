@@ -34,6 +34,7 @@
         function llevameArriba() {//funcion llevame arriba
             if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
                 btn_arriba.classList.add('visible');
+                
             } else {
                 btn_arriba.classList.remove('visible');
             }

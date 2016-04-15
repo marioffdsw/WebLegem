@@ -1,10 +1,11 @@
 ﻿(function () {
     "use strict";
 
-    angular.module("WebLegemApp", [
+    angular
+        .module("WebLegemApp", [
 
         /* Angular modules*/
-        "ngAria",        
+        "ngAria",
         "ngTouch",
 
         /* Third party modules */
@@ -12,5 +13,10 @@
         "ui.router",
         "ngAnimate"
 
-    ]);
+        ]);
+        
+
+        
+    
+
 })();

@@ -13,9 +13,11 @@
 }
 
 .header.solido{ 
-    transition:background .5s linear;
-    background:rgba(17, 21, 21, 1);
+    transition:all .5s linear;
+    background: #0f745b;  
+    height:55px;
 }
+
 
 .figura_logo{
     height: 125px;

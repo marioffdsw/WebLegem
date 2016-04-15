@@ -1,29 +1,29 @@
-﻿<div class="contenido">
-    <section class="layout_padre">
-        <wl-lista-tipos-entidades class="hijo_left" lista="vm.tiposEntidades"
-                objeto-seleccionado="vm.tipoEntidadSeleccionado"
-                editando="vm.editando">
+﻿<div class="box_father">
+    <div class="box_left">
+        <wl-lista-tipos-entidades lista="vm.tiposEntidades"
+                                  objeto-seleccionado="vm.tipoEntidadSeleccionado"
+                                  editando="vm.editando">
         </wl-lista-tipos-entidades>
+    </div>
 
-        <div class="hijo_right">
-            <wl-admin-crud objeto-seleccionado="vm.tipoEntidadSeleccionado"
-                editando="vm.editando"
-                nuevo="vm.nuevo"
-                eliminar="vm.remover">
-            </wl-admin-crud>
-            
-            <label class="texto_labels">Nombre del tipo entidad</label>
-            <form class="form_tipo_entidad">
-                <input class="a_input input_administracion" ng-disabled="!vm.editando" style="width:auto;" type="text" ng-model="vm.tipoEntidadSeleccionado.nombre" placeholder="Ingrese el nombre Entidad" />
-            </form>
+    <div class="box_right">
+        <wl-admin-crud objeto-seleccionado="vm.tipoEntidadSeleccionado"
+                        editando="vm.editando"
+                        nuevo="vm.nuevo"
+                        eliminar="vm.remover">
+        </wl-admin-crud>
 
-            <wl-lista-tipo-doc-hojitas editando="vm.editando"
-                documentos-soportados="vm.tipoEntidadSeleccionado.documentosSoportados"></wl-lista-tipo-doc-hojitas>
+        <label class="texto_labels">Nombre del tipo entidad</label>
+        <form>
+            <input class="a_input" ng-disabled="!vm.editando" type="text" ng-model="vm.tipoEntidadSeleccionado.nombre" placeholder="Ingrese el nombre Entidad" />
+        </form>
 
-            <wl-confirmacion editando="vm.editando"
-                             aceptar="vm.aceptar"
-                             cancelar="vm.cancelar">
-            </wl-confirmacion>
-        </div>
-    </section>
+        <wl-lista-tipo-doc-hojitas editando="vm.editando"
+                                    documentos-soportados="vm.tipoEntidadSeleccionado.documentosSoportados"></wl-lista-tipo-doc-hojitas>
+
+        <wl-confirmacion editando="vm.editando"
+                         aceptar="vm.aceptar"
+                         cancelar="vm.cancelar">
+        </wl-confirmacion>
+    </div>
 </div>

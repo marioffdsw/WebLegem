@@ -1,39 +1,41 @@
-﻿<div class="contenido">
-    <section class="layout_padre">
-        
-        <wl-lista-entidades class="hijo_left"
-                lista="vm.entidades"
-                objeto-seleccionado="vm.entidadSeleccionada"
-                editando="vm.editando">
-        </wl-lista-entidades>    
+﻿<div class="box_father">
+    <div class="box_left">
+        <wl-lista-entidades lista="vm.entidades"
+                            objeto-seleccionado="vm.entidadSeleccionada"
+                            editando="vm.editando">
+        </wl-lista-entidades>
+    </div>
 
-        <div class="hijo_right">
+    <div class="box_right">
+
             <wl-admin-crud objeto-seleccionado="vm.entidadSeleccionada"
-                editando="vm.editando"
-                nuevo="vm.nuevo"
-                eliminar="vm.remover">
+                           editando="vm.editando"
+                           nuevo="vm.nuevo"
+                           eliminar="vm.remover">
             </wl-admin-crud>
 
             <label class="texto_labels" for="nombre-entidad">Nombre de la entidad</label>
-            <input class="a_input input_administracion" style="width:95%;" id="nombre-entidad" type="text" ng-disabled="!vm.editando"
-                    placeholder="Ingrese el nombre de la entidad" ng-model="vm.entidadSeleccionada.nombre" />           
+            <input class="a_input" id="nombre-entidad" type="text" ng-disabled="!vm.editando"
+                   placeholder="Ingrese el nombre de la entidad" ng-model="vm.entidadSeleccionada.nombre" />
             <label class="texto_labels" for="tipo-entidad">Tipo de la entidad</label>
-            <div class="span_select" style="width:100%;">
-                <input type="text" ng-show="!vm.editando" style="width:95%;" class="select"
-                       ng-disabled="!vm.editando"
-                       ng-model="vm.entidadSeleccionada.tipoEntidad.nombre" />
-            </div>
-            <div class="span_select" style="width:95%;">
-                <select id=" tipoentidadselect" ng-show="vm.editando" class="select" style="width:95%;" ng-disabled="!vm.editando"
-                        ng-options="tipoEntidad as tipoEntidad.nombre for tipoEntidad in vm.tiposEntidades"
-                        ng-model="vm.entidadSeleccionada.tipoEntidad"></select>
-                <span class="span_select ico-angle-down"></span>
+
+            <div>
+                <div class="select_busqueda" ng-show="!vm.editando" ng-class="!vm.editando ? 'disable' : ''">
+                    <input type="text" ng-disabled="!vm.editando"
+                           ng-model="vm.entidadSeleccionada.tipoEntidad.nombre" />
+                </div>
+
+                <div class="select_busqueda" ng-show="vm.editando">
+                    <select id=" tipoentidadselect"
+                            ng-options="tipoEntidad as tipoEntidad.nombre for tipoEntidad in vm.tiposEntidades"
+                            ng-model="vm.entidadSeleccionada.tipoEntidad"></select>
+                </div>
             </div>
 
             <wl-confirmacion editando="vm.editando"
-                 aceptar="vm.aceptar"
-                 cancelar="vm.cancelar">
+                             aceptar="vm.aceptar"
+                             cancelar="vm.cancelar">
             </wl-confirmacion>
+
         </div>
-    </section>
 </div>

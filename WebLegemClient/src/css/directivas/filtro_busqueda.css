@@ -6,7 +6,15 @@
     position:relative;
 }
 
-.select_busqueda select{
+.select_busqueda select:disabled{
+    background:#e3e3e3;
+}
+.select_busqueda input:disabled{
+    background:#e3e3e3;
+}
+
+
+.select_busqueda select, .select_busqueda input{
     -webkit-appearance:none;
     -moz-appearance:none;
     background:#fff;
@@ -14,6 +22,7 @@
     height:35px;
     overflow:hidden;
     border:1px solid #999;
+    padding:0 10px;
 }
 
     .select_busqueda:before{
@@ -32,7 +41,12 @@
 
     .select_busqueda:hover::before{
         color:#099472;
-    }    /*------ Fin select Busqueda ------*/
+    }
+    .select_busqueda.disable:hover::before{
+        color:#999;
+    }
+    
+        /*------ Fin select Busqueda ------*/
 
 
 /*---------Fin Inputs y selects---------*/

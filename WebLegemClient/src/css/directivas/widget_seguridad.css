@@ -1,0 +1,31 @@
+﻿#widget_seguridad{    
+    display:none;
+}
+
+#widget_seguridad > p{
+    font-family:"Lato-Regular";
+    font-size:small;
+    color:#555;
+}
+
+
+#widget_seguridad > div{
+    height:6px;
+    display:flex;
+    width:60%;
+}
+
+#widget_seguridad > div > span{
+    display:block; 
+    background:#40eb0e; 
+    width:30%;
+    height:100%;
+    margin-right:5px;
+}
+
+#widget_seguridad > div > span:last-child{
+    margin-right:0;
+    background:#ccc;
+}
+
+

@@ -11,7 +11,7 @@
 
 [class^="ico2-"], [class*=" ico2-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
-	font-family: 'iconos-legem2' !important;
+	font-family: 'iconos-legem2';
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
@@ -22,6 +22,11 @@
 	/* Better Font Rendering =========== */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+[class^="ico2-"]:before, [class*=" ico2-"]:before {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    margin-bottom:4px!important;
 }
 
 .ico2-home:before {

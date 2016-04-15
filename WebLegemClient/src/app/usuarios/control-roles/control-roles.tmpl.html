@@ -35,17 +35,11 @@
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~2-->
     <div class="box_right">
-        <div class="controles_box_right">
-            <button class="btn_con_ico">
-                <span class="ico-plus tamano_botones_1"></span>nuevo
-            </button>
-            <button class="btn_con_ico">
-                <span class="ico-pencil tamano_botones_1"></span>editar
-            </button>
-            <button class="btn_con_ico">
-                <span class="ico-trash tamano_botones_1"></span>remover
-            </button>
-        </div>
+        <wl-admin-crud objeto-seleccionado="vm.entidadSeleccionada"
+                       editando="vm.editando"
+                       nuevo="vm.nuevo"
+                       eliminar="vm.remover">
+        </wl-admin-crud>
 
         <p class="texto_labels green bold">Nombre</p>
         <input class="a_input" />
@@ -78,17 +72,10 @@
             </div>            
         </div>        
 
-        <div class="controles_box_right down">
-            <button class="btn_con_ico" type="button">
-                <span class="ico-plus tamano_botones_1"></span>Actualizar
-            </button>
-            <button class="btn_con_ico" type="button">
-                <span class="ico-plus tamano_botones_1"></span>Crear
-            </button>
-            <button class="btn_con_ico" type="button">
-                <span class="ico-times tamano_botones_1"></span>Cancelar
-            </button>
-        </div>
+        <wl-confirmacion editando="vm.editando"
+                         aceptar="vm.aceptar"
+                         cancelar="vm.cancelar">
+        </wl-confirmacion>
 
     </div>
 

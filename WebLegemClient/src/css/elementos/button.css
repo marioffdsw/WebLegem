@@ -12,13 +12,9 @@
 	color: #fff;
 	border:0;
     margin:auto 0;
-    padding:8px 5px 8px 30px;
+    padding:8px 5px 8px 40px;
     min-width:110px;
-    cursor:pointer;
-
-	-webkit-transition:  all 0.2s;
-    -o-transition: all 0.2s;
-	transition:  all 0.2s;
+    cursor:pointer;	
 }
 
 .btn_con_ico::-moz-focus-inner{
@@ -36,10 +32,6 @@
 }
 
 .btn_con_ico:active{
-    -webkit-transition: all 0.05s;
-    -o-transition: all 0.05s;
-	transition: all 0.05s;
-
     background-color: #064234;
 }
 
@@ -47,12 +39,12 @@
 .tamano_botones_1{
     background: rgba(0, 0, 0, 0.08);
     height:100%;
-    width: 30px;
+    width: 35px;
     position: absolute;
     left: 0;
     top: 0;
     font-size: 140%;
-    line-height:2.1;
+    line-height:2.3;
 }
 /*-----------------------------------*/
 .tamano_botones_1.derecha{
@@ -92,14 +84,39 @@
     text-align:left;
 }
 
-.btn_sin_ico:hover {
+.btn_sin_ico:hover , .btn_ico:hover {
     background-color:  #099472;
 }
 
-.btn_sin_ico:active{
+.btn_sin_ico:active , .btn_ico:active{
     -webkit-transition: all 0.05s;
     -o-transition: all 0.05s;
 	transition: all 0.05s;
 
     background-color: #064234;
 }
+
+/*-----Btn solo Ico-----*/
+.btn_ico{    
+    border:0;
+    background:#0f745b;
+    cursor:pointer;
+    min-height:35px;
+    min-width:35px;
+}
+
+.btn_ico > span{
+    display:flex;
+}
+
+.btn_ico > span:before{
+    font-size:20px;
+    color:white;
+    width:100%;
+}
+
+
+
+/*--Fin Btn solo Ico-----*/
+
+

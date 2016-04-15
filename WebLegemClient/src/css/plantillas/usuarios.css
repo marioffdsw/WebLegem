@@ -36,7 +36,7 @@
 .titulo_modulo{
     border-bottom:1px solid #ccc;
     padding: 10px;
-    background:#E9EAED;
+    background:var(--main-bg-color);
 }
 
 .titulo_modulo p{
@@ -51,12 +51,15 @@
     display:flex;
     justify-content:space-between;
     flex-wrap:wrap;
+    margin-bottom:5px;
 }
 
-.box_duo_input div{
+.box_duo_input > div{
     flex:1;
     min-width:250px;
 }
+
+
 
 .contenedor_radios{
     font-family:"Lato-Regular";
@@ -145,3 +148,131 @@
     margin-left:10px;
     }
 }
+
+/**********************/
+.box_fotografia{
+    display:flex;
+    margin-top:2px;
+}
+
+.foto_usuarios{
+    border:1px solid #bbb;
+    min-width:150px !important;
+    width:150px !important;
+    height:170px;
+    text-align:center;
+}
+
+.foto_usuarios > span:before{
+    
+    color:#ddd;
+    font-size:120px;
+    display:block;
+    margin-top:20px;    
+}
+
+#laimagen{
+    width:100%;
+    height:100%;
+    visibility:hidden;
+}
+
+.botonera_camara {
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start !important;
+    margin-left:5px;
+}
+.botonera_camara > button{
+    margin-bottom:5px;
+}
+
+
+/*MODAL*/
+
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:9999;
+  width:100%;
+  height:100%;
+  background-color:#000000;
+  opacity: 0.4;
+}
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+  z-index:10000;
+  position:fixed;
+  width: 320px;
+  height:auto;
+  display:flex;
+  flex-direction:column;
+   /* Default */
+
+  /* Center the dialog */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+
+  background-color: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.71);
+}
+.ng-modal-dialog-content {
+}
+
+.ng-modal-close {
+  background:rgba(0, 0, 0, 0.10);
+  width:100%;
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:5px;
+}
+
+.ng-modal-close  button{
+    margin:0;
+    padding:0;
+    align-self:flex-end;
+}
+
+.canvas_container{
+    position:relative;
+    display:flex;
+    justify-content:center;
+}
+
+.canvas_container:after{
+    content:"";
+    position:absolute;
+    top:40px;
+    left:85px;
+    height:170px;
+    width:150px;
+    border:1px solid #36c34f;
+}
+
+#botonera{
+    margin:5px;
+    width:100%;
+    justify-content:flex-end;
+}
+
+#botonera button{
+    font-size:12px;
+    letter-spacing:normal;
+}
+
+
+#camaraUsu,#fotoUsu{
+    
+}
+
+/*-----input para subir foto-------*/
+    #input_usu_foto{
+        display: none;
+    }
+
+/*--Fin input para subir foto-------*/

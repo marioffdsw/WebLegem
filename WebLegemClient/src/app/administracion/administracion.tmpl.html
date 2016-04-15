@@ -1,29 +1,29 @@
 ﻿<div class="tapiz">
-    <div style="height:85px;">
 
-    </div>
-    <div class="contenedor_administracion" ng-show="true">        
+    <div style="height:85px;"></div>
+
+    <div class="tapiz_contenido" ng-show="true">
         <div class="contenedor_tabs">
             <ul>
-                <li ng-class="vm.$state.current.name =='administracion.tipo-documento' ? 'active_tab' : ''" 
+                <li ng-class="vm.$state.current.name =='administracion.tipo-documento' ? 'active_tab' : ''"
                     ui-sref="administracion.tipo-documento" ng-click="vm.activo($event)">
-                    
-                    <span class="ico-pagelines">
+
+                    <span class="ico-files-o">
                         <a>Tipo Documento</a>
                     </span>
                 </li>
                 <li ng-class="vm.$state.current.name =='administracion.tipo-entidad' ? 'active_tab' : ''"
-                     ui-sref="administracion.tipo-entidad" ng-click="vm.activo($event)">
-                    
-                    <span class="ico-krw">
+                    ui-sref="administracion.tipo-entidad" ng-click="vm.activo($event)">
+
+                    <span class="ico-folder-open-o">
                         <a>Tipo Entidad</a>
                     </span>
                 </li>
 
                 <li ng-class="vm.$state.current.name== 'administracion.entidad' ? 'active_tab': ''"
-                     ui-sref="administracion.entidad" ng-click="vm.activo($event)">
-                    
-                    <span class="ico-envelope">
+                    ui-sref="administracion.entidad" ng-click="vm.activo($event)">
+
+                    <span class="ico2-drawer">
                         <a>Entidad</a>
                     </span>
                 </li>
@@ -32,7 +32,7 @@
                 </li>-->
             </ul>
         </div>
-        <div ui-view class="view_administracion a_desvanecer"></div>
+        <div ui-view></div> <!--arreglar animacion entre tabs esta debe ser con ng-enter y ng-leave-->
     </div>
 </div>
 

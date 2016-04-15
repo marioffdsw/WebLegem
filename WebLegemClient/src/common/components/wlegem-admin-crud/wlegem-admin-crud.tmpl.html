@@ -1,21 +1,19 @@
-﻿<div class="control_administracion"> 
-           
-
-    <button class="btn_con_ico"         
-        ng-show="!vm.creando"
-        ng-click="vm.nuevo()" >
+﻿<div class="controles_box_right">
+    <button class="btn_con_ico"
+            ng-show="!vm.creando"
+            ng-click="vm.nuevo()">
         <span class="ico-plus tamano_botones_1"></span>Nuevo
     </button>
 
     <button class="btn_con_ico"
-        ng-show="vm.objetoSeleccionado && !vm.editando"
-        ng-click="vm.editar()" >
+            ng-show="vm.objetoSeleccionado && !vm.editando"
+            ng-click="vm.editar()">
         <span class="ico-pencil tamano_botones_1"></span>Editar
     </button>
 
-    <button class="btn_con_ico" 
-        ng-show="vm.objetoSeleccionado && (!vm.editando || !vm.creando)"
-        ng-click="vm.eliminar()" >
+    <button class="btn_con_ico"
+            ng-show="vm.objetoSeleccionado && (!vm.editando || !vm.creando)"
+            ng-click="vm.eliminar()">
         <span class="ico-trash tamano_botones_1"></span>Eliminar
     </button>
 </div>

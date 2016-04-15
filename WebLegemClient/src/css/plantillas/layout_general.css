@@ -25,7 +25,7 @@
         border-bottom: none;
         margin-bottom:0;
         border-top: solid 1px #e2e2e2;
-        margin-top:10px;
+        margin-top:20px;
     }
 
     .controles_box_right.down button{
@@ -36,6 +36,22 @@
     .controles_box_right button {
         margin-left: 10px;
         margin-bottom: 10px;
+    }
+
+
+
+    .tapiz {
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    width: 100%;
+
+    background-color:#e1e3e9;
+    /*background-color:#e9eaed;*//*azul facebook*/
     }
 
     .tapiz_contenido{/*responsive*/
