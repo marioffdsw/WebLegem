@@ -52,10 +52,10 @@
 
         <p class="texto_labels green bold">Permisos</p>
 
-        <!--Modulo Administracion-->
-        <div class="contenedor_permisos">
-           <div class="titulo_modulo">
-                <p class="texto_labels">Administracion</p>
+        
+        <div class="contenedor_permisos" ng-repeat="modulo in vm.modulos">
+            <div class="titulo_modulo">
+                <p class="texto_labels">{{ modulo.nombre }}</p>
                 <p class="estado_permiso">Permitir todo</p>
                 <div class="switch_container">
                     <input type="checkbox" id="switch1" name="switch1"
@@ -64,98 +64,19 @@
                 </div>
             </div>
             <!--aqui va el ng-repeat-->
-            <div class="permiso_submodulo">
-                <p >Tipo Entidad</p>
+            <div class="permiso_submodulo" ng-repeat="permiso in vm.permisos | filter:modulo.nombre ">
+                <hr ng-if="permiso.id % 4 === 0" />
+                <p>{{ permiso.id }} {{ permiso.accion.nombre }} {{ permiso.recurso.nombre }}</p>
                 <p class="estado_permiso">No permitido</p>
+                
                 <div class="switch_container">
-                    <input type="checkbox" id="switch1" name="switch1"
+                    <input type="checkbox" id="sw_permisos_{{permiso.id}}" name="sw_permisos_{{permiso.id}}"
                            class="switch" />
-                    <label for="switch1"></label>
+                    <label for="sw_permisos_{{permiso.id}}"></label>
                 </div>
-            </div>
-            <div class="permiso_submodulo">
-                <p class="nombre_permiso">Entidad</p>
-                <p class="estado_permiso">Permitido</p>
-                <div class="switch_container">
-                    <input type="checkbox" id="switch2" name="switch2"
-                           class="switch" />
-                    <label for="switch2"></label>
-                </div>
-            </div>
-            <div class="permiso_submodulo">
-                <p class="nombre_permiso">Tipo Documento</p>
-                <p class="estado_permiso">No permitido</p>
-                <div class="switch_container">
-                    <input type="checkbox" id="switch3" name="switch3"
-                           class="switch" />
-                    <label for="switch3"></label>
-                </div>
-            </div>
-        </div>
-
-        <!--Modulo Gestion Documental-->
-        <div class="contenedor_permisos">
-            <div class="titulo_modulo">
-                <p class="texto_labels">Gestion Documental</p>
-                <p class="estado_permiso">Denegar todo</p>
-                <div class="switch_container">
-                    <input type="checkbox" id="switch1" name="switch1"
-                           class="switch" />
-                    <label for="switch1"></label>
-                </div>
-            </div>
-            <!--aqui va el ng-repeat-->
-            <div class="permiso_submodulo">
-                <p>Crear documento</p>
-                <p class="estado_permiso">No permitido</p>
-                <div class="switch_container">
-                    <input type="checkbox" id="switch1" name="switch1"
-                           class="switch" />
-                    <label for="switch1"></label>
-                </div>
-            </div>
-            <div class="permiso_submodulo">
-                <p class="nombre_permiso">Editar Documento</p>
-                <p class="estado_permiso">Permitido</p>
-                <div class="switch_container">
-                    <input type="checkbox" id="switch2" name="switch2"
-                           class="switch" />
-                    <label for="switch2"></label>
-                </div>
-            </div>
-        </div>
-
-        <!--Modulo Usuarios-->
-        <div class="contenedor_permisos">
-            <div class="titulo_modulo">
-                <p class="texto_labels">Usuarios</p>
-                <p class="estado_permiso">Denegar todo</p>
-                <div class="switch_container">
-                    <input type="checkbox" id="switch1" name="switch1"
-                           class="switch" />
-                    <label for="switch1"></label>
-                </div>
-            </div>
-            <!--aqui va el ng-repeat-->
-            <div class="permiso_submodulo">
-                <p>Control Roles</p>
-                <p class="estado_permiso">No permitido</p>
-                <div class="switch_container">
-                    <input type="checkbox" id="switch1" name="switch1"
-                           class="switch" />
-                    <label for="switch1"></label>
-                </div>
-            </div>
-            <div class="permiso_submodulo">
-                <p class="nombre_permiso">Control Usuarios</p>
-                <p class="estado_permiso">Permitido</p>
-                <div class="switch_container">
-                    <input type="checkbox" id="switch2" name="switch2"
-                           class="switch" />
-                    <label for="switch2"></label>
-                </div>
-            </div>
-        </div>
+                
+            </div>            
+        </div>        
 
         <div class="controles_box_right down">
             <button class="btn_con_ico" type="button">
