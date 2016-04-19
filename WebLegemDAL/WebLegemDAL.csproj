@@ -64,6 +64,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accion\Accion.cs" />
+    <Compile Include="Accion\AccionFactory.cs" />
     <Compile Include="Archivo\Archivo.cs" />
     <Compile Include="Archivo\ArchivoDAO.cs" />
     <Compile Include="BaseDAO.cs" />
@@ -80,6 +82,17 @@
     <Compile Include="IDataAccessObject.cs" />
     <Compile Include="IGestorDeConsultas.cs" />
     <Compile Include="IQueryObject.cs" />
+    <Compile Include="Modulo\Modulo.cs" />
+    <Compile Include="Modulo\ModuloFactory.cs" />
+    <Compile Include="Perimso\Permiso.cs" />
+    <Compile Include="Perimso\PermisoDAL.cs" />
+    <Compile Include="Perimso\PermisoFactory.cs" />
+    <Compile Include="Recurso\Recurso.cs" />
+    <Compile Include="Recurso\RecursoFactory.cs" />
+    <Compile Include="Rol\PermisoArrayFactory.cs" />
+    <Compile Include="Rol\Rol.cs" />
+    <Compile Include="Rol\RolDAO.cs" />
+    <Compile Include="Rol\RolFactory.cs" />
     <Compile Include="TipoEntidad\EntidadRefArrayFactory.cs" />
     <Compile Include="TipoDocumento\TipoDocumento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,0 +1,28 @@
+﻿<div class="contenedor_permisos" ng-repeat="modulo in vm.modulos">
+    <div class="titulo_modulo">
+        <p class="texto_labels">{{ modulo.nombre }}</p>
+        <p class="estado_permiso">Permitir todo</p>
+        <div class="switch_container">
+            <input type="checkbox" id="switch1" name="switch1"
+                   class="switch" />
+            <label for="switch1"></label>
+        </div>
+    </div>
+
+    <div class="permiso_submodulo" ng-repeat="permiso in vm.permisos | filter:modulo.nombre ">
+        <hr ng-if="permiso.id % 4 === 0" />
+        <p>{{ permiso.id }} {{ permiso.accion.nombre }} {{ permiso.recurso.nombre }}</p>
+        <p class="estado_permiso">No permitido</p>
+
+        <div class="switch_container">
+            <input  id="sw_permisos_{{permiso.id}}"
+                    name="sw_permisos_{{permiso.id}}"
+                    class="switch"
+                    type="checkbox"                    
+                    ng-checked="vm.isAlreadyChecked( permiso )" />
+            <label for="sw_permisos_{{permiso.id}}"
+                    ng-class="vm.isAlreadyChecked(permiso) ? 'checked': ''"
+                    ng-click="vm.checkearPermiso(permiso)"></label>
+        </div>
+    </div>
+</div>

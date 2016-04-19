@@ -67,7 +67,7 @@ namespace WebLegemDAL.DAL
         {
             OracleCommand cmd = new OracleCommand( $"INSERT INTO {TableName} VALUES( :td )", connection);
             OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);
-            td.UdtTypeName = "WEB_LEGEM.TIPO_DOCUMENTO_TYP";
+            td.UdtTypeName = UdtTypeName;
             td.Direction = ParameterDirection.InputOutput;            
             td.Value = tipoDocumento;
 
@@ -80,15 +80,14 @@ namespace WebLegemDAL.DAL
         {            
             queryString = $"UPDATE {TableName} tdv SET tdv.tipo_documento = :td WHERE tdv.tipo_documento.id = :id";
 
-            OracleCommand cmd = new OracleCommand() { Connection = (OracleConnection) connection, CommandText = queryString };
+            OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
 
             OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);            
             td.UdtTypeName = UdtTypeName;
             td.Direction = ParameterDirection.InputOutput;
             td.Value = tipoDocumento;
 
-            OracleParameter id = cmd.Parameters.Add(":td", OracleDbType.Int32);
-            id.UdtTypeName = UdtTypeName;
+            OracleParameter id = cmd.Parameters.Add(":td", OracleDbType.Int32);            
             id.Value = tipoDocumento.Id;
 
             cmd.ExecuteNonQuery();            

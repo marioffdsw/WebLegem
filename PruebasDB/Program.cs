@@ -13,6 +13,8 @@ namespace PruebasDB
     {                        
         static TipoDocumentoDAO tipoDocumentoDal = new TipoDocumentoDAO();
         static TipoEntidadDAO tipoEntidadDal = new TipoEntidadDAO();
+        static RolDAO rolDal = new RolDAO();
+        static PermisoDAO permisoDao = new PermisoDAO();
 
         static EntidadDAO entidadDal = new EntidadDAO();
         static DocumentoConContenidoDAO documentoDal = new DocumentoConContenidoDAO();
@@ -24,6 +26,9 @@ namespace PruebasDB
             //ListarTiposEntidad();
             //ListarEntidades();
             //ListarDocumentos();
+            //ListarRoles();
+            ListarPermisos();
+
             //CrearTiposDocumento();
             //CrearTiposEntidad();
             //CrearEntidades();
@@ -42,6 +47,27 @@ namespace PruebasDB
             //CrearDocumentos();
             //ListarDocumentos();  
             Console.ReadKey();       
+        }
+
+        private static void ListarPermisos()
+        {
+            var lista = permisoDao.GetAll();
+
+            foreach (var td in lista)
+            {
+                Console.WriteLine(td);
+            }
+        }
+
+        private static void ListarRoles()
+        {
+
+            var lista = rolDal.GetAll();
+
+            foreach (var td in lista)
+            {
+                Console.WriteLine(td);
+            }
         }
 
         static void ConsultarDocumentos()

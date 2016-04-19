@@ -50,6 +50,9 @@
     <DBRefs Include="Database References\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="configuracion_modulo_usuarios.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="drop_web_legem.sql">
       <SubType>Content</SubType>
     </Content>
@@ -152,6 +155,9 @@
     <Content Include="Tables\Object Tables\tipo_entidad_obj_tab.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Tables\Relational Tables\acciones_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Tables\Relational Tables\archivos_tab.sql">
       <SubType>Content</SubType>
     </Content>
@@ -167,13 +173,34 @@
     <Content Include="Tables\Relational Tables\identificadores_documentos_tab.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Tables\Relational Tables\modulos_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\permisos_asignados_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\permisos_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\recursos_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Tables\Relational Tables\roles_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Tables\Relational Tables\tipos_documento_tab.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Tables\Relational Tables\tipos_entidad_tab.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Tables\Relational Tables\usuario_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="test_data.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="test_data_usuarios.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Triggers\View Triggers\actualizar_tipo_doc_trig.sql">
@@ -206,10 +233,16 @@
     <Content Include="Triggers\View Triggers\eliminar_tipo_entidad_trig.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="User Defined Types\Nested Tables\permiso_tab_typ.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="User Defined Types\Nested Tables\tipo_documento_tab_typ.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="User Defined Types\Nested Tables\tipo_doc_ref_tab_typ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="User Defined Types\Objects\accion_typ.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="User Defined Types\Objects\anotacion_typ.sql">
@@ -230,6 +263,18 @@
     <Content Include="User Defined Types\Objects\entidad_typ.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="User Defined Types\Objects\modulo_typ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="User Defined Types\Objects\permiso_typ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="User Defined Types\Objects\recurso_typ.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="User Defined Types\Objects\rol_typ.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="User Defined Types\Objects\tipo_anotacion_typ.sql">
       <SubType>Content</SubType>
     </Content>
@@ -242,6 +287,9 @@
     <Content Include="usuario_tablespace_permisos.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Views\Object Views\acciones_view.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Views\Object Views\documentos_contenido_view.sql">
       <SubType>Content</SubType>
     </Content>
@@ -249,6 +297,18 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Views\Object Views\entidades_view.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\Object Views\modulos_view.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\Object Views\permisos_view.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\Object Views\recursos_view.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\Object Views\roles_view.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Views\Object Views\tipos_documento_view.sql">

@@ -1,5 +1,4 @@
 CREATE OR REPLACE TYPE documento_typ AS OBJECT 
-
 (    
 	id                  			NUMBER,   
     entidad							entidad_typ,
