@@ -5,13 +5,21 @@
         .module("WebLegemApp")
         .controller( "WlListaPermisosController", WlListaPermisosController );
 
-    WlListaPermisosController.$inject = [ "modulos", "permisos" ];
-    function WlListaPermisosController( modulos, permisos ){
+    WlListaPermisosController.$inject = ["modulos", "PermisosService"];
+    function WlListaPermisosController( modulos, PermisosService ){
         var vm = this;
 
         vm.modulos = modulos;
-        vm.permisos = permisos;
+        vm.permisos;
         vm.checkearPermiso = checkearPermiso;
+
+        retrieveData();
+
+        function retrieveData() {
+            PermisosService.query(function (data) {
+                vm.permisos = data;
+            });
+        } // end retrieveData
 
         function checkearPermiso( permiso ) {
 

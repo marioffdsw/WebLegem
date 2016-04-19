@@ -5,8 +5,8 @@
         .module("WebLegemApp.Usuarios")
         .controller("controlRolesController", controlRolesController);
 
-    controlRolesController.$inject = ["permisos", "modulos", "RolResource"];
-    function controlRolesController( permisos, modulos, RolResource ) {
+    controlRolesController.$inject = [ "RolResource"];
+    function controlRolesController( RolResource ) {
         var vm = this;
 
         /**********************************************************************************
@@ -15,9 +15,7 @@
          *   
          **********************************************************************************/
 
-        vm.roles = [];
-        vm.permisos = permisos;
-        vm.modulos = modulos;
+        vm.roles = [];        
         vm.rolSeleccionado = undefined;
         vm.editando;
 
@@ -59,8 +57,7 @@
 
         function aceptar() {
 
-            console.log( vm.rolSeleccionado );
-            return;
+            console.log( vm.rolSeleccionado );            
 
             if (vm.rolSeleccionado.id == 0) {
                 crear(vm.rolSeleccionado);

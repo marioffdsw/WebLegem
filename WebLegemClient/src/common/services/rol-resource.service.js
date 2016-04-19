@@ -7,7 +7,7 @@
 
     RolResource.$inject = ["$resource", "serviceUrl"];
     function RolResource($resource, serviceUrl) {
-        return $resource(serviceUrl + "/Rol/:id", null, {
+        return $resource(serviceUrl + "/Roles/:id", null, {
             update: { method: "PUT" }
         });
     } // end ProductResource Service

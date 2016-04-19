@@ -91,7 +91,7 @@
             }            
         ];
 
-        var rolesUrl = "/api/Rol";
+        var rolesUrl = "/api/Roles";
 
         $httpBackend.whenGET(rolesUrl).respond(roles);
         //$httpBackend.expectGET( tiposDocumentoUrl );
