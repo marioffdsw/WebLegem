@@ -20,12 +20,12 @@
             <label class="texto_labels" for="tipo-entidad">Tipo de la entidad</label>
 
             <div>
-                <div class="select_busqueda" ng-show="!vm.editando" ng-class="!vm.editando ? 'disable' : ''">
+                <div class="a_select" ng-show="!vm.editando" ng-class="!vm.editando ? 'disable' : ''">
                     <input type="text" ng-disabled="!vm.editando"
                            ng-model="vm.entidadSeleccionada.tipoEntidad.nombre" />
                 </div>
 
-                <div class="select_busqueda" ng-show="vm.editando">
+                <div class="a_select" ng-show="vm.editando">
                     <select id=" tipoentidadselect"
                             ng-options="tipoEntidad as tipoEntidad.nombre for tipoEntidad in vm.tiposEntidades"
                             ng-model="vm.entidadSeleccionada.tipoEntidad"></select>

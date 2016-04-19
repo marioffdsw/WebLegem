@@ -1,34 +1,68 @@
-﻿.select{
-    margin-top:10px;
-    margin-bottom:10px;
-    width:50%;
-    border-radius:3px;
-    border:1px solid #a1a1a1;
-    height:35px;
-    cursor:pointer;
+﻿/*------Select input ---------*/
+
+.a_select{
+    display:flex; 
+    border-right:none;
+    position:relative; 
+}
+
+.a_select select:disabled{
+    background:#e3e3e3;
+}
+.a_select input:disabled{
+    background:#e3e3e3;
+}
+
+
+.a_select select, .a_select input{
     -webkit-appearance:none;
     -moz-appearance:none;
+    background:#fff;
+    width:100%;
+    height:35px;
+    overflow:hidden;
+    border:1px solid #999;
+    padding:0 10px;
 }
 
-.select:hover ~ .span_select:before {
-    color: #3d9851;
-    text-shadow: 0 0 3px #45b15d;
+    .a_select:before{
+        font-family: 'iconos-legem';  
+        font-size:25px;
+        font-weight:900;
+        color:#999;
+        content:'\71';
+        position:absolute;
+        top:4px;
+        right:0;
+        width:30px;
+        height:35px;
+        pointer-events:none;
+    }
+
+    .a_select:hover::before{
+        color:#099472;
+    }
+    .a_select.disable:hover::before{
+        color:#999;
+    }
+    
+/*------ Fin select ------*/
+
+/*---Eventos select-----*/
+.a_select > select:focus
+{
+    outline:0; 
+    border-color:#38ba8f;
+    border-width:2px;
+}
+  
+.a_select > select:-webkit-autofill:active,
+.a_select > select:-webkit-autofill:focus
+ {  
+    outline:0;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
 }
 
-.span_select {
-    display:inline;
-    position:relative;
-    color: #a1a1a1;
-    font-size:x-large;
-}
-
-.span_select:before {        
-    content: '';
-    right: 9px;
-    top: 4px;
-    position: absolute;
-    pointer-events:none;
-    -webkit-transition: all 0.5s;
-    -moz-transition: all 0.5s;
-    transition: all 0.5s;
+.a_select select option{
+    padding:0 10px;
 }

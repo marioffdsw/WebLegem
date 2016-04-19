@@ -21,14 +21,6 @@
                 height: "=height"*/
             },
 
-            link: function(scope, element, attrs) {
-                scope.dialogStyle = {};
-                //if (attrs.width)
-                    scope.dialogStyle.width = "400px";
-                //if (attrs.height)
-                    scope.dialogStyle.height = "200px";
-            },
-
             bindToController: true
         }
     } // end

@@ -1,9 +1,9 @@
-﻿<div class="box_father" ng-controller="controlUsuariosController as vm" ng-init="vm.unavez();">
+﻿<div class="box_father">
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~1-->
-    <div class="box_left" ng-wlonload="vm.name">
-        <div class="box_input_ico">
-            <input type="text" class="input_text_ico" maxlength="20" placeholder="Filtro" />
+    <div class="box_left">
+        <div class="box_input_btn">
+            <input type="text" class="input_text_btn" maxlength="20" placeholder="Filtro" />
             <button class="btn_cancel" title="Quitar filtro" disabled>
                 <span class="ico-plus"></span>
             </button>
@@ -14,13 +14,22 @@
             <li>
                 <input type="radio" class="styled" id="a" name="a" />
                 <label class="styled" for="a">
-                    Juan pablo segundo
+                    Juan pablo segundo<br />
+                    <p>rol administrador</p>
                 </label>
             </li>
             <li>
                 <input type="radio" class="styled" id="b" name="b" />
                 <label class="styled" for="b">
-                    pedro perez elmismo
+                    pedro perez elmismo<br />
+                    <p>rol superusu</p>
+                </label>
+            </li>
+            <li>
+                <input type="radio" class="styled" id="b" name="b" />
+                <label class="styled" for="b">
+                    pedro perez elmismo<br />
+                    <p>rol superusu</p>
                 </label>
             </li>
         </ul>
@@ -102,9 +111,9 @@
         <div class="box_duo_input">
             <div>
                 <p class="texto_labels green">Contraseña</p>
-                <input class="a_input" type="password" ng-model="vm.pass_usu"/>
+                <input class="a_input" type="password" ng-model="vm.pass_usu" maxlength="20"/>
                 <div id="widget_seguridad">
-                    <div>
+                    <div id="content_span">
                         <span></span><span></span><span></span><span></span><span></span>
                     </div>
                     <p>Nivel de seguridad: {{vm.val_seguridad}} </p>
@@ -123,7 +132,15 @@
             </div>
             <div>
                 <p class="texto_labels green">Rol del usuario</p>
-                <input class="a_input" />
+                <div class="div_con_info">
+                    <div class="a_select"><!--aqui debe haber un hack como en entida.html-->
+                        <select></select>
+                    </div>
+                    <button class="btn_ico" title="Informacion rol" ng-click="vm.infoRol=true">
+                        <span class="ico-info"></span>                                        
+                    </button>
+                </div>
+                <info-rol show="vm.infoRol"></info-rol>  
             </div>
         </div>
 

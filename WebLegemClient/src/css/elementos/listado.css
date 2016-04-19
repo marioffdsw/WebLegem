@@ -42,6 +42,11 @@ label.styled:hover{
     background-color:  rgba(69, 177, 93, 0.20);
 }
 
+label.styled > p{
+    margin-top:-12px;
+    color:#0f745b;
+}
+
 input.styled {
   display: none;
 }
@@ -67,7 +72,7 @@ label.styled:before {
     width: 15px;
     opacity: 0;    
     transition: linear .3s;
-    background-color: #45b15d;
+    background-color: #2dbf85;
 }
 
 label.styled.animated:before {

@@ -59,6 +59,12 @@
     min-width:250px;
 }
 
+.div_con_info{
+    display:flex;
+}
+.div_con_info div{
+    flex:1;
+}
 
 
 .contenedor_radios{
