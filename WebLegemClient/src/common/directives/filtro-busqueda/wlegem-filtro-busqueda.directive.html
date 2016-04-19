@@ -71,7 +71,7 @@
     <label class="subtitulos_labels animacion_filtro" ng-show="!vm.entidadEmisora ">Entidad emisora</label>
     <div class="box_input_ico animacion_filtro" ng-show="!vm.entidadEmisora">
         <div>
-            <div class="select_busqueda">
+            <div class="a_select">
                 <select type="text" ng-options="entidad.nombre as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'"
                         ng-model="vm.entidadEmisoraAux"></select>
             </div>
@@ -89,7 +89,7 @@
     <label class="subtitulos_labels animacion_filtro" ng-show="!vm.tipoDocumento">Tipo de documento</label>
     <div class="box_input_ico animacion_filtro" ng-show="!vm.tipoDocumento">
         <div>
-            <div class="select_busqueda">
+            <div class="a_select">
                 <select type="text" placeholder="Escriba entidad emisora" ng-model="vm.tipoDocumentoAux"
                         ng-options="tipoDocumento.nombre as tipoDocumento.nombre for tipoDocumento in vm.tiposDocumento| orderBy: 'nombre'"></select>
             </div>

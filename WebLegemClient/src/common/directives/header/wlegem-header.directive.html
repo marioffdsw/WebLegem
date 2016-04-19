@@ -1,0 +1,71 @@
+﻿<div class="header" ng-class="vm.$state.current.name == 'home' ? 'transparente': ''" id="header1">
+
+    <wl-cinta-logo ng-show="vm.$state.current.name == 'home'">
+    </wl-cinta-logo>
+
+    <wl-nombre-logo ng-show="vm.$state.current.name != 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
+    </wl-nombre-logo>
+
+    <div id="contenedor_accesibilidad" class="contenedor_accesibilidad">
+        <div class="deslizador">
+
+            <div class=" btn_desplegable" ng-show="vm.loggeado">
+                <span class="ico-adn"></span>
+                <p>Menu</p>
+                <ul>
+                    <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
+                        <a ui-sref="{{opcion.estado}}">
+                            {{ opcion.texto }}
+                        </a>
+                        <!--<ul ng-if="opcion.subEstados">
+                            <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>
+                        </ul>-->
+                    <li>
+                </ul>
+            </div>
+
+            <button class="btn_deslizable" onclick="document.getElementById('body_index').scrollTop = getPosition().y;"
+                    ng-show="vm.$state.current.name == 'home'">
+                <span class="ico-newspaper-o"></span>
+                <p>Actualidad</p>
+
+            </button>
+
+
+
+            <button class="btn_deslizable" ui-sref="busqueda" ng-show="vm.$state.current.name !='busqueda'">
+                <span class="ico-search"></span>
+                <p>Busqueda</p>
+            </button>
+
+            <button class="btn_deslizable" ui-sref="home" onclick="document.getElementById('body_index').scrollTop = '0';">
+                <span class="ico-home"></span>
+                <p>Inicio</p>
+            </button>
+
+            <button class="btn_deslizable" ui-sref="login" ng-show="!vm.loggeado">
+                <span class="ico-sign-in"></span>
+                <p>Ingresar</p>
+            </button>
+
+            <button class="btn_deslizable" ng-click="vm.LogOut()" ng-show="vm.loggeado">
+                <span class="ico-sign-in"></span>
+                <p>Salir</p>
+            </button>
+
+            <button id="lanzador_accesibilidad" class="boton_accesibilidad" onclick="estado_accesibilidad(this.id)">
+                <span class="ico-angle-left"></span>
+                <span class="ico-child"></span>
+            </button>
+            <button class="boton_accesibilidad {{vm.clase_contraste}}" ng-click="vm.funcion_contraste()">
+                <span class="{{vm.icono_contraste}}"></span>
+            </button>
+            <button class="boton_accesibilidad  {{vm.clase_idioma}}" ng-click="vm.funcion_idioma()">
+                <span class="ico2-earth"></span>
+            </button>
+            <button class="boton_accesibilidad {{vm.tamano_letra}}" ng-click="vm.funcion_tamano()">
+                <span class="ico2-font-size"></span>
+            </button>
+        </div>
+    </div>
+</div>
