@@ -1,0 +1,29 @@
+﻿<div>
+    <div class="box_input_btn">
+        <input ng-model="vm.filtro" type="text" class="input_text_btn" maxlength="20" placeholder="Filtro" />
+        <button class="btn_cancel" title="Quitar filtro" disabled>
+            <span class="ico-plus"></span>
+        </button>
+    </div>
+
+    <p class="texto_labels green bold">Roles</p>
+
+    <ul class="a_listado" style="width:100%;">
+        <li ng-repeat="rol in vm.lista | filter:vm.filtro">
+         
+            <input id="r_{{ rol.id }}"
+                    type="radio"
+                    class="styled"
+                    ng-disabled="!vm.editando"
+                    name="r_{{ rol.id }}" />
+            
+            <label class="styled"
+                    for="r_{{ rol.id }}"
+                    ng-class="vm.checkear(rol) ? 'animated' : ''"
+                    ng-click="vm.seleccionarObjeto(rol)"
+                    ng-checked="vm.checkear(rol)">
+                {{ rol.nombre }}
+            </label>
+        </li>        
+    </ul>
+</div>
