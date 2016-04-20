@@ -11,7 +11,7 @@
     padding: 2px;
 }
 
-.switch:empty + label/*contenedor*/
+.switch:empty + label
 {
     display: block;
   position: relative;
@@ -34,7 +34,7 @@
   content: "";
 }
 
-/* fondo adicional*/
+
 .switch + label:before {
   top: 2px;
   left: 2px;
@@ -45,8 +45,7 @@
   transition: background 0.4s;
 }
 
-
-.switch + label:after {/*toggle cuadrito*/
+.switch + label:after {
   top:2px;
   bottom:2px;
   left:2px;
@@ -54,13 +53,12 @@
   background-color: #5e5f64;
   transition: margin 0.4s, background 0.4s;
 }
-.switch:checked + label {/*contenedor ya chekiado*/
-  background-color: #a1a1a1;
-}
-.switch:checked + label:before {/*contenedor ya chekiado*/
+
+.switch:checked + label:before {
   background-color: #45b15d;
 }
-.switch:checked + label:after {/*toggle cuadrito checked*/
+
+.switch:checked + label:after {
   margin-left: 32px;
-  background-color: #5e5f64;
+  background-color: #5e5f64;  
 }

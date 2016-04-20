@@ -18,12 +18,11 @@
 
         <form>
             <input class="a_input"
-                   ng-disabled="!vm.editando || !vm.tipoDocSeleccionado"
-                   type="text"
-                   ng-model="vm.tipoDocSeleccionado.nombre"
-                   required placeholder="Ingrese nombre" />
+                    ng-disabled="!vm.editando || !vm.tipoDocSeleccionado"
+                    type="text"
+                    ng-model="vm.tipoDocSeleccionado.nombre"
+                    required placeholder="Ingrese nombre" />
         </form>
-
 
         <wl-confirmacion editando="vm.editando"
                          aceptar="vm.aceptar"

@@ -1,0 +1,21 @@
+﻿<div class="box_input_btn">
+    <input  type="text" 
+            class="input_text_btn"
+            maxlength="20" 
+            placeholder="Filtro"
+            ng-model="vm.filtro" />
+    <button class="btn_cancel" title="Quitar filtro" disabled>
+        <span class="ico-plus"></span>
+    </button>
+</div>
+
+<p class="texto_labels green bold">Usuarios</p>
+<ul class="a_listado" style="width:100%;">
+    <li ng-repeat="usuario in vm.lista | filter:vm.filtro">
+        <input type="radio" class="styled" id="a" name="a" />
+        <label class="styled" for="a">
+            {{ usuario.nombre }} {{ usuario.apellido }}<br />
+            <p>Rol: {{ usuario.rol.nombre }}</p>
+        </label>
+    </li>    
+</ul>

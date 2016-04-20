@@ -2,37 +2,10 @@
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~1-->
     <div class="box_left">
-        <div class="box_input_btn">
-            <input type="text" class="input_text_btn" maxlength="20" placeholder="Filtro" />
-            <button class="btn_cancel" title="Quitar filtro" disabled>
-                <span class="ico-plus"></span>
-            </button>
-        </div>
-
-        <p class="texto_labels green bold">Usuarios</p>
-        <ul class="a_listado" style="width:100%;">
-            <li>
-                <input type="radio" class="styled" id="a" name="a" />
-                <label class="styled" for="a">
-                    Juan pablo segundo<br />
-                    <p>rol administrador</p>
-                </label>
-            </li>
-            <li>
-                <input type="radio" class="styled" id="b" name="b" />
-                <label class="styled" for="b">
-                    pedro perez elmismo<br />
-                    <p>rol superusu</p>
-                </label>
-            </li>
-            <li>
-                <input type="radio" class="styled" id="b" name="b" />
-                <label class="styled" for="b">
-                    pedro perez elmismo<br />
-                    <p>rol superusu</p>
-                </label>
-            </li>
-        </ul>
+        <wl-lista-usuarios lista="vm.usuarios"
+                           objeto-seleccionado="vm.usuarioSeleccionado"
+                           editando="vm.editando">
+        </wl-lista-usuarios>
     </div>
 
 
@@ -47,7 +20,7 @@
         <modal-dialog show="vm.camaraToggle">
             <div class='ng-modal-close'>
                 <button class="btn_ico" title="Cerrar dialogo" ng-click="vm.cerrarCamara()">
-                    <span class=" ico-times"></span>
+                    <span class="ico-times"></span>
                 </button>
             </div>
 
@@ -164,7 +137,5 @@
                          aceptar="vm.aceptar"
                          cancelar="vm.cancelar">
         </wl-confirmacion>
-
-    </div>
-
+    </div
 </div>
