@@ -12,7 +12,7 @@
             { id: 2, nombre: "Departamento", documentosSoportados: [{ id: 3, nombre: "Circular" }, { id: 4, nombre: "Acuerdo" }] },
             { id: 3, nombre: "Rectoria", documentosSoportados: [{ id: 4, nombre: "Acuerdo" }, { id: 5, nombre: "Carta" }] },
             { id: 4, nombre: "Secretaría de Educación", documentosSoportados: [{ id: 1, nombre: "Resolución" }, { id: 3, nombre: "Circular" }] },
-            { id: 5, nombre: "SuperEntidad", documentosSoportados: { id: 2, nombre: "Ley" } }
+            { id: 5, nombre: "SuperEntidad", documentosSoportados: [{ id: 2, nombre: "Ley" }] }
         ];
 
         var tiposEntidadUrl = "/api/TipoEntidad";
@@ -26,7 +26,7 @@
             var id = parameters[parameters.length - 1];
 
             if (id > 0) {
-                for (var i = 0; tiposEntidad.length; i++) {
+                for (var i = 0; i < tiposEntidad.length; i++) {
                     if (tiposEntidad[i].id = id) {
                         tipoEntidad = tiposEntidad[i];
                         break;
@@ -46,7 +46,7 @@
                 tiposEntidad.push(tipoEntidad);
             }
             else { // actualizar el tipoEntidad
-                for (var i = 0; tiposEntidad.length; i++) {
+                for (var i = 0; i < tiposEntidad.length; i++) {
                     if (tiposEntidad[i].id == tipoEntidad.id) {
                         tiposEntidad[i] = tipoEntidad;
                         break;
@@ -66,7 +66,7 @@
                 tiposEntidad.push(tipoEntidad);
             }
             else { // actualizar el tipoDoc
-                for (var i = 0; tiposEntidad.length; i++) {
+                for (var i = 0; i < tiposEntidad.length; i++) {
                     if (tiposEntidad[i].id == tipoEntidad.id) {
                         tiposEntidad[i] = tipoEntidad;
                         break;
@@ -83,7 +83,7 @@
             var id = parseInt(id);
 
             if (id > 0) {
-                for (var i = 0; tiposEntidad.length; i++) {
+                for (var i = 0; i < tiposEntidad.length; i++) {
                     if (tiposEntidad[i].id == id) {
                         tiposEntidad.splice(i, 1);
                         break;

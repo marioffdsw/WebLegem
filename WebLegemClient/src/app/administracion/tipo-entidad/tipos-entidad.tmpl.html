@@ -17,13 +17,14 @@
         <form>
             <input class="a_input" ng-disabled="!vm.editando" type="text" ng-model="vm.tipoEntidadSeleccionado.nombre" placeholder="Ingrese el nombre Entidad" />
         </form>
-
+        {{ vm.tipoEntidadSeleccionado }}
+        {{ vm.tipoEntidadSeleccionado.documentosSoportados }}
         <wl-lista-tipo-doc-hojitas editando="vm.editando"
-                                    documentos-soportados="vm.tipoEntidadSeleccionado.documentosSoportados"></wl-lista-tipo-doc-hojitas>
+                documentos-soportados="vm.tipoEntidadSeleccionado.documentosSoportados"></wl-lista-tipo-doc-hojitas>
 
         <wl-confirmacion editando="vm.editando"
-                         aceptar="vm.aceptar"
-                         cancelar="vm.cancelar">
+                aceptar="vm.aceptar"
+                cancelar="vm.cancelar">
         </wl-confirmacion>
     </div>
 </div>
