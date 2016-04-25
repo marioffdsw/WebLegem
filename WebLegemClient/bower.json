@@ -28,6 +28,7 @@
     "angular-mocks": "~1.4.8",
     "angular-upload": "~1.0.12",
     "angular-file-upload": "~2.2.0",
-    "annyang": "^2.2.1"
-  }  
+    "annyang": "^2.2.1",
+    "underscore": "^1.8.3"
+  }
 }

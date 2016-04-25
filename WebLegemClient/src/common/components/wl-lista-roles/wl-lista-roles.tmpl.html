@@ -11,17 +11,15 @@
     <ul class="a_listado" style="width:100%;">
         <li ng-repeat="rol in vm.lista | filter:vm.filtro">
          
-            <input id="r_{{ rol.id }}"
+            <input  id="r_{{ rol.id }}"
                     type="radio"
                     class="styled"
-                    ng-disabled="!vm.editando"
+                    ng-disabled="vm.editando"
                     name="r_{{ rol.id }}" />
             
-            <label class="styled"
-                    for="r_{{ rol.id }}"
-                    ng-class="vm.checkear(rol) ? 'animated' : ''"
-                    ng-click="vm.seleccionarObjeto(rol)"
-                    ng-checked="vm.checkear(rol)">
+            <label  class="styled"
+                    for="r_{{ rol.id }}"                    
+                    ng-click="vm.seleccionar(rol)" >
                 {{ rol.nombre }}
             </label>
         </li>        

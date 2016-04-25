@@ -1,8 +1,8 @@
 ﻿<div class="box_father">
    
     <div class="box_left">
-        <wl-lista-roles lista="vm.roles"
-                objeto-seleccionado="vm.rolSeleccionado"
+        <wl-lista-roles seleccionar="vm.seleccionar"
+                lista="vm.roles"                
                 editando="vm.editando">
         </wl-lista-roles>
     </div>
@@ -26,7 +26,7 @@
 
         
         <wl-lista-permisos editando="vm.editando"
-                permisos-asignados="vm.rolSeleccionado.permisos"></wl-lista-permisos>
+                permisos-asignados="vm.permisos"></wl-lista-permisos>
 
         <wl-confirmacion editando="vm.editando"
                          aceptar="vm.aceptar"

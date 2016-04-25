@@ -14,7 +14,7 @@
             bindToController: true,
             scope: {
                 editando: "=editando",
-                documentosSoportados: "=documentosSoportados"
+                listaDocumentos: "=listaDocumentos"
             }
         };
     } // end directive

@@ -3,10 +3,10 @@
 
     angular
         .module("common.services")
-        .factory("PermisosService", PermisosResource);
+        .factory("PermisosService", PermisosService);
 
-    PermisosResource.$inject = ["$resource", "serviceUrl"];
-    function PermisosResource($resource, serviceUrl) {
+    PermisosService.$inject = ["$resource", "serviceUrl"];
+    function PermisosService($resource, serviceUrl) {
         return $resource(serviceUrl + "/Permisos/:id", null, {
             update: { method: "PUT" }
         });

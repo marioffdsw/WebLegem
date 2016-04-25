@@ -9,14 +9,15 @@
 
         <div class="panel_control">
             <ul class="a_bloques">
-                <li class="te_li_lista" ng-repeat="tipoDoc in vm.tiposDocumentos | orderBy: 'nombre'" >
+                <li class="te_li_lista" ng-repeat="tipoDoc in vm.listaDocumentos | orderBy: 'nombre'" >
                     <input id="chk-td-{{tipoDoc.id}}"                            
                            type="checkbox" 
                            ng-disabled="!vm.editando"
-                           ng-class="vm.isAlreadyChecked(tipoDoc) ? 'checked' : ''"
-                           ng-checked="vm.isAlreadyChecked( tipoDoc )" >
-                    <label class="styled1 note rounded" for="chk-td-{{tipoDoc.id}}"                                                       
-                           ng-click="vm.checkearObjeto( tipoDoc )">
+                           ng-class="tipoDoc.valor ? 'checked' : ''"
+                           ng-model="tipoDoc.valor"
+                           ng-checked="tipoDoc.valor">
+                    <label  for="chk-td-{{tipoDoc.id}}"
+                            class="styled1 note rounded">
                         <span class="escudo-udenar" style="font-size:60px;"></span>
                         {{ tipoDoc.nombre }}
                     </label>

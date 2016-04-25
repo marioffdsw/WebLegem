@@ -5,8 +5,8 @@
         .module("WebLegemApp.Usuarios")
         .controller("controlRolesController", controlRolesController);
 
-    controlRolesController.$inject = [ "RolResource"];
-    function controlRolesController( RolResource ) {
+    controlRolesController.$inject = ["RolResource", "PermisosService", "_"];
+    function controlRolesController(RolResource, PermisosService, _) {
         var vm = this;
 
         /**********************************************************************************
@@ -15,9 +15,11 @@
          *   
          **********************************************************************************/
 
-        vm.roles = [];        
+        vm.roles = [];
+        vm.permisos = [];
         vm.rolSeleccionado = undefined;
-        vm.editando;
+        vm.editando = false;
+        vm.seleccionar = seleccionar;
 
 
 
@@ -42,8 +44,7 @@
          *   
          **********************************************************************************/
 
-        retrieveData();
-
+        retrieveData();        
 
 
 
@@ -57,14 +58,15 @@
 
         function aceptar() {
 
-            console.log( vm.rolSeleccionado );            
+            var rol = angular.copy(vm.rolSeleccionado);
 
-            if (vm.rolSeleccionado.id == 0) {
-                crear(vm.rolSeleccionado);
-            }
-            else {
-                guardar( vm.rolSeleccionado );
-            }
+            rol.permisos = _.chain(vm.permisos)
+                .filter(function (item) { return item.valor; })
+                .map(function (item) { delete item.valor; return item; })
+                .value();
+
+            rol.id == 0 ? crear(rol) : guardar(rol);            
+
             cancelar();
         } // end function aceptar
 
@@ -72,12 +74,18 @@
         function cancelar() {
             vm.editando = false;
             vm.rolSeleccionado = undefined;
+            vm.permisos = mapearPermisosAsignados(vm.permisos, vm.rolSeleccionado);
         } // end function cancelar        
 
 
         function retrieveData() {
             RolResource.query(function (data) {
                 vm.roles = data;
+            });
+
+
+            PermisosService.query(function (data) {
+                vm.permisos = mapearPermisosAsignados(data, vm.rolSeleccionado);                
             });
         } // end function retrieveData
 
@@ -87,8 +95,8 @@
         } // end function nuevo
 
 
-        function crear() {
-            RolResource.save(vm.rolSeleccionado, function (data) {
+        function crear( rol ) {
+            RolResource.save(rol, function (data) {
                 retrieveData();
             });
 
@@ -98,12 +106,7 @@
 
         function guardar( rol ){
             RolResource.update(rol, function (data) {
-                for (var i = 0; i < vm.roles.length; i++) {
-                    if (vm.roles[i].id === data.id) {
-                        vm.roles[i] = data;
-                        break;
-                    } // end if
-                } // end for
+                retrieveData();
             });
 
             cancelar();
@@ -117,6 +120,36 @@
 
             cancelar();
         } // end function remover
+
+        function seleccionar(rol) {
+            if (vm.editando === true) return;
+
+            angular.equals(vm.rolSeleccionado, rol) ?
+                vm.rolSeleccionado = undefined :
+                vm.rolSeleccionado = angular.copy(rol);
+
+            vm.permisos = mapearPermisosAsignados(vm.permisos, vm.rolSeleccionado);            
+        } // end function seleccionar
+
+        function mapearPermisosAsignados( permisos, rol ) {
+            return _.map(permisos, function (permiso) {
+                permiso.valor = false;
+
+                if (isSelected(permiso, rol))
+                    permiso.valor = true;
+
+                return permiso;
+            });
+        } // end function mapearPermisosAsignados
+
+        function isSelected( permiso, rol ) {
+            if (typeof rol === "undefined") return false;
+
+            for (var i = 0; i < rol.permisos.length; i++)
+                if (permiso.id === rol.permisos[i].id) return true;
+
+            return false;
+        } // end function isSelected
 
 
         return vm;

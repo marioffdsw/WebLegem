@@ -1,8 +1,8 @@
 ﻿<div class="box_father">
     <div class="box_left">
-        <wl-lista-tipos-entidades lista="vm.tiposEntidades"
-                                  objeto-seleccionado="vm.tipoEntidadSeleccionado"
-                                  editando="vm.editando">
+        <wl-lista-tipos-entidades seleccionar="vm.seleccionar"
+                lista="vm.tiposEntidades" 
+                editando="vm.editando">
         </wl-lista-tipos-entidades>
     </div>
 
@@ -12,15 +12,15 @@
                         nuevo="vm.nuevo"
                         eliminar="vm.remover">
         </wl-admin-crud>
-
+        
+        
         <label class="texto_labels">Nombre del tipo entidad</label>
         <form>
             <input class="a_input" ng-disabled="!vm.editando" type="text" ng-model="vm.tipoEntidadSeleccionado.nombre" placeholder="Ingrese el nombre Entidad" />
         </form>
-        {{ vm.tipoEntidadSeleccionado }}
-        {{ vm.tipoEntidadSeleccionado.documentosSoportados }}
         <wl-lista-tipo-doc-hojitas editando="vm.editando"
-                documentos-soportados="vm.tipoEntidadSeleccionado.documentosSoportados"></wl-lista-tipo-doc-hojitas>
+                lista-documentos="vm.tiposDocumentos">
+        </wl-lista-tipo-doc-hojitas>
 
         <wl-confirmacion editando="vm.editando"
                 aceptar="vm.aceptar"

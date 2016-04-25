@@ -5,8 +5,8 @@
         .module("WebLegemApp.Administracion")
         .controller("TipoEntidadController", TipoEntidadController);
 
-    TipoEntidadController.$inject = ["TipoEntidadService", "TipoDocumentoResource"];
-    function TipoEntidadController(TipoEntidadService, TipoDocumentoResource) {
+    TipoEntidadController.$inject = ["TipoEntidadService", "TipoDocumentoResource", "_"];
+    function TipoEntidadController(TipoEntidadService, TipoDocumentoResource, _) {
         var vm = this;
 
         /**********************************************************************************
@@ -18,7 +18,8 @@
         vm.tiposDocumentos = [];
         vm.tiposEntidades = [];
         vm.tipoEntidadSeleccionado = undefined;
-        vm.editando = false;
+        vm.editando = false;        
+        vm.seleccionar = seleccionar;
 
 
 
@@ -55,19 +56,31 @@
 
 
         function aceptar() {
-            console.log( "aceptar" );
+            
+            var tipoEntidad = angular.copy(vm.tipoEntidadSeleccionado);
+
+            tipoEntidad.documentosSoportados = _.chain(vm.tiposDocumentos)
+                .filter(function (item) { return item.valor; })
+                .map(function (item) {
+                    delete item.valor;
+                    return item;
+                }).value();
+
             if (vm.tipoEntidadSeleccionado.id == 0) {
-                crear(vm.tipoEntidadSeleccionado);
+                crear(tipoEntidad);
             }
             else {
-                guardar(vm.tipoEntidadSeleccionado);
-            }            
+                guardar(tipoEntidad);
+            }
+
+            cancelar();
         }
 
 
         function cancelar() {
             vm.editando = false;
             vm.tipoEntidadSeleccionado = undefined;
+            vm.tiposDocumentos = mapearTiposDocumentoPermitidos( vm.tiposDocumentos, vm.tipoEntidadSeleccionado );
         }
 
 
@@ -78,9 +91,9 @@
             });
 
             TipoDocumentoResource.query(function (data) {
-                vm.tiposDocumentos = data;                
+                vm.tiposDocumentos = mapearTiposDocumentoPermitidos(data, vm.tipoEntidadSeleccionado);                
             });
-        }
+        }        
 
 
         function nuevo() {
@@ -88,20 +101,20 @@
         }
 
 
-        function crear(tipoEntidad) {
-            console.log( "crear" );
+        function crear(tipoEntidad) {            
             TipoEntidadService.save(tipoEntidad, function (data) {
                 retrieveData();
             });
+
             cancelar();
         } // end function create       
 
 
-        function guardar(tipoEntidad) {
-            console.log( "guardar" );
+        function guardar(tipoEntidad) {            
             TipoEntidadService.update(tipoEntidad, function (data) {
                 retrieveData();
             });
+
             cancelar();
         } // end method guardar
 
@@ -110,8 +123,46 @@
             TipoEntidadService.remove(tipoEntidad, function () {
                 retrieveData();
             });
+
             cancelar();
         } // end function remover
+
+        function seleccionar(tipoEntidad) {
+            if (vm.editando === true)
+                return;
+
+            if (angular.equals(vm.tipoEntidadSeleccionado, tipoEntidad) )
+                vm.tipoEntidadSeleccionado = undefined;                           
+            else
+                vm.tipoEntidadSeleccionado = angular.copy(tipoEntidad);                            
+
+            vm.tiposDocumentos = mapearTiposDocumentoPermitidos(vm.tiposDocumentos, vm.tipoEntidadSeleccionado)
+            
+        } // end function seleccionar
+
+        function mapearTiposDocumentoPermitidos(tiposDocumentos, tipoEntidadSeleccionado) {
+            return _.map(tiposDocumentos, function (tipoDocumento) {
+
+                tipoDocumento.valor = false;
+
+                if (isSelected(tipoDocumento, tipoEntidadSeleccionado))
+                    tipoDocumento.valor = true;
+
+                return tipoDocumento
+            });
+        } // end function mapearTiposDocumentosPermitidos
+
+
+        function isSelected(tipoDocumento, tipoEntidadSeleccionado) {
+            if (typeof tipoEntidadSeleccionado === "undefined")
+                return false;
+
+            for (var i = 0; i < tipoEntidadSeleccionado.documentosSoportados.length; i++) {
+                if (tipoDocumento.id === tipoEntidadSeleccionado.documentosSoportados[i].id)
+                    return true;
+            } // end for
+            return false;
+        } // end function isSelected
 
     }
 } // end EntidadController
