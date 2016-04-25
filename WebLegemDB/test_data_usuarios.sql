@@ -1,4 +1,4 @@
-INSERT INTO acciones_tab VALUES( 1, 'Crear' );
+/*INSERT INTO acciones_tab VALUES( 1, 'Crear' );
 INSERT INTO acciones_tab VALUES( 2, 'Leer' );
 INSERT INTO acciones_tab VALUES( 3, 'Actualizar' );
 INSERT INTO acciones_tab VALUES( 4, 'Eliminar' );
@@ -17,7 +17,7 @@ INSERT INTO recursos_tab VALUES( 7, 'Roles', 3 );
 INSERT INTO recursos_tab VALUES( 8, 'Usuarios', 3 );
 
 
-/* Modulo Administración */
+
 INSERT INTO permisos_tab VALUES( 1, 1, 1 );
 INSERT INTO permisos_tab VALUES( 2, 1, 2 );
 INSERT INTO permisos_tab VALUES( 3, 1, 3 );
@@ -38,7 +38,6 @@ INSERT INTO permisos_tab VALUES( 14, 4, 2 );
 INSERT INTO permisos_tab VALUES( 15, 4, 3 );
 INSERT INTO permisos_tab VALUES( 16, 4, 4 );
 
-/* Modulos Gestión Documental */
 INSERT INTO permisos_tab VALUES( 17, 5, 1 );
 INSERT INTO permisos_tab VALUES( 18, 5, 2 );
 INSERT INTO permisos_tab VALUES( 19, 5, 3 );
@@ -49,7 +48,6 @@ INSERT INTO permisos_tab VALUES( 22, 6, 2 );
 INSERT INTO permisos_tab VALUES( 23, 6, 3 );
 INSERT INTO permisos_tab VALUES( 24, 6, 4 );
 
-/* Modulo Usuarios */
 INSERT INTO permisos_tab VALUES( 25, 7, 1 ); 
 INSERT INTO permisos_tab VALUES( 26, 7, 2 ); 
 INSERT INTO permisos_tab VALUES( 27, 7, 3 ); 
@@ -123,3 +121,16 @@ INSERT INTO permisos_asignados_tab VALUES( 3, 21 );
 INSERT INTO permisos_asignados_tab VALUES( 3, 22 );
 INSERT INTO permisos_asignados_tab VALUES( 3, 23 );
 INSERT INTO permisos_asignados_tab VALUES( 3, 24 );
+*/
+
+INSERT INTO usuarios_tab VALUES(
+    1,
+    'sa',
+    'Super',
+    'Usuario',
+    '1234',
+    'sa@udenar.edu.co',
+    'sa.jpg',
+    'A',
+    1
+);

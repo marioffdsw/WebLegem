@@ -194,7 +194,7 @@
     <Content Include="Tables\Relational Tables\tipos_entidad_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Relational Tables\usuario_tab.sql">
+    <Content Include="Tables\Relational Tables\usuarios_tab.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="test_data.sql">
@@ -284,6 +284,9 @@
     <Content Include="User Defined Types\Objects\tipo_entidad_typ.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="User Defined Types\Objects\usuario_typ.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="usuario_tablespace_permisos.sql">
       <SubType>Content</SubType>
     </Content>
@@ -315,6 +318,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Views\Object Views\tipos_entidad_view.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\Object Views\usuarios_view.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="web_legem.sql">

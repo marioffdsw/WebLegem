@@ -18,12 +18,12 @@ CREATE TABLE usuarios_tab
     CONSTRAINT usu_correo_unique
         UNIQUE ( correo ),
 
-    CONTRAINT usu_foto_unique
+    CONSTRAINT usu_foto_unique
         UNIQUE ( foto ),
 
-    CONTRAINT usu_estado_check
+    CONSTRAINT usu_estado_check
         CHECK ( estado IN ( 'A', 'I' ) ),           -- estado A = Activo, I = Inactivo
         
-     CONSTRAINT usu_rol_FK
+    CONSTRAINT usu_rol_FK
         FOREIGN KEY ( rol ) REFERENCES roles_tab( id )
 );
