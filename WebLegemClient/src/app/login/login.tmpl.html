@@ -1,12 +1,12 @@
-﻿<div class="espacio_blanco"></div>
-<div class="contenedor_login">
-    
-    <div>
+﻿<div style="background:red;height:100vh; ">
+    <div class="espacio_blanco"></div>
+
+    <div class="contenedor_login">
         <div class="titulo">
             Ingreso al sistema
         </div>
 
-        <form class="form_login" name="form_login" novalidate>   
+        <form class="form_login" name="form_login" novalidate>
 
             <!----------------------------------------------------->
             <div ng-messages ng-show="form_login.usuario.$invalid">
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <!----------------------------------------------------->
-            
+
 
             <div>
                 <div class="a_validacion" style="padding-bottom:10px; color:#444">* Campos obligatorios.</div>
@@ -55,4 +55,23 @@
             <a href="#" class="olvide_contraseña"> Olvide mi contraseña </a>
         </form>
     </div>
+
+
+    <div class="contenedor_simbolos" >
+
+        <div style="display:flex; flex-direction:row; width:100%; justify-content:space-around;  background:rgba(0, 0, 0, 0.6);">
+            <div>
+                <img src="recursos/escudos-logos/Logo-Acreditacion-01_blanco.png" style="height:100px;width:90px;" />
+            </div>
+
+            <div>
+                <img src="recursos/escudos-logos/planeacion.png" style="height:100px;width:200px;" />
+            </div>
+
+            <div>
+                <img src="recursos/escudos-logos/escudo_111_years.png" style="height:100px;width:100px;" />
+            </div>
+        </div>
+    </div>
+
 </div>

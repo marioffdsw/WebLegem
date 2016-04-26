@@ -23,8 +23,10 @@
     <script src="../bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
     <script src="../bower_components/quill/dist/quill.min.js"></script>
     <script src="../bower_components/ngQuill/src/ng-quill.min.js"></script>
+    <script src="../bower_components/angular-media-queries/match-media.js"></script>
 
     <!-- App Scripts -->
+
     <script src="app/app.core.js"></script>
     <script src="app/app.core.dependencies.js"></script>
     <script src="app/app.core.modules.js"></script>
@@ -138,12 +140,12 @@
     <link href="css/plantillas/tipo_documento.css" rel="stylesheet" />
     <link href="css/principal.css" rel="stylesheet" />
     <link href="css/plantillas/header2.css" rel="stylesheet" />
-    <link href="css/plantillas/header.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
+    <link href="css/plantillas/header.css" rel="stylesheet" />
     <link href="css/plantillas/accesibilidad.css" rel="stylesheet" />
-    <link href="css/plantillas/administracion.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
+    <link href="css/plantillas/administracion.css" rel="stylesheet"/>
     <link href="css/plantillas/login.css" rel="stylesheet" />
     <link href="css/plantillas/tipo_entidad.css" rel="stylesheet" />
-    <link href="css/plantillas/busqueda.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
+    <link href="css/plantillas/busqueda.css" rel="stylesheet" />
     <link href="css/plantillas/gestion_documental.css" rel="stylesheet" />
     <link href="css/plantillas/mini_footer.css" rel="stylesheet" />
     <link href="css/plantillas/usuarios.css" rel="stylesheet" />
@@ -159,9 +161,9 @@
     <script src="app/homeController.js"></script>
     <script src="app/uploader-andres.js"></script>    
 
-    <link href="css/pagina_principal.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
-    <link href="css/elementos/button.css" rel="stylesheet" ng-if="vm.val_contraste==0" />
-    <link href="css/estilos_weblegem.css" rel="stylesheet" ng-if="vm.val_contraste==0" />    
+    <link href="css/pagina_principal.css" rel="stylesheet" />
+    <link href="css/elementos/button.css" rel="stylesheet" />
+    <link href="css/estilos_weblegem.css" rel="stylesheet" />    
 
     <!----Fuentes-Tipografia-->
     <link href="fuentes/CREAMPUF/fonts.css" rel="stylesheet" />
@@ -195,6 +197,7 @@
     <script src="common/directives/escudo-nombre/wlegem-escudo-nombre.directive.js"></script>
 
 
+    <script src="common/directives/header/wlegem-header.controller.js"></script>
     <script src="common/directives/info-rol/info-rol.controller.js"></script>
     <script src="common/directives/resultado-busqueda/wlegem-resultado-busqueda.controller.js"></script>
     <script src="common/directives/resultado-busqueda/wlegem-resultado-busqueda.directive.js"></script>
@@ -206,7 +209,6 @@
 </head>
 
 <body id="body_index" ng-init='vm.load()'>
-
     <div class="main">
         <!-------------------------------------------------Seccion Principal--------------------------------------------------------->
         <section style="width:100%; min-height:100vh;">
@@ -215,8 +217,7 @@
             <wlegem-header></wlegem-header>
 
             <!--=============== Contenido Aplicacion ===================-->
-            <div ui-view class="animatio ng-enter contenedor_global"></div>
-
+            <div ui-view class="animatio contenedor_global"></div>
         </section>
         <!-------------------------------------------------Seccion Noticias--------------------------------------------------------->
         <section id="homero">
@@ -230,7 +231,7 @@
 
         <!-------------------------------------------------Seccion Footer--------------------------------------------------------->
         <wlegem-footer ng-show="vm.$state.current.name == 'home'"></wlegem-footer>
-        <wlegem-mini-footer ng-show="vm.$state.current.name != 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
+        <wlegem-mini-footer ng-show="(vm.$state.current.name != 'home' && vm.$state.current.name != 'login')">
         </wlegem-mini-footer>
     </div>
 

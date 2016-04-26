@@ -1,4 +1,5 @@
-﻿.header {
+﻿/******************** HEADER ***************************/
+.header {
     width:100%;
     height:55px;
     position:relative;
@@ -18,6 +19,156 @@
     height:55px;
 }
 
+.transparente {
+    background: rgba( 0,0,0, .75 );
+}
+
+/******************* FIN HEADER ***********************/
+
+.ul_nav{list-style:none;display:flex;justify-content:flex-end;}
+
+.li_nav{font-family:"Lato-Regular";font-size:medium;color:#fff}
+.li_nav a {padding:0 10px;}
+.li_nav:hover > a {background: #0f5776; }
+
+
+#toggle-menu{
+    background:rgba(0, 0, 0, 0.30);   
+    color:white;
+    height:55px;
+    width:55px;
+    font-size:25px;
+    display:none;
+    cursor:pointer;   
+    justify-content:center;
+    align-items:center;
+}
+#toggle-menu:before{-moz-transition:all .5s;-webkit-transition:all .5s;-o-transition:all .5s;transition:all .5s}
+
+/*´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´*/
+    /*Menu Desplegado*/
+    .ul_nav.responsive{display:flex;overflow-y:scroll;position:absolute;height:calc(100vh - 55px);width:100%;}
+    .ul_nav.responsive li{background:#132135; border-bottom:1px dotted rgba(255, 255, 255, 0.10)}
+    .ul_nav.responsive li ul{position:relative;}
+    .ul_nav.responsive li a{flex:1;display:flex;justify-content:flex-start}
+    .ul_nav.responsive li a div{margin-left:30px;margin-right:10px}
+    .ul_nav.responsive > li > ul > li > a {background:#11171E;padding-left:30px}
+    #toggle-menu.responsive:before{transform:rotate(90deg)}
+  
+/*´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´*/
+        
+
+@media screen and (max-width:767px) 
+{ /*para dispositivos menores a 767px*/
+    #toggle-menu{display:flex;}
+    .ul_nav{display:none;}/*ocultar*/
+    .ul_nav.responsive{display:unset}/*en filas*/
+}
+
+
+
+.btn_menu {
+    background: rgba(55, 64, 74, 0.0);
+    border: none;
+    width: auto;
+    height: 55px;
+    color: white;
+    position: relative;
+    justify-content: center;
+    display: flex;
+    text-decoration:none;
+    position:relative;
+}
+
+.btn_menu:before{
+    content:"";
+    width:0;
+    height:4px;
+    background:white;   
+    position:absolute;
+    left:50%;
+    bottom:0;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    -o-transition: all .5s;
+    transition: all .5s;
+}
+
+.btn_menu:hover:before{width:100%;left:0}/*animacion*/
+.btn_menu.sin_ani:hover:before{width:0;left:0}/*sin animacion*/
+
+
+.btn_menu > div{/*icono de los li*/
+    font-size:large;          
+    display:flex;
+    align-items:center;
+    height:100%;
+    margin-right:10px;
+}
+
+.btn_menu > p{                           
+    display:flex;
+    align-items:center;
+    height:100%;
+}
+
+/*---------------- Btn cuenta de usuario---------------*/
+.btn_menu.usu{
+    height:55px;
+    color:white;
+    display:flex;
+    cursor:pointer;
+    padding-right:0;
+}
+
+.btn_menu.usu > div:first-child{/*Nombre Usuario*/  
+    align-items:center;
+    height:100%;
+}
+
+.btn_menu.usu > div:last-child{/*Foto Usuario*/
+    margin:0;
+}
+
+.btn_menu.usu > div:last-child > img{/*Foto Usuario*/
+    background-size:contain;
+    width:55px; 
+    height:55px;
+}
+
+
+/*-----------------Fin Btn cuenta usuario -------------*/
+
+/*----------- Sub menu -----------*/
+
+.ul_nav li ul{
+    list-style:none;
+    background:rgba( 0,0,0, .75 );
+    position:absolute;
+}
+
+.desplegar.ng-hide-add  {
+}
+.desplegar.ng-hide-remove {
+    animation: .5s bajando;
+}
+
+@keyframes bajando {
+  0%{opacity:0;max-height:0;}
+  100% {opacity:1;max-height:200px;}
+}
+
+.ul_nav li ul li a{flex:1;display:flex;justify-content:flex-start;padding:10px;}
+.ul_nav li ul li a div{margin-right:10px}
+
+.btn_menu.sub:hover:before{width:0}/*quitar animacion*/
+.btn_menu.sub:hover{background: #0f5776}
+.btn_menu.sub{cursor:pointer;height:40px;}
+
+/*---------Fin Sub menu ----------*/
+
+
+/*+********************************/
 
 .figura_logo{
     height: 125px;
@@ -50,139 +201,7 @@
     left:29px;
 }
 
-.contenedor_nombre_escudo {
-    
-}
-
 #svg_image {
     stroke:#010365;
     stroke-width: 3px;
-}
-
-
-
-
-.btn_deslizable{
-    background:rgba(55, 64, 74, 0.0);
-    border:none;
-    width:auto;
-    height:55px;
-    color:white;
-    font-size:medium;
-    margin-right:10px;
-    padding: 8px;
-    position:relative;
-    cursor:pointer;
-}
-
-.btn_deslizable > span{
-    -webkit-transform:translateY(3px);
-    transform:translateY(3px);
-    display:inline-block;
-    font-size:large;
-}
-
-.btn_deslizable > p{
-    display:inline-block;
-    font-size:medium;
-}
-
-.btn_deslizable:hover{ 
-    background: rgba(255, 255, 255, 0.50);
-}
-.btn_deslizable:hover span, .btn_deslizable:hover p{ 
-    color:#fff;
-}
-
-.btn_deslizable:before{
-    content:"";
-    width:0;
-    height:4px;
-    background:white;   
-    position:absolute;
-    left:50%;
-    bottom:0;
-    -moz-transition: all .5s;
-    -webkit-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
-}
-
-.btn_deslizable:hover:before{
-    width:100%;
-    left:0;
-}
-
-
-.transparente {
-    background: rgba( 0,0,0, .75 );
-}
-
-
-/*btn Desplegable para el menu*/
-
-.btn_desplegable{
-    background:rgba(55, 64, 74, 0.0);
-    border:none;
-    width:auto;
-    color:white;
-    font-size:medium;
-    font-family:"Lato-regular";
-    text-align:center;
-    margin-right:10px;
-    padding: 15px 0;
-    padding-bottom:0;
-    position:relative;
-    cursor:pointer;
-}
-
-.btn_desplegable > span{
-    -webkit-transform:translateY(3px);
-    transform:translateY(3px);
-    display:inline-block;
-    font-size:large;
-}
-
-.btn_desplegable > p{
-    display:inline-block;
-    font-size:medium;
-}
-
-.btn_desplegable:hover span, .btn_deslizable:hover p{ 
-    color:#fff;
-}
-
-.btn_desplegable ul{
-    display:none;
-}
-
-.btn_desplegable:hover ul{
-    display:block;
-}
-
-.btn_desplegable ul{
-    list-style:none;
-    text-decoration:none;
-    background:rgba(8, 14, 34, 0.86); 
-    margin-bottom:-20px; 
-}
-
-.btn_desplegable ul li{
-    padding:10px;
-}
-
-.btn_desplegable ul li:hover{
-    background:rgba(255, 255, 255, 0.40);
-}
-
-.btn_desplegable ul li a{
-    -moz-text-decoration:none;
-    text-decoration: none;
-    font-family:"Lato-Regular";
-    color:#fff;
-}
-
-
-.btn_desplegable ul li:first-child{
-    margin-top:18px;
 }
