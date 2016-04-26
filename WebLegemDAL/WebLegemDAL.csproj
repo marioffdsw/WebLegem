@@ -101,6 +101,9 @@
     <Compile Include="TipoEntidad\TipoEntidad.cs" />
     <Compile Include="TipoEntidad\TipoEntidadDAO.cs" />
     <Compile Include="TipoEntidad\TipoEntidadFactory.cs" />
+    <Compile Include="Usuario\Usuario.cs" />
+    <Compile Include="Usuario\UsuarioDAO.cs" />
+    <Compile Include="Usuario\UsuarioFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

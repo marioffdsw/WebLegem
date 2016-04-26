@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WebLegemDAL.Models;
 using WebLegemDAL.DAL;
 using WebLegemDAL.QueryObjects;
+using WebLegemDAL.DAO;
 
 namespace PruebasDB
 {
@@ -15,6 +16,7 @@ namespace PruebasDB
         static TipoEntidadDAO tipoEntidadDal = new TipoEntidadDAO();
         static RolDAO rolDal = new RolDAO();
         static PermisoDAO permisoDao = new PermisoDAO();
+        static UsuarioDAO usuarioDao = new UsuarioDAO();
 
         static EntidadDAO entidadDal = new EntidadDAO();
         static DocumentoConContenidoDAO documentoDal = new DocumentoConContenidoDAO();
@@ -27,7 +29,8 @@ namespace PruebasDB
             //ListarEntidades();
             //ListarDocumentos();
             //ListarRoles();
-            ListarPermisos();
+            //ListarPermisos();
+            ListarUsuarios();
 
             //CrearTiposDocumento();
             //CrearTiposEntidad();
@@ -47,6 +50,14 @@ namespace PruebasDB
             //CrearDocumentos();
             //ListarDocumentos();  
             Console.ReadKey();       
+        }
+
+        private static void ListarUsuarios()
+        {
+            var lista = usuarioDao.GetAll();
+
+            foreach (var u in lista)
+                Console.WriteLine( u );
         }
 
         private static void ListarPermisos()

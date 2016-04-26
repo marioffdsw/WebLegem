@@ -9,6 +9,7 @@ using WebLegemDAL;
 using WebLegemDAL.QueryObjects;
 using WebLegemDAL.Archivo;
 using WebLegemAPI.OCR;
+using WebLegemDAL.DAO;
 
 namespace WebLegemAPI.Infrastructure
 {
@@ -54,7 +55,7 @@ namespace WebLegemAPI.Infrastructure
             kernel.Bind<IDataAccessObject<DocumentoConContenido>>().To<DocumentoConContenidoDAO>().InRequestScope();
             kernel.Bind<IDataAccessObject<Permiso>>().To<PermisoDAO>().InRequestScope();
             kernel.Bind<IDataAccessObject<Rol>>().To<RolDAO>().InRequestScope();
-            
+            kernel.Bind<IDataAccessObject<Usuario>>().To<UsuarioDAO>().InRequestScope();
 
             // bindings para gestor de consultas
             kernel.Bind<IGestorDeConsultas<DocumentoConContenidoQueryObject, DocumentoConContenido>>().To<DocumentoConContenidoDAO>().InRequestScope();

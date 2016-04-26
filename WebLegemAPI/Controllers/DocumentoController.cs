@@ -5,9 +5,7 @@ using WebLegemDAL.DAL;
 using System.Web.Http.Cors;
 using WebLegemDAL;
 using WebLegemDAL.QueryObjects;
-using System.Collections.Generic;
 using System.Web.OData;
-using Oracle.DataAccess.Types;
 using System.Web.Http.Description;
 using System;
 
