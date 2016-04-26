@@ -11,12 +11,6 @@
         /* Third party modules */
         "ngFileUpload",
         "ui.router",
-        "ngAnimate"
-
-        ]);
-        
-
-        
-    
-
+        "ngAnimate"        
+        ]);                    
 })();

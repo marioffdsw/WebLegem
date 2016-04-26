@@ -7,6 +7,7 @@
 
     function UsuariosController() {
         var vm = this;
+        vm.activo = activo;
         vm.tabActivo = tabActivo;
         vm.lastTab;
 
@@ -25,6 +26,20 @@
 
             vm.lastTab = $event.target;
 
+        }
+        
+        
+        function activo($event) {
+            if ($event.target.className.match(/(?:^|\s)active_tab(?!\S)/)) {
+            }
+            else {
+                var size = $event.target.parentNode.getElementsByTagName('li').length;
+                for (var i = 0; i < size;i++){
+                    $event.target.parentElement.getElementsByTagName('li')[i].
+                        className = " ";
+                }
+                $event.target.className += ' active_tab';
+            }           
         }
 
     }

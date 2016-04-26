@@ -8,10 +8,10 @@
     AdministracionController.$inject = ["DocumentosResource", "$state"];
 
     function AdministracionController(DocumentosResource, $state) {
-        var vm = this;
-        vm.activo = activo;
+        var vm = this;        
         vm.$state = $state;
-
+        vm.activo = activo;
+        
         function activo($event) {
             if ($event.target.className.match(/(?:^|\s)active_tab(?!\S)/)) {
             }

@@ -11,9 +11,9 @@
 
 <p class="texto_labels green bold">Usuarios</p>
 <ul class="a_listado" style="width:100%;">
-    <li ng-repeat="usuario in vm.lista | filter:vm.filtro">
+    <li ng-repeat="usuario in vm.lista | filter:vm.filtro" >
         <input type="radio" class="styled" id="a" name="a" />
-        <label class="styled" for="a">
+        <label class="styled" for="a" ng-click="vm.seleccionar(usuario);" >
             {{ usuario.nombre }} {{ usuario.apellido }}<br />
             <p>Rol: {{ usuario.rol.nombre }}</p>
         </label>

@@ -1,57 +1,86 @@
 ﻿<div class="header" ng-class="vm.$state.current.name == 'home' ? 'transparente': ''" id="header1">
+    <!--
+        <wl-cinta-logo ng-show="vm.$state.current.name == 'home'">
+        </wl-cinta-logo>
 
-    <wl-cinta-logo ng-show="vm.$state.current.name == 'home'">
-    </wl-cinta-logo>
+        <wl-nombre-logo ng-show="vm.$state.current.name != 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
+        </wl-nombre-logo>-->
 
-    <wl-nombre-logo ng-show="vm.$state.current.name != 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
-    </wl-nombre-logo>
+    <nav class="r_nav">
+        <button id="toggle-menu" class="ico-bars" ng-click="vm.desplegarMenu();" title="menu"></button>
+        <ul class="ul_nav">
+            <!--Opciones para usuarios---------------------------------------------------------->
+            <li class="li_nav" ng-show="vm.loggeado"
+                ng-mouseover="vm.resize == true ? null : vm.toggle_menu = true"
+                ng-mouseleave="vm.resize == true ? null : vm.toggle_menu = false"
+                ng-click="vm.resize == true ? vm.toggle_menu = !vm.toggle_menu :null">
+
+                <a class="btn_menu sin_ani">
+                    <div class="ico-cubes"></div>
+                    <p>Componentes</p>
+                </a>
+                <ul ng-show="vm.toggle_menu" class="desplegar">
+                    <li ng-repeat="opcion in vm.arregloOpciones">
+                        <a class="btn_menu sub" ui-sref="{{opcion.link}}">
+                            <div><span class="{{ opcion.icono }}"></span></div>
+                            <p>{{ opcion.nombre }}</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <!--Opciones generales-------------------------------------------------------------->
+            <li ng-repeat="item in vm.arregloMenu" class="li_nav" >
+                <a class="btn_menu" ui-sref="{{item.link}}" ng-show="{{item.condicion}}">
+                    <div class="{{item.icono}}"></div>
+                    <p>{{item.nombre}}</p>
+                </a>
+            </li>
+            <!--Opciones para cuenta de usuario------------------------------------------------->
+            <li class="li_nav"  ng-mouseover="vm.resize == true ? null: vm.toggle_usu = true "
+                                ng-mouseleave="vm.resize == true ? null: vm.toggle_usu = false "
+                                ng-click="vm.resize == true ? vm.toggle_usu = !vm.toggle_usu : null "
+                                ng-show="vm.loggeado" >
+                
+                <a class=" btn_menu usu sin_ani">
+                    <div>{{vm.usuario.username}}</div>
+                    <div><img src="{{vm.usuario.foto}}"/></div>
+                </a>
+                <ul ng-show="vm.toggle_usu" class="desplegar">
+                    <li>
+                        <a class="btn_menu sub" >
+                            <div class="ico-cog"></div>
+                            <p>Configurar Cuenta</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="btn_menu sub" ng-click="vm.LogOut()">
+                            <div class="ico-sign-out"></div>
+                            <p>Salir</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 
     <div id="contenedor_accesibilidad" class="contenedor_accesibilidad">
-        <div class="deslizador">
 
-            <div class=" btn_desplegable" ng-show="vm.loggeado">
+        <div class="deslizador">
+            <!--
+            <div class=" btn_desplegable" >
                 <span class="ico-adn"></span>
                 <p>Menu</p>
                 <ul>
-                    <li ng-repeat="opcion in vm.opcionesAMostrar" ng-click="opcion.click()">
+                    <li ng-repeat="opcion in vm.opcionesAMostrar" >
                         <a ui-sref="{{opcion.estado}}">
                             {{ opcion.texto }}
                         </a>
-                        <!--<ul ng-if="opcion.subEstados">
+                        <ul ng-if="opcion.subEstados">
                             <li ng-repeat="subEstado in opcion.subEstados"><a ui-sref="{{subEstado.estado}}" ng-click="val=false; subEstado.click()">{{ subEstado.texto }}</a></li>
-                        </ul>-->
+                        </ul>
                     <li>
                 </ul>
             </div>
-
-            <button class="btn_deslizable" onclick="document.getElementById('body_index').scrollTop = getPosition().y;"
-                    ng-show="vm.$state.current.name == 'home'">
-                <span class="ico-newspaper-o"></span>
-                <p>Actualidad</p>
-
-            </button>
-
-
-
-            <button class="btn_deslizable" ui-sref="busqueda" ng-show="vm.$state.current.name !='busqueda'">
-                <span class="ico-search"></span>
-                <p>Busqueda</p>
-            </button>
-
-            <button class="btn_deslizable" ui-sref="home" onclick="document.getElementById('body_index').scrollTop = '0';">
-                <span class="ico-home"></span>
-                <p>Inicio</p>
-            </button>
-
-            <button class="btn_deslizable" ui-sref="login" ng-show="!vm.loggeado">
-                <span class="ico-sign-in"></span>
-                <p>Ingresar</p>
-            </button>
-
-            <button class="btn_deslizable" ng-click="vm.LogOut()" ng-show="vm.loggeado">
-                <span class="ico-sign-in"></span>
-                <p>Salir</p>
-            </button>
 
             <button id="lanzador_accesibilidad" class="boton_accesibilidad" onclick="estado_accesibilidad(this.id)">
                 <span class="ico-angle-left"></span>
@@ -65,7 +94,7 @@
             </button>
             <button class="boton_accesibilidad {{vm.tamano_letra}}" ng-click="vm.funcion_tamano()">
                 <span class="ico2-font-size"></span>
-            </button>
+            </button>-->
         </div>
     </div>
 </div>

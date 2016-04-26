@@ -9,7 +9,10 @@
     function wlegemHeader() {
         return {
             templateUrl: "common/directives/header/wlegem-header.directive.html",
-            restrict: "E"
+            restrict: "E",
+            controller: "headerController",
+            controllerAs: 'vm',
+            bindToController: true
         }
     } // end
 })();

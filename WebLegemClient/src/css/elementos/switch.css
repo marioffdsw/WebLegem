@@ -8,7 +8,7 @@
 	position: absolute;
     margin-left: -9999px;
     visibility: hidden;
-    padding: 2px;
+    padding: 2px;   
 }
 
 .switch:empty + label

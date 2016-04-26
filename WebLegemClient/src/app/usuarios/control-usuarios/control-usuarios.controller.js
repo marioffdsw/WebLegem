@@ -10,6 +10,12 @@
 
     function controlUsuariosController($scope, $window, UsuariosResource) {
         var vm = this;
+        vm.editando = false;
+        vm.seleccionar = seleccionar;
+        vm.cancelar = cancelar;
+        vm.nuevo = nuevo;
+
+
         vm.startWebcam = startWebcam;
         vm.stopWebcam = stopWebcam;
         vm.snapshot = snapshot;
@@ -20,6 +26,8 @@
         vm.repetirFoto = repetirFoto;
         vm.seleccionarArchivo = seleccionarArchivo;
         vm.usuarios;
+        vm.aceptar = aceptar;
+        vm.remover = eliminar;
 
         vm.foto = true;
         vm.trash = false;
@@ -33,6 +41,56 @@
                 vm.usuarios = data;
             });
         } // end function RetrieveData
+       
+        function seleccionar(usuario) {            
+            if (vm.usuarioSeleccionado && vm.usuarioSeleccionado.id === usuario.id)
+                return vm.usuarioSeleccionado = undefined;
+                
+            var usuario = angular.copy(usuario, {});            
+            usuario.contrasena = _.map(usuario.contrasena.split(''), function (character) {
+                return '*';
+            }).join('');
+            
+            vm.usuarioSeleccionado = usuario;
+        } // end fnction seleccionar
+
+        function nuevo() {
+            vm.usuarioSeleccionado = {id: 0}
+        } // end function nuevo
+
+        function aceptar() {
+            if (vm.usuarioSeleccionado.id === 0)
+                return crear( vm.usuarioSeleccionado );
+            guardar( vm.usuarioSeleccionado );
+        } // end function
+
+        function crear(usuario) {
+            UsuariosResource.save(usuario, function (data) {
+                RetrieveData();
+            });
+            cancelar();
+        } // end function crear
+
+        function guardar(usuario) {
+            UsuariosResource.update(usuario, function (data) {
+                RetrieveData();
+            });
+
+            cancelar();
+        } // end function guardar
+
+        function eliminar(usuario) {
+            UsuariosResource.remove(usuario, function () {
+                RetrieveData();
+            })
+            cancelar();
+        } // end fucntion eliminar
+
+        function cancelar() {
+            vm.editando = false;
+            vm.usuarioSeleccionado = undefined;
+            vm.pass_usu = "";
+        } // end function cancelar
 
         var img = $window.document.getElementById("laimagen");
         var btn_input = document.getElementById("input_usu_foto");

@@ -64,8 +64,7 @@
 
 @media only screen and (min-width : 320px) {
     .contenedor_login{
-        margin: auto;
-        
+        margin: auto;    
         margin-top:10vh;
     }
 }

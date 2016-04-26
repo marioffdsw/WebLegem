@@ -5,9 +5,9 @@
         .module("WebLegemApp")
         .controller("homeController", homeController);
 
-    homeController.$inject = ["$state", "DocumentosResource", "$anchorScroll", "$location", "EntidadService", "fileId"];
+    homeController.$inject = ["$state", "DocumentosResource", "$anchorScroll", "$location", "EntidadService", "fileId", "contraste"];
 
-    function homeController($state, DocumentosResource, $anchorScroll, $location, EntidadService, fileId) {
+    function homeController($state, DocumentosResource, $anchorScroll, $location, EntidadService, fileId, contraste ) {
         var vm = this;
         var btn_arriba;
         var box_header;
@@ -65,68 +65,16 @@
 
         vm.icono_contraste = "ico-moon-o";
         vm.clase_contraste = "btn_tamano0";
-        vm.val_contraste = 0;
+
         vm.documentos = [];
         vm.verDocumento = verDocumento;
 
-        vm.loggeado = true;
-        vm.LogOut = LogOut;
-        vm.usuario = { username: "admin", password: "1234" }
+        
 
         DocumentosResource.query({ $top: 14 },function (data) {
             vm.documentos = data;
         });
 
-
-        vm.opcionesNoLoggeado = [
-            {
-                texto: "Ingresar",
-                estado: "login"
-            },
-            {
-                texto: "Inicio",
-                estado: "home"
-            },
-            {
-                texto: "busqueda",
-                estado: "busqueda"
-            },
-        ];
-
-        vm.opcionesLoggeado = [
-            {
-                texto: vm.usuario.username,
-                estado: "home",
-                click: LogOut,
-                //subEstados: [
-                //    {
-                //        texto: "Salir",
-                //        estado: "home",
-                //        click: LogOut
-                //    }
-                //]
-            },
-            {
-                texto: "Gestión Documental",
-                estado: "gestion-documental.crear-documento.subir-archivo"
-            },
-            {
-                texto: "Administración",
-                estado: "administracion.tipo-documento"
-            },
-            {
-                texto: "Usuarios",
-                estado:"usuarios"
-            }
-        ];
-
-        vm.opcionesAMostrar =  vm.loggeado ? vm.opcionesLoggeado : vm.opcionesNoLoggeado;
-
-        function LogOut() {
-            $state.go("home");
-            vm.opcionesAMostrar = vm.opcionesNoLoggeado;
-            vm.loggeado = false;
-        }
 
         vm.funcion_tamano = function () {
 

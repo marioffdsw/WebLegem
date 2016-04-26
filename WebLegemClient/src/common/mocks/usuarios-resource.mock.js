@@ -13,7 +13,7 @@
                 nombreUsuario: "sa",
                 nombre: "Super",
                 apellido: "Administrador",
-                //contrasena: 1234,
+                contrasena: '1234',
                 correo: "sa@udenar.edu.co",
                 foto: "sa.jpg",
                 estado: "A",
@@ -24,10 +24,24 @@
             }, // end usuario sa -- superadmin
             {
                 id: 2,
+                nombreUsuario: "admin",
+                nombre: "Admin",
+                apellido: "Istrador",
+                correo: "admin@udenar.edu.co",
+                estado: "A",
+                foto: "admin.jpg",
+                contrasena: "admin",
+                rol: {
+                    id: 2,
+                    nombre: "Administrador"
+                }
+            },
+            {
+                id: 3,
                 nombreUsuario: "secre",
                 nombre: "Secre",
                 apellido: "Taria",
-                //contrasena: 987
+                contrasena: '987',
                 correo: "secre@udenar.edu.co",
                 foto: "secre.jpg",
                 rol: {
@@ -38,7 +52,7 @@
         ];
 
         var usuariosUrl = "/api/Usuarios";
-        var usuariosRegExp = new RegExp(usuarios + "/[0.-9][0-9]*");
+        var usuariosRegExp = new RegExp(usuariosUrl + "/[0.-9][0-9]*");
 
         $httpBackend.whenGET(usuariosUrl).respond(usuarios);
 
@@ -59,7 +73,7 @@
             return [ 200, usuario, {} ];
         });
 
-        $httpBackend.whenPOST(usuariosRegExp).respond(function (method, url, data) {
+        $httpBackend.whenPOST(usuariosUrl).respond(function (method, url, data) {
             var usuario = angular.fromJson(data);
 
             if (!usuario.id || !usuario.id == 0) {
@@ -79,6 +93,7 @@
         });
 
         $httpBackend.whenPUT(usuariosUrl).respond(function (method, url, data) {
+            
             var usuario = angular.fromJson(data);
 
             if( !usuario.id || usuario.id == 0 ){
@@ -86,8 +101,8 @@
                 usuarios.push( usuario );
             } // end if
             else {
-                for (var i = 0; i < usuario.length; i++ ){
-                    if (usuario[i].id == usuario.id) {
+                for (var i = 0; i < usuarios.length; i++ ){
+                    if (usuarios[i].id == usuario.id) {
                         usuarios[i] = usuario;
                         break;
                     } // end if
