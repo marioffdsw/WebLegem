@@ -55,13 +55,13 @@
 
 
         function aceptar() {
+            console.log( "aceptar" );
             if (vm.tipoEntidadSeleccionado.id == 0) {
                 crear(vm.tipoEntidadSeleccionado);
             }
             else {
                 guardar(vm.tipoEntidadSeleccionado);
-            }
-            cancelar();
+            }            
         }
 
 
@@ -89,6 +89,7 @@
 
 
         function crear(tipoEntidad) {
+            console.log( "crear" );
             TipoEntidadService.save(tipoEntidad, function (data) {
                 retrieveData();
             });
@@ -97,16 +98,13 @@
 
 
         function guardar(tipoEntidad) {
+            console.log( "guardar" );
             TipoEntidadService.update(tipoEntidad, function (data) {
-                for (var i = 0; i < vm.tiposEntidades.length; i++) {
-                    if (vm.tiposEntidades[i].id == data.id) {
-                        vm.tiposEntidades[i] = data;
-                        break;
-                    }
-                }
+                retrieveData();
             });
             cancelar();
         } // end method guardar
+
 
         function remover(tipoEntidad) {
             TipoEntidadService.remove(tipoEntidad, function () {

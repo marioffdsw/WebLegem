@@ -5,22 +5,29 @@
         .module("WebLegemApp")
         .controller( "WlListaPermisosController", WlListaPermisosController );
 
-    WlListaPermisosController.$inject = [ "modulos", "permisos" ];
-    function WlListaPermisosController( modulos, permisos ){
+    WlListaPermisosController.$inject = ["modulos", "PermisosService", "$scope"];
+    function WlListaPermisosController( modulos, PermisosService, $scope ){
         var vm = this;
 
         vm.modulos = modulos;
-        vm.permisos = permisos;
+        vm.permisos;
         vm.checkearPermiso = checkearPermiso;
+        vm.isAlreadyChecked = isAlreadyChecked;        
 
-        function checkearPermiso( permiso ) {
+        retrieveData();
 
+        function retrieveData() {
+            PermisosService.query(function (data) {
+                vm.permisos = data;
+            });
+        } // end retrieveData
+
+        function checkearPermiso( permiso ) {            
             if ( isAlreadyChecked( permiso ) ) {               
 
-                vm.permisosAsignados.splice(
+                vm.permisosAsignados.slice(
                         vm.permisosAsignados.indexOf(permiso),
                         1);
-
             }
             else {
                 vm.permisosAsignados.push( permiso );
@@ -28,6 +35,10 @@
         } // end checkearPermiso
 
         function isAlreadyChecked( permiso ) {
+
+            if ( !vm.permisosAsignados ) {                
+                return false;
+            }
 
             for (var i = 0; i < vm.permisosAsignados.length; i++) {
                 if (angular.equals(vm.permisosAsignados[i].id, permiso.id)) {

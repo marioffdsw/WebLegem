@@ -3,29 +3,12 @@
 
     angular
         .module("WebLegemApp.Usuarios")
-        .controller("controlUsuariosController", controlUsuariosController)
-
-    .directive('ewl', function () {
-        return {
-            restrict: 'A',
-            scope: true,
-            link: function (scope, element, attrs) {
-
-                element.bind('load', function (e) {
-                    scope.$apply(attrs.wlLoad);
-                })
-                element.bind('mouseenter', function (e) {//onchange cambiar luego
-                    scope.$apply(attrs.wlHover);
-                });
-
-            }
-        };
-    });
+        .controller("controlUsuariosController", controlUsuariosController)    
         
 
-    controlUsuariosController.$inject = ["$scope","$window"];
+    controlUsuariosController.$inject = ["$scope", "$window", "UsuariosResource"];
 
-    function controlUsuariosController( $scope,$window) {
+    function controlUsuariosController($scope, $window, UsuariosResource) {
         var vm = this;
         vm.startWebcam = startWebcam;
         vm.stopWebcam = stopWebcam;
@@ -36,13 +19,20 @@
         vm.cerrarCamara = cerrarCamara;
         vm.repetirFoto = repetirFoto;
         vm.seleccionarArchivo = seleccionarArchivo;
+        vm.usuarios;
 
         vm.foto = true;
         vm.trash = false;
         vm.cargarFoto = vm.cargarFoto;
         vm.pass_usu;
         
+        RetrieveData();
 
+        function RetrieveData() {
+            UsuariosResource.query(function (data) {
+                vm.usuarios = data;
+            });
+        } // end function RetrieveData
 
         var img = $window.document.getElementById("laimagen");
         var btn_input = document.getElementById("input_usu_foto");

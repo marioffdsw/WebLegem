@@ -54,7 +54,7 @@
     box-shadow:#a1a1a1 0 0 0 2px inset;
 }
 
-.a_bloques input:checked + label{        
+.a_bloques input.checked + label{        
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
@@ -108,7 +108,7 @@
    display:block;
    overflow:hidden;
 }
-.a_bloques input:checked + label::after {
+.a_bloques input.checked + label::after {
    content:"✓";
    position:absolute;
    font-size:x-large;
