@@ -15,6 +15,7 @@
         vm.seleccionar = seleccionar;
         vm.cancelar = cancelar;
         vm.nuevo = nuevo;
+        vm.infoRol = false;
 
 
         vm.startWebcam = startWebcam;
