@@ -16,7 +16,7 @@ namespace PruebasDB
         static TipoEntidadDAO tipoEntidadDal = new TipoEntidadDAO();
         static RolDAO rolDal = new RolDAO();
         static PermisoDAO permisoDao = new PermisoDAO();
-        static UsuarioDAO usuarioDao = new UsuarioDAO();
+        static UsuarioDAO usuarioDao = new UsuarioDAO();        
 
         static EntidadDAO entidadDal = new EntidadDAO();
         static DocumentoConContenidoDAO documentoDal = new DocumentoConContenidoDAO();
@@ -28,20 +28,25 @@ namespace PruebasDB
             //ListarTiposEntidad();
             //ListarEntidades();
             //ListarDocumentos();
-            //ListarRoles();
+            ListarRoles();
             //ListarPermisos();
-
+            //ListarUsuarios();
 
             //CrearTiposDocumento();
             //CrearTiposEntidad();
             //CrearEntidades();
             //Console.WriteLine( $"{tipoEntidadDal.Get(2)}" );            
             // ConsultarDocumentos();
+            //CrearRol();
+            //ListarRoles();
 
-            //ActualizarTiposDocumento();
             //EliminarTiposDocumento();
             //EliminarUsuarios();
-            ListarUsuarios();
+            //EliminarRol();
+
+            //ActualizarTiposDocumento();
+            ActualizarRol();
+            ListarRoles();
 
             //listar resultados
             //ListarTiposDocumento();
@@ -52,6 +57,35 @@ namespace PruebasDB
             //CrearDocumentos();
             //ListarDocumentos();  
             Console.ReadKey();       
+        }
+
+        private static void ActualizarRol()
+        {
+            var rol = rolDal.GetAll().Where(r => r.Id == 5).First();
+
+            rol.PermisosAsignados = permisoDao
+                .GetAll()
+                .Where(p => p.Recurso.Nombre == "Usuarios")
+                .ToArray();
+
+            rolDal.Update( rol );
+        }
+
+        private static void EliminarRol()
+        {
+            rolDal.Delete( 4 );
+        }
+
+        private static void CrearRol()
+        {
+            var permisos = permisoDao.GetAll();
+
+            var rol = new Rol() { Id = 0, Nombre = "Nuevo Rol" };
+            rol.PermisosAsignados = permisos
+                .Where(p => p.Recurso.Nombre == "Usuarios")
+                .ToArray();
+
+            rolDal.Create( rol );
         }
 
         private static void EliminarUsuarios()
@@ -82,7 +116,7 @@ namespace PruebasDB
         private static void ListarRoles()
         {
 
-            var lista = rolDal.GetAll();
+            var lista = rolDal.GetAll().OrderBy( x => x.Id );
 
             foreach (var td in lista)
             {

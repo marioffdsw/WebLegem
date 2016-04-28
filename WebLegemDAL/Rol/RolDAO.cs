@@ -80,7 +80,7 @@ namespace WebLegemDAL.DAL
 
         protected sealed override Rol Modify(Rol registro)
         {
-            queryString = $"UPDATE {TableName} rv SET rv.rol = :r WHERE rv.id = :id";
+            queryString = $"UPDATE {TableName} rv SET rv.rol = :r WHERE rv.rol.id = :id";
 
             var cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
             var r = cmd.Parameters.Add( ":r", OracleDbType.Object );
