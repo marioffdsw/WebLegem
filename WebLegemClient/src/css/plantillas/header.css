@@ -56,13 +56,26 @@
     #toggle-menu.responsive:before{transform:rotate(90deg)}
   
 /*´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´*/
-        
+
+.logo-wl1{
+    position:absolute; 
+    left:0; 
+    display:flex;
+}
+
+.logo-wl2{
+    display:none;
+}
 
 @media screen and (max-width:767px) 
 { /*para dispositivos menores a 767px*/
     #toggle-menu{display:flex;}
     .ul_nav{display:none;}/*ocultar*/
     .ul_nav.responsive{display:unset}/*en filas*/
+    .cinta-wl{display:none}
+    .logo-wl1{left:55px}
+    .logo-wl2{display:flex}
+
 }
 
 
@@ -174,7 +187,7 @@
     height: 125px;
     width: 150px;
     position:absolute;
-    left:10px; 
+    left:5px; 
     top: -5px; 
     z-index:1;    
     -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.85));
@@ -182,16 +195,6 @@
 }
 
 
-.nombre_pagina {
-    align-self:center;
-    padding-top:20px;
-    padding-bottom:30px;
-    font-family:'AbrilFatface-Regular';
-    font-size: 100px;
-    color:white;
-    text-shadow: 1px 1px 2px rgba(140,140,140,0.6), -1px -1px 3px rgba(0, 0, 0, .67);
-    cursor:default;
-}
 
 .escudo_pagina{
     position:absolute;

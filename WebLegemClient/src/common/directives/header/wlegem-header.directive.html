@@ -1,13 +1,18 @@
 ﻿<div class="header" ng-class="vm.$state.current.name == 'home' ? 'transparente': ''" id="header1">
-    <!--
-        <wl-cinta-logo ng-show="vm.$state.current.name == 'home'">
+    
+        <wl-cinta-logo class="cinta-wl" ng-show="vm.$state.current.name == 'home'">
         </wl-cinta-logo>
 
+        <wl-nombre-logo class="logo-wl2" ng-show="vm.$state.current.name == 'home'">
+        </wl-nombre-logo>
+    
         <wl-nombre-logo ng-show="vm.$state.current.name != 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
-        </wl-nombre-logo>-->
+        </wl-nombre-logo>
+        
 
     <nav class="r_nav">
         <button id="toggle-menu" class="ico-bars" ng-click="vm.desplegarMenu();" title="menu"></button>
+        
         <ul class="ul_nav">
             <!--Opciones para usuarios---------------------------------------------------------->
             <li class="li_nav" ng-show="vm.loggeado"
@@ -47,7 +52,7 @@
                 </a>
                 <ul ng-show="vm.toggle_usu" class="desplegar">
                     <li>
-                        <a class="btn_menu sub" >
+                        <a class="btn_menu sub" ui-sref="cuenta">
                             <div class="ico-cog"></div>
                             <p>Configurar Cuenta</p>
                         </a>

@@ -11,8 +11,8 @@
 
     <div class="container_news">
 
-        <div style="width:100%; padding: 0 40px;  display:flex; flex-wrap:wrap;">
-            <div class="box_input_ico" style="flex:1;width:50%; min-width:280px;max-width:300px;">
+        <div style="width:100%; padding: 0 10px;  display:flex;  ">
+            <div class="box_input_ico" style="flex:1;">
                     <div class="a_select">
                         <select ng-model="vm.entidadFiltro" ng-change="vm.cargarDocumentos()">
                             <option ng-repeat="entidad in vm.entidades" ng-value="entidad.nombre">{{entidad.nombre}}</option>
@@ -21,17 +21,13 @@
                     </div>       
             </div>
 
-            <button class="btn_sin_ico" style="margin-left:20px; flex:0;">ver todos</button>
+            <button class="btn_sin_ico" style="flex:0;">ver todos</button>
         </div>
 
 
-        <div class="news_left" style="display:flex; flex-wrap:wrap;" >
-
-           
-
-
-            <div style="width:100%;display:flex; flex-wrap:wrap;justify-content:space-between;margin:0 20px;">
-                <div ng-if="true" class="tarjeta_news" ng-repeat="documento in vm.arregloDocs">
+        <div class="news_left">
+     
+          <div ng-if="true" class="tarjeta_news" ng-repeat="documento in vm.arregloDocs">
 
                     <div class="titulo_tarjeta">
                         <a ng-click="vm.ver(documento.archivo)">{{ documento.tipoDocumento }} {{ documento.numero }} del {{ documento.fecha }}</a>
@@ -51,8 +47,7 @@
                             <span class="ico-download"></span>Descargar
                         </a>
                     </div>
-                </div>
-            </div>
+            </div>        
 
         </div>
     </div>

@@ -2,20 +2,7 @@
 
 
 .contenedor_mini_search{
-    width:100%;
     align-self:center;
-}
-
-@media (min-width: 500px) {/*comprobar puntos de break*/
-    .contenedor_mini_search{
-        width:60%;
-    }
-}
-
-@media (min-width: 700px) {/*comprobar puntos de break*/ 
-    .contenedor_mini_search{
-        width:50%;
-    }
 }
 
 .mini_search{
@@ -82,11 +69,41 @@
 
 
 @keyframes a_crecer {
-  0%{transform:scale(1);}
-  50%{
-      transform:scale(1.05);
-  }
-  100% {transform:scale(1);
+  0%    {transform:scale(1);}
+  50%   {transform:scale(1.05);}
+  100%  {transform:scale(1);}
+}
 
-  }
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {/* < 320*/
+    .contenedor_mini_search{
+          width:95%;
+      } 
+}
+
+
+@media only screen and (min-width : 320px) {/* > 320*/
+      .contenedor_mini_search{
+          width:90%;
+      } 
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+    .contenedor_mini_search{width:60%;}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+     .contenedor_mini_search{width:50%;}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
 }
