@@ -77,16 +77,12 @@
                 ]
             },
             {
-                id: 3, nombre: "Secretaria", permisos: [
-                    { id: 17, recurso: { id: 5, nombre: "Archivos", modulo: { id: 2, nombre: "Gestión Documental" } }, accion: { id: 1, nombre: "Crear" } },
-                    { id: 18, recurso: { id: 5, nombre: "Archivos", modulo: { id: 2, nombre: "Gestión Documental" } }, accion: { id: 2, nombre: "Leer" } },
-                    { id: 19, recurso: { id: 5, nombre: "Archivos", modulo: { id: 2, nombre: "Gestión Documental" } }, accion: { id: 3, nombre: "Actualizar" } },
-                    { id: 20, recurso: { id: 5, nombre: "Archivos", modulo: { id: 2, nombre: "Gestión Documental" } }, accion: { id: 4, nombre: "Eliminar" } },
+                id: 3, nombre: "Secretaria", permisos: [                    
 
-                    { id: 21, recurso: { id: 6, nombre: "Documentos", modulo: { id: 2, nombre: "Gestión Documental" } }, accion: { id: 1, nombre: "Crear" } },
-                    { id: 22, recurso: { id: 6, nombre: "Documentos", modulo: { id: 2, nombre: "Gestión Documental" } }, accion: { id: 2, nombre: "Leer" } },
-                    { id: 23, recurso: { id: 6, nombre: "Documentos", modulo: { id: 2, nombre: "Gestión Documental" } }, accion: { id: 3, nombre: "Actualizar" } },
-                    { id: 24, recurso: { id: 6, nombre: "Documentos", modulo: { id: 2, nombre: "Gestión Documental" } }, accion: { id: 4, nombre: "Eliminar" } },
+                    { id: 17, recurso: { id: 6, nombre: "Documentos", modulo: { id: 2, nombre: "Gestión Documental" } }, accion: { id: 1, nombre: "Crear" } },
+                    { id: 18, recurso: { id: 6, nombre: "Documentos", modulo: { id: 2, nombre: "Gestión Documental" } }, accion: { id: 2, nombre: "Leer" } },
+                    { id: 19, recurso: { id: 6, nombre: "Documentos", modulo: { id: 2, nombre: "Gestión Documental" } }, accion: { id: 3, nombre: "Actualizar" } },
+                    { id: 20, recurso: { id: 6, nombre: "Documentos", modulo: { id: 2, nombre: "Gestión Documental" } }, accion: { id: 4, nombre: "Eliminar" } },
                 ]
             }            
         ];

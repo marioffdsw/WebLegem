@@ -119,6 +119,9 @@
     <Content Include="Sequences\identificadores_documentos_seq.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Sequences\rol_seq.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Sequences\tipo_anotacion_seq.sql">
       <SubType>Content</SubType>
     </Content>
@@ -126,6 +129,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Sequences\tipos_documento_seq.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Sequences\usuario_seq.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Tables\Object Tables\anotacion_obj_tab.sql">
@@ -203,6 +209,9 @@
     <Content Include="test_data_usuarios.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Triggers\View Triggers\actualizar_rol_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Triggers\View Triggers\actualizar_tipo_doc_trig.sql">
       <SubType>Content</SubType>
     </Content>
@@ -212,10 +221,16 @@
     <Content Include="Triggers\View Triggers\actualizar_tipo_entidad_trig.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Triggers\View Triggers\actualizar_usuario_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Triggers\View Triggers\crear_doc_contenido_trig.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Triggers\View Triggers\crear_entidad_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Triggers\View Triggers\crear_rol_trig.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Triggers\View Triggers\crear_tipo_documento_trig.sql">
@@ -224,7 +239,13 @@
     <Content Include="Triggers\View Triggers\crear_tipo_entidad_trig.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Triggers\View Triggers\crear_usuario_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Triggers\View Triggers\eliminar_entidad_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Triggers\View Triggers\eliminar_rol_trig.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Triggers\View Triggers\eliminar_tipo_doc_trig.sql">

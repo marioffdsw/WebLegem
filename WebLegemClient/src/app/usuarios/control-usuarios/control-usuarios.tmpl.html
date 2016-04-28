@@ -97,7 +97,7 @@
         <div class="box_duo_input">
             <div>
                 <p class="texto_labels green">Contraseña</p>
-                <input class="a_input" type="password" ng-model="vm.pass_usu" maxlength="20"
+                <input class="a_input" type="password" ng-model="vm.usuarioSeleccionado.contrasena" maxlength="20"
                         ng-disabled="!vm.editando"/>
                 <div id="widget_seguridad">
                     <div id="content_span">
@@ -123,7 +123,13 @@
                 <p class="texto_labels green">Rol del usuario</p>
                 <div class="div_con_info">
                     <div class="a_select"><!--aqui debe haber un hack como en entida.html-->
-                        <select></select>
+                        <input class="a_select"
+                                type="text"
+                                ng-disabled="!vm.editando"
+                                ng-model="vm.usuarioSeleccionado.rol.nombre"
+                                ng-show="!vm.editando" />
+                        <select ng-show="vm.editando" ng-options="rol as rol.nombre for rol in vm.roles" ng-model="vm.usuarioSeleccionado.rol">
+                        </select>                        
                     </div>
                     <button class="btn_ico" title="Informacion rol" ng-click="vm.infoRol=true"
                             ng-disabled="!vm.editando">
@@ -141,14 +147,18 @@
                 <div class="contenedor_radios">
                     <span>
                         <input class="a_radio" id="rad1" type="radio" name="rad" checked 
-                                ng-disabled="!vm.editando" />
+                                ng-disabled="!vm.editando"
+                                ng-model="vm.usuarioSeleccionado.estado"
+                                ng-value="'A'" />
                         <label for="rad1">
                             Activo
                         </label>
                     </span>
                     <span>
                         <input class="a_radio" id="rad2" type="radio" name="rad"
-                                ng-disabled="!vm.editando" />
+                                ng-disabled="!vm.editando"
+                                ng-model="vm.usuarioSeleccionado.estado"
+                                ng-value="'I'" />
                         <label for="rad2">Bloqueado</label>
                     </span>
                 </div>

@@ -30,7 +30,7 @@ namespace PruebasDB
             //ListarDocumentos();
             //ListarRoles();
             //ListarPermisos();
-            ListarUsuarios();
+
 
             //CrearTiposDocumento();
             //CrearTiposEntidad();
@@ -40,6 +40,8 @@ namespace PruebasDB
 
             //ActualizarTiposDocumento();
             //EliminarTiposDocumento();
+            //EliminarUsuarios();
+            ListarUsuarios();
 
             //listar resultados
             //ListarTiposDocumento();
@@ -52,12 +54,19 @@ namespace PruebasDB
             Console.ReadKey();       
         }
 
+        private static void EliminarUsuarios()
+        {
+            usuarioDao.Delete( 1 );
+        }
+
         private static void ListarUsuarios()
         {
             var lista = usuarioDao.GetAll();
 
             foreach (var u in lista)
                 Console.WriteLine( u );
+
+            Console.WriteLine(lista.Count() == 0 ? "No hay nada" : "Existen Usuarios");
         }
 
         private static void ListarPermisos()
@@ -113,7 +122,7 @@ namespace PruebasDB
             foreach (var td in lista)
             {
                 Console.WriteLine( td );
-            }
+            }            
         }
 
         static void CrearTiposEntidad()

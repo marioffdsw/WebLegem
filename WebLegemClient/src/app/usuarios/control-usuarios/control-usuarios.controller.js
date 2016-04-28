@@ -6,11 +6,12 @@
         .controller("controlUsuariosController", controlUsuariosController)    
         
 
-    controlUsuariosController.$inject = ["$scope", "$window", "UsuariosResource"];
+    controlUsuariosController.$inject = ["$scope", "$window", "UsuariosResource", "RolResource"];
 
-    function controlUsuariosController($scope, $window, UsuariosResource) {
+    function controlUsuariosController($scope, $window, UsuariosResource, RolResource) {
         var vm = this;
         vm.editando = false;
+        vm.roles = [];
         vm.seleccionar = seleccionar;
         vm.cancelar = cancelar;
         vm.nuevo = nuevo;
@@ -31,8 +32,7 @@
 
         vm.foto = true;
         vm.trash = false;
-        vm.cargarFoto = vm.cargarFoto;
-        vm.pass_usu;
+        vm.cargarFoto = vm.cargarFoto;        
         
         RetrieveData();
 
@@ -40,9 +40,15 @@
             UsuariosResource.query(function (data) {
                 vm.usuarios = data;
             });
+
+            RolResource.query(function (data) {
+                vm.roles = data;
+            });
         } // end function RetrieveData
        
-        function seleccionar(usuario) {            
+        function seleccionar(usuario) {
+            if (vm.editando) return;
+
             if (vm.usuarioSeleccionado && vm.usuarioSeleccionado.id === usuario.id)
                 return vm.usuarioSeleccionado = undefined;
                 
@@ -59,9 +65,12 @@
         } // end function nuevo
 
         function aceptar() {
+
+            console.log( vm.usuarioSeleccionado );
+
             if (vm.usuarioSeleccionado.id === 0)
                 return crear( vm.usuarioSeleccionado );
-            guardar( vm.usuarioSeleccionado );
+            guardar( vm.usuarioSeleccionado );            
         } // end function
 
         function crear(usuario) {
@@ -88,8 +97,7 @@
 
         function cancelar() {
             vm.editando = false;
-            vm.usuarioSeleccionado = undefined;
-            vm.pass_usu = "";
+            vm.usuarioSeleccionado = undefined;            
         } // end function cancelar
 
         var img = $window.document.getElementById("laimagen");
@@ -147,14 +155,14 @@
 
         }
         
-        $scope.$watch('vm.pass_usu', function () {
+        $scope.$watch('vm.usuarioSeleccionado.contrasena', function () {
             var widget_seguridad = document.getElementById("widget_seguridad");
             var content_span = document.getElementById("content_span");
-            if (vm.pass_usu === '') {
+            if (vm.usuarioSeleccionado.contrasena === '') {
                 widget_seguridad.style.display = "none";
             }
             else {
-                var c = strength.getColor(strength.mesureStrength(vm.pass_usu));
+                var c = strength.getColor(strength.mesureStrength(vm.usuarioSeleccionado.contrasena));
                 vm.val_seguridad = c.val;
                 
                 widget_seguridad.style.display = "unset";

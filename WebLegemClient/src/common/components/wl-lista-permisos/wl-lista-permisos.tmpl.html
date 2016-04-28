@@ -11,7 +11,7 @@
     
     <div class="permiso_submodulo" ng-repeat="permiso in vm.permisosAsignados | filter:modulo.nombre ">
         <hr ng-if="permiso.id % 4 === 0" />
-        <p>{{ permiso.id }} {{ permiso.accion.nombre }} {{ permiso.recurso.nombre }}</p>
+        <p>{{ permiso.accion.nombre }} {{ permiso.recurso.nombre }}</p>
         <p class="estado_permiso">No permitido</p>
 
         <div id="switch_container" class="switch_container">

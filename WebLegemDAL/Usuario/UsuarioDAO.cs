@@ -41,12 +41,14 @@ namespace WebLegemDAL.DAO
 
         protected override void Remove(int id)
         {
-            throw new NotImplementedException();
+            queryString = $"DELETE FROM {TableName} uv WHERE uv.usuario.id = {id}";
+            var cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
+            cmd.ExecuteNonQuery();
         }
 
         protected override Usuario Retrieve(int id)
         {
-            queryString = $"SEELCT * FROM {TableName} uv WHERE uv.usuario.id == {id}";
+            queryString = $"SELECT * FROM {TableName} uv WHERE uv.usuario.id == {id}";
             var cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
             var reader = cmd.ExecuteReader();
 
