@@ -5,11 +5,14 @@
         .module("WebLegemApp")
         .controller("UsuariosController", UsuariosController);
 
-    function UsuariosController() {
+    UsuariosController.$inject = [ "$state" ];
+    function UsuariosController( $state ) {
         var vm = this;
         vm.activo = activo;
         vm.tabActivo = tabActivo;
         vm.lastTab;
+
+        vm.$state = $state;
 
         function tabActivo($event) {
             var lista = $event.target.classList;

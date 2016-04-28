@@ -21,12 +21,6 @@
                 templateUrl: "app/usuarios/control-usuarios/control-usuarios.tmpl.html",
                 controller: "controlUsuariosController",
                 controllerAs: "vm"
-            })
-		    .state("usuarios.recuperar-contrasena", {
-		        url: "/recuperar-contrasena",
-		        templateUrl: "app/usuarios/recuperar-contrasena/recuperar-contrasena.tmpl.html",
-		        controller: "RecuperarContrasenaController",
-                controllerAs: "vm"
-		    });
+            });		    
 	} // end config function
 })();
