@@ -7,14 +7,13 @@
     box-sizing: border-box; 
 }
 
-.vistas { /*es el ui-view que muestra todo el contenido*/
-}
-
 body {
     background-size:cover;
 }
 
-.contenedor_global {
+.contenedor_vistas{/*es el ui-view que muestra todo el contenido*/
+    min-height:100vh;   
+    height:100%;
 }
 
 .ir_arriba{
@@ -37,11 +36,6 @@ body {
 .ir_arriba.visible{
   opacity:1;
 }
-
-.ir_arriba > p{
-    
-}
-
 /*----------------------------------------------*/
 
 

@@ -55,6 +55,18 @@
                 controller: "UsuariosController",
                 controllerAs: "vm"
             })
+            .state('cuenta', {
+                url: "/cuenta",
+                templateUrl: "app/usuarios/cuenta/cuenta.tmpl.html",
+                controller: "CuentaController",
+                controllerAs: "vm"
+            })
+            .state('recuperar-clave', {
+                url: "/recuperar-clave",
+                templateUrl: "app/usuarios/cuenta/recuperar-clave.tmpl.html",
+                controller: "CuentaController",
+                controllerAs: "vm"
+            })
 
 	    ;
 

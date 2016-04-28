@@ -1,13 +1,11 @@
 ﻿.a_mini_footer {
     background: #33343b;
-    width: 100%;
     min-height: 20vh;
     display: flex;
     -ms-flex-direction:column;
     -webkit-flex-direction:column;
     flex-direction:column;   
-    font-family:'Lato-Regular';
-    color:white;
+    
 }
 
 .sub_mini_footer1{
@@ -19,14 +17,14 @@
     -ms-flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
-    
     background:rgba(0, 0, 0, 0.45);
 }
 
 .sub_mini_footer2{
+    font-family:'Lato-Regular';
     text-align:center;
     padding:10px;
-    color:#aaa;
+    color:#ccc;
 }
 
 .sub_mini_footer1 > div {

@@ -37,6 +37,7 @@
 .container_news {
     min-height:100vh;
     align-self:center;
+    width:100%;
     display:flex;
     flex-direction:column;
     flex-wrap:wrap;
@@ -49,8 +50,8 @@
     display:-webkit-flex;
     display:flex;
     -webkit-flex-wrap: wrap;
-    flex-wrap: wrap;  
-    margin:10px 0; 
+    flex-wrap: wrap;
+    justify-content:space-between;
 }
 
 /*---fin container news-----*/
@@ -59,31 +60,44 @@
     padding:20px; 
     box-shadow:0 0 0 1px rgba(0, 0, 0, 0.05),0 1px 2px rgba(0, 0, 0, 0.3);
     background:rgba(255, 255, 255, 0.95);
-    margin:10px;
+    width:100%;
+    
 }
 
 /*==========  Mobile First Method  ==========*/
 
 @media only screen and (min-width : 0) {
     .tarjeta_news {
-        width: 100%;
+        margin:2px;       
+    }
+    .news_left{
+        margin:0 2px;
     }
 }
 
 /* Custom, iPhone Retina */ 
 @media only screen and (min-width : 320px) {
     .tarjeta_news {
-        width: 100%;
+        margin: 3px; 
+    }
+    .news_left{
+        margin:0 3px;
     }
 }
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (min-width : 480px) {
-
+    .tarjeta_news {
+        margin:10px;
+    }
+    .news_left{
+        margin:0 10px;
+    }
 }
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
+
 }
 
 /* Medium Devices, Desktops */

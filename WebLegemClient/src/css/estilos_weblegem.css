@@ -12,6 +12,17 @@
     font-size:1em;
 }
 
+.titulo span{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100%;
+}
+
+.titulo span:before{
+    font-size:x-large;
+}
+
 /*-------------------*/
 
 /*menesajes de validacion*/
@@ -67,7 +78,9 @@
 
 @media only screen and (min-width : 320px) {
     .espacio_blanco{
-        height:100px;
-        width:30px;
+        height:55px;
+        width:55px;
+        background:blue;
+        flex-shrink:0;
     }
 }

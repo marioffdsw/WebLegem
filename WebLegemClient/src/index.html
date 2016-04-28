@@ -3,7 +3,7 @@
 <head>
     <title>Web Legem</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
     <!--    <script src="scripts/onepagescroll.js"></script>
         <link href="scripts/onepage-scroll.css" rel="stylesheet" />-->
@@ -105,8 +105,7 @@
     <script src="app/usuarios/control-roles/control-roles.controller.js"></script>
     <script src="app/usuarios/control-usuarios/control-usuarios.controller.js"></script>
     <script src="app/usuarios/usuarios.controller.js"></script>
-    <script src="app/usuarios/recuperar-contrasena/recuperar-contrasena.controller.js"></script>
-    
+    <script src="app/usuarios/cuenta/cuenta.controller.js"></script>
 
     <!-- Mocks -->
     <script src="common/mocks/common.mocks.dependencies.js"></script>
@@ -226,7 +225,7 @@
             <wlegem-header></wlegem-header>
 
             <!--=============== Contenido Aplicacion ===================-->
-            <div ui-view class="animatio contenedor_global"></div>
+            <div ui-view class="animatio contenedor_vistas"></div>
         </section>
         <!-------------------------------------------------Seccion Noticias--------------------------------------------------------->
         <section id="homero">
@@ -239,7 +238,7 @@
         </a>
 
         <!-------------------------------------------------Seccion Footer--------------------------------------------------------->
-        <wlegem-footer ng-show="vm.$state.current.name == 'home'"></wlegem-footer>
+        <wlegem-footer ng-show="vm.$state.current.name == 'home'"></wlegem-footer> <!--foter problema con responsive-->
         <wlegem-mini-footer ng-show="(vm.$state.current.name != 'home' && vm.$state.current.name != 'login')">
         </wlegem-mini-footer>
     </div>

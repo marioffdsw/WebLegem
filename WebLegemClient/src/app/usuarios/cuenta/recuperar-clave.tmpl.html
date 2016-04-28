@@ -1,0 +1,82 @@
+﻿<div class="tapiz">
+
+    <div style="height:85px;"></div>
+
+    <div class="tapiz_contenido" ng-show="true" style="max-width:500px">
+        <div class="titulo">
+            <span class="ico-user-md">
+                <a>Recuperación de contraseña</a>
+            </span>
+        </div>
+        <div class="box_father">
+
+            <div class="box_right">
+
+                <!--=============================================================-->
+                <div ng-show="vm.verificado==1" class="difuminar">
+                    <div class="box_one_input">
+                        <p class="subtitulos_labels">
+                            Ingrese el nombre de usuario con el cual se registró, y a continuacion de click en el boton verificar
+                        </p>
+                    </div>
+
+                    <div class="box_one_input">
+                        <div>
+                            <p class="texto_labels green">Cuenta de usuario</p>
+                            <input class="a_input" type="text" />
+                        </div>
+                    </div>
+
+                    <div class="controles_box_right down" style="margin-top:10px;">
+                        <button class="btn_con_ico" style="display:inline-block;" ng-click="vm.verificado = 2">
+                            <span class="ico-retweet tamano_botones_1"></span>Verificar
+                        </button>
+                    </div>
+                </div>
+                <!--=============================================================-->
+                <div ng-show="vm.verificado==2" class="difuminar">
+                    <div class="box_one_input">
+                        <p class="subtitulos_labels">
+                            Ahora Ingrese el correo electronico con el cual se registró, y a continuacion de click en el boton recuperar
+                        </p>
+                    </div>
+
+                    <div class="box_one_input">
+                        <div>
+                            <p class="texto_labels green">Correo electronico</p>
+                            <input class="a_input" type="text" />
+                        </div>
+                    </div>
+
+                    <div class="controles_box_right down" style="margin-top:10px;">
+                        <button class="btn_con_ico" style="display:inline-block;" ng-click="vm.verificado=3">
+                            <span class="ico-paper-plane tamano_botones_1"></span>Recuperar
+                        </button>
+                    </div>
+                </div>
+                <!--=============================================================-->
+
+                <div ng-show="vm.verificado==3" class="difuminar">
+                    <div class="box_one_input">
+                        <p class="subtitulos_labels">
+                            Se ha enviado un mail a su correo electronico con la nueva contraseña.
+                            Revise su correo por favor
+                        </p>
+                    </div>
+
+                    <div class="controles_box_right down" style="margin-top:10px; ">
+                        <button class="btn_con_ico" style="display:inline-block;" ui-sref="home">
+                            <span class="ico-check tamano_botones_1"></span>Aceptar
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+
+</style>
+
+

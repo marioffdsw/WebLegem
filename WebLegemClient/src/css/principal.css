@@ -4,9 +4,8 @@
     -webkit-flex-direction: column;
     flex-direction: column;
     min-height:100vh;
-    position:absolute;
-    top:0;
     width:100%;
+    position:relative;
 }
 
     .contenido_principal:before {
@@ -14,15 +13,14 @@
         background-image: url('../recursos/header/VIPRI-12.jpg');
         background-size: cover;
         width: 100%;
-        height: 100vh;
-        position: absolute;
-        top: 0;
-        left: 0;
+        height: 100%;
+        position:absolute;
+        top:0;
         z-index: -1;
        
     }
 
-.contenido_nombre_buscador {
+.contenido_nombre_buscador {/*contiene el nombre de la pag y el input para buscar*/
     padding-bottom:60px;
     flex: 1;
     display: flex;
@@ -31,8 +29,65 @@
     width: 100%;
 }
 
+    
+.nombre_pagina {/*texto legem en la pag principal*/
+    align-self:center;
+    padding-top:20px;
+    padding-bottom:30px;
+    font-family:'AbrilFatface-Regular';
+    color:white;
+    text-shadow: 1px 1px 2px rgba(140,140,140,0.6), -1px -1px 3px rgba(0, 0, 0, .67);
+    cursor:default;
+}
+
 .contenedor_simbolos{
+    background:rgba(0, 0, 0, 0.6);
     align-items:flex-end; 
     justify-content:flex-end; 
     width:100%;
+}
+.contenedor_simbolos div{ 
+        display:flex; 
+        flex-direction:row;
+        justify-content:space-around;  
+    }
+
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {/* < 320*/
+
+    .contenedor_simbolos > div  > div:first-child,
+    .contenedor_simbolos > div  > div:last-child
+    {display:none;}
+
+    .contenedor_simbolos div div img{height:70px;}
+    .nombre_pagina {font-size:70px;}
+    .logo-wl1 img{display:none;}
+    .logo-wl1 p{margin-left:10px;}
+}
+
+
+@media only screen and (min-width : 320px) {/* > 320*/
+    
+    .contenedor_simbolos div div img{height:70px;}
+    .nombre_pagina {font-size:70px;}
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+    .nombre_pagina {font-size:100px;}
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
 }

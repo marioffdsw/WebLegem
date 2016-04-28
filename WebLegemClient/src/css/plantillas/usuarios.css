@@ -54,6 +54,17 @@
     margin-bottom:5px;
 }
 
+.box_one_input{
+    display:flex;
+    flex-wrap:wrap;
+    margin-bottom:5px;
+}
+.box_one_input > div{
+    flex:1;
+    min-width:250px;
+}
+
+
 .box_duo_input > div{
     flex:1;
     min-width:250px;
@@ -282,3 +293,7 @@
     }
 
 /*--Fin input para subir foto-------*/
+
+.difuminar.ng-hide-remove {
+    animation: .9s fadeIn;
+}
