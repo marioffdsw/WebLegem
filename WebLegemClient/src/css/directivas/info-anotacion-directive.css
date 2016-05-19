@@ -1,0 +1,102 @@
+﻿
+    .wl-modal-opacidad {
+        /* A dark translucent div that covers the whole screen */
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 9999;
+        width: 100%;
+        height: 100vh;
+        background-color: #000000;
+        opacity: 0.8;
+        overflow: hidden;
+    }
+
+    .wl-modal-barra-titulo {
+        
+        display: flex;
+        background: rgba(0, 0, 0, 0.10);
+        width: 100%;
+        min-height:35px;
+    }
+
+        .wl-modal-barra-titulo button {
+            align-self: flex-end;
+            background: #00796B;
+        }
+
+        .wl-modal-barra-titulo > div {
+            flex:1;
+            padding-left:10px;
+        }
+
+            .wl-modal-barra-titulo div span:before {
+                margin-right: 5px;
+                font-size: 1rem;
+            }
+
+    .wl-modal-dialogo {
+        /* A centered div above the overlay with a box shadow. */
+        z-index: 10000;
+        position: fixed;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        /* Default */
+        /* Center the dialog */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        background-color: #fff;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.71);
+    }
+
+    .wl-modal-contentenido {
+        padding: 10px;
+        overflow-y: auto;
+        background:#f7f7ff;
+
+    }
+
+
+    /* Custom, iPhone Retina */
+
+
+    @media only screen and (min-width : 0) {
+        .wl-modal-dialogo {
+            width: 100%;
+            height: 100vh;
+        }
+    }
+
+    @media only screen and (min-width : 320px) {
+        .wl-modal-dialogo {
+            width: 95%;
+            height: 100vh;
+        }
+    }
+
+    /* Extra Small Devices, Phones */
+    @media only screen and (min-width : 480px) {
+        .wl-modal-dialogo {
+            width: 90%;
+            height: 90vh;
+        }
+    }
+
+    /* Small Devices, Tablets */
+    @media only screen and (min-width : 768px) {
+    }
+
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 992px) {
+        .wl-modal-dialogo {
+            width: 40%;
+        }
+    }
+
+    /* Large Devices, Wide Screens */
+    @media only screen and (min-width : 1200px) {
+    }

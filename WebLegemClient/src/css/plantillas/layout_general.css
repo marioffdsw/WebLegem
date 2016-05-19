@@ -2,14 +2,18 @@
         display: flex;
     }
 
-    .box_left {
+    /*.box_left {
         flex: 1.5;
         padding: 20px;
         box-shadow: 1px 0 0 #e2e2e2;
-    }
+    }*/
 
     .box_right {
         flex: 3;
+        padding: 20px;
+    }
+
+    .box_child{
         padding: 20px;
     }
 
@@ -40,7 +44,7 @@
 
 
 
-    .tapiz {
+.tapiz {
     display: flex;
     -ms-flex-direction: column;
     -webkit-flex-direction: column;
@@ -49,10 +53,10 @@
     justify-content: flex-start;
     min-height: 100vh;
     width: 100%;
-
-    background-color:#e1e3e9;
-    /*background-color:#e9eaed;*//*azul facebook*/
-    }
+    /*background-color: #e1e3e9;*/
+    background-image: url('../../recursos/cheap_diagonal_fabric.png');
+    /*background-color:#e9eaed;*/ /*azul facebook*/
+}
 
     .tapiz_contenido{/*responsive*/
         background:#fff;
@@ -60,3 +64,52 @@
         width:90%;
         margin-bottom:20px;
     }
+
+    
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {/* < 320*/
+
+}
+
+
+@media only screen and (min-width : 320px) {/* > 320*/
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+    .box_left {
+        position:absolute;
+        left:0;
+        top:55px;
+        width:50vw;
+        min-width:300px;
+        height:100vh;
+        z-index:10;
+        padding: 20px;
+        box-shadow: 1px 0 0 #e2e2e2;
+        background:white;
+        display:none;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    .box_left {
+        flex: 1.5;
+        padding: 20px;
+        box-shadow: 1px 0 0 #e2e2e2;
+        position:unset;
+        width:unset;
+        top:unset;
+        left:unset;
+        background:none;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+}

@@ -1,0 +1,1010 @@
+﻿
+
+/*button*/
+/*---------Estilos para Botones----------*/
+.btn_con_ico {
+    background-color: #0f745b;
+    color: #fff;
+}
+.btn_con_ico:hover {
+    background-color:  #099472;
+}
+.btn_con_ico:active{
+    background-color: #064234;
+}
+/*---------------------------------*/
+.tamano_botones_1 {
+    background: rgba(0, 0, 0, 0.08);
+}
+/*---------------------------------*/
+.btn_sin_ico {
+    background-color: #0f745b;
+    color: #fff;
+}
+.btn_sin_ico:hover , .btn_ico:hover {
+    background-color:  #099472;
+}
+.btn_sin_ico:active , .btn_ico:active{
+    background-color: #064234;
+}
+/*-----Btn solo Ico-----*/
+.btn_ico {
+    background: #0f745b;
+}
+
+/*--Fin Btn solo Ico-----*/
+/*--------------Fin Button -----------------------*/
+/*RESULTADO BUSQUEDA*/
+/*------Select input Busqueda---------*/
+.select_busqueda select:disabled{
+    background:#e3e3e3;
+}
+.select_busqueda input:disabled{
+    background:#e3e3e3;
+}
+.select_busqueda select, .select_busqueda input {
+    background: #fff;
+    border: 1px solid #999;
+}
+.select_busqueda:before {
+   color: #999;
+}
+.select_busqueda:hover::before {
+    color: #099472;
+}
+.select_busqueda.disable:hover::before{
+   color:#999;
+    }
+ /*------ Fin select Busqueda ------*/
+
+ /*---------Fin Inputs y selects---------*/
+
+ 
+/*---------------------------------- FIN RESULTADO BUSQUEDA----------------------------*/
+
+/*---------------------------------- FILTRO BUSQUEDA----------------------------*/
+
+/*---------Lista de Filtros---------*/
+
+.lista_filtro li div:first-child {
+    border: 1px dotted rgba(153, 153, 153, 0.40);
+}
+.tip{
+    color:#099472;  
+   }
+.descripcion{
+    color:#777;    
+}
+/*------fin Lista de Filtros---------*/
+
+/*----Boton para agregar----*/
+.btn_search_avanzada {
+    background: #0f745b;
+    color:white;
+}
+.btn_search_avanzada:hover{
+    background:#099472;
+}
+.btn_search_avanzada:active{
+    background:#064234;
+}
+/*----Fin boton para agregar----*/
+
+/*----Boton para eliminar----*/
+.btn_delete_avanzada {
+    background: #dc4747;
+    color:white;
+}
+
+.btn_delete_avanzada:hover{
+    background:#ff5b5b;
+}
+.btn_delete_avanzada:active{
+    background:#8f0000;
+}
+/*----------------------fin button---------------------*/
+/*----Fin boton para eliminar----*/ 
+/*--------  Tarjeta Noticias -------*/
+.tarjeta_busqueda {
+    color: #555;
+}
+.titulo_tarjeta a {
+    color: #0f745b;
+    -moz-text-decoration-color: #0f745b;
+    text-decoration-color: #0f745b;
+}
+.contenido_tarjeta {
+    color: #222;
+}
+.subcontenido_tarjeta {
+    color: #666;
+}
+.control_tarjeta{
+border-bottom:1px solid #ccc;
+}
+.control_tarjeta > a {
+    color: #0f745b;
+}   
+/*-----Fin Tarjeta Noticias -------*/   
+/*sort busqueda*/
+/*--bar ordenamiento--*/
+.bar_ordenamiento li {
+    color: #222;
+}
+ .bar_ordenamiento li.active_filter {
+    box-shadow: 0 3px 0 #099472;
+    color: #099472;
+    border-color: #099472;
+    }
+.bar_ordenamiento li:hover{
+    box-shadow:inset 0 0 0 2px #099472;
+    color:#099472;
+    border-color:#099472;    
+}
+.bar_ordenamiento li:first-child,
+.bar_ordenamiento:hover li:first-child {
+    color: #222;
+    }
+    /*--fin bar ordenamiento--*/
+    /*-----------------fin sort busqueda------------------------*/
+
+  /*barra de navegacion*/
+  /*animacion de las items de navegacion*/
+.bar_nav > li:before {
+    background: #fff;
+}
+
+.bar_nav > li:hover{
+    background: rgba(255, 255, 255, 0.4);
+}
+/*-----------------------------------*/
+.bar_nav li a {
+    color: #fff;
+}
+/*-----------------------------------*/
+/*--------------------------fin barra de navegacion------------------*/
+/*boton movedizo*/
+/*Boton que esta en login*/
+/*boton que muestra el icono en evento hover*/
+.btn_con_ico_login {
+    background-color: #45b15d;
+    color: #fff;
+}
+.btn_con_ico_login:hover {
+    background-color: #3d9851;
+ }
+.btn_con_ico_login:active {
+    background-color: #3d9851;
+    box-shadow: inset 0 0 2px 4px #2f753f;
+ }
+/*-----------fin boton movedizo-----------------------*/
+
+/*gadget_control_entidad*/
+.iconos_control {
+    color: #37404A;
+    background:white;
+}
+.panel_control {
+    background: rgb(237, 237, 237);
+    border:2px solid #a1a1a1;
+}
+.a_bloques input:hover + label{
+   box-shadow:#a1a1a1 0 0 0 2px inset;
+}
+.a_bloques input:checked + label{
+   box-shadow:#29c44b 0 0 1px 2px inset;
+}
+.note { 
+    background:#fff;
+   -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.4);
+   -moz-box-shadow: 0 0 1px rgba(0,0,0,0.4);
+   box-shadow: 0 0 1px rgba(0,0,0,0.4);
+}
+.note:before {
+    border-color:#fff rgb(237, 237, 237) ; 
+   -webkit-box-shadow: -1px 2px 1px rgba(0,0,0,0.4);
+   -moz-box-shadow: -1px 2px 1px rgba(0,0,0,0.4); 
+   box-shadow: -1px 2px 1px rgba(0,0,0,0.4);  
+}
+.a_bloques input:checked + label::after {
+    text-shadow: 0 0 1px green;
+}
+/*-----------------------------------*/
+/*imagen_inicial*/
+.imagen_inicial {
+   border-top: 5px solid #0e975c;
+}
+
+/*-----------------------------------*/
+/*input_text*/
+
+/*estilo general para inputs*/
+.a_input{
+   border:1px solid #bbb; 
+}
+.input_text_btn {
+    border: 1px solid #bbb;
+}
+.input_text_btn:focus:hover, .input_text_btn:focus:hover ~ button{
+    border-color:#38ba8f;
+}
+.input_text_btn:focus ~ button:hover{
+    background:rgba(0, 0, 0, 0.08);
+}
+/*------Input tex con icono------*/
+.input_text_ico {
+  border: 1px solid #bbb;
+}
+.ico_input_text {
+    background: #0f745b;
+    color: white;
+}
+.btn_cancel {
+    background: #fff;
+    border: 1px solid #bbb;
+    color:#666;
+}
+.btn_cancel:disabled{
+    background:#fff;
+}
+
+.input_text_ico:focus ~ button:active{
+    background:rgba(0, 0, 0, 0.2);
+}
+/*--------- FIN Input con boton------------*/
+/* Eventos de los inputs*/
+.a_input:hover,
+.input_text_ico:hover,
+.input_text_btn:hover,
+.input_text_btn:hover ~ button{
+    border-color:#888;
+}
+/*---- placeholder en mozilla y chrome ----*/
+.a_input:focus::-moz-placeholder,
+.input_text_ico:focus::-moz-placeholder,
+.input_text_btn:focus::-moz-placeholder {
+    color: #156815;
+}
+.a_input:focus::-webkit-input-placeholder,
+.input_text_ico:focus::-webkit-input-placeholder,
+.input_text_btn:focus::-webkit-input-placeholder
+{
+    color: #156815;
+}
+/* ---FIN placeholder en mozilla y chrome----*/
+.a_input:-webkit-autofill,
+.input_text_btn:-webkit-autofill 
+.input_text_ico:-webkit-autofill 
+{
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+.a_input:focus,
+.input_text_ico:focus,
+.input_text_btn:focus, 
+.input_text_btn:focus ~ button{
+    border-color:#38ba8f;
+    border-width:2px;
+}
+.a_input:-webkit-autofill:active,
+.a_input:-webkit-autofill:focus,
+.input_text_ico:-webkit-autofill:active,
+.input_text_ico:-webkit-autofill:focus,
+.input_text_btn:-webkit-autofill:active,
+.input_text_btn:-webkit-autofill:focus
+ {  
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+/*----------------------------------------------*/
+
+/*listado*/
+/*select --ESTILOS PARA LAS LISTAS--*/
+.a_listado li {
+    border: 1px solid #a1a1a1;
+}
+.a_listado li:first-child{
+    border-top:1px solid #a1a1a1;
+}
+label.styled {
+    color: #222;
+}
+label.styled:hover{
+    background-color:  rgba(69, 177, 93, 0.20);
+}
+/* :: CHECKED :: */
+input.styled:checked ~ label.styled {
+    background-color: rgba(69, 177, 93, 0.20);
+}
+label.styled:before {
+    color: #fff;
+    background-color: #45b15d;
+}
+/*------------------------------------*/
+/*mini_search*/
+/*div de mini Busqueda*/
+.mini_search{
+    -webkit-box-shadow: 0 0 0 8px rgba(17, 21, 21, 0.3);
+    -moz-box-shadow: 0 0 0 8px rgba(17, 21, 21, 0.3);
+    box-shadow: 0 0 0 8px rgba(17, 21, 21, 0.3);
+}
+.mini_search input {
+    color: #444;
+    background: white;
+}
+.mini_search button:hover{  
+    background:rgb(20, 108, 71);
+}
+.mini_search button {
+    background: rgb(24, 156, 100);
+    color: #fff;
+}
+.mini_search.animacion_mini_search {
+    -webkit-box-shadow: 0 0 0 6px rgba(24, 156, 100,.6);
+    -moz-box-shadow: 0 0 0 6px rgba(24, 156, 100,.6);
+    box-shadow: 0 0 0 6px rgba(24, 156, 100,.6);
+}
+/*--------------------------------------------------------------*/
+
+/*select*/
+.select{
+    border:1px solid #a1a1a1;
+   }
+
+.select:hover ~ .span_select:before {
+    color: #3d9851;
+    text-shadow: 0 0 3px #45b15d;
+}
+
+.span_select {
+    color: #a1a1a1;
+}
+
+/*-----------------------------------------*/
+/*switch*/
+.switch:empty + label/*contenedor*/{
+    background-color: #a1a1a1;
+}
+/* fondo adicional*/
+.switch + label:before {
+  background-color: #b4b4b4;
+  border:1px solid #fff;
+ }
+.switch + label:after {/*toggle cuadrito*/
+   background-color: #5e5f64;
+  }
+.switch:checked + label {/*contenedor ya chekiado*/
+  background-color: #a1a1a1;
+}
+.switch:checked + label:before {/*contenedor ya chekiado*/
+  background-color: #45b15d;
+}
+.switch:checked + label:after {/*toggle cuadrito checked*/
+   background-color: #5e5f64;
+}
+/*------------------------------*/
+/*tabs*/
+.contenedor_tabs{
+    box-shadow: inset 0 -1px 0 0 #ccc;
+    background:#eee;
+}
+.contenedor_tabs ul{
+    color:#666;
+}
+.contenedor_tabs > ul > li{
+    background:white;
+    box-shadow: 
+                inset 0 -1px 0 0 #ccc,
+                inset -1px 0 0 0 #ccc;
+}
+
+ .contenedor_tabs > ul > li:after {
+    background: #2dbf85;
+ }
+.contenedor_tabs > ul > li:hover {
+    background:rgba(0, 0, 0, 0.01);
+    color:#2dbf85;
+}
+.contenedor_tabs > ul > li.active_tab { /*tab activa*/
+    background: white;
+    color:#2dbf85;
+    box-shadow: inset 0 1px 0 0 #ccc,
+                inset -1px 0 0 0 #ccc;
+}
+/*----------------------------------*/
+/*text_area*/
+.text_area{
+    border:0.1em solid #246848;
+    border:1px solid #a1a1a1;    
+}
+.text_area:focus{
+    border:1px solid  #3f9f43;
+    box-shadow: 0 0 4px rgb(75 , 187, 79) ;
+}
+
+/*-----------------------------------------------------*/
+/*uploader*/
+.uploader {
+    background-color: #cccccc;
+    outline: 2px dashed #cccccc;
+}
+
+.uploader label{
+    color: rgba(0, 0, 0, 0.5); 
+}
+.uploader > span {
+    color: rgba(0, 0, 0, 0.5);
+}
+.uploader.dragging {
+    outline-color: rgb(30, 109, 185);  
+    background-color: rgba(0, 0, 0, 0.07);
+}
+.uploader.dragging > span {
+    color: rgb(30, 109, 185); 
+}
+.uploader.loaded  > span {
+    color:#3bc742;  
+}
+.uploader.loaded{
+    outline-color: #3bc742; 
+}
+#progress_bar .percent {
+    background-color: #3bc742;
+    color:white;
+}
+/*-----------------------------------------------------*/
+/*animacion de carga */
+.loader {
+  background: #2df1a3;
+  background: -moz-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -webkit-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -o-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: -ms-linear-gradient(left, #ffffff 10%, rgba(255, 255, 255, 0) 42%);
+  background: linear-gradient(to right, #2df1a3 10%, rgba(45, 241, 163, 0.00) 42%);
+  }
+.loader:before {  
+  background: #1bba93;
+  }
+.loader:after {
+  background: #ffffff;  
+}
+/*-----------------------------------------------------------*/
+/*estilos web legem*/
+
+/*Titulos para los contenidos*/
+.titulo_login {
+    color: white;
+    background: rgba(15, 116, 91, 0.7);
+}
+
+.titulo{
+    color: white;
+    background: rgb(15, 116, 91);
+}
+
+/*menesajes de validacion*/
+.a_validacion{
+    color: orangered;  
+}
+
+           
+#campos{
+    padding-bottom:10px; 
+    color:#666;
+}
+
+/*TEXTO PARA LOS LABELS*/
+.texto_labels{   
+    color:#434e58;    
+}
+.texto_labels.green{
+    color:#0f745b;
+}
+.texto_labels.bold{
+    font-family:"Lato-Bold";
+}
+.subtitulos_labels{ 
+    color:#434e58;    
+}
+.divisor_gestion_documental{
+    border: solid 1px #434e58;
+}
+/*-------------------------------------------*/
+/*normalize*/
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0; 
+}
+/*---------------------------------------------------------------*/
+/*noticias.css no tiene ningun elemento con color*/
+
+
+/*pagina principal*/
+
+.ir_arriba {
+    background: rgba(25, 159, 101, .8);
+    color: white;
+}
+ 
+/*----------------------------------------------*/
+/*pagina_principal_contraste.css no tiene ningun elemento con color, body background con imagen*/
+
+/*principal.css no tiene ningun elemento con color, body background con imagen*/
+
+
+
+/*Demo*/
+body {
+	color: #555;
+	background: #fff;
+}
+a {
+	color: #e74c3c;
+}
+a:hover, a:focus {
+	box-shadow: 0 1px #e74c3c;
+}
+.bshadow0, input {
+	box-shadow: inset 0 -2px #e7e7e7;
+}
+input:hover {
+	box-shadow: inset 0 -2px #ccc;
+}
+
+input:focus {
+	box-shadow: inset 0 -2px #449fdb;
+}
+.talign-center {
+	text-align: center;
+}
+.bgc1 {
+	background: #f1f1f1;
+}
+.fgc1 {
+	color: #999;
+}
+.fgc0 {
+	color: #000;
+}
+
+
+.textbox0 {
+    background: #f1f1f1;
+}
+/*------------------FIN DEMO----------------------------*/
+
+/*acesibilidad*/
+#lanzador_accesibilidad{
+    background:rgba(36, 168, 112, 0.50);
+}
+#lanzador_accesibilidad:hover{
+    background:rgb(24, 156, 100);
+}
+.boton_accesibilidad{  
+    background:rgba(55, 64, 74, 0.31);
+    color:white;
+}
+
+.boton_accesibilidad:hover{
+    background: rgba(255, 255, 255, 0.50);
+}
+
+.btn_nav, .btn_tamano1 ,.btn_tamano2 ,.btn_tamano2_a,.btn_tamano3, .btn_tamano0{
+    color:#fff;
+}
+
+.btn_nav:before{
+    background:#F39C22;
+}
+
+.btn_tamano1:before, .btn_tamano2:before,.btn_tamano2_a:before, .btn_tamano0:before{
+    background:#F39C22;
+}
+/*---------------------------------------------------------------*/
+/*administracion*/
+.contenedor_administracion {
+    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+/*-----------------------------------*/
+
+.form_administracion{/*contiene imputs del modulo administracion*/
+    background:#fff;
+}
+
+/*CONTENIDO DEL MODULO ADMINISTRACION*/
+/*-----------------------------------*/
+.contenido{
+    background:#fff;    
+}
+
+/*Control Administracion*/
+
+.control_administracion {
+    border-bottom:2px solid #ddd;
+}
+.hijo_left{  
+    background:rgba(0, 0, 0, 0.05);
+    border-right:2px solid #ddd;
+}
+
+
+/*---------------------fin administracion----------------------------------------*/
+
+/*busqueda*/
+
+.contenedor_filtros{
+    box-shadow:0 0 0 1px rgba(0, 0, 0, 0.05),0 1px 2px rgba(0, 0, 0, 0.3);
+    background:#fff;
+}
+
+.contenedor_filtros > p{    
+    color:#0f745b; 
+    border-bottom:2px solid #0f745b;
+}
+
+
+.contenedor_resulados_sort{
+    box-shadow:0 0 0 1px rgba(0, 0, 0, 0.05),0 1px 2px rgba(0, 0, 0, 0.3);
+    background:#fff;
+}
+
+/*------Busqueda Avanzada-------*/
+/*-----Contenedor Resultados---------*/
+ 
+.res_bus > p{
+    border-bottom:1px solid #bbb;
+    color:#888;
+}
+/*-----Fin Contenedor Resultados-------------*/
+/*--------Mensajes Busqueda-------*/
+
+.mensaje_busqueda {
+    color: #666;
+    border: 1px dashed #666;
+}
+
+.mensaje_busqueda span{
+    color:#666;
+ }
+
+
+/*-----Fin Mensajes Busqueda------*/
+
+/*-------Dibujo Busqueda----------*/
+.dibujo_busqueda span{
+    color:#999;
+}
+/*---Fin Dibujo Busqueda----------*/
+
+/*---------------------------fin busqueda --------------------------------------*/
+
+/*footer*/
+
+.a_footer {
+    background: rgba(0, 0, 0, 0.5);
+    color:rgba(0, 0, 0, 0.05);
+}
+
+.sub_footer1{
+    background:#666;
+}
+
+.sub_footer2{
+    color:#99E567;
+}
+
+.sub_footer1 > div {
+    color:#fff;
+}
+
+.sub_footer1 > div > hr{
+    border:1px solid #99E567;
+}
+
+.sub_footer1 > div > p{
+    color:white;
+}
+
+.f_link{
+    color:#fff;
+ }
+
+.ico_f2{
+    color:#fff;
+}
+
+.ico_f{
+    color:white;
+ }
+.ico_f:hover,.f_link:hover{
+    color:rgb(255, 255, 255);
+}
+/*---------------------------------fin footer--------------------------------*/
+/*gestion documental*/
+.contenido_gd{
+    background:white;
+    box-shadow:1px 1px 3px rgba(118, 117, 117, 0.50);
+}
+.tontera {
+    border: 1px solid gray;
+}
+
+.tontera ng-quill-editor{
+    background:red; 
+}
+/*----------------------fin gestion documental-----------------------------------*/
+/*header*/
+.header {
+    /*background:rgba(17, 21, 21, 0.70);*/
+    background: #0f745b;
+    border-bottom:1px solid #6c767d;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.50);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.50);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.50);
+}
+
+.header.solido{ 
+    background: #0f745b;  
+}
+.figura_logo{
+    -webkit-filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.85));
+    filter        : drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.85));
+}
+
+
+.nombre_pagina {
+    color:white;
+    text-shadow: 1px 1px 2px rgba(140,140,140,0.6), -1px -1px 3px rgba(0, 0, 0, .67);
+}
+#svg_image {
+    stroke:#010365;
+}
+.btn_deslizable{
+    background:rgba(55, 64, 74, 0.0);
+    color:white;
+}
+.btn_deslizable:hover{ 
+    background: rgba(255, 255, 255, 0.50);
+}
+.btn_deslizable:hover span, .btn_deslizable:hover p{ 
+    color:#fff;
+}
+
+.btn_deslizable:before{
+    background:white;   
+}
+.transparente {
+    background: rgba( 0,0,0, .75 );
+}
+
+
+/*btn Desplegable para el menu*/
+
+.btn_desplegable{
+    background:rgba(55, 64, 74, 0.0);
+    color:white;
+}
+.btn_desplegable:hover span, .btn_deslizable:hover p{ 
+    color:#fff;
+}
+
+.btn_desplegable ul{
+    background:rgba(8, 14, 34, 0.86); 
+}
+.btn_desplegable ul li:hover{
+    background:rgba(255, 255, 255, 0.40);
+}
+
+.btn_desplegable ul li a{
+    color:#fff;
+}
+
+/*------------------------fin header---------------------------------*/
+/*header2*/
+.header2 {
+    border-bottom: 2px outset rgba(4, 28, 55, 0.55);
+    background:rgb(13, 83, 83);
+    /*background: rgba(10, 40, 81, 0.71);*/
+}
+.header2.solido{
+    background:rgba(10, 40, 81, 1);
+}
+ /*---------------------------------fin header2--------------------*/
+ /*informacion documento no tiene elementos con color*/
+ /*layout_general*/
+.box_left {
+    box-shadow: 1px 0 0 #e2e2e2;
+    }
+
+ .controles_box_right {
+    border-bottom: solid 1px #e2e2e2;
+    }
+ .controles_box_right.down{
+    border-top: solid 1px #e2e2e2;
+    }
+
+ .tapiz {
+    background-color:#e1e3e9;
+    /*background-color:#e9eaed;*//*azul facebook*/
+    }
+
+ .tapiz_contenido{/*responsive*/
+    background:#fff;
+    box-shadow:0 0 0 1px rgba(0, 0, 0, 0.05),0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+ /*-------------------------fin layout general----------------------*/
+
+ /*login*/
+.contenedor_login{
+    box-shadow:0 0 0 1px rgba(0, 0, 0, 0.05),0 1px 2px rgba(0, 0, 0, 0.3);   
+}
+
+.contenedor_login:before {
+    background-image: url('../../recursos/header/entrada.jpg');
+    /*background-image: url('../../recursos/índice2.png');*/
+}
+
+.form_login{
+    background:rgba(255, 255, 255, 0.75);
+}
+.mensaje_login{
+    color:#999;
+    border-bottom: 1px solid #bbb;
+}
+
+ /*------------------------------fin layout general--------------*/
+/*mini-footer*/
+.a_mini_footer {
+    background: #33343b;
+    color:white;
+}
+
+.sub_mini_footer1{
+    background:rgba(0, 0, 0, 0.45);
+}
+
+.sub_mini_footer2{
+    color:#aaa;
+}
+
+.sub_mini_footer1 > div {
+    color:#d8d8d8;
+}
+/*-------------------------------------------fin mini footer-------------------*/
+/*news*/
+.a_news {
+    background: #fff;
+    background: #fafbfe;
+    background-image: url('../../recursos/header/IMG_2713P.jpg');
+    background-image: url('../../recursos/header/paisaje.jpg');
+    border-bottom: 5px solid #aaa;
+}
+
+.titulo_news{
+    color:#FFF;
+    background:rgba(0, 0, 0, 0.3);
+    box-shadow:0 -3px 10px 2px rgba(0, 0, 0, 0.3);
+    border-bottom:1px solid #ccc;
+}
+/*-----container news-----*/
+/*---fin container news-----*/
+
+.tarjeta_news{
+    box-shadow:0 0 0 1px rgba(0, 0, 0, 0.05),0 1px 2px rgba(0, 0, 0, 0.3);
+    background:rgba(255, 255, 255, 0.95);
+}
+
+
+/*------------------------------------fin news----------------------------------*/
+/*usuarios*/
+/*###### Control Roles #######*/
+.contenedor_permisos {
+    border:1px solid #ccc;
+}
+
+.contenedor_permisos p{
+    color:#444;
+}
+.estado_permiso {
+    color:#2062b9 !important;
+}
+
+.titulo_modulo{
+    border-bottom:1px solid #ccc;
+    background:#E9EAED;
+}
+
+.titulo_modulo p{
+    color:#222 !important;
+}
+
+/*###### Control Usuarios #######*/
+.contenedor_radios{
+    color:#444;
+}
+    .a_radio ~ label:before {
+        background: #5e5f64;
+        border:3px solid #b4b4b4;
+    }
+
+.a_radio:checked ~ label:before{ 
+    background:#36c34f;
+    border-color:#5e5f64;
+}
+.a_radio:checked + label{ 
+    color: #000;
+}
+/**********************/
+.foto_usuarios{
+    border:1px solid #bbb;
+}
+.foto_usuarios > span{
+    color:#bbb;
+}
+/*MODAL*/
+
+.ng-modal-overlay {
+  /* A dark translucent div that covers the whole screen */
+  background-color:#000000;
+}
+.ng-modal-dialog {
+  /* A centered div above the overlay with a box shadow. */
+   /* Default */
+  /* Center the dialog */
+  background-color: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.71);
+}
+
+.ng-modal-close {
+  background:rgba(0, 0, 0, 0.10);
+}
+
+.canvas_container:after{
+    border:1px solid #36c34f;
+}
+#camaraUsu,#foto.foto_usuarios{
+    border: 1px solid #000;
+}
+/*--------------------------------fin-usuarios---------------------------*/
+#tapiz_administracion{
+    background:#e9eaed;
+}
+
+
+
+#sort-busqueda{
+border-bottom:1px solid #099472;
+}
+
+.olvide_contraseña{
+    color:blue;
+}
+
+#box_input_login{
+     background:#fff;
+}

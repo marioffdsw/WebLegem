@@ -36,6 +36,18 @@
             .state("gestion-documental.crear-documento.resultado", {
                 url: "/resultado",
                 templateUrl: "app/gestion-documental/documento/resultado.tmpl.html"
-            });
+            })
+            //==========================Anotaciones================================
+            .state("gestion-documental.crear-documento.crear-anotacion", {
+                url: "/crear-anotacion",
+                templateUrl: "app/gestion-documental/anotacion/crear-anotacion.tmpl.html"
+            })
+            .state("gestion-documental.crear-documento.seleccionar-anotacion", {
+                url: "/seleccionar-anotacion",
+                templateUrl: "app/gestion-documental/anotacion/seleccionar-anotacion.tmpl.html"
+            })
+
+
+        ;
     } // end config function
 })();

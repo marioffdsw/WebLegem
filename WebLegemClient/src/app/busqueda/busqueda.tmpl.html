@@ -1,71 +1,83 @@
 ﻿<div class="tapiz">
 
-    <div style="height:100px;"></div>
+    <div style="height:80px;"></div>
 
     <div class="contenedor_busqueda">
-
+        
         <div id="busqueda_padre">
 
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~1-->
-            <div id="busqueda_left">
-                <div class="contenedor_filtros">
+            <div id="busqueda_left" ng-show="vm.toggle_avanzada">
+
+                <div class="opacidad-busqueda" ng-show="vm.toggle_avanzada" ng-click="vm.toggle_avanzada = false"></div>
+                <div class="contenedor_filtros z1">
                     <p>Busqueda Avanzada</p>
                     <wlegem-filtro-busqueda></wlegem-filtro-busqueda>
+
+                    <button class="btn_sin_ico btn_buscar_avanzada" ng-click="vm.toggle_avanzada = false">
+                        Buscar
+                    </button>
+
                 </div>
+
                 <!--ng-if="!vm.errorMessage && vm.documentosEncontrados.length < 1"-->
             </div>
+            
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~1-->
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~2-->
             <div id="busqueda_right">
+                <div class="right_busqueda z1">
+                    <div class="barra-busqueda">
+                        <form class="box_input_busqueda_principal">
+                            <div>
+                                <input name="busqueda" type="text" class="input_text_ico busqueda"
+                                       ng-model="vm.palabrasABuscar" placeholder="Escriba aquí su busqueda(Ejemplo:Decreto)"
+                                       maxlength="50" id="nombre" />
+                            </div>
+                            <div>
+                                <button class="btn_search_avanzada busqueda" ng-click="vm.buscar( vm.palabrasABuscar)">
+                                    <span class="ico-search"></span>
+                                </button>
+                            </div>
+                        </form>
 
-                <form class="box_input_busqueda_principal">
-                    <div>
-                        <input required name="busqueda" type="text" class="input_text_ico"
-                               ng-model="vm.palabrasABuscar" placeholder="Escriba aquí su busqueda(Ejemplo:Decreto)"
-                               maxlength="50" id="nombre" />
                     </div>
-                    <div>
-                        <button class="btn_search_avanzada" ng-click="vm.buscar( vm.palabrasABuscar)">
-                            <span class="ico-search"></span>
-                        </button>
+                    
+
+                    <!--------------------------------------------------------------------------------------------------------->
+
+                    <div ng-show="(vm.arregloDocs) || (!vm.errorMessage && vm.documentosEncontrados.length > 0)">
+
+                        <div class="box-sort-busqueda">
+                            <wlegem-sort-busqueda busqueda="vm.toggle_avanzada"></wlegem-sort-busqueda>
+                        </div>
+
+                        <div class="res_bus">
+                            <p class="desc_res">Documentos encontrados</p>
+                            <div>
+                                <wlegem-resultado-busqueda loquesea="vm.arregloDocs" predicate="vm.predicate" reverse="vm.reverse"></wlegem-resultado-busqueda>
+                            </div>
+                        </div>
                     </div>
-                </form>
 
-                <!--------------------------------------------------------------------------------------------------------->
 
-                
-                
-                
-                <!-- ***********************************************
+                    <!-- ***********************************************
                     QUITAAAAAAAAAAAAAAAAAAAAAAAAR LA PRIMERA PARTE DE
                     LA COMPROBACION, SOLO CREADA PARA EL MOCK DE ANDRES
                     ***********************************************-->
-                <div ng-show="(vm.arregloDocs) || (!vm.errorMessage && vm.documentosEncontrados.length > 0)" class="contenedor_resulados_sort">
 
-                    <div style="margin:0 15px; border-bottom:1px solid #bbb;">
-                        <wlegem-sort-busqueda style="margin-bottom:10px;"></wlegem-sort-busqueda>
+
+                    <div class="mensaje_busqueda a_gordo" ng-if="vm.errorMessage">
+                        <p>{{ vm.errorMessage }}</p>
+                        <span class="ico-frown-o"></span>
                     </div>
-
-                    <div class="res_bus">
-                        <p>Documentos encontrados</p>
-                        <div>
-                            <wlegem-resultado-busqueda loquesea="vm.arregloDocs" predicate="vm.predicate" reverse="vm.reverse"></wlegem-resultado-busqueda>
-                        </div>
+                    <div class="dibujo_busqueda" ng-if="!vm.errorMessage && vm.documentosEncontrados.length < 1">
+                        <span class="escudo-udenar">
+                        </span>
                     </div>
                 </div>
-
-                <div class="mensaje_busqueda a_gordo" ng-if="vm.errorMessage">
-                    <p>{{ vm.errorMessage }}</p>
-                    <span class="ico-frown-o"></span>
-                </div>
-                <div class="dibujo_busqueda" ng-if="!vm.errorMessage && vm.documentosEncontrados.length < 1">
-                    
-                    <span class="escudo-udenar">
-                    </span>
-                </div>
-
             </div>
             <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~2-->
-        </div>
+        </>
     </div>
 </div>

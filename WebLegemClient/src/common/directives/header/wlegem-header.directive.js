@@ -10,9 +10,9 @@
         return {
             templateUrl: "common/directives/header/wlegem-header.directive.html",
             restrict: "E",
+            scope: {},
             controller: "headerController",
-            controllerAs: 'vm',
-            bindToController: true
+            controllerAs: 'vm'
         }
     } // end
 })();

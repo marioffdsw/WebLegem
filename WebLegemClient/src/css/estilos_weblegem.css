@@ -1,13 +1,13 @@
-﻿/*Titulos para los contenidos*/
+﻿/*Titulos para las ventanas modales*/
 /*---------------------------*/
 
 .titulo{
+    display:flex;
+    align-items:center;
     color: white;
-    text-align:center;
-    height:auto;
-    background: #0f745b;  
-    display:block;
-    padding:0.5em;
+    height:35px;
+    align-self:stretch;
+    background: #00796B;
     font-family:'OpenSans-Bold';
     font-size:1em;
 }
@@ -22,6 +22,41 @@
 .titulo span:before{
     font-size:x-large;
 }
+
+
+/*Titulos para las ventanas de los modulos*/
+/*---------------------------*/
+
+.titulo_ventana{
+    display:flex;
+    align-items:center;
+    color: #fff;
+    height:35px;
+    align-self:stretch;
+    background: #34474f;
+    position:relative;
+    padding-left:20px;   
+    pointer-events:none; 
+}
+
+
+.titulo_ventana p{
+    font-family:'OpenSans-Semibold'; 
+    font-size:.9rem;  
+}
+
+.titulo_ventana span{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100%;
+}
+
+.titulo_ventana span:before{
+    font-size:large;
+    margin-right:5px;
+}
+
 
 /*-------------------*/
 
@@ -60,6 +95,11 @@
     border: solid 1px #434e58;
 }
 
+/*Sombras*/
+
+.z1{
+    box-shadow:0 0 0 1px rgba(0, 0, 0, 0.05),0 1px 3px rgba(0, 0, 0, 0.4);
+}
 
 /*Disposiciones*/
 

@@ -1,7 +1,4 @@
-﻿<ul class="bar_ordenamiento" ng-controller="WlegemSortBusquedaController as vm">
-
-    <li>Ordenar por: </li>
-    
+﻿<ul class="bar_ordenamiento"> <!--ng-controller="WlegemSortBusquedaController as vm"-->
     <!--------------------------------------------------------------------------------------------------------->
     <li ng-click="vm.predicate = 'entidad.nombre'; vm.reverse= !vm.reverse;"
         ng-class="vm.predicate == 'entidad.nombre' ? 'active_filter':'' ">
@@ -34,5 +31,11 @@
     <li ng-click="vm.predicate = ''; vm.reverse = false;"
         ng-class="vm.predicate == '' || vm.predicate == undefined ? 'active_filter' : ''">
         Relevancia
+    </li>
+    <!--------------------------------------------------------------------------------------------------------->
+    <li class="sort-avanzada"
+        ng-click="vm.busqueda = !vm.busqueda"
+        ng-class="vm.busqueda ? 'activo' : ''">
+        Busqueda Avanzada
     </li>
 </ul>

@@ -1,88 +1,125 @@
-﻿/*estilo general para inputs*/
-/*----------------------------------------*/
-.a_input{
-    display:flex;
-    width:100%;
-    height:35px;
-    margin-bottom:8px;
+﻿
+
+/*cajas para los input con botonoes e iconos*/
+
+.box_input_btn,.box_input_ico   {display:flex;height:35px;margin-bottom:8px;margin-top:2px;padding:0}
+.box_input_ico div:first-child  {-ms-flex:1;-webkit-flex:1;flex:1}
+.box_input_ico div:last-child   {flex-basis:35px}
+
+/*════════════════════════════════════════════════════════════════════════════════════════════════════════════*/
+
+/*estilos genrales input text*/
+
+.a_input,           /*input normal*/
+.input_text_btn,    /*Input con boton*/
+.input_text_ico     /*Input con icono como en filtros busqueda ó como el de login*/
+{
     padding: 0 10px;
     border:1px solid #bbb; 
-}
-
-/*-------------Input con boton----------------*/
-
-.box_input_btn,.box_input_ico{
-    display:flex; 
-    height:35px; 
-    margin-bottom:8px;
-    margin-top:2px;
-    padding:0;
-}
-
-.input_text_btn{
-    -ms-flex: 1;-webkit-flex: 1;flex: 1;
-    display:block;
     width:100%;
     height:35px;
-    padding:0 10px;
-    border:1px solid #bbb; 
-    border-right:none;
 }
 
-.input_text_btn:focus:hover, .input_text_btn:focus:hover ~ button{
+.a_input        {display:flex;margin-bottom:8px}
+.input_text_btn {-ms-flex:1;-webkit-flex:1;flex:1;display:block}
+.input_text_ico {display:block;border-right:none}
+.input_text_ico.busqueda{height:40px;}
+
+/*════════════════════════════════════════════════════════════════════════════════════════════════════════════*/
+
+/*Eventos de los inputs*/
+
+.input_text_btn:focus:hover, 
+.input_text_btn:focus:hover ~ button,
+.input_text_ico:focus ~ button:active
+{
     border-color:#38ba8f;
-}
-.input_text_btn:focus ~ button > span{
-    visibility:visible;
-}
-.input_text_btn:focus ~ button:hover{
-    background:rgba(0, 0, 0, 0.08);
+    background:rgb(237, 255, 242);
 }
 
+.input_text_btn:focus~button>span{visibility:visible}
+.input_text_btn:focus~button:hover{background:#bae6c6}
 
-/*------Input tex con icono------*/
-
-    .box_input_ico div:first-child{
-        -ms-flex: 1;-webkit-flex: 1;flex: 1;
-    }
-
-    .box_input_ico div:last-child{
-        flex-basis:35px;
-    }
-
-.input_text_ico{
-    display:block;
-    width:100%;
-    height:35px;
-    padding:0 10px;
-    border:1px solid #bbb; 
-    border-right:none;
-}
-.ico_input_text{
-    background:#0f745b;
-    width:100%; 
-    height:35px;
-    color:white;
-    font-size:large;
+/*------ hover para los input -------*/
+.a_input:hover,
+.input_text_ico:hover,
+.input_text_btn:hover,
+.input_text_btn:hover ~ button{
+    border-color:#888;
+    background:rgba(0, 0, 0, 0.02);
 }
 
-.ico_input_text span:before{
-    text-align:center;
-    height:100%;
-    display:block;
-    padding-top:9px;
+
+/*---- placeholder en mozilla y chrome ----*/
+.a_input:focus::-moz-placeholder,
+.input_text_ico:focus::-moz-placeholder,
+.input_text_btn:focus::-moz-placeholder{
+    color: #0f745b;
+    background:rgb(237, 255, 242);
 }
 
-/*---Fin Input tex con icono------*/
+.a_input:focus::-webkit-input-placeholder,
+.input_text_ico:focus::-webkit-input-placeholder,
+.input_text_btn:focus::-webkit-input-placeholder
+{
+    color: #0f745b;
+    background:rgb(237, 255, 242);
+}
+/* ---FIN placeholder en mozilla y chrome----*/
 
-/****************************/
+
+.a_input:-webkit-autofill,
+.input_text_btn:-webkit-autofill 
+.input_text_ico:-webkit-autofill 
+{
+    outline:0;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+
+/*Input con evento FOCUS .......................................*/
+.a_input:focus,
+.input_text_ico:focus,
+.input_text_btn:focus, 
+.input_text_btn:focus ~ button{
+    outline:0; 
+    border-color:#38ba8f;
+    border-width:2px;
+    background:rgb(237, 255, 242);
+}
+  
+.a_input:-webkit-autofill:active,
+.a_input:-webkit-autofill:focus,
+.input_text_ico:-webkit-autofill:active,
+.input_text_ico:-webkit-autofill:focus,
+.input_text_btn:-webkit-autofill:active,
+.input_text_btn:-webkit-autofill:focus
+ {  
+    outline:0;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+
+/*Input con evento ERROR .......................................*/
+:invalid{box-shadow:none}
+:-moz-submit-invalid{box-shadow:none}
+:-moz-ui-invalid{box-shadow:none}
+
+/*════════════════════════════════════════════════════════════════════════════════════════════════════════════*/
+
+
+
+/***************************************************************************************************************/
+
+.ico_input_text         {background:#0f745b;color:#fff;display:flex;justify-content:center;font-size:x-large;height:100%;}
+.ico_input_text>span    {height:100%;display:flex;}
+.ico_input_text>span:before {align-self:center}
 
 .btn_cancel{  
     flex-basis:35px;
     background:#fff;
     display:block;
     border:1px solid #bbb;
-    border-left:none;
+    border-left:none !important;
     width:100%; 
     height:35px;
     color:#666;
@@ -96,13 +133,11 @@
     background:#fff;
 }
 
-.input_text_ico:focus ~ button:active{
-    background:rgba(0, 0, 0, 0.2);
-}
 .btn_cancel span{
     display:flex;
-    visibility:collapse;
+    color:#666;
 }
+
 .btn_cancel span:before {
     height: 100%;
     width: 100%;
@@ -113,62 +148,4 @@
     -o-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
-}
-
-/*--------- FIN Input con boton------------*/
-
-
-
-/*////////////////////// Eventos de los inputs //////////////////////////*/
-.a_input:hover,
-.input_text_ico:hover,
-.input_text_btn:hover,
-.input_text_btn:hover ~ button{
-    border-color:#888;
-}
-
-
-/*---- placeholder en mozilla y chrome ----*/
-.a_input:focus::-moz-placeholder,
-.input_text_ico:focus::-moz-placeholder,
-.input_text_btn:focus::-moz-placeholder{
-    color: #156815;
-    opacity:1;
-}
-
-.a_input:focus::-webkit-input-placeholder,
-.input_text_ico:focus::-webkit-input-placeholder,
-.input_text_btn:focus::-webkit-input-placeholder
-{
-    color: #156815;
-}
-/* ---FIN placeholder en mozilla y chrome----*/
-
-
-.a_input:-webkit-autofill,
-.input_text_btn:-webkit-autofill 
-.input_text_ico:-webkit-autofill 
-{
-    outline:0;
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
-}
-
-.a_input:focus,
-.input_text_ico:focus,
-.input_text_btn:focus, 
-.input_text_btn:focus ~ button{
-    outline:0; 
-    border-color:#38ba8f;
-    border-width:2px;
-}
-  
-.a_input:-webkit-autofill:active,
-.a_input:-webkit-autofill:focus,
-.input_text_ico:-webkit-autofill:active,
-.input_text_ico:-webkit-autofill:focus,
-.input_text_btn:-webkit-autofill:active,
-.input_text_btn:-webkit-autofill:focus
- {  
-    outline:0;
-    -webkit-box-shadow: 0 0 0px 1000px white inset;
 }

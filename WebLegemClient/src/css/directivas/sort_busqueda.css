@@ -1,13 +1,13 @@
 ﻿/*--bar ordenamiento--*/
 
 .bar_ordenamiento{
-    display:flex;
-    flex-wrap:wrap;
     list-style:none;
-    margin:0;
-    padding:0;
-    padding-bottom:5px;
-    margin-bottom:4px;
+    margin:5px 0;
+    padding:5px 0;
+    overflow-x:auto;
+    white-space: nowrap;
+    /*align-self:stretch;*/
+    min-width:200px;
 }
 
 .bar_ordenamiento li{
@@ -30,19 +30,15 @@
 }
 
 .bar_ordenamiento li:hover{
-    box-shadow:inset 0 0 0 2px #099472;
-    color:#099472;
-    border-color:#099472;    
+    box-shadow:inset 0 -2px 0 #099472;  
 }
 
-.bar_ordenamiento li:first-child,
-.bar_ordenamiento:hover li:first-child{
-    border:none;
-    background:transparent;
-    color:#222;
-    cursor:default;
-    box-shadow:inset 0 0 0 0;
+.sort-avanzada{
 }
 
+.sort-avanzada.activo{
+    color:#2c77ba;
+    background:#F5F5F5;
+}
 
 /*--fin bar ordenamiento--*/

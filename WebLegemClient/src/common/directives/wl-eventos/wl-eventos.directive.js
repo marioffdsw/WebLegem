@@ -3,7 +3,7 @@
 
     angular
         .module("WebLegemApp")
-        .directive('ewl', function ewl () {
+        .directive('ewl', function ewl() {
             return {
                 restrict: 'A',
                 scope: true,
@@ -12,11 +12,15 @@
                     element.bind('load', function (e) {
                         scope.$apply(attrs.wlLoad);
                     })
-                    element.bind('mouseenter', function (e) {//onchange cambiar luego
-                        scope.$apply(attrs.wlHover);
+                    element.bind('change', function (e) {
+                        scope.$apply(attrs.wlChange);
+                    })
+                    element.bind('scroll', function (e) {
+                        scope.$apply(attrs.wlScroll);
                     });
 
                 }
             };
-        });
+        })
+
 })();

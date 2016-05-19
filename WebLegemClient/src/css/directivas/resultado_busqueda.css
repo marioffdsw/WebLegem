@@ -1,28 +1,26 @@
 ﻿/*--------  Tarjeta Noticias -------*/
 .tarjeta_busqueda{
-    font-family:'Lato-Regular';
-    color:#555;
     overflow:hidden;
     display: -webkit-flex;
     display: flex;
     flex-direction:column;
     justify-content:center;
     align-self:center;
-    margin:0;
     position:relative;
     padding:15px;
 }
 
 
 .titulo_tarjeta {
-    display:flexbox; 
+    display:flex; 
     font-family: 'OpenSans-Bold';
-    font-size: .9em;
+    font-size:.9rem;
     line-height:normal;
     padding-bottom:5px;
 }
 
-    .titulo_tarjeta a {
+
+    .titulo_tarjeta a{
         color:#0f745b;
         -moz-text-decoration-color: #0f745b;
         text-decoration-color: #0f745b;
@@ -43,6 +41,10 @@
     font-family:'OpenSans';
     text-align:justify;
 }
+
+
+
+
 
 .control_tarjeta{
     width:100%;
@@ -67,6 +69,10 @@
     padding-left:5px;
 }
 
+.control_tarjeta > a:first-child{
+    margin-right:20px;
+}
+
 .control_tarjeta a > span{
     position:absolute;
     left:-10px;
@@ -78,3 +84,133 @@
 }
 
 /*-----Fin Tarjeta Noticias -------*/   
+
+
+/* -----------------modal anotaciones------------------ */
+
+.tarjeta_anotacion{
+        padding:10px;
+        margin-bottom:10px;
+        background:#fefefe;
+        box-shadow: 0 0 0 1px #ddd,1px 1px 1px rgba(0, 0, 0, 0.44)  ;
+        display:flex;
+        }
+
+.tarjeta_anotacion > div:first-child{
+        margin-right:10px;
+}
+.tarjeta_anotacion > div:first-child span:before{
+        font-size:45px;        
+        color:#2c77ba;
+        height:100%;
+        display:flex;
+        align-items:center;
+}
+
+
+.tarjeta_anotacion > div:last-child{
+    flex:1;
+}
+
+
+.tarjeta_anotacion:hover{
+    background:#C6E2EE;
+    cursor:pointer;
+}
+
+/*==========================================*/
+.documento_actual{
+    margin:5px 0;
+    display:flex;
+    padding:10px;
+    background:#fff;
+    border:1px solid #dde;
+}
+
+.documento_actual > div:first-child{
+    margin-right:10px;
+    display:flex;
+    align-items:center;
+    align-self:stretch;
+}
+
+.documento_actual > div:first-child span:before{
+    font-size:45px;  
+    height:100%;
+    display:flex;
+    color:#27ae60;
+    align-items:center;
+}
+
+
+.documento_actual > div:last-child{
+    margin-bottom:3px;
+}
+
+.documento_actual > div:last-child > p:first-child{
+    font-size:small;
+    color:#27ae60;
+}
+
+.documento_actual p{
+    color:#555;
+    font-size:small;
+    font-family:'OpenSans-Semibold';
+}
+
+.documento_actual  p  i{
+    font-style:normal;
+    font-family:'OpenSans';
+}
+
+
+/*==========================================*/
+.titulo_tarjeta.anotacion{
+    padding:0;
+    margin:0;
+}
+
+.titulo_tarjeta.anotacion  a{
+    font-family:"OpenSans-Semibold";
+    padding:0;
+    margin:0;
+    font-size:small;
+    color:#2c77ba;
+}
+
+/*==========================================*/
+.subcontenido_tarjeta.anotacion{
+    padding:0;
+    color:#34495e; 
+    font-family:'OpenSans-Semibold';
+}
+.subcontenido_tarjeta.anotacion i{
+    font-style:normal;
+    font-family:'OpenSans';
+}
+
+/*==========================================*/
+.tipo_anotacion p{
+    text-decoration:none;
+     color:#34495e;
+    font-size:small;
+    font-family:'OpenSans-Semibold';
+}
+.tipo_anotacion p i{
+    font-family:'OpenSans';
+    font-style: normal;
+}
+
+    @media only screen and (min-width : 0) {
+        .tarjeta_anotacion > div:first-child,
+        .documento_actual > div:first-child{           
+            display:none;
+        }
+    }
+
+    @media only screen and (min-width : 480px) {
+        .tarjeta_anotacion > div:first-child,
+        .documento_actual > div:first-child{     
+            display:unset;
+        }
+    }
