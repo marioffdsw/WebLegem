@@ -239,6 +239,8 @@
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.71);
 }
 .ng-modal-dialog-content {
+    overflow-y: scroll;
+    max-height: 80vh;    
 }
 
 .ng-modal-close {

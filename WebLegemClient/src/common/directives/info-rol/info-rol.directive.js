@@ -11,13 +11,14 @@
             templateUrl: "common/directives/info-rol/info-rol.directive.html",
             restrict: "E",
             scope: {
-                show: "="/*,
-                width: "=width",
-                height: "=height"*/
+                show: "=",
+                rol: "="                
             },
-            link: function (scope, element, attrs) {
+            link: function (scope, element, attrs) {                
+
                 scope.hideModal = function () {
                     scope.show = false;
+                    document.getElementById("body_index").style.overflow = "auto";
                 };
             },
         }

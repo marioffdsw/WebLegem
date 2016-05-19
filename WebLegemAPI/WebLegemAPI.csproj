@@ -168,6 +168,8 @@
     <Compile Include="Controllers\DocumentoController.cs" />
     <Compile Include="Controllers\EntidadController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
+    <Compile Include="Controllers\FilesOldController.cs" />
+    <Compile Include="Controllers\FotosController.cs" />
     <Compile Include="Controllers\PermisosController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\TipoDocumentoController.cs" />
@@ -177,6 +179,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\NinjectResolver.cs" />
+    <Compile Include="Models\FileHandlers\DocHandler.cs" />
+    <Compile Include="Models\FileHandlers\FileHandlerCreator.cs" />
+    <Compile Include="Models\FileHandlers\IFileHandler.cs" />
+    <Compile Include="Models\FileHandlers\IFileHandlerCreator.cs" />
+    <Compile Include="Models\FileHandlers\FileHandlerFactory.cs" />
+    <Compile Include="Models\FileHandlers\PdfHandler.cs" />
+    <Compile Include="Models\FileHandlers\PngHandler.cs" />
+    <Compile Include="Models\FileHandlers\RtfHandler.cs" />
     <Compile Include="OCR\IPdfToText.cs" />
     <Compile Include="OCR\NicomsoftOcr.cs" />
     <Compile Include="OCR\NSOCR.cs" />
@@ -194,9 +204,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WebLegemCommon\WebLegemCommon.csproj">
+      <Project>{c49a602c-632b-4818-b7a2-44ffb4a2ab75}</Project>
+      <Name>WebLegemCommon</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebLegemDAL\WebLegemDAL.csproj">
       <Project>{fe6e7495-a6a0-46e3-a072-3b9dbf33b5ae}</Project>
       <Name>WebLegemDAL</Name>
