@@ -1,5 +1,4 @@
 ﻿<div class="box_father">
-
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~1-->
     <div class="box_left">
         <wl-lista-usuarios lista="vm.usuarios"
@@ -136,7 +135,7 @@
                         <span class="ico-info"></span>                                        
                     </button>
                 </div>
-                <info-rol show="vm.infoRol"></info-rol>  
+                <info-rol ng-if="vm.infoRol" show="vm.infoRol"></info-rol>  
             </div>
         </div>
 

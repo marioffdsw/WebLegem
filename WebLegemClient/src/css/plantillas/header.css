@@ -3,8 +3,7 @@
     width:100%;
     height:55px;
     position:relative;
-    /*background:rgba(17, 21, 21, 0.70);*/
-    background: #0f745b;
+    background: rgba( 0,0,0, .75 );
     border-bottom:1px solid #6c767d;
     -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.50);
     -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.50);
@@ -13,15 +12,21 @@
     position:fixed;
 }
 
-.header.solido{ 
+.solido{ 
     transition:all .5s linear;
-    background: #0f745b;  
-    height:55px;
+    background: #1c2d38 !important;
 }
 
 .transparente {
     background: rgba( 0,0,0, .75 );
 }
+
+.box-nav{
+    position:relative;
+    display:flex;
+    justify-content:flex-end;
+}
+
 
 /******************* FIN HEADER ***********************/
 
@@ -29,10 +34,10 @@
 
 .li_nav{font-family:"Lato-Regular";font-size:medium;color:#fff}
 .li_nav a {padding:0 10px;}
-.li_nav:hover > a {background: #0f5776; }
+.li_nav:hover > a {background: #23948a; }
 
 
-#toggle-menu{
+#toggle-menu,#toggle-acce{
     background:rgba(0, 0, 0, 0.30);   
     color:white;
     height:55px;
@@ -42,15 +47,21 @@
     cursor:pointer;   
     justify-content:center;
     align-items:center;
+    position:absolute;
+    top:0;
+    left:0;
+}
+#toggle-acce{
+    right:0;
 }
 #toggle-menu:before{-moz-transition:all .5s;-webkit-transition:all .5s;-o-transition:all .5s;transition:all .5s}
 
 /*´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´´*/
     /*Menu Desplegado*/
-    .ul_nav.responsive{display:flex;overflow-y:scroll;position:absolute;height:calc(100vh - 55px);width:100%;}
-    .ul_nav.responsive li{background:#132135; border-bottom:1px dotted rgba(255, 255, 255, 0.10)}
+    .ul_nav.responsive{display:flex;overflow-y:scroll;position:absolute;height:calc(100vh - 55px); background:rgba(0, 0, 0, 0.5);width:100%;top:55px; left:0;}
+    .ul_nav.responsive li{background:#132135;}
     .ul_nav.responsive li ul{position:relative;}
-    .ul_nav.responsive li a{flex:1;display:flex;justify-content:flex-start}
+    .ul_nav.responsive li a{flex:1;display:flex;justify-content:flex-start; border-bottom:1px solid rgba(255, 255, 255, 0.05)}
     .ul_nav.responsive li a div{margin-left:30px;margin-right:10px}
     .ul_nav.responsive > li > ul > li > a {background:#11171E;padding-left:30px}
     #toggle-menu.responsive:before{transform:rotate(90deg)}
@@ -67,17 +78,28 @@
     display:none;
 }
 
+
+@media screen and (min-width:767px) 
+{ /*para dispositivos mayores a 767px*/
+    .box-accesibilidad > ul {background: rgba( 0,0,0, .75 );}
+}
+
 @media screen and (max-width:767px) 
 { /*para dispositivos menores a 767px*/
-    #toggle-menu{display:flex;}
+    #toggle-menu,#toggle-acce{display:flex;}
     .ul_nav{display:none;}/*ocultar*/
     .ul_nav.responsive{display:unset}/*en filas*/
     .cinta-wl{display:none}
     .logo-wl1{left:55px}
     .logo-wl2{display:flex}
-
+    .box-accesibilidad > ul {background:#132135;}
+    .box-accesibilidad > a{background:rgba(0, 0, 0, 0.30);}
 }
 
+@media screen and (max-width:500px) 
+{ /*para dispositivos menores a 500px*/
+    .img-planeacion{display:none;}
+}
 
 
 .btn_menu {
@@ -91,6 +113,7 @@
     display: flex;
     text-decoration:none;
     position:relative;
+    cursor:pointer;
 }
 
 .btn_menu:before{
@@ -109,6 +132,8 @@
 
 .btn_menu:hover:before{width:100%;left:0}/*animacion*/
 .btn_menu.sin_ani:hover:before{width:0;left:0}/*sin animacion*/
+
+
 
 
 .btn_menu > div{/*icono de los li*/
@@ -168,7 +193,12 @@
 
 @keyframes bajando {
   0%{opacity:0;max-height:0;}
-  100% {opacity:1;max-height:200px;}
+  100% {opacity:1;max-height:250px;}
+}
+
+@keyframes subiendo {
+  0%{opacity:1;max-height:250px}
+  100% {opacity:0;max-height:0}
 }
 
 .ul_nav li ul li a{flex:1;display:flex;justify-content:flex-start;padding:10px;}
@@ -208,3 +238,36 @@
     stroke:#010365;
     stroke-width: 3px;
 }
+
+
+/*--------------Accesibilidad------------------*/
+.box-accesibilidad{position:relative;}
+.box-accesibilidad a{padding:0;width:55px;}
+.box-accesibilidad:hover{background: #23948a;}
+.box-accesibilidad > a > div{width:100%;margin:0;display:flex;}
+.box-accesibilidad > a > div:before{font-size:20px;display:flex;justify-content:center;width:100%;}/*silla de ruedas*/
+
+.content-accesibilidad{color:#fff;overflow:hidden}
+
+/*animaciones*/
+.content-accesibilidad.ng-hide-remove{animation:.5s bajando}
+.content-accesibilidad.ng-hide-add{pointer-events:none;animation:.5s subiendo}
+    
+
+.content-accesibilidad{
+    display:flex;
+    flex-direction:column;
+    position:absolute;
+    padding:10px;
+    top:55px;
+    right:0;
+}
+
+.content-accesibilidad > li{
+    display:flex;
+    justify-content:flex-start;
+    margin-bottom:5px;
+}
+
+.content-accesibilidad > label{margin:5px 0;}
+.content-accesibilidad > label > span:before{margin-right:5px;}

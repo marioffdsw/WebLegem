@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
-<html ng-app="WebLegemApp" ng-controller="homeController as vm">
-<head>
+<html ng-app="WebLegemApp">
+<head ng-controller="headerController as vm">
     <title>Web Legem</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -25,6 +25,7 @@
     <script src="../bower_components/quill/dist/quill.min.js"></script>
     <script src="../bower_components/ngQuill/src/ng-quill.min.js"></script>
     <script src="../bower_components/angular-media-queries/match-media.js"></script>
+    <link href="../bower_components/normalize-css/normalize.css" rel="stylesheet" />
 
     <!-- App Scripts -->
 
@@ -36,6 +37,7 @@
     <script src="app/app.core.routes.js"></script>
     <script src="app/app.core.constants.js"></script>
     <script src="app/app.core.values.js"></script>
+    <script src="app/homeController.js"></script>
 
     <!-- Components -->
     <script src="common/components/wlegem-admin-crud/wlegem-admin-crud.controller.js"></script>
@@ -52,7 +54,7 @@
 
     <script src="common/components/wl-lista-tipos-entidad/wl-lista-tipos-entidad.controller.js"></script>
     <script src="common/components/wl-lista-tipos-entidad/wl-lista-tipos-entidad.directive.js"></script>
-    
+
     <script src="common/components/wl-lista-tipo-doc-hojitas/wl-lista-tipo-doc-hojitas.controller.js"></script>
     <script src="common/components/wl-lista-tipo-doc-hojitas/wl-lista-tipo-doc-hojitas.directive.js"></script>
 
@@ -101,7 +103,7 @@
     <!-- Usuarios  -->
     <script src="app/usuarios/usuarios.dependencies.js"></script>
     <script src="app/usuarios/usuarios.constants.js"></script>
-    <script src="app/usuarios/usuarios.routes.js"></script>        
+    <script src="app/usuarios/usuarios.routes.js"></script>
     <script src="app/usuarios/control-roles/control-roles.controller.js"></script>
     <script src="app/usuarios/control-usuarios/control-usuarios.controller.js"></script>
     <script src="app/usuarios/usuarios.controller.js"></script>
@@ -129,7 +131,7 @@
     <script src="common/services/rol-resource.service.js"></script>
     <script src="common/services/permisos-resource.service.js"></script>
     <script src="common/services/usuarios-resource.service.js"></script>
-    
+
     <!--Estilos-->
     <link href="css/elementos/text_area.css" rel="stylesheet" />
     <link href="css/elementos/input_text.css" rel="stylesheet" />
@@ -146,31 +148,35 @@
     <link href="css/plantillas/informacion_documento.css" rel="stylesheet" />
     <link href="css/plantillas/tipo_documento.css" rel="stylesheet" />
     <link href="css/principal.css" rel="stylesheet" />
-    <link href="css/plantillas/header2.css" rel="stylesheet" />
     <link href="css/plantillas/header.css" rel="stylesheet" />
     <link href="css/plantillas/accesibilidad.css" rel="stylesheet" />
-    <link href="css/plantillas/administracion.css" rel="stylesheet"/>
+    <link href="css/plantillas/administracion.css" rel="stylesheet" />
     <link href="css/plantillas/login.css" rel="stylesheet" />
     <link href="css/plantillas/tipo_entidad.css" rel="stylesheet" />
     <link href="css/plantillas/busqueda.css" rel="stylesheet" />
     <link href="css/plantillas/gestion_documental.css" rel="stylesheet" />
     <link href="css/plantillas/mini_footer.css" rel="stylesheet" />
     <link href="css/plantillas/usuarios.css" rel="stylesheet" />
+    <link href="css/plantillas/anotacion.css" rel="stylesheet" />
+
     <link href="../bower_components/quill/dist/quill.snow.css" rel="stylesheet" />
     <link href="css/elementos/switch.css" rel="stylesheet" />
     <link href="css/plantillas/layout_general.css" rel="stylesheet" />
+
+    <!--<link href="css/contraste/contrasteAlto.css " rel="stylesheet" ng-if="vm.$rootScope.val_contraste == 0" />
+    <link href="css/contraste/contrasteNormal.css" rel="stylesheet" ng-if="vm.$rootScope.val_contraste == 1" />-->
 
     <!--Iconografia-->
     <link href="iconografia/iconos-legem/styles.css" rel="stylesheet" />
     <link href="iconografia/iconos-legem2/style.css" rel="stylesheet" />
     <link href="iconografia/escudos-legem/style.css" rel="stylesheet" />
 
-    <script src="app/homeController.js"></script>
-    <script src="app/uploader-andres.js"></script>    
+
+    <script src="app/uploader-andres.js"></script>
 
     <link href="css/pagina_principal.css" rel="stylesheet" />
     <link href="css/elementos/button.css" rel="stylesheet" />
-    <link href="css/estilos_weblegem.css" rel="stylesheet" />    
+    <link href="css/estilos_weblegem.css" rel="stylesheet" />
 
     <!----Fuentes-Tipografia-->
     <link href="fuentes/CREAMPUF/fonts.css" rel="stylesheet" />
@@ -178,6 +184,7 @@
     <link href="fuentes/Hotel Coral Essex/fonts.css" rel="stylesheet" />
     <link href="fuentes/open-sans-regular/sample.css" rel="stylesheet" />
     <link href="fuentes/open-sans-bold/sample.css" rel="stylesheet" />
+    <link href="fuentes/open-sans-semi-bold/sample.css" rel="stylesheet" />
     <link href="fuentes/abril-fatface/sample.css" rel="stylesheet" />
     <link href="fuentes/frederica/sample.css" rel="stylesheet" />
     <link href="fuentes/lato/sample.css" rel="stylesheet" />
@@ -191,6 +198,7 @@
     <link href="css/directivas/sort_busqueda.css" rel="stylesheet" />
     <link href="css/directivas/resultado_busqueda.css" rel="stylesheet" />
     <link href="css/directivas/widget_seguridad.css" rel="stylesheet" />
+    <link href="css/directivas/info-anotacion-directive.css" rel="stylesheet" />
 
     <!--directivas-->
     <script src="common/directives/footer/wlegem-footer.directive.js"></script>
@@ -204,6 +212,8 @@
     <script src="common/directives/escudo-nombre/wlegem-escudo-nombre.directive.js"></script>
     <script src="common/directives/wl-eventos/wl-eventos.directive.js"></script>
 
+    <script src="common/directives/info-anotacion/info-anotacion.directive.js"></script>
+    <script src="common/directives/info-anotacion/info-anotacion.controller.js"></script>
 
     <script src="common/directives/header/wlegem-header.controller.js"></script>
     <script src="common/directives/info-rol/info-rol.controller.js"></script>
@@ -214,28 +224,26 @@
     <link href="css/animacion_carga.css" rel="stylesheet" />
 
     <script src="scripts/generales.js"></script>
+
+
 </head>
 
-<body id="body_index" ng-init='vm.load()'>
+<body id="body_index" ng-controller="homeController as vm">
+
     <div class="main">
+
         <!-------------------------------------------------Seccion Principal--------------------------------------------------------->
         <section style="width:100%; min-height:100vh;">
 
             <!--=============== Header ===================-->
             <wlegem-header></wlegem-header>
-
             <!--=============== Contenido Aplicacion ===================-->
             <div ui-view class="animatio contenedor_vistas"></div>
         </section>
         <!-------------------------------------------------Seccion Noticias--------------------------------------------------------->
-        <section id="homero">
+        <section id="news-section">
             <wlegem-news ng-show="vm.$state.current.name == 'home'"></wlegem-news>
         </section>
-
-        <!--=============== Boton Ir Arriba ===============-->
-        <a href='#' onclick='subir();return false' title='Ir Arriba' class="ir_arriba" id="ir_arriba">
-            <p class="ico-chevron-up"></p>
-        </a>
 
         <!-------------------------------------------------Seccion Footer--------------------------------------------------------->
         <wlegem-footer ng-show="vm.$state.current.name == 'home'"></wlegem-footer> <!--foter problema con responsive-->

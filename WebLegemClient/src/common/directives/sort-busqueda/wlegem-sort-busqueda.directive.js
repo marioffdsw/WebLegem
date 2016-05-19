@@ -11,12 +11,18 @@
         return {
             templateUrl: "common/directives/sort-busqueda/wlegem-sort-busqueda.directive.html",
             restrict: "E",
+            scope: {
+                busqueda: '='
+            },
+            controller: "BusquedaController",
+            controllerAs: "vm",
+            bindToController: true
         }
     } // end directive
 
 
     function WlegemSortBusquedaController(){
-        var vm = this;
-        
+      
     }
+
 })();

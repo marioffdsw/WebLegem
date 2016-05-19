@@ -1,92 +1,31 @@
-﻿
-.contenedor_accesibilidad{
-    position:absolute;
-    top:0;   
-    right:0;
-    overflow:hidden;
-}
-
-.deslizador{
-    position:relative;
-    display:flex;  
-    -webkit-flex-direction:row;
-    -ms-flex-direction:row;
-    flex-direction:row;
-  
-    -webkit-transform:translateX(165px);
-    transform:translateX(165px);
-    
-    -moz-transition:ease-in .5s;
-    -o-transition:ease-in .5s;
-    -webkit-transition:ease-in .5s;
-    transition:ease-in .5s;
-}
-
-#lanzador_accesibilidad{
-    background:rgba(36, 168, 112, 0.50);
-}
-
-#lanzador_accesibilidad:hover{
-    background:rgb(24, 156, 100);
-}
-
-
-
-.boton_accesibilidad{  
-    background:rgba(55, 64, 74, 0.31);
-    border:none;
-    width:55px;
-    height:55px;
+﻿.boton_accesibilidad{  
+    background:rgba(68, 81, 107, 0.24);
+    border:1px solid rgba(141, 164, 180, 0.57);
+    width:45px;
+    height:45px;
     color:white;
     font-size:large;
-}
-
-.boton_accesibilidad:hover{
-    background: rgba(255, 255, 255, 0.50);
-}
-
-.btn_nav, .btn_tamano1 ,.btn_tamano2 ,.btn_tamano2_a,.btn_tamano3, .btn_tamano0{
+    margin-right:10px;
     cursor:pointer;
-    text-decoration:none;
-    font-family:'Lucida Sans';
-    color:#fff;
-    position:relative;
+    transition-duration:.4s;
 }
 
-.btn_nav:before{
-    content:"";
-    position:absolute;   
-    width:0;
-    height:4px;
-    background:#F39C22;
-    bottom:0;
-    left:0;
-   
-    -moz-transition: all .5s;
-    -webkit-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
+.boton_accesibilidad p,.boton_accesibilidad  span{pointer-events:none;}
+
+.boton_accesibilidad.idioma{
+    width:auto;
+    padding:0 10px;
+    height:35px;
+    width:70px;
+    font-size:small;
 }
 
-.btn_tamano1:before, .btn_tamano2:before,.btn_tamano2_a:before, .btn_tamano0:before{
-    content:"";
-    position:absolute;   
-    height:4px;
-    background:#F39C22;
-    bottom:0;
-    left:0;
-    -moz-transition: all .5s;
-    -webkit-transition: all .5s;
-    -o-transition: all .5s;
-    transition: all .5s;
-}
+.boton_accesibilidad.fuente1{font-size:x-large;margin-right:10px;}
+.boton_accesibilidad.fuente2{font-size:medium;margin-right:10px}
+.boton_accesibilidad.fuente3{font-size:x-small;margin-right:0}
 
-.btn_tamano1:before{
-    width:50%;
-}
-.btn_tamano2:before, .btn_tamano2_a:before{
-    width:100%;
-}
-.btn_tamano0:before{
-    width:0;
-}
+/*evento hover*/
+.boton_accesibilidad:hover{background:rgba(255,255,255,.5)}
+/*estado activo*/
+.boton_accesibilidad.activo{background:#23948a;border:none}
+

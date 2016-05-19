@@ -17,15 +17,14 @@
         vm.limpiar = limpiar;
         vm.entidades;
         vm.tiposDocumento;
-        vm.cambiarTab = cambiarTab;
-        vm.tab_1 = true;
-        vm.tab_2 = false;
         vm.reverse = false;
         vm.errorMessage = undefined;
         vm.verDocumento = verDocumento;
         vm.valorAnimacion = "";
         vm.predicate = undefined;
 
+        vm.toggle_avanzada = false;//toggle para que aparesca la busqueda avanzada
+        
         if(vm.palabrasABuscar){
             buscar( vm.palabrasABuscar );
         }

@@ -1,0 +1,51 @@
+﻿<div class='ng-modal' style="overflow-y:auto; width:80% ; height:80vh;" ng-if='show'>
+
+    <div class='wl-modal-opacidad'></div><!--Simula la opacidad de fondo del dialogo-->
+    <div class='wl-modal-dialogo'>
+        <div class='wl-modal-barra-titulo'>
+            <div class="titulo">
+                <span class="ico-sticky-note-o">
+                    <a>Anotaciones</a>
+                </span>
+            </div>
+            <button class="btn_ico" title="Cerrar dialogo" ng-click="hideModal()">
+                <span class=" ico-times"></span>
+            </button>
+        </div>
+        <div class='wl-modal-contentenido'>
+
+            <div class="documento_actual">
+                <div>
+                    <span class="ico-file-text-o"></span>
+                </div>
+                <div>
+                    <p>{{datos.tipoDocumento }} {{datos.numero }} del {{datos.fecha }}</p>
+                    <p> Entidad Emisora: <i>{{datos.entidad}}</i></p>
+                    <p> Fecha de publicacion: <i>{{datos.fecha}}</i></p>
+                </div>
+            </div>
+
+            <div class="desc_res" style="margin-bottom:15px;">Se encuentra anotado por:</div>
+
+            <div class="tarjeta_anotacion" ng-repeat="i in [1,2,3,4,5,6]">
+                <div>
+                    <span class="ico-file-text-o"></span>
+                </div>
+                <div>
+                    <div class="titulo_tarjeta anotacion">
+                        <a ng-click="vm.ver(documento.archivo)">{{ datos.tipoDocumento }} {{ datos.numero }} del {{ datos.fecha }}</a>
+                    </div>
+                    <div class="subcontenido_tarjeta anotacion">
+                        <p>Entidad: <i>{{ datos.entidad }} </i> | Fecha: <i>{{ datos.fecha  }} </i> | </p>
+                    </div>
+                    <div class="tipo_anotacion">
+                        <p>Tipo de anotacion: <i>Derogá</i> </p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div><!--contenido personalisable-->
+
+    </div>
+</div>

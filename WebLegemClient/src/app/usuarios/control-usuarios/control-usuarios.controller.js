@@ -37,6 +37,17 @@
         
         RetrieveData();
 
+        vm.llevameArriba = llevameArriba;
+        function llevameArriba() {// Llevarme arriba ============================>
+            console.log("hjdjjjjjs");
+            if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+                btn_arriba.classList.add('visible');
+
+            } else {
+                btn_arriba.classList.remove('visible');
+            }
+        }
+
         function RetrieveData() {
             UsuariosResource.query(function (data) {
                 vm.usuarios = data;
@@ -291,7 +302,7 @@
         function snapshot() {
             // Draws current image from the video element into the canvas
             ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-            img.src = canvas.toDataURL("../../../common/directives/fotografia/png");
+            img.src = canvas.toDataURL("common/directives/fotografia/png");
         }
 
         function guardarFoto() {
@@ -302,7 +313,7 @@
             var context = canvasAux.getContext('2d');
 
             context.drawImage(img,85, 40, 150, 170, 0, 0, 150, 170);
-            img.src = canvasAux.toDataURL("../../../common/directives/fotografia/png");
+            img.src = canvasAux.toDataURL("common/directives/fotografia/png");
             img.style.visibility = "unset";
         }
 
