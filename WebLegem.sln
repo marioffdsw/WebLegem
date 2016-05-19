@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLegemDAL", "WebLegemDAL\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{DB40BE59-6A54-40AC-8847-B5CE91C7D90F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLegemCommon", "WebLegemCommon\WebLegemCommon.csproj", "{C49A602C-632B-4818-B7A2-44FFB4A2AB75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{DB40BE59-6A54-40AC-8847-B5CE91C7D90F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB40BE59-6A54-40AC-8847-B5CE91C7D90F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB40BE59-6A54-40AC-8847-B5CE91C7D90F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C49A602C-632B-4818-B7A2-44FFB4A2AB75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C49A602C-632B-4818-B7A2-44FFB4A2AB75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C49A602C-632B-4818-B7A2-44FFB4A2AB75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C49A602C-632B-4818-B7A2-44FFB4A2AB75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

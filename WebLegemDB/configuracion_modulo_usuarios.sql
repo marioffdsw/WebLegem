@@ -33,3 +33,5 @@
 @@'Triggers/View Triggers/crear_rol_trig.sql'
 @@'Triggers/View Triggers/eliminar_rol_trig.sql'
 @@'Triggers/View Triggers/actualizar_rol_trig.sql'*/
+
+@@'Triggers/View Trigger/crear_usuario_trig.sql'

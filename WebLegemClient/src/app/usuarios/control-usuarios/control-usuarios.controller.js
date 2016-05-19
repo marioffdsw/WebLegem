@@ -6,16 +6,20 @@
         .controller("controlUsuariosController", controlUsuariosController)    
         
 
-    controlUsuariosController.$inject = ["$scope", "$window", "UsuariosResource", "RolResource"];
+    controlUsuariosController.$inject = ["$scope", "$window", "UsuariosResource", "RolResource", "serviceUrl"];
 
-    function controlUsuariosController($scope, $window, UsuariosResource, RolResource) {
+    function controlUsuariosController($scope, $window, UsuariosResource, RolResource, serviceUrl) {
         var vm = this;
+        var blob;        
+
+        vm.subido = false;
+
         vm.editando = false;
         vm.roles = [];
         vm.seleccionar = seleccionar;
         vm.cancelar = cancelar;
         vm.nuevo = nuevo;
-        vm.infoRol = false;
+        vm.mostrarDialogo = mostrarDialogo;
 
 
         vm.startWebcam = startWebcam;
@@ -36,17 +40,6 @@
         vm.cargarFoto = vm.cargarFoto;        
         
         RetrieveData();
-
-        vm.llevameArriba = llevameArriba;
-        function llevameArriba() {// Llevarme arriba ============================>
-            console.log("hjdjjjjjs");
-            if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
-                btn_arriba.classList.add('visible');
-
-            } else {
-                btn_arriba.classList.remove('visible');
-            }
-        }
 
         function RetrieveData() {
             UsuariosResource.query(function (data) {
@@ -85,10 +78,38 @@
             guardar( vm.usuarioSeleccionado );            
         } // end function
 
-        function crear(usuario) {
-            UsuariosResource.save(usuario, function (data) {
-                RetrieveData();
-            });
+        function crear(usuario) {            
+            var fileInput = document.querySelector("#hidden_input");
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', serviceUrl + '/Files'); // with form data
+
+            xhr.onload = function ( data ) {
+                vm.subido = true;
+
+                var nombreCompletoArray = JSON.parse(this.responseText).nombre[0].split( "\\" );
+                var nombre = nombreCompletoArray[ nombreCompletoArray.length - 1 ];
+                
+                usuario.foto = nombre;
+                UsuariosResource.save(usuario, function (data) {
+                    RetrieveData();
+                });
+            } // end onload callback
+                
+            var form = new FormData();            
+
+            //form.append('file', fileInput);
+            form.append('file', blob);
+            form.append('fileName', 'image' + '.png');
+            xhr.setRequestHeader( 'FileName', 'image' + '.png' );
+            ////send the request
+            //xhr.send(form);            
+
+            //xhr.setRequestHeader("Content-type", "multipart/form-data");
+            xhr.send(form);
+
+            //UsuariosResource.save(usuario, function (data) {
+            //    RetrieveData();
+            //});
             cancelar();
         } // end function crear
 
@@ -211,18 +232,18 @@
 
             var files = e.target.files;
             var f = files[0];
-            var leerArchivo = new FileReader();          
+            var leerArchivo = new FileReader();
 
-            leerArchivo.onloadstart = function (e) {
+            //leerArchivo.onloadstart = function (e) {
                 
-            };
+            //};
 
             leerArchivo.onload = function (e) {
-                img.src = e.target.result;
-
+                img.src = e.target.result;                
             };
+
             //console.log(f.name);//nombreArchivo
-            leerArchivo.readAsDataURL(f);//para q el archivo sea leido 
+            leerArchivo.readAsDataURL(f);//para q el archivo sea leido            
         };
 
 
@@ -302,10 +323,10 @@
         function snapshot() {
             // Draws current image from the video element into the canvas
             ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-            img.src = canvas.toDataURL("common/directives/fotografia/png");
+            img.src = canvas.toDataURL("image/jpeg");            
         }
 
-        function guardarFoto() {
+        function guardarFoto() { // alias recortarFoto
             var canvasAux = document.createElement("canvas");
             canvasAux.id = "canvasAux";
             canvasAux.height = 170;
@@ -313,12 +334,28 @@
             var context = canvasAux.getContext('2d');
 
             context.drawImage(img,85, 40, 150, 170, 0, 0, 150, 170);
-            img.src = canvasAux.toDataURL("common/directives/fotografia/png");
+            img.src = canvasAux.toDataURL("image/jpeg");
             img.style.visibility = "unset";
+
+            var imageData = canvas.toDataURL('image/png');
+            var params = "filename=" + imageData;
+            
+            document.getElementById("hidden_input").setAttribute("value", params);
+            var files = document.getElementById("hidden_input");
+            console.log(files);
+
+            canvasAux.toBlob(function (image) { blob = image;} );
+
+            cerrarCamara();
         }
 
         function repetirFoto() {
             canvas.width = canvas.width;//limpiar contenido del canvas  
+        }
+
+        function mostrarDialogo() {
+            vm.infoRol = true;            
+            document.getElementById("body_index").style.overflow = "hidden";            
         }
     } // end TipoEntidadController
 

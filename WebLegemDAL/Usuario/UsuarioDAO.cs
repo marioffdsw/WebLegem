@@ -31,7 +31,16 @@ namespace WebLegemDAL.DAO
 
         protected override Usuario Insert(Usuario registro)
         {
-            throw new NotImplementedException();
+            queryString = $"INSERT INTO {TableName} uv values ( :usuario )";
+            var cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
+            var usuarioParam = cmd.Parameters.Add( ":usuario", OracleDbType.Object );
+            usuarioParam.Direction = ParameterDirection.InputOutput;
+            usuarioParam.UdtTypeName = UdtTypeName;
+            usuarioParam.Value = registro;
+
+            cmd.ExecuteNonQuery();
+
+            return (Usuario) usuarioParam.Value;
         }
 
         protected override Usuario Modify(Usuario registro)
