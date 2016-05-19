@@ -62,3 +62,40 @@
   margin-left: 32px;
   background-color: #5e5f64;  
 }
+
+
+/*============================================================================================================*/
+
+/*custom checked*/
+
+.checked_container{
+
+}
+.a_checkbox{
+
+}
+
+.a_checkbox:empty ~ label
+{
+    display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+	width: 50px;
+    height: 20px;
+    background-color: #a1a1a1;
+}
+
+.a_checkbox ~ label {
+  transition: background 0.4s;
+}
+
+
+.a_checkbox:checked ~ label:before{
+
+}
+
+.a_checkbox:checked ~ label{
+
+}
