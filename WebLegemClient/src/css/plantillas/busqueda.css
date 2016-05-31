@@ -55,9 +55,6 @@
 }
 
 
-
-
-
 /*-----Contenedor Resultados---------*/
     
 .res_bus{padding:0 50px}
@@ -71,8 +68,6 @@
 }
 
 /*-----Fin Contenedor Resultados-------------*/
-
-
 
 
 /*--------Mensajes Busqueda-------*/
@@ -193,19 +188,13 @@
 
     .res_bus{padding:0}
 
-    .opacidad-busqueda{
-    position:absolute;
-    top:0;
-    bottom:0;
-    width:100%;
-    background:black;
-    opacity:.8;
-    /*z-index:905;*/
-}
-}
-
-
-/* Medium Devices, Desktops > 768*/
-@media only screen and (min-width : 768px) {
-    
+    .opacidad-busqueda {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: black;
+        opacity: .8;
+    }
 }

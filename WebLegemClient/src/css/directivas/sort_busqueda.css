@@ -18,7 +18,6 @@
     display:inline;
     cursor:pointer;
     padding:5px 10px;
-    border:1px solid transparant;
     min-width:60px;
     transition:linear .2s;
 }
@@ -37,8 +36,8 @@
 }
 
 .sort-avanzada.activo{
-    color:#2c77ba;
-    background:#F5F5F5;
+    color:#2c52ba;
+    box-shadow:0 0 0  1px #bbb inset;
 }
 
 /*--fin bar ordenamiento--*/

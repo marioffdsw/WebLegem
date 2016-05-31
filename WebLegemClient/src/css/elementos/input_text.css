@@ -1,6 +1,4 @@
-﻿
-
-/*cajas para los input con botonoes e iconos*/
+﻿/*cajas para los input con botonoes e iconos*/
 
 .box_input_btn,.box_input_ico   {display:flex;height:35px;margin-bottom:8px;margin-top:2px;padding:0}
 .box_input_ico div:first-child  {-ms-flex:1;-webkit-flex:1;flex:1}

@@ -10,7 +10,7 @@
 
     .contenido_principal:before {
         content: '';
-        background-image: url('../recursos/header/VIPRI-12.jpg');
+        background-image: url('../recursos/header/VIPRI-dia.jpg');
         background-size: cover;
         width: 100%;
         height: 100%;

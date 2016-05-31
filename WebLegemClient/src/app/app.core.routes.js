@@ -67,6 +67,18 @@
                 controller: "CuentaController",
                 controllerAs: "vm"
             })
+            .state('audotoria', {
+                url: "/auditoria",
+                templateUrl: "app/auditoria/auditoria.tmpl.html",
+                controller: "AuditoriaController",
+                controllerAs: "vm"
+            })
+            .state('anotacion', {
+                url: "/anotacion",
+                templateUrl: "app/anotacion/anotacion.tmpl.html",
+                controller: "AnotacionController",
+                controllerAs: "vm"
+            })
 
 	    ;
 

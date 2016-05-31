@@ -42,10 +42,6 @@
     text-align:justify;
 }
 
-
-
-
-
 .control_tarjeta{
     width:100%;
     display:flex;
@@ -57,7 +53,6 @@
     margin-bottom:-10px;
     border-bottom:1px solid #ccc;
 }
-
 
 .control_tarjeta > a{
     color:#0f745b;

@@ -14,10 +14,10 @@
         <p>{{ permiso.accion.nombre }} {{ permiso.recurso.nombre }}</p>
         <p class="estado_permiso">No permitido</p>
 
-        <div id="switch_container" class="switch_container">
+        <div id="switch_container" class="checkbox_container">
             <input  id="sw_permisos_{{permiso.id}}"
                     name="sw_permisos_{{permiso.id}}"
-                    class="switch"
+                    class="a_checkbox"
                     type="checkbox"     
                     ng-disabled="!vm.editando"
                     ng-class="permiso.valor ? 'checked': ''"

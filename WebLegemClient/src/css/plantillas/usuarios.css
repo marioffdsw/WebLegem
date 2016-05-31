@@ -89,37 +89,6 @@
     margin-right:30px;
 }
 
-.a_radio{
-    display:none;
-}
-
-.a_radio ~ label{
-    cursor:pointer;
-}
-    .a_radio ~ label:before {
-        content: '';
-        display: inline-block;
-        vertical-align: middle;
-        background: #5e5f64;
-        border-radius:50%;
-        border:3px solid #b4b4b4;
-        height: 11px;
-        width: 11px;
-        margin-right:2px;
-        cursor:pointer;
-        transition: all .3s linear;
-    }
-
-.a_radio:checked ~ label:before{ 
-    background:#36c34f;
-    border-color:#5e5f64;
-}
-.a_radio:checked + label{ 
-    color: #000;
-}
-
-
-
 
 /*==========  Mobile First Method  ==========*/
 
@@ -222,7 +191,8 @@
   /* A centered div above the overlay with a box shadow. */
   z-index:10000;
   position:fixed;
-  width: 320px;
+  width: auto;
+  max-width:100vw;
   height:auto;
   display:flex;
   flex-direction:column;
@@ -239,7 +209,7 @@
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.71);
 }
 .ng-modal-dialog-content {
-    overflow-y: scroll;
+    overflow-y: auto;
     max-height: 80vh;    
 }
 
@@ -248,7 +218,6 @@
   width:100%;
   display:flex;
   justify-content:flex-end;
-  margin-bottom:5px;
 }
 
 .ng-modal-close  button{

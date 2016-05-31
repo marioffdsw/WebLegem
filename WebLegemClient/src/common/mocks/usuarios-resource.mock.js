@@ -17,9 +17,21 @@
                 correo: "sa@udenar.edu.co",
                 foto: "sa.jpg",
                 estado: "A",
-                rol: {
+                rol:
+                    {
+
                     id: 1,
-                    nombre: "Super Admin"
+                    nombre: "Super Admin",
+                    permisos: [
+                    { id: 1, recurso: {id: 1,nombre: "Tipo Documento", modulo: {id: 1,nombre: "Administración"}},accion: { id: 1, nombre: "Crear" }},
+                    { id: 2, recurso: { id: 1, nombre: "Tipo Documento", modulo: { id: 1, nombre: "Administración" } }, accion: { id: 2, nombre: "Leer" } },
+                    { id: 3, recurso: { id: 1, nombre: "Tipo Documento", modulo: { id: 1, nombre: "Administración" } }, accion: { id: 3, nombre: "Actualizar" } },
+                    { id: 4, recurso: { id: 1, nombre: "Tipo Documento", modulo: { id: 1, nombre: "Administración" } }, accion: { id: 4, nombre: "Eliminar" } },
+                    { id: 5, recurso: { id: 1, nombre: "Tipo Documento", modulo: { id: 1, nombre: "homero" } }, accion: { id: 4, nombre: "Eliminar" } },
+                    { id: 6, recurso: { id: 1, nombre: "Tipo Documento", modulo: { id: 1, nombre: "mou" } }, accion: { id: 4, nombre: "Eliminar" } }
+
+
+                    ]
                 }
             }, // end usuario sa -- superadmin
             {

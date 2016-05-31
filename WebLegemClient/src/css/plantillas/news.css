@@ -1,8 +1,7 @@
 ﻿.a_news {
-    background: #fff;
     width: 100%;
     background: #fafbfe;
-    background-image: url('../../recursos/header/tumblr_mspr6uxGne1se1owgo4_1280.jpg');
+    background-image: url('../../recursos/header/fondo_news_normal.jpg');
     background-size: cover;
     min-height: 100vh;
     display: flex;

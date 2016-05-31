@@ -76,7 +76,13 @@
             },
             {
                 nombre: "Anotaciones",
-                link: "usuarios.Anotaciones",
+                link: "anotaciones.anotaciones",
+                icono: "ico-files-o",
+                condicion: "true"
+            },
+            {
+                nombre: "Auditoria",
+                link: "auditoria.auditoria",
                 icono: "ico-files-o",
                 condicion: "true"
             }

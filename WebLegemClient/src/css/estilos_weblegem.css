@@ -1,4 +1,4 @@
-﻿/*Titulos para las ventanas modales*/
+﻿/*Titulos para las ventanas fijas*/
 /*---------------------------*/
 
 .titulo{
@@ -10,6 +10,7 @@
     background: #00796B;
     font-family:'OpenSans-Bold';
     font-size:1em;
+    padding-left:10px;
 }
 
 .titulo span{
@@ -21,6 +22,10 @@
 
 .titulo span:before{
     font-size:x-large;
+}
+
+.titulo.modal{
+    flex:1;
 }
 
 

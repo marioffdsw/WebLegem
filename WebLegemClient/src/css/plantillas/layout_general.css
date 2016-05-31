@@ -2,11 +2,10 @@
         display: flex;
     }
 
-    /*.box_left {
-        flex: 1.5;
-        padding: 20px;
+    .box_left {      
         box-shadow: 1px 0 0 #e2e2e2;
-    }*/
+        background:white;
+    }
 
     .box_right {
         flex: 3;
@@ -86,8 +85,6 @@
         height:100vh;
         z-index:10;
         padding: 20px;
-        box-shadow: 1px 0 0 #e2e2e2;
-        background:white;
         display:none;
     }
 }
@@ -97,7 +94,6 @@
     .box_left {
         flex: 1.5;
         padding: 20px;
-        box-shadow: 1px 0 0 #e2e2e2;
         position:unset;
         width:unset;
         top:unset;

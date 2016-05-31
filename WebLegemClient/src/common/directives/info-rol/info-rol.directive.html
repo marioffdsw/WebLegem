@@ -3,17 +3,33 @@
     <div class='ng-modal-overlay'></div><!--Simula la opacidad de fondo del dialogo-->
     <div class='ng-modal-dialog'>
         <div class='ng-modal-close'>
+            <p class="titulo modal">Permisos</p>
             <button class="btn_ico" title="Cerrar dialogo" ng-click="hideModal()">
                 <span class=" ico-times"></span>
             </button>
         </div>
         <div class='ng-modal-dialog-content'>
-            <h5>Informacion del rol de administracion</h5>
-            {{ rol.permisos }}
+
+            <table class="a_tabla">
+                <tr>
+                    <th>Modulo</th>
+                    <th>Lectura</th>
+                    <th>Escritura</th>
+                    <th>Edicion</th>
+                    <th>Eliminacion</th>
+                </tr>
+
+                <tr ng-repeat="modulo in rol">
+                    <td>{{modulo[0]}}</td>
+                    <td>{{modulo[1]}}</td>
+                    <td>{{modulo[2]}}</td>
+                    <td>{{modulo[3]}}</td>
+                    <td>{{modulo[4]}}</td>
+                </tr>
+
+            </table>
+
         </div>
 
-        <div>
-            
-        </div>
     </div>
 </div>

@@ -9,7 +9,8 @@
         "WebLegemApp.Busqueda",
         "WebLegemApp.Usuarios",
         "common.services",
-        //"common.mocks",
+        "common.filters",
+        "common.mocks",
         "matchMedia"/*
 		"WebLegemApp.Auditoria",		
         "WebLegemApp.Noticias"*/

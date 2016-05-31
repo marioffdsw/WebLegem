@@ -1,0 +1,32 @@
+﻿.a_tabla{
+    border-collapse:collapse;
+    margin:10px;
+    font-family:"lato-regular";
+    font-size:.9rem;
+    border:1px solid #bcbcbc;
+    overflow-x:auto;
+}
+
+.a_tabla th,td{
+    padding:8px 15px;
+    text-align:left;
+    border-top:1px solid #ccc;
+}
+
+.a_tabla th{
+    font-size:.9rem;
+    font-family:"Lato-Bold";
+    font-weight:normal;
+    color:#222;
+    border:none;
+    border-bottom:2px solid #cbcbcb;
+}
+
+.a_tabla tr:nth-child(even) {
+    background-color: #F5F5F5;
+}
+
+.a_tabla tr:nth-child(odd) {
+   background-color:#fff;
+}
+
