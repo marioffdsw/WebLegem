@@ -10,17 +10,12 @@
 		$logProvider.debugEnabled(true);		
 
 		$stateProvider
-			.state("usuarios.control-roles", {
-			    url: "/control-roles",
-			    templateUrl: "app/usuarios/control-roles/control-roles.tmpl.html",
-			    controller: "controlRolesController",
+			.state("anotacion.crear-anotacion", {
+			    url: "/crear-anotacion",
+			    templateUrl: "app/anotacion/crear-anotacion/crear-anotacion.tmpl.html",
+			    controller: "crearAnotacionController",
 			    controllerAs: "vm"
-			})
-            .state("usuarios.control-usuarios", {
-                url: "/control-usuarios",
-                templateUrl: "app/usuarios/control-usuarios/control-usuarios.tmpl.html",
-                controller: "controlUsuariosController",
-                controllerAs: "vm"
-            });		    
+			});
+            	    
 	} // end config function
 })();

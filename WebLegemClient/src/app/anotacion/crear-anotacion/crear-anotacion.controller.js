@@ -2,13 +2,13 @@
     "use strict";
 
     angular
-        .module("WebLegemApp.Usuarios")
-        .controller("controlUsuariosController", controlUsuariosController)    
+        .module("WebLegemApp.Anotacion")
+        .controller("crearAnotacionController", crearAnotacionController)    
         
 
-    controlUsuariosController.$inject = ["$scope", "$window", "UsuariosResource", "RolResource", "serviceUrl","_"];
+    crearAnotacionController.$inject = ["$scope", "$window", "UsuariosResource", "RolResource", "serviceUrl","_"];
 
-    function controlUsuariosController($scope, $window, UsuariosResource, RolResource, serviceUrl,_) {
+    function crearAnotacionController($scope, $window, UsuariosResource, RolResource, serviceUrl,_) {
         var vm = this;
         var blob;        
 
