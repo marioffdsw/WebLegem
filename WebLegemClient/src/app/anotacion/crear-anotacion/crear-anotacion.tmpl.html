@@ -2,12 +2,63 @@
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~1-->
     <div class="box_left">
+        <!----------------------------------------------------------------------------------------------------------------------->
+        <label class="texto_labels">seleccionar documento</label>
+        <div>
+            <label class="subtitulos_labels animacion_filtro" ng-show="!vm.entidadEmisora ">Entidad emisora</label>
+            <div class="a_select">
+                <select type="text" ng-options="entidad.nombre as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'"
+                        ng-model="vm.entidadEmisoraAux"></select>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------------->
+        <label class="subtitulos_labels animacion_filtro" ng-show="!vm.tipoDocumento">Tipo de documento</label>
+        <div>
+            <div class="a_select">
+                <select type="text" placeholder="Escriba entidad emisora" ng-model="vm.tipoDocumentoAux"
+                        ng-options="tipoDocumento.nombre as tipoDocumento.nombre for tipoDocumento in vm.tiposDocumento| orderBy: 'nombre'"></select>
+            </div>
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------------->
+        <label class="subtitulos_labels animacion_filtro" ng-show="!vm.numero">Número de documento</label>
+        <div>
+            <input type="text" class="a_input" maxlength="10"
+                   name="numero" id="numero" ng-model="vm.numeroAux"
+                   placeholder="Escriba número de documento" />
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------------->
+        <label class="subtitulos_labels animacion_filtro" ng-show="!vm.anioPublicacion ">Año de publicación</label>
+        <div>
+            <input type="text" class="a_input" maxlength="4"
+                   name="anioPublicacion" id="anioPublicacion" ng-model="vm.anioPublicacionAux"
+                   placeholder="Escriba año de publicación" />
+        </div>
+        <!----------------------------------------------------------------------------------------------------------------------->
+        <div>
+            <button class="btn_sin_ico">Buscar</button>
+        </div>
+
+        <!----------------------------------------------------------------------------------------------------------------------->
+        <label class="msj-error">
+            No se encontro ningun documento con esa identificacion
+        </label>
+
 
     </div>
 
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~2-->
     <div class="box_right">
-      
+        <div class="documento_actual">
+            <div>
+                <span class="ico-file-text-o"></span>
+            </div>
+            <div>
+                <p>{{datos.tipoDocumento }} {{datos.numero }} del {{datos.fecha }}</p>
+                <p> Entidad Emisora: <i>{{datos.entidad}}</i></p>
+                <p> Fecha de publicacion: <i>{{datos.fecha}}</i></p>
+            </div>
+        </div>
+
     </div>
 </div>

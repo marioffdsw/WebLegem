@@ -66,7 +66,7 @@
 /*-------------------*/
 
 /*menesajes de validacion*/
-.a_validacion{
+.msj-error{
     color: orangered;
     font-family:'OpenSans';
     font-size:small;
