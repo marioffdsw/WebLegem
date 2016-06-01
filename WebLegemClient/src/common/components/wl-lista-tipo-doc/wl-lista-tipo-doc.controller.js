@@ -5,12 +5,13 @@
         .module("WebLegemApp")
         .controller("wlListaTipoDocController", wlListaTipoDocController);
 
-    wlListaTipoDocController.$inject = [];
-    function wlListaTipoDocController() {
+    wlListaTipoDocController.$inject = [ "language" ];
+    function wlListaTipoDocController( language ) {
         var vm = this;
 
         vm.seleccionarObjeto = seleccionarObjeto;
         vm.checkear = checkear;        
+        vm.language = language;
 
         function checkear(tipo) {            
             return angular.equals(vm.objetoSeleccionado, tipo);            
