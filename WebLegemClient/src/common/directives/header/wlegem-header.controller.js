@@ -6,13 +6,13 @@
         .module("WebLegemApp")
         .controller("headerController", headerController);
 
-    headerController.$inject = ["screenSize","$state","$rootScope"];
-
-    function headerController(screenSize,$state,$rootScope) {
+    headerController.$inject = ["screenSize", "$state", "$rootScope", "LanguageService", "language"];
+    function headerController(screenSize, $state, $rootScope, LanguageService, language) {
         var vm = this;
         vm.$state = $state;
         vm.desplegarMenu = desplegarMenu;
         vm.desplegarAcce = desplegarAcce;
+        vm.language = language;
 
         vm.loggeado = true;
         vm.LogOut = LogOut;
@@ -255,13 +255,8 @@
 
         //funcion idioma
         vm.funcion_idioma = function (v, $event) {
-            vm.activo($event);
-            switch (v) {
-                case "en":
-                    break;
-                case "es":
-                    break;
-            }
+            vm.activo($event);                        
+            LanguageService.changeLanguage(v);            
         };
 
         vm.$rootScope = $rootScope;
@@ -280,7 +275,7 @@
             
         };
 
-
+        return vm;
 
     } // end controller
 })();

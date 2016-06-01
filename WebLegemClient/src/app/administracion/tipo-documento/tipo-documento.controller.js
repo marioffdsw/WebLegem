@@ -5,8 +5,8 @@
         .module("WebLegemApp.Administracion")
         .controller("TipoDocumentoController", TipoDocumentoController);
 
-    TipoDocumentoController.$inject = [ "TipoDocumentoResource" ];
-    function TipoDocumentoController( TipoDocumentoResource ) {
+    TipoDocumentoController.$inject = [ "TipoDocumentoResource"  ];
+    function TipoDocumentoController( TipoDocumentoResource  ) {
         var vm = this;
 
 
@@ -20,8 +20,6 @@
         vm.tiposDoc = [];
         vm.tipoDocSeleccionado = undefined;
         vm.editando = false;        
-
-
 
 
 
