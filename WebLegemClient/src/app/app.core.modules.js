@@ -8,6 +8,7 @@
         "WebLegemApp.GestionDocumental",
         "WebLegemApp.Busqueda",
         "WebLegemApp.Usuarios",
+        "WebLegemApp.Anotacion",
         "common.services",
         "common.filters",
         "common.mocks",
