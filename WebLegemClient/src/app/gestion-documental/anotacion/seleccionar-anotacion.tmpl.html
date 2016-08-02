@@ -1,37 +1,38 @@
-﻿<div class="tapiz_contenido">
-
-    <div class="titulo_ventana">
-        <span class="ico-file-o">
-            <p>Anotacion</p>
-        </span>
+﻿<div class="box_father animatio ng-enter">
+    <div class="box_right">
+        <label class="texto_labels bold">
+            Anotaciones existentes
+        </label>
+        <hr class="divisor_gestion_documental" />
+    </div>
+</div>
+       
+<div class="box_father">
+    <div class="box_left flex-3">
+        <label class="ca_label_busqueda">Vista previa del documento:</label>
+        <iframe ng-show="true"
+                src="http://docs.google.com/gview?url=http://victorpimentel.com/stuff/rubik.pdf&embedded=true"
+                class="de-vpdf none-mt" frameborder="0"></iframe>
     </div>
 
-    <div class="box_child" style="display:flex;flex-direction:column;">
+    <div class="box_right">
+        <label class="msj-error"> No se encontro concordancias de anotaciones </label>
+        <wl-lista-ano-encontrado>  </wl-lista-ano-encontrado>
+    </div>
+</div>
 
-        <div style="display:flex; justify-content:space-between; flex-wrap:wrap;">
-            <div style="flex:1; margin-right:50px;">
-                <p>Existen n posibles documentos las cuales anota el presente documento</p>
-
-                <div ng-repeat="i in [1,2,3,4,5]" style="background:#eee; margin:5px;">
-                    <input  type="radio" name="radio_documento"/>
-                    <p>resolucion 34 del 23 de mayo del 2000</p>
-                    <p>emitido por: facultad de ingenieria</p>
-                    <p>año de publicacion: 25 de mayo del 2000</p>
-                </div>
-            </div>
-
-            <div style="flex:1;">
-                <p>Comple los campos para realizar la anotacion</p>
-
-
-                <label>Tipo de anotacion </label><input type="text" class="a_input" />
-                <label>Descripcion anotacion</label><textarea class="a_input" ></textarea>
-
-
-                <button class="btn_sin_ico" > Aceptar </button>
-            </div>
+<!---------------------------------------------------------------------------------------------------------------------Controles-->
+<div class="box_father">
+    <div class="box_right">
+        <div class="divisor-pasos"><div></div></div>
+        <div class="controles-crear-anotacion">
+            <button class="btn_con_ico" ui-sref="gestion-documental.crear-documento.subir-archivo">
+                <span class="ico-chevron-left tamano_botones_1"></span>Atras
+            </button>
+            <button class="btn_con_ico inverso" ng-click="vm.validarDocumento()">
+                Siguiente<span class="ico-chevron-right tamano_botones_1 derecha"></span>
+            </button>
         </div>
-
+        <!--<p>{{ vm.error }}</p> creo q no sirve pa nada -->
     </div>
-
 </div>

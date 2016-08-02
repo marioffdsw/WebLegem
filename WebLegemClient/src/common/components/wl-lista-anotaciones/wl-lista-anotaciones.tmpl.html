@@ -1,0 +1,58 @@
+﻿<div class="ca_label_busqueda">N anotaciones encotradas :</div>
+
+<div class="box-contenido-la">
+    <div class="lista-anotaciones" ng-repeat="i in [ {id:1,contenido:'hola mundo1'},
+                                                        {id:2,contenido:'hola mundo2'},
+                                                        {id:3,contenido:'hola mundodddddddddddddddddddddddd
+         jaklsdjlkasjdlk aslkdjalskdj aslkdjalksdjlaksdjlaksdjaslk alksdjalksdj3
+         dddddddddddddddjaklsdjlkasjdlk aslkdjalskdj aslkdjalksdjlaksdjlaksdjaslk alksdjalksdj3
+         dddddddddddddddjaklsdjlkasjdlk aslkdjalskdj aslkdjalksdjlaksdjlaksdjaslk alksdjalksdj3'}]">
+
+        <div ng-hide="vm.ho_[{{i.id}}]" ng-click="vm.selectMetodo(i);">
+            <div>
+                <div><span class="ico-bookmark-o"></span></div>
+                <div>
+                    <div class="de-subcontenido">
+                        <a>{{ datos.tipoDocumento }} {{ datos.numero }} del {{ datos.fecha }}</a>
+                        <p>Entidad: <i>{{ datos.entidad }} </i></p>
+                        <p>Fecha de publicacion: <i>{{ datos.fecha  }} </i></p>
+                        <p>Tipo de Anotacion: <i>{{ datos.fecha  }} </i></p>
+                    </div>
+                </div>
+            </div>
+            <div class="right-subcontenido-la">
+                <div class="checkbox_container">
+                    <input id="la_check_{{i.id}}"
+                           name="la_check"
+                           class="a_checkbox"
+                           type="checkbox" />
+
+                    <label for="la_check_{{i.id}}"></label>
+                </div>
+                <button class="wla-detalles" ng-click="vm.mostrarInfo(i);$event.stopPropagation()">Detalles</button>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<button class="btn_sin_ico" ng-click="vm.quitarSeleccion()" ng-show="vm.ban_itemSelected">
+    quitar seleccion
+</button>
+
+<!--ventana modal para info anotacion-->
+
+<wl-info show="vm.modalShown" title="Detalle Anotacion">
+    <div class="a-modal-contenido">
+        <span class="ico-bookmark marron"></span>
+        <div class="info-anotacion">
+            <a>{{ datos.tipoDocumento }} {{ datos.numero }} del {{ datos.fecha }}</a>
+            <p>Entidad: <i>{{ datos.entidad }} </i></p>
+            <p>Fecha de publicacion: <i>{{ datos.fecha  }} </i></p>
+            <p>Tipo de Anotacion: <i>{{ datos.fecha  }} </i></p>
+            <p class="desc-anotacion-modal">Descripcion: <i>{{vm.info_anotacion}}</i> </p>
+        </div>
+    </div>
+</wl-info>
+

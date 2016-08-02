@@ -1,0 +1,43 @@
+﻿
+<!--<wl-progreso id="anotacionasistida" pasos="vm.pasosAsistida" actual="vm.actualAsistida" id-progreso="anotacionasistida"></wl-progreso>-->
+<p class="titulo_anotacion_a">Asistente de anotaciones</p>
+
+<!---------------------------------------------------------------------------------------------------------------------Paso1-->
+<div class="box_father ani-pasos" ng-show="vm.index==0">
+
+    <div class="box_left flex-3">
+        <label class="ca_label_busqueda">Vista previa del documento:</label>
+        <iframe ng-show="true"
+                src="http://docs.google.com/gview?url=http://victorpimentel.com/stuff/rubik.pdf&embedded=true"
+                class="de-vpdf none-mt" frameborder="0"></iframe>
+
+    </div>
+
+    <div class="box_right">
+        <label class="msj-error"> No se encontro concordancias de anotaciones </label>
+        <wl-lista-ano-encontrado>  </wl-lista-ano-encontrado>
+    </div>
+</div>
+
+<!---------------------------------------------------------------------------------------------------------------------Controles-->
+
+<div class="box_father">
+    <div class="box_right">
+        <div class="divisor-pasos"><div></div></div>
+        <div class="controles-crear-anotacion">
+            <button class="btn_sin_ico" ng-click="vm.ban_alerta = !vm.ban_alerta ">
+                Cerrar Asistente
+            </button>
+        </div>
+    </div>
+    <wl-info show="vm.ban_alerta" title="Alerta">
+        <div class="a-modal-contenido">
+            <span class="ico-check-circle verde"></span>
+            <div>Esta seguro de salir del asistente </div>
+        </div>
+        <div class="a-modal-confirmacion">
+            <button value="confirmar" ng-click="vm.salirDelAsistente()">Confirmar</button>
+            <button ng-click="vm.ban_alerta=false">Cancelar</button>
+        </div>
+    </wl-info>
+</div>

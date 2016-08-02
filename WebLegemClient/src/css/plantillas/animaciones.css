@@ -1,0 +1,28 @@
+﻿.ani-pasos.ng-hide-remove {
+        -webkit-animation:1s fadeIn;  
+        -moz-animation:1s fadeIn;  
+        animation:1s fadeIn;
+}
+
+.ani-modal-info.ng-hide-remove {
+        -webkit-animation:.5s fadeInUp;  
+        -moz-animation:.5s fadeInUp;  
+        animation:.5s fadeInUp;
+}
+
+.ani-modal-info.ng-hide-add {
+        -webkit-animation:.3s fadeOutDown;  
+        -moz-animation:.3s fadeOutDown;  
+        animation:.3s fadeOutDown;
+}
+
+.ani-modal-delay.ng-hide-add {
+    -webkit-animation:.01s fadeOut;  
+    -moz-animation:.01s fadeOut;  
+    animation:.01s fadeOut;
+
+    -moz-animation-delay: .3s;
+    -o-animation-delay: .3s;
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s;
+}

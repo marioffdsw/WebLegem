@@ -1,0 +1,50 @@
+﻿
+.box-progress{
+    padding:0 20px;
+    z-index:auto;
+}
+
+.box-progress > div{
+    padding:5px;
+}
+
+.wl-progreso-content{
+    display:flex;
+    height:10px;
+    width:100%;
+    justify-content:center;
+    align-items:center;
+}
+
+.paso {
+    height: 8px;
+    flex: 1;
+    border: 1px solid #999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    margin-right: 5px;
+    transition:background .5s ease-in;
+}
+
+.titulo-progress{
+    font-family:"OpenSans-Semibold";
+    text-transform:capitalize;
+    pointer-events:none;
+}
+
+.paso.marcado{
+    background:#2bce3c;
+    border: 1px solid #2bce3c;
+}
+
+.paso:last-child{
+    margin-right:0;
+}
+
+.step-step{
+    display:flex;
+    justify-content:flex-end;
+    pointer-events:none;
+}

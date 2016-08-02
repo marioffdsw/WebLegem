@@ -77,8 +77,8 @@
 }
 .a_checkbox ~ label {
   cursor:pointer;
-  position:relative;
   color:white;
+  position:relative;
 }
 
 .a_checkbox:empty ~ label:before{
@@ -90,20 +90,19 @@
     height: 15px;
     width: 15px;   
     
+    font-size:small !important;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    
     cursor:pointer;
     transition: all .3s linear;
 }
 
 .a_checkbox:checked ~ label:before{
     background: #2c77ba;
-    border:1px solid #1F98C7;
-}
-
-.a_checkbox:checked ~ label:after{    
+    border:1px solid #246096;
     content: '✔';
-    position:absolute;
-    top:-4px;
-    left:3px;
 }
 
 /*============================================================================================================*/

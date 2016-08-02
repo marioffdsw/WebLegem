@@ -70,6 +70,23 @@
     <script src="common/components/wl-lista-usuarios/wl-lista-usuarios.controller.js"></script>
     <script src="common/components/wl-lista-usuarios/wl-lista-usuarios.directive.js"></script>
 
+    <script src="common/components/wl-buscar-doc/wl-buscar-doc.controller.js"></script>
+    <script src="common/components/wl-buscar-doc/wl-buscar-doc.directive.js"></script>
+
+    <script src="common/components/wl-lista-doc-encontrado/wl-lista-doc-encontrado.controller.js"></script>
+    <script src="common/components/wl-lista-doc-encontrado/wl-lista-doc-encontrado.directive.js"></script>
+
+    <script src="common/components/wl-lista-anotaciones/wl-lista-anotaciones.controller.js"></script>
+    <script src="common/components/wl-lista-anotaciones/wl-lista-anotaciones.directive.js"></script>
+
+    <script src="common/components/wl-modal/wl-modal.directive.js"></script>
+    <script src="common/components/wl-info/wl-info.directive.js"></script>
+
+    <script src="common/components/wl-progreso/wl-progreso.directive.js"></script>
+    <script src="common/components/wl-progreso/wl-progreso.controller.js"></script>
+
+    <script src="common/components/wl-lista-ano-encontrado/wl-lista-ano-encontrado.directive.js"></script>
+    <script src="common/components/wl-lista-ano-encontrado/wl-lista-ano-encontrado.controller.js"></script>
 
     <!-- Login -->
     <script src="app/login/login.js"></script>
@@ -116,6 +133,10 @@
     <script src="app/anotacion/anotacion.dependencies.js"></script>
     <script src="app/anotacion/anotacion.controller.js"></script>
     <script src="app/anotacion/anotacion.routes.js"></script>
+    <script src="app/anotacion/crear-anotacion/crear-anotacion.controller.js"></script>
+    <script src="app/anotacion/eliminar-anotacion/eliminar-anotacion.controller.js"></script>
+    <script src="app/anotacion/editar-anotacion/editar-anotacion.controller.js"></script>
+
 
     <!-- Auditoria -->
     <script src="app/auditoria/auditoria.dependencies.js"></script>
@@ -154,9 +175,7 @@
     <link href="css/elementos/button.css" rel="stylesheet" />
     <link href="css/elementos/select.css" rel="stylesheet" />
     <link href="css/elementos/listado.css" rel="stylesheet" />
-    <link href="css/elementos/barra_navegacion.css" rel="stylesheet" />
     <link href="css/elementos/mini_search.css" rel="stylesheet" />
-    <link href="css/elementos/imagen_inicial.css" rel="stylesheet" />
     <link href="css/elementos/gadget_control_entidad.css" rel="stylesheet" />
     <link href="css/elementos/uploader.css" rel="stylesheet" />
     <link href="css/elementos/tabs.css" rel="stylesheet" />
@@ -166,13 +185,13 @@
     <link href="css/principal.css" rel="stylesheet" />
     <link href="css/plantillas/header.css" rel="stylesheet" />
     <link href="css/plantillas/accesibilidad.css" rel="stylesheet" />
-    <link href="css/plantillas/administracion.css" rel="stylesheet" />
     <link href="css/plantillas/login.css" rel="stylesheet" />
     <link href="css/plantillas/tipo_entidad.css" rel="stylesheet" />
     <link href="css/plantillas/busqueda.css" rel="stylesheet" />
     <link href="css/plantillas/gestion_documental.css" rel="stylesheet" />
     <link href="css/plantillas/usuarios.css" rel="stylesheet" />
     <link href="css/plantillas/anotacion.css" rel="stylesheet" />
+    <link href="css/plantillas/animaciones.css" rel="stylesheet" />
 
     <link href="../bower_components/quill/dist/quill.snow.css" rel="stylesheet" />
     <link href="css/elementos/switch.css" rel="stylesheet" />
@@ -213,6 +232,13 @@
     <link href="css/directivas/resultado_busqueda.css" rel="stylesheet" />
     <link href="css/directivas/widget_seguridad.css" rel="stylesheet" />
     <link href="css/directivas/info-anotacion-directive.css" rel="stylesheet" />
+    <link href="css/directivas/lista-doc-encontrado.css" rel="stylesheet" />
+    <link href="css/directivas/lista-ano-encontrado.css" rel="stylesheet" />
+
+    <!--Estilos Componentes-->
+    <link href="css/componentes/wl-lista-anotaciones.css" rel="stylesheet" />
+    <link href="css/componentes/wl-progreso.css" rel="stylesheet" />
+    <link href="css/componentes/modales.css" rel="stylesheet" />
 
     <!--directivas-->
     <script src="common/directives/footer/wlegem-footer.directive.js"></script>
@@ -226,13 +252,21 @@
     <script src="common/directives/escudo-nombre/wlegem-escudo-nombre.directive.js"></script>
     <script src="common/directives/wl-eventos/wl-eventos.directive.js"></script>
 
+    <script src="common/directives/asociar-documento/asociar-documento.controller.js"></script>
+    <script src="common/directives/asociar-documento/asociar-documento.directive.js"></script>
+
     <script src="common/directives/info-anotacion/info-anotacion.directive.js"></script>
     <script src="common/directives/info-anotacion/info-anotacion.controller.js"></script>
 
     <script src="common/directives/header/wlegem-header.controller.js"></script>
     <script src="common/directives/info-rol/info-rol.controller.js"></script>
+
     <script src="common/directives/resultado-busqueda/wlegem-resultado-busqueda.controller.js"></script>
     <script src="common/directives/resultado-busqueda/wlegem-resultado-busqueda.directive.js"></script>
+
+    <script src="common/directives/anotacion-asistida/wl-anotacion-asistida.controller.js"></script>
+    <script src="common/directives/anotacion-asistida/wl-anotacion-asistida.directive.js"></script>
+
 
     <!--<link href="css/normalize.css" rel="stylesheet" />-->
     <link href="css/animacion_carga.css" rel="stylesheet" />

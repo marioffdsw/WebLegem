@@ -1,0 +1,12 @@
+﻿<div class='a-modal ani-modal-delay' ng-show='show'>
+    <div class='a-modal-overlay' ng-click='hideModal()'></div><!--Simula la opacidad de fondo del dialogo-->
+    <div class='a-modal-dialog ani-modal-info' ng-show="show">
+        <div class='a-modal-close'>
+            <div class="a-titulo-modal">{{title}}</div>
+            <button title="Cerrar dialogo" ng-click="hideModal()">
+                <span class="ico-times"></span>
+            </button>
+        </div>
+        <div class='a-modal-transclude' ng-transclude></div><!--contenido personalisable-->
+    </div>
+</div>

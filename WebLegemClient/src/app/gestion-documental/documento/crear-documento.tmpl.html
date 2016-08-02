@@ -1,5 +1,18 @@
 ﻿<div class="tapiz">
-    <div style="height:85px;"></div>
-    <p>{{ vm.paso }}</p>
-    <div ui-view class="view_gestion_documental"></div>
+    <div style="height:100px;"></div>
+    <div class="tapiz_contenido">
+
+
+        <div class="contenedor_tabs">
+            <ul>
+                <li class="active_tab">
+                    <span class="ico-file-o">
+                        <a>Crear Documento</a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <!--<p>{{ vm.paso }}</p> creo que esto no sirve -->
+        <div ui-view></div>
+    </div>
 </div>

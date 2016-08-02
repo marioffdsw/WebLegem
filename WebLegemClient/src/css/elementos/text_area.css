@@ -20,3 +20,28 @@
     border:1px solid  #3f9f43;
     box-shadow: 0 0 4px rgb(75 , 187, 79) ;
 }
+
+.a_text_area{
+    padding: 10px 10px;
+    border:1px solid #aaa; 
+    width:100%;
+    min-height:55px;
+    resize:vertical;
+}
+
+.a_text_area:hover {
+    border-color:#888;
+    background:rgba(0, 0, 0, 0.02);
+}
+
+.a_text_area:focus:hover {
+    border-color:#38ba8f;
+    background:rgb(237, 255, 242);
+}
+
+.a_text_area:focus{
+    outline:0; 
+    border-color:#38ba8f;
+    border-width:2px;
+    background:rgb(237, 255, 242);
+} 
