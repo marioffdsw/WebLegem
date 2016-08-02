@@ -93,6 +93,9 @@
     <Compile Include="Rol\Rol.cs" />
     <Compile Include="Rol\RolDAO.cs" />
     <Compile Include="Rol\RolFactory.cs" />
+    <Compile Include="TipoAnotacion\TipoAnotacion.cs" />
+    <Compile Include="TipoAnotacion\TipoAnotacionDao.cs" />
+    <Compile Include="TipoAnotacion\TipoAnotacionFactory.cs" />
     <Compile Include="TipoEntidad\EntidadRefArrayFactory.cs" />
     <Compile Include="TipoDocumento\TipoDocumento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

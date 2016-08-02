@@ -10,7 +10,7 @@
         var vm = this;
 
         vm.seleccionarObjeto = seleccionarObjeto;
-        vm.checkear = checkear;        
+        vm.checkear = checkear;
         vm.language = language;
 
         function checkear(tipo) {            

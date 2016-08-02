@@ -33,13 +33,7 @@ namespace WebLegemDAL.DAL
                 return "WEB_LEGEM.TIPO_ENTIDAD_TYP";
             }
         }
-
-
-        /**********************************************************************************
-         *
-         *   OVERWRITTEN METHODS
-         *   
-         **********************************************************************************/
+        
         
 
         /**********************************************************************************
@@ -95,8 +89,7 @@ namespace WebLegemDAL.DAL
             td.Direction = ParameterDirection.InputOutput;
             td.Value = tipoEntidad;
 
-            OracleParameter id = cmd.Parameters.Add(":id", OracleDbType.Int32);
-            id.UdtTypeName = UdtTypeName;
+            OracleParameter id = cmd.Parameters.Add(":id", OracleDbType.Int32);            
             id.Value = tipoEntidad.Id;
 
             cmd.ExecuteNonQuery();

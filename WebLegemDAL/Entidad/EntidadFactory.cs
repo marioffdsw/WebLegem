@@ -13,4 +13,4 @@ namespace WebLegemDAL.Factory
             return new Entidad();
         } // end CreateObject method
     } // end TipoDocumentoFactory class
-} // end namespace
+} // end namespace WebLegemDAL.Factory

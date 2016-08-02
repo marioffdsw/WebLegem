@@ -1,9 +1,9 @@
 -- evitar problemas al correr scrips
-set sqlbl on
-/
+-- set sqlbl on
+--/
 
 -- Creacion y configuración de la Base de Datos
-@usuario_tablespace_permisos.sql
+/*@usuario_tablespace_permisos.sql
 
 @@'Tables/Relational Tables/tipos_documento_tab.sql'
 @@'Tables/Relational Tables/tipos_entidad_tab.sql'
@@ -12,6 +12,9 @@ set sqlbl on
 @@'Tables/Relational Tables/identificadores_documentos_tab.sql'
 @@'Tables/Relational Tables/archivos_tab.sql'
 @@'Tables/Relational Tables/contenidos_archivos_tab.sql'
+@@'Tables/Relational Tables/tipos_anotacion_tab.sql'
+@@'Tables/Relational Tables/anotaciones_tab.sql'
+
 
 @@'Indexes/contenido_text_idx.sql'
 
@@ -51,3 +54,25 @@ set sqlbl on
 @@'Functions/crear_bfile_fun.sql'
 @@'Procedures/crear_contenido_doc_proc.sql'
 @@'Triggers/View Triggers/crear_doc_contenido_trig.sql'
+*/
+
+
+
+
+
+--@@'User Defined Types/Objects/tipo_anotacion_typ.sql'
+--@@'User Defined Types/Objects/anotacion_typ.sql'
+
+--@@'Views/Object Views/tipos_anotacion_view.sql'
+--@@'Views/Object Views/anotaciones_view.sql'
+
+
+--@@'Sequences/tipo_anotacion_seq.sql'
+--@@'Triggers/View Triggers/crear_tipo_anotacion_trig.sql'
+
+--@@'Triggers/View Triggers/actualizar_tipo_anotacion_trig.sql'
+
+--@@'Triggers/View Triggers/eliminar_tipo_anotacion_trig.sql'
+
+
+

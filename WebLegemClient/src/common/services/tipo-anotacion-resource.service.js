@@ -7,7 +7,9 @@
 
     TipoAnotacionResource.$inject = [ "$resource", "serviceUrl" ];
     function TipoAnotacionResource( $resource, serviceUrl ) {
-        return $resource( serviceUrl + "/TipoAnotacion" );
+        return $resource(serviceUrl + "/TipoAnotacion/:id", null, {
+            update: { method: "PUT" }
+        });
     } // end TipoAnotacionResource
 
 })();

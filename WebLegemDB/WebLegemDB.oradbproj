@@ -164,6 +164,9 @@
     <Content Include="Tables\Relational Tables\acciones_tab.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Tables\Relational Tables\anotaciones_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Tables\Relational Tables\archivos_tab.sql">
       <SubType>Content</SubType>
     </Content>
@@ -194,6 +197,9 @@
     <Content Include="Tables\Relational Tables\roles_tab.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Tables\Relational Tables\tipos_anotacion_tab.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Tables\Relational Tables\tipos_documento_tab.sql">
       <SubType>Content</SubType>
     </Content>
@@ -210,6 +216,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Triggers\View Triggers\actualizar_rol_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Triggers\View Triggers\actualizar_tipo_anotacion_trig.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Triggers\View Triggers\actualizar_tipo_doc_trig.sql">
@@ -233,6 +242,9 @@
     <Content Include="Triggers\View Triggers\crear_rol_trig.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Triggers\View Triggers\crear_tipo_anotacion_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Triggers\View Triggers\crear_tipo_documento_trig.sql">
       <SubType>Content</SubType>
     </Content>
@@ -246,6 +258,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Triggers\View Triggers\eliminar_rol_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Triggers\View Triggers\eliminar_tipo_anotacion_trig.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Triggers\View Triggers\eliminar_tipo_doc_trig.sql">
@@ -314,6 +329,9 @@
     <Content Include="Views\Object Views\acciones_view.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Views\Object Views\anotaciones_view.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Views\Object Views\documentos_contenido_view.sql">
       <SubType>Content</SubType>
     </Content>
@@ -333,6 +351,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Views\Object Views\roles_view.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Views\Object Views\tipos_anotacion_view.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Views\Object Views\tipos_documento_view.sql">

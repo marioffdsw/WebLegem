@@ -4,7 +4,7 @@ DROP SEQUENCE tipo_anotacion_seq;
 
 -- Create new sequence
 
-CREATE SEQUENCE tipo_anotacino_seq
+CREATE SEQUENCE tipo_anotacion_seq
   MINVALUE 0
   MAXVALUE 99999999999999999999999
   START WITH 1 

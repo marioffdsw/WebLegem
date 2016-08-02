@@ -27,9 +27,13 @@
                         <a>Entidad</a>
                     </span>
                 </li>
-                <!--<li ui-sref="administracion.tipo-anotacion" ng-click="vm.activo($event)">
-                    Tipo Anotacion
-                </li>-->
+                <li ng-class="vm.$state.current.name =='administracion.tipo-entidad' ? 'active_tab' : ''"
+                    ui-sref="administracion.tipo-anotacion" ng-click="vm.activo($event)">                   
+
+                    <span class="ico2-drawer">
+                        <a>Tipo Anotacion</a>
+                    </span>
+                </li>
             </ul>
         </div>
         <div ui-view></div> <!--arreglar animacion entre tabs esta debe ser con ng-enter y ng-leave-->

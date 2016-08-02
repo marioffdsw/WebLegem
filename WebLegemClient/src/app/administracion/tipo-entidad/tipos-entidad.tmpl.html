@@ -17,7 +17,11 @@
         
         <label class="texto_labels">Nombre del tipo entidad</label>
         <form>
-            <input class="a_input" ng-disabled="!vm.editando" type="text" ng-model="vm.tipoEntidadSeleccionado.nombre" placeholder="Ingrese el nombre Entidad" />
+            <input class="a_input"
+                   ng-disabled="!vm.editando" 
+                   type="text" 
+                   ng-model="vm.tipoEntidadSeleccionado.nombre" 
+                   placeholder="Ingrese el nombre Entidad" />
         </form>
         <wl-lista-tipo-doc-hojitas editando="vm.editando"
                 lista-documentos="vm.tiposDocumentos">

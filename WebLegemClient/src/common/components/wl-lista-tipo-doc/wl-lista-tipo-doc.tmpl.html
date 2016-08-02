@@ -3,18 +3,17 @@
     <input type="text" ng-model="vm.filtro" class="a_input" />
     
     <ul class="a_listado" style="width: 100%">     
-           <li ng-repeat="tipo in vm.lista | filter:vm.filtro" >
-         
-                <input type="radio"
-                    ng-disabled="!vm.editando"
-                    name="entidad_rad" class="styled" id="tdl_{{tipo.id}}" />
+        <li ng-repeat="tipo in vm.lista | filter:vm.filtro" >         
+            <input type="radio"
+                ng-disabled="!vm.editando"
+                name="entidad_rad" class="styled" id="tdl_{{tipo.id}}" />
             
-               <label class="styled" ng-class="vm.checkear(tipo)? 'animated': ''"
-                    ng-click="vm.seleccionarObjeto(tipo)"
-                    ng-checked="vm.checkear(tipo)"                                                            
-                    for="tdl_{{tipo.id}}">
-                    {{ tipo.nombre }}
-               </label>           
+            <label class="styled" ng-class="vm.checkear(tipo)? 'animated': ''"
+                ng-click="vm.seleccionarObjeto(tipo)"
+                ng-checked="vm.checkear(tipo)"                                                            
+                for="tdl_{{tipo.id}}">
+                {{ tipo.nombre }}
+            </label>
         </li>
     </ul>
 </div>

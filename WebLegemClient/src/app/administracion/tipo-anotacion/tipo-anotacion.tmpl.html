@@ -1,27 +1,38 @@
-﻿<div class="contenido">   
-    <div >
+﻿<div class="box_father">
+    <div class="box_left">
+        <wl-lista-tipos-anotacion seleccionar="vm.seleccionar"
+                lista="vm.tiposAnotaciones"
+                editando="vm.editando">
+        </wl-lista-tipos-anotacion>
+    </div>
+
+    <div class="box_right">
+        <wl-admin-crud objeto-seleccionado="vm.tipoAnotacionSeleccionada"
+                editando="vm.editando"
+                nuevo="vm.nuevo"
+                eliminar="vm.remover">
+
+        </wl-admin-crud>
+
+        <label class="texto_labels">Nombre del tipo Anotacion</label>
         <form>
-            <label class="texto_labels" for="nombre">Nombre</label>
-            <input class="a_input" id="nombre" type="text" ng-model="vm.tipoAnot.nombre" />
+            <input class="a_input"
+                   ng-disabled="!vm.editando" 
+                   type="text" 
+                   ng-model="vm.tipoAnotacionSeleccionada.nombre"
+                   placeholder="Ingrese el nombre del Tipo de Anotacion" />
 
-            <label class="texto_labels" for="activo">Rol Activo de la anotación</label>
-            <input class="a_input" id="activo" type="text" ng-model="vm.tipoAnot.rol_activo" />
-
-            <label class="texto_labels" for="pasivo">Rol Pasivo de la anotación</label>
-            <input class="a_input" id="pasivo" type="text" ng-model="vm.tipoAnot.rol_pasivo" />
-
-            <button class="a_boton" type="submit">Añadir</button>
+            <input class="a_input"
+                   ng-disabled="!vm.editando"
+                   type="text"
+                   ng-model="vm.tipoAnotacionSeleccionada.raiz"
+                   placeholder="Ingrese la raiz del tipo anotacion" />
         </form>
 
-        <select multiple>
-            <option ng-repeat="tipo in vm.tiposAnotaciones">{{ tipo.nombre }} {{ tipo.rolActivo }} {{ tipo.rolPasivo }}</option>
-        </select>
+        <wl-confirmacion editando="vm.editando"
+                aceptar="vm.aceptar"
+                cancelar="vm.cancelar">
 
-        <button class="a_boton" type="button">
-            Remover
-        </button>
-        <button class="a_boton" type="button">
-            Editar
-        </button>
-    </div>
+        </wl-confirmacion>
+    </div>        
 </div>

@@ -1,0 +1,17 @@
+﻿<div>
+    <label class="texto_labels" style="margin-top:10px;">Lista de tipo de anotacion</label>
+    <input type="text" ng-model="vm.filter" class="a_input" />
+    <ul class="a_listado" style="width: 100%;">
+        <li ng-repeat="tipo in vm.lista | filter: vm.filter">
+
+            <input type="radio"
+                   name="tipo_anotacion_rad"
+                   class="styled"
+                   id="rad_te_{{tipo.id}}" />
+
+            <label class="styled"
+                    ng-click="vm.seleccionar(tipo)"
+                    for="rad_te_{{tipo.id}}">{{ tipo.nombre }}</label>
+        </li>
+    </ul>
+ </div>
