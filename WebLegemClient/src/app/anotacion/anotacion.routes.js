@@ -15,7 +15,20 @@
 			    templateUrl: "app/anotacion/crear-anotacion/crear-anotacion.tmpl.html",
 			    controller: "crearAnotacionController",
 			    controllerAs: "vm"
-			});
+			})
+            .state("anotacion.eliminar-anotacion", {
+                url: "/eliminar-anotacion",
+                templateUrl: "app/anotacion/eliminar-anotacion/eliminar-anotacion.tmpl.html",
+                controller: "eliminarAnotacionController",
+                controllerAs: "vm"
+            })
+		    .state("anotacion.editar-anotacion", {
+		        url: "/editar-anotacion",
+		        templateUrl: "app/anotacion/editar-anotacion/editar-anotacion.tmpl.html",
+		        controller: "editarAnotacionController",
+		        controllerAs: "vm"
+		    })
+	    ;
             	    
 	} // end config function
 })();

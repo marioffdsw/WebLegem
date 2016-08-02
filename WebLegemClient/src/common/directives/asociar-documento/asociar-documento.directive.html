@@ -1,0 +1,59 @@
+﻿<div class='ng-modal' ng-show='vm.show'>
+    <div class='ng-modal-overlay' ng-click='vm.cerrarDialogo()'></div><!--Simula la opacidad de fondo del dialogo-->
+    <div class='ng-modal-dialog'>
+
+        <div class='a-modal-close'>
+            <div class="a-titulo-modal">Buscar Documento</div>
+            <button title="Cerrar dialogo" ng-click="vm.cerrarDialogo()">
+                <span class="ico-times"></span>
+            </button>
+        </div>
+
+        <div class='ng-modal-dialog-content'>
+
+            <div class="box_father ani-pasos">
+                <div class=" box_left">
+                    <label class="ca_label_busqueda" ng-if="!vm.ban_crear_doc">seleccione el documento al cual se anotará:</label>
+                    <label class="ca_label_busqueda" ng-if="vm.ban_crear_doc">complete los datos para crear el documento:</label>
+                    <wl-buscar-doc crear-doc="vm.ban_crear_doc">  </wl-buscar-doc>
+                </div>
+
+                <div class="box_right">
+                    <!--mensaje de error si no se encuentra coinsididencias-->
+                    <label class="msj-error">
+                        No se encontro ningun documento con esa identificacion, desea crear un
+                        <a ng-click="vm.ban_crear_doc = true" href="" title="Crear documento"> nuevo documento</a>
+                    </label>
+
+                    <wl-lista-doc-encontrado ng-hide="vm.ban_crear_doc" ban-crear-anotacion="vm.ban_crear_ano">  </wl-lista-doc-encontrado>
+
+                    <div class="generic-box-vertical" ng-if="vm.ban_crear_doc">
+                        <div>
+                            <label class="texto_labels">Tipo de Anotación:</label>
+                            <div class="a_select">
+                                <select type="text" placeholder="Escriba entidad emisora" ng-model="vm.tipoDocumentoAux"
+                                        ng-options="tipoDocumento.nombre as tipoDocumento.nombre for tipoDocumento in vm.tiposDocumento| orderBy: 'nombre'"></select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="texto_labels">Descripcion de la Anotación:</label>
+                            <textarea class="a_text_area"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box_father">
+                <div class="box_right">
+                    <div class="divisor-pasos"><div></div></div>
+                    <div class="controles-crear-anotacion">
+                        <button class="btn_sin_ico" ng-click="vm.crearAnotacion()">
+                            Seleccionar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div><!--contenido personalisable-->
+    </div>
+</div>

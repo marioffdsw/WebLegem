@@ -1,0 +1,34 @@
+﻿<div class="ca_label_busqueda" ng-if="!vm.banCrearAnotacion">Se encontro N {{n}} resultados de la busqueda:</div>
+<div class="ca_label_busqueda" ng-if="vm.banCrearAnotacion">Complete los datos para crear una anotacion:</div>
+
+
+<div class="box-contenido-lista-de">
+    <div class="lista-doc-encontrado" ng-repeat="i in [ {id:1,contenido:'hola mundo1'},
+                                                        {id:2,contenido:'hola mundo2'},
+                                                        {id:3,contenido:'hola mundo3'}]">
+        <div ng-hide="vm.ho_[{{i.id}}]" ng-click="vm.itemSelected(i);">
+            <div class="ico-lde"><span class="ico-file-text-o"></span></div>
+            <div class="lde_contenido">
+                <div class="de-subcontenido">
+                    <a>{{ i.contenido }} {{ datos.numero }} del {{ datos.fecha }}</a>
+                    <p>Entidad: <i>{{ datos.entidad }} </i></p>
+                    <p>Fecha de publicacion: <i>{{ datos.fecha  }} </i></p>
+                </div>
+            </div>
+            <div class="btn-cancel-seleccion" ng-show="vm.ban_itemSelected" 
+                 ng-click="vm.quitarSeleccion(); $event.stopPropagation();vm.togglePdf=false">
+                <span class="ico-times"></span>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<button class="btn_toggle" ng-click="vm.togglePdf = !vm.togglePdf" ng-class="vm.togglePdf ? 'activo' : '' " ng-show="vm.ban_itemSelected">
+    Vista previa
+</button>
+
+
+<iframe ng-show="vm.togglePdf"
+        src="http://docs.google.com/gview?url=http://victorpimentel.com/stuff/rubik.pdf&embedded=true"
+        class="de-vpdf" frameborder="0"></iframe>

@@ -1,0 +1,113 @@
+﻿.de-n-resultados {
+    font-family: "lato-Regular";
+    font-size: 1em;
+    color: #3c6690;
+    border-bottom: 1px solid #3c6690;
+}
+
+.box-contenido-lista-de {
+    border: 1px solid #999;
+    border-bottom: none;
+    margin: 10px 0;
+}
+
+.lde_contenido {
+    -ms-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+}
+
+
+.lista-doc-encontrado {
+    display: flex;
+    background: transparent;
+    cursor: pointer;
+}
+
+    .lista-doc-encontrado > div {
+        width: 100%;
+        display: flex;
+        padding: 8px;
+        border-bottom: 1px solid #999;
+    }
+
+
+        .lista-doc-encontrado > div:hover {
+            background:rgba(39, 111, 154, 0.25);
+        }
+
+.ico-lde span:before {
+    font-size: 40px;
+    color: #3c6690;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+.btn-cancel-seleccion {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .btn-cancel-seleccion > span:before {
+        font-size:x-large;
+        color: #2576b2;
+    }
+
+    .btn-cancel-seleccion:hover > span:before {
+        
+        color: red;
+    }
+
+.de-titulo {
+    display: flex;
+    font-family: 'OpenSans';
+    font-size: small;
+}
+
+    .de-titulo a {
+        color: #0f745b;
+        -moz-text-decoration-color: #0f745b;
+        text-decoration-color: #0f745b;
+        cursor: pointer;
+    }
+
+.de-subcontenido {
+    padding-top: 5px;
+    color: #444;
+    font-size: small;
+    font-family: 'OpenSans';
+    text-align: justify;
+    line-height: 1;
+}
+
+    .de-subcontenido a {
+        color: #0f745b;
+        -moz-text-decoration-color: #0f745b;
+        text-decoration-color: #0f745b;
+        cursor: pointer;
+    }
+
+.de-vpdf {
+    margin-top: 10px;
+    padding: 5px;
+    border: 3px solid #aaa;
+    width: 100%;
+    height: 375px;
+}
+
+.de-vpdf.none-mt{
+    margin-top:0;
+}
+
+.ca_label_busqueda {
+    display: block;
+    font-family: "lato-Regular";
+    color: #0f745b;
+    font-size: 1em;
+    border-bottom: 1px solid #0f745b;
+    margin-bottom: 10px;
+}

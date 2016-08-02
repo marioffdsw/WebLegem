@@ -1,0 +1,160 @@
+﻿/* Estilos Ventana Info */
+/* ==================== */
+.a-modal{
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:9999;
+  width:100%;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.a-modal-close {
+  background:#fff;
+  width:100%;
+  height:40px;
+  display:flex;
+  justify-content:flex-end;
+  border-bottom: 1px solid #ccc;
+}
+
+.a-modal-close > button{
+    margin:0;
+    padding:0;
+    width:35px;
+    background:transparent;
+    cursor:pointer;
+}
+
+.a-modal-close > button > span{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#444;
+}
+
+.a-modal-close > button:hover{
+    background:rgba(0, 0, 0, 0.10);
+}
+
+.a-titulo-modal{
+    flex:1;
+    background:#fff;
+    padding:0 15px;
+    height:100%;
+    display:flex;
+    align-self:center;
+    align-items:center;
+    font-family:"Lato-Bold";
+    color:#333;
+}
+
+/* opacididad de la pantalla */
+.a-modal-overlay {
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:9999;
+  width:100%;
+  height:100vh;
+  background-color:#000;
+  opacity: 0.5;
+}
+
+/*contenedor del close y el transclude*/
+.a-modal-dialog {
+  z-index:10000;
+  width: auto;
+  max-width:100vw;
+  height:auto;
+  display:flex;
+  flex-direction:column;
+  align-self:center;
+  background-color: #fff;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.71);
+}
+
+/*contenido del modal en el transclude*/
+.a-modal-transclude {
+    overflow-y: auto;
+    max-height: 80vh;    
+}
+
+
+/*=========================================================*/
+/*Personalizacion del transclude*/
+.a-modal-contenido{
+    display:flex;
+    padding:15px;
+    color:#444;
+    font-family:"Lato-Regular";
+}
+
+.a-modal-contenido > span{
+    font-size:2.5rem;
+    display:flex;
+    align-items:center;
+    padding-right:10px;
+}
+
+.a-modal-contenido>span.verde{color:#20c456}
+.a-modal-contenido>span.verde.oscuro{color:#167c38}
+
+.a-modal-contenido>span.marron{color:#c0392b}
+
+.a-modal-contenido>span.amarillo{color:#f1c40f}
+
+.a-modal-contenido>span.rojo{color:#D91E18}
+
+.a-modal-contenido>span.azul{color:#2980b9}
+
+.a-modal-contenido>span.gris{color:#555}
+
+
+.a-modal-contenido > div {
+    flex:1;
+    display:flex;
+    align-items:center;
+    align-self:center;
+}
+
+.a-modal-confirmacion{
+    display:flex;
+    justify-content:flex-end;
+    padding:10px 15px;
+}
+
+.a-modal-confirmacion button{
+    background:white;
+    display:flex;
+    justify-content:center;
+    border:1px solid #ccc;
+    height:30px;
+    cursor:pointer;
+    margin-left:15px;
+    padding: 0 5px;
+    font-family:"Lato-Bold";
+    color:#333;
+        font-size: 0.7em;
+        letter-spacing: 0.04rem;
+    text-transform:uppercase;
+}
+
+.a-modal-confirmacion button:hover{
+    background:#ddd;
+}
+
+.a-modal-confirmacion button[value=confirmar] {
+    background: #0F745B;
+    border-color:#0F745B;
+    color:#fff;
+}
+.a-modal-confirmacion button[value=confirmar]:hover {
+    background: #099472;
+}
+
+/* Estilos Ventana Modal*/
+/* ===================== */

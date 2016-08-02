@@ -1,4 +1,59 @@
-﻿/*Crear Anotacion ========================*/
+﻿
+.divisor-pasos {
+    width: 100%;
+}
+
+.divisor-pasos div {
+    border-bottom: 1px solid #e2e2e2;
+    margin-bottom:10px;
+}
+
+/*Crear Anotacion ========================*/
+
+.controles-crear-anotacion{
+    display:flex;
+    justify-content:flex-end;
+}
+
+.controles-crear-anotacion button{
+    margin-left:10px;
+}
+
+.vista-previa-ed{
+    margin-left:0 !important;
+    margin-right:10px !important;
+}
+
+.span-fill{
+    flex:1;
+}
+
+
+/*Anotacion asistida ========================*/
+.titulo_anotacion_a{
+    margin-left:20px;
+    color:#444;
+    font-family:"lato-Regular";
+    font-size:1.4em;
+}
+
+/*modal info Anotacion ========================*/
+.info-anotacion{
+    display:flex;
+    flex-direction:column;
+    font-family:"OpenSans";
+    font-size:small;
+    color:#333;
+}
+.info-anotacion a,.info-anotacion p{
+    align-self:flex-start;
+}
+
+.desc-anotacion-modal{
+    max-width:800px;
+}
+
+
 
 
 
