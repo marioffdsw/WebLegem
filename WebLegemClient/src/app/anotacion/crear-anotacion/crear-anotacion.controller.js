@@ -17,6 +17,7 @@
         vm.aceptarAsistida = aceptarAsistida;
         vm.negarAsistida = negarAsistida;
 
+
         vm.ban_exito_anotacion;
         vm.ban_wait_response;
         vm.ban_manual = true;
