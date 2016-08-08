@@ -5,10 +5,10 @@
         .module("WebLegemApp")
         .controller("WlListaTiposEntidadesController", WlListaTiposEntidadesController);
 
-    WlListaTiposEntidadesController.$inject = [];
-    function WlListaTiposEntidadesController() {
+    WlListaTiposEntidadesController.$inject = ["language"];
+    function WlListaTiposEntidadesController(language) {
         var vm = this;                              
-
+        vm.language = language;
         return vm;
     } // end controller
 })();

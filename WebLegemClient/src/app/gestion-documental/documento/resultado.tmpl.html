@@ -1,19 +1,19 @@
 ﻿<div class="contenido_gd animatio ng-enter" id="holas">
-    <label class="titulo">Crear Documento</label>
+    <label class="titulo">{{vm.language.strings.CrearDocumento}}</label>
     <div style="width:100%; font-family:'Lato-Regular'">
         <label class="subtitulos_labels">
-            Resultado
+            {{vm.language.strings.Resultado}}
         </label>
         <hr class="divisor_gestion_documental" />
         <div style="display:flex; flex-direction:column; justify-content:center; align-self:center; align-content:center;">
-            <div  ng-show="!vm.error && !vm.success"><p class="texto_labels">Trabajando</p></div>
-            <div  ng-show="vm.success"><p class="texto_labels"> Documento Creado Con Exito</p></div>
-            <div  ng-show="vm.error"><p class="texto_labels">Error al crear el documento</p></div>
+            <div  ng-show="!vm.error && !vm.success"><p class="texto_labels">{{vm.language.strings.Trabajando}}</p></div>
+            <div  ng-show="vm.success"><p class="texto_labels"> {{vm.language.strings.DocumentoCreadoExito}}</p></div>
+            <div  ng-show="vm.error"><p class="texto_labels">{{vm.language.strings.ErrorCrearDocumento}}</p></div>
             <br />
             <button type="button"
                     ng-show="vm.error || vm.success"
                     ui-sref="home" class="btn_con_ico">
-                <span class="ico-chevron-right tamano_botones_1 derecha"></span>Regresar
+                <span class="ico-chevron-right tamano_botones_1 derecha"></span>{{vm.language.strings.Regresar}}
             </button>
         </div>
     </div>

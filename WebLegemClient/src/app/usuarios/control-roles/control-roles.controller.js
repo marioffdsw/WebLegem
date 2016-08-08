@@ -5,10 +5,10 @@
         .module("WebLegemApp.Usuarios")
         .controller("controlRolesController", controlRolesController);
 
-    controlRolesController.$inject = ["RolResource", "PermisosService", "_"];
-    function controlRolesController(RolResource, PermisosService, _) {
+    controlRolesController.$inject = ["RolResource", "PermisosService", "_", "language"];
+    function controlRolesController(RolResource, PermisosService, _, language) {
         var vm = this;
-
+        vm.language = language;
         /**********************************************************************************
          *
          *   PROPERTIES

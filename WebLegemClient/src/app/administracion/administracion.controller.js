@@ -5,10 +5,11 @@
         .module("WebLegemApp.Administracion")
         .controller("AdministracionController", AdministracionController);
 
-    AdministracionController.$inject = ["DocumentosResource", "$state"];
+    AdministracionController.$inject = ["DocumentosResource", "$state", "language"];
 
-    function AdministracionController(DocumentosResource, $state) {
-        var vm = this;        
+    function AdministracionController(DocumentosResource, $state, language) {
+        var vm = this;
+        vm.language = language;
         vm.$state = $state;
         vm.activo = activo;
         

@@ -5,15 +5,17 @@
     <div class="tapiz_contenido" ng-show="true" style="max-width:800px">
         <div class="titulo">
             <span class="ico-user">
-                <a>Configuración de cuenta</a>
+                <a>{{vm.language.strings.ConfiguracionCuenta}}</a>
             </span>
         </div>
         <div class="box_father">
 
             <div class="box_right">
+
+                <wl-fotografia show="vm.camaraToggle"></wl-fotografia>
                 <div class="box_duo_input">
                     <div>
-                        <p class="texto_labels green">Fotografia</p>
+                        <p class="texto_labels green">{{vm.language.strings.Fotrografia}}</p>
                         <div class="box_fotografia">
                             <div class="foto_usuarios">
                                 <span class="ico-user" ng-show="!vm.trash"></span>
@@ -37,15 +39,15 @@
                     </div>
                     <div>
                         <div>
-                            <p class="texto_labels green">Nombres</p>
+                            <p class="texto_labels green">{{vm.language.strings.Nombres}}</p>
                             <input class="a_input" />
                         </div>
                         <div>
-                            <p class="texto_labels green">Apellidos</p>
+                            <p class="texto_labels green">{{vm.language.strings.Apellidos}}</p>
                             <input class="a_input" />
                         </div>
                         <div>
-                            <p class="texto_labels green">Correo Electronico</p>
+                            <p class="texto_labels green">{{vm.language.strings.CorreoElectronico}}</p>
                             <input class="a_input" />
                         </div>
                     </div>
@@ -53,17 +55,17 @@
 
                 <div class="box_duo_input">
                     <div>
-                        <p class="texto_labels green">Contraseña</p>
+                        <p class="texto_labels green">{{vm.language.strings.Contrasena}}</p>
                         <input class="a_input" type="password" ng-model="vm.pass_usu" maxlength="20" />
                         <div id="widget_seguridad">
                             <div id="content_span">
                                 <span></span><span></span><span></span><span></span><span></span>
                             </div>
-                            <p>Nivel de seguridad: {{vm.val_seguridad}} </p>
+                            <p>{{vm.language.strings.NivelSeguridad}}: {{vm.val_seguridad}} </p>
                         </div>
                     </div>
                     <div>
-                        <p class="texto_labels green">Confirmar Contraseña</p>
+                        <p class="texto_labels green">{{vm.language.strings.ConfirmarContrasena}}</p>
                         <input class="a_input" type="password" />
                     </div>
                 </div>
@@ -71,19 +73,15 @@
                 <div class="controles_box_right down">                    
 
                     <button class="btn_con_ico" style="display:inline-block;">
-                        <span class="ico-floppy-o tamano_botones_1"></span>Guardar
+                        <span class="ico-floppy-o tamano_botones_1"></span>{{vm.language.strings.Guardar}}
                     </button>
 
                     <button class="btn_con_ico" type="button" style="display:inline-block;">
-                        <span class="ico-times tamano_botones_1"></span>Cancelar
+                        <span class="ico-times tamano_botones_1"></span>{{vm.language.strings.Cancelar}}
                     </button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<style>
-
-</style>
-
 

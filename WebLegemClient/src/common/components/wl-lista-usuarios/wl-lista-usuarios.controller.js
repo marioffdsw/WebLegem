@@ -5,10 +5,10 @@
         .module( "WebLegemApp" )
         .controller("wlListaUsuariosController", wlListaUsuariosController);
 
-    wlListaUsuariosController.$inject = [];
-    function wlListaUsuariosController() {
+    wlListaUsuariosController.$inject = ["language"];
+    function wlListaUsuariosController(language) {
         var vm = this;
-
+        vm.language = language;
         vm.seleccionarObjeto = seleccionarObjeto;
         vm.checkear = checkear;
 

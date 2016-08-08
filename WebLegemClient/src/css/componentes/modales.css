@@ -34,7 +34,11 @@
     justify-content:center;
     align-items:center;
     color:#444;
+    font-size:1.3rem;
 }
+
+.a-modal-close.verde {background:#00796B!important}
+.a-modal-close.verde > button > span{color:#fff;}
 
 .a-modal-close > button:hover{
     background:rgba(0, 0, 0, 0.10);
@@ -48,8 +52,15 @@
     display:flex;
     align-self:center;
     align-items:center;
-    font-family:"Lato-Bold";
     color:#333;
+    font-family: 'OpenSans-Bold';
+    font-size: 1em;
+    text-transform:capitalize;
+}
+
+.a-titulo-modal.verde{
+  background:#00796B!important;
+  color:#fff !important;
 }
 
 /* opacididad de la pantalla */

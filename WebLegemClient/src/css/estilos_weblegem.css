@@ -161,6 +161,97 @@
     justify-content:flex-start;
 }
 
+
+/*-----------------------------------------------------------------------*/
+
+.box_duo_input{
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    margin-bottom:5px;
+}
+
+.box_one_input{
+    display:flex;
+    flex-wrap:wrap;
+    margin-bottom:5px;
+}
+.box_one_input > div{
+    flex:1;
+    min-width:250px;
+}
+
+
+.box_duo_input > div{
+    flex:1;
+    min-width:250px;
+}
+
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    .box_duo_input{
+        flex-direction:column;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+    .box_duo_input{
+        flex-direction:row;
+    }
+    .box_duo_input > div:first-child{
+    margin-right:10px;
+    }
+    .box_duo_input > div:last-child{
+    margin-left:10px;
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+    .box_duo_input{
+        flex-direction:row;
+    }
+    .box_duo_input > div:first-child{
+    margin-right:10px;
+    }
+    .box_duo_input > div:last-child{
+    margin-left:10px;
+    }
+}
+
+
+
+/*-----------------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .ng-animate.no-animate {
     transition: 0s none;
     -webkit-transition: 0s none;

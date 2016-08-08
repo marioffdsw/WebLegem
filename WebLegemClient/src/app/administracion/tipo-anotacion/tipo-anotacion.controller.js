@@ -5,10 +5,10 @@
         .module("WebLegemApp")
         .controller("TipoAnotacionController", TipoAnotacionController);
 
-    TipoAnotacionController.$inject = [ "TipoAnotacionResource" ];
-    function TipoAnotacionController( TipoAnotacionResource ) {
+    TipoAnotacionController.$inject = ["TipoAnotacionResource", "language"];
+    function TipoAnotacionController( TipoAnotacionResource ,language) {
         var vm = this;
-
+        vm.language = language;
         /**********************************************************************************
          *
          *   PROPERTIES

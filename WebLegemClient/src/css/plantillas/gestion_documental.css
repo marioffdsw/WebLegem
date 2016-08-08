@@ -1,4 +1,10 @@
-﻿.view_gestion_documental{
+﻿.contenedor_uploader_gd{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.view_gestion_documental{
     width:100%;
     display:flex;
     justify-content:center;

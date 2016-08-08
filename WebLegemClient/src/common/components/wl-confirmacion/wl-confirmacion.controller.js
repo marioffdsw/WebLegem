@@ -5,10 +5,10 @@
         .module("WebLegemApp")
         .controller("WlConfirmacionController", WlConfirmacionController);
 
-    WlConfirmacionController.$inject = [];
-    function WlConfirmacionController() {
+    WlConfirmacionController.$inject = ["language"];
+    function WlConfirmacionController(language) {
         var vm = this;
-
+        vm.language = language;
         vm.aceptar = aceptar;
         vm.cancelar = cancelar;
 

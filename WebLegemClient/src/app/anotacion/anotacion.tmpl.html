@@ -11,21 +11,21 @@
                     ng-class="vm.$state.current.name =='anotacion.crear-anotacion' ? 'active_tab' : ''"
                     ng-click="vm.tabActivo($event);">
                     <span class="ico-plus">
-                        <a>CREAR ANOTACION</a>
+                        <a>{{vm.language.strings.CrearAnotacionM}}</a>
                     </span>
                 </li>
                 <li ui-sref="anotacion.eliminar-anotacion"
                     ng-class="vm.$state.current.name =='anotacion.eliminar-anotacion' ? 'active_tab' : ''"
                     ng-click="vm.tabActivo($event);">
                     <span class="ico-trash">
-                        <a>ElIMINAR ANOTACION</a>
+                        <a>{{vm.language.strings.EliminarAnotacionM}}</a>
                     </span>
                 </li>
                 <li ui-sref="anotacion.editar-anotacion"
                     ng-class="vm.$state.current.name =='anotacion.editar-anotacion' ? 'active_tab' : ''"
                     ng-click="vm.tabActivo($event);">
                     <span class="ico-pencil">
-                        <a>EDITAR ANOTACION</a>
+                        <a>{{vm.language.strings.EditarAnotacionM}}</a>
                     </span>
                 </li>
 

@@ -5,10 +5,10 @@
         .module("WebLegemApp.Administracion")
         .controller("EntidadController", EntidadController);
 
-    EntidadController.$inject = [ "TipoEntidadService", "EntidadService" ];
-    function EntidadController( TipoEntidadService, EntidadService ) {
+    EntidadController.$inject = [ "TipoEntidadService", "EntidadService","language" ];
+    function EntidadController( TipoEntidadService, EntidadService,language ) {
         var vm = this;
-        
+        vm.language = language;
         /**********************************************************************************
          *
          *   PROPERTIES

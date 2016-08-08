@@ -47,28 +47,7 @@
 
 /*###### Control Usuarios #######*/
 
-.box_duo_input{
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    margin-bottom:5px;
-}
 
-.box_one_input{
-    display:flex;
-    flex-wrap:wrap;
-    margin-bottom:5px;
-}
-.box_one_input > div{
-    flex:1;
-    min-width:250px;
-}
-
-
-.box_duo_input > div{
-    flex:1;
-    min-width:250px;
-}
 
 .div_con_info{
     display:flex;
@@ -89,51 +68,6 @@
     margin-right:30px;
 }
 
-
-/*==========  Mobile First Method  ==========*/
-
-/* Custom, iPhone Retina */ 
-@media only screen and (min-width : 320px) {
-
-}
-
-/* Extra Small Devices, Phones */ 
-@media only screen and (min-width : 480px) {
-}
-
-/* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
-    .box_duo_input{
-        flex-direction:column;
-    }
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (min-width : 992px) {
-    .box_duo_input{
-        flex-direction:row;
-    }
-    .box_duo_input > div:first-child{
-    margin-right:10px;
-    }
-    .box_duo_input > div:last-child{
-    margin-left:10px;
-    }
-}
-
-/* Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px) {
-    .box_duo_input{
-        flex-direction:row;
-    }
-    .box_duo_input > div:first-child{
-    margin-right:10px;
-    }
-    .box_duo_input > div:last-child{
-    margin-left:10px;
-    }
-}
-
 /**********************/
 .box_fotografia{
     display:flex;
@@ -148,8 +82,7 @@
     text-align:center;
 }
 
-.foto_usuarios > span:before{
-    
+.foto_usuarios > span:before{   
     color:#ddd;
     font-size:120px;
     display:block;
@@ -172,95 +105,10 @@
     margin-bottom:5px;
 }
 
-
-/*MODAL*/
-
-.ng-modal-overlay {
-  /* A dark translucent div that covers the whole screen */
-  position:fixed;
-  top:0;
-  left:0;
-  z-index:9999;
-  width:100%;
-  height:100%;
-  background-color:#000000;
-  opacity: 0.4;
-}
-.ng-modal-dialog {
-  /* A centered div above the overlay with a box shadow. */
-  z-index:10000;
-  position:fixed;
-  width: auto;
-  max-width:100vw;
-  height:auto;
-  display:flex;
-  flex-direction:column;
-   /* Default */
-
-  /* Center the dialog */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-
-  background-color: #fff;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.71);
-}
-.ng-modal-dialog-content {
-    overflow-y: auto;
-    max-height: 80vh;    
-}
-
-.ng-modal-close {
-  background:rgba(0, 0, 0, 0.10);
-  width:100%;
-  display:flex;
-  justify-content:flex-end;
-}
-
-.ng-modal-close  button{
-    margin:0;
-    padding:0;
-    align-self:flex-end;
-}
-
-.canvas_container{
-    position:relative;
-    display:flex;
-    justify-content:center;
-}
-
-.canvas_container:after{
-    content:"";
-    position:absolute;
-    top:40px;
-    left:85px;
-    height:170px;
-    width:150px;
-    border:1px solid #36c34f;
-}
-
-#botonera{
-    margin:5px;
-    width:100%;
-    justify-content:flex-end;
-}
-
-#botonera button{
-    font-size:12px;
-    letter-spacing:normal;
-}
-
-
-#camaraUsu,#fotoUsu{
-    
-}
-
 /*-----input para subir foto-------*/
-    #input_usu_foto{
-        display: none;
-    }
+#input_usu_foto{
+    display: none;
+}
 
 /*--Fin input para subir foto-------*/
 

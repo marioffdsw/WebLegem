@@ -6,10 +6,11 @@
         .controller("editarAnotacionController", editarAnotacionController)    
         
 
-    editarAnotacionController.$inject = ["_"];
+    editarAnotacionController.$inject = ["_", "language"];
 
-    function editarAnotacionController(_) {
+    function editarAnotacionController(_, language) {
         var vm = this;
+        vm.language = language;
         vm.nextStep = nextStep;
         vm.backStep = backStep;
         vm.editarAnotacion = editarAnotacion;

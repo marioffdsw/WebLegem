@@ -5,9 +5,10 @@
         .module("WebLegemApp")
         .controller("WebLegemAdminCrudController", WebLegemAdminCrudController);
 
-    WebLegemAdminCrudController.$inject = [ ];
-    function WebLegemAdminCrudController() {
-        var vm = this;        
+    WebLegemAdminCrudController.$inject = [ "language"];
+    function WebLegemAdminCrudController(language) {
+        var vm = this;
+        vm.language = language;
         vm.creando = false;
 
         vm.nuevo = nuevo;

@@ -5,12 +5,12 @@
     <!---------------------------------------------------------------------------------------------------------------------Paso1-->
     <div class="box_father ani-pasos" ng-show="vm.index==0">
         <div class=" box_left">
-            <label class="ca_label_busqueda">seleccionar documento que anota:</label>
+            <label class="ca_label_busqueda">{{vm.language.strings.SeleccionarDocumentoAnota}}:</label>
             <wl-buscar-doc>  </wl-buscar-doc>
         </div>
 
         <div class="box_right">
-            <label class="msj-error"> No se encontro ningun documento con esa identificacion </label>
+            <label class="msj-error"> {{vm.language.strings.NoEncontroDocumentoConIdentificacion}} </label>
             <wl-lista-doc-encontrado>  </wl-lista-doc-encontrado>
         </div>
     </div>
@@ -19,29 +19,29 @@
 
     <div class="box_father ani-pasos" ng-show="vm.index==1">
         <div class="box_left">
-            <label class="ca_label_busqueda" ng-if="!vm.ban_crear_doc">seleccione el documento al cual se anotará:</label>
-            <label class="ca_label_busqueda" ng-if="vm.ban_crear_doc">complete los datos para crear el documento:</label>
+            <label class="ca_label_busqueda" ng-if="!vm.ban_crear_doc">{{vm.language.strings.SeleccioneDocumentoAnotara}}:</label>
+            <label class="ca_label_busqueda" ng-if="vm.ban_crear_doc">{{vm.language.strings.CompleteDatosCrearDocumento}}:</label>
 
             <wl-buscar-doc crear-doc="vm.ban_crear_doc">  </wl-buscar-doc>
         </div>
         <div class="box_right">
             <label class="msj-error">
-                No se encontro ningun documento con esa identificacion, desea crear un
-                <a ng-click="vm.ban_crear_doc = true" href="" title="Crear documento"> nuevo documento</a>
+                {{vm.language.strings.NoEncontroNingunDocumentoIdentificacionDeseaCrear}}
+                <a ng-click="vm.ban_crear_doc = true" href="" title="Crear documento"> {{vm.language.strings.NuevoDocumento}}</a>
             </label>
 
             <wl-lista-doc-encontrado ng-hide="vm.ban_crear_doc" ban-crear-anotacion="vm.ban_crear_ano">  </wl-lista-doc-encontrado>
 
             <div class="generic-box-vertical" ng-if="vm.ban_crear_doc || vm.ban_crear_ano">
                 <div>
-                    <label class="texto_labels">Tipo de Anotación:</label>
+                    <label class="texto_labels">{{vm.language.strings.TipoAnotacion}}:</label>
                     <div class="a_select">
-                        <select type="text" placeholder="Escriba entidad emisora" ng-model="vm.tipoDocumentoAux"
+                        <select type="text" placeholder="{{vm.language.strings.EscribaEntidadEmisora}}" ng-model="vm.tipoDocumentoAux"
                                 ng-options="tipoDocumento.nombre as tipoDocumento.nombre for tipoDocumento in vm.tiposDocumento| orderBy: 'nombre'"></select>
                     </div>
                 </div>
                 <div>
-                    <label class="texto_labels">Descripcion de la Anotación:</label>
+                    <label class="texto_labels">{{vm.language.strings.DescripcionDeAnotacion}}:</label>
                     <textarea class="a_text_area"></textarea>
                 </div>
             </div>
@@ -56,13 +56,13 @@
             <div class="divisor-pasos"><div></div></div>
             <div class="controles-crear-anotacion">
                 <button class="btn_sin_ico" ng-click="vm.backStep()" ng-hide="vm.index==0">
-                    Atras
+                    {{vm.language.strings.Atras}}
                 </button>
                 <button class="btn_sin_ico" ng-click="vm.nextStep()" ng-hide="vm.index==1">
-                    Siguiente
+                {{vm.language.strings.Siguiente}}  
                 </button>
                 <button class="btn_sin_ico" ng-click="vm.crearAnotacion()" ng-show="vm.index==1">
-                    Crear Anotacion
+                    {{vm.language.strings.CrearAnotacion}}
                 </button>
             </div>
         </div>
@@ -76,21 +76,22 @@
 <wl-info show="vm.ban_exito_anotacion" title="Exito">
     <div class="a-modal-contenido">
         <span class="ico-check-circle verde"></span>
-        <div>Se ha creado una Anotacion </div>
+        <div>{{vm.language.strings.SeHaCreadoAnotacion }}</div>
     </div>
 </wl-info>
 
 
 <!--dialogo para respuesta de anotacion asistida-->
 <!-- ---------------------------------------------------------------------- -->
-<wl-info show="vm.ban_wait_response" title="Confirmación">
+<wl-info show="vm.ban_wait_response" title="{{vm.language.strings.Confirmacion}}">
+    <div class="a->
     <div class="a-modal-contenido">
         <span class="ico-question gris"></span>
-        <div>Desea utilizar el asistente de anotaciones?</div>
+        <div>{{vm.language.strings.DeseaUtilizarAsistenteAnotaciones}}</div>
     </div>
     <div class="a-modal-confirmacion">
-        <button value="confirmar" ng-click="vm.aceptarAsistida()">Confirmar</button>
-        <button ng-click="vm.negarAsistida()">Continuar manualmente</button>
+        <button value="confirmar" ng-click="vm.aceptarAsistida()">{{vm.language.strings.Confirmar}}</button>
+        <button ng-click="vm.negarAsistida()">{{vm.language.strings.ContinuarManualmente}}</button>
     </div>
 </wl-info>
 

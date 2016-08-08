@@ -14,10 +14,10 @@
                            eliminar="vm.remover">
             </wl-admin-crud>
 
-            <label class="texto_labels" for="nombre-entidad">Nombre de la entidad</label>
-            <input class="a_input" id="nombre-entidad" type="text" ng-disabled="!vm.editando"
-                   placeholder="Ingrese el nombre de la entidad" ng-model="vm.entidadSeleccionada.nombre" />
-            <label class="texto_labels" for="tipo-entidad">Tipo de la entidad</label>
+            <label class="texto_labels" for="nombre-entidad">{{vm.language.strings.NombreEntidad}}</label>
+        <input class="a_input" id="nombre-entidad" type="text" ng-disabled="!vm.editando"
+               placeholder="{{vm.language.strings.IngreseNombreEntidad}}" ng-model="vm.entidadSeleccionada.nombre" />
+            <label class="texto_labels" for="tipo-entidad">{{vm.language.strings.TipoEntidad}}</label>
 
             <div>
                 <div class="a_select" ng-show="!vm.editando" ng-class="!vm.editando ? 'disable' : ''">

@@ -6,9 +6,10 @@
         .module("WebLegemApp")
         .controller("wlAnotacionAsistidaController", wlAnotacionAsistidaController);
 
-    wlAnotacionAsistidaController.$inject = ["_"];
-    function wlAnotacionAsistidaController(_) {
+    wlAnotacionAsistidaController.$inject = ["_", "language"];
+    function wlAnotacionAsistidaController(_, language) {
         var vm = this;
+        vm.language = language;
         vm.index = 0;
         vm.nextStep = nextStep;
         vm.backStep = backStep;

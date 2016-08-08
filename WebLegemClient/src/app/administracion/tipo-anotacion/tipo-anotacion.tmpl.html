@@ -14,19 +14,19 @@
 
         </wl-admin-crud>
 
-        <label class="texto_labels">Nombre del tipo Anotacion</label>
+        <label class="texto_labels">{{vm.language.strings.NombreTipoAnotacion}}</label>
         <form>
             <input class="a_input"
-                   ng-disabled="!vm.editando" 
-                   type="text" 
+                   ng-disabled="!vm.editando"
+                   type="text"
                    ng-model="vm.tipoAnotacionSeleccionada.nombre"
-                   placeholder="Ingrese el nombre del Tipo de Anotacion" />
+                   placeholder="{{vm.language.strings.IngreseNombreTipoAnotacion}}" />
 
             <input class="a_input"
                    ng-disabled="!vm.editando"
                    type="text"
                    ng-model="vm.tipoAnotacionSeleccionada.raiz"
-                   placeholder="Ingrese la raiz del tipo anotacion" />
+                   placeholder="{{vm.language.strings.IngreseRaizTipoAnotacion}}" />
         </form>
 
         <wl-confirmacion editando="vm.editando"

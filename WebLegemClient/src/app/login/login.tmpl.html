@@ -3,21 +3,21 @@
 
     <div class="contenedor_login">
         <div class="titulo">
-            Ingreso al sistema
+            {{vm.language.strings.IngresoSistema}}
         </div>
 
         <form class="form_login" name="form_login" novalidate>
 
             <!----------------------------------------------------->
             <div ng-messages ng-show="form_login.usuario.$invalid">
-                <div class="a_validacion" ng-message ng-show="form_login.usuario.$dirty">Complete este campo.</div>
+                <div class="a_validacion" ng-message ng-show="form_login.usuario.$dirty">{{vm.language.strings.CompleteCampo}}</div>
             </div>
 
 
             <div class="box_input_ico inputs_login">
-                <div style=" background:#fff;">
+                <div >
                     <input required name="usuario" class="input_text_ico" id="user" type="text" ng-model="vm.user.nombre"
-                           placeholder="Nombre de Usuario *" />
+                           placeholder="{{vm.language.strings.NombreUsuario}}" />
                 </div>
                 <div class="ico_input_text">
                     <span class=" ico-user"></span>
@@ -26,13 +26,13 @@
 
             <!----------------------------------------------------->
             <div ng-messages ng-show="form_login.password.$invalid">
-                <div class="msj-error" ng-message ng-show="form_login.password.$dirty">Complete este campo.</div>
+                <div class="msj-error" ng-message ng-show="form_login.password.$dirty">{{vm.language.strings.CompleteCampo}}</div>
             </div>
 
             <div class="box_input_ico inputs_login">
-                <div style="background:#fff;">
+                <div >
                     <input required class="input_text_ico" name="password" type="password" ng-model="vm.user.password"
-                           placeholder="Contraseña *" />
+                           placeholder="{{vm.language.strings.Contrasena}} *" />
                 </div>
                 <div class="ico_input_text">
                     <span class=" ico-lock"></span>
@@ -42,17 +42,17 @@
 
 
             <div>
-                <div class="msj-error" style="padding-bottom:10px; color:#444">* Campos obligatorios.</div>
+                <div class="msj-error" style="padding-bottom:10px"> {{vm.language.strings.CamposObligatorios}}*</div>
             </div>
 
             <div class="a_centrado">
                 <button class="btn_con_ico" type="submit" ng-click="vm.logIn()">
-                    <span class="ico-sign-in tamano_botones_1"></span>INGRESAR
+                    <span class="ico-sign-in tamano_botones_1"></span>{{vm.language.strings.Ingresar}}
                 </button>
             </div>
 
 
-            <a ui-sref="recuperar-clave" class="olvide_contraseña"> Olvide mi contraseña </a>
+            <a ui-sref="recuperar-clave" class="olvide_contraseña"> {{vm.language.strings.OlvideContrasena}} </a>
         </form>
     </div>
 

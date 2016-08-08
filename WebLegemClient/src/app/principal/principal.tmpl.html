@@ -5,7 +5,7 @@
         <div class="contenedor_mini_search">
             <form class="mini_search">
                 <input id="mini_search" type="text" ng-model="vm.searchPattern.words"
-                       placeholder="Buscar"
+                       placeholder="{{vm.language.strings.Buscar}}"
                        onfocus="atenuar_busqueda(this.id)"
                        onblur="perder_foco(this.id)" />
                 <button class="ico2-search" ui-sref="busqueda"></button>

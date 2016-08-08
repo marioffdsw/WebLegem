@@ -6,12 +6,13 @@
         .controller("controlUsuariosController", controlUsuariosController)    
         
 
-    controlUsuariosController.$inject = ["$scope", "$window", "UsuariosResource", "RolResource", "serviceUrl","_"];
+    controlUsuariosController.$inject = ["$scope", "$window", "UsuariosResource", "RolResource", "serviceUrl", "_", "language"];
 
-    function controlUsuariosController($scope, $window, UsuariosResource, RolResource, serviceUrl,_) {
+    function controlUsuariosController($scope, $window, UsuariosResource, RolResource, serviceUrl, _, language) {
         var vm = this;
         var blob;        
 
+        vm.language = language;
         vm.subido = false;
 
         vm.editando = false;
@@ -21,21 +22,12 @@
         vm.nuevo = nuevo;
         vm.mostrarDialogo = mostrarDialogo;
 
-
-        vm.startWebcam = startWebcam;
-        vm.stopWebcam = stopWebcam;
-        vm.snapshot = snapshot;
-        vm.guardarFoto = guardarFoto;
-        vm.init = init;
         vm.abrirCamara = abrirCamara;
-        vm.cerrarCamara = cerrarCamara;
-        vm.repetirFoto = repetirFoto;
         vm.seleccionarArchivo = seleccionarArchivo;
         vm.usuarios;
         vm.aceptar = aceptar;
         vm.remover = eliminar;
 
-        vm.foto = true;
         vm.trash = false;
         vm.cargarFoto = vm.cargarFoto;        
         
@@ -250,108 +242,10 @@
 
         function abrirCamara() {
             vm.camaraToggle = true;
-            init();
-            startWebcam();
         };
 
 
-        function cerrarCamara() {
-            vm.camaraToggle = false;
-            stopWebcam();
-        };
- 
 
-        //++++++++++++++++++++++++++++++++++++
-
-        //--------------------
-        // GET USER MEDIA CODE
-        //--------------------
-        navigator.getUserMedia = (navigator.getUserMedia ||
-                           navigator.webkitGetUserMedia ||
-                           navigator.mozGetUserMedia ||
-                           navigator.msGetUserMedia);
-
-        var video;
-        var webcamStream;
-        var copia;
-
-        function startWebcam() {
-            if (navigator.getUserMedia) {
-                navigator.getUserMedia(
-
-                   // constraints
-                   {
-                       video: true,
-                       audio: false
-                   },
-
-                   // successCallback
-                   function (localMediaStream) {
-                       video = document.getElementById("camaraUsu");
-                       video.src = window.URL.createObjectURL(localMediaStream);
-                       webcamStream = localMediaStream;
-                   },
-
-
-                   // errorCallback
-                   function (err) {
-                       console.log("The following error occured: " + err);
-                   }
-                );
-            } else {
-                console.log("getUserMedia not supported");
-            }
-        }
-
-        function stopWebcam() {
-            webcamStream.getVideoTracks()[0].stop();
-        }
-        //---------------------
-        // TAKE A SNAPSHOT CODE
-        //---------------------
-        var canvas, ctx;
-        var img = document.getElementById("laimagen");
-        
-        function init() {
-            // Get the canvas and obtain a context for
-            // drawing in it
-            vm.foto = true;
-            canvas = document.getElementById("fotoUsu");
-            ctx = canvas.getContext('2d');
-        }
-
-        function snapshot() {
-            // Draws current image from the video element into the canvas
-            ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-            img.src = canvas.toDataURL("image/jpeg");            
-        }
-
-        function guardarFoto() { // alias recortarFoto
-            var canvasAux = document.createElement("canvas");
-            canvasAux.id = "canvasAux";
-            canvasAux.height = 170;
-            canvasAux.width = 150;
-            var context = canvasAux.getContext('2d');
-
-            context.drawImage(img,85, 40, 150, 170, 0, 0, 150, 170);
-            img.src = canvasAux.toDataURL("image/jpeg");
-            img.style.visibility = "unset";
-
-            var imageData = canvas.toDataURL('image/png');
-            var params = "filename=" + imageData;
-            
-            document.getElementById("hidden_input").setAttribute("value", params);
-            var files = document.getElementById("hidden_input");
-            console.log(files);
-
-            canvasAux.toBlob(function (image) { blob = image;} );
-
-            cerrarCamara();
-        }
-
-        function repetirFoto() {
-            canvas.width = canvas.width;//limpiar contenido del canvas  
-        }
 
         function mostrarDialogo(a) {
             

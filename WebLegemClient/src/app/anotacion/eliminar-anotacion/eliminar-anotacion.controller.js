@@ -5,10 +5,11 @@
         .module("WebLegemApp.Anotacion")
         .controller("eliminarAnotacionController", eliminarAnotacionController)    
         
-    eliminarAnotacionController.$inject = ["_"];
+    eliminarAnotacionController.$inject = ["_", "language"];
 
-    function eliminarAnotacionController(_) {
+    function eliminarAnotacionController(_, language) {
         var vm = this;
+        vm.language = language;
 
         vm.nextStep = nextStep;
         vm.backStep = backStep;

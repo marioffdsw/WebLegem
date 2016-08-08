@@ -5,10 +5,10 @@
         .module("WebLegemApp.Login")
         .controller("LoginController", LoginController);
 
-    LoginController.$inject = [ "$scope", "$state" ];
-    function LoginController( $scope, $state ) {
+    LoginController.$inject = [ "$scope", "$state" ,"language"];
+    function LoginController( $scope, $state, language ) {
         var vm = this;
-
+        vm.language = language;
         vm.user = { nombre: "", password: "" };
 
         vm.logIn = logIn;

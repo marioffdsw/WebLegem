@@ -5,7 +5,7 @@
     <div class="tapiz_contenido" ng-show="true" style="max-width:500px">
         <div class="titulo">
             <span class="ico-user-md">
-                <a>Recuperación de contraseña</a>
+                <a>{{vm.language.strings.RecuperacionContrasena}}</a>
             </span>
         </div>
         <div class="box_father">
@@ -16,20 +16,20 @@
                 <div ng-show="vm.verificado==1" class="difuminar">
                     <div class="box_one_input">
                         <p class="subtitulos_labels">
-                            Ingrese el nombre de usuario con el cual se registró, y a continuacion de click en el boton verificar
+                            {{vm.language.strings.IngreseNombreBotonVerificar}}
                         </p>
                     </div>
 
                     <div class="box_one_input">
                         <div>
-                            <p class="texto_labels green">Cuenta de usuario</p>
+                            <p class="texto_labels green">{{vm.language.strings.CuentaUsuario}}</p>
                             <input class="a_input" type="text" />
                         </div>
                     </div>
 
                     <div class="controles_box_right down" style="margin-top:10px;">
                         <button class="btn_con_ico" style="display:inline-block;" ng-click="vm.verificado = 2">
-                            <span class="ico-retweet tamano_botones_1"></span>Verificar
+                            <span class="ico-retweet tamano_botones_1"></span>{{vm.language.strings.Verificar}}
                         </button>
                     </div>
                 </div>
@@ -37,20 +37,20 @@
                 <div ng-show="vm.verificado==2" class="difuminar">
                     <div class="box_one_input">
                         <p class="subtitulos_labels">
-                            Ahora Ingrese el correo electronico con el cual se registró, y a continuacion de click en el boton recuperar
+                            {{vm.language.strings.IngreseCorreoBotonRecuperar}}
                         </p>
                     </div>
 
                     <div class="box_one_input">
                         <div>
-                            <p class="texto_labels green">Correo electronico</p>
+                            <p class="texto_labels green">{{vm.language.strings.CorreoElectronico}}</p>
                             <input class="a_input" type="text" />
                         </div>
                     </div>
 
                     <div class="controles_box_right down" style="margin-top:10px;">
                         <button class="btn_con_ico" style="display:inline-block;" ng-click="vm.verificado=3">
-                            <span class="ico-paper-plane tamano_botones_1"></span>Recuperar
+                            <span class="ico-paper-plane tamano_botones_1"></span>{{vm.language.strings.Recuperar}}
                         </button>
                     </div>
                 </div>
@@ -59,14 +59,13 @@
                 <div ng-show="vm.verificado==3" class="difuminar">
                     <div class="box_one_input">
                         <p class="subtitulos_labels">
-                            Se ha enviado un mail a su correo electronico con la nueva contraseña.
-                            Revise su correo por favor
+                            {{vm.language.strings.EmailEnviadoRevise}}
                         </p>
                     </div>
 
                     <div class="controles_box_right down" style="margin-top:10px; ">
                         <button class="btn_con_ico" style="display:inline-block;" ui-sref="home">
-                            <span class="ico-check tamano_botones_1"></span>Aceptar
+                            <span class="ico-check tamano_botones_1"></span>{{vm.language.strings.Aceptar}}
                         </button>
                     </div>
                 </div>

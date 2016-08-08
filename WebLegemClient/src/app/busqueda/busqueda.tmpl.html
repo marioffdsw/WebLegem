@@ -11,11 +11,11 @@
 
                 <div class="opacidad-busqueda" ng-show="vm.toggle_avanzada" ng-click="vm.toggle_avanzada = false"></div>
                 <div class="contenedor_filtros z1">
-                    <p>Busqueda Avanzada</p>
+                    <p>{{vm.language.strings.BusquedaAvanzada}}</p>
                     <wlegem-filtro-busqueda></wlegem-filtro-busqueda>
 
                     <button class="btn_sin_ico btn_buscar_avanzada" ng-click="vm.toggle_avanzada = false">
-                        Buscar
+                        {{vm.language.strings.Buscar}}
                     </button>
 
                 </div>
@@ -31,7 +31,7 @@
                         <form class="box_input_busqueda_principal">
                             <div>
                                 <input name="busqueda" type="text" class="input_text_ico busqueda"
-                                       ng-model="vm.palabrasABuscar" placeholder="Escriba aquí su busqueda(Ejemplo:Decreto)"
+                                       ng-model="vm.palabrasABuscar" placeholder="{{vm.language.strings.EscribaBusqueda}}"
                                        maxlength="50" id="nombre" />
                             </div>
                             <div>
@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="res_bus">
-                            <p class="desc_res">Documentos encontrados</p>
+                            <p class="desc_res">{{vm.language.strings.DocumentosEncontrados}}</p>
                             <div>
                                 <wlegem-resultado-busqueda loquesea="vm.arregloDocs" predicate="vm.predicate" reverse="vm.reverse"></wlegem-resultado-busqueda>
                             </div>

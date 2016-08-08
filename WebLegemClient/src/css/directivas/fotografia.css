@@ -1,0 +1,34 @@
+﻿.contenido_fotografia{
+    display:flex;
+    flex-direction:column;
+}
+
+#botonera_fotografia{
+    display:flex;
+    margin-top:15px;
+    justify-content:flex-end;
+    width:100%;
+}
+
+#botonera_fotografia > button{
+    margin-left:15px;
+}
+#botonera_fotografia > button:first-child{
+    margin-left:0;
+}
+
+.canvas_container{
+    position:relative;
+    display:flex;
+    justify-content:center; 
+}
+
+.canvas_container:after{
+    content:"";
+    position:absolute;
+    top:40px;
+    left:85px;
+    height:170px;
+    width:150px;
+    border:2px solid #ffffff;
+}

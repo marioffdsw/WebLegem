@@ -5,10 +5,10 @@
         .module("WebLegemApp")
         .controller( "WlListaPermisosController", WlListaPermisosController );
 
-    WlListaPermisosController.$inject = [ "modulos" ];
-    function WlListaPermisosController( modulos ){
+    WlListaPermisosController.$inject = [ "modulos","language" ];
+    function WlListaPermisosController( modulos ,language){
         var vm = this;
-
+        vm.language = language;
         vm.modulos = modulos;
 
         return vm;

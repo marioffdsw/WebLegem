@@ -14,14 +14,14 @@
                        eliminar="vm.remover">
         </wl-admin-crud>
 
-        <label class="texto_labels">Nombre del tipo documento</label>
+        <label class="texto_labels">{{vm.language.strings.NombreTipoDocumento}}</label>
 
         <form>
             <input class="a_input"
-                    ng-disabled="!vm.editando || !vm.tipoDocSeleccionado"
-                    type="text"
-                    ng-model="vm.tipoDocSeleccionado.nombre"
-                    required placeholder="Ingrese nombre" />
+                   ng-disabled="!vm.editando || !vm.tipoDocSeleccionado"
+                   type="text"
+                   ng-model="vm.tipoDocSeleccionado.nombre"
+                   required placeholder="{{vm.language.strings.IngreseNombre}}" />
         </form>
 
         <wl-confirmacion editando="vm.editando"

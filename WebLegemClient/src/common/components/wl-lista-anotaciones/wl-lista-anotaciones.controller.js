@@ -5,14 +5,15 @@
         .module("WebLegemApp")
         .controller("WlListaAnotacionesController", WlListaAnotacionesController);
 
-    WlListaAnotacionesController.$inject = ["$scope"];
-    function WlListaAnotacionesController($scope) {
+    WlListaAnotacionesController.$inject = ["$scope", "language"];
+    function WlListaAnotacionesController($scope, language) {
         var vm = this;
         vm.mostrarInfo = mostrarInfo;
         vm.quitarSeleccion = quitarSeleccion;
         vm.itemSelected = itemSelected;
         vm.crearAnotacion = crearAnotacion;
         vm.selectMetodo = selectMetodo;
+        vm.language = language;
 
         vm.modalShown = false;
         vm.ban_visorPdf = false;

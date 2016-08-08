@@ -20,8 +20,10 @@
         }
     } // end directive
 
-
-    function WlegemSortBusquedaController(){
+    BusquedaController.$inject = ["language"]
+    function WlegemSortBusquedaController(language) {
+        vm = this;
+        vm.language = language;
       
     }
 

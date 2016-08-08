@@ -1,4 +1,4 @@
-﻿<div class="ca_label_busqueda">N anotaciones encotradas :</div>
+﻿<div class="ca_label_busqueda">{{vm.language.strings.NAnotacionesEncontradas}} :</div>
 
 <div class="box-contenido-la">
     <div class="lista-anotaciones" ng-repeat="i in [ {id:1,contenido:'hola mundo1'},
@@ -13,10 +13,10 @@
                 <div><span class="ico-bookmark-o"></span></div>
                 <div>
                     <div class="de-subcontenido">
-                        <a>{{ datos.tipoDocumento }} {{ datos.numero }} del {{ datos.fecha }}</a>
-                        <p>Entidad: <i>{{ datos.entidad }} </i></p>
-                        <p>Fecha de publicacion: <i>{{ datos.fecha  }} </i></p>
-                        <p>Tipo de Anotacion: <i>{{ datos.fecha  }} </i></p>
+                        <a>{{ datos.tipoDocumento }} {{ datos.numero }} {{vm.language.strings.del}} {{ datos.fecha }}</a>
+                        <p>{{vm.language.strings.Entidad}}: <i>{{ datos.entidad }} </i></p>
+                        <p>{{vm.language.strings.FechaPublicacion}}: <i>{{ datos.fecha  }} </i></p>
+                        <p>{{vm.language.strings.TipoAnotacion}}: <i>{{ datos.fecha  }} </i></p>
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
 
                     <label for="la_check_{{i.id}}"></label>
                 </div>
-                <button class="wla-detalles" ng-click="vm.mostrarInfo(i);$event.stopPropagation()">Detalles</button>
+                <button class="wla-detalles" ng-click="vm.mostrarInfo(i);$event.stopPropagation()">{{vm.language.strings.Detalles}}</button>
 
             </div>
 
@@ -38,7 +38,7 @@
 </div>
 
 <button class="btn_sin_ico" ng-click="vm.quitarSeleccion()" ng-show="vm.ban_itemSelected">
-    quitar seleccion
+    {{vm.language.strings.QuitarSeleccion}}
 </button>
 
 <!--ventana modal para info anotacion-->
@@ -47,11 +47,11 @@
     <div class="a-modal-contenido">
         <span class="ico-bookmark marron"></span>
         <div class="info-anotacion">
-            <a>{{ datos.tipoDocumento }} {{ datos.numero }} del {{ datos.fecha }}</a>
-            <p>Entidad: <i>{{ datos.entidad }} </i></p>
-            <p>Fecha de publicacion: <i>{{ datos.fecha  }} </i></p>
-            <p>Tipo de Anotacion: <i>{{ datos.fecha  }} </i></p>
-            <p class="desc-anotacion-modal">Descripcion: <i>{{vm.info_anotacion}}</i> </p>
+            <a>{{ datos.tipoDocumento }} {{ datos.numero }} {{vm.language.strings.del}} {{ datos.fecha }}</a>
+            <p>{{vm.language.strings.Entidad}}: <i>{{ datos.entidad }} </i></p>
+            <p><{{vm.language.strings.FechaPublicacion}}: <i>{{ datos.fecha  }} </i></p>
+            <p>{{vm.language.strings.TipoAnotacion}}: <i>{{ datos.fecha  }} </i></p>
+            <p class="desc-anotacion-modal">{{vm.language.strings.Descripcion}}: <i>{{vm.info_anotacion}}</i> </p>
         </div>
     </div>
 </wl-info>

@@ -1,15 +1,15 @@
 ﻿<div class="box_input_btn">
-    <input  type="text" 
-            class="input_text_btn"
-            maxlength="20" 
-            placeholder="Filtro"
-            ng-model="vm.filtro" />
+    <input type="text"
+           class="input_text_btn"
+           maxlength="20"
+           placeholder="{{vm.language.strings.Filtro}}"
+           ng-model="vm.filtro" />
     <button class="btn_cancel" title="Quitar filtro" ng-click="vm.filtro=''" ng-show="vm.filtro.length > 2">
         <span class="ico-plus"></span>
     </button>
 </div>
 
-<p class="texto_labels green bold">Usuarios</p>
+<p class="texto_labels green bold">{{vm.language.strings.Usuarios}}</p>
 <ul class="a_listado" style="width:100%;">
     <li ng-repeat="usuario in vm.lista | filter:vm.filtro" >
         <input type="radio" class="styled" id="a" name="a" />

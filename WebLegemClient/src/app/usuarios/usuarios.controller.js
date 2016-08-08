@@ -5,12 +5,13 @@
         .module("WebLegemApp")
         .controller("UsuariosController", UsuariosController);
 
-    UsuariosController.$inject = [ "$state" ];
-    function UsuariosController( $state ) {
+    UsuariosController.$inject = [ "$state","language" ];
+    function UsuariosController($state, language) {
         var vm = this;
         vm.activo = activo;
         vm.tabActivo = tabActivo;
         vm.lastTab;
+        vm.language = language;
 
         vm.$state = $state;
 

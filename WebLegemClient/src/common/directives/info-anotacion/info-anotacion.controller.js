@@ -6,8 +6,10 @@
         .module("WebLegemApp")
         .controller("infoAnotacionController", infoAnotacionController);
 
-    function infoAnotacionController() {
+    infoAnotacionController.$inject = ["language"]
+    function infoAnotacionController(language) {
         var vm = this;
+        vm.language = language;
         vm.cerrarDialogo = cerrarDialogo;
 
         function cerrarDialogo() {

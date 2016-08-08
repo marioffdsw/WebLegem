@@ -9,14 +9,14 @@
                     ui-sref="administracion.tipo-documento" ng-click="vm.activo($event)">
 
                     <span class="ico-files-o">
-                        <a>Tipo Documento</a>
+                        <a>{{vm.language.strings.TipoDocumento}}</a>
                     </span>
                 </li>
                 <li ng-class="vm.$state.current.name =='administracion.tipo-entidad' ? 'active_tab' : ''"
                     ui-sref="administracion.tipo-entidad" ng-click="vm.activo($event)">
 
                     <span class="ico-folder-open-o">
-                        <a>Tipo Entidad</a>
+                        <a>{{vm.language.strings.TipoEntidad}}</a>
                     </span>
                 </li>
 
@@ -24,14 +24,14 @@
                     ui-sref="administracion.entidad" ng-click="vm.activo($event)">
 
                     <span class="ico2-drawer">
-                        <a>Entidad</a>
+                        <a>{{vm.language.strings.Entidad}}</a>
                     </span>
                 </li>
                 <li ng-class="vm.$state.current.name =='administracion.tipo-entidad' ? 'active_tab' : ''"
                     ui-sref="administracion.tipo-anotacion" ng-click="vm.activo($event)">                   
 
                     <span class="ico2-drawer">
-                        <a>Tipo Anotacion</a>
+                        <a>{{vm.language.strings.TipoAnotacion}}</a>
                     </span>
                 </li>
             </ul>

@@ -12,8 +12,8 @@
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~2-->
     <div class="box_right">
-        <p ng-show="vm.subido">el archivo ha sido cargado en el servidor</p>
-        <p ng-show="!vm.subido">el archivo ha sido NO cargado en el servidor</p>
+        <p ng-show="vm.subido">{{vm.language.strings.ArchivoCargadoServidor}}</p>
+        <p ng-show="!vm.subido">{{vm.language.strings.ArchivoNoCargadoServidor}}</p>
         <wl-admin-crud objeto-seleccionado="vm.usuarioSeleccionado"
                        editando="vm.editando"
                        nuevo="vm.nuevo"
@@ -36,21 +36,21 @@
                 <button ng-show="vm.foto" class="btn_con_ico"
                         ng-click="vm.snapshot(); vm.foto = !vm.foto;"
                         ng-disabled="!vm.editando">
-                    <span class="ico-camera tamano_botones_1"></span>Tomar foto
+                    <span class="ico-camera tamano_botones_1"></span>{{vm.language.strings.TomarFoto}}
                 </button>
                 <button ng-show="!vm.foto" class="btn_con_ico" ng-click="vm.repetirFoto();vm.foto = !vm.foto;"
                         ng-disabled="!vm.editando">
-                    <span class="ico-camera tamano_botones_1"></span>Repetir foto
+                    <span class="ico-camera tamano_botones_1"></span>{{vm.language.strings.RepetirFoto}}
                 </button>
                 <button ng-show="!vm.foto" class="btn_con_ico" ng-click="vm.guardarFoto()"
                         ng-disabled="!vm.editando">
-                    <span class="ico-camera tamano_botones_1"></span>Guardar foto
+                    <span class="ico-camera tamano_botones_1"></span>{{vm.language.strings.GuardarFoto}}
                 </button>
             </div>
         </modal-dialog>
         <div class="box_duo_input">
             <div>
-                <p class="texto_labels green">Fotografia</p>
+                <p class="texto_labels green">{{vm.language.strings.Fotografia}}</p>
                 <div class="box_fotografia">
                     <div class="foto_usuarios">
                         <span class="ico-user" ng-show="!vm.trash"></span>
@@ -79,17 +79,17 @@
             </div>
             <div>
                 <div>
-                    <p class="texto_labels green">Nombres</p>
+                    <p class="texto_labels green">{{vm.language.strings.Nombres}}</p>
                     <input class="a_input" ng-model="vm.usuarioSeleccionado.nombre"
                             ng-disabled="!vm.editando" />
                 </div>
                 <div>
-                    <p class="texto_labels green">Apellidos</p>
+                    <p class="texto_labels green">{{vm.language.strings.Apellidos}}</p>
                     <input class="a_input" ng-model="vm.usuarioSeleccionado.apellido" 
                             ng-disabled="!vm.editando"/>
                 </div>
                 <div>
-                    <p class="texto_labels green">Nombre de Usuario</p>
+                    <p class="texto_labels green">{{vm.language.strings.NombreUsuario}}</p>
                     <input class="a_input" ng-model="vm.usuarioSeleccionado.nombreUsuario"
                             ng-disabled="!vm.editando" />
                 </div>
@@ -98,18 +98,18 @@
 
         <div class="box_duo_input">
             <div>
-                <p class="texto_labels green">Contraseña</p>
+                <p class="texto_labels green">{{vm.language.strings.Contrasena}}</p>
                 <input class="a_input" type="text" ng-model="vm.usuarioSeleccionado.contrasena" maxlength="20"
                         ng-disabled="!vm.editando"/>
                 <div id="widget_seguridad">
                     <div id="content_span">
                         <span></span><span></span><span></span><span></span><span></span>
                     </div>
-                    <p>Nivel de seguridad: {{vm.val_seguridad}} </p>
+                    <p>{{vm.language.strings.NivelSeguridad}}: {{vm.val_seguridad}} </p>
                 </div>
             </div>
             <div>
-                <p class="texto_labels green">Confirmar Contraseña</p>
+                <p class="texto_labels green">{{vm.language.strings.ConfirmarContrasena}}</p>
                 <input class="a_input" type="password" ng-model="vm.usuarioSeleccionado.contrasena"
                         ng-disabled="!vm.editando"/>
             </div>
@@ -117,12 +117,12 @@
 
         <div class="box_duo_input">
             <div>
-                <p class="texto_labels green">Correo Electronico</p>
+                <p class="texto_labels green">{{vm.language.strings.CorreoElectronico}}</p>
                 <input class="a_input" ng-model="vm.usuarioSeleccionado.correo" 
                         ng-disabled="!vm.editando"/>
             </div>
             <div>
-                <p class="texto_labels green">Rol del usuario</p>
+                <p class="texto_labels green">{{vm.language.strings.RolUsuario}}</p>
                 <div class="div_con_info">
                     <div class="a_select"><!--aqui debe haber un hack como en entida.html-->
                         <input class="a_select"
@@ -146,7 +146,7 @@
         <div class="box_duo_input">
 
             <div>
-                <p class="texto_labels green">Estado del usuario</p>
+                <p class="texto_labels green">{{vm.language.strings.EstadoUsuario}}</p>
                 <div class="contenedor_radios">
                     <span>
                         <input class="a_radio" id="rad1" type="radio" name="rad" checked 
@@ -154,7 +154,7 @@
                                 ng-model="vm.usuarioSeleccionado.estado"
                                 ng-value="'A'" />
                         <label for="rad1">
-                            Activo
+                            {{vm.language.strings.Activo}}
                         </label>
                     </span>
                     <span>
@@ -162,7 +162,7 @@
                                 ng-disabled="!vm.editando"
                                 ng-model="vm.usuarioSeleccionado.estado"
                                 ng-value="'I'" />
-                        <label for="rad2">Bloqueado</label>
+                        <label for="rad2">{{vm.language.strings.Bloqueado}}</label>
                     </span>
                 </div>
             </div>
@@ -173,5 +173,5 @@
                          aceptar="vm.aceptar"
                          cancelar="vm.cancelar">
         </wl-confirmacion>
-    </div
+    </div>
 </div>

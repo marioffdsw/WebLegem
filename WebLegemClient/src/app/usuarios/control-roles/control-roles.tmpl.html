@@ -14,15 +14,15 @@
                 eliminar="vm.remover">
         </wl-admin-crud>
 
-        <p class="texto_labels green bold">Nombre</p>
-        <input  class="a_input"
-                type="text"
-                required
-                placeholder="Ingrese Nombre"
-                ng-disabled="!vm.editando || !vm.rolSeleccionado"                
-                ng-model="vm.rolSeleccionado.nombre" />
+        <p class="texto_labels green bold">{{vm.language.strings.Nombre}}</p>
+        <input class="a_input"
+               type="text"
+               required
+               placeholder="{{vm.language.strings.IngreseNombre}}"
+               ng-disabled="!vm.editando || !vm.rolSeleccionado"
+               ng-model="vm.rolSeleccionado.nombre" />
 
-        <p class="texto_labels green bold">Permisos</p>
+        <p class="texto_labels green bold">{{vm.language.strings.Permisos}}</p>
 
         
         <wl-lista-permisos editando="vm.editando"

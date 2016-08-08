@@ -5,9 +5,10 @@
         .module("WebLegemApp.GestionDocumental")
         .controller("DocumentoController", DocumentoController);
 
-    DocumentoController.$inject = ["TipoDocumentoResource", "EntidadService", "DocumentosResource", "FileUploader", "$state"];
-    function DocumentoController(TipoDocumentoService, EntidadService, DocumentoResource,  FileUploader, $state) {
+    DocumentoController.$inject = ["TipoDocumentoResource", "EntidadService", "DocumentosResource", "FileUploader", "$state","language"];
+    function DocumentoController(TipoDocumentoService, EntidadService, DocumentoResource,  FileUploader, $state,language) {
         var vm = this;
+        vm.language = language;
         vm.entidadSeleccionada = { id: 0 };
         vm.tipoDocSeleccionado = { id: 0 };
         vm.aceptar = aceptar;

@@ -5,9 +5,10 @@
         .module("WebLegemApp")
         .controller("AnotacionController", AnotacionController);
 
-    AnotacionController.$inject = [ "$state" ];
-    function AnotacionController( $state ) {
+    AnotacionController.$inject = [ "$state", "language"];
+    function AnotacionController( $state, language ) {
         var vm = this;
+        vm.language = language;
         vm.activo = activo;
         vm.tabActivo = tabActivo;
         vm.lastTab;

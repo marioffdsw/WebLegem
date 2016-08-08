@@ -1,7 +1,7 @@
 ﻿<div class="box_father animatio ng-enter">
     <div class="box_right">
         <label class="texto_labels bold">
-            Anotaciones existentes
+            {{vm.language.strings.AnotacionesExistentes}}
         </label>
         <hr class="divisor_gestion_documental" />
     </div>
@@ -9,14 +9,14 @@
        
 <div class="box_father">
     <div class="box_left flex-3">
-        <label class="ca_label_busqueda">Vista previa del documento:</label>
+        <label class="ca_label_busqueda">{{vm.language.strings.VistaPreviaDocumento}}:</label>
         <iframe ng-show="true"
                 src="http://docs.google.com/gview?url=http://victorpimentel.com/stuff/rubik.pdf&embedded=true"
                 class="de-vpdf none-mt" frameborder="0"></iframe>
     </div>
 
     <div class="box_right">
-        <label class="msj-error"> No se encontro concordancias de anotaciones </label>
+        <label class="msj-error">  {{vm.language.strings.NoEncontroConcordanciasAnotaciones}}</label>
         <wl-lista-ano-encontrado>  </wl-lista-ano-encontrado>
     </div>
 </div>
@@ -27,10 +27,10 @@
         <div class="divisor-pasos"><div></div></div>
         <div class="controles-crear-anotacion">
             <button class="btn_con_ico" ui-sref="gestion-documental.crear-documento.subir-archivo">
-                <span class="ico-chevron-left tamano_botones_1"></span>Atras
+                <span class="ico-chevron-left tamano_botones_1"></span>{{vm.language.strings.Atras}}
             </button>
             <button class="btn_con_ico inverso" ng-click="vm.validarDocumento()">
-                Siguiente<span class="ico-chevron-right tamano_botones_1 derecha"></span>
+                {{vm.language.strings.Siguiente}}<span class="ico-chevron-right tamano_botones_1 derecha"></span>
             </button>
         </div>
         <!--<p>{{ vm.error }}</p> creo q no sirve pa nada -->

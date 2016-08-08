@@ -2,40 +2,40 @@
     <!--------------------------------------------------------------------------------------------------------->
     <li ng-click="vm.predicate = 'entidad.nombre'; vm.reverse= !vm.reverse;"
         ng-class="vm.predicate == 'entidad.nombre' ? 'active_filter':'' ">
-        Entidad
+        {{vm.language.strings.Entidad}}
         <span class="ico-sort-alpha-asc" ng-show="vm.predicate == 'entidad.nombre' && !vm.reverse"></span>
         <span class="ico-sort-alpha-desc" ng-show="vm.predicate == 'entidad.nombre' && vm.reverse"></span>
     </li>
     <!--------------------------------------------------------------------------------------------------------->
     <li ng-click="vm.predicate = 'tipoDocumento.nombre'; vm.reverse= !vm.reverse;"
         ng-class="vm.predicate == 'tipoDocumento.nombre' ? 'active_filter':'' ">
-        Tipo Documento
+        {{vm.language.strings.TipoDocumento}}
         <span class="ico-sort-alpha-asc" ng-show="vm.predicate == 'tipoDocumento.nombre' && !vm.reverse"></span>
         <span class="ico-sort-alpha-desc" ng-show="vm.predicate == 'tipoDocumento.nombre' && vm.reverse"></span>
     </li>
     <!--------------------------------------------------------------------------------------------------------->
     <li ng-click="vm.predicate = 'numero'; vm.reverse= !vm.reverse;"
         ng-class="vm.predicate == 'numero' ? 'active_filter':'' ">
-        Número
+        {{vm.language.strings.Numero}}
         <span class="ico-sort-asc" ng-show="vm.predicate == 'numero' && vm.reverse"></span>
         <span class="ico-sort-desc" ng-show="vm.predicate == 'numero' && !vm.reverse"></span>
     </li>
     <!--------------------------------------------------------------------------------------------------------->
     <li ng-click="vm.predicate = 'fechaPublicacion'; vm.reverse= !vm.reverse;"
         ng-class="vm.predicate == 'fechaPublicacion' ? 'active_filter':'' ">
-        Año publicación
+        {{vm.language.strings.AnoPublicacion}}
         <span class="ico-sort-asc" ng-show="vm.predicate == 'fechaPublicacion' && vm.reverse"></span>
         <span class="ico-sort-desc" ng-show="vm.predicate == 'fechaPublicacion' && !vm.reverse"></span>
     </li>
     <!--------------------------------------------------------------------------------------------------------->
     <li ng-click="vm.predicate = ''; vm.reverse = false;"
         ng-class="vm.predicate == '' || vm.predicate == undefined ? 'active_filter' : ''">
-        Relevancia
+        {{vm.language.strings.Relevancia}}
     </li>
     <!--------------------------------------------------------------------------------------------------------->
     <li class="sort-avanzada"
         ng-click="vm.busqueda = !vm.busqueda"
         ng-class="vm.busqueda ? 'activo' : ''">
-        Busqueda Avanzada
+        {{vm.language.strings.BusquedaAvanzada}}
     </li>
 </ul>

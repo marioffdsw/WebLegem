@@ -1,9 +1,9 @@
-﻿<div class="a_news" ng-controller="Homero as vm">
+﻿<div class="a_news">
 
     <div class="titulo_news">
 
         <div>
-            <p>Actualidad Documental</p>
+            <p>{{vm.language.strings.ActualidadDocumental}}</p>
         </div>
 
     </div>
@@ -17,7 +17,7 @@
                             style="max-width: 300px; margin-right: 5px;">
                     <select ng-model="vm.entidadFiltro" ng-change="vm.cargarDocumentos()">
                         <option ng-repeat="entidad in vm.entidades" ng-value="entidad.nombre">{{entidad.nombre}}</option>
-                        <option ng-value="null">Ninguna</option>
+                        <option ng-value="null">{{vm.language.strings.Ninguna}}</option>
                     </select>
                 </div>       
             </div>            
@@ -36,13 +36,13 @@
                 </div>
 
                 <div class="subcontenido_tarjeta">
-                    <a>Entidad: <i>{{ documento.entidad }} </i> | </a>
-                    <a>Fecha: <i>{{ documento.fecha  }} </i> | </a>
+                    <a>{{vm.language.strings.Entidad}}: <i>{{ documento.entidad }} </i> | </a>
+                    <a>{{vm.language.strings.Fecha}}: <i>{{ documento.fecha  }} </i> | </a>
                 </div>
 
                 <div class="control_tarjeta">
                     <a href="http://localhost:50555/api/Files/{{ documento.archivo }}">
-                        <span class="ico-download"></span>Descargar
+                        <span class="ico-download"></span>{{vm.language.strings.Descargar}}
                     </a>
                 </div>
             </div>        

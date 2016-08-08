@@ -6,11 +6,11 @@
         .controller("crearAnotacionController", crearAnotacionController)    
         
 
-    crearAnotacionController.$inject = ["_"];
+    crearAnotacionController.$inject = ["_", "language"];
 
-    function crearAnotacionController(_) {
+    function crearAnotacionController(_, language) {
         var vm = this;
-
+        vm.language = language;
         vm.nextStep = nextStep;
         vm.backStep = backStep;
         vm.crearAnotacion = crearAnotacion;

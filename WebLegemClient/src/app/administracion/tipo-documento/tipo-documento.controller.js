@@ -5,10 +5,10 @@
         .module("WebLegemApp.Administracion")
         .controller("TipoDocumentoController", TipoDocumentoController);
 
-    TipoDocumentoController.$inject = [ "TipoDocumentoResource"  ];
-    function TipoDocumentoController( TipoDocumentoResource  ) {
+    TipoDocumentoController.$inject = ["TipoDocumentoResource", "language"];
+    function TipoDocumentoController(TipoDocumentoResource, language) {
         var vm = this;
-
+        vm.language = language;
 
 
         /**********************************************************************************

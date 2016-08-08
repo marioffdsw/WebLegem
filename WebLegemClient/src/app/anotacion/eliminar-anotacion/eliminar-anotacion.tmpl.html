@@ -3,7 +3,7 @@
 <!---------------------------------------------------------------------------------------------------------------------Paso1-->
 <div class="box_father" ng-show="vm.index==0">
     <div class="box_left">
-        <label class="ca_label_busqueda">seleccione el documento del que quiere eliminar anotaciones:</label>
+        <label class="ca_label_busqueda">{{vm.language.strings.SeleccioneDocumentoEliminarAnotacione}}:</label>
         <wl-buscar-doc>  </wl-buscar-doc>
     </div>
 
@@ -15,7 +15,7 @@
 
 <div class="box_father" ng-show="vm.index==1">
     <div class="box_left flex-3" ng-show="vm.ban_ver_pdf">
-        <label class="ca_label_busqueda">Vista previa del documento:</label>
+        <label class="ca_label_busqueda">{{vm.language.strings.VistaPreviaDocumento}}:</label>
         <iframe ng-show="vm.togglePdf=true"
                 src="http://docs.google.com/gview?url=http://victorpimentel.com/stuff/rubik.pdf&embedded=true"
                 class="de-vpdf none-mt" frameborder="0"></iframe>
@@ -36,18 +36,18 @@
             <button class="btn_toggle vista-previa-ed" 
                     ng-class="vm.ban_ver_pdf? 'activo' :''"
                     ng-click="vm.ban_ver_pdf = !vm.ban_ver_pdf" ng-show="vm.index==1">
-                Vista Previa
+                {{vm.language.strings.VistaPrevia}}
             </button>
             <span class="span-fill"> </span>
 
             <button class="btn_sin_ico" ng-click="vm.backStep()" ng-hide="vm.index==0">
-                Atras
+                {{vm.language.strings.Atras}}
             </button>
             <button class="btn_sin_ico" ng-click="vm.nextStep()" ng-hide="vm.index==1">
-                Siguiente
+                {{vm.language.strings.Siguiente}}
             </button>
             <button class="btn_sin_ico" ng-click="vm.ban_confirmacion=true" ng-show="vm.index==1">
-                Eliminar Anotacion
+                {{vm.language.strings.EliminarAnotacion}}
             </button>      
         </div>
     </div>
@@ -57,11 +57,11 @@
     <wl-info show="vm.ban_confirmacion" title="Confirmación">
         <div class="a-modal-contenido">
             <span class="ico-question-circle gris"></span>
-            <div>Se va a eliminar N anotaciones, esta seguro?</div>
+            <div>{{vm.language.strings.EliminarNAnotacionesSeguro}}</div>
         </div>
         <div class="a-modal-confirmacion">
-            <button value="confirmar" ng-click="vm.eliminarAnotacion()">Confirmar</button>
-            <button ng-click="vm.ban_confirmacion=false">Cancelar</button>
+            <button value="confirmar" ng-click="vm.eliminarAnotacion()">{{vm.language.strings.Confirmar}}</button>
+            <button ng-click="vm.ban_confirmacion=false">{{vm.language.strings.Cancelar}}</button>
         </div>
     </wl-info>
 
@@ -69,7 +69,7 @@
     <wl-info show="vm.ban_exito_eliminacion" title="Exito">
         <div class="a-modal-contenido">
             <span class="ico-check-circle verde"></span>
-            <div>Se han eliminado las anotaciones con exito </div>
+            <div>{{vm.language.strings.EliminadoAnotacionesExito}}</div>
         </div>
     </wl-info>
 

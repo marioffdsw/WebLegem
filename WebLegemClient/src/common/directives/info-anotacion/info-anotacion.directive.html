@@ -5,7 +5,7 @@
         <div class='wl-modal-barra-titulo'>
             <div class="titulo">
                 <span class="ico-sticky-note-o">
-                    <a>Anotaciones</a>
+                    <a>{{vm.language.strings.Anotaciones}}</a>
                 </span>
             </div>
             <button class="btn_ico" title="Cerrar dialogo" ng-click="hideModal()">
@@ -19,13 +19,13 @@
                     <span class="ico-file-text-o"></span>
                 </div>
                 <div>
-                    <p>{{datos.tipoDocumento }} {{datos.numero }} del {{datos.fecha }}</p>
-                    <p> Entidad Emisora: <i>{{datos.entidad}}</i></p>
-                    <p> Fecha de publicacion: <i>{{datos.fecha}}</i></p>
+                    <p>{{datos.tipoDocumento }} {{datos.numero }} {{vm.language.strings.del}} {{datos.fecha }}</p>
+                    <p> {{vm.language.strings.EntidadEmisora}}: <i>{{datos.entidad}}</i></p>
+                    <p> {{vm.language.strings.FechaPublicacion}}: <i>{{datos.fecha}}</i></p>
                 </div>
             </div>
 
-            <div class="desc_res" style="margin-bottom:15px;">Se encuentra anotado por:</div>
+            <div class="desc_res" style="margin-bottom:15px;">{{vm.language.strings.EncuentraAnotado}}:</div>
 
             <div class="tarjeta_anotacion" ng-repeat="i in [1,2,3,4,5,6]">
                 <div>
@@ -33,13 +33,13 @@
                 </div>
                 <div>
                     <div class="titulo_tarjeta anotacion">
-                        <a ng-click="vm.ver(documento.archivo)">{{ datos.tipoDocumento }} {{ datos.numero }} del {{ datos.fecha }}</a>
+                        <a ng-click="vm.ver(documento.archivo)">{{ datos.tipoDocumento }} {{ datos.numero }} {{vm.language.strings.del}} {{ datos.fecha }}</a>
                     </div>
                     <div class="subcontenido_tarjeta anotacion">
-                        <p>Entidad: <i>{{ datos.entidad }} </i> | Fecha: <i>{{ datos.fecha  }} </i> | </p>
+                        <p>{{vm.language.strings.Entidad}}: <i>{{ datos.entidad }} </i> | {{vm.language.strings.Fecha}}: <i>{{ datos.fecha  }} </i> | </p>
                     </div>
                     <div class="tipo_anotacion">
-                        <p>Tipo de anotacion: <i>Derogá</i> </p>
+                        <p>{{vm.language.strings.TipoAnotacion}}: <i>{{vm.language.strings.Deroga}}</i> </p>
                     </div>
                 </div>
             </div>

@@ -9,13 +9,13 @@
     </div>
 
     <div class="subcontenido_tarjeta">
-        <a>Entidad: <i>{{ documento.entidad.nombre }} </i> | </a>
-        <a>Fecha: <i>{{ documento.fechaPublicacion | date: 'dd/MM/yyyy' }} </i> | </a>
+        <a>{{vm.language.strings.Entidad}}: <i>{{ documento.entidad.nombre }} </i> | </a>
+        <a>{{vm.language.strings.Fecha}}: <i>{{ documento.fechaPublicacion | date: 'dd/MM/yyyy' }} </i> | </a>
     </div>
 
     <div class="control_tarjeta">
         <a href="http://localhost:50555/api/Files/{{ documento.archivo }}">
-            <span class="ico-download"></span>Descargar
+            <span class="ico-download"></span>{{vm.language.strings.Descargar}}
         </a>
     </div>
 </div>
@@ -37,16 +37,16 @@
     </div>
 
     <div class="subcontenido_tarjeta">
-        <a>Entidad: <i>{{ documento.entidad }} </i> | </a>
-        <a>Fecha: <i>{{ documento.fecha  }} </i> | </a>
+        <a>{{vm.language.strings.Entidad}}: <i>{{ documento.entidad }} </i> | </a>
+        <a>{{vm.language.strings.Fecha}}: <i>{{ documento.fecha  }} </i> | </a>
     </div>
 
     <div class="control_tarjeta">
         <a ng-click="vm.infoAnotacion = !vm.infoAnotacion; vm.anotaciones = documento; ">
-            <span class="ico-sticky-note-o"></span>Anotado
+            <span class="ico-sticky-note-o"></span>{{vm.language.strings.Anotado}}
         </a>
         <a href="http://localhost:50555/api/Files/{{ documento.archivo }}">
-            <span class="ico-download"></span>Descargar
+            <span class="ico-download"></span>{{vm.language.strings.Descargar}}
         </a>
 
     </div>

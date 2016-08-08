@@ -4,21 +4,16 @@
 
     angular
         .module("WebLegemApp")
-        .directive("modalDialog", modalDialog);
+        .directive("wlFotografia", wlFotografia);
 
-    function modalDialog() {
+    function wlFotografia() {
         return {
             templateUrl: "common/directives/fotografia/fotografia.directive.html",
             restrict: 'E',
-            controller: "controlUsuariosController",
+            controller: "fotografiaController",
             controllerAs: "vm",
-            transclude: true, // we want to insert custom content inside the directive
-            replace: true, // Replace with the template below
-
             scope: {
-                show: "=show"/*,
-                width: "=width",
-                height: "=height"*/
+                show: "=show"
             },
 
             bindToController: true

@@ -9,7 +9,11 @@
     function wlegemFooter() {
         return {
             templateUrl: "common/directives/footer/wlegem-footer.directive.html",
-            restrict: "E"
+            restrict: "E",
+            controller: "WLegemFooterController",
+            controllerAs: "vm",
+            scope: {}
+            
         }
     } // end
 

@@ -9,7 +9,10 @@
     function wlegemMiniFooter() {
         return {
             templateUrl: "common/directives/mini-footer/wlegem-mini-footer.directive.html",
-            restrict: "E"
+            restrict: "E",
+            controller: "miniFooterController",
+            controllerAs: "vm",
+            scope:{}
         }
     } // end
 

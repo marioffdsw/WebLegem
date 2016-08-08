@@ -6,10 +6,10 @@
         .module("WebLegemApp")
         .controller("wlegemResultadoBusquedaController", wlegemResultadoBusquedaController);
 
-    wlegemResultadoBusquedaController.$inject = [ "fileId", "$state" ];
-    function wlegemResultadoBusquedaController( fileId, $state ) {
+    wlegemResultadoBusquedaController.$inject = [ "fileId", "$state","language" ];
+    function wlegemResultadoBusquedaController( fileId, $state, language ) {
         var vm = this;
-
+        vm.language = language;
         vm.ver = ver;
 
         console.log( vm.arregloDocs );

@@ -5,9 +5,10 @@
         .module("WebLegemApp")
         .controller("WlListaEntidadesController", wlListaEntidadesController);
 
-    wlListaEntidadesController.$inject = [];
-    function wlListaEntidadesController() {
-        var vm = this;        
+    wlListaEntidadesController.$inject = ["language"];
+    function wlListaEntidadesController(language) {
+        var vm = this;
+        vm.language = language;
         vm.seleccionarObjeto = seleccionarObjeto;
         vm.checkear = checkear;
 
