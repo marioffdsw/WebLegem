@@ -66,6 +66,9 @@
   <ItemGroup>
     <Compile Include="Accion\Accion.cs" />
     <Compile Include="Accion\AccionFactory.cs" />
+    <Compile Include="Anotacion\Anotacion.cs" />
+    <Compile Include="Anotacion\AnotacionDAO.cs" />
+    <Compile Include="Anotacion\AnotacionFactory.cs" />
     <Compile Include="Archivo\Archivo.cs" />
     <Compile Include="Archivo\ArchivoDAO.cs" />
     <Compile Include="BaseDAO.cs" />
@@ -75,7 +78,9 @@
     <Compile Include="Documento\DocumentoConContenidoFactory.cs" />
     <Compile Include="Documento\DocumentoConContenidoDAO.cs" />
     <Compile Include="Documento\DocumentoConContenidoQueryObject.cs" />
+    <Compile Include="Documento\DocumentoDAO.cs" />
     <Compile Include="Documento\DocumentoFactory.cs" />
+    <Compile Include="Documento\DocumentoQueryObject.cs" />
     <Compile Include="Entidad\Entidad.cs" />
     <Compile Include="Entidad\EntidadDAO.cs" />
     <Compile Include="Entidad\EntidadFactory.cs" />

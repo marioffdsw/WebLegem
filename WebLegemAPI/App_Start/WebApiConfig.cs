@@ -12,10 +12,10 @@ namespace WebLegemAPI
         public static void Register(HttpConfiguration config)
         {
             config.DependencyResolver = new NinjectResolver();
-            
+
             // Web API configuration and services
 
-            // Web API routes
+            // Web API routes            
             config.MapHttpAttributeRoutes();
 
             config.Formatters.JsonFormatter.SerializerSettings.ContractResolver =
@@ -27,7 +27,7 @@ namespace WebLegemAPI
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
-            );
+            );            
         }
     }
 }

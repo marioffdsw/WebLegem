@@ -87,8 +87,7 @@ namespace WebLegemDAL.DAL
             td.Direction = ParameterDirection.InputOutput;
             td.Value = entidad;
 
-            OracleParameter id = cmd.Parameters.Add(":td", OracleDbType.Int32);
-            id.UdtTypeName = UdtTypeName;
+            OracleParameter id = cmd.Parameters.Add(":td", OracleDbType.Int32);            
             id.Value = entidad.Id;
 
             cmd.ExecuteNonQuery();

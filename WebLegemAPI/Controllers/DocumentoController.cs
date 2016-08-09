@@ -14,20 +14,23 @@ namespace WebLegemAPI.Controllers
     [EnableCorsAttribute("*", "*", "*")]
     public class DocumentoController : ApiController
     {
-        private IDataAccessObject<DocumentoConContenido> DAO;
+        private IDataAccessObject<DocumentoConContenido> documentoConContenidoDao;
+        private IDataAccessObject<Documento> documentosDao;
         private IGestorDeConsultas<DocumentoConContenidoQueryObject, DocumentoConContenido> gestorConsultas;
 
         public DocumentoController( IDataAccessObject<DocumentoConContenido> dao,
-            IGestorDeConsultas<DocumentoConContenidoQueryObject, DocumentoConContenido> gestor ) : base()
+            IGestorDeConsultas<DocumentoConContenidoQueryObject, DocumentoConContenido> gestor,
+            IDataAccessObject<Documento> documentosDao) : base()
         {
-            this.DAO = dao;
+            this.documentosDao = documentosDao;
+            this.documentoConContenidoDao = dao;
             this.gestorConsultas = gestor;
         } // fin contructor
         
         [EnableQuery()]       
         public IQueryable<DocumentoConContenido> Get()
         {            
-            return DAO.GetAll();
+            return documentoConContenidoDao.GetAll();
         } // end GET Action Method     
 
         [EnableQuery()]
@@ -46,7 +49,24 @@ namespace WebLegemAPI.Controllers
 
         public DocumentoConContenido Post( DocumentoConContenido doc )
         {
-            return DAO.Create( doc );
+            return documentoConContenidoDao.Create( doc );
         } // fin action method POST
+
+        [HttpGet]
+        [EnableQuery]
+        [ResponseType( typeof(Documento) )]
+        [Route("api/Identificadores")]
+        public IHttpActionResult BuscarEnTodosLosIdentificadores()
+        {
+            try
+            {
+                return Ok( documentosDao.GetAll() );
+            }
+            catch (Exception exception)
+            {
+
+                return InternalServerError( exception );
+            }            
+        } // end action method Get
     } // fin class DocumentoController
 } // fin namespace

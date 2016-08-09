@@ -338,6 +338,9 @@
     <Content Include="Views\Object Views\documentos_sin_contenido_view.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Views\Object Views\documentos_view.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Views\Object Views\entidades_view.sql">
       <SubType>Content</SubType>
     </Content>

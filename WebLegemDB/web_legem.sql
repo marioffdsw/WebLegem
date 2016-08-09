@@ -30,6 +30,7 @@
 @@'User Defined Types/Objects/documento_contenido_typ.sql'
 @@'Views/Object Views/documentos_contenido_view.sql'
 @@'Views/Object Views/documentos_sin_contenido_view.sql'
+@@'Views/Object Views/documentos_view.sql'
 
 
 @@'Sequences/tipos_documento_seq.sql'
