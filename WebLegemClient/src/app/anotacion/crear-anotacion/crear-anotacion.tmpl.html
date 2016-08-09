@@ -1,4 +1,4 @@
-﻿<div ng-show="vm.ban_manual">
+﻿<div>
     <!-- pasos para anotacion manual -->
     <wl-progreso id="anotacionmanual" pasos="vm.pasos" actual="vm.actual" id-progreso="anotacionmanual"></wl-progreso>
 
@@ -6,7 +6,7 @@
     <div class="box_father ani-pasos" ng-show="vm.index==0">
         <div class=" box_left">
             <label class="ca_label_busqueda">{{vm.language.strings.SeleccionarDocumentoAnota}}:</label>
-            <wl-buscar-doc>  </wl-buscar-doc>
+            <wl-buscar-doc ban-mostrar="true">  </wl-buscar-doc>
         </div>
 
         <div class="box_right">
@@ -18,34 +18,17 @@
     <!---------------------------------------------------------------------------------------------------------------------Paso2-->
 
     <div class="box_father ani-pasos" ng-show="vm.index==1">
-        <div class="box_left">
-            <label class="ca_label_busqueda" ng-if="!vm.ban_crear_doc">{{vm.language.strings.SeleccioneDocumentoAnotara}}:</label>
-            <label class="ca_label_busqueda" ng-if="vm.ban_crear_doc">{{vm.language.strings.CompleteDatosCrearDocumento}}:</label>
-
-            <wl-buscar-doc crear-doc="vm.ban_crear_doc">  </wl-buscar-doc>
+        <div class="box_left flex-3">
+            <label class="ca_label_busqueda">Vista previa del documento:</label>
+            <iframe ng-show="true"
+                    src="http://docs.google.com/gview?url=http://victorpimentel.com/stuff/rubik.pdf&embedded=true"
+                    class="de-vpdf none-mt" frameborder="0"></iframe>
         </div>
         <div class="box_right">
-            <label class="msj-error">
-                {{vm.language.strings.NoEncontroNingunDocumentoIdentificacionDeseaCrear}}
-                <a ng-click="vm.ban_crear_doc = true" href="" title="Crear documento"> {{vm.language.strings.NuevoDocumento}}</a>
-            </label>
-
-            <wl-lista-doc-encontrado ng-hide="vm.ban_crear_doc" ban-crear-anotacion="vm.ban_crear_ano">  </wl-lista-doc-encontrado>
-
-            <div class="generic-box-vertical" ng-if="vm.ban_crear_doc || vm.ban_crear_ano">
-                <div>
-                    <label class="texto_labels">{{vm.language.strings.TipoAnotacion}}:</label>
-                    <div class="a_select">
-                        <select type="text" placeholder="{{vm.language.strings.EscribaEntidadEmisora}}" ng-model="vm.tipoDocumentoAux"
-                                ng-options="tipoDocumento.nombre as tipoDocumento.nombre for tipoDocumento in vm.tiposDocumento| orderBy: 'nombre'"></select>
-                    </div>
-                </div>
-                <div>
-                    <label class="texto_labels">{{vm.language.strings.DescripcionDeAnotacion}}:</label>
-                    <textarea class="a_text_area"></textarea>
-                </div>
-            </div>
-
+            <label class="msj-error"> No se encontro concordancias de anotaciones. </label>
+            <a ng-click="vm.ban_crear_anotacion = true" href="" title="Crear anotacion">Crear Anotación</a>
+            <wl-lista-ano-encontrado>  </wl-lista-ano-encontrado>     
+            <asociar-documento show="vm.ban_crear_anotacion"></asociar-documento>
         </div>
     </div>
 
@@ -81,20 +64,9 @@
 </wl-info>
 
 
-<!--dialogo para respuesta de anotacion asistida-->
 <!-- ---------------------------------------------------------------------- -->
-<wl-info show="vm.ban_wait_response" title="{{vm.language.strings.Confirmacion}}">
-    <div class="a->
-    <div class="a-modal-contenido">
-        <span class="ico-question gris"></span>
-        <div>{{vm.language.strings.DeseaUtilizarAsistenteAnotaciones}}</div>
-    </div>
-    <div class="a-modal-confirmacion">
-        <button value="confirmar" ng-click="vm.aceptarAsistida()">{{vm.language.strings.Confirmar}}</button>
-        <button ng-click="vm.negarAsistida()">{{vm.language.strings.ContinuarManualmente}}</button>
-    </div>
-</wl-info>
 
-<div ng-hide="vm.ban_manual">
+
+<!--<div ng-hide="true">
     <wl-anotacion-asistida ban-manual="vm.ban_manual"></wl-anotacion-asistida>
-</div>
+</div>-->

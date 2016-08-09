@@ -1,0 +1,20 @@
+﻿.resumen_asociar_doc{
+   
+}
+
+.resumen_asociar_doc div{
+    align-items:center;
+}
+
+.resumen_asociar_doc > div:first-child,
+.resumen_asociar_doc > div:last-child{
+    border: 2px solid #3c6690;
+    padding:10px;
+    margin:10px;
+}
+
+.flecha_rad{
+    display:flex;
+    align-items:center;
+    height:100%;
+}

@@ -242,10 +242,10 @@
 
             switch (v) {
                 case "fuente1":
-                    obj.style.fontSize = 120 + "%";
+                    obj.style.fontSize = 200 + "%";
                     break;
                 case "fuente2":
-                    obj.style.fontSize = 110 + "%";
+                    obj.style.fontSize = 150 + "%";
                     break;
                 case "fuente3":
                     obj.style.fontSize = 100 + "%";
