@@ -5,17 +5,17 @@
         .module("WebLegemApp")
         .controller("WlListaAnoEncontradoController", WlListaAnoEncontradoController);
 
-    WlListaAnoEncontradoController.$inject = [];
-    function WlListaAnoEncontradoController() {
+    WlListaAnoEncontradoController.$inject = ["language"];
+    function WlListaAnoEncontradoController(language) {
         var vm = this;
-
-        vm.next = next;
-
+        vm.language = language;
         vm.quitarSeleccion = quitarSeleccion;
         vm.itemSelected = itemSelected;
         vm.crearAnotacion = crearAnotacion;
+        vm.descartarAno = descartarAno;
+        vm.anoSelected = anoSelected;
         
-        vm.ban_visorPdf = false;
+        vm.banAso = false;//bandera asociacion
         vm.ban_itemSelected = false;
         vm.ho_ = [];
 
@@ -35,13 +35,18 @@
         }
 
         function crearAnotacion() {
-            vm.visorPdf = true;
-        }
-    
-        function next() {
-            vm.nextCallback();
+            
         }
 
+        function descartarAno() {
+            alert("anotacion descartada");
+        }
+
+        function anoSelected(item) {
+            //item = item.id;//por aqui se pasan los datos de la seleccion asia el modal
+            vm.banAso = true;
+        }
+   
         return vm;
     }
 })();

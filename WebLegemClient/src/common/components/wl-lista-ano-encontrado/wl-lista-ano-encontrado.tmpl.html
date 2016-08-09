@@ -1,66 +1,28 @@
-﻿<div class="ca_label_busqueda">Se encontro N {{n}} corcodancias de anotaciones:</div>
+﻿<div class="ca_label_busqueda">{{vm.language.strings.NAnotacionesEncontradas}} :</div>
 
-<div class="box-contenido-lista-de">
-    <div class="lista-doc-encontrado" ng-repeat="i in [ {id:1,contenido:'hola mundo1'},
+<div class="box-contenido-la">
+    <div class="lista-anotaciones" ng-repeat="i in [ {id:1,contenido:'hola mundo1'},
                                                         {id:2,contenido:'hola mundo2'},
-                                                        {id:3,contenido:'hola mundo3'}]">
-        <div ng-hide="vm.ho_[{{i.id}}]" ng-click="vm.itemSelected(i);">
-            <div class="ico-lde"><span class="ico-bookmark-o"></span></div>
-            <div class="lde_contenido">
-                <div class="de-subcontenido">
-                    <p>Tipo de documento: <i>{{ datos.entidad }} </i></p>
-                    <p>Entidad emisora: <i>{{ datos.entidad }} </i></p>
-                    <p>Numero de Documento: <i>{{ datos.entidad }} </i></p>
-                    <p>Fecha de publicacion: <i>{{ datos.fecha  }} </i></p>
-                    <p>Tipo de Anotacion: <i>{{ datos.fecha  }} </i></p>
+                                                        {id:3,contenido:'hola mundodddddddddddddddddddddddd'}]">
+
+        <div ng-hide="vm.ho_[{{i.id}}]" ng-click="vm.anoSelected(i);">
+            <div>
+                <div><span class="ico-bookmark-o"></span></div>
+                <div>
+                    <div class="de-subcontenido">
+                        <a>{{ datos.tipoDocumento }} {{ datos.numero }} {{vm.language.strings.del}} {{ datos.fecha }}</a>
+                        <p>{{vm.language.strings.Entidad}}: <i>{{ datos.entidad }} </i></p>
+                        <p>{{vm.language.strings.FechaPublicacion}}: <i>{{ datos.fecha  }} </i></p>
+                        <p>{{vm.language.strings.TipoAnotacion}}: <i>{{ datos.fecha  }} </i></p>
+                    </div>
                 </div>
             </div>
-
-            <div class="btn-cancel-anotacion" ng-show="vm.ban_itemSelected"
-                 ng-click="vm.quitarSeleccion(); $event.stopPropagation();vm.togglePdf=false" title="Deshacer selección">
-                <span class="ico-chevron-left"></span>
+            <div class="right-subcontenido-la">
+                <button class="wla-detalles" ng-click="vm.descartarAno(i);$event.stopPropagation()">Descartar</button>
             </div>
+
         </div>
     </div>
 </div>
 
-<!-------------------------------------------------------------------------------------------------------------------------------------------->
-
-<div class="generic-box-horizontal flex-1 derecha" style="margin-top:10px">
-
-    <button class="btn_sin_ico" ng-click="vm.banAso = !vm.banAso" ng-class="vm.togglePdf ? 'activo' : '' " ng-show="vm.ban_itemSelected">
-        Asociar documento
-    </button>
-
-    <button class="btn_sin_ico" ng-click="vm.togglePdf = !vm.togglePdf" ng-class="vm.togglePdf ? 'activo' : '' " ng-show="vm.ban_itemSelected"
-            style="margin-left:10px">
-        Descartar anotación
-    </button>
-</div>
-
-<!-------------------------------------------------------------------------------------------------------------------------------------------->
-
-<div class="form-crear-anotacion" ng-show="vm.ban_itemSelected">
-    <div class="generic-box-vertical">
-        <div>
-            <label class="texto_labels">Tipo de Anotación:</label>
-            <div class="a_select">
-                <select type="text" placeholder="Escriba entidad emisora" ng-model="vm.tipoDocumentoAux"
-                        ng-options="tipoDocumento.nombre as tipoDocumento.nombre for tipoDocumento in vm.tiposDocumento| orderBy: 'nombre'"></select>
-            </div>
-        </div>
-        <div>
-            <label class="texto_labels">Descripcion de la Anotación:</label>
-            <textarea class="a_text_area"></textarea>
-        </div>
-    </div>
-</div>
-<div class="generic-box-horizontal flex-1 derecha" style="margin-top:10px">
-
-    <button class="btn_sin_ico" ng-click="vm.banAso = !vm.banAso" ng-class="vm.togglePdf ? 'activo' : '' " ng-show="vm.ban_itemSelected">
-        Guardar Anotacion
-    </button>
-</div>
-
-
-<asociar-documento show="vm.banAso"></asociar-documento>
+<asociar-documento show="vm.banAso" ng-if="vm.banAso"></asociar-documento>

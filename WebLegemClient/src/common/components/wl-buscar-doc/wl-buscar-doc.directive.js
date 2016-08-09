@@ -17,7 +17,10 @@
                 editando: "=",
                 aceptarCallback: "=aceptar",
                 cancelarCallback: "=cancelar",
-                crearDoc: "=crearDoc"
+                crearDoc: "=crearDoc",
+                cancelCrearDoc: "=cancelCrearDoc",
+                banMostrar: "=banMostrar",
+                crearAno: "=crearAno"
 
             }
         };

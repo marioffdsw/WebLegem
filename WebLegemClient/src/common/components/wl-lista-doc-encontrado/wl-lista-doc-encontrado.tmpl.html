@@ -15,19 +15,23 @@
                     <p>Fecha de publicacion: <i>{{ datos.fecha  }} </i></p>
                 </div>
             </div>
-            <div class="btn-cancel-seleccion" ng-show="vm.ban_itemSelected" 
+            <div class="btn-cancel-seleccion" ng-show="vm.ban_itemSelected"
                  ng-click="vm.quitarSeleccion(); $event.stopPropagation();vm.togglePdf=false">
                 <span class="ico-times"></span>
             </div>
         </div>
     </div>
-    
+
 </div>
 
-<button class="btn_toggle" ng-click="vm.togglePdf = !vm.togglePdf" ng-class="vm.togglePdf ? 'activo' : '' " ng-show="vm.ban_itemSelected">
-    Vista previa
-</button>
-
+<div class="generic-box-horizontal">
+    <button class="btn_toggle" ng-click="vm.togglePdf = !vm.togglePdf" ng-class="vm.togglePdf ? 'activo' : '' " ng-show="vm.ban_itemSelected">
+        Vista previa
+    </button>
+    <button style="margin-left:10px;" class="btn_sin_ico" ng-if="vm.crearAnotacion" ng-show="vm.ban_itemSelected" ng-click="vm.crearAnotacion()">
+        Crear Anotacion
+    </button>
+</div>
 
 <iframe ng-show="vm.togglePdf"
         src="http://docs.google.com/gview?url=http://victorpimentel.com/stuff/rubik.pdf&embedded=true"

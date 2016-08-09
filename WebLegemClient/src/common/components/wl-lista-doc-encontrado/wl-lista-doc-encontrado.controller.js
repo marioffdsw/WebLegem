@@ -14,7 +14,7 @@
         vm.quitarSeleccion = quitarSeleccion;
         vm.itemSelected = itemSelected;
         vm.crearAnotacion = crearAnotacion;
-        
+
         vm.ban_visorPdf = false;
         vm.ban_itemSelected = false;
         vm.ho_ = [];
@@ -30,15 +30,15 @@
             vm.ban_itemSelected = true;
             vm.banCrearAnotacion = true;
             for (var i = 1; i <= 3 ; i++) {
-               
-                if (i != item.id)vm.ho_[i] = true;
+
+                if (i != item.id) vm.ho_[i] = true;
             }
         }
 
         function crearAnotacion() {
-            vm.visorPdf = true;
+            
         }
-    
+
         function next() {
             vm.nextCallback();
         }
