@@ -76,4 +76,6 @@
 --@@'Triggers/View Triggers/eliminar_tipo_anotacion_trig.sql'
 
 
-
+--@@'Triggers/View Triggers/crear_anotacion_trig.sql'
+--@@'Triggers/View Triggers/actualizar_anotacion_trig.sql'
+--@@'Triggers/View Triggers/eliminar_anotacion_trig.sql'

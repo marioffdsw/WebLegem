@@ -107,6 +107,9 @@
     <Content Include="Procedures\crear_tipo_entidad_pro.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Sequences\anotacion_seq.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Sequences\archivo_seq.sql">
       <SubType>Content</SubType>
     </Content>
@@ -215,6 +218,9 @@
     <Content Include="test_data_usuarios.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Triggers\View Triggers\actualizar_anotacion_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Triggers\View Triggers\actualizar_rol_trig.sql">
       <SubType>Content</SubType>
     </Content>
@@ -231,6 +237,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Triggers\View Triggers\actualizar_usuario_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Triggers\View Triggers\crear_anotacion_trig.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Triggers\View Triggers\crear_doc_contenido_trig.sql">
@@ -252,6 +261,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Triggers\View Triggers\crear_usuario_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Triggers\View Triggers\eliminar_anotacion_trig.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Triggers\View Triggers\eliminar_entidad_trig.sql">

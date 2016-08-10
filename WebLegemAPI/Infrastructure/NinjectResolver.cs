@@ -58,6 +58,7 @@ namespace WebLegemAPI.Infrastructure
             kernel.Bind<IDataAccessObject<Usuario>>().To<UsuarioDAO>().InRequestScope();
             kernel.Bind<IDataAccessObject<TipoAnotacion>>().To<TipoAnotacionDao>().InRequestScope();
             kernel.Bind<IDataAccessObject<Documento>>().To<DocumentoDAO>().InRequestScope();
+            kernel.Bind<IDataAccessObject<Anotacion>>().To<AnotacionDAO>().InRequestScope();
 
             // bindings para gestor de consultas
             kernel.Bind<IGestorDeConsultas<DocumentoConContenidoQueryObject, DocumentoConContenido>>().To<DocumentoConContenidoDAO>().InRequestScope();
