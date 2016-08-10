@@ -64,6 +64,23 @@
     padding-left:5px;
 }
 
+.link_tarjeta{
+    color:#0f745b;
+    text-decoration:none;
+    cursor:pointer;
+    font-size:small;
+    font-family:"lato-Regular";
+    position:relative;
+}
+.link_tarjeta:hover{
+    color:#444;
+}
+.link_tarjeta > span{
+    position:absolute;
+    left:-14px;
+    top:1px;
+}
+
 .control_tarjeta > a:first-child{
     margin-right:20px;
 }

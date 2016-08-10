@@ -13,8 +13,8 @@
             
             scope: {
                 nextCallback: "=next",
-                banCrearAnotacion: "=banCrearAnotacion",
-                crearAnotacion: "=crearAnotacion"
+                crearAnotacion: "=crearAnotacion",
+                seleccionarCallback: "=seleccionar"
             },
             controller: "WlListaDocEncontradoController",
             controllerAs: "vm",

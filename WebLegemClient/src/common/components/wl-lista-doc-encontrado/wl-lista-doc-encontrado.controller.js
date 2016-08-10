@@ -20,19 +20,14 @@
         vm.ho_ = [];
 
         function quitarSeleccion() {
-            vm.ban_itemSelected = false;
-            for (var i = 1; i <= 3 ; i++) {
-                vm.ho_[i] = false;
-            }
+            //vm.ban_itemSelected = false;
+            //for (var i = 1; i <= 3 ; i++) {
+            //    vm.ho_[i] = false;
+            //}
         }
 
         function itemSelected(item) {
-            vm.ban_itemSelected = true;
-            vm.banCrearAnotacion = true;
-            for (var i = 1; i <= 3 ; i++) {
-
-                if (i != item.id) vm.ho_[i] = true;
-            }
+            vm.seleccionarCallback();
         }
 
         function crearAnotacion() {

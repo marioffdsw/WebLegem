@@ -14,14 +14,10 @@
             controllerAs: "vm",
             bindToController: true,
             scope: {
-                editando: "=",
-                aceptarCallback: "=aceptar",
-                cancelarCallback: "=cancelar",
-                crearDoc: "=crearDoc",
-                cancelCrearDoc: "=cancelCrearDoc",
-                banMostrar: "=banMostrar",
-                crearAno: "=crearAno"
-
+                atrasCallback: "=atras",
+                crearCallback: "=crear",
+                buscarCallback: "=buscar",
+                crearDoc: "=crearDoc",//flag para habilitar la creacion de un doc
             }
         };
     }

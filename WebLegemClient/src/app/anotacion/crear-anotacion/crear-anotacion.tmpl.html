@@ -21,7 +21,7 @@
         <div class="box_left flex-3">
             <label class="ca_label_busqueda">Vista previa del documento:</label>
             <iframe ng-show="true"
-                    src="http://docs.google.com/gview?url=http://victorpimentel.com/stuff/rubik.pdf&embedded=true"
+                    src="recurso.pdf"
                     class="de-vpdf none-mt" frameborder="0"></iframe>
         </div>
         <div class="box_right">
@@ -36,7 +36,7 @@
 
     <div class="box_father">
         <div class="box_right">
-            <div class="divisor-pasos"><div></div></div>
+            <div class="divisor-pasos" style="margin:10px 0;"><div></div></div>
             <div class="controles-crear-anotacion">
                 <button class="btn_sin_ico" ng-click="vm.backStep()" ng-hide="vm.index==0">
                     {{vm.language.strings.Atras}}

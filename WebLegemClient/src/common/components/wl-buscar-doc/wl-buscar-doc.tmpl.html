@@ -1,47 +1,40 @@
-﻿<div ng-show="vm.banMostrar">
-    <!----------------------------------------------------------------------------------------------------------------------->
-    <div>
-        <label class="subtitulos_labels animacion_filtro" ng-show="!vm.entidadEmisora ">Entidad emisora</label>
-        <div class="a_select">
-            <select type="text" ng-options="entidad.nombre as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'"
-                    ng-model="vm.entidadEmisoraAux"></select>
-        </div>
+﻿<!----------------------------------------------------------------------------------------------------------------------->
+<div>
+    <label class="subtitulos_labels animacion_filtro" ng-show="!vm.entidadEmisora ">Entidad emisora</label>
+    <div class="a_select">
+        <select type="text" ng-options="entidad.nombre as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'"
+                ng-model="vm.entidadEmisoraAux"></select>
     </div>
-    <!----------------------------------------------------------------------------------------------------------------------->
-    <label class="subtitulos_labels animacion_filtro" ng-show="!vm.tipoDocumento">Tipo de documento</label>
-    <div>
-        <div class="a_select">
-            <select type="text" placeholder="Escriba entidad emisora" ng-model="vm.tipoDocumentoAux"
-                    ng-options="tipoDocumento.nombre as tipoDocumento.nombre for tipoDocumento in vm.tiposDocumento| orderBy: 'nombre'"></select>
-        </div>
+</div>
+<!----------------------------------------------------------------------------------------------------------------------->
+<label class="subtitulos_labels animacion_filtro" ng-show="!vm.tipoDocumento">Tipo de documento</label>
+<div>
+    <div class="a_select">
+        <select type="text" placeholder="Escriba entidad emisora" ng-model="vm.tipoDocumentoAux"
+                ng-options="tipoDocumento.nombre as tipoDocumento.nombre for tipoDocumento in vm.tiposDocumento| orderBy: 'nombre'"></select>
     </div>
-    <!----------------------------------------------------------------------------------------------------------------------->
-    <label class="subtitulos_labels animacion_filtro" ng-show="!vm.numero">Número de documento</label>
-    <div>
-        <input type="text" class="a_input" maxlength="10"
-               name="numero" id="numero" ng-model="vm.numeroAux"
-               placeholder="Escriba número de documento" />
-    </div>
-    <!----------------------------------------------------------------------------------------------------------------------->
-    <label class="subtitulos_labels animacion_filtro" ng-show="!vm.anioPublicacion ">Año de publicación</label>
-    <div>
-        <input type="text" class="a_input" maxlength="4"
-               name="anioPublicacion" id="anioPublicacion" ng-model="vm.anioPublicacionAux"
-               placeholder="Escriba año de publicación" />
-    </div>
-    <!----------------------------------------------------------------------------------------------------------------------->
-    <div class="generic-box-horizontal flex-1">
-        <div>
-            <button class="btn_sin_ico no-animate" ng-if="!vm.crearDoc">Buscar</button>
-        </div>
-        <div>
-            <button class="btn_sin_ico no-animate" style="margin-right:10px" ng-if="vm.crearDoc" ng-click="vm.banMostrar = false; vm.crearAno = true;
-                    vm.crearDoc = false;">
-                Crear
-            </button>
-        </div>
-        <div>
-            <button class="btn_sin_ico no-animate" ng-if="vm.crearDoc" ng-click="vm.crearDoc = false;vm.cancelCrearDoc = true;">Cancelar</button>
-        </div>
-    </div>
+</div>
+<!----------------------------------------------------------------------------------------------------------------------->
+<label class="subtitulos_labels animacion_filtro" ng-show="!vm.numero">Número de documento</label>
+<div>
+    <input type="text" class="a_input" maxlength="10"
+           name="numero" id="numero" ng-model="vm.numeroAux"
+           placeholder="Escriba número de documento" />
+</div>
+<!----------------------------------------------------------------------------------------------------------------------->
+<label class="subtitulos_labels animacion_filtro" ng-show="!vm.anioPublicacion ">Año de publicación</label>
+<div>
+    <input type="text" class="a_input" maxlength="4"
+           name="anioPublicacion" id="anioPublicacion" ng-model="vm.anioPublicacionAux"
+           placeholder="Escriba año de publicación" />
+</div>
+<!----------------------------------------------------------------------------------------------------------------------->
+<div class="generic-box-horizontal flex-1 derecha" style="margin-top:15px;">
+    <button class="btn_sin_ico no-animate" ng-if="!vm.crearDoc" ng-click="vm.buscar();">Buscar</button>
+
+    <button class="btn_sin_ico no-animate" ng-if="vm.crearDoc" ng-click="vm.atras();">Atras</button>
+
+    <button class="btn_sin_ico no-animate" ng-if="vm.crearDoc" ng-click="vm.crear();" style="margin-left:10px">
+        Crear
+    </button>
 </div>
