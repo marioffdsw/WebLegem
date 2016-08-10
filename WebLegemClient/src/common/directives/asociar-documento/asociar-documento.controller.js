@@ -1,5 +1,4 @@
-﻿
-(function () {
+﻿(function () {
     "use strict";
 
     angular
@@ -8,36 +7,75 @@
     asociarDocumentoController.$inject=["language"]
     function asociarDocumentoController(language) {
         var vm = this;
+        var url;
         vm.language = language;
-
-        vm.ban_nuevo_doc = false;
-        vm.ban_buscar_doc = true;
-        vm.ban_mostrar_buscador = true;
-        vm.ban_anotacion = false;
+        vm.ban_buscar = false;
 
         vm.cerrarDialogo = cerrarDialogo;
-        vm.crearDocumento = crearDocumento;
-        vm.nuevoDocumento =nuevoDocumento;
+        vm.nuevoDocumento = nuevoDocumento;
+        vm.aceptarAnotacion = aceptarAnotacion;
+        vm.aceptarProcesando = aceptarProcesando;
+        vm.atrasResumen = atrasResumen;//atras del resumen
 
+        //metodo del wl-lista-doc-encontrado
+        vm.seleccionarDoc = seleccionarDoc;
+
+        //metodos del wl-buscar-doc
+        vm.atrasBuscar = atrasBuscar;
+        vm.crearBuscar = crearBuscar;
+        vm.buscarBuscar = buscarBuscar;
+
+        //include templates
+        vm.vista1 = "common/directives/asociar-documento/template/lista_documentos.html";
+        vm.vista2 = "common/directives/asociar-documento/template/form_crear_doc.html";
+        vm.vista3 = "common/directives/asociar-documento/template/resumen_crear_anotacion.html";
+        vm.vista4 = "common/directives/asociar-documento/template/procesando.html";
+        vm.vistas = vm.vista1;
+
+        //----------------------------------------------------------------------
         function cerrarDialogo() {
             vm.show = false;
         }
-
         //----------------------------------------------------------------------
-
         function nuevoDocumento() {
-            vm.ban_nuevo_doc = true;
-            vm.ban_buscar_doc = false;
+            vm.vistas = vm.vista2;
         }
+        //----------------------------------------------------------------------
+        function aceptarAnotacion() {
+            //codigo para crear una anotacion;
+            vm.vistas = vm.vista4;//mensaje de exito o =(
+        }
+        //----------------------------------------------------------------------
+        function aceptarProcesando() {
+            cerrarDialogo();
+        }
+
 
         //----------------------------------------------------------------------
-
-
-        function crearDocumento() {//resive 4 parametros id del documento
-            //crear documento
-            //mientras se crear mostrar mensaje a la view
-            //finalizar la creacion y actualizar la vista para la seleccion del doc
+        function seleccionarDoc() {
+            vm.vistas = vm.vista3;
+            url = vm.vista1;
         }
+
+
+        //----------------------------------------------------------------------
+        function atrasResumen() {//atras del resumen
+            vm.vistas = url;
+        }
+        //----------------------------------------------------------------------
+        function atrasBuscar() {//atras del wl-buscar-doc
+            vm.vistas = vm.vista1;
+        }
+        //----------------------------------------------------------------------
+        function crearBuscar() {//crear del wl-buscar-doc
+            vm.vistas = vm.vista3;
+            url = vm.vista2;
+        }
+        //----------------------------------------------------------------------
+        function buscarBuscar() {//buscar del wl-buscar-doc
+            vm.ban_buscar = true;
+        }
+        //----------------------------------------------------------------------
                 
     } // end controller
 })();

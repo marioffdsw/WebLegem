@@ -1,0 +1,32 @@
+﻿<div class="box_father ani-pasos">
+
+    <div class=" box_left">
+        <label class="ca_label_busqueda">
+            {{vm.language.strings.SeleccioneDocumentoAnotara}}:
+        </label>
+        <wl-buscar-doc buscar="vm.buscarBuscar"></wl-buscar-doc>
+    </div>
+
+    <div class="box_right">
+        <!--mensaje de error si no se encuentra coinsididencias-->
+        <label class="msj-error" ng-if="!vm.ban_buscar">
+            No se encontro ningun documento con esa identificacion, desea crear un
+            <a ng-click="vm.nuevoDocumento();" href="" title="Crear documento"> nuevo documento</a>
+        </label>
+
+        <div class="dibujo_busqueda" ng-if="!vm.ban_buscar">
+            <!--ng-if="!vm.errorMessage && vm.documentosEncontrados.length < 1">-->
+            <span class="escudo-udenar"></span>
+        </div>
+
+        <div class="generic-box-horizontal flex-1 derecha" ng-if="vm.ban_buscar" style="margin-bottom:10px;">
+            <button class="btn_sin_ico" ng-click="vm.nuevoDocumento();">
+                Nuevo
+            </button>
+        </div>
+
+        <wl-lista-doc-encontrado ng-if="vm.ban_buscar" seleccionar="vm.seleccionarDoc">  </wl-lista-doc-encontrado>
+    </div>
+
+</div>
+

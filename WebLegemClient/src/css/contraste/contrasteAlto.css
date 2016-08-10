@@ -3,7 +3,7 @@
 
 .tapiz {
     /*background-image: url('../../recursos/header/dark_Tire.png');*/
-    background-color:rgba(0,0,0,0.67);
+    background-color:rgba(0,0,0,0.67) !important;
 }
 
 .tapiz_contenido{

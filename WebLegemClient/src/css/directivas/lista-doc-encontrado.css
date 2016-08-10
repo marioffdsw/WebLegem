@@ -31,10 +31,19 @@
         border-bottom: 1px solid #999;
     }
 
+    .vista_previa_toggle{
+        visibility:hidden;
+    }
 
-        .lista-doc-encontrado > div:hover {
+        .lista-doc-encontrado > div:hover{
             background:rgba(39, 111, 154, 0.25);
         }
+
+        .lista-doc-encontrado > div:hover > .vista_previa_toggle{
+            visibility:visible;
+        }
+
+
 
 .ico-lde span:before {
     font-size: 40px;

@@ -9,15 +9,20 @@
     function WlBuscarDocController() {
         var vm = this;
 
-        vm.aceptar = aceptar;
-        vm.cancelar = cancelar;
+        vm.atras = atras;
+        vm.crear = crear;
+        vm.buscar = buscar;
 
-        function aceptar() {
-            vm.aceptarCallback();
+        function atras() {
+            vm.atrasCallback();
         }
 
-        function cancelar() {
-            vm.cancelarCallback();
+        function crear() {
+            vm.crearCallback();
+        }
+
+        function buscar() {
+            vm.buscarCallback();
         }
 
         return vm;
