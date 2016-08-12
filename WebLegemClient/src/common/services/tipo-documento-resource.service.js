@@ -3,7 +3,7 @@
 
     angular
         .module("common.services")
-        .factory("TipoDocumentoResource", TipoDocumentoResource);
+        .factory( "TipoDocumentoResource", TipoDocumentoResource );
 
     TipoDocumentoResource.$inject = ["$resource", "serviceUrl"];
     function TipoDocumentoResource($resource, serviceUrl) {

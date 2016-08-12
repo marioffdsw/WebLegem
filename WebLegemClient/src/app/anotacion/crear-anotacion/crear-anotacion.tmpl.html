@@ -1,17 +1,16 @@
-﻿<div>
-    <!-- pasos para anotacion manual -->
-    <wl-progreso id="anotacionmanual" pasos="vm.pasos" actual="vm.actual" id-progreso="anotacionmanual"></wl-progreso>
+﻿<div>    
 
     <!---------------------------------------------------------------------------------------------------------------------Paso1-->
     <div class="box_father ani-pasos" ng-show="vm.index==0">
-        <div class=" box_left">
+        <div class="box_left">
             <label class="ca_label_busqueda">{{vm.language.strings.SeleccionarDocumentoAnota}}:</label>
-            <wl-buscar-doc ban-mostrar="true">  </wl-buscar-doc>
+            <wl-buscar-doc documentos="vm.documentos"></wl-buscar-doc>
         </div>
 
         <div class="box_right">
             <label class="msj-error"> {{vm.language.strings.NoEncontroDocumentoConIdentificacion}} </label>
-            <wl-lista-doc-encontrado>  </wl-lista-doc-encontrado>
+            <wl-lista-doc-encontrado documentos="vm.documentos"
+                    seleccionar="vm.seleccionarDocumentoAnotante"></wl-lista-doc-encontrado>
         </div>
     </div>
 
@@ -41,7 +40,7 @@
                 <button class="btn_sin_ico" ng-click="vm.backStep()" ng-hide="vm.index==0">
                     {{vm.language.strings.Atras}}
                 </button>
-                <button class="btn_sin_ico" ng-click="vm.nextStep()" ng-hide="vm.index==1">
+                <button class="btn_sin_ico" ng-click="vm.nextStep()" ng-hide="vm.index==0 || true">
                 {{vm.language.strings.Siguiente}}  
                 </button>
                 <button class="btn_sin_ico" ng-click="vm.crearAnotacion()" ng-show="vm.index==1">
@@ -62,11 +61,3 @@
         <div>{{vm.language.strings.SeHaCreadoAnotacion }}</div>
     </div>
 </wl-info>
-
-
-<!-- ---------------------------------------------------------------------- -->
-
-
-<!--<div ng-hide="true">
-    <wl-anotacion-asistida ban-manual="vm.ban_manual"></wl-anotacion-asistida>
-</div>-->

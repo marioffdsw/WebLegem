@@ -14,12 +14,12 @@
             scope: {
                 nextCallback: "=next",
                 crearAnotacion: "=crearAnotacion",
-                seleccionarCallback: "=seleccionar"
+                seleccionarCallback: "=seleccionar",
+                documentosEncontrados: "=documentosEncontrados"
             },
             controller: "WlListaDocEncontradoController",
             controllerAs: "vm",
             bindToController: true
-
         };
     }
 })();

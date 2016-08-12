@@ -5,7 +5,7 @@
         .module("WebLegemApp")
         .directive("wlListaAnoEncontrado", wlListaAnoEncontrado);
 
-    wlListaDocEncontrado.$inject = [];
+    wlListaAnoEncontrado.$inject = [];
     function wlListaAnoEncontrado() {
         return {
             templateUrl: "common/components/wl-lista-ano-encontrado/wl-lista-ano-encontrado.tmpl.html",

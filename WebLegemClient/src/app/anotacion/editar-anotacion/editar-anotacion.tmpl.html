@@ -61,7 +61,7 @@
             <button class="btn_sin_ico" ng-click="vm.backStep()" ng-hide="vm.index==0">
                 {{vm.language.strings.Atras}}
             </button>
-            <button class="btn_sin_ico" ng-click="vm.nextStep()" ng-hide="vm.index==1">
+            <button class="btn_sin_ico" ng-click="vm.nextStep()" ng-hide="vm.index==1 | true">
                 {{vm.language.strings.Siguiente}}
             </button>
             <button class="btn_sin_ico" ng-click="vm.ban_exito_edicion=true" ng-show="vm.index==1">

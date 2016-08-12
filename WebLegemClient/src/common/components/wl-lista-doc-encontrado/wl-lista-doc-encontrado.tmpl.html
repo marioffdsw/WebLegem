@@ -3,24 +3,25 @@
 
 
 <div class="box-contenido-lista-de">
-    <div class="lista-doc-encontrado" ng-repeat="i in [ {id:1,contenido:'hola mundo1'},
-                                                        {id:2,contenido:'hola mundo2'},
-                                                        {id:3,contenido:'hola mundo3'}]">
-        <div ng-hide="vm.ho_[{{i.id}}]" ng-click="vm.itemSelected(i);">
+    <div class="lista-doc-encontrado" ng-repeat="documento in vm.documentosEncontrados"
+            ng-hide="!vm.isTheSelectedDocument( documento ) && vm.docSeleccionado != undefined">
+        <div ng-click="vm.selectItem(documento);">
             <div class="ico-lde"><span class="ico-file-text-o"></span></div>
             <div class="lde_contenido">
                 <div class="de-subcontenido">
-                    <a>{{ i.contenido }} {{ datos.numero }} del {{ datos.fecha }}</a>
+                    <a>{{ datos.contenido }} {{ datos.numero }} del {{ datos.fecha }}</a>
                     <p>Entidad: <i>{{ datos.entidad }} </i></p>
                     <p>Fecha de publicacion: <i>{{ datos.fecha  }} </i></p>
                 </div>
             </div>
 
             <div >
-                <a class="link_tarjeta" ng-show="!vm.togglePdf" ng-click="vm.togglePdf = !vm.togglePdf ; $event.stopPropagation();">
+                <a class="link_tarjeta" ng-show="!vm.isTheSelectedDocument( documento);"
+                   ng-click="vm.mostrarVistaPrevia( documento, $event );">
                     <span class="ico-eye"></span>Vista previa
                 </a>
-                <a class="link_tarjeta" ng-show="vm.togglePdf" ng-click="vm.togglePdf = !vm.togglePdf ; $event.stopPropagation();">
+                <a class="link_tarjeta" ng-show="vm.isTheSelectedDocument( documento);"
+                   ng-click="vm.ocultarVistaPrevia( documento, $event );">
                     <span class="ico-eye-slash"></span>Vista previa
                 </a>
             </div>
@@ -29,6 +30,6 @@
 
 </div>
 
-<iframe ng-show="vm.togglePdf"
-        src="http://docs.google.com/gview?url=http://victorpimentel.com/stuff/rubik.pdf&embedded=true"
+<iframe ng-if="vm.togglePdf"
+        src="{{ vm.serviceUrl + '/Files/' + vm.docSeleccionado.archivo }}"
         class="de-vpdf" frameborder="0"></iframe>

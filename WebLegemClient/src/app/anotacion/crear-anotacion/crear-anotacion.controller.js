@@ -15,6 +15,9 @@
         vm.backStep = backStep;
         vm.crearAnotacion = crearAnotacion;
 
+        vm.documentos;
+        vm.seleccionarDocumentoAnotante = seleccionarDocumentoAnotante;
+        vm.documentoAnotante;
 
         vm.ban_exito_anotacion;
         vm.ban_crear_doc = false; //flag para habilitar la creacion de un doc cuando no se encuentra resultados
@@ -29,7 +32,7 @@
         //------------------------------------------------------------------------------------------------------------------
 
         function crearAnotacion() {
-            //TODO llenar metodo anotacion
+            // TODO llenar metodo anotacion
             vm.ban_exito_anotacion = true;
         }
 
@@ -48,6 +51,11 @@
             if (vm.index > 0) vm.actual[0].titulo = vm.pasos[vm.index - 1].titulo;
             vm.index = (_.map(vm.pasos, function (num) { return num.titulo; }).indexOf(vm.actual[0].titulo));
         }
+
+        function seleccionarDocumentoAnotante( documentoAnotante ) {
+            vm.documentoAnoatante = documentoAnotante;
+            nextStep();
+        } // end function seleccionarDocumentoAnotante
         
         return vm;
 

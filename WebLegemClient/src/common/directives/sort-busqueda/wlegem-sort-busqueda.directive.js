@@ -4,8 +4,7 @@
 
     angular
         .module("WebLegemApp")
-        .directive("wlegemSortBusqueda", wlegemSortBusqueda)
-        .controller("WlegemSortBusquedaController", WlegemSortBusquedaController);
+        .directive("wlegemSortBusqueda", wlegemSortBusqueda)        
 
     function wlegemSortBusqueda() {
         return {
@@ -18,13 +17,6 @@
             controllerAs: "vm",
             bindToController: true
         }
-    } // end directive
-
-    BusquedaController.$inject = ["language"]
-    function WlegemSortBusquedaController(language) {
-        vm = this;
-        vm.language = language;
-      
-    }
+    } // end directive    
 
 })();
