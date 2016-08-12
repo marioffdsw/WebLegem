@@ -3,10 +3,7 @@
 <div class="box-contenido-la">
     <div class="lista-anotaciones" ng-repeat="i in [ {id:1,contenido:'hola mundo1'},
                                                         {id:2,contenido:'hola mundo2'},
-                                                        {id:3,contenido:'hola mundodddddddddddddddddddddddd
-         jaklsdjlkasjdlk aslkdjalskdj aslkdjalksdjlaksdjlaksdjaslk alksdjalksdj3
-         dddddddddddddddjaklsdjlkasjdlk aslkdjalskdj aslkdjalksdjlaksdjlaksdjaslk alksdjalksdj3
-         dddddddddddddddjaklsdjlkasjdlk aslkdjalskdj aslkdjalksdjlaksdjlaksdjaslk alksdjalksdj3'}]">
+                                                        {id:3,contenido:'hola mundodddddddddddd'}]">
 
         <div ng-hide="vm.ho_[{{i.id}}]" ng-click="vm.selectMetodo(i);">
             <div>
@@ -21,25 +18,13 @@
                 </div>
             </div>
             <div class="right-subcontenido-la">
-                <div class="checkbox_container">
-                    <input id="la_check_{{i.id}}"
-                           name="la_check"
-                           class="a_checkbox"
-                           type="checkbox" />
-
-                    <label for="la_check_{{i.id}}"></label>
-                </div>
-                <button class="wla-detalles" ng-click="vm.mostrarInfo(i);$event.stopPropagation()">{{vm.language.strings.Detalles}}</button>
-
+                <button class="wla-detalles" ng-if="!vm.banEliminar" ng-click="vm.editar(i);$event.stopPropagation()">Editar</button>
+                <button class="wla-detalles" ng-if="vm.banEliminar" ng-click="vm.eliminar(i);$event.stopPropagation()">Eliminar</button>
             </div>
 
         </div>
     </div>
 </div>
-
-<button class="btn_sin_ico" ng-click="vm.quitarSeleccion()" ng-show="vm.ban_itemSelected">
-    {{vm.language.strings.QuitarSeleccion}}
-</button>
 
 <!--ventana modal para info anotacion-->
 

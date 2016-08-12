@@ -42,10 +42,11 @@
             GuardarCambios: "Save changes",
             VistaPrevia: "Preview",
             SeGuardaronCambionExito:"Changes saved successfully",
+            ModificarAnotacionSeguro: "it will edit this annotation, Are you sure?",
             //--------------Eliminar anotacion----------//
             SeleccioneDocumentoEliminarAnotacione: "Select the document you want to delete annotations",
             EliminarAnotacion: "Delete Annotation",
-            EliminarNAnotacionesSeguro:"It will remove N annotations,Are you sure?",
+            EliminarAnotacionSeguro:"It will remove this annotation,Are you sure?",
             Confirmar: "Confirm",
             EliminadoAnotacionesExito: "Annotations has been removed successfully",
              

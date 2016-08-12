@@ -149,6 +149,8 @@
 .generic-box-vertical{
     display:flex;
     flex-direction:column;
+    width:100%;
+    justify-content:flex-start;
 }
 
 .generic-box-vertical.space-between{

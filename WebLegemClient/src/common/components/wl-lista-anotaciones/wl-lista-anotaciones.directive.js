@@ -11,7 +11,9 @@
             templateUrl: "common/components/wl-lista-anotaciones/wl-lista-anotaciones.tmpl.html",
             restrict: "E",
             scope: {
-                metodo: "="
+                banEliminar: "=banEliminar",
+                eliminarCallback: "=eliminar",
+                editarCallback: "=editar"
             },
             controller: "WlListaAnotacionesController",
             controllerAs: "vm",

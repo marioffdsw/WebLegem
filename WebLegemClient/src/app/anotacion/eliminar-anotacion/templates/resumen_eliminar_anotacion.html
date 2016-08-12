@@ -1,0 +1,53 @@
+﻿
+
+        <!---------------------------------------------------------------------------------------------------->
+            <div class="generic-box-vertical">
+
+                <div class="generic-box-horizontal resumen_asociar_doc">
+                    <div class="generic-box-vertical">
+                        <div class="ico-lde"><span class="ico-file-text-o"></span></div>
+                        <a>acuerdo 25 del 20 de julio del 2008</a>
+                        <p>Entidad:</p>
+                        <i>Faculta d ingeniera de sistemas</i>
+                        <p>Fecha de publicacion:</p>
+                        <i>30 de julio de 2008 </i>
+                    </div>
+                    <div class="flecha_rad"><div class="ico-lde"><span class="ico-long-arrow-right"></span></div></div>
+                    <div class="generic-box-vertical">
+                        <div class="ico-lde"><span class="ico-file-text-o"></span></div>
+                        <a>acuerdo 25 del 20 de julio del 2008</a>
+                        <p>Entidad:</p>
+                        <i>Faculta d ingeniera de sistemas</i>
+                        <p>Fecha de publicacion:</p>
+                        <i>30 de julio de 2008 </i>
+                    </div>
+                </div>
+                <div class="generic-box-vertical" style="width:100%">
+                    <div>
+                        <label class="texto_labels">Tipo de Anotación:</label>
+                        <div class="a_select">
+                            <select type="text" placeholder="Escriba entidad emisora" ng-model="vm.tipoDocumentoAux" disabled
+                                    ng-options="tipoDocumento.nombre as tipoDocumento.nombre for tipoDocumento in vm.tiposDocumento| orderBy: 'nombre'"></select>
+                        </div>
+                    </div>
+                    <div style="width:100%">
+                        <label class="texto_labels">Descripcion de la Anotación:</label>
+                        <textarea class="a_text_area" disabled style="width:100%" wrap="hard">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in leo congue enim sagittis commodo. Duis et auctor dolor. Nam eu urna placerat,accumsan nisl ut, efficitur lorem. Pellentesque at risus eros. Aenean aliquet, ex non vulputate tempus, nulla erat sodales dui, eu tempus sapien dui a mauris. Nunc commodo, odio vel ullamcorper ornare, risus risus venenatis lectus, sed bibendum magna tortor ut nisl. Mauris nec fermentum felis
+                        </textarea>
+                    </div>
+                </div>
+
+                <div class="a-modal-confirmacion generic-box-vertical">
+                    <div class="generic-box-horizontal" style="width:100%">
+                        <label class="ca_label_busqueda" style="width:100%">{{vm.language.strings.EliminarAnotacionSeguro}}</label>
+                    </div>
+                    <div class="generic-box-horizontal derecha">
+                        <button ng-click="vm.ban_confirmacion=false">{{vm.language.strings.Cancelar}}</button>
+                        <button value="confirmar" ng-click="vm.confirmarEliminarAnotacion();">{{vm.language.strings.Confirmar}}</button>
+                    </div>
+                </div>
+            </div>           
+
+        <!---------------------------------------------------------------------------------------------------->
+        
+
