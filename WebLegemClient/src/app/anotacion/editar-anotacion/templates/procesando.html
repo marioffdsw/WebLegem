@@ -1,0 +1,22 @@
+﻿   <div class="generic-box-vertical">
+       <div style="display:flex;justify-content:center;">
+           <div class="circulo_carga mediano"></div>
+       </div>
+        <div class="generic-box-horizontal center">    
+            <!--<label class="texto_labels">{{vm.language.strings.SeGuardaronCambiosExito}}</label>-->
+            <label class="texto_labels">Se guardaron los cambios con exito</label>
+            <span class="ico-check-circle" style="font-size:large; color:greenyellow"></span>
+        </div>
+
+       <div class="generic-box-horizontal center">
+           <!--<label class="texto_labels">{{vm.language.strings.SeGuardaronCambiosExito}}</label>-->
+           <label class="texto_labels">Lamentablemente no se pudo realizar la operacion</label>
+           <span class="ico-times-circle" style="font-size:large; color:#ff2f2f"></span>
+       </div>
+
+        <div class="generic-box-horizontal flex-1 derecha" style="margin-top:15px;">
+            <button class="btn_sin_ico" ng-click="vm.aceptarProcesando()">
+                Aceptar
+            </button>
+        </div>
+    </div>

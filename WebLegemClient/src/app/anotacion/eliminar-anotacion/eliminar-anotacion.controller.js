@@ -5,49 +5,52 @@
         .module("WebLegemApp.Anotacion")
         .controller("eliminarAnotacionController", eliminarAnotacionController)    
         
-    eliminarAnotacionController.$inject = ["_", "language"];
+    eliminarAnotacionController.$inject = ["language"];
 
-    function eliminarAnotacionController(_, language) {
+    function eliminarAnotacionController(language) {
         var vm = this;
         vm.language = language;
+        
+        vm.vista1 = "app/anotacion/eliminar-anotacion/templates/resumen_eliminar_anotacion.html";
+        vm.vista2 = "app/anotacion/editar-anotacion/templates/procesando.html";
+        vm.vistas = vm.vista1;
 
-        vm.nextStep = nextStep;
         vm.backStep = backStep;
-        vm.eliminarAnotacion = eliminarAnotacion;
+        vm.seleccionarDoc = seleccionarDoc;
+        vm.eliminarAno = eliminarAno;
+        vm.confirmarEliminarAnotacion = confirmarEliminarAnotacion;
+        vm.aceptarProcesando = aceptarProcesando;
         
         vm.ban_confirmacion;//mensaje para confirmar los delete
-        vm.ban_exito_eliminacion;//mensaje de exito eliminados
         vm.index = 0;
 
-        vm.pasos = [{ titulo: "paso1" }, { titulo: "paso2" }];
-        vm.actual = [{ titulo: "paso1" }];
+        //------------------------------------------------------------------------------------------------------------------
+        function seleccionarDoc() {
+            vm.index = 1;
+        }
+        //------------------------------------------------------------------------------------------------------------------
+        function eliminarAno() {
+            vm.ban_confirmacion = true;
+        }
+        //------------------------------------------------------------------------------------------------------------------
 
-
-         //------------------------------------------------------------------------------------------------------------------
-        function eliminarAnotacion() {
+        function confirmarEliminarAnotacion() {
             //TODO llenar metodo eliminar
+            vm.vistas = vm.vista2;
+        }
+        //------------------------------------------------------------------------------------------------------------------    
+        function aceptarProcesando() {
             vm.ban_confirmacion = false;
-            vm.ban_exito_eliminacion = true;
-        }
-
-
-        //------------------------------------------------------------------------------------------------------------------
-
-        function nextStep() {//siguiente paso
-            vm.index = (_.map(vm.pasos, function (num) { return num.titulo; }).indexOf(vm.actual[0].titulo));
-            if (vm.index < (vm.pasos.length - 1)) vm.actual[0].titulo = vm.pasos[vm.index + 1].titulo;
-            vm.index = (_.map(vm.pasos, function (num) { return num.titulo; }).indexOf(vm.actual[0].titulo));
+            vm.vistas = vm.vista1;
         }
 
         //------------------------------------------------------------------------------------------------------------------
-
-        function backStep() {//paso anterior
-            vm.index = (_.map(vm.pasos, function (num) { return num.titulo; }).indexOf(vm.actual[0].titulo));
-            if (vm.index > 0) vm.actual[0].titulo = vm.pasos[vm.index - 1].titulo;
-            vm.index = (_.map(vm.pasos, function (num) { return num.titulo; }).indexOf(vm.actual[0].titulo));
+        function backStep() {
+            vm.index = 0;
         }
+        //------------------------------------------------------------------------------------------------------------------
 
-
+        
         return vm;
     } // end eliminarAnotacionController
 

@@ -8,12 +8,17 @@
     WlListaAnotacionesController.$inject = ["$scope", "language"];
     function WlListaAnotacionesController($scope, language) {
         var vm = this;
+        vm.language = language;
+
+        vm.eliminar = eliminar;
+        vm.editar = editar;
+
         vm.mostrarInfo = mostrarInfo;
-        vm.quitarSeleccion = quitarSeleccion;
         vm.itemSelected = itemSelected;
         vm.crearAnotacion = crearAnotacion;
         vm.selectMetodo = selectMetodo;
-        vm.language = language;
+        
+
 
         vm.modalShown = false;
         vm.ban_visorPdf = false;
@@ -22,18 +27,19 @@
         vm.ho_ = [];
 
 
+        function editar(i) {
+            //el i = id de lo que se selecciono :v
+            vm.editarCallback();
+        }
+
+        function eliminar(i) {
+            //el i = id de lo que se selecciono :v
+            vm.eliminarCallback();
+        }
+
         function mostrarInfo(item) {
             vm.modalShown = true;
             vm.info_anotacion = item.contenido;
-        }
-
-        function quitarSeleccion() {
-            vm.ban_itemSelected = false;
-            var aux;
-            for (var i = 1; i <= 6 ; i++) {
-                 aux = "la_check_" + i;
-                 document.getElementById(aux).checked = false;
-            }
         }
 
         function selectMetodo(item) {
@@ -46,7 +52,6 @@
         function itemSelected(item) {//para seleccinar varios items
             vm.ban_itemSelected = true;
             var aux = "la_check_" + item;
-            document.getElementById(aux).checked = !document.getElementById(aux).checked;
         }
 
         function itemSelected2(item) {//para seleccinar solo 1 item
@@ -59,7 +64,6 @@
             for (var i=0; i < checks.length ; i++) {
                 checks[i].checked = false;
             }
-            document.getElementById(aux).checked = !document.getElementById(aux).checked;
         }
 
         function crearAnotacion() {

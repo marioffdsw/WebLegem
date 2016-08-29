@@ -621,9 +621,7 @@ label.styled:before{color:#000;background-color:#a7d4a4}
 
 /*principal.css no tiene ningun elemento con color, body background con imagen*/
 .contenido_principal:before {
-    /*background-image: url('../../recursos/header/VIPRI-noche.jpg');*/
-    background-image: url('../../recursos/header/noche.jpg');
-   
+    background-image: url('../../recursos/header/VIPRI-noche.jpg');
 }
 
 /*----------------------fin gestion documental-----------------------------------*/

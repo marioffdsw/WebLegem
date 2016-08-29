@@ -3,15 +3,15 @@
 
 
 <div class="box-contenido-lista-de">
-    <div class="lista-doc-encontrado" ng-repeat="documento in vm.documentosEncontrados"
+    <div class="lista-doc-encontrado" ng-repeat="documento in vm.documentos"
             ng-hide="!vm.isTheSelectedDocument( documento ) && vm.docSeleccionado != undefined">
-        <div ng-click="vm.selectItem(documento);">
+        <div ng-click="vm.llamarAccion(documento);">
             <div class="ico-lde"><span class="ico-file-text-o"></span></div>
             <div class="lde_contenido">
                 <div class="de-subcontenido">
-                    <a>{{ datos.contenido }} {{ datos.numero }} del {{ datos.fecha }}</a>
-                    <p>Entidad: <i>{{ datos.entidad }} </i></p>
-                    <p>Fecha de publicacion: <i>{{ datos.fecha  }} </i></p>
+                    <a>{{ documento.tipoDoc.nombre }} {{ documento.numero }} del {{ documento.anioPublicacion }}</a>
+                    <p>Entidad: <i>{{ documento.entidad.nombre }} </i></p>
+                    <p>Fecha de publicacion: <i>{{ documento.anioPublicacion  }} </i></p>
                 </div>
             </div>
 

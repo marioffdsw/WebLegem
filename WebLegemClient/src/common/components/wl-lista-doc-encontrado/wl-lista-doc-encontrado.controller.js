@@ -12,13 +12,13 @@
 
         vm.next = next;
 
-        vm.quitarSeleccion = quitarSeleccion;
-        vm.itemSelected = itemSelected;
+        vm.quitarSeleccion = quitarSeleccion;        
         vm.docSeleccionado;
         vm.crearAnotacion = crearAnotacion;
         vm.mostrarVistaPrevia = mostrarVistaPrevia;
         vm.ocultarVistaPrevia = ocultarVistaPrevia;
         vm.isTheSelectedDocument = isTheSelectedDocument;
+        vm.llamarAccion = llamarAccion;
 
         vm.ban_visorPdf = false;
         vm.ban_itemSelected = false;
@@ -69,6 +69,10 @@
             $event.stopPropagation();
             
         }
+
+        function llamarAccion( documentoAnotante ) {
+            vm.accion( documentoAnotante );
+        } // end function llamarAccion
 
         return vm;        
     }

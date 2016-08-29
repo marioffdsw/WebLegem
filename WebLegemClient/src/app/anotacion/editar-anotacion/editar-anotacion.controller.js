@@ -6,45 +6,52 @@
         .controller("editarAnotacionController", editarAnotacionController)    
         
 
-    editarAnotacionController.$inject = ["_", "language"];
+    editarAnotacionController.$inject = ["language"];
 
-    function editarAnotacionController(_, language) {
+    function editarAnotacionController(language) {
         var vm = this;
         vm.language = language;
-        vm.nextStep = nextStep;
-        vm.backStep = backStep;
-        vm.editarAnotacion = editarAnotacion;
-        vm.comporLista = "selectedItem2";//seleccion como radiobuttom
+        vm.vista1 = "app/anotacion/editar-anotacion/templates/form_editar_anotacion.html";
+        vm.vista2 = "app/anotacion/editar-anotacion/templates/procesando.html";
+        vm.vistas = vm.vista1;
 
-        vm.ban_exito_edicion;//mensaje de exito eliminados
+
+        vm.backStep = backStep;
+        vm.seleccionarDoc = seleccionarDoc;
+        vm.editarAnotacion = editarAnotacion;
+        vm.confirmarEditarAnotacion = confirmarEditarAnotacion;
+        vm.aceptarProcesando = aceptarProcesando;
+
+        vm.ban_confirmacion;//mensaje para confirmar los edit
         vm.index = 0;
 
-        vm.pasos = [{ titulo: "paso1" }, { titulo: "paso2" }];
-        vm.actual = [{ titulo: "paso1" }];
-
-
+        //------------------------------------------------------------------------------------------------------------------
+        function seleccionarDoc() {
+            vm.index = 1;//siguiente paso
+        }
         //------------------------------------------------------------------------------------------------------------------
         function editarAnotacion() {
-            //TODO llenar metodo editar
-            vm.ban_exito_edicion = true;
+            vm.ban_confirmacion = true;
+        }
+        //------------------------------------------------------------------------------------------------------------------    
+        function confirmarEditarAnotacion() {
+            //TODO llenar metodo eliminar
+            vm.vistas = vm.vista2;
+        }
+        //------------------------------------------------------------------------------------------------------------------    
+        function aceptarProcesando() {
+            vm.ban_confirmacion = false;
+            vm.vistas = vm.vista1;
         }
 
 
         //------------------------------------------------------------------------------------------------------------------
-
-        function nextStep() {//siguiente paso
-            vm.index = (_.map(vm.pasos, function (num) { return num.titulo; }).indexOf(vm.actual[0].titulo));
-            if (vm.index < (vm.pasos.length - 1)) vm.actual[0].titulo = vm.pasos[vm.index + 1].titulo;
-            vm.index = (_.map(vm.pasos, function (num) { return num.titulo; }).indexOf(vm.actual[0].titulo));
-        }
-
-        //------------------------------------------------------------------------------------------------------------------
-
         function backStep() {//paso anterior
-            vm.index = (_.map(vm.pasos, function (num) { return num.titulo; }).indexOf(vm.actual[0].titulo));
-            if (vm.index > 0) vm.actual[0].titulo = vm.pasos[vm.index - 1].titulo;
-            vm.index = (_.map(vm.pasos, function (num) { return num.titulo; }).indexOf(vm.actual[0].titulo));
+            vm.index = 0;
         }
+        //------------------------------------------------------------------------------------------------------------------
+
+        
 
         return vm;
 

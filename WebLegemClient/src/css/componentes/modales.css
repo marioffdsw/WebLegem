@@ -133,9 +133,9 @@
 }
 
 .a-modal-confirmacion{
+    margin-top:15px;
     display:flex;
     justify-content:flex-end;
-    padding:10px 15px;
 }
 
 .a-modal-confirmacion button{

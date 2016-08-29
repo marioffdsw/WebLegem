@@ -67,7 +67,7 @@
 
         function retrieveData() {
             TipoAnotacionResource.query( function (data) {
-                vm.tiposAnotaciones = data;
+                vm.tiposAnotacion = data;
             });
         }
 

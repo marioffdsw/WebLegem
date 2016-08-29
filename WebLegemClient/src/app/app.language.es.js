@@ -126,10 +126,11 @@
             GuardarCambios: "Guardar Cambios",
             VistaPrevia: "Vista Previa",
             SeGuardaronCambionExito:"Se guardaron los cambios con exito",
+            ModificarAnotacionSeguro: "Se va a modificar esta anotación, esta seguro?",
             //--------------Eliminar anotacion----------//
             SeleccioneDocumentoEliminarAnotacione: "seleccione el documento del que quiere eliminar anotaciones",
             EliminarAnotacion: "Eliminar Anotacion",
-            EliminarNAnotacionesSeguro: "Se va a eliminar N anotaciones, esta seguro?",
+            EliminarAnotacionSeguro: "Se va a eliminar esta anotación, esta seguro?",
             Confirmar: "Confirmar",
             EliminadoAnotacionesExito: "Se ha eliminado las anotaciones con exito",
              //------------anotacion mayusculas-----------------//

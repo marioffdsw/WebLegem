@@ -1,6 +1,4 @@
-﻿<wl-progreso id="eliminar_anotacion" pasos="vm.pasos" actual="vm.actual" id-progreso="eliminar_anotacion"></wl-progreso>
-
-<!---------------------------------------------------------------------------------------------------------------------Paso1-->
+﻿<!---------------------------------------------------------------------------------------------------------------------Paso1-->
 <div class="box_father" ng-show="vm.index==0">
     <div class="box_left">
         <label class="ca_label_busqueda">{{vm.language.strings.SeleccioneDocumentoEliminarAnotacione}}:</label>
@@ -8,69 +6,54 @@
     </div>
 
     <div class="box_right">
-        <wl-lista-doc-encontrado>  </wl-lista-doc-encontrado>
+        <label class="msj-error"> {{vm.language.strings.NoEncontroNingunDocumentoConIdentificacion}} </label>
+        <wl-lista-doc-encontrado seleccionar="vm.seleccionarDoc">  </wl-lista-doc-encontrado>
     </div>
+    
 </div>
 <!---------------------------------------------------------------------------------------------------------------------Paso2-->
 
 <div class="box_father" ng-show="vm.index==1">
-    <div class="box_left flex-3" ng-show="vm.ban_ver_pdf">
+    <div class="box_left flex-3">
         <label class="ca_label_busqueda">{{vm.language.strings.VistaPreviaDocumento}}:</label>
-        <iframe ng-show="vm.togglePdf=true"
-                src="http://docs.google.com/gview?url=http://victorpimentel.com/stuff/rubik.pdf&embedded=true"
+        <iframe src="recurso.pdf"
                 class="de-vpdf none-mt" frameborder="0"></iframe>
-
     </div>
 
     <div class="box_right">
-        <wl-lista-anotaciones metodo="vm.algo">  </wl-lista-anotaciones>
+        <wl-lista-anotaciones ban-eliminar="true" eliminar="vm.eliminarAno">  </wl-lista-anotaciones>
     </div>
 </div>
 
 <!---------------------------------------------------------------------------------------------------------------------Controles-->
 
-<div class="box_father">
+<div class="box_father" ng-if="vm.index==1">
     <div class="box_right">
         <div class="divisor-pasos"><div></div></div>
         <div class="controles-crear-anotacion">
-            <button class="btn_toggle vista-previa-ed" 
-                    ng-class="vm.ban_ver_pdf? 'activo' :''"
-                    ng-click="vm.ban_ver_pdf = !vm.ban_ver_pdf" ng-show="vm.index==1">
-                {{vm.language.strings.VistaPrevia}}
-            </button>
-            <span class="span-fill"> </span>
-
-            <button class="btn_sin_ico" ng-click="vm.backStep()" ng-hide="vm.index==0">
+            <button class="btn_sin_ico" ng-click="vm.backStep()">
                 {{vm.language.strings.Atras}}
-            </button>
-            <button class="btn_sin_ico" ng-click="vm.nextStep()" ng-hide="vm.index==1 | true">
-                {{vm.language.strings.Siguiente}}
-            </button>
-            <button class="btn_sin_ico" ng-click="vm.ban_confirmacion=true" ng-show="vm.index==1">
-                {{vm.language.strings.EliminarAnotacion}}
-            </button>      
+            </button>  
         </div>
     </div>
+</div>
 
 
-    <!-- ---------------------------------------------------------------------- -->
-    <wl-info show="vm.ban_confirmacion" title="Confirmación">
-        <div class="a-modal-contenido">
-            <span class="ico-question-circle gris"></span>
-            <div>{{vm.language.strings.EliminarNAnotacionesSeguro}}</div>
+<!-- Modales---------------------------------------------------------------------- -->
+<div class='a-modal' ng-if='vm.ban_confirmacion'>
+    <div class='a-modal-overlay' ng-click='vm.ban_confirmacion=false'></div><!--Simula la opacidad de fondo del dialogo-->
+    <div class='a-modal-dialog'>
+
+        <div class='a-modal-close verde'>
+            <div class="a-titulo-modal verde">Confirmación</div>
+            <button title="Cerrar dialogo" ng-click="vm.ban_confirmacion=false">
+                <span class="ico-times"></span>
+            </button>
         </div>
-        <div class="a-modal-confirmacion">
-            <button value="confirmar" ng-click="vm.eliminarAnotacion()">{{vm.language.strings.Confirmar}}</button>
-            <button ng-click="vm.ban_confirmacion=false">{{vm.language.strings.Cancelar}}</button>
-        </div>
-    </wl-info>
 
-    <!-- ---------------------------------------------------------------------- -->
-    <wl-info show="vm.ban_exito_eliminacion" title="Exito">
-        <div class="a-modal-contenido">
-            <span class="ico-check-circle verde"></span>
-            <div>{{vm.language.strings.EliminadoAnotacionesExito}}</div>
+        <div class='a-modal-contenido'>
+            <div ng-include="vm.vistas"></div>
         </div>
-    </wl-info>
 
+    </div>
 </div>

@@ -12,10 +12,8 @@
             restrict: "E",
             
             scope: {
-                nextCallback: "=next",
-                crearAnotacion: "=crearAnotacion",
-                seleccionarCallback: "=seleccionar",
-                documentosEncontrados: "=documentosEncontrados"
+                documentos: "=documentos",
+                accion: "=accion"
             },
             controller: "WlListaDocEncontradoController",
             controllerAs: "vm",

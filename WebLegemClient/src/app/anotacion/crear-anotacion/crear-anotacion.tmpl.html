@@ -4,13 +4,13 @@
     <div class="box_father ani-pasos" ng-show="vm.index==0">
         <div class="box_left">
             <label class="ca_label_busqueda">{{vm.language.strings.SeleccionarDocumentoAnota}}:</label>
-            <wl-buscar-doc documentos="vm.documentos"></wl-buscar-doc>
+            <wl-buscar-doc documentos="vm.documentos" accion="vm.buscar"></wl-buscar-doc>
         </div>
 
         <div class="box_right">
             <label class="msj-error"> {{vm.language.strings.NoEncontroDocumentoConIdentificacion}} </label>
             <wl-lista-doc-encontrado documentos="vm.documentos"
-                    seleccionar="vm.seleccionarDocumentoAnotante"></wl-lista-doc-encontrado>
+                    accion="vm.seleccionarDocumentoAnotante"></wl-lista-doc-encontrado>
         </div>
     </div>
 
