@@ -13,11 +13,9 @@
             controller: "WlBuscarDocController",
             controllerAs: "vm",
             bindToController: true,
-            scope: {
-                atrasCallback: "=atras",
-                crearCallback: "=crear",
-                buscarCallback: "=buscar",
-                crearDoc: "=crearDoc",//flag para habilitar la creacion de un doc
+            scope: {                
+                documentos: "=documentos",
+                accion: "=accion"
             }
         };
     }

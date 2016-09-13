@@ -1,4 +1,4 @@
-﻿<!----------------------------------------------------------------------------------------------------------------------->
+﻿
 <div>
     <label class="subtitulos_labels animacion_filtro" ng-show="!vm.entidadEmisora ">Entidad emisora</label>
     <div class="a_select">
@@ -6,7 +6,7 @@
                 ng-model="vm.entidadEmisoraAux"></select>
     </div>
 </div>
-<!----------------------------------------------------------------------------------------------------------------------->
+
 <label class="subtitulos_labels animacion_filtro" ng-show="!vm.tipoDocumento">Tipo de documento</label>
 <div>
     <div class="a_select">
@@ -14,23 +14,23 @@
                 ng-options="tipoDocumento.nombre as tipoDocumento.nombre for tipoDocumento in vm.tiposDocumento| orderBy: 'nombre'"></select>
     </div>
 </div>
-<!----------------------------------------------------------------------------------------------------------------------->
+
 <label class="subtitulos_labels animacion_filtro" ng-show="!vm.numero">Número de documento</label>
 <div>
     <input type="text" class="a_input" maxlength="10"
            name="numero" id="numero" ng-model="vm.numeroAux"
            placeholder="Escriba número de documento" />
 </div>
-<!----------------------------------------------------------------------------------------------------------------------->
+
 <label class="subtitulos_labels animacion_filtro" ng-show="!vm.anioPublicacion ">Año de publicación</label>
 <div>
     <input type="text" class="a_input" maxlength="4"
-           name="anioPublicacion" id="anioPublicacion" ng-model="vm.anioPublicacionAux"
+           name="anioPublicacion" id="anioPublicacion" ng-model="vm.anioPublicacion"
            placeholder="Escriba año de publicación" />
 </div>
-<!----------------------------------------------------------------------------------------------------------------------->
+
 <div class="generic-box-horizontal flex-1 derecha" style="margin-top:15px;">
-    <button class="btn_sin_ico no-animate" ng-if="!vm.crearDoc" ng-click="vm.buscar();">Buscar</button>
+    <button class="btn_sin_ico no-animate" ng-click="vm.llamarAccion();">Buscar</button>
 
     <button class="btn_sin_ico no-animate" ng-if="vm.crearDoc" ng-click="vm.atras();">Atras</button>
 

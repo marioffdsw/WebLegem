@@ -12,14 +12,12 @@
             restrict: "E",
             
             scope: {
-                nextCallback: "=next",
-                crearAnotacion: "=crearAnotacion",
-                seleccionarCallback: "=seleccionar"
+                documentos: "=documentos",
+                accion: "=accion"
             },
             controller: "WlListaDocEncontradoController",
             controllerAs: "vm",
             bindToController: true
-
         };
     }
 })();

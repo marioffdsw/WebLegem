@@ -5,15 +5,20 @@
         .module("WebLegemApp")
         .controller("WlListaDocEncontradoController", WlListaDocEncontradoController);
 
-    WlListaDocEncontradoController.$inject = [];
-    function WlListaDocEncontradoController() {
+    WlListaDocEncontradoController.$inject = ["serviceUrl"];
+    function WlListaDocEncontradoController(serviceUrl) {
         var vm = this;
+        vm.serviceUrl = serviceUrl;
 
         vm.next = next;
 
-        vm.quitarSeleccion = quitarSeleccion;
-        vm.itemSelected = itemSelected;
+        vm.quitarSeleccion = quitarSeleccion;        
+        vm.docSeleccionado;
         vm.crearAnotacion = crearAnotacion;
+        vm.mostrarVistaPrevia = mostrarVistaPrevia;
+        vm.ocultarVistaPrevia = ocultarVistaPrevia;
+        vm.isTheSelectedDocument = isTheSelectedDocument;
+        vm.llamarAccion = llamarAccion;
 
         vm.ban_visorPdf = false;
         vm.ban_itemSelected = false;
@@ -26,8 +31,8 @@
             //}
         }
 
-        function itemSelected(item) {
-            vm.seleccionarCallback();
+        function selectItem(item) {
+            vm.seleccionarCallback( item );
         }
 
         function crearAnotacion() {
@@ -38,6 +43,37 @@
             vm.nextCallback();
         }
 
-        return vm;
+        function mostrarVistaPrevia(docSeleccionado, $event) {
+            $event.stopPropagation();
+            if (isTheSelectedDocument(docSeleccionado)) {
+                
+                vm.togglePdf = !vm.togglePdf;
+                vm.docSeleccionado = undefined;                
+                return;
+            }
+            vm.docSeleccionado = docSeleccionado;
+            vm.togglePdf = true;
+        }
+
+        function getPdfUrl() {
+            vm.serviceUrl + '/Files/' + vm.docSeleccionado.archivo
+        }
+
+        function isTheSelectedDocument(documento) {
+            return angular.equals( vm.docSeleccionado, documento );
+        }
+
+        function ocultarVistaPrevia( documento, $event ) {
+            vm.togglePdf = !vm.togglePdf;            
+            vm.docSeleccionado = undefined;
+            $event.stopPropagation();
+            
+        }
+
+        function llamarAccion( documentoAnotante ) {
+            vm.accion( documentoAnotante );
+        } // end function llamarAccion
+
+        return vm;        
     }
 })();

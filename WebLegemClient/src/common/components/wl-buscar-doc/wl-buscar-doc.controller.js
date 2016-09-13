@@ -5,26 +5,39 @@
         .module("WebLegemApp")
         .controller("WlBuscarDocController", WlBuscarDocController);
 
-    WlBuscarDocController.$inject = [];
-    function WlBuscarDocController() {
-        var vm = this;
+    WlBuscarDocController.$inject = [ "EntidadService", "TipoDocumentoResource", "DocumentosResource" ];
+    function WlBuscarDocController(EntidadService, TipoDocumentoResource, DocumentosResource) {
+        var vm = this;       
 
-        vm.atras = atras;
-        vm.crear = crear;
-        vm.buscar = buscar;
+        vm.tipoDocumentoAux;
+        vm.numeroAux;
+        vm.entidadEmisoraAux;
+        vm.anioPublicacion;
 
-        function atras() {
-            vm.atrasCallback();
+        vm.llamarAccion = llamarAccion;
+
+
+        vm.entidades;
+        vm.tiposDocumento;        
+
+
+        retrieveData();        
+
+        function retrieveData() {
+            EntidadService.query(function (data) {
+                vm.entidades = data;               
+            });
+
+            TipoDocumentoResource.query(function (data) {
+                vm.tiposDocumento = data;                
+            });
+        } // end function getData
+
+
+        function llamarAccion() {            
+            vm.accion( vm.anioPublicacion, vm.entidadEmisoraAux, vm.tipoDocumentoAux, vm.numeroAux);
         }
-
-        function crear() {
-            vm.crearCallback();
-        }
-
-        function buscar() {
-            vm.buscarCallback();
-        }
-
+                
         return vm;
     }
 })();
