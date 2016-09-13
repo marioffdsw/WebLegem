@@ -36,11 +36,17 @@
         **********************************************************************************/
         
         function aceptar() {
-            if (vm.tipoDocSeleccionado.id == 0)
-                crear(vm.tipoDocSeleccionado);
-            else
-                guardar(vm.tipoDocSeleccionado);           
-            cancelar();            
+            if( vm.form_tipo_doc.$invalid ){
+                console.log("error");
+            }
+            else{
+                if (vm.tipoDocSeleccionado.id == 0)
+                    crear(vm.tipoDocSeleccionado);
+                else
+                    guardar(vm.tipoDocSeleccionado);
+                cancelar();
+            }
+            
         }
 
 
