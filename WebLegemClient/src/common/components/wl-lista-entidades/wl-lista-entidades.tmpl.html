@@ -22,7 +22,7 @@
                    id="e_{{entidad.id}}"/>
 
             <label class="styled" ng-class="vm.checkear(entidad)? 'animated': ''"
-                   ng-click="vm.seleccionarObjeto(entidad)"
+                   ng-click="vm.seleccionar(entidad)"
                    ng-checked="vm.checkear(entidad)"
                    for="e_{{entidad.id}}">
                 {{entidad.nombre}}<br />

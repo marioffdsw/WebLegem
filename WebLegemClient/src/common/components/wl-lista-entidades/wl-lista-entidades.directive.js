@@ -14,7 +14,8 @@
             scope: {
                 lista: "=lista",
                 objetoSeleccionado: "=objetoSeleccionado",
-                editando: "="
+                editando: "=",
+                seleccionar: "=seleccionar"
             },
             bindToController: true
         };
