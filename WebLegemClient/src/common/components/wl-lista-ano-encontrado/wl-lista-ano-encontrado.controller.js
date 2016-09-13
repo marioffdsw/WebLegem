@@ -12,12 +12,22 @@
         vm.quitarSeleccion = quitarSeleccion;
         vm.itemSelected = itemSelected;
         vm.crearAnotacion = crearAnotacion;
-        vm.descartarAno = descartarAno;
-        vm.anoSelected = anoSelected;
+        vm.descartarAnotacion = descartarAnotacion;
+        vm.anotacionSelected = anotacionSelected;
+        vm.posibleAnotacion;
         
-        vm.banAso = false;//bandera asociacion
+        vm.mostrarDialogoAsociacion = false;//bandera asociacion
         vm.ban_itemSelected = false;
         vm.ho_ = [];
+        vm.posiblesAnotaciones = [
+            { tipoAnotacion: { nombre: "Deroga" } },
+            { tipoAnotacion: { nombre: "Modifica" } }
+        ];
+
+
+        function traerPosiblesAnotaciones() {
+            // TODO- traer posibles anotaciones usando un service api
+        }
 
         function quitarSeleccion() {
             vm.ban_itemSelected = false;
@@ -38,13 +48,14 @@
             
         }
 
-        function descartarAno() {
-            alert("anotacion descartada");
+        function descartarAnotacion( anotacion ) {
+            vm.posiblesAnotaciones = _.filter(vm.posiblesAnotaciones, function (i) { if (i === anotacion) return false; return true; });
         }
 
-        function anoSelected(item) {
+        function anotacionSelected(posibleAnotacion) {
             //item = item.id;//por aqui se pasan los datos de la seleccion asia el modal
-            vm.banAso = true;
+            vm.posibleAnotacion = posibleAnotacion;
+            vm.mostrarDialogoAsociacion = true;
         }
    
         return vm;
