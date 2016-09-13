@@ -27,7 +27,8 @@
         } // end function editar
 
         function eliminar() {            
-            vm.eliminarCallback( vm.objetoSeleccionado );
+            vm.eliminarCallback(vm.objetoSeleccionado);
+            vm.creando = false;
         } // end function eliminar
         
         return vm;

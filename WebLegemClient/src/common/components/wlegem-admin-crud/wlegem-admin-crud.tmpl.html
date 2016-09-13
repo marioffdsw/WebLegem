@@ -1,9 +1,4 @@
 ﻿<div class="controles_box_right">
-    <button class="btn_con_ico"
-            ng-show="!vm.creando"
-            ng-click="vm.nuevo()">
-        <span class="ico-plus tamano_botones_1"></span>{{vm.language.strings.Nuevo}}
-    </button>
 
     <button class="btn_con_ico"
             ng-show="vm.objetoSeleccionado && !vm.editando"
@@ -15,5 +10,11 @@
             ng-show="vm.objetoSeleccionado && (!vm.editando || !vm.creando)"
             ng-click="vm.eliminar()">
         <span class="ico-trash tamano_botones_1"></span>{{vm.language.strings.Eliminar}}
+    </button>
+
+    <button class="btn_con_ico " style="margin-left:10px;"
+            ng-show="!vm.editando"
+            ng-click="vm.nuevo()">
+        <span class="ico-plus tamano_botones_1"></span>{{vm.language.strings.Nuevo}}
     </button>
 </div>

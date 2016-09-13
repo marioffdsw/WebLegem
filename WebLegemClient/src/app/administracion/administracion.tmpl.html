@@ -1,6 +1,6 @@
 ﻿<div class="tapiz">
 
-    <div style="height:85px;"></div>
+    <div class="espacio_blanco"></div>
 
     <div class="tapiz_contenido" ng-show="true">
         <div class="contenedor_tabs">
@@ -27,10 +27,10 @@
                         <a>{{vm.language.strings.Entidad}}</a>
                     </span>
                 </li>
-                <li ng-class="vm.$state.current.name =='administracion.tipo-entidad' ? 'active_tab' : ''"
+                <li ng-class="vm.$state.current.name =='administracion.tipo-anotacion' ? 'active_tab' : ''"
                     ui-sref="administracion.tipo-anotacion" ng-click="vm.activo($event)">                   
 
-                    <span class="ico2-drawer">
+                    <span class="ico2-bookmarks">
                         <a>{{vm.language.strings.TipoAnotacion}}</a>
                     </span>
                 </li>

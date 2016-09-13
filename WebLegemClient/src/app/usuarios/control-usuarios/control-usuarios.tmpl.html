@@ -75,12 +75,7 @@
                 <p class="texto_labels green">{{vm.language.strings.Contrasena}}</p>
                 <input class="a_input" type="text" ng-model="vm.usuarioSeleccionado.contrasena" maxlength="20"
                         ng-disabled="!vm.editando"/>
-                <div id="widget_seguridad">
-                    <div id="content_span">
-                        <span></span><span></span><span></span><span></span><span></span>
-                    </div>
-                    <p>{{vm.language.strings.NivelSeguridad}}: {{vm.val_seguridad}} </p>
-                </div>
+                <wl-seguridad-pass modelo-pass="vm.usuarioSeleccionado.contrasena"></wl-seguridad-pass>
             </div>
             <div>
                 <p class="texto_labels green">{{vm.language.strings.ConfirmarContrasena}}</p>

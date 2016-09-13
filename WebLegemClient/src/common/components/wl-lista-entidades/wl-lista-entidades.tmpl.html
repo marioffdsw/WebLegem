@@ -1,15 +1,30 @@
 ﻿<div>
     <label class="texto_labels" style="margin-top:10px;">{{vm.language.strings.ListaEntidades}}</label>
-    <input type="text" ng-model="vm.filtro" class="a_input" />
+
+    <div class="box_input_btn">
+        <input type="text"
+               class="input_text_btn"
+               ng-class="vm.editando? 'disable': ''"
+               maxlength="20"
+               ng-model="vm.filtro" />
+        <button class="btn_cancel" title="Quitar filtro" ng-click="vm.filtro=''" ng-show="vm.filtro.length > 2">
+            <span class="ico-plus"></span>
+        </button>
+    </div>
 
     <ul class="a_listado" style="width:100%;">
-        <li ng-repeat="entidad in vm.lista | filter:vm.filtro">
-            <input type="radio" class="styled" id="e_{{entidad.id}}" name="entidad_rad"                   
-                    ng-disabled="!vm.editando" />
-            <label class="styled" for="e_{{entidad.id}}"
-                    ng-class="vm.checkear(entidad)? 'animated': ''"
-                    ng-click="vm.seleccionarObjeto(entidad)"
-                    ng-checked="vm.checkear(entidad)">
+        <li ng-repeat="entidad in vm.lista | filter:vm.filtro"
+            ng-class="vm.editando? 'no_selecteable': ''">
+
+            <input type="radio"
+                   name="entidad_rad"
+                   class="styled"
+                   id="e_{{entidad.id}}"/>
+
+            <label class="styled" ng-class="vm.checkear(entidad)? 'animated': ''"
+                   ng-click="vm.seleccionarObjeto(entidad)"
+                   ng-checked="vm.checkear(entidad)"
+                   for="e_{{entidad.id}}">
                 {{entidad.nombre}}<br />
                 <p>{{entidad.tipoEntidad.nombre}}</p>
             </label>

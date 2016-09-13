@@ -13,7 +13,8 @@
             controllerAs: "vm",
             scope: {
                 lista: "=lista",
-                seleccionar: "=seleccionar",                
+                //objetoSeleccionado: "=objetoSeleccionado",
+                seleccionar: "=seleccionar",
                 editando: "="
             },
             bindToController: true

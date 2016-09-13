@@ -9,67 +9,53 @@
     function TipoDocumentoController(TipoDocumentoResource, language) {
         var vm = this;
         vm.language = language;
-
-
         /**********************************************************************************
-         *
-         *   PROPERTIES
-         *   
-         **********************************************************************************/
+        PROPERTIES
+        **********************************************************************************/
         
         vm.tiposDoc = [];
         vm.tipoDocSeleccionado = undefined;
-        vm.editando = false;        
-
-
-
+        vm.editando = false;
+       
         /**********************************************************************************
-         *
-         *   PUBLIC METHOD DEFINITION
-         *   
-         **********************************************************************************/
+         PUBLIC METHOD DEFINITION
+        **********************************************************************************/
         
         vm.remover = remover;
         vm.cancelar = cancelar;
         vm.aceptar = aceptar;
         vm.nuevo = nuevo;
 
-
-
-
         /**********************************************************************************
-         *
-         *   DATA RETRIEVING CALLS
-         *   
-         **********************************************************************************/
-
+        DATA RETRIEVING CALLS
+        **********************************************************************************/
         retrieveData();        
 
-
-
-
-
         /**********************************************************************************
-         *
-         *   PRIVATE METHODS
-         *   
-         **********************************************************************************/
+        PRIVATE METHODS
+        **********************************************************************************/
+        
+        function aceptar() {
 
-
-        function aceptar() {            
-            if (vm.tipoDocSeleccionado.id == 0) {
-                crear( vm.tipoDocSeleccionado );
+            if (vm.form_tipo_doc.$invalid == true) {
+                console.log("error");
             }
             else {
-                guardar(vm.tipoDocSeleccionado);
+                if (vm.tipoDocSeleccionado.id == 0) {
+                    crear(vm.tipoDocSeleccionado);
+                }
+                else {
+                    guardar(vm.tipoDocSeleccionado);
+                }
+                cancelar();
             }
-            cancelar();
         }
 
 
         function cancelar() {
             vm.editando = false;
             vm.tipoDocSeleccionado = undefined;
+            vm.form_tipo_doc.$setPristine();
         }
 
 
@@ -85,6 +71,7 @@
 
 
         function crear() {
+
             TipoDocumentoResource.save(vm.tipoDocSeleccionado, function (data) {
                 retrieveData();
             });
@@ -108,6 +95,7 @@
             TipoDocumentoResource.remove(tipo, function () {
                 retrieveData();
             });
+
             cancelar();
         } // end function remover
 

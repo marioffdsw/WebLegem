@@ -8,7 +8,7 @@
     WlListaTipoDocHojitasController.$inject = [];
     function WlListaTipoDocHojitasController() {
         var vm = this;                       
-        
+        vm.ban_lista = false;
                        
 
         return vm;

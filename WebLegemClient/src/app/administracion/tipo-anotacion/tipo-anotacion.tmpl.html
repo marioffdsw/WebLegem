@@ -1,32 +1,41 @@
 ﻿<div class="box_father">
     <div class="box_left">
-        <wl-lista-tipos-anotacion seleccionar="vm.seleccionar"
-                lista="vm.tiposAnotacion"
-                editando="vm.editando">
+        <wl-lista-tipos-anotacion objeto-seleccionado="vm.tipoAnotacionSeleccionada"
+                                  lista="vm.tiposAnotacion"
+                                  editando="vm.editando">
         </wl-lista-tipos-anotacion>
     </div>
 
     <div class="box_right">
         <wl-admin-crud objeto-seleccionado="vm.tipoAnotacionSeleccionada"
-                editando="vm.editando"
+                editando="vm.editando"     
                 nuevo="vm.nuevo"
                 eliminar="vm.remover">
 
         </wl-admin-crud>
 
-        <label class="texto_labels">{{vm.language.strings.NombreTipoAnotacion}}</label>
-        <form>
-            <input class="a_input"
-                   ng-disabled="!vm.editando"
-                   type="text"
+        <label class="texto_labels">{{vm.language.strings.NombreTipoAnotacion}}:</label>
+        <form name="vm.form_tipo_ano">
+
+            <input class="a_input" ng-class="!vm.editando || !vm.tipoAnotacionSeleccionada? 'disable': ''"
+                   type="text" name="tipo" required
                    ng-model="vm.tipoAnotacionSeleccionada.nombre"
                    placeholder="{{vm.language.strings.IngreseNombreTipoAnotacion}}" />
 
-            <input class="a_input"
-                   ng-disabled="!vm.editando"
-                   type="text"
+            <div ng-show="vm.form_tipo_ano.tipo.$invalid && vm.form_tipo_ano.tipo.$dirty">
+                <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
+            </div>
+
+            <label class="texto_labels">Raiz del tipo anotación:</label>
+            <input class="a_input" ng-class="!vm.editando || !vm.tipoAnotacionSeleccionada? 'disable': ''"
+                   type="text" name="raiz" required
                    ng-model="vm.tipoAnotacionSeleccionada.raiz"
                    placeholder="{{vm.language.strings.IngreseRaizTipoAnotacion}}" />
+
+            <div ng-show="vm.form_tipo_ano.raiz.$invalid && vm.form_tipo_ano.raiz.$dirty">
+                <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
+            </div>
+
         </form>
 
         <wl-confirmacion editando="vm.editando"

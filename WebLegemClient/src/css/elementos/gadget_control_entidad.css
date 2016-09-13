@@ -1,57 +1,97 @@
 ﻿.entidad_control{
-    float:left;
+    display:flex;
+    flex-direction:column;
     height:50vh;
-    width:50%;
-    position:relative;
+    width:100%; 
+    margin-bottom:10px;
+}
+
+.controles_hojas{
+    display:flex;
+    justify-content:flex-end;
+    width:100%;
+    height:40px;
+    background:#0E6B54; 
+    padding:4px; 
 }
 
 .iconos_control{
-    color:#37404A;
+    color:#444;
     background:white;
-    font-size-adjust:.8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:x-large;
     cursor:pointer;
     height:100%;
-    margin-left:3px;
-    padding:6px;
-    padding-top:4px;
-    display:inline-block;
-    border-radius:3px;
-    float:right;
+    margin-left:4px;
+    padding: 0 4px;
+    box-shadow:0 0 1px #333333;
+}
+
+.iconos_control span{
+    display:flex;
+    justify-content:center;
+}
+
+.iconos_control span:before{
+    margin-top:1px;
+    display:flex;
+    justify-content:center;
+}
+
+.iconos_control:hover{
+    color:#0f745b; 
+    box-shadow:none;
 }
 
 .panel_control{
     background:rgb(237, 237, 237); 
     display:flex; 
     justify-content:flex-start;
-    position:absolute; 
-    width:100%; 
-    top:40px; 
-    bottom:0; 
-    overflow:auto; 
+    width:100%;
+    overflow-y:auto; 
     padding:5px;
-    border:2px solid #a1a1a1;
-    border-top:none;
-    border-bottom-left-radius:3px;
-    border-bottom-right-radius:3px;
+    border:1px solid #aaa;
+}
+
+.panel_control.disable{
+    pointer-events:none;
+}
+
+.a_bloques {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    list-style: none;
 }
 
 .a_bloques  li{
-    display:inline-block;
-    margin:4px;
+    margin:5px;
+    cursor:pointer;
 }
 
-.a_bloques  li label{
-
+.a_bloques li label div{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
 }
+.a_bloques li label div p{
+    margin-top:10px;
+}
+
 
 .a_bloques li input {
     cursor: pointer;
     display:none;
 }
 
-.a_bloques input:hover + label{
+.a_bloques li:hover label{
     cursor:pointer;
-    box-shadow:#a1a1a1 0 0 0 2px inset;
+    box-shadow:#999 0 0 0 2px inset;
 }
 
 .a_bloques input.checked + label{        
@@ -64,10 +104,10 @@
 
 .note {
    display:inline-block;
-   min-height:18vh;/*alto de la hoja*/
-   min-width:7vw;/*ancho de la hoja*/
+   height:135px;/*alto de la hoja*/
+   width:115px;/*ancho de la hoja*/
 
-   padding:14px;
+   font-size:1.1rem;
    /*Pendiente script para auto ajustar el texto*/
 
    position:relative;
@@ -75,6 +115,11 @@
     -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.4);
    -moz-box-shadow: 0 0 1px rgba(0,0,0,0.4);
    box-shadow: 0 0 1px rgba(0,0,0,0.4);
+}
+
+.escudo_hojas{
+    font-size:60px;
+    color:#000;
 }
 .note:before {
    content:"";
@@ -94,7 +139,7 @@
 .note:after {
    content:"✓";
    position:absolute;
-   font-size:x-large;
+   font-size:small;
    font-weight:900;
    bottom:0;
    right:80%;
@@ -111,7 +156,7 @@
 .a_bloques input.checked + label::after {
    content:"✓";
    position:absolute;
-   font-size:x-large;
+   font-size:medium;
    font-weight:900;
    bottom:0;
    right:0;

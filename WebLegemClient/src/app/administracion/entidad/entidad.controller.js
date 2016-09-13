@@ -54,20 +54,27 @@
          **********************************************************************************/                                             
 
 
-        function aceptar() {            
-            if (vm.entidadSeleccionada.id == 0) {
+        function aceptar() {
+            if (vm.form_entidad.nombre.$invalid == true || vm.form_entidad.tipo.$invalid == true) {
+                vm.form_entidad.tipo.$invalid ? vm.form_entidad.tipo.$dirty = true : '';
+                vm.form_entidad.nombre.$invalid ? vm.form_entidad.nombre.$dirty = true : '';
+            }
+            else{
+                if (vm.entidadSeleccionada.id == 0) {
                 crear( vm.entidadSeleccionada );
-            }
-            else {
-                guardar(vm.entidadSeleccionada);
-            }
-            cancelar();
+                }
+                else {
+                        guardar(vm.entidadSeleccionada);
+                }
+                cancelar();
+                }
         }
 
 
         function cancelar() {
             vm.editando = false;
             vm.entidadSeleccionada = undefined;
+            vm.form_entidad.$setPristine();
         }
 
 

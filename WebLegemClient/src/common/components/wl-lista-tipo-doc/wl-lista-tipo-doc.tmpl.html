@@ -1,17 +1,31 @@
 ﻿<div>    
     <label class="texto_labels" style="margin-top:10px;">{{ vm.language.strings.listadoTiposDocumento }}</label>    
-    <input type="text" ng-model="vm.filtro" class="a_input" />
-    
-    <ul class="a_listado" style="width: 100%">     
-        <li ng-repeat="tipo in vm.lista | filter:vm.filtro" >         
+
+    <div class="box_input_btn">
+        <input type="text"
+               class="input_text_btn"
+               ng-class="vm.editando? 'disable': ''"
+               maxlength="20"
+               ng-model="vm.filtro" />
+        <button class="btn_cancel" title="Quitar filtro" ng-click="vm.filtro=''" ng-show="vm.filtro.length > 2">
+            <span class="ico-plus"></span>
+        </button>
+    </div>
+
+    <ul class="a_listado" style="width: 100%" >
+
+        <li ng-repeat="tipo in vm.lista | filter:vm.filtro"
+            ng-class="vm.editando? 'no_selecteable': ''">
+
             <input type="radio"
-                ng-disabled="!vm.editando"
-                name="entidad_rad" class="styled" id="tdl_{{tipo.id}}" />
-            
+                   name="entidad_rad"
+                   class="styled"
+                   id="tdl_{{tipo.id}}" />
+
             <label class="styled" ng-class="vm.checkear(tipo)? 'animated': ''"
-                ng-click="vm.seleccionarObjeto(tipo)"
-                ng-checked="vm.checkear(tipo)"                                                            
-                for="tdl_{{tipo.id}}">
+                   ng-click="vm.seleccionarObjeto(tipo)"
+                   ng-checked="vm.checkear(tipo)"
+                   for="tdl_{{tipo.id}}">
                 {{ tipo.nombre }}
             </label>
         </li>
