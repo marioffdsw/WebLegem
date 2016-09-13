@@ -35,6 +35,11 @@
     background-color: #064234;
 }
 
+.btn_con_ico.disable{
+    pointer-events: none;
+    background:rgba(0,0,0,.4);
+}
+
 /*...................................*/
 .btn_con_ico.azul{
     background-color: #2980b9;

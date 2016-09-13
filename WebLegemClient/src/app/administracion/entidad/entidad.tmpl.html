@@ -8,34 +8,47 @@
 
     <div class="box_right">
 
-            <wl-admin-crud objeto-seleccionado="vm.entidadSeleccionada"
-                           editando="vm.editando"
-                           nuevo="vm.nuevo"
-                           eliminar="vm.remover">
-            </wl-admin-crud>
+        <wl-admin-crud objeto-seleccionado="vm.entidadSeleccionada"
+                       editando="vm.editando"
+                       nuevo="vm.nuevo"
+                       eliminar="vm.remover">
+        </wl-admin-crud>
 
-            <label class="texto_labels" for="nombre-entidad">{{vm.language.strings.NombreEntidad}}</label>
-        <input class="a_input" id="nombre-entidad" type="text" ng-disabled="!vm.editando"
-               placeholder="{{vm.language.strings.IngreseNombreEntidad}}" ng-model="vm.entidadSeleccionada.nombre" />
-            <label class="texto_labels" for="tipo-entidad">{{vm.language.strings.TipoEntidad}}</label>
+        <label class="texto_labels" for="nombre-entidad">{{vm.language.strings.NombreEntidad}}:</label>
 
-            <div>
-                <div class="a_select" ng-show="!vm.editando" ng-class="!vm.editando ? 'disable' : ''">
-                    <input type="text" ng-disabled="!vm.editando"
-                           ng-model="vm.entidadSeleccionada.tipoEntidad.nombre" />
-                </div>
+        <form name="vm.form_entidad">
 
-                <div class="a_select" ng-show="vm.editando">
-                    <select id=" tipoentidadselect"
-                            ng-options="tipoEntidad as tipoEntidad.nombre for tipoEntidad in vm.tiposEntidades"
-                            ng-model="vm.entidadSeleccionada.tipoEntidad"></select>
-                </div>
+            <input class="a_input" class="a_input" ng-class="!vm.editando || !vm.entidadSeleccionada? 'disable': ''"
+                   id="nombre-entidad" type="text" required name="nombre"
+                   placeholder="{{vm.language.strings.IngreseNombreEntidad}}" ng-model="vm.entidadSeleccionada.nombre" />
+
+            <div ng-show="vm.form_entidad.nombre.$invalid && vm.form_entidad.nombre.$dirty">
+                <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
             </div>
 
-            <wl-confirmacion editando="vm.editando"
-                             aceptar="vm.aceptar"
-                             cancelar="vm.cancelar">
-            </wl-confirmacion>
+            <label class="texto_labels" for="tipo-entidad">{{vm.language.strings.TipoEntidad}}:</label>
 
-        </div>
+            <div class="a_select" ng-show="!vm.editando" ng-class="!vm.editando ? 'disable' : ''">
+                <input type="text" ng-disabled="!vm.editando" name="tipo" required
+                       ng-model="vm.entidadSeleccionada.tipoEntidad.nombre" />
+            </div>
+
+            <div class="a_select" ng-show="vm.editando">
+                <select id=" tipoentidadselect" 
+                        ng-options="tipoEntidad as tipoEntidad.nombre for tipoEntidad in vm.tiposEntidades"
+                        ng-model="vm.entidadSeleccionada.tipoEntidad"></select>
+            </div>
+
+            <div ng-show="vm.form_entidad.tipo.$invalid && vm.form_entidad.tipo.$dirty">
+                <div class="msj-error">Seleccione una opción</div>
+            </div>
+
+        </form>
+
+        <wl-confirmacion editando="vm.editando"
+                         aceptar="vm.aceptar"
+                         cancelar="vm.cancelar">
+        </wl-confirmacion>
+
+    </div>
 </div>

@@ -14,18 +14,25 @@
                        eliminar="vm.remover">
         </wl-admin-crud>
 
-        <label class="texto_labels">{{vm.language.strings.NombreTipoDocumento}}</label>
+        <label class="texto_labels">{{vm.language.strings.NombreTipoDocumento}}:</label>
 
-        <form>
-            <input class="a_input"
-                   ng-disabled="!vm.editando || !vm.tipoDocSeleccionado"
+        <form name="vm.form_tipo_doc">
+
+            <input class="a_input" ng-class="!vm.editando || !vm.tipoDocSeleccionado? 'disable': ''"
                    type="text"
+                   name="nombre"
                    ng-model="vm.tipoDocSeleccionado.nombre"
-                   required placeholder="{{vm.language.strings.IngreseNombre}}" />
+                   required
+                   placeholder="{{vm.language.strings.IngreseNombre}}" />
+            
         </form>
 
+        <div ng-show="vm.form_tipo_doc.$invalid && vm.form_tipo_doc.$dirty">
+            <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
+        </div>
+
         <wl-confirmacion editando="vm.editando"
-                         aceptar="vm.aceptar"
+                         aceptar="vm.aceptar "
                          cancelar="vm.cancelar">
         </wl-confirmacion>
     </div>

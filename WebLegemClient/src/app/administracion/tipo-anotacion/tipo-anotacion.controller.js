@@ -10,58 +10,54 @@
         var vm = this;
         vm.language = language;
         /**********************************************************************************
-         *
-         *   PROPERTIES
-         *   
-         **********************************************************************************/
-        
+         PROPERTIES
+        **********************************************************************************/
+
         vm.tiposAnotacion = [];
         vm.tipoAnotacionSeleccionada = undefined;
         vm.editando = false;
-        vm.seleccionar = seleccionar;
+        //vm.seleccionar = seleccionar;
 
         /**********************************************************************************
-         *
-         *   PUBLIC METHOD DEFINITION
-         *   
-         **********************************************************************************/
+         PUBLIC METHOD DEFINITION
+        **********************************************************************************/
 
         vm.remover = remover;
         vm.cancelar = cancelar;
         vm.aceptar = aceptar;
         vm.nuevo = nuevo;
 
-
-
-
         /**********************************************************************************
-         *
-         *   DATA RETRIEVING CALLS
-         *   
-         **********************************************************************************/
-
+        DATA RETRIEVING CALLS
+        **********************************************************************************/
         retrieveData();
 
-
         /**********************************************************************************
-         *
-         *   PRIVATE METHODS
-         *   
-         **********************************************************************************/
+        PRIVATE METHODS
+        **********************************************************************************/
 
 
         function aceptar() {
-
-            var tipoAnotacion = angular.copy( vm.tipoAnotacionSeleccionada );
-            
-            if (vm.tipoAnotacionSeleccionada.id == 0) {
-                crear( tipoAnotacion );
+            if (vm.form_tipo_ano.$invalid == true) {
+                vm.form_tipo_ano.tipo.$invalid ? vm.form_tipo_ano.tipo.$dirty = true : '';
+                vm.form_tipo_ano.raiz.$invalid ? vm.form_tipo_ano.raiz.$dirty = true : '';
             }
-            else {
-                guardar( tipoAnotacion );
-            }
+            else{
+                if (vm.tipoAnotacionSeleccionada.id == 0) {
+                    crear(vm.tipoAnotacionSeleccionada);
+                }
+                else {
+                    guardar(vm.tipoAnotacionSeleccionada);
+                }
+                cancelar();
+            }    
+        }
 
-            cancelar();
+
+        function cancelar() {
+            vm.editando = false;
+            vm.tipoAnotacionSeleccionada = undefined;
+            vm.form_tipo_ano.$setPristine();
         }
 
 
@@ -71,32 +67,28 @@
             });
         }
 
-
-        function cancelar() {
-            vm.editando = false;
-            vm.tipoAnotacionSeleccionada = undefined;            
-        }
-
-
         function nuevo() {
             vm.tipoAnotacionSeleccionada = { id: 0, nombre: "", raiz: "" };
         }
 
 
-        function crear(tipoAnotacion) {
+        function crear() {
 
-            TipoAnotacionResource.save( tipoAnotacion, function (data) {
+            TipoAnotacionResource.save(vm.tipoAnotacionSeleccionada, function (data) {
                 retrieveData();
             });
-
             cancelar();
         }
 
-        function guardar(tipoAnotacion) {            
-            TipoAnotacionResource.update(tipoAnotacion, function (data) {
-                retrieveData();
+        function guardar(tipo) {            
+            TipoAnotacionResource.update(tipo, function (data) {
+                for (var i = 0; i < vm.tiposAnotacion.length; i++) {
+                    if (vm.tiposAnotacion[i].id == data.id) {
+                        vm.tiposAnotacion[i] = data;
+                        break;
+                    }
+                }
             });
-
             cancelar();
         }
 
@@ -109,15 +101,15 @@
         }
 
 
-        function seleccionar(tipoAnotacion) {
-            if (vm.editando === true)
-                return;
+        //function seleccionar(tipoAnotacion) {
+        //    if (vm.editando === true)
+        //        return;
 
-            if (angular.equals(vm.tipoAnotacionSeleccionada, tipoAnotacion))
-                vm.tipoAnotacionSeleccionada = undefined;
-            else
-                vm.tipoAnotacionSeleccionada = angular.copy(tipoAnotacion);
-        }
+        //    if (angular.equals(vm.tipoAnotacionSeleccionada, tipoAnotacion))
+        //        vm.tipoAnotacionSeleccionada = undefined;
+        //    else
+        //        vm.tipoAnotacionSeleccionada = angular.copy(tipoAnotacion);
+        //}
         
     } // end TipoAnotacion Controller
 })();

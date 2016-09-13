@@ -18,6 +18,11 @@
     border-top:none;
 }
 
+.a_listado li.no_selecteable{  
+    pointer-events: none;
+    background:rgba(0,0,0,.08);
+}
+
 .a_listado li:first-child{
     border-top:1px solid #a1a1a1;
 }
@@ -31,7 +36,7 @@ label.styled {
   font-family:"Lato-Regular";
   font-size:.9em;
   transition: all 0.3s ease;
-
+  background:transparent;
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -51,13 +56,13 @@ input.styled {
 }
 
 /* :: CHECKED :: */
-input.styled:checked ~ label.styled {
+/*input.styled:checked ~ label.styled {
   background-color:  rgba(69, 177, 93, 0.20);
   -webkit-animation:  linear 0.3s;
   -moz-animation:  linear 0.3s;
   -o-animation:  linear 0.3s;
   animation:  linear 0.3s;
-}
+}*/
 
 label.styled:before {
     content: '✓';
@@ -78,4 +83,6 @@ label.styled.animated:before {
     opacity: 1;
     right: 0;
 }
-    
+label.styled.animated {
+    background-color:  rgba(69, 177, 93, 0.20);
+}

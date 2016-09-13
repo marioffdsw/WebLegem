@@ -26,7 +26,6 @@
             else {
                 vm.objetoSeleccionado = angular.copy(tipo);
             }
-            console.log( vm.objetoSeleccionado );
         } // end function                        
 
         return vm;

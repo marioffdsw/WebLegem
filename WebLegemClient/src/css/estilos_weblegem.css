@@ -70,6 +70,8 @@
     color: orangered;
     font-family:'OpenSans';
     font-size:small;
+    line-height:1px;
+    margin-bottom:5px;
 }
 
 /*TEXTO PARA LOS LABELS*/
@@ -116,17 +118,13 @@
 
 @media only screen and (max-width : 320px) {
     .espacio_blanco{
-        height:55px;
-        width:30px;
+        height:85px;
     }
 }
 
 @media only screen and (min-width : 320px) {
     .espacio_blanco{
-        height:55px;
-        width:55px;
-        background:blue;
-        flex-shrink:0;
+        height:85px;
     }
 }
 

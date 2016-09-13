@@ -11,22 +11,23 @@
 
     <div class="container_news">
 
-        <div style="width:100%; padding: 0 10px;  display:flex; justify-content: center;">
+        <div style="width:100%; padding: 0 10px;  display:flex; justify-content: flex-start;">
+            <a style="color:white; font-size:large; font-family:'Lucida Sans Unicode'">Entidades: </a>
             <div class="box_input_ico" style="min-width: 280px;">
                 <div class="a_select"
-                            style="max-width: 300px; margin-right: 5px;">
+                     style="max-width: 300px; margin-right: 5px;">
                     <select ng-model="vm.entidadFiltro" ng-change="vm.cargarDocumentos()">
                         <option ng-repeat="entidad in vm.entidades" ng-value="entidad.nombre">{{entidad.nombre}}</option>
                         <option ng-value="null">{{vm.language.strings.Ninguna}}</option>
                     </select>
-                </div>       
-            </div>            
+                </div>
+            </div>
         </div>
 
 
         <div class="news_left">
-     
-          <div ng-if="true" class="tarjeta_news" ng-repeat="documento in vm.arregloDocs">
+
+            <div ng-if="true" class="tarjeta_news" ng-repeat="documento in vm.arregloDocs">
                 <div class="titulo_tarjeta">
                     <a ng-click="vm.ver(documento.archivo)">{{ documento.tipoDocumento }} {{ documento.numero }} del {{ documento.fecha }}</a>
                 </div>
@@ -45,7 +46,7 @@
                         <span class="ico-download"></span>{{vm.language.strings.Descargar}}
                     </a>
                 </div>
-            </div>        
+            </div>
         </div>
     </div>
 </div>

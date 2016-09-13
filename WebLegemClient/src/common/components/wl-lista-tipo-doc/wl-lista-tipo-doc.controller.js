@@ -8,10 +8,10 @@
     wlListaTipoDocController.$inject = [ "language" ];
     function wlListaTipoDocController( language ) {
         var vm = this;
-
+        vm.language = language;
         vm.seleccionarObjeto = seleccionarObjeto;
         vm.checkear = checkear;
-        vm.language = language;
+        
 
         function checkear(tipo) {            
             return angular.equals(vm.objetoSeleccionado, tipo);            

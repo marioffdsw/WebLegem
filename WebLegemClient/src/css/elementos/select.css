@@ -7,10 +7,14 @@
 }
 
 .a_select select:disabled{
-    background:#e3e3e3;
+    pointer-events: none;
+    background:rgba(0,0,0,.08);
+    color:#555;
 }
 .a_select input:disabled{
-    background:#e3e3e3;
+    pointer-events: none;
+    background:rgba(0,0,0,.08);
+    color:#555;
 }
 
 

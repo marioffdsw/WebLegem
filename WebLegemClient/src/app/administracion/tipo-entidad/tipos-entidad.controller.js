@@ -21,9 +21,6 @@
         vm.editando = false;        
         vm.seleccionar = seleccionar;
 
-
-
-
         /**********************************************************************************
          *
          *   PUBLIC METHOD DEFINITION
@@ -35,9 +32,6 @@
         vm.aceptar = aceptar;
         vm.nuevo = nuevo;
 
-
-
-
         /**********************************************************************************
          *
          *   DATA RETRIEVING CALLS
@@ -45,8 +39,6 @@
          **********************************************************************************/
 
         retrieveData();
-
-
 
         /**********************************************************************************
          *
@@ -56,31 +48,35 @@
 
 
         function aceptar() {
-            
-            var tipoEntidad = angular.copy(vm.tipoEntidadSeleccionado);
-
-            tipoEntidad.documentosSoportados = _.chain(vm.tiposDocumentos)
-                .filter(function (item) { return item.valor; })
-                .map(function (item) {
-                    delete item.valor;
-                    return item;
-                }).value();
-
-            if (vm.tipoEntidadSeleccionado.id == 0) {
-                crear(tipoEntidad);
+            if (vm.form_tipo_ent.$invalid == true) {
+                vm.form_tipo_ent.$dirty = true;
             }
-            else {
-                guardar(tipoEntidad);
-            }
+            else{
 
-            cancelar();
+                var tipoEntidad = angular.copy(vm.tipoEntidadSeleccionado);
+                tipoEntidad.documentosSoportados = _.chain(vm.tiposDocumentos)
+                    .filter(function (item) { return item.valor; })
+                    .map(function (item) {
+                        delete item.valor;
+                        return item;
+                    }).value();
+
+                if (vm.tipoEntidadSeleccionado.id == 0) {
+                    crear(tipoEntidad);
+                }
+                else {
+                    guardar(tipoEntidad);
+                }
+                cancelar();
+            }
         }
 
 
         function cancelar() {
             vm.editando = false;
             vm.tipoEntidadSeleccionado = undefined;
-            vm.tiposDocumentos = mapearTiposDocumentoPermitidos( vm.tiposDocumentos, vm.tipoEntidadSeleccionado );
+            vm.tiposDocumentos = mapearTiposDocumentoPermitidos(vm.tiposDocumentos, vm.tipoEntidadSeleccionado);
+            vm.form_tipo_ent.$setPristine();
         }
 
 

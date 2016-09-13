@@ -1,35 +1,40 @@
 ﻿<div class="box_father">
     <div class="box_left">
         <wl-lista-tipos-entidades seleccionar="vm.seleccionar"
-                lista="vm.tiposEntidades" 
-                editando="vm.editando">
+                                  lista="vm.tiposEntidades"
+                                  editando="vm.editando">
         </wl-lista-tipos-entidades>
-
     </div>
 
     <div class="box_right">
         <wl-admin-crud objeto-seleccionado="vm.tipoEntidadSeleccionado"
-                        editando="vm.editando"
-                        nuevo="vm.nuevo"
-                        eliminar="vm.remover">
+                       editando="vm.editando"
+                       nuevo="vm.nuevo"
+                       eliminar="vm.remover">
         </wl-admin-crud>
-        
-        
-        <label class="texto_labels">{{vm.language.strings.NombreTipoEntidad}}</label>
-        <form>
-            <input class="a_input"
-                   ng-disabled="!vm.editando"
+
+
+        <label class="texto_labels">{{vm.language.strings.NombreTipoEntidad}}:</label>
+        <form name="vm.form_tipo_ent">
+            <input class="a_input" ng-class="!vm.editando || !vm.tipoEntidadSeleccionado? 'disable': ''"
                    type="text"
+                   required
                    ng-model="vm.tipoEntidadSeleccionado.nombre"
                    placeholder="{{vm.language.strings.IngreseNombreEntidad}}" />
         </form>
+
+        <div ng-show="vm.form_tipo_ent.$invalid && vm.form_tipo_ent.$dirty">
+            <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
+        </div>
+
+        <label class="texto_labels">Documentos soportados:</label>
         <wl-lista-tipo-doc-hojitas editando="vm.editando"
-                lista-documentos="vm.tiposDocumentos">
+                                   lista-documentos="vm.tiposDocumentos">
         </wl-lista-tipo-doc-hojitas>
 
         <wl-confirmacion editando="vm.editando"
-                aceptar="vm.aceptar"
-                cancelar="vm.cancelar">
+                         aceptar="vm.aceptar"
+                         cancelar="vm.cancelar">
         </wl-confirmacion>
     </div>
 </div>

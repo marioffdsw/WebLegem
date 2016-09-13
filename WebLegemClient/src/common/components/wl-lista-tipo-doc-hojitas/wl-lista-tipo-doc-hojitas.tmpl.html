@@ -1,25 +1,27 @@
 ﻿<div>
-    <div class="entidad_control" style="width:100%; margin-bottom:10px;">
+    <div class="entidad_control">
         
-        <div style="background:#37404A;  height:40px; width:100%; word-spacing:-4px; padding:3px; border-top-left-radius:3px; border-top-right-radius:3px; ">
+        <!--<div class="controles_hojas">
             <div class="iconos_control" ng-click="vm.cambiarVistaLista()"><span class="ico-align-justify"></span></div>
-            <div class="iconos_control" ng-click="vm.cambiarVistaBloque()"><span class="ico-th"></span></div>
+            <div class="iconos_control" ng-click="vm.ban_lista = !vm.ban_lista "><span class="ico-th"></span></div>
             <div class="iconos_control"><span class="ico-plus-circle"></span></div>
-        </div>
+        </div>-->
 
-        <div class="panel_control">
+        <div ng-class="vm.editando ? 'panel_control' :'panel_control disable' ">
             <ul class="a_bloques">
-                <li class="te_li_lista" ng-repeat="tipoDoc in vm.listaDocumentos | orderBy: 'nombre'" >
-                    <input id="chk-td-{{tipoDoc.id}}"                            
-                           type="checkbox" 
+                <li class="te_li_lista" ng-repeat="tipoDoc in vm.listaDocumentos | orderBy: 'nombre'">
+                    <input id="chk-td-{{tipoDoc.id}}"
+                           type="checkbox"
                            ng-disabled="!vm.editando"
                            ng-class="tipoDoc.valor ? 'checked' : ''"
                            ng-model="tipoDoc.valor"
                            ng-checked="tipoDoc.valor">
-                    <label  for="chk-td-{{tipoDoc.id}}"
-                            class="styled1 note rounded">
-                        <span class="escudo-udenar" style="font-size:60px;"></span>
-                        {{ tipoDoc.nombre }}
+                    <label for="chk-td-{{tipoDoc.id}}"
+                           class="styled1 note rounded">
+                        <div>
+                            <span class="escudo-udenar escudo_hojas"></span>
+                            <p>{{ tipoDoc.nombre }}</p>
+                        </div>
                     </label>
                 </li>
             </ul>

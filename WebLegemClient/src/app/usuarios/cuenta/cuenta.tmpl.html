@@ -10,65 +10,83 @@
         </div>
         <div class="box_father">
 
-            <div class="box_right">
+            <div class="box_right" >
+                <form name="vm.form_cuenta">
+                    <div class="box_duo_input">
+                        <div>
+                            <p class="texto_labels green">{{vm.language.strings.Fotrografia}}</p>
+                            <div class="box_fotografia">
+                                <div class="foto_usuarios">
+                                    <span class="ico-user" ng-show="!vm.trash"></span>
+                                    <img src="" id="laimagen" ewl wl-load="vm.mostrarFoto();" />
+                                    <input type="file" id="input_usu_foto" />
+                                    <input type="hidden" id="hidden_input" name="filename" />
+                                </div>
+
+
+                                <div class="botonera_camara">
+                                    <button class="btn_ico" title="Tomar foto" ng-click="vm.abrirCamara();">
+                                        <span class="ico-camera"></span>
+                                    </button>
+
+                                    <button class="btn_ico" title="Subir foto" ng-click="vm.seleccionarArchivo();">
+                                        <span class="ico-upload"></span>
+                                    </button>
+
+                                    <button class="btn_ico" title="Borrar Foto" ng-show="vm.trash" ng-click="vm.borrarFoto();">
+                                        <span class="ico-trash"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <p class="texto_labels green">{{vm.language.strings.Nombres}}</p>
+                                <input class="a_input" name="nombres" required type="text" ng-model="vm.nombre" />
+                            </div>
+                            <div ng-show="vm.form_cuenta.nombres.$invalid && vm.form_cuenta.nombres.$dirty">
+                                <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
+                            </div>
+
+                            <div>
+                                <p class="texto_labels green">{{vm.language.strings.Apellidos}}</p>
+                                <input class="a_input" name="apellidos" required type="text" ng-model="vm.apellido" />
+                            </div>
+                            <div ng-show="vm.form_cuenta.apellidos.$invalid && vm.form_cuenta.apellidos.$dirty">
+                                <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
+                            </div>
+
+                            <div>
+                                <p class="texto_labels green">{{vm.language.strings.CorreoElectronico}}</p>
+                                <input class="a_input" name="correo" required type="email" ng-model="vm.correo" />
+                            </div>
+                            <div ng-show="vm.form_cuenta.correo.$invalid && vm.form_cuenta.correo.$dirty">
+                                <div class="msj-error" ng-show="vm.form_cuenta.correo.$error.required">
+                                    {{vm.language.strings.CompleteCampo}}
+                                </div>
+                                <div class="msj-error" ng-show="vm.form_cuenta.correo.$error.email">
+                                    Correo no valido.
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="box_duo_input">
+                        <div>
+                            <p class="texto_labels green">{{vm.language.strings.Contrasena}}</p>
+                            <input class="a_input" type="password" ng-model="vm.contrasena" maxlength="20" />
+                            <wl-seguridad-pass modelo-pass="vm.contrasena"></wl-seguridad-pass>
+                        </div>
+                        <div>
+                            <p class="texto_labels green">{{vm.language.strings.ConfirmarContrasena}}</p>
+                            <input class="a_input" type="password" />
+                        </div>
+                    </div>
+                </form>
 
                 <wl-fotografia show="vm.camaraToggle"></wl-fotografia>
-                <div class="box_duo_input">
-                    <div>
-                        <p class="texto_labels green">{{vm.language.strings.Fotrografia}}</p>
-                        <div class="box_fotografia">
-                            <div class="foto_usuarios">
-                                <span class="ico-user" ng-show="!vm.trash"></span>
-                                <img src="" id="laimagen" ewl wl-load="vm.mostrarFoto();" />
-                                <input type="file" id="input_usu_foto" />
-                            </div>
-                            <div class="botonera_camara">
-                                <button class="btn_ico" title="Tomar foto" ng-click="vm.abrirCamara();">
-                                    <span class="ico-camera"></span>
-                                </button>
-
-                                <button class="btn_ico" title="Subir foto" ng-click="vm.seleccionarArchivo();">
-                                    <span class="ico-upload"></span>
-                                </button>
-
-                                <button class="btn_ico" title="Borrar Foto" ng-show="vm.trash" ng-click="vm.borrarFoto();">
-                                    <span class="ico-trash"></span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div>
-                            <p class="texto_labels green">{{vm.language.strings.Nombres}}</p>
-                            <input class="a_input" />
-                        </div>
-                        <div>
-                            <p class="texto_labels green">{{vm.language.strings.Apellidos}}</p>
-                            <input class="a_input" />
-                        </div>
-                        <div>
-                            <p class="texto_labels green">{{vm.language.strings.CorreoElectronico}}</p>
-                            <input class="a_input" />
-                        </div>
-                    </div>
-                </div>
-
-                <div class="box_duo_input">
-                    <div>
-                        <p class="texto_labels green">{{vm.language.strings.Contrasena}}</p>
-                        <input class="a_input" type="password" ng-model="vm.pass_usu" maxlength="20" />
-                        <div id="widget_seguridad">
-                            <div id="content_span">
-                                <span></span><span></span><span></span><span></span><span></span>
-                            </div>
-                            <p>{{vm.language.strings.NivelSeguridad}}: {{vm.val_seguridad}} </p>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="texto_labels green">{{vm.language.strings.ConfirmarContrasena}}</p>
-                        <input class="a_input" type="password" />
-                    </div>
-                </div>
+                
                 <!--Botonera para confirmacion de cambios-->
                 <div class="controles_box_right down">                    
 
