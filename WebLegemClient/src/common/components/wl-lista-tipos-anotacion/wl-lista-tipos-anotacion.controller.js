@@ -14,7 +14,7 @@
 
 
         function checkear(entidad) {
-            return angular.equals(vm.objetoSeleccionado, entidad);
+            return vm.objetoSeleccionado && angular.equals(vm.objetoSeleccionado.id, entidad.id);
         } // end function
 
         function seleccionarObjeto(tipo) {
