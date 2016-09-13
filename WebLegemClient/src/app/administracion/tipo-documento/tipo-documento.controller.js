@@ -36,26 +36,18 @@
         **********************************************************************************/
         
         function aceptar() {
-
-            if (vm.form_tipo_doc.$invalid == true) {
-                console.log("error");
-            }
-            else {
-                if (vm.tipoDocSeleccionado.id == 0) {
-                    crear(vm.tipoDocSeleccionado);
-                }
-                else {
-                    guardar(vm.tipoDocSeleccionado);
-                }
-                cancelar();
-            }
+            if (vm.tipoDocSeleccionado.id == 0)
+                crear(vm.tipoDocSeleccionado);
+            else
+                guardar(vm.tipoDocSeleccionado);           
+            cancelar();            
         }
 
 
         function cancelar() {
             vm.editando = false;
             vm.tipoDocSeleccionado = undefined;
-            vm.form_tipo_doc.$setPristine();
+            vm.form_tipo_doc.$setPristine();            
         }
 
 
