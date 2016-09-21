@@ -74,6 +74,10 @@
     margin-bottom:5px;
 }
 
+.msj-error.select{
+    margin-top:8px;
+}
+
 /*TEXTO PARA LOS LABELS*/
 .texto_labels{
     display:block;

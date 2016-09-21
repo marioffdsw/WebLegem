@@ -75,12 +75,12 @@
                     <div class="box_duo_input">
                         <div>
                             <p class="texto_labels green">{{vm.language.strings.Contrasena}}</p>
-                            <input class="a_input" type="password" ng-model="vm.contrasena" maxlength="20" />
+                            <input id="pass_cuenta" class="a_input" type="password" ng-model="vm.contrasena" maxlength="20" />
                             <wl-seguridad-pass modelo-pass="vm.contrasena"></wl-seguridad-pass>
                         </div>
                         <div>
                             <p class="texto_labels green">{{vm.language.strings.ConfirmarContrasena}}</p>
-                            <input class="a_input" type="password" />
+                            <input id="pass_cuenta_confirm" class="a_input" type="password" />
                         </div>
                     </div>
                 </form>

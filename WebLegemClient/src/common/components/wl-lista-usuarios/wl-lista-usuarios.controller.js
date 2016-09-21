@@ -21,11 +21,11 @@
                 return;
             } // end if
 
-            if (checkear(vm.objetoSeleccioando, objeto)) {
+            if (angular.equals(vm.objetoSeleccioando, objeto)) {
                 vm.objetoSeleccioando = undefined;
             }
             else {
-                vm.objetoSeleccioando = angular.copy( objeto, {} );
+                vm.objetoSeleccioando = angular.copy(objeto);
             } // end else
         } // end function seleccionarObjeto
 

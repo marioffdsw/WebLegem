@@ -1,32 +1,43 @@
 ﻿<div class="box_father">
-   
+
     <div class="box_left">
-        <wl-lista-roles seleccionar="vm.seleccionar"
-                lista="vm.roles"                
-                editando="vm.editando">
+        <wl-lista-roles objeto-seleccionado="vm.rolSeleccionado"
+                        seleccionar="vm.seleccionar"
+                        lista="vm.roles"
+                        editando="vm.editando">
         </wl-lista-roles>
     </div>
-        
+
     <div class="box_right">
         <wl-admin-crud objeto-seleccionado="vm.rolSeleccionado"
-                editando="vm.editando"
-                nuevo="vm.nuevo"
-                eliminar="vm.remover">
+                       editando="vm.editando"
+                       nuevo="vm.nuevo"
+                       eliminar="vm.remover">
         </wl-admin-crud>
 
         <p class="texto_labels green bold">{{vm.language.strings.Nombre}}</p>
-        <input class="a_input"
-               type="text"
-               required
-               placeholder="{{vm.language.strings.IngreseNombre}}"
-               ng-disabled="!vm.editando || !vm.rolSeleccionado"
-               ng-model="vm.rolSeleccionado.nombre" />
+
+        <form name="vm.form_rol" novalidate>
+            <input class="a_input"
+                   type="text"
+                   required
+                   placeholder="{{vm.language.strings.IngreseNombre}}"
+                   ng-disabled="!vm.editando || !vm.rolSeleccionado"
+                   ng-model="vm.rolSeleccionado.nombre"
+                   ng-class="!vm.editando ? 'disable': ''"
+                   required name="nombre" />
+
+
+            <div ng-show="vm.form_rol.nombre.$invalid && vm.form_rol.nombre.$dirty">
+                <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
+            </div>
+        </form>
 
         <p class="texto_labels green bold">{{vm.language.strings.Permisos}}</p>
 
-        
+
         <wl-lista-permisos editando="vm.editando"
-                permisos-asignados="vm.permisos"></wl-lista-permisos>
+                           permisos-asignados="vm.permisos"></wl-lista-permisos>
 
         <wl-confirmacion editando="vm.editando"
                          aceptar="vm.aceptar"

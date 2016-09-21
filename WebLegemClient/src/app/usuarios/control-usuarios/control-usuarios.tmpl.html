@@ -12,8 +12,6 @@
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~2-->
     <div class="box_right">
-        <p ng-show="vm.subido">{{vm.language.strings.ArchivoCargadoServidor}}</p>
-        <p ng-show="!vm.subido">{{vm.language.strings.ArchivoNoCargadoServidor}}</p>
         <wl-admin-crud objeto-seleccionado="vm.usuarioSeleccionado"
                        editando="vm.editando"
                        nuevo="vm.nuevo"
@@ -22,125 +20,195 @@
 
         <wl-fotografia show="vm.camaraToggle"></wl-fotografia>
 
-        <div class="box_duo_input">
-            <div>
-                <p class="texto_labels green">{{vm.language.strings.Fotografia}}</p>
-                <div class="box_fotografia">
-                    <div class="foto_usuarios">
-                        <span class="ico-user" ng-show="!vm.trash"></span>
-                        <img src="" id="laimagen" ewl wl-load="vm.mostrarFoto();" />
-                        <input type="file" id="input_usu_foto"
-                                ng-disabled="!vm.editando" />
-                        <input type="hidden" id="hidden_input" name="filename" />
-                    </div>
-                    <div class="botonera_camara">
-                        <button class="btn_ico" title="Tomar foto" ng-click="vm.abrirCamara();"
-                                ng-disabled="!vm.editando">
-                            <span class="ico-camera"></span>
-                        </button>
-
-                        <button class="btn_ico" title="Subir foto" ng-click="vm.seleccionarArchivo();"
-                                ng-disabled="!vm.editando">
-                            <span class="ico-upload"></span>
-                        </button>
-
-                        <button class="btn_ico" title="Borrar Foto" ng-show="vm.trash" ng-click="vm.borrarFoto();"
-                                ng-disabled="!vm.editando">
-                            <span class="ico-trash"></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div>
+        <form name="vm.form_usuario" novalidate>
+            <div class="box_duo_input">
                 <div>
-                    <p class="texto_labels green">{{vm.language.strings.Nombres}}</p>
-                    <input class="a_input" ng-model="vm.usuarioSeleccionado.nombre"
-                            ng-disabled="!vm.editando" />
+                    <p class="texto_labels green">{{vm.language.strings.Fotografia}}</p>
+                    <div class="box_fotografia">
+                        <div class="foto_usuarios">
+                            <span class="ico-user" ng-show="!vm.trash"></span>
+                            <img src="" id="laimagen" ewl wl-load="vm.mostrarFoto();" />
+                            <input type="file" id="input_usu_foto"
+                                   ng-disabled="!vm.editando" />
+                            <input type="hidden" id="hidden_input" name="filename"/>
+                        </div>
+                        <div class="botonera_camara">
+                            <button class="btn_ico" title="Tomar foto" ng-click="vm.abrirCamara();"
+                                    ng-class="!vm.editando ? 'disable': ''">
+                                <span class="ico-camera"></span>
+                            </button>
+
+                            <button class="btn_ico" title="Subir foto" ng-click="vm.seleccionarArchivo();"
+                                    ng-class="!vm.editando ? 'disable': ''">
+                                <span class="ico-upload"></span>
+                            </button>
+
+                            <button class="btn_ico" title="Borrar Foto" ng-show="vm.trash" ng-click="vm.borrarFoto();"
+                                    ng-class="!vm.editando ? 'disable': ''">
+                                <span class="ico-trash"></span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    <p class="texto_labels green">{{vm.language.strings.Apellidos}}</p>
-                    <input class="a_input" ng-model="vm.usuarioSeleccionado.apellido" 
-                            ng-disabled="!vm.editando"/>
+                    <div>
+                        <p class="texto_labels green">{{vm.language.strings.Nombres}}</p>
+                        <input class="a_input" ng-model="vm.usuarioSeleccionado.nombre"
+                               ng-class="!vm.editando ? 'disable': ''" required name="nombre" />
+
+                        <div ng-show="vm.form_usuario.nombre.$invalid && vm.form_usuario.nombre.$dirty">
+                            <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="texto_labels green">{{vm.language.strings.Apellidos}}</p>
+                        <input class="a_input" ng-model="vm.usuarioSeleccionado.apellido"
+                               ng-class="!vm.editando ? 'disable': ''" required name="apellido" />
+
+                        <div ng-show="vm.form_usuario.apellido.$invalid && vm.form_usuario.apellido.$dirty">
+                            <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="texto_labels green">{{vm.language.strings.NombreUsuario}}</p>     
+                        <input class="a_input" ng-model="vm.usuarioSeleccionado.nombreUsuario"
+                               ng-class="!vm.editando ? 'disable': ''" required name="nick" />
+
+                        <div ng-show="vm.form_usuario.nick.$invalid && vm.form_usuario.nick.$dirty">
+                            <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box_duo_input">
+                <div>
+                    <p class="texto_labels green">{{vm.language.strings.Contrasena}}</p>
+                    <input class="a_input" type="password" ng-model="vm.usuarioSeleccionado.contrasena" maxlength="20"
+                           ng-class="!vm.editando ? 'disable': ''" readonly required name="pass"
+                           onfocus="this.removeAttribute('readonly');" />
+
+                    <div ng-show="vm.form_usuario.pass.$invalid && vm.form_usuario.pass.$dirty">
+                        <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
+                    </div>
+
+                    <wl-seguridad-pass ng-show="vm.editando && vm.usuarioSeleccionado.contrasena.length > 0"
+                                       modelo-pass="vm.usuarioSeleccionado.contrasena"></wl-seguridad-pass>
                 </div>
                 <div>
-                    <p class="texto_labels green">{{vm.language.strings.NombreUsuario}}</p>
-                    <input class="a_input" ng-model="vm.usuarioSeleccionado.nombreUsuario"
-                            ng-disabled="!vm.editando" />
-                </div>
-            </div>
-        </div>
+                    <p class="texto_labels green">{{vm.language.strings.ConfirmarContrasena}}</p>
+                    <input class="a_input" type="password" ng-model="vm.usuarioSeleccionado.contrasena"
+                           readonly
+                           onfocus="this.removeAttribute('readonly');"
+                           ng-class="!vm.editando ? 'disable': ''" required name="pass_confirm" />
 
-        <div class="box_duo_input">
-            <div>
-                <p class="texto_labels green">{{vm.language.strings.Contrasena}}</p>
-                <input class="a_input" type="text" ng-model="vm.usuarioSeleccionado.contrasena" maxlength="20"
-                        ng-disabled="!vm.editando"/>
-                <wl-seguridad-pass modelo-pass="vm.usuarioSeleccionado.contrasena"></wl-seguridad-pass>
-            </div>
-            <div>
-                <p class="texto_labels green">{{vm.language.strings.ConfirmarContrasena}}</p>
-                <input class="a_input" type="password" ng-model="vm.usuarioSeleccionado.contrasena"
-                        ng-disabled="!vm.editando"/>
-            </div>
-        </div>
-
-        <div class="box_duo_input">
-            <div>
-                <p class="texto_labels green">{{vm.language.strings.CorreoElectronico}}</p>
-                <input class="a_input" ng-model="vm.usuarioSeleccionado.correo" 
-                        ng-disabled="!vm.editando"/>
-            </div>
-            <div>
-                <p class="texto_labels green">{{vm.language.strings.RolUsuario}}</p>
-                <div class="div_con_info">
-                    <div class="a_select"><!--aqui debe haber un hack como en entida.html-->
-                        <input class="a_select"
-                                type="text"
-                                ng-disabled="!vm.editando"
-                                ng-model="vm.usuarioSeleccionado.rol.nombre"
-                                ng-show="!vm.editando" />
-                        <select ng-show="vm.editando" ng-options="rol as rol.nombre for rol in vm.roles"
-                                ng-model="vm.usuarioSeleccionado.rol">
-                        </select>                        
+                    <div ng-show="vm.form_usuario.pass_confirm.$invalid && vm.form_usuario.pass_confirm.$dirty">
+                        <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
                     </div>
-                    <button class="btn_ico" title="Informacion rol" ng-click="vm.mostrarDialogo(vm.usuarioSeleccionado.rol)"
-                            ng-disabled="!vm.editando">
-                        <span class="ico-info"></span>
-                    </button>
-                </div>
-                <info-rol show="vm.infoRol" rol="vm.usuariox"></info-rol>
-            </div>
-        </div>
-
-        <div class="box_duo_input">
-
-            <div>
-                <p class="texto_labels green">{{vm.language.strings.EstadoUsuario}}</p>
-                <div class="contenedor_radios">
-                    <span>
-                        <input class="a_radio" id="rad1" type="radio" name="rad" checked 
-                                ng-disabled="!vm.editando"
-                                ng-model="vm.usuarioSeleccionado.estado"
-                                ng-value="'A'" />
-                        <label for="rad1">
-                            {{vm.language.strings.Activo}}
-                        </label>
-                    </span>
-                    <span>
-                        <input class="a_radio" id="rad2" type="radio" name="rad"
-                                ng-disabled="!vm.editando"
-                                ng-model="vm.usuarioSeleccionado.estado"
-                                ng-value="'I'" />
-                        <label for="rad2">{{vm.language.strings.Bloqueado}}</label>
-                    </span>
                 </div>
             </div>
-            <div></div>
-        </div>
+
+            <div class="box_duo_input">
+                <div>
+                    <p class="texto_labels green">{{vm.language.strings.CorreoElectronico}}</p>
+                    <input class="a_input" ng-model="vm.usuarioSeleccionado.correo"
+                           ng-class="!vm.editando ? 'disable': ''" required  type="email" name="correo" />
+
+                    <div ng-show="vm.form_usuario.correo.$invalid && vm.form_usuario.correo.$dirty">
+                        <div class="msj-error" ng-show="vm.form_usuario.correo.$error.required" >
+                            {{vm.language.strings.CompleteCampo}}
+                        </div>
+                        <div class="msj-error" ng-show="vm.form_usuario.correo.$error.email">
+                            Correo no valido.
+                        </div>
+                    </div>
+
+                </div>
+                <div>
+                    <p class="texto_labels green">{{vm.language.strings.RolUsuario}}</p>
+                    <div class="div_con_info">
+
+                        <div class="a_select" ng-show="!vm.editando" ng-class="!vm.editando ? 'disable' : ''">
+                            <input type="text" ng-disabled="!vm.editando" name="tipo" required
+                                   ng-model="vm.usuarioSeleccionado.rol.nombre" />
+                        </div>
+
+
+                        <div class="a_select" ng-show="vm.editando">
+                            <select id=" tipoentidadselect"
+                                    ng-options="rol as rol.nombre for rol in vm.roles"
+                                    ng-model=" vm.usuarioSeleccionado.rol"></select>
+                        </div>
+
+
+                        <button class="btn_ico" title="Informacion rol" ng-click="vm.mostrarDialogo(vm.usuarioSeleccionado.rol)"
+                                ng-class="!vm.editando ? 'disable': ''">
+                            <span class="ico-info"></span>
+                        </button>
+                    </div>
+                    <div ng-show="vm.form_usuario.tipo.$invalid && vm.form_usuario.tipo.$dirty">
+                        <div class="msj-error select ">{{vm.language.strings.CompleteCampo}}</div>
+                    </div>
+                    <info-rol show="vm.infoRol" rol="vm.usuariox"></info-rol>
+
+                </div>
+            </div>
+            <div class="box_duo_input">
+
+                <div>
+                    <p class="texto_labels green">{{vm.language.strings.EstadoUsuario}}</p>
+                    <div class="contenedor_radios">
+                        <span>
+                            <input class="a_radio" id="rad1" type="radio" name="rad" required
+                                   ng-disabled="!vm.editando"
+                                   ng-model="vm.usuarioSeleccionado.estado"
+                                   ng-value="'A'" />
+                            <label for="rad1">
+                                {{vm.language.strings.Activo}}
+                            </label>
+                        </span>
+                        <span>
+                            <input class="a_radio" id="rad2" type="radio" name="rad" required
+                                   ng-disabled="!vm.editando"
+                                   ng-model="vm.usuarioSeleccionado.estado"
+                                   ng-value="'I'" />
+                            <label for="rad2">{{vm.language.strings.Bloqueado}}</label>
+                        </span>
+                    </div>
+                  
+                    <div ng-show="vm.form_usuario.rad.$invalid && vm.ban_click">
+                        <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
+                    </div>
+                </div>
+                <div></div>
+            </div>
+        </form>
+        <!--cierre form-->
 
         <wl-confirmacion editando="vm.editando"
                          aceptar="vm.aceptar"
                          cancelar="vm.cancelar">
         </wl-confirmacion>
-    </div
+    </div>
+</div>
+
+
+<!-- Modales -->
+
+<div class='a-modal' ng-if='vm.subido'>
+    <div class='a-modal-overlay' ng-click='vm.subido=false'></div><!--Simula la opacidad de fondo del dialogo-->
+    <div class='a-modal-dialog'>
+
+        <div class='a-modal-close verde'>
+            <div class="a-titulo-modal verde">Información</div>
+            <button title="Cerrar dialogo" ng-click="vm.subido=false">
+                <span class="ico-times"></span>
+            </button>
+        </div>
+
+        <div class='a-modal-contenido'>
+            <p>Se creo usuario Correctamente</p>
+        </div>
+
+    </div>
 </div>
