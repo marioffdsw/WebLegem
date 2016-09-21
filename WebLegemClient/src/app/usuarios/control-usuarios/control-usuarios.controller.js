@@ -14,6 +14,7 @@
 
         vm.language = language;
         vm.subido = false;
+        vm.ban_click = false;
 
         vm.editando = false;
         vm.roles = [];
@@ -62,12 +63,26 @@
         } // end function nuevo
 
         function aceptar() {
+            if (vm.form_usuario.nombre.$invalid || vm.form_usuario.apellido.$invalid || vm.form_usuario.nick.$invalid ||
+                vm.form_usuario.pass.$invalid || vm.form_usuario.pass_confirm.$invalid || vm.form_usuario.correo.$invalid
+                || vm.form_usuario.tipo.$invalid || vm.form_usuario.rad.$invalid) {
 
-            //console.log( vm.usuarioSeleccionado );
+                vm.form_usuario.nombre.$invalid     ? vm.form_usuario.nombre.$dirty = true : '';
+                vm.form_usuario.apellido.$invalid   ? vm.form_usuario.apellido.$dirty = true : '';
+                vm.form_usuario.nick.$invalid       ? vm.form_usuario.nick.$dirty = true : '';
+                vm.form_usuario.pass.$invalid       ? vm.form_usuario.pass.$dirty = true : '';
+                vm.form_usuario.pass_confirm.$invalid   ? vm.form_usuario.pass_confirm.$dirty = true : '';
+                vm.form_usuario.correo.$invalid         ? vm.form_usuario.correo.$dirty = true : '';
+                vm.form_usuario.tipo.$invalid           ? vm.form_usuario.tipo.$dirty = true : '';
+                vm.form_usuario.rad.$invalid ? vm.ban_click = true : vm.ban_click = true;
 
-            if (vm.usuarioSeleccionado.id === 0)
-                return crear( vm.usuarioSeleccionado );
-            guardar( vm.usuarioSeleccionado );            
+            }
+            else
+            {
+                if (vm.usuarioSeleccionado.id === 0)
+                    return crear(vm.usuarioSeleccionado);
+                guardar(vm.usuarioSeleccionado);
+            }
         } // end function
 
         function crear(usuario) {            
@@ -122,7 +137,9 @@
 
         function cancelar() {
             vm.editando = false;
-            vm.usuarioSeleccionado = undefined;            
+            vm.usuarioSeleccionado = undefined;
+            vm.form_usuario.$setPristine();
+            vm.ban_click = false;
         } // end function cancelar
 
         var img = $window.document.getElementById("laimagen");

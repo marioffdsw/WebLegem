@@ -164,6 +164,14 @@
     min-width:35px;
 }
 
+.btn_ico.disable{    
+    pointer-events: none;
+    background:#555;
+}
+.btn_ico.disable > span:before{
+    color:#ebebeb;
+}
+
 .btn_ico > span{
     display:flex;
 }

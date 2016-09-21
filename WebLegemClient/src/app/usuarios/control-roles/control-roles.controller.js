@@ -58,16 +58,26 @@
 
         function aceptar() {
 
-            var rol = angular.copy(vm.rolSeleccionado);
+            if (vm.form_rol.nombre.$invalid) {
 
-            rol.permisos = _.chain(vm.permisos)
-                .filter(function (item) { return item.valor; })
-                .map(function (item) { delete item.valor; return item; })
-                .value();
+                vm.form_rol.nombre.$invalid ? vm.form_rol.nombre.$dirty = true : '';
+                
+            }
+            else {
 
-            rol.id == 0 ? crear(rol) : guardar(rol);            
+                var rol = angular.copy(vm.rolSeleccionado);
 
-            cancelar();
+                rol.permisos = _.chain(vm.permisos)
+                    .filter(function (item) { return item.valor; })
+                    .map(function (item) { delete item.valor; return item; })
+                    .value();
+
+                rol.id == 0 ? crear(rol) : guardar(rol);
+
+                cancelar();
+            }
+
+
         } // end function aceptar
 
 
@@ -75,6 +85,7 @@
             vm.editando = false;
             vm.rolSeleccionado = undefined;
             vm.permisos = mapearPermisosAsignados(vm.permisos, vm.rolSeleccionado);
+            vm.form_rol.$setPristine();
         } // end function cancelar        
 
 

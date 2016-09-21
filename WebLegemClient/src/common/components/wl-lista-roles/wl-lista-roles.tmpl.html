@@ -1,27 +1,30 @@
-﻿<div>
-    <div class="box_input_btn">
-        <input ng-model="vm.filtro" type="text" class="input_text_btn" maxlength="20" placeholder="Filtro" />
-        <button class="btn_cancel" title="Quitar filtro" disabled>
-            <span class="ico-plus"></span>
-        </button>
-    </div>
-
-    <p class="texto_labels green bold">{{vm.language.strings.Roles}}</p>
-
-    <ul class="a_listado" style="width:100%;">
-        <li ng-repeat="rol in vm.lista | filter:vm.filtro">
-         
-            <input  id="r_{{ rol.id }}"
-                    type="radio"
-                    class="styled"
-                    ng-disabled="vm.editando"
-                    name="r_{{ rol.id }}" />
-            
-            <label  class="styled"
-                    for="r_{{ rol.id }}"                    
-                    ng-click="vm.seleccionar(rol)" >
-                {{ rol.nombre }}
-            </label>
-        </li>        
-    </ul>
+﻿
+<div class="box_input_btn">
+    <input type="text"
+           class="input_text_btn"
+           ng-class="vm.editando? 'disable': ''"
+           maxlength="20"
+           placeholder="{{vm.language.strings.Filtro}}"
+           ng-model="vm.filtro" />
+    <button class="btn_cancel" title="Quitar filtro" ng-click="vm.filtro=''" ng-show="vm.filtro.length > 2">
+        <span class="ico-plus"></span>
+    </button>
 </div>
+
+<p class="texto_labels green bold">{{vm.language.strings.Roles}}</p>
+
+<ul class="a_listado" style="width:100%;">
+    <li ng-repeat="rol in vm.lista | filter:vm.filtro"
+        ng-class="vm.editando? 'no_selecteable': ''">
+
+        <input type="radio" class="styled"  id="r_{{ rol.id }}" name="r_{{ rol.id }}" />
+
+        <label class="styled" for="r_{{ rol.id }}"
+               ng-click="vm.seleccionar(rol); vm.seleccionarObjeto(rol);"
+               ng-class="vm.checkear(rol)? 'animated': ''"
+               ng-checked="vm.checkear(rol)">
+
+            {{ rol.nombre }}
+        </label>
+    </li>        
+</ul>

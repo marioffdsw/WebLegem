@@ -14,7 +14,7 @@
             controllerAs: "vm",
             scope: {
                 lista: "=lista",
-                objetoSeleccioando: "=objetoSeleccionado",
+                objetoSeleccionado: "=objetoSeleccionado",
                 seleccionar: "=",
                 editando: "="
             },

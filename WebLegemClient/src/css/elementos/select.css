@@ -8,12 +8,12 @@
 
 .a_select select:disabled{
     pointer-events: none;
-    background:rgba(0,0,0,.08);
+    background:#ebebeb;
     color:#555;
 }
 .a_select input:disabled{
     pointer-events: none;
-    background:rgba(0,0,0,.08);
+    background:#ebebeb;
     color:#555;
 }
 

@@ -1,6 +1,7 @@
 ﻿<div class="box_input_btn">
     <input type="text"
            class="input_text_btn"
+           ng-class="vm.editando? 'disable': ''"
            maxlength="20"
            placeholder="{{vm.language.strings.Filtro}}"
            ng-model="vm.filtro" />
@@ -10,12 +11,19 @@
 </div>
 
 <p class="texto_labels green bold">{{vm.language.strings.Usuarios}}</p>
+
 <ul class="a_listado" style="width:100%;">
-    <li ng-repeat="usuario in vm.lista | filter:vm.filtro" >
-        <input type="radio" class="styled" id="a" name="a" />
-        <label class="styled" for="a" ng-disabled="vm.editando" ng-click="vm.seleccionar(usuario);" >
+    <li ng-repeat="usuario in vm.lista | filter:vm.filtro"
+        ng-class="vm.editando? 'no_selecteable': ''">
+
+        <input type="radio" class="styled" id="a_{{usuario.id}}" name="a" />
+
+        <label class="styled" for="a_{{usuario.id}}"
+               ng-click="vm.seleccionarObjeto(usuario);"
+               ng-class="vm.checkear(usuario)? 'animated': ''"
+               ng-checked="vm.checkear(usuario)">
             {{ usuario.nombre }} {{ usuario.apellido }}<br />
             <p>Rol: {{ usuario.rol.nombre }}</p>
         </label>
-    </li>    
+    </li>
 </ul>
