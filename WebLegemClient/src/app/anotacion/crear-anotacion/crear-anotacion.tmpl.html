@@ -26,8 +26,9 @@
         <div class="box_right">
             <label class="msj-error"> No se encontro concordancias de anotaciones. </label>
             <a ng-click="vm.ban_crear_anotacion = true" href="" title="Crear anotacion">Crear Anotación</a>
-            <wl-lista-ano-encontrado documento="vm.documentoAnoatante">  </wl-lista-ano-encontrado>     
-            <asociar-documento show="vm.ban_crear_anotacion"></asociar-documento>
+            <wl-lista-ano-encontrado documento="vm.documentoAnotante" anotaciones-encontradas="false">  </wl-lista-ano-encontrado>     
+            <asociar-documento show="vm.ban_crear_anotacion"
+                    anotacion="vm.anotacionSeleccionada"></asociar-documento>
         </div>
     </div>
 
@@ -42,22 +43,9 @@
                 </button>
                 <button class="btn_sin_ico" ng-click="vm.nextStep()" ng-hide="vm.index==0 || true">
                 {{vm.language.strings.Siguiente}}  
-                </button>
-                <button class="btn_sin_ico" ng-click="vm.crearAnotacion()" ng-show="vm.index==1">
-                    {{vm.language.strings.CrearAnotacion}}
-                </button>
+                </button>                
             </div>
         </div>
     </div>
 
 </div>
-
-
-<!--dialogos-->
-
-<wl-info show="vm.ban_exito_anotacion" title="Exito">
-    <div class="a-modal-contenido">
-        <span class="ico-check-circle verde"></span>
-        <div>{{vm.language.strings.SeHaCreadoAnotacion }}</div>
-    </div>
-</wl-info>

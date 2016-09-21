@@ -35,7 +35,7 @@
 
 
         function llamarAccion() {            
-            vm.accion( vm.anioPublicacion, vm.entidadEmisoraAux, vm.tipoDocumentoAux, vm.numeroAux);
+            vm.accion( vm.anioPublicacion, vm.entidadEmisoraAux, vm.tipoDocumentoAux, vm.numeroAux );
         }
                 
         return vm;

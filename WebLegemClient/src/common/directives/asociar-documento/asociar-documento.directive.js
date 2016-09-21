@@ -13,7 +13,8 @@
             controller: "asociarDocumentoController",
             controllerAs: "vm",
 
-            scope: {
+            scope: {              
+                anotacion: "=anotacion",
                 show: "=show"
             },
 
