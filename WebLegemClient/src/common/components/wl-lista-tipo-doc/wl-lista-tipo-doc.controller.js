@@ -14,14 +14,14 @@
         
 
         function checkear(tipo) {            
-            return angular.equals(vm.objetoSeleccionado, tipo);            
+            return vm.objetoSeleccionado && angular.equals(vm.objetoSeleccionado.id, tipo.id);
         } // end function
 
         function seleccionarObjeto(tipo) {            
             if( vm.editando === true ) {
                 return;
             }
-            if ( angular.equals(vm.objetoSeleccionado, tipo) ) {
+            if ( vm.objetoSeleccionado && angular.equals(vm.objetoSeleccionado.id, tipo.id) ) {
                 vm.objetoSeleccionado = undefined;
             }
             else {

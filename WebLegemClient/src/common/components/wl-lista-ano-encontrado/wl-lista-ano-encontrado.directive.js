@@ -12,7 +12,8 @@
             restrict: "E",
             
             scope: {
-                nextCallback: "=next"
+                nextCallback: "=next",
+                documento: "=documento"
             },
             controller: "WlListaAnoEncontradoController",
             controllerAs: "vm",

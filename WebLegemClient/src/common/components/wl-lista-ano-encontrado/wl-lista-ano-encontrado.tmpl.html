@@ -1,28 +1,31 @@
 ﻿<div class="ca_label_busqueda">{{vm.language.strings.NAnotacionesEncontradas}} :</div>
 
 <div class="box-contenido-la">
-    <div class="lista-anotaciones" ng-repeat="i in [ {id:1,contenido:'hola mundo1'},
-                                                        {id:2,contenido:'hola mundo2'},
-                                                        {id:3,contenido:'hola mundodddddddddddddddddddddddd'}]">
+    <div class="lista-anotaciones" ng-repeat="posibleAnotacion in vm.posiblesAnotaciones">
 
-        <div ng-hide="vm.ho_[{{i.id}}]" ng-click="vm.anoSelected(i);">
+        <div ng-hide="vm.ho_[{{i.id}}]" ng-click="vm.anotacionSelected(posibleAnotacion);">
             <div>
                 <div><span class="ico-bookmark-o"></span></div>
                 <div>
                     <div class="de-subcontenido">
-                        <a>{{ datos.tipoDocumento }} {{ datos.numero }} {{vm.language.strings.del}} {{ datos.fecha }}</a>
-                        <p>{{vm.language.strings.Entidad}}: <i>{{ datos.entidad }} </i></p>
-                        <p>{{vm.language.strings.FechaPublicacion}}: <i>{{ datos.fecha  }} </i></p>
-                        <p>{{vm.language.strings.TipoAnotacion}}: <i>{{ datos.fecha  }} </i></p>
+                        <a>
+                            {{ posibleAnotacion.documentoAnotado.tipoDocumento }}
+                            {{ posibleAnotacion.documentoAnotado.numero }}
+                            {{vm.language.strings.del }}
+                            {{ posibleAnotacion.documentoAnotado.fecha }}
+                        </a>
+                        <p>{{vm.language.strings.Entidad}}: <i>{{ posibleAnotacion.documentoAnotado.entidad.nombre }} </i></p>
+                        <p>{{vm.language.strings.FechaPublicacion}}: <i>{{ posibleAnotacion.documentoAnotado.fecha  }} </i></p>
+                        <p>{{vm.language.strings.TipoAnotacion}}: <i>{{ posibleAnotacion.tipoAnotacion.nombre}} </i></p>
                     </div>
                 </div>
             </div>
             <div class="right-subcontenido-la">
-                <button class="wla-detalles" ng-click="vm.descartarAno(i);$event.stopPropagation()">Descartar</button>
+                <button class="wla-detalles" ng-click="vm.descartarAnotacion(posibleAnotacion);$event.stopPropagation()">Descartar</button>
             </div>
 
         </div>
     </div>
 </div>
 
-<asociar-documento show="vm.banAso" ng-if="vm.banAso"></asociar-documento>
+<asociar-documento show="vm.mostrarDialogoAsociacion" ng-if="vm.mostrarDialogoAsociacion"></asociar-documento>

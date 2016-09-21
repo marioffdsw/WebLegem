@@ -19,6 +19,7 @@
         vm.tiposEntidades = [];
         vm.entidadSeleccionada = undefined;
         vm.editando = false;
+        vm.seleccionar = seleccionar;
 
 
 
@@ -122,6 +123,22 @@
             cancelar();
         } // end function remover
 
-        }
-    } // end EntidadController
-)();
+        function seleccionar( entidadASeleccionar ){
+            if (vm.editando === true) {
+                return;
+            }
+            if (vm.entidadSeleccionada && angular.equals(vm.entidadSeleccionada.id, entidadASeleccionar.id)) {
+                vm.entidadSeleccionada = undefined;
+            }
+            else {
+                vm.entidadSeleccionada = angular.copy(entidadASeleccionar);
+                vm.entidadSeleccionada.tipoEntidad = seleccionarTipoEntidad( vm.entidadSeleccionada, vm.tiposEntidades );
+            }
+        } // end function seleccionar
+
+
+        function seleccionarTipoEntidad( entidadSeleccionada, tiposEntidades ){
+            return _.find(tiposEntidades, function (te) { return te.id == entidadSeleccionada.id });
+        } // end method 
+    } // end entidad controller    
+})();

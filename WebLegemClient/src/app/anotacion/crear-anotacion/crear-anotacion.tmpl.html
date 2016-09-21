@@ -1,6 +1,6 @@
 ﻿<div>    
 
-    <!---------------------------------------------------------------------------------------------------------------------Paso1-->
+    <!---------------Paso1-------------------------------------------------------------------------------------------------------->
     <div class="box_father ani-pasos" ng-show="vm.index==0">
         <div class="box_left">
             <label class="ca_label_busqueda">{{vm.language.strings.SeleccionarDocumentoAnota}}:</label>
@@ -14,7 +14,7 @@
         </div>
     </div>
 
-    <!---------------------------------------------------------------------------------------------------------------------Paso2-->
+    <!----------Paso2------------------------------------------------------------------------------------------------------------->
 
     <div class="box_father ani-pasos" ng-show="vm.index==1">
         <div class="box_left flex-3">
@@ -26,12 +26,12 @@
         <div class="box_right">
             <label class="msj-error"> No se encontro concordancias de anotaciones. </label>
             <a ng-click="vm.ban_crear_anotacion = true" href="" title="Crear anotacion">Crear Anotación</a>
-            <wl-lista-ano-encontrado>  </wl-lista-ano-encontrado>     
+            <wl-lista-ano-encontrado documento="vm.documentoAnoatante">  </wl-lista-ano-encontrado>     
             <asociar-documento show="vm.ban_crear_anotacion"></asociar-documento>
         </div>
     </div>
 
-    <!---------------------------------------------------------------------------------------------------------------------Controles-->
+    <!------------Controles----------------------------------------------------------------------------------------------------------->
 
     <div class="box_father">
         <div class="box_right">

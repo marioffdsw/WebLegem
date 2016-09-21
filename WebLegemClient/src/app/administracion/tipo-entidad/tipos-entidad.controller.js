@@ -17,7 +17,7 @@
 
         vm.tiposDocumentos = [];
         vm.tiposEntidades = [];
-        vm.tipoEntidadSeleccionado = undefined;
+        vm.tipoEntidadSeleccionado = {};
         vm.editando = false;        
         vm.seleccionar = seleccionar;
 
@@ -74,7 +74,7 @@
 
         function cancelar() {
             vm.editando = false;
-            vm.tipoEntidadSeleccionado = undefined;
+            vm.tipoEntidadSeleccionado = {};
             vm.tiposDocumentos = mapearTiposDocumentoPermitidos(vm.tiposDocumentos, vm.tipoEntidadSeleccionado);
             vm.form_tipo_ent.$setPristine();
         }
@@ -123,15 +123,15 @@
             cancelar();
         } // end function remover
 
-        function seleccionar(tipoEntidad) {
+        function seleccionar(tipoEntidad) {            
             if (vm.editando === true)
                 return;
 
             if (angular.equals(vm.tipoEntidadSeleccionado, tipoEntidad) )
-                vm.tipoEntidadSeleccionado = undefined;                           
+                vm.tipoEntidadSeleccionado = {};
             else
                 vm.tipoEntidadSeleccionado = angular.copy(tipoEntidad);                            
-
+            
             vm.tiposDocumentos = mapearTiposDocumentoPermitidos(vm.tiposDocumentos, vm.tipoEntidadSeleccionado)
             
         } // end function seleccionar
@@ -153,10 +153,11 @@
             if (typeof tipoEntidadSeleccionado === "undefined")
                 return false;
 
-            for (var i = 0; i < tipoEntidadSeleccionado.documentosSoportados.length; i++) {
-                if (tipoDocumento.id === tipoEntidadSeleccionado.documentosSoportados[i].id)
-                    return true;
-            } // end for
+            if (tipoEntidadSeleccionado.documentosSoportados )
+                for (var i = 0; i < tipoEntidadSeleccionado.documentosSoportados.length; i++) {
+                    if (tipoDocumento.id === tipoEntidadSeleccionado.documentosSoportados[i].id)
+                        return true;
+                } // end for
             return false;
         } // end function isSelected
 

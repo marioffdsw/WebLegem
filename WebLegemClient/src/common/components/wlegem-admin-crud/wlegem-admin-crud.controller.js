@@ -11,9 +11,12 @@
         vm.language = language;
         vm.creando = false;
 
+        vm.ban_confirmacion = false;
         vm.nuevo = nuevo;
         vm.editar = editar;
         vm.eliminar = eliminar;
+        vm.cancelarEliminacion = cancelarEliminacion;
+        vm.confirmarEliminacion = confirmarEliminacion;
 
         function nuevo() {            
             //vm.objetoSeleccionado = { id: 0, nombre: "" };
@@ -26,10 +29,19 @@
             //vm.editarCallback();
         } // end function editar
 
-        function eliminar() {            
-            vm.eliminarCallback(vm.objetoSeleccionado);
-            vm.creando = false;
+        function eliminar() {
+            vm.ban_confirmacion = true;            
         } // end function eliminar
+
+
+        function cancelarEliminacion() {
+            vm.ban_confirmacion = false;
+        } // end function cancelarEliminacion
+
+        function confirmarEliminacion(){
+            vm.eliminarCallback(vm.objetoSeleccionado);
+            vm.ban_confirmacion = false;
+        } // end function confirmarEliminacion
         
         return vm;
     } // end controller
