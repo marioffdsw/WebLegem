@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebLegemDAL.Archivo
+namespace WebLegemDAL.Dao
 {
     public class Archivo
     {

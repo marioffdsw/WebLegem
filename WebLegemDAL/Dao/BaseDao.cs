@@ -7,9 +7,9 @@ using Oracle.DataAccess.Client;
 using System.Data;
 using Oracle.DataAccess.Types;
 
-namespace WebLegemDAL.DAL
+namespace WebLegemDAL.Dao
 {
-    public abstract class BaseDAO<T> : IDataAccessObject<T>
+    public abstract class BaseDao<T> : IDataAccessObject<T>
     {
         /**********************************************************************************
          *
@@ -53,7 +53,7 @@ namespace WebLegemDAL.DAL
          *   CONSTRUCTORS
          *   
          **********************************************************************************/
-        public BaseDAO()
+        public BaseDao()
         {
             this.connection = new OracleConnection( connectionString );
         } // fin constructor

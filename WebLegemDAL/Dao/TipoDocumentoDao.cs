@@ -3,9 +3,9 @@ using Oracle.DataAccess.Client;
 using WebLegemDAL.Models;
 using System.Data;
 
-namespace WebLegemDAL.DAL
+namespace WebLegemDAL.Dao
 {
-    public class TipoDocumentoDAO : BaseDAO<TipoDocumento>
+    public class TipoDocumentoDao : BaseDao<TipoDocumento>
     {
 
         /**********************************************************************************

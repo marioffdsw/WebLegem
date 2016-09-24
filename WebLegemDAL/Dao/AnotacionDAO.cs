@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using WebLegemDAL.Models;
 
-namespace WebLegemDAL.DAL
+namespace WebLegemDAL.Dao
 {
-    public class AnotacionDAO : BaseDAO<Anotacion>
+    public class AnotacionDao : BaseDao<Anotacion>
     {
 
         public override string TableName

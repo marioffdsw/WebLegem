@@ -11,7 +11,7 @@
         "WebLegemApp.Anotacion",
         "common.services",
         "common.filters",
-        "common.mocks",
+        //"common.mocks",
         "matchMedia"/*
 		"WebLegemApp.Auditoria",		
         "WebLegemApp.Noticias"*/

@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using WebLegemDAL.Models;
 
-namespace WebLegemDAL.DAL
+namespace WebLegemDAL.Dao
 {
-    public class PermisoDAO : BaseDAO<Permiso>
+    public class PermisoDao : BaseDao<Permiso>
     {
         public override string TableName
         {

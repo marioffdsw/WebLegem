@@ -9,8 +9,8 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using WebLegemAPI.OCR;
-using WebLegemDAL.Archivo;
-using WebLegemDAL.DAL;
+using WebLegemDAL.Dao;
+using WebLegemDAL.Dao;
 using WebLegemDAL.Models;
 
 namespace WebLegemAPI.Controllers

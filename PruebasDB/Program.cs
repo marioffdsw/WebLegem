@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebLegemDAL.Models;
-using WebLegemDAL.DAL;
+using WebLegemDAL.Dao;
 using WebLegemDAL.QueryObjects;
 using WebLegemDAL.DAO;
 
@@ -12,14 +12,14 @@ namespace PruebasDB
 {
     class Program
     {                        
-        static TipoDocumentoDAO tipoDocumentoDal = new TipoDocumentoDAO();
-        static TipoEntidadDAO tipoEntidadDal = new TipoEntidadDAO();
-        static RolDAO rolDal = new RolDAO();
-        static PermisoDAO permisoDao = new PermisoDAO();
-        static UsuarioDAO usuarioDao = new UsuarioDAO();        
+        static TipoDocumentoDao tipoDocumentoDal = new TipoDocumentoDao();
+        static TipoEntidadDao tipoEntidadDal = new TipoEntidadDao();
+        static RolDao rolDal = new RolDao();
+        static PermisoDao permisoDao = new PermisoDao();
+        static UsuarioDao usuarioDao = new UsuarioDao();        
 
-        static EntidadDAO entidadDal = new EntidadDAO();
-        static DocumentoConContenidoDAO documentoDal = new DocumentoConContenidoDAO();
+        static EntidadDao entidadDal = new EntidadDao();
+        static DocumentoConContenidoDao documentoDal = new DocumentoConContenidoDao();
 
         static void Main(string[] args)
         {

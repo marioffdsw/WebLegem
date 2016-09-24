@@ -2,12 +2,12 @@
 using Oracle.DataAccess.Client;
 using WebLegemDAL.Models;
 using System.Data;
-using WebLegemDAL.DAL;
+using WebLegemDAL.Dao;
 using System;
 
 namespace WebLegemDAL.DAO
 {
-    public class UsuarioDAO : BaseDAO<Usuario>
+    public class UsuarioDao : BaseDao<Usuario>
     {
         /**********************************************************************************
          **********************************************************************************

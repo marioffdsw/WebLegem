@@ -6,11 +6,11 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebLegemDAL.DAL;
+using WebLegemDAL.Dao;
 
-namespace WebLegemDAL.Archivo
+namespace WebLegemDAL.Dao
 {
-    public class ArchivoDAO : BaseDAO<Archivo>
+    public class ArchivoDao : BaseDao<Archivo>
     {
         public override string TableName
         {

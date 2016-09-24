@@ -1,15 +1,18 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Oracle.DataAccess.Client;
 using WebLegemDAL.Models;
 using System.Data;
 
-namespace WebLegemDAL.DAL
+namespace WebLegemDAL.Dao
 {
-    public class EntidadDAO : BaseDAO<Entidad>
+    public class TipoEntidadDao : BaseDao<TipoEntidad>
     {
 
         /**********************************************************************************
-         **********************************************************************************
          *
          *   PROPERTIES
          *   
@@ -19,28 +22,27 @@ namespace WebLegemDAL.DAL
         {
             get
             {
-                return "entidades_view";
+                return "tipos_entidad_view";
             }
-        } // fin prop TableName
+        }
 
         public string UdtTypeName
         {
             get
             {
-                return "WEB_LEGEM.ENTIDAD_TYP";
+                return "WEB_LEGEM.TIPO_ENTIDAD_TYP";
             }
-        } // fin prop UdtTypeName
-
-
+        }
+        
+        
 
         /**********************************************************************************
-         **********************************************************************************
          *
          *   OVERWRITTEN METHODS
          *   
          **********************************************************************************/
 
-        protected sealed override IQueryable<Entidad> RetrieveAll()
+        protected sealed override IQueryable<TipoEntidad> RetrieveAll()
         {
             queryString = $"SELECT * FROM {TableName} tev";
 
@@ -49,55 +51,55 @@ namespace WebLegemDAL.DAL
 
             queryString = null;
 
-            return reader.ToList<Entidad>().AsQueryable();
+            return reader.ToList<TipoEntidad>().AsQueryable();
         }
 
-        protected sealed override Entidad Retrieve(int id)
+        protected sealed override TipoEntidad Retrieve(int id)
         {
-            queryString = $"SELECT * FROM {TableName} te WHERE te.entidad.id = {id}";
+            queryString = $"SELECT * FROM {TableName} te WHERE te.tipo_entidad.id = {id}";
             OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
             OracleDataReader reader = cmd.ExecuteReader();
 
             queryString = null;
 
-            return reader.ToList<Entidad>().AsQueryable().First();
+            return reader.ToList<TipoEntidad>().AsQueryable().First();
         }
 
-        protected sealed override Entidad Insert(Entidad entidad)
+        protected sealed override TipoEntidad Insert( TipoEntidad tipoEntidad )
         {
             OracleCommand cmd = new OracleCommand($"INSERT INTO {TableName} VALUES( :td )", connection);
             OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);
             td.UdtTypeName = UdtTypeName;
             td.Direction = ParameterDirection.InputOutput;
-            td.Value = entidad;
+            td.Value = tipoEntidad;
 
             cmd.ExecuteNonQuery();
 
-            return (Entidad) td.Value;
+            return (TipoEntidad)td.Value;
         }
 
-        protected sealed override Entidad Modify(Entidad entidad)
+        protected sealed override TipoEntidad Modify(TipoEntidad tipoEntidad)
         {
-            queryString = $"UPDATE {TableName} tev SET tev.entidad = :td WHERE tev.entidad.id = :id";
+            queryString = $"UPDATE {TableName} tev SET tev.tipo_entidad = :td WHERE tev.tipo_entidad.id = :id";
 
             OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
 
             OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);
             td.UdtTypeName = UdtTypeName;
             td.Direction = ParameterDirection.InputOutput;
-            td.Value = entidad;
+            td.Value = tipoEntidad;
 
-            OracleParameter id = cmd.Parameters.Add(":td", OracleDbType.Int32);            
-            id.Value = entidad.Id;
+            OracleParameter id = cmd.Parameters.Add(":id", OracleDbType.Int32);            
+            id.Value = tipoEntidad.Id;
 
             cmd.ExecuteNonQuery();
 
-            return (Entidad) td.Value;
+            return (TipoEntidad) td.Value;
         } // end UpdateTipoDocumento method
 
         protected sealed override void Remove(int id)
         {
-            queryString = $"DELETE FROM {TableName} tev WHERE tev.entidad.id = {id}";
+            queryString = $"DELETE FROM {TableName} tev WHERE tev.tipo_entidad.id = {id}";
 
             OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
             cmd.ExecuteNonQuery();

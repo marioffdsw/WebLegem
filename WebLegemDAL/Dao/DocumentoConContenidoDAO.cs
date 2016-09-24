@@ -10,9 +10,9 @@ using System.Data;
 using Oracle.DataAccess.Types;
 using System.IO;
 
-namespace WebLegemDAL.DAL
+namespace WebLegemDAL.Dao
 {
-    public class DocumentoConContenidoDAO: BaseDAO<DocumentoConContenido>,
+    public class DocumentoConContenidoDao: BaseDao<DocumentoConContenido>,
         IGestorDeConsultas<DocumentoConContenidoQueryObject, DocumentoConContenido>
     {
         private const int VarcharMaxLenght = 4000;
@@ -49,7 +49,7 @@ namespace WebLegemDAL.DAL
          *   
          **********************************************************************************/
 
-        public DocumentoConContenidoDAO() : base() { }
+        public DocumentoConContenidoDao() : base() { }
 
 
 

@@ -8,9 +8,9 @@ using WebLegemDAL.Models;
 using WebLegemDAL.QueryObjects;
 
 
-namespace WebLegemDAL.DAL
+namespace WebLegemDAL.Dao
 {
-    public class DocumentoDAO : BaseDAO<Documento>, IGestorDeConsultas<DocumentoQueryObject, Documento>
+    public class DocumentoDao : BaseDao<Documento>, IGestorDeConsultas<DocumentoQueryObject, Documento>
     {
         private const int VarcharMaxLenght = 4000;
 
@@ -25,7 +25,7 @@ namespace WebLegemDAL.DAL
         } // end prop UdtTypeName
             
 
-        public DocumentoDAO() : base() {}
+        public DocumentoDao() : base() {}
 
         public IQueryable<Documento> Consultar( DocumentoQueryObject queryObject )
         {

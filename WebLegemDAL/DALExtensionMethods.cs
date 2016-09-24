@@ -3,7 +3,7 @@ using Oracle.DataAccess.Types;
 using System.Collections.Generic;
 using System.Data;
 
-namespace WebLegemDAL.DAL
+namespace WebLegemDAL.Dao
 {
     public static class DALExtensionMethods
     {
