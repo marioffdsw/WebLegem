@@ -3,7 +3,7 @@
 <div class="box-contenido-la">
     <div class="lista-anotaciones" ng-repeat="posibleAnotacion in vm.posiblesAnotaciones">
 
-        <div ng-hide="vm.ho_[{{i.id}}]" ng-click="vm.anotacionSelected(posibleAnotacion);">
+        <div ng-hide="vm.ho_{{$index}}" ng-click="vm.anotacionSelected(posibleAnotacion);">
             <div>
                 <div><span class="ico-bookmark-o"></span></div>
                 <div>
@@ -20,6 +20,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="right-subcontenido-la">
                 <button class="wla-detalles" ng-click="vm.descartarAnotacion(posibleAnotacion);$event.stopPropagation()">Descartar</button>
             </div>
@@ -28,4 +29,4 @@
     </div>
 </div>
 
-<asociar-documento show="vm.mostrarDialogoAsociacion" ng-if="vm.mostrarDialogoAsociacion"></asociar-documento>
+<asociar-documento anotacion="vm.posibleAnotacion" show="vm.mostrarDialogoAsociacion" ng-if="vm.mostrarDialogoAsociacion"></asociar-documento>

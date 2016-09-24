@@ -13,7 +13,7 @@
             controller: "WlBuscarDocController",
             controllerAs: "vm",
             bindToController: true,
-            scope: {                
+            scope: {
                 documentos: "=documentos",
                 accion: "=accion"
             }

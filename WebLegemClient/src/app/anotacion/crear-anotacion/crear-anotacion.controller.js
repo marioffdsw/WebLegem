@@ -12,15 +12,14 @@
         var vm = this;
         vm.language = language;
         vm.nextStep = nextStep;
-        vm.backStep = backStep;
-        vm.crearAnotacion = crearAnotacion;
+        vm.backStep = backStep;        
         vm.buscar = buscar;
 
         vm.documentos;
         vm.seleccionarDocumentoAnotante = seleccionarDocumentoAnotante;
         vm.documentoAnotante;
 
-        vm.ban_exito_anotacion;
+        vm.ban_exito_anotaion;
         vm.ban_crear_doc = false; //flag para habilitar la creacion de un doc cuando no se encuentra resultados
         vm.ban_crear_ano = false; //flag para habilitar el form de crear anotacion cuando ya se selecciona un documento de la lista
 
@@ -31,11 +30,7 @@
         vm.idProgreso = "anotacionManual";
 
         //------------------------------------------------------------------------------------------------------------------
-
-        function crearAnotacion() {
-            // TODO llenar metodo anotacion
-            vm.ban_exito_anotacion = true;
-        }
+        
 
         //------------------------------------------------------------------------------------------------------------------
 

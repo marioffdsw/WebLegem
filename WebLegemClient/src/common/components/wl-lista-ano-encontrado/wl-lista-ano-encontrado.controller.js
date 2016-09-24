@@ -19,15 +19,18 @@
         vm.mostrarDialogoAsociacion = false;//bandera asociacion
         vm.ban_itemSelected = false;
         vm.ho_ = [];
+
+        /**
+         * 
+         * 
+         * Este parametro debe ser enviado a la directiva, en el html
+         * 
+         * 
+         */
         vm.posiblesAnotaciones = [
             { tipoAnotacion: { nombre: "Deroga" } },
             { tipoAnotacion: { nombre: "Modifica" } }
-        ];
-
-
-        function traerPosiblesAnotaciones() {
-            // TODO- traer posibles anotaciones usando un service api
-        }
+        ];        
 
         function quitarSeleccion() {
             vm.ban_itemSelected = false;
