@@ -133,24 +133,23 @@
 }
 
 .a-modal-confirmacion{
-    margin-top:15px;
+    margin-top:20px;
     display:flex;
     justify-content:flex-end;
+    border-top:1px solid #bbb;
+    padding-top:5px;
+    width:100%;
 }
 
 .a-modal-confirmacion button{
+    margin-bottom:0;
     background:white;
     display:flex;
     justify-content:center;
     border:1px solid #ccc;
-    height:30px;
     cursor:pointer;
-    margin-left:15px;
-    padding: 0 5px;
-    font-family:"Lato-Bold";
+    margin-left:5px;
     color:#333;
-        font-size: 0.7em;
-        letter-spacing: 0.04rem;
     text-transform:uppercase;
 }
 

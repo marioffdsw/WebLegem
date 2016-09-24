@@ -31,9 +31,34 @@
             </div>
 
             <div class='a-modal-contenido'>
-                <p>Esta seguro que desea eliminar "{{ vm.objetoSeleccionado.nombre }}"</p>
-                <button ng-click="vm.confirmarEliminacion()">Aceptar</button>
-                <button ng-click="vm.cancelarEliminacion()">Cancelar</button>
+                <div class="generic-box-vertical">
+                    <p>Esta seguro que desea eliminar "{{ vm.objetoSeleccionado.nombre }}"</p>
+                    <div class="a-modal-confirmacion">
+                            <button class="btn_sin_ico" value="confirmar" ng-click="vm.confirmarEliminacion()">Aceptar</button>
+                            <button class="btn_sin_ico" ng-click="vm.cancelarEliminacion()">Cancelar</button>
+
+                    </div>
+                </div>
+                <div class="generic-box-vertical">
+                    <div style="display:flex;justify-content:center;">
+                        <div class="circulo_carga mediano"></div>
+                    </div>
+                    <div class="generic-box-horizontal center">
+                        <label class="texto_labels">Operacion terminada con exito</label>
+                        <span class="ico-check-circle" style="font-size:large; color:greenyellow"></span>
+                    </div>
+
+                    <div class="generic-box-horizontal center">
+                        <label class="texto_labels">Lamentablemente no se pudo realizar la operacion</label>
+                        <span class="ico-times-circle" style="font-size:large; color:#ff2f2f"></span>
+                    </div>
+
+                    <div class="generic-box-horizontal flex-1 center" style="margin-top:15px;">
+                        <button class="btn_sin_ico" ng-click="vm.ban_confirmacion=false">
+                            Aceptar
+                        </button>
+                    </div>
+                </div>
             </div>
 
         </div>
