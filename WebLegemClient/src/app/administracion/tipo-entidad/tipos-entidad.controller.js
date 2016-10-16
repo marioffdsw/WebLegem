@@ -12,19 +12,19 @@
         /**********************************************************************************
          *
          *   PROPERTIES
-         *   
+         *
          **********************************************************************************/
 
         vm.tiposDocumentos = [];
         vm.tiposEntidades = [];
         vm.tipoEntidadSeleccionado = {};
-        vm.editando = false;        
+        vm.editando = false;
         vm.seleccionar = seleccionar;
 
         /**********************************************************************************
          *
          *   PUBLIC METHOD DEFINITION
-         *   
+         *
          **********************************************************************************/
 
         vm.remover = remover;
@@ -35,7 +35,7 @@
         /**********************************************************************************
          *
          *   DATA RETRIEVING CALLS
-         *   
+         *
          **********************************************************************************/
 
         retrieveData();
@@ -43,7 +43,7 @@
         /**********************************************************************************
          *
          *   PRIVATE METHODS
-         *   
+         *
          **********************************************************************************/
 
 
@@ -87,9 +87,9 @@
             });
 
             TipoDocumentoResource.query(function (data) {
-                vm.tiposDocumentos = mapearTiposDocumentoPermitidos(data, vm.tipoEntidadSeleccionado);                
+                vm.tiposDocumentos = mapearTiposDocumentoPermitidos(data, vm.tipoEntidadSeleccionado);
             });
-        }        
+        }
 
 
         function nuevo() {
@@ -97,16 +97,16 @@
         }
 
 
-        function crear(tipoEntidad) {            
+        function crear(tipoEntidad) {
             TipoEntidadService.save(tipoEntidad, function (data) {
                 retrieveData();
             });
 
             cancelar();
-        } // end function create       
+        } // end function create
 
 
-        function guardar(tipoEntidad) {            
+        function guardar(tipoEntidad) {
             TipoEntidadService.update(tipoEntidad, function (data) {
                 retrieveData();
             });
@@ -123,17 +123,17 @@
             cancelar();
         } // end function remover
 
-        function seleccionar(tipoEntidad) {            
+        function seleccionar(tipoEntidad) {
             if (vm.editando === true)
                 return;
 
             if (angular.equals(vm.tipoEntidadSeleccionado, tipoEntidad) )
                 vm.tipoEntidadSeleccionado = {};
             else
-                vm.tipoEntidadSeleccionado = angular.copy(tipoEntidad);                            
-            
+                vm.tipoEntidadSeleccionado = angular.copy(tipoEntidad);
+
             vm.tiposDocumentos = mapearTiposDocumentoPermitidos(vm.tiposDocumentos, vm.tipoEntidadSeleccionado)
-            
+
         } // end function seleccionar
 
         function mapearTiposDocumentoPermitidos(tiposDocumentos, tipoEntidadSeleccionado) {

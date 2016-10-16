@@ -101,7 +101,6 @@
     <Compile Include="Entities\TipoAnotacion.cs" />
     <Compile Include="Dao\TipoAnotacionDao.cs" />
     <Compile Include="Factories\TipoAnotacionFactory.cs" />
-    <Compile Include="Factories\EntidadRefArrayFactory.cs" />
     <Compile Include="Entities\TipoDocumento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dao\TipoDocumentoDao.cs" />

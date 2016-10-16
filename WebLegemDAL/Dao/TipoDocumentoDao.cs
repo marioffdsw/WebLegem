@@ -48,8 +48,11 @@ namespace WebLegemDAL.Dao
             OracleDataReader reader = cmd.ExecuteReader();
 
             queryString = null;
-            
-            return reader.ToList<TipoDocumento>().AsQueryable();
+
+            var dt = new DataTable();
+            dt.Load(reader);
+
+            return dt.CreateDataReader().AsEnumerable<TipoDocumento>(connection).AsQueryable();
         }
 
         protected sealed override TipoDocumento Retrieve(int id)
@@ -60,7 +63,10 @@ namespace WebLegemDAL.Dao
 
             queryString = null;
 
-            return reader.ToList<TipoDocumento>().AsQueryable().First();
+            var dt = new DataTable();
+            dt.Load(reader);
+
+            return dt.CreateDataReader().AsEnumerable<TipoDocumento>(connection).AsQueryable().First();
         }
 
         protected sealed override TipoDocumento Insert( TipoDocumento tipoDocumento)

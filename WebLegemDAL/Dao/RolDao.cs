@@ -50,7 +50,10 @@ namespace WebLegemDAL.Dao
 
             queryString = null;
 
-            return reader.ToList<Rol>().AsQueryable();
+            var dt = new DataTable();
+            dt.Load(reader);
+
+            return dt.CreateDataReader().AsEnumerable<Rol>(connection).AsQueryable();
         } // end method RetrieveAll
 
         protected sealed override Rol Retrieve(int id)
@@ -61,7 +64,10 @@ namespace WebLegemDAL.Dao
 
             queryString = null;
 
-            return reader.ToList<Rol>().AsQueryable().First();
+            var dt = new DataTable();
+            dt.Load(reader);
+
+            return dt.CreateDataReader().AsEnumerable<Rol>(connection).AsQueryable().First();
         } // end method Retrieve
 
         protected sealed override Rol Insert(Rol registro)

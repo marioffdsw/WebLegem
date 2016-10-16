@@ -49,7 +49,10 @@ namespace WebLegemDAL.Dao
 
             queryString = null;
 
-            return reader.ToList<Entidad>().AsQueryable();
+            var dt = new DataTable();
+            dt.Load(reader);
+
+            return dt.CreateDataReader().AsEnumerable<Entidad>(connection).AsQueryable();
         }
 
         protected sealed override Entidad Retrieve(int id)
@@ -60,7 +63,10 @@ namespace WebLegemDAL.Dao
 
             queryString = null;
 
-            return reader.ToList<Entidad>().AsQueryable().First();
+            var dt = new DataTable();
+            dt.Load(reader);
+
+            return dt.CreateDataReader().AsEnumerable<Entidad>(connection).AsQueryable().First();
         }
 
         protected sealed override Entidad Insert(Entidad entidad)

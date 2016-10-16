@@ -1,6 +1,7 @@
 ﻿using Oracle.DataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,7 +49,10 @@ namespace WebLegemDAL.Dao
 
                 queryString = null;
 
-                return reader.ToList<Documento>().AsQueryable();
+                var dt = new DataTable();
+                dt.Load(reader);
+
+                return dt.CreateDataReader().AsEnumerable<Documento>(connection).AsQueryable();
             });
 
             return resultado;            
@@ -68,7 +72,10 @@ namespace WebLegemDAL.Dao
 
             queryString = null;
 
-            return reader.ToList<Documento>().AsQueryable();
+            var dt = new DataTable();
+            dt.Load(reader);
+
+            return dt.CreateDataReader().AsEnumerable<Documento>(connection).AsQueryable();
         }
 
         protected override Documento Insert(Documento registro)

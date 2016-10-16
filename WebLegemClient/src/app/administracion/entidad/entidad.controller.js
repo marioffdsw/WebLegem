@@ -138,7 +138,7 @@
 
 
         function seleccionarTipoEntidad( entidadSeleccionada, tiposEntidades ){
-            return _.find(tiposEntidades, function (te) { return te.id == entidadSeleccionada.id });
+            return _.find(tiposEntidades, function (te) { return te.id == entidadSeleccionada.tipoEntidad.id });
         } // end method 
     } // end entidad controller    
 })();

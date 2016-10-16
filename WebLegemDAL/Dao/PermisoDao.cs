@@ -1,6 +1,7 @@
 ﻿using Oracle.DataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -51,7 +52,10 @@ namespace WebLegemDAL.Dao
 
             queryString = null;
 
-            return reader.ToList<Permiso>().AsQueryable();
+            var dt = new DataTable();
+            dt.Load(reader);
+
+            return dt.CreateDataReader().AsEnumerable<Permiso>(connection).AsQueryable();
         }
     } // end class PermisoDAL
 } // end namespace WebLegemDAL.DAL

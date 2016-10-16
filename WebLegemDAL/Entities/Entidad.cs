@@ -121,4 +121,18 @@ namespace WebLegemDAL.Models
             return "Entidad( " + Id + ", " + Nombre + ", " + tipoEntidad + " )";
         } // fin ToString method
     } // fin Entidad class
+
+    [OracleCustomTypeMapping("WEB_LEGEM.TIPO_DOCUMENTO_TAB_TYP")]
+    public class TipoDocumentoArrayFactory : IOracleArrayTypeFactory
+    {
+        public Array CreateArray( int numElems )
+        {
+            return new TipoDocumento[numElems];
+        }
+
+        public Array CreateStatusArray(int numElems)
+        {
+            return null;
+        }
+    }
 } // fin namespace

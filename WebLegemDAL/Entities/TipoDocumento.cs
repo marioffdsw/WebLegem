@@ -66,13 +66,13 @@ namespace WebLegemDAL.Models
 
             // establece el atributo "ID"
             // por defecto el atributo id sera establecido a NULL            
-            OracleUdt.SetValue(con, pUdt, "ID", id);
+            OracleUdt.SetValue(con, pUdt, "ID", Id);
 
             // establece el atributo "NOMBRE"
             // por defecto el atributo "NOMBRE" sera establecido a NULL             
             if (nombre != null)
             {
-                OracleUdt.SetValue(con, pUdt, "NOMBRE", nombre);
+                OracleUdt.SetValue(con, pUdt, "NOMBRE", Nombre);
             }
         } // end method FromCustomObject
 
@@ -83,11 +83,11 @@ namespace WebLegemDAL.Models
 
             // Get the "ADDRESS" attribute
             // If the "ADDRESS" attribute is NULL, then OracleString.Null will be returned
-            id = (Int32)OracleUdt.GetValue(con, pUdt, "ID");
+            Id = (Int32)OracleUdt.GetValue(con, pUdt, "ID");
 
             // Get the "NAME" attribute
             // If the "NAME" attribute is NULL, then null will be returned
-            nombre = (string)OracleUdt.GetValue(con, pUdt, "NOMBRE");
+            Nombre = (string)OracleUdt.GetValue(con, pUdt, "NOMBRE");
         } // end ToCustomObject method
 
         public override string ToString()

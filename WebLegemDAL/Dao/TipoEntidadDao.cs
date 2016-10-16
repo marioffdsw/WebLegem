@@ -51,7 +51,10 @@ namespace WebLegemDAL.Dao
 
             queryString = null;
 
-            return reader.ToList<TipoEntidad>().AsQueryable();
+            var dt = new DataTable();
+            dt.Load(reader);            
+
+            return dt.CreateDataReader().AsEnumerable<TipoEntidad>(connection).AsQueryable();
         }
 
         protected sealed override TipoEntidad Retrieve(int id)
@@ -62,39 +65,62 @@ namespace WebLegemDAL.Dao
 
             queryString = null;
 
-            return reader.ToList<TipoEntidad>().AsQueryable().First();
+            var dt = new DataTable();
+            dt.Load(reader);
+
+            return dt.CreateDataReader().AsEnumerable<TipoEntidad>(connection).AsQueryable().First();
         }
 
         protected sealed override TipoEntidad Insert( TipoEntidad tipoEntidad )
-        {
-            OracleCommand cmd = new OracleCommand($"INSERT INTO {TableName} VALUES( :td )", connection);
-            OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);
-            td.UdtTypeName = UdtTypeName;
-            td.Direction = ParameterDirection.InputOutput;
-            td.Value = tipoEntidad;
+        {            
+            var cmd = new OracleCommand( "WEB_LEGEM.CREAR_TIPO_ENTIDAD_FUN" );
+            cmd.BindByName = true;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = connection;
+
+            // get result from oracle function
+            var result = new OracleParameter();
+            result.OracleDbType = OracleDbType.Object;
+            result.UdtTypeName = UdtTypeName;
+            result.Direction = ParameterDirection.ReturnValue;
+            result.OracleDbTypeEx = OracleDbType.Object;
+            cmd.Parameters.Add(result);
+
+            OracleParameter prm1 = cmd.Parameters.Add("tipo_entidad", OracleDbType.Object);
+            prm1.UdtTypeName = UdtTypeName;
+            prm1.Direction = ParameterDirection.InputOutput;
+            prm1.Value = tipoEntidad;            
 
             cmd.ExecuteNonQuery();
+            var aux = (TipoEntidad)prm1.Value;
 
-            return (TipoEntidad)td.Value;
+            return aux;
         }
 
         protected sealed override TipoEntidad Modify(TipoEntidad tipoEntidad)
         {
-            queryString = $"UPDATE {TableName} tev SET tev.tipo_entidad = :td WHERE tev.tipo_entidad.id = :id";
+            var cmd = new OracleCommand("WEB_LEGEM.ACTUALIZAR_TIPO_ENTIDAD_FUN");
+            cmd.BindByName = true;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = connection;
 
-            OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
+            // get result from oracle function
+            var result = new OracleParameter();
+            result.OracleDbType = OracleDbType.Object;
+            result.UdtTypeName = UdtTypeName;
+            result.Direction = ParameterDirection.ReturnValue;
+            result.OracleDbTypeEx = OracleDbType.Object;
+            cmd.Parameters.Add(result);
 
-            OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);
-            td.UdtTypeName = UdtTypeName;
-            td.Direction = ParameterDirection.InputOutput;
-            td.Value = tipoEntidad;
-
-            OracleParameter id = cmd.Parameters.Add(":id", OracleDbType.Int32);            
-            id.Value = tipoEntidad.Id;
+            OracleParameter prm1 = cmd.Parameters.Add("tipo_entidad", OracleDbType.Object);
+            prm1.UdtTypeName = UdtTypeName;
+            prm1.Direction = ParameterDirection.InputOutput;
+            prm1.Value = tipoEntidad;
 
             cmd.ExecuteNonQuery();
+            var aux = (TipoEntidad)prm1.Value;
 
-            return (TipoEntidad) td.Value;
+            return aux;
         } // end UpdateTipoDocumento method
 
         protected sealed override void Remove(int id)

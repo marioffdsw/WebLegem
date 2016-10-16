@@ -111,8 +111,7 @@ namespace WebLegemDAL.Dao
 
         private void CloseConnection()
         {
-            connection.Close();
-            connection.Dispose();        
+            connection.Close();                  
         }
 
         protected TResult DBOperation<TResult>(Func<TResult> operation)

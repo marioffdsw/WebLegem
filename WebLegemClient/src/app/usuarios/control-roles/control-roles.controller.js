@@ -92,6 +92,7 @@
         function retrieveData() {
             RolResource.query(function (data) {
                 vm.roles = data;
+                console.log( data );
             });
 
 
@@ -156,8 +157,8 @@
         function isSelected( permiso, rol ) {
             if (typeof rol === "undefined") return false;
 
-            for (var i = 0; i < rol.permisos.length; i++)
-                if (permiso.id === rol.permisos[i].id) return true;
+            for (var i = 0; i < rol.permisosAsignados.length; i++)
+                if (permiso.id === rol.permisosAsignados[i].id) return true;
 
             return false;
         } // end function isSelected

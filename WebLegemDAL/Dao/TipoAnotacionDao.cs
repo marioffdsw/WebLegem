@@ -47,7 +47,10 @@ namespace WebLegemDAL.Dao
 
             queryString = null;
 
-            return reader.ToList<TipoAnotacion>().AsQueryable();
+            var dt = new DataTable();
+            dt.Load(reader);
+
+            return dt.CreateDataReader().AsEnumerable<TipoAnotacion>(connection).AsQueryable();
         } // fin method RetrieveAll
 
         protected sealed override TipoAnotacion Retrieve(int id)
@@ -63,7 +66,10 @@ namespace WebLegemDAL.Dao
 
             queryString = null;
 
-            return reader.ToList<TipoAnotacion>().AsQueryable().First();
+            var dt = new DataTable();
+            dt.Load(reader);
+
+            return dt.CreateDataReader().AsEnumerable<TipoAnotacion>(connection).AsQueryable().First();
         }
 
         protected sealed override TipoAnotacion Insert(TipoAnotacion registro)

@@ -69,7 +69,10 @@ namespace WebLegemDAL.Dao
 
             queryString = null;
 
-            return reader.ToList<DocumentoConContenido>().AsQueryable();
+            var dt = new DataTable();
+            dt.Load(reader);
+
+            return dt.CreateDataReader().AsEnumerable<DocumentoConContenido>(connection).AsQueryable();
         }
 
         protected sealed override DocumentoConContenido Retrieve(int id)
@@ -80,7 +83,10 @@ namespace WebLegemDAL.Dao
 
             queryString = null;
 
-            return reader.ToList<DocumentoConContenido>().AsQueryable().First();
+            var dt = new DataTable();
+            dt.Load(reader);
+
+            return dt.CreateDataReader().AsEnumerable<DocumentoConContenido>(connection).AsQueryable().First();
         }
 
         protected sealed override DocumentoConContenido Insert(DocumentoConContenido documentoConContenido)
@@ -172,7 +178,10 @@ namespace WebLegemDAL.Dao
 
                 queryString = null;
 
-                return reader.ToList<DocumentoConContenido>().AsQueryable();                            
+                var dt = new DataTable();
+                dt.Load(reader);
+
+                return dt.CreateDataReader().AsEnumerable<DocumentoConContenido>(connection).AsQueryable();                            
             } );
 
             return resultado;
