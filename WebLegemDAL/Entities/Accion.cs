@@ -53,9 +53,8 @@ namespace WebLegemDAL.Models
 
         public virtual void FromCustomObject(OracleConnection con, IntPtr pUdt)
         {
-            OracleUdt.SetValue( con,pUdt, "NOMBRE", nombre );
-            if (id != null)
-                OracleUdt.SetValue( con, pUdt, "ID", id );
+            OracleUdt.SetValue( con,pUdt, "NOMBRE", nombre );            
+            OracleUdt.SetValue( con, pUdt, "ID", id );
         } // end method FromCustomObject
 
         public virtual void ToCustomObject(OracleConnection con, IntPtr pUdt)

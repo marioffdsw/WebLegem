@@ -5,13 +5,10 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using WebLegemAPI.OCR;
 using WebLegemDAL.Dao;
-using WebLegemDAL.Dao;
-using WebLegemDAL.Models;
 
 namespace WebLegemAPI.Controllers
 {
@@ -68,23 +65,16 @@ namespace WebLegemAPI.Controllers
         {
             if (id == 0)
                 return Request.CreateResponse( HttpStatusCode.BadRequest );
+            
+            string fileName = archivoDAO.Get(id).Nombre;
+            string localFilePath = @"c:\oradata\web_legem\";
 
-            try
-            {
-                string fileName = archivoDAO.Get(id).Nombre;
-                string localFilePath = @"c:\oradata\web_legem\";
+            HttpResponseMessage response = new HttpResponseMessage( HttpStatusCode.OK );
+            response.Content = new StreamContent( new FileStream( localFilePath + fileName, FileMode.Open, FileAccess.Read ) );
+            response.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
+            response.Content.Headers.ContentDisposition.FileName = fileName;                
 
-                HttpResponseMessage response = new HttpResponseMessage( HttpStatusCode.OK );
-                response.Content = new StreamContent( new FileStream( localFilePath + fileName, FileMode.Open, FileAccess.Read ) );
-                response.Content.Headers.ContentDisposition = new System.Net.Http.Headers.ContentDispositionHeaderValue("attachment");
-                response.Content.Headers.ContentDisposition.FileName = fileName;                
-
-                return response;
-            }
-            catch ( Exception exception )
-            {
-                return Request.CreateResponse( HttpStatusCode.InternalServerError );
-            }
+            return response;            
                                    
         } // end action method POST
 
