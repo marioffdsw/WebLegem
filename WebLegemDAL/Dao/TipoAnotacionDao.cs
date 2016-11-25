@@ -50,7 +50,7 @@ namespace WebLegemDAL.Dao
             var dt = new DataTable();
             dt.Load(reader);
 
-            return dt.CreateDataReader().AsEnumerable<TipoAnotacion>(connection).AsQueryable();
+            return dt.CreateDataReader().AsEnumerable<TipoAnotacion>().AsQueryable();
         } // fin method RetrieveAll
 
         protected sealed override TipoAnotacion Retrieve(int id)
@@ -69,7 +69,7 @@ namespace WebLegemDAL.Dao
             var dt = new DataTable();
             dt.Load(reader);
 
-            return dt.CreateDataReader().AsEnumerable<TipoAnotacion>(connection).AsQueryable().First();
+            return dt.CreateDataReader().AsEnumerable<TipoAnotacion>().AsQueryable().First();
         }
 
         protected sealed override TipoAnotacion Insert(TipoAnotacion registro)

@@ -11,6 +11,7 @@ namespace WebLegemDAL.Models
         private int id; // atributo id del typ
         private string nombre; // atributo nombre del typ
         private TipoDocumento[] documentosSoportados; // atributo documentos_soportados del typ
+        private DateTime ultimaModificacion;
 
         [JsonIgnore]        
         public virtual bool IsNull
@@ -59,6 +60,13 @@ namespace WebLegemDAL.Models
             }
         }
 
+        [OracleObjectMapping("ULTIMA_MODIFICACION")]
+        public DateTime UltimaModificacion
+        {
+            get { return ultimaModificacion; }
+            set { ultimaModificacion = value; }
+        }
+
         [OracleObjectMappingAttribute( "DOCUMENTOS_SOPORTADOS" )]
         public TipoDocumento[] DocumentosSoportados
         {
@@ -82,6 +90,7 @@ namespace WebLegemDAL.Models
             }
 
             OracleUdt.SetValue( con, pUdt, "DOCUMENTOS_SOPORTADOS", DocumentosSoportados );
+            OracleUdt.SetValue(con, pUdt, "ULTIMA_MODIFICACION", UltimaModificacion);
         } // end method FromCustomObject
 
         public virtual void ToCustomObject(OracleConnection con, IntPtr pUdt)
@@ -93,6 +102,7 @@ namespace WebLegemDAL.Models
             nombre = (string)OracleUdt.GetValue(con, pUdt, "NOMBRE");
 
             documentosSoportados = (TipoDocumento[])OracleUdt.GetValue( con, pUdt, "DOCUMENTOS_SOPORTADOS" );
+            UltimaModificacion = (DateTime)OracleUdt.GetValue( con, pUdt, "ULTIMA_MODIFICACION" );
         } // end ToCustomObject method
 
         public override string ToString()

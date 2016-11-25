@@ -34,6 +34,10 @@
       <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="CSharpFunctionalExtensions, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSharpFunctionalExtensions.1.6.2\lib\net45\CSharpFunctionalExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Spatial, Version=6.14.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Spatial.6.14.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
       <Private>True</Private>
@@ -47,6 +51,8 @@
       <HintPath>C:\oracle\product\12.1.0\client_x32\odp.net\bin\4\Oracle.DataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -64,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO2\ArchivoDao.cs" />
+    <Compile Include="DAO2\EntidadDao.cs" />
+    <Compile Include="DAO2\DB.cs" />
+    <Compile Include="DAO2\TipoAnotacionDao.cs" />
+    <Compile Include="DAO2\TipoDocumentoDao.cs" />
+    <Compile Include="DAO2\TipoEntidadDao.cs" />
     <Compile Include="Entities\Accion.cs" />
     <Compile Include="Factories\AccionFactory.cs" />
     <Compile Include="Entities\Anotacion.cs" />
@@ -75,6 +87,7 @@
     <Compile Include="DALExtensionMethods.cs" />
     <Compile Include="Entities\Documento.cs" />
     <Compile Include="Entities\DocumentoConContenido.cs" />
+    <Compile Include="Factories\ArchivoFactory.cs" />
     <Compile Include="Factories\DocumentoConContenidoFactory.cs" />
     <Compile Include="Dao\DocumentoConContenidoDao.cs" />
     <Compile Include="Dao\DocumentoConContenidoQueryObject.cs" />

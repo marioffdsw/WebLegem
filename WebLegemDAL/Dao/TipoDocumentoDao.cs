@@ -52,7 +52,7 @@ namespace WebLegemDAL.Dao
             var dt = new DataTable();
             dt.Load(reader);
 
-            return dt.CreateDataReader().AsEnumerable<TipoDocumento>(connection).AsQueryable();
+            return dt.CreateDataReader().AsEnumerable<TipoDocumento>().AsQueryable();
         }
 
         protected sealed override TipoDocumento Retrieve(int id)
@@ -66,7 +66,7 @@ namespace WebLegemDAL.Dao
             var dt = new DataTable();
             dt.Load(reader);
 
-            return dt.CreateDataReader().AsEnumerable<TipoDocumento>(connection).AsQueryable().First();
+            return dt.CreateDataReader().AsEnumerable<TipoDocumento>().AsQueryable().First();
         }
 
         protected sealed override TipoDocumento Insert( TipoDocumento tipoDocumento)

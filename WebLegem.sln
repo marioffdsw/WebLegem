@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{218574D1-FF94-4B95-8577-A6D58C11C315}") = "WebLegemDB", "WebLegemDB\WebLegemDB.oradbproj", "{3E5366AE-7A07-4557-BA24-1D6E9D08C0AB}"
 EndProject
@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLegemDAL", "WebLegemDAL\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebLegemCommon", "WebLegemCommon\WebLegemCommon.csproj", "{C49A602C-632B-4818-B7A2-44FFB4A2AB75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDb", "TestDb\TestDb.csproj", "{F950B1D1-5F8F-49C6-AFCA-288D810C864C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,10 @@ Global
 		{C49A602C-632B-4818-B7A2-44FFB4A2AB75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C49A602C-632B-4818-B7A2-44FFB4A2AB75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C49A602C-632B-4818-B7A2-44FFB4A2AB75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F950B1D1-5F8F-49C6-AFCA-288D810C864C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F950B1D1-5F8F-49C6-AFCA-288D810C864C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F950B1D1-5F8F-49C6-AFCA-288D810C864C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F950B1D1-5F8F-49C6-AFCA-288D810C864C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

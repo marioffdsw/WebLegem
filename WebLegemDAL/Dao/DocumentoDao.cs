@@ -52,7 +52,7 @@ namespace WebLegemDAL.Dao
                 var dt = new DataTable();
                 dt.Load(reader);
 
-                return dt.CreateDataReader().AsEnumerable<Documento>(connection).AsQueryable();
+                return dt.CreateDataReader().AsEnumerable<Documento>().AsQueryable();
             });
 
             return resultado;            
@@ -75,7 +75,7 @@ namespace WebLegemDAL.Dao
             var dt = new DataTable();
             dt.Load(reader);
 
-            return dt.CreateDataReader().AsEnumerable<Documento>(connection).AsQueryable();
+            return dt.CreateDataReader().AsEnumerable<Documento>().AsQueryable();
         }
 
         protected override Documento Insert(Documento registro)

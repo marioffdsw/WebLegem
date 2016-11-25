@@ -53,7 +53,7 @@ namespace WebLegemDAL.Dao
             var dt = new DataTable();
             dt.Load(reader);
 
-            return dt.CreateDataReader().AsEnumerable<Rol>(connection).AsQueryable();
+            return dt.CreateDataReader().AsEnumerable<Rol>().AsQueryable();
         } // end method RetrieveAll
 
         protected sealed override Rol Retrieve(int id)
@@ -67,7 +67,7 @@ namespace WebLegemDAL.Dao
             var dt = new DataTable();
             dt.Load(reader);
 
-            return dt.CreateDataReader().AsEnumerable<Rol>(connection).AsQueryable().First();
+            return dt.CreateDataReader().AsEnumerable<Rol>().AsQueryable().First();
         } // end method Retrieve
 
         protected sealed override Rol Insert(Rol registro)

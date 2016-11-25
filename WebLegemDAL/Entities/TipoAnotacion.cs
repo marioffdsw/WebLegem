@@ -22,6 +22,7 @@ namespace WebLegemDAL.Models
         private int id;
         private string nombre;
         private string raiz;
+        private DateTime ultimaModificacion;
 
         private bool isNull;
 
@@ -72,6 +73,13 @@ namespace WebLegemDAL.Models
             set { raiz = value; }
         } // fin prop Raiz
 
+        [OracleObjectMapping( "ULTIMA_MODIFICACION" )]
+        public DateTime UltimaModificacion
+        {
+            get { return ultimaModificacion; }
+            set { ultimaModificacion = value; }
+        }
+
 
 
         /**********************************************************************************
@@ -90,13 +98,16 @@ namespace WebLegemDAL.Models
 
             if (raiz != null)
                 OracleUdt.SetValue( con, pUdt, "RAIZ", raiz );
+
+            OracleUdt.SetValue(con, pUdt, "ULTIMA_MODIFICACION", UltimaModificacion);
         } // fin method FromCustomObject
 
         public virtual void ToCustomObject( OracleConnection con, IntPtr pUdt )
         {
             Id = (Int32) OracleUdt.GetValue( con, pUdt, "ID" );
             Nombre = (string) OracleUdt.GetValue( con, pUdt, "NOMBRE" );
-            Raiz = (string) OracleUdt.GetValue( con, pUdt, "RAIZ" );            
+            Raiz = (string) OracleUdt.GetValue( con, pUdt, "RAIZ" );
+            UltimaModificacion = (DateTime)OracleUdt.GetValue( con, pUdt, "ULTIMA_MODIFICACION" );
         } // fin method ToCustomObject
 
         public override string ToString()

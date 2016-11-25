@@ -18,6 +18,7 @@ namespace WebLegemDAL.Models
         private int id;
         private string nombre;
         private TipoEntidad tipoEntidad;
+        private DateTime ultimaModificacion;
 
         private bool isNull;
 
@@ -87,6 +88,13 @@ namespace WebLegemDAL.Models
             }
         } // fin prop TipoEntidad
 
+        [OracleObjectMapping("ULTIMA_MODIFICACION")]
+        public DateTime UltimaModificacion
+        {
+            get { return ultimaModificacion; }
+            set { ultimaModificacion = value; }
+        }
+
 
 
         /**********************************************************************************
@@ -104,7 +112,9 @@ namespace WebLegemDAL.Models
                 OracleUdt.SetValue(con, pUdt, "NOMBRE", nombre);            
 
             if (tipoEntidad != null)
-                OracleUdt.SetValue( con, pUdt, "TIPO_ENTIDAD", tipoEntidad );            
+                OracleUdt.SetValue( con, pUdt, "TIPO_ENTIDAD", tipoEntidad );
+
+            OracleUdt.SetValue( con, pUdt, "ULTIMA_MODIFICACION", UltimaModificacion);   
 
         } // fin method FromCustomObject
 
@@ -113,7 +123,8 @@ namespace WebLegemDAL.Models
         {            
             Id = (Int32)OracleUdt.GetValue(con, pUdt, "ID");            
             Nombre = (string) OracleUdt.GetValue(con, pUdt, "NOMBRE");
-            TipoEntidad = (TipoEntidad) OracleUdt.GetValue( con, pUdt, "TIPO_ENTIDAD" );            
+            TipoEntidad = (TipoEntidad) OracleUdt.GetValue( con, pUdt, "TIPO_ENTIDAD" );
+            UltimaModificacion = (DateTime)OracleUdt.GetValue( con, pUdt, "ULTIMA_MODIFICACION");
         } // end ToCustomObject method
 
         public override string ToString()

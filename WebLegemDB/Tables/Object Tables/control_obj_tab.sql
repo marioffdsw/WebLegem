@@ -1,1 +1,0 @@
-CREATE TABLE control_obj_tab OF control_typ;

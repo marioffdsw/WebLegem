@@ -1,1 +1,0 @@
-CREATE TABLE anotacion_obj_tab OF anotacion_typ;

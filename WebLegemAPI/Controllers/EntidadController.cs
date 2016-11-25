@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using WebLegemDAL.Dao;
+using WebLegemDAL.DAO2;
 using WebLegemDAL.Models;
 
 namespace WebLegemAPI.Controllers
@@ -13,21 +13,21 @@ namespace WebLegemAPI.Controllers
     [EnableCorsAttribute("*", "*", "*")]
     public class EntidadController : ApiController
     {
-        private IDataAccessObject<Entidad> DAO;
+        private EntidadDao DAO;
 
-        public EntidadController( IDataAccessObject<Entidad> dao ) : base()
+        public EntidadController( EntidadDao dao ) : base()
         {
             this.DAO = dao;
         } // fin constructor
 
         public IQueryable<Entidad> Get()
         {
-            return DAO.GetAll();
+            return DAO.GetAll().AsQueryable();
         } // end GET Action Method
 
         public Entidad Put(Entidad entidad)
         {
-            return DAO.Update( entidad);
+            return DAO.Update( entidad).Value;
         } // end PUT Action Method
 
         public Entidad Post(Entidad entidad)

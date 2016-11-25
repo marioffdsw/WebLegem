@@ -55,7 +55,7 @@ namespace WebLegemDAL.Dao
             var dt = new DataTable();
             dt.Load(reader);
 
-            return dt.CreateDataReader().AsEnumerable<Permiso>(connection).AsQueryable();
+            return dt.CreateDataReader().AsEnumerable<Permiso>().AsQueryable();
         }
     } // end class PermisoDAL
 } // end namespace WebLegemDAL.DAL

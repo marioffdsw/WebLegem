@@ -66,7 +66,7 @@ namespace WebLegemDAL.DAO
             var dt = new DataTable();
             dt.Load(reader);
 
-            return dt.CreateDataReader().AsEnumerable<Usuario>(connection).AsQueryable().First();
+            return dt.CreateDataReader().AsEnumerable<Usuario>().AsQueryable().First();
         }
 
         protected override IQueryable<Usuario> RetrieveAll()
@@ -80,7 +80,7 @@ namespace WebLegemDAL.DAO
             var dt = new DataTable();
             dt.Load(reader);
 
-            return dt.CreateDataReader().AsEnumerable<Usuario>(connection).AsQueryable();      
+            return dt.CreateDataReader().AsEnumerable<Usuario>().AsQueryable();      
         }
     } // end class usuario DAO
 } // end namespace WebLegemDAL.DAO

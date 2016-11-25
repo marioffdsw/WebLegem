@@ -89,7 +89,7 @@ namespace WebLegemDAL.Dao
             var dt = new DataTable();
             dt.Load(reader);
 
-            return dt.CreateDataReader().AsEnumerable<Anotacion>(connection).AsQueryable().First();
+            return dt.CreateDataReader().AsEnumerable<Anotacion>().AsQueryable().First();
         }
 
         protected override IQueryable<Anotacion> RetrieveAll()
@@ -105,7 +105,7 @@ namespace WebLegemDAL.Dao
             var dt = new DataTable();
             dt.Load(reader);
 
-            return dt.CreateDataReader().AsEnumerable<Anotacion>(connection).AsQueryable();
+            return dt.CreateDataReader().AsEnumerable<Anotacion>().AsQueryable();
         }
     }
 } // end namespace WebLegemDAL.DAL

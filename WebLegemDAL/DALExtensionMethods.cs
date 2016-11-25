@@ -8,21 +8,19 @@ namespace WebLegemDAL.Dao
     public static class DALExtensionMethods
     {
         public static IEnumerable<TRecord> AsEnumerable<TRecord>(
-            this IDataReader reader, OracleConnection con)
+            this IDataReader reader)
         {
             if (reader == null)
                 throw new NoNullAllowedException( "reader" );
-            
-            con.Open();
-            using (con) {
-                using (reader) {
-                    while (reader.Read())
-                    {
-                        yield return (TRecord)reader.GetValue(0);
-                    }
-                }
-            }            
-            
+
+            var list = new List<TRecord>();
+
+            while (reader.Read())
+            {
+                list.Add((TRecord)reader.GetValue(0));
+            }
+
+            return list;
         }        
     }
 }

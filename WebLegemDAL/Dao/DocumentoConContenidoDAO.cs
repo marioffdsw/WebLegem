@@ -72,7 +72,7 @@ namespace WebLegemDAL.Dao
             var dt = new DataTable();
             dt.Load(reader);
 
-            return dt.CreateDataReader().AsEnumerable<DocumentoConContenido>(connection).AsQueryable();
+            return dt.CreateDataReader().AsEnumerable<DocumentoConContenido>().AsQueryable();
         }
 
         protected sealed override DocumentoConContenido Retrieve(int id)
@@ -86,7 +86,7 @@ namespace WebLegemDAL.Dao
             var dt = new DataTable();
             dt.Load(reader);
 
-            return dt.CreateDataReader().AsEnumerable<DocumentoConContenido>(connection).AsQueryable().First();
+            return dt.CreateDataReader().AsEnumerable<DocumentoConContenido>().AsQueryable().First();
         }
 
         protected sealed override DocumentoConContenido Insert(DocumentoConContenido documentoConContenido)
@@ -181,7 +181,7 @@ namespace WebLegemDAL.Dao
                 var dt = new DataTable();
                 dt.Load(reader);
 
-                return dt.CreateDataReader().AsEnumerable<DocumentoConContenido>(connection).AsQueryable();                            
+                return dt.CreateDataReader().AsEnumerable<DocumentoConContenido>().AsQueryable();                            
             } );
 
             return resultado;

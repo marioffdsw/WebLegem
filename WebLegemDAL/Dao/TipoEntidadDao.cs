@@ -54,7 +54,7 @@ namespace WebLegemDAL.Dao
             var dt = new DataTable();
             dt.Load(reader);            
 
-            return dt.CreateDataReader().AsEnumerable<TipoEntidad>(connection).AsQueryable();
+            return dt.CreateDataReader().AsEnumerable<TipoEntidad>().AsQueryable();
         }
 
         protected sealed override TipoEntidad Retrieve(int id)
@@ -68,7 +68,7 @@ namespace WebLegemDAL.Dao
             var dt = new DataTable();
             dt.Load(reader);
 
-            return dt.CreateDataReader().AsEnumerable<TipoEntidad>(connection).AsQueryable().First();
+            return dt.CreateDataReader().AsEnumerable<TipoEntidad>().AsQueryable().First();
         }
 
         protected sealed override TipoEntidad Insert( TipoEntidad tipoEntidad )
