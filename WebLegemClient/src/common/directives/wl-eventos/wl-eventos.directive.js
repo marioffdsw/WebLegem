@@ -18,6 +18,13 @@
                     element.bind('scroll', function (e) {
                         scope.$apply(attrs.wlScroll);
                     });
+                    element.bind('keypress', function (e) {
+                        if (e.key == 'Enter') {
+                            scope.$apply(attrs.wlPEnter);
+                        }
+                    });
+                    
+
 
                 }
             };

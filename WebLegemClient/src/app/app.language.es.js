@@ -120,6 +120,9 @@
             DescripcionDeAnotacion:"Descripcion de la Anotación",
             CrearAnotacion: "Crear Anotación",
             SeHaCreadoAnotacion:"Se ha creado una Anotacion ",
+            CompleteDatosCrearAnotacion:"Complete los datos para crear una anotación",
+            SeEncontroN:"Se encontro N",
+            ResultadosBusqueda:"resultados de la busqueda",
             //------------Editar anotacion------//
             BuscarDocumento: "Buscar documento",
             VistaPreviaDocumento:"Vista previa del documento",

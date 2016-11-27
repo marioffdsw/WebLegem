@@ -5,10 +5,11 @@
         .module("WebLegemApp")
         .controller("WlListaDocEncontradoController", WlListaDocEncontradoController);
 
-    WlListaDocEncontradoController.$inject = ["serviceUrl"];
-    function WlListaDocEncontradoController(serviceUrl) {
+    WlListaDocEncontradoController.$inject = ["serviceUrl", "language"];
+    function WlListaDocEncontradoController(serviceUrl, language) {
         var vm = this;
         vm.serviceUrl = serviceUrl;
+        vm.language = language;
 
         vm.next = next;
 

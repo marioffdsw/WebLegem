@@ -1,5 +1,5 @@
 ﻿<div class="ca_label_busqueda" ng-if="!vm.banCrearAnotacion">Se encontro N {{n}} resultados de la busqueda:</div>
-<div class="ca_label_busqueda" ng-if="vm.banCrearAnotacion">Complete los datos para crear una anotacion:</div>
+<div class="ca_label_busqueda" ng-if="vm.banCrearAnotacion">{{vm.language.strings.CompleteDatosCrearAnotacion}}:</div>
 
 
 <div class="box-contenido-lista-de">
@@ -9,20 +9,20 @@
             <div class="ico-lde"><span class="ico-file-text-o"></span></div>
             <div class="lde_contenido">
                 <div class="de-subcontenido">
-                    <a>{{ documento.tipoDoc.nombre }} {{ documento.numero }} del {{ documento.anioPublicacion }}</a>
-                    <p>Entidad: <i>{{ documento.entidad.nombre }} </i></p>
-                    <p>Fecha de publicacion: <i>{{ documento.anioPublicacion  }} </i></p>
+                    <a>{{ documento.tipoDoc.nombre }} {{ documento.numero }} {{vm.language.strings.del}} {{ documento.anioPublicacion }}</a>
+                    <p>{{vm.language.strings.Entidad}}: <i>{{ documento.entidad.nombre }} </i></p>
+                    <p>{{vm.language.strings.FechaPublicacion}}: <i>{{ documento.anioPublicacion  }} </i></p>
                 </div>
             </div>
 
             <div >
                 <a class="link_tarjeta" ng-show="!vm.isTheSelectedDocument( documento);"
                    ng-click="vm.mostrarVistaPrevia( documento, $event );">
-                    <span class="ico-eye"></span>Vista previa
+                    <span class="ico-eye"></span>{{vm.language.strings.VistaPrevia}}
                 </a>
                 <a class="link_tarjeta" ng-show="vm.isTheSelectedDocument( documento);"
                    ng-click="vm.ocultarVistaPrevia( documento, $event );">
-                    <span class="ico-eye-slash"></span>Vista previa
+                    <span class="ico-eye-slash"></span>{{vm.language.strings.VistaPrevia}}
                 </a>
             </div>
         </div>

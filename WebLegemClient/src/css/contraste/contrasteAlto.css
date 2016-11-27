@@ -3,17 +3,17 @@
 
 .tapiz {
     /*background-image: url('../../recursos/header/dark_Tire.png');*/
-    background-color:rgba(0,0,0,0.67) !important;
+    background-color:#1C2D38 !important;
 }
 
 .tapiz_contenido{
-   background:rgba(0,0,0,0.6);
-   box-shadow:-2px 10px 30px 1px rgb(45, 241, 163), 0 1px 2px rgba(45, 241, 163, 0.30) ;
+   background:rgba(0,0,0,0.59);
+   box-shadow:-2px 10px 30px 1px #000, 0 1px 2px #000 ;
  }
 
 .box_left{box-shadow:1px 0 0 #faf}
-.controles_box_right{border-bottom:solid 1px #faf}
-.controles_box_right.down{border-top:solid 1px #faf}
+.controles_box_right{border-bottom:solid 1px #ccc}
+.controles_box_right.down{border-top:solid 1px #ccc}
 
 /*■■■■■■■■■■■■ Fin Layout General ■■■■■■■■■■■■■■■*/
 /*===============================================================================================================================*/
@@ -22,19 +22,19 @@
 /*===============================================================================================================================*/
 /*■■■■■■■■■■■■ Busqueda (plantilla) ■■■■■■■■■■■■■■■*/
 
-.contenedor_filtros{background:#000}
-.contenedor_filtros>p{color:#7fde49;border-bottom:2px solid #7fde49}
+.contenedor_filtros{background:rgba(0,0,0,0.59)}
+.contenedor_filtros>p{color:#8ff;border-bottom:2px solid #faf}
 
-.right_busqueda{background:#000}
+.right_busqueda{background:rgba(0,0,0,0.59)}
 .box-sort-busqueda{border-bottom:1px solid #aaa;border-top:1px solid #aaa}
 
 /*-----Contenedor Resultados---------*/
 .res_bus{padding:0 50px}
-.desc_res{border-bottom:1px solid #89afd5;color:#89afd5;}
+.desc_res{border-bottom:1px solid #8ff;color:#8ff;}
 
 /*--------Mensajes Busqueda-------*/
 .mensaje_busqueda{color:#cfd6e5;border:1px dashed #9a9797}
-.mensaje_busqueda span{color:#fff}
+.mensaje_busqueda span{color:#cfd6e5}
 
 /*-------Dibujo Busqueda----------*/
 .dibujo_busqueda span{color:#cfd6e5}
@@ -199,15 +199,15 @@
 }
 
 .titulo_news{
-    color:#FFF;
+    color:#8FF;
     background:rgba(0, 0, 0, 0.3);
     box-shadow:0 -3px 10px 2px rgba(0, 0, 0, 0.3);
     border-bottom:1px solid #ccc;
 }
 
 .tarjeta_news{ 
-    box-shadow:0 0 0 1px rgba(35, 180, 74, 0.4),0 1px 2px rgba(48, 154, 28, 0.8)!important;
-    background:rgba(0, 0, 0, 0.95)!important;
+    box-shadow:0 0 0 1px rgba(35, 180, 74, 0.4),0 1px 2px rgba(35, 180, 74, 0.4)!important;
+    background:rgba(0, 0, 0, 0.59)!important;
 }
 
 /*■■■■■■■■■■■■ news (plantilla) ■■■■■■■■■■■■■■■*/
@@ -252,7 +252,7 @@
 .a_input,           /*input normal*/
 .input_text_btn,    /*Input con boton*/
 .input_text_ico     /*Input con icono como en filtros busqueda ó como el de login*/
-{border:1px solid #faf3dd !important;
+{/*border:1px solid #faf3dd !important;*/
  background:rgba(52,71,79,0.5 )!important;
  color:#faf !important;
 }
@@ -267,7 +267,7 @@
     background:rgba(52,71,79,0.5)!important;   
 }
 
-.input_text_btn:focus~button:hover{background:#222222;color:#faf;!important}
+.input_text_btn:focus~button:hover{background:#000;color:#faf;!important}
 
 /*------ hover para los input -------*/
 .a_input:hover,
@@ -307,7 +307,7 @@
 .input_text_btn::-webkit-input-placeholder
 {
     color:#8ff !important;
-    background:#000 !important;
+    /*background:#000 !important;*/
 }
 /* ---FIN placeholder en mozilla y chrome----*/
 
@@ -324,7 +324,7 @@
 .input_text_btn:focus, 
 .input_text_btn:focus ~ button{
     border-color:#faf !important;
-    background:#111 !important;
+    background:#000 !important;
     color:#fbf !important;
 }
   
@@ -431,15 +431,15 @@ label.styled:before{color:#000;background-color:#a7d4a4}
 
 /*//////////////////////////////////////////////////////////*/
 /*custom checked*/
-.a_checkbox~label{color:#fff}
-.a_checkbox:empty~label:before{background:#ccc;border:1px solid #bbb}
-.a_checkbox:checked~label:before{background:#2c77ba;border:1px solid #1f98c7} /*pendiente*/
+.a_checkbox~label{color:#29022c}
+.a_checkbox:empty~label:before{background:#EEEEEE;border:1px solid #970C97}
+.a_checkbox:checked~label:before{background:#DCF8C7;border:1px solid #91BF8E} /*pendiente*/
 
 /*//////////////////////////////////////////////////////////*/
 /*custom-radios*/
-.a_radio~label:before{background:#252525;border:6px solid #CCCCCC!important} /*pendiente*/
-.a_radio:checked~label:before{background:#fff;border-color:#2c77ba!important}
-.a_radio:checked+label{color:#ff0!important}
+.a_radio~label:before{background:#FFF;border:6px solid #6c6767!important} /*pendiente*/
+.a_radio:checked~label:before{background:#fff;border-color:#45c8a8 !important}
+.a_radio:checked+label{color:#fff !important}
 
 /*Fin Switch (Elemento)*/
 /*■■■■■■■■■■■■■■■■■■■■■■*/
@@ -448,9 +448,9 @@ label.styled:before{color:#000;background-color:#a7d4a4}
 
 /*===============================================================================================================================*/
 /*Tabla (elemento)*/
-/*■■■■■■■■■■■■■■■■■■■■■■*/
+/*■■■■■■■■■■■■■■■■■■■■■■
 
-.a_tabla{border:1px solid #00f; color:#fff;}  /*pendiente todo*/
+.a_tabla{border:1px solid #00f; color:#fff;}  /*pendiente todo
 .a_tabla th,td{border-top:1px solid #00f}
 .a_tabla th{color:#f0f;border:none;border-bottom:2px solid #00f}
 .a_tabla tr:nth-child(even){background-color:#333}
@@ -477,8 +477,8 @@ label.styled:before{color:#000;background-color:#a7d4a4}
 .contenedor_tabs>ul>li:hover{background:rgba(255,255,255,.2);color:#d6e587}
 
 .contenedor_tabs > ul > li.active_tab { /*tab activa*/
-    background: #fff;
-    color:#00796b;
+    background:#00d2ba;
+    color:#041f04;
     box-shadow: inset 0 1px 0 0 #ccc,inset -1px 0 0 0 #ccc;
 }
 
@@ -532,24 +532,24 @@ label.styled:before{color:#000;background-color:#a7d4a4}
 /*■■■■■■■■■■■■■■■■■■■*/
 
 .uploader {
-    background-color: #cccccc; /*pendiente gestion documental todo*/
-    outline: 2px dashed #cccccc;
+    background-color: #000; /*pendiente gestion documental todo*/
+    outline: 2px dashed #8ff;
 }
 
-.uploader label{color:rgba(0,0,0,.8)}
-.uploader>span{color:rgba(0,0,0,.8)}
+.uploader label{color:#fff}
+.uploader>span{color:#fff}
 
 .uploader.dragging {
     outline-color: red;  
     background-color: rgba(0, 0, 0, 0.8);
 }
-.uploader.dragging>span{color:#1e6db9}
-.uploader.loaded>span{color:#3bc742}
-.uploader.loaded{outline-color:#3bc742}
+.uploader.dragging>span{color:#e5e5e5}
+.uploader.loaded>span{color:#8ff}
+.uploader.loaded{outline-color:#8ff}
 
 #progress_bar .percent {
-    background-color: #3bc742;
-    color:white;
+    background-color: #8ff;
+    color:#000;
 }
 
 /*Fin Uploader (Elemento)*/
@@ -603,10 +603,10 @@ label.styled:before{color:#000;background-color:#a7d4a4}
     color:#8ff;
 }
 .subtitulos_labels{ 
-    color:#b0f563!important;    
+    color:#8ff !important;    
 }
 .divisor_gestion_documental{
-    border: solid 1px #8ff !important;
+    border: solid 1px #ccc !important;
 }
 
 /*pagina principal*/
@@ -674,7 +674,7 @@ label.styled:before{color:#000;background-color:#a7d4a4}
     color:#CFD6E5;
 }
 .estado_permiso {
-    color: rgb(253, 191, 67) !important;
+    color: #faf !important;
 }
 
 .titulo_modulo{
@@ -702,7 +702,7 @@ label.styled:before{color:#000;background-color:#a7d4a4}
 /*--------------------------------fin-usuarios---------------------------*/
 /*tapiz modulo adminnistracion */
 #tapiz_administracion{
-    background:#111;
+    background:rgba(0,0,0,0.59);
 }
 
 /*triangulo escudo*/

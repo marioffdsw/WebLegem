@@ -18,14 +18,14 @@
 
     <div class="box_father ani-pasos" ng-show="vm.index==1">
         <div class="box_left flex-3">
-            <label class="ca_label_busqueda">Vista previa del documento:</label>
+            <label class="ca_label_busqueda">{{vm.language.strings.VistaPreviaDocumento}}</label>
             <iframe ng-show="true"
                     src="recurso.pdf"
                     class="de-vpdf none-mt" frameborder="0"></iframe>
         </div>
         <div class="box_right">
-            <label class="msj-error"> No se encontro concordancias de anotaciones. </label>
-            <a ng-click="vm.ban_crear_anotacion = true" href="" title="Crear anotacion">Crear Anotación</a>
+            <label class="msj-error">{{vm.language.strings.NoEncontroConcordanciasAnotaciones}}  </label>
+            <a ng-click="vm.ban_crear_anotacion = true" href="" title="Crear anotacion">{{vm.language.strings.CrearAnotacion}}</a>
             <wl-lista-ano-encontrado documento="vm.documentoAnotante" anotaciones-encontradas="false">  </wl-lista-ano-encontrado>     
             <asociar-documento show="vm.ban_crear_anotacion"
                     anotacion="vm.anotacionSeleccionada"></asociar-documento>

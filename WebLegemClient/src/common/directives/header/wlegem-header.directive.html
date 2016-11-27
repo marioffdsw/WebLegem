@@ -19,15 +19,17 @@
             <li class="li_nav" ng-show="vm.loggeado"
                 ng-mouseover="vm.resize == true ? null : vm.toggle_menu = true"
                 ng-mouseleave="vm.resize == true ? null : vm.toggle_menu = false"
-                ng-click="vm.resize == true ? vm.toggle_menu = !vm.toggle_menu :null">
+                ng-click="vm.resize == true ? vm.toggle_menu = !vm.toggle_menu :null"
+                >
 
-                <a class="btn_menu sin_ani">
+                <a class="btn_menu sin_ani" href="" role="menu" ewl wl-p-enter="vm.toggle_menu = !vm.toggle_menu">
                     <div class=" ico-cubes"></div>
                     <p>{{vm.language.strings.Componentes}}</p>
                 </a>
+                
                 <ul ng-show="vm.toggle_menu" class="desplegar">
                     <li ng-repeat="opcion in vm.arregloOpciones" ng-click="vm.resize && vm.desplegarMenu()">
-                        <a class="btn_menu sub" ui-sref="{{opcion.link}}">
+                        <a class="btn_menu sub" ui-sref="{{opcion.link}}" href="#">
                             <div><span class="{{ opcion.icono }}"></span></div>
                             <p>{{ opcion.nombre }}</p>
                         </a>
@@ -47,7 +49,7 @@
                 ng-click="vm.resize == true ? vm.toggle_usu = !vm.toggle_usu : null "
                 ng-show="vm.loggeado">
 
-                <a class=" btn_menu usu sin_ani">
+                <a class=" btn_menu usu sin_ani" href="" ewl wl-p-enter="vm.toggle_usu = !vm.toggle_usu">
                     <div>{{vm.usuario.username}}</div>
                     <div><img src="{{vm.usuario.foto}}" /></div>
                 </a>
@@ -59,7 +61,7 @@
                         </a>
                     </li>
                     <li ng-click="vm.resize && vm.desplegarMenu()">
-                        <a class="btn_menu sub" ng-click="vm.LogOut()">
+                        <a class="btn_menu sub" ng-click="vm.LogOut()" href="">
                             <div class="ico-sign-out"></div>
                             <p>{{vm.language.strings.Salir}}</p>
                         </a>
@@ -75,7 +77,7 @@
              ng-mouseleave="vm.resize == true ? null: vm.toggle_acce = false"
              ng-click="vm.resize == true ? vm.desplegarAcce() : null ">
 
-            <a class=" btn_menu sin_ani">
+            <a class=" btn_menu sin_ani" href="" ewl wl-p-enter="vm.toggle_acce = !vm.toggle_acce">
                 <div class="ico-wheelchair"></div>
             </a>
 
