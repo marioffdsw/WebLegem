@@ -3,7 +3,7 @@ CREATE OR REPLACE TYPE anotacion_typ AS OBJECT (
 	doc_anotante				documento_typ,
 	doc_anotado					documento_typ,
 	tipo_anotacion				tipo_anotacion_typ,
-	descripcion					VARCHAR2( 1000 ),
-    fecha                       DATE
+	descripcion					VARCHAR2( 1000 ),    
+    ultima_modificacion         TIMESTAMP
 );
 /

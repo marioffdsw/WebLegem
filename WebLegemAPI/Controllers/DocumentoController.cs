@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Http;
 using WebLegemDAL.Models;
-using WebLegemDAL.DAL;
+using WebLegemDAL.Dao;
 using System.Web.Http.Cors;
 using WebLegemDAL;
 using WebLegemDAL.QueryObjects;

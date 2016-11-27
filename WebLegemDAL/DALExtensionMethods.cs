@@ -3,13 +3,16 @@ using Oracle.DataAccess.Types;
 using System.Collections.Generic;
 using System.Data;
 
-namespace WebLegemDAL.DAL
+namespace WebLegemDAL.Dao
 {
     public static class DALExtensionMethods
     {
-        public static List<TRecord> ToList<TRecord>(
+        public static IEnumerable<TRecord> AsEnumerable<TRecord>(
             this IDataReader reader)
         {
+            if (reader == null)
+                throw new NoNullAllowedException( "reader" );
+
             var list = new List<TRecord>();
 
             while (reader.Read())

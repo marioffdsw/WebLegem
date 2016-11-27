@@ -10,4 +10,3 @@ CREATE SEQUENCE tipo_anotacion_seq
   START WITH 1 
   INCREMENT BY 1 
   NOCACHE;
-  /

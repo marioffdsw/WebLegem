@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using WebLegemDAL.DAL;
+using WebLegemDAL.DAO2;
 using WebLegemDAL.Models;
 
 namespace WebLegemAPI.Controllers
@@ -13,26 +13,26 @@ namespace WebLegemAPI.Controllers
     [EnableCors( "*", "*", "*" )]
     public class TipoAnotacionController : ApiController
     {
-        private IDataAccessObject<TipoAnotacion> DAO;
+        private TipoAnotacionDao DAO;
 
-        public TipoAnotacionController( IDataAccessObject<TipoAnotacion> DAO ) : base()
+        public TipoAnotacionController( TipoAnotacionDao DAO ) : base()
         {
             this.DAO = DAO;
         } // end constructor
 
         public IQueryable<TipoAnotacion> Get()
         {
-            return DAO.GetAll();
+            return DAO.GetAll().AsQueryable();
         } // end action method Get
 
         public TipoAnotacion Put(TipoAnotacion tipoAnotacion)
         {
-            return DAO.Update(tipoAnotacion);
+            return DAO.Update(tipoAnotacion).Value;
         } // end action method Put
 
         public TipoAnotacion Post(TipoAnotacion tipoAnotacion)
         {
-            return DAO.Create( tipoAnotacion );
+            return DAO.Create( tipoAnotacion ).Value;
         } // end action method Post
 
         public IHttpActionResult Delete(int id)

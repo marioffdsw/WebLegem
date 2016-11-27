@@ -14,55 +14,135 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="Functions\" />
-    <Folder Include="Packages\" />
+    <Folder Include="Functions\Entidad" />
+    <Folder Include="Functions\Documento" />
+    <Folder Include="Functions\Archivo" />
+    <Folder Include="Functions\TipoAnotacion" />
+    <Folder Include="Functions\TipoEntidad" />
+    <Folder Include="Functions\TipoDocumento" />
     <Folder Include="Procedures\" />
-    <Folder Include="Scripts\" />
-    <Folder Include="Security\" />
-    <Folder Include="Security\Permissions\" />
-    <Folder Include="Security\Roles\" />
-    <Folder Include="Security\Users\" />
     <Folder Include="Sequences\" />
-    <Folder Include="Synonyms\" />
     <Folder Include="Tables\" />
-    <Folder Include="Tables\Relational Tables" />
-    <Folder Include="Tables\Object Tables" />
-    <Folder Include="Tables\XML Tables" />
     <Folder Include="User Defined Types\" />
     <Folder Include="User Defined Types\Nested Tables\" />
     <Folder Include="User Defined Types\Objects\" />
-    <Folder Include="User Defined Types\VARRAYs\" />
     <Folder Include="Views\" />
-    <Folder Include="Views\Relational Views" />
     <Folder Include="Views\Object Views" />
-    <Folder Include="Views\XML Views" />
-    <Folder Include="Views\Materialized Views" />
-    <Folder Include="XML Schemas\" />
-    <Folder Include="AQ\" />
-    <Folder Include="AQ\Queues\" />
-    <Folder Include="AQ\Queue Tables\" />
-    <Folder Include="Pluggable Databases\" />
     <Folder Include="Triggers\" />
-    <Folder Include="Triggers\Table Triggers" />
     <Folder Include="Triggers\View Triggers" />
-    <Folder Include="Triggers\Schema Triggers" />
-    <Folder Include="Triggers\Database Triggers" />
     <Folder Include="Indexes\" />
     <DBRefs Include="Database References\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="02_schema_definition.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="03_user_defined_types.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="04_functions_and_procedures.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="99_create_statements.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="99_CURSOR_FETCH.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="configuracion_modulo_usuarios.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="drop_web_legem.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Functions\actualizar_tipo_entidad_fun.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Archivo\create_ar.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Archivo\get_ar.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Functions\crear_bfile_fun.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\crear_tipo_entidad_fun.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Documento\create_c.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Documento\create_i_d.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Documento\get_c.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Documento\get_i_d.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Entidad\create_e.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Entidad\delete_e.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Entidad\get_all_e.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Entidad\get_e.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Entidad\update_e.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Functions\obtener_archivo_seq_fun.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Indexes\bfile_idx.sql">
+    <Content Include="Functions\TipoAnotacion\create_ta.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TipoAnotacion\delete_ta.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TipoAnotacion\get_all_ta.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TipoAnotacion\get_ta.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TipoAnotacion\update_ta.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TipoDocumento\create_td.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TipoDocumento\delete_td.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TipoDocumento\get_all_td.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TipoDocumento\get_td.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TipoDocumento\update_td.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TipoEntidad\create_te.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TipoEntidad\delete_te.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TipoEntidad\get_all_te.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TipoEntidad\get_te.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\TipoEntidad\update_te.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Indexes\contenido_text_idx.sql">
@@ -113,13 +193,13 @@
     <Content Include="Sequences\archivo_seq.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Sequences\doc_id_typ_seq.sql">
+    <Content Include="Sequences\contenido_seq.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Sequences\entidad_seq.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Sequences\identificadores_documentos_seq.sql">
+    <Content Include="Sequences\identificador_documento_seq.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Sequences\rol_seq.sql">
@@ -137,79 +217,52 @@
     <Content Include="Sequences\usuario_seq.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Object Tables\anotacion_obj_tab.sql">
+    <Content Include="Tables\acciones_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Object Tables\control_obj_tab.sql">
+    <Content Include="Tables\anotaciones_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Object Tables\doc_contenido_obj_tab.sql">
+    <Content Include="Tables\archivos_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Object Tables\doc_id_obj_tab.sql">
+    <Content Include="Tables\contenidos_archivos_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Object Tables\doc_id_sin_archivo_obj_tab.sql">
+    <Content Include="Tables\documentos_soportados_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Object Tables\entidad_obj_tab.sql">
+    <Content Include="Tables\entidades_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Object Tables\tipo_anotacion_obj_tab.sql">
+    <Content Include="Tables\identificadores_documentos_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Object Tables\tipo_doc_obj_tab.sql">
+    <Content Include="Tables\modulos_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Object Tables\tipo_entidad_obj_tab.sql">
+    <Content Include="Tables\permisos_asignados_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Relational Tables\acciones_tab.sql">
+    <Content Include="Tables\permisos_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Relational Tables\anotaciones_tab.sql">
+    <Content Include="Tables\recursos_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Relational Tables\archivos_tab.sql">
+    <Content Include="Tables\roles_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Relational Tables\contenidos_archivos_tab.sql">
+    <Content Include="Tables\tipos_anotacion_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Relational Tables\documentos_soportados_tab.sql">
+    <Content Include="Tables\tipos_documento_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Relational Tables\entidades_tab.sql">
+    <Content Include="Tables\tipos_entidad_tab.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="Tables\Relational Tables\identificadores_documentos_tab.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\modulos_tab.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\permisos_asignados_tab.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\permisos_tab.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\recursos_tab.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\roles_tab.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\tipos_anotacion_tab.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\tipos_documento_tab.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\tipos_entidad_tab.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\Relational Tables\usuarios_tab.sql">
+    <Content Include="Tables\usuarios_tab.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="test_data.sql">
@@ -296,13 +349,10 @@
     <Content Include="User Defined Types\Objects\anotacion_typ.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="User Defined Types\Objects\control_typ.sql">
+    <Content Include="User Defined Types\Objects\archivo_typ.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="User Defined Types\Objects\documento_contenido_typ.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="User Defined Types\Objects\doc_typ.sql">
+    <Content Include="User Defined Types\Objects\contenido_typ.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="User Defined Types\Objects\documento_typ.sql">
@@ -335,7 +385,7 @@
     <Content Include="User Defined Types\Objects\usuario_typ.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="usuario_tablespace_permisos.sql">
+    <Content Include="01_web_legem_infrastructure.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Views\Object Views\acciones_view.sql">

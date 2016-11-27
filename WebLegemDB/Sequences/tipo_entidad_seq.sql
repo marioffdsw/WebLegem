@@ -1,8 +1,6 @@
--- Drop the existig sequence (if any)
 
 DROP SEQUENCE tipo_entidad_seq;
 
--- Create new sequence
 
 CREATE SEQUENCE tipo_entidad_seq
   MINVALUE 0

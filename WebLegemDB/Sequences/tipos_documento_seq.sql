@@ -1,7 +1,7 @@
 
 DROP SEQUENCE tipos_documento_seq;
 
-CREATE SEQUENCE tipo_doc_seq
+CREATE SEQUENCE tipos_documento_seq
   MINVALUE 0
   MAXVALUE 99999999999999999999999
   START WITH 1 

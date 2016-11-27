@@ -34,6 +34,10 @@
       <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="CSharpFunctionalExtensions, Version=1.6.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CSharpFunctionalExtensions.1.6.2\lib\net45\CSharpFunctionalExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Spatial, Version=6.14.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Spatial.6.14.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
       <Private>True</Private>
@@ -47,6 +51,8 @@
       <HintPath>C:\oracle\product\12.1.0\client_x32\odp.net\bin\4\Oracle.DataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
@@ -64,54 +70,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Accion\Accion.cs" />
-    <Compile Include="Accion\AccionFactory.cs" />
-    <Compile Include="Anotacion\Anotacion.cs" />
-    <Compile Include="Anotacion\AnotacionDAO.cs" />
-    <Compile Include="Anotacion\AnotacionFactory.cs" />
-    <Compile Include="Archivo\Archivo.cs" />
-    <Compile Include="Archivo\ArchivoDAO.cs" />
-    <Compile Include="BaseDAO.cs" />
+    <Compile Include="DAO2\ArchivoDao.cs" />
+    <Compile Include="DAO2\EntidadDao.cs" />
+    <Compile Include="DAO2\DB.cs" />
+    <Compile Include="DAO2\TipoAnotacionDao.cs" />
+    <Compile Include="DAO2\TipoDocumentoDao.cs" />
+    <Compile Include="DAO2\TipoEntidadDao.cs" />
+    <Compile Include="Entities\Accion.cs" />
+    <Compile Include="Factories\AccionFactory.cs" />
+    <Compile Include="Entities\Anotacion.cs" />
+    <Compile Include="Dao\AnotacionDao.cs" />
+    <Compile Include="Factories\AnotacionFactory.cs" />
+    <Compile Include="Entities\Archivo.cs" />
+    <Compile Include="Dao\ArchivoDao.cs" />
+    <Compile Include="Dao\BaseDao.cs" />
     <Compile Include="DALExtensionMethods.cs" />
-    <Compile Include="Documento\Documento.cs" />
-    <Compile Include="Documento\DocumentoConContenido.cs" />
-    <Compile Include="Documento\DocumentoConContenidoFactory.cs" />
-    <Compile Include="Documento\DocumentoConContenidoDAO.cs" />
-    <Compile Include="Documento\DocumentoConContenidoQueryObject.cs" />
-    <Compile Include="Documento\DocumentoDAO.cs" />
-    <Compile Include="Documento\DocumentoFactory.cs" />
-    <Compile Include="Documento\DocumentoQueryObject.cs" />
-    <Compile Include="Entidad\Entidad.cs" />
-    <Compile Include="Entidad\EntidadDAO.cs" />
-    <Compile Include="Entidad\EntidadFactory.cs" />
-    <Compile Include="IDataAccessObject.cs" />
-    <Compile Include="IGestorDeConsultas.cs" />
-    <Compile Include="IQueryObject.cs" />
-    <Compile Include="Modulo\Modulo.cs" />
-    <Compile Include="Modulo\ModuloFactory.cs" />
-    <Compile Include="Perimso\Permiso.cs" />
-    <Compile Include="Perimso\PermisoDAL.cs" />
-    <Compile Include="Perimso\PermisoFactory.cs" />
-    <Compile Include="Recurso\Recurso.cs" />
-    <Compile Include="Recurso\RecursoFactory.cs" />
-    <Compile Include="Rol\PermisoArrayFactory.cs" />
-    <Compile Include="Rol\Rol.cs" />
-    <Compile Include="Rol\RolDAO.cs" />
-    <Compile Include="Rol\RolFactory.cs" />
-    <Compile Include="TipoAnotacion\TipoAnotacion.cs" />
-    <Compile Include="TipoAnotacion\TipoAnotacionDao.cs" />
-    <Compile Include="TipoAnotacion\TipoAnotacionFactory.cs" />
-    <Compile Include="TipoEntidad\EntidadRefArrayFactory.cs" />
-    <Compile Include="TipoDocumento\TipoDocumento.cs" />
+    <Compile Include="Entities\Documento.cs" />
+    <Compile Include="Entities\DocumentoConContenido.cs" />
+    <Compile Include="Factories\ArchivoFactory.cs" />
+    <Compile Include="Factories\DocumentoConContenidoFactory.cs" />
+    <Compile Include="Dao\DocumentoConContenidoDao.cs" />
+    <Compile Include="Dao\DocumentoConContenidoQueryObject.cs" />
+    <Compile Include="Dao\DocumentoDao.cs" />
+    <Compile Include="Factories\DocumentoFactory.cs" />
+    <Compile Include="Dao\DocumentoQueryObject.cs" />
+    <Compile Include="Entities\Entidad.cs" />
+    <Compile Include="Dao\EntidadDao.cs" />
+    <Compile Include="Factories\EntidadFactory.cs" />
+    <Compile Include="Dao\IDataAccessObject.cs" />
+    <Compile Include="Dao\IGestorDeConsultas.cs" />
+    <Compile Include="Dao\IQueryObject.cs" />
+    <Compile Include="Entities\Modulo.cs" />
+    <Compile Include="Factories\ModuloFactory.cs" />
+    <Compile Include="Entities\Permiso.cs" />
+    <Compile Include="Dao\PermisoDao.cs" />
+    <Compile Include="Factories\PermisoFactory.cs" />
+    <Compile Include="Entities\Recurso.cs" />
+    <Compile Include="Factories\RecursoFactory.cs" />
+    <Compile Include="Factories\PermisoArrayFactory.cs" />
+    <Compile Include="Entities\Rol.cs" />
+    <Compile Include="Dao\RolDao.cs" />
+    <Compile Include="Factories\RolFactory.cs" />
+    <Compile Include="Entities\TipoAnotacion.cs" />
+    <Compile Include="Dao\TipoAnotacionDao.cs" />
+    <Compile Include="Factories\TipoAnotacionFactory.cs" />
+    <Compile Include="Entities\TipoDocumento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TipoDocumento\TipoDocumentoDAO.cs" />
-    <Compile Include="TipoDocumento\TipoDocumentoFactory.cs" />
-    <Compile Include="TipoEntidad\TipoEntidad.cs" />
-    <Compile Include="TipoEntidad\TipoEntidadDAO.cs" />
-    <Compile Include="TipoEntidad\TipoEntidadFactory.cs" />
-    <Compile Include="Usuario\Usuario.cs" />
-    <Compile Include="Usuario\UsuarioDAO.cs" />
-    <Compile Include="Usuario\UsuarioFactory.cs" />
+    <Compile Include="Dao\TipoDocumentoDao.cs" />
+    <Compile Include="Factories\TipoDocumentoFactory.cs" />
+    <Compile Include="Entities\TipoEntidad.cs" />
+    <Compile Include="Dao\TipoEntidadDao.cs" />
+    <Compile Include="Factories\TipoEntidadFactory.cs" />
+    <Compile Include="Entities\Usuario.cs" />
+    <Compile Include="Dao\UsuarioDao.cs" />
+    <Compile Include="Factories\UsuarioFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
