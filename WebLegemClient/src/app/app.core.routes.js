@@ -17,13 +17,15 @@
 			    url: '/',
 			    templateUrl: 'app/principal/principal.tmpl.html',
 				controller: "NoticiasController",
-				controllerAs: "vm"
+				controllerAs: "vm",
+                title:"Inicio"
 			})
             .state('administracion', {
                 url: '/administracion',
                 templateUrl: 'app/administracion/administracion.tmpl.html',
                 controller: "AdministracionController",
-                controllerAs: "vm"
+                controllerAs: "vm",
+                title: 'Administración'                
             })
 			.state('login', {
 			    url: '/login',
@@ -54,7 +56,8 @@
                 url: "/usuarios",
                 templateUrl: "app/usuarios/usuarios.tmpl.html",
                 controller: "UsuariosController",
-                controllerAs: "vm"
+                controllerAs: "vm",
+                title:"Usuarios"
             })
             .state('cuenta', {
                 url: "/cuenta",
@@ -78,7 +81,8 @@
                 url: "/anotacion",
                 templateUrl: "app/anotacion/anotacion.tmpl.html",
                 controller: "AnotacionController",
-                controllerAs: "vm"
+                controllerAs: "vm",
+                title:"Anotaciones"
             })
 
 	    ;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebLegemDAL.DAO2;
+using WebLegemDAL.DAO;
 using WebLegemDAL.Models;
 
 namespace TestDb
@@ -78,11 +78,11 @@ namespace TestDb
             dao.Create(new TipoEntidad() {
                 Nombre = "Rectoria",
                 DocumentosSoportados = new TipoDocumento[] {
-                    daoTd.Get( 26 ).Value,
-                    daoTd.Get(27).Value,
-                    daoTd.Get(28).Value,
-                    daoTd.Get(29).Value,
-                    daoTd.Get(30).Value
+                    daoTd.Get(1).Value,
+                    daoTd.Get(2).Value,
+                    daoTd.Get(3).Value,
+                    daoTd.Get(4).Value,
+                    daoTd.Get(5).Value
                 }
             } );
 
@@ -91,10 +91,10 @@ namespace TestDb
             {
                 Nombre = "Facultad",
                 DocumentosSoportados = new TipoDocumento[] {
-                    daoTd.Get( 26 ).Value,
-                    daoTd.Get(27).Value,
-                    daoTd.Get(28).Value,
-                    daoTd.Get(29).Value
+                    daoTd.Get(1).Value,
+                    daoTd.Get(2).Value,
+                    daoTd.Get(3).Value,
+                    daoTd.Get(4).Value
                 }
             });
 
@@ -103,9 +103,9 @@ namespace TestDb
             {
                 Nombre = "Programa",
                 DocumentosSoportados = new TipoDocumento[] {
-                    daoTd.Get( 26 ).Value,
-                    daoTd.Get(27).Value,
-                    daoTd.Get(28).Value,
+                    daoTd.Get(1).Value,
+                    daoTd.Get(2).Value,
+                    daoTd.Get(3).Value,
                 }
             });
 
@@ -114,8 +114,8 @@ namespace TestDb
             {
                 Nombre = "Secretaría",
                 DocumentosSoportados = new TipoDocumento[] {
-                    daoTd.Get( 26 ).Value,
-                    daoTd.Get(27).Value
+                    daoTd.Get(1).Value,
+                    daoTd.Get(2).Value
                 }
             });
         }

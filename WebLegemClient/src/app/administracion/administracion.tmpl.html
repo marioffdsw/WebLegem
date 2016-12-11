@@ -2,7 +2,10 @@
 
     <div class="espacio_blanco"></div>
 
+    <wl-titulo-nav class="container_navigation"></wl-titulo-nav>
+
     <div class="tapiz_contenido" ng-show="true">
+
         <div class="contenedor_tabs">
             <ul>
                 <li ng-class="vm.$state.current.name =='administracion.tipo-documento' ? 'active_tab' : ''"
@@ -28,7 +31,7 @@
                     </span>
                 </li>
                 <li ng-class="vm.$state.current.name =='administracion.tipo-anotacion' ? 'active_tab' : ''"
-                    ui-sref="administracion.tipo-anotacion" ng-click="vm.activo($event)">                   
+                    ui-sref="administracion.tipo-anotacion" ng-click="vm.activo($event)">
 
                     <span class="ico2-bookmarks">
                         <a>{{vm.language.strings.TipoAnotacion}}</a>

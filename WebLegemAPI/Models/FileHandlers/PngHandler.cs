@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using static WebLegemCommon.Constants;
 using System.Linq;
+using WebLegemCommon;
 
 
 namespace WebLegemAPI.Models.FileHandlers
@@ -11,7 +11,7 @@ namespace WebLegemAPI.Models.FileHandlers
     {
         public async Task<String> SaveFile(HttpRequestMessage request)
         {
-            var streamProvider = new MultipartFormDataStreamProvider( picturesDirectory );
+            var streamProvider = new MultipartFormDataStreamProvider( Constants.picturesDirectory );
 
             await request.Content.ReadAsMultipartAsync( streamProvider );
 

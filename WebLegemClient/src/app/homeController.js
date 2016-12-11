@@ -14,6 +14,7 @@
         vm.cargarDocumentos = cargarDocumentos;
         //-------------------------------------------------------------------------------------------
 
+
         EntidadService.query(function (data) {
             vm.entidades = data;
         });

@@ -17,6 +17,11 @@
         vm.tipoAnotacionSeleccionada = undefined;
         vm.editando = false;
         //vm.seleccionar = seleccionar;
+        vm.dialogResponse = false;
+        vm.responseMessage = "";
+        vm.idLoad = "wl-lista";
+        vm.procesando = false;
+        vm.error = false;
 
         /**********************************************************************************
          PUBLIC METHOD DEFINITION
@@ -62,9 +67,16 @@
 
 
         function retrieveData() {
-            TipoAnotacionResource.query( function (data) {
-                vm.tiposAnotacion = data;
-            });
+            startAnimation();
+            TipoAnotacionResource.query()
+                .$promise.then(function (data) {
+                    stopAnimation();
+                    vm.tiposAnotacion = data;
+                },
+                function errorCallback(error) {
+                    stopAnimation();
+                    vm.error = true;
+                });
         }
 
         function nuevo() {
@@ -74,33 +86,64 @@
 
         function crear() {
 
-            TipoAnotacionResource.save(vm.tipoAnotacionSeleccionada, function (data) {
-                retrieveData();
-            });
-            cancelar();
-        }
-
-        function guardar(tipo) {            
-            TipoAnotacionResource.update(tipo, function (data) {
-                for (var i = 0; i < vm.tiposAnotacion.length; i++) {
-                    if (vm.tiposAnotacion[i].id == data.id) {
-                        vm.tiposAnotacion[i] = data;
-                        break;
+            TipoAnotacionResource.save(vm.tipoAnotacionSeleccionada)
+                .$promise.then(
+                    function (data) {
+                        retrieveData();
+                    },
+                    function errorCallback(error) {
+                        vm.responseMessage = error.data.message;
+                        vm.dialogResponse = true;
+                    },
+                    function notifyCallback(error) {
                     }
-                }
-            });
+                );
             cancelar();
         }
 
-        function remover(tipoAnotacion) {            
-            TipoAnotacionResource.remove(tipoAnotacion, function () {
-                retrieveData();
-            });
-
+        function guardar(tipo) {
+            startAnimation();
+            TipoAnotacionResource.update(tipo)
+                .$promise.then(
+                function (data) {
+                    for (var i = 0; i < vm.tiposAnotacion.length; i++) {
+                        if (vm.tiposAnotacion[i].id == data.id) {
+                            vm.tiposAnotacion[i] = data;
+                            break;
+                        }
+                    }
+                },
+                function errorCallback(error) {
+                    vm.responseMessage = error.data.message;
+                    vm.dialogResponse = true;
+                    stopAnimation();
+                });
             cancelar();
         }
 
+        function remover(tipoAnotacion) {
+            startAnimation();
+            TipoAnotacionResource.remove(tipoAnotacion)
+            .$promise.then(
+                function (data) {
+                    retrieveData();
+                },
+                function errorCallback(error) {
+                    vm.responseMessage = error.data.message;
+                    vm.dialogResponse = true;
+                    stopAnimation();
+                });
+            cancelar();
+        }
 
+        function startAnimation() {
+            document.getElementById(vm.idLoad).style.visibility = "visible";
+            vm.procesando = true;
+        }
+        function stopAnimation() {
+            document.getElementById(vm.idLoad).style.visibility = "hidden";
+            vm.procesando = false;
+        }
         //function seleccionar(tipoAnotacion) {
         //    if (vm.editando === true)
         //        return;

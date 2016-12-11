@@ -5,10 +5,10 @@
         .module("WebLegemApp")
         .controller("WlBuscarDocController", WlBuscarDocController);
 
-    WlBuscarDocController.$inject = [ "EntidadService", "TipoDocumentoResource", "DocumentosResource" ];
-    function WlBuscarDocController(EntidadService, TipoDocumentoResource, DocumentosResource) {
+    WlBuscarDocController.$inject = ["EntidadService", "TipoDocumentoResource", "DocumentosResource", "language"];
+    function WlBuscarDocController(EntidadService, TipoDocumentoResource, DocumentosResource, language) {
         var vm = this;       
-
+        vm.language = language;
         vm.tipoDocumentoAux;
         vm.numeroAux;
         vm.entidadEmisoraAux;

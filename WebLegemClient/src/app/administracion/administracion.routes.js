@@ -14,25 +14,29 @@
 				url: "/tipo-documento/:id",
 				templateUrl: "app/administracion/tipo-documento/tipo-documento.tmpl.html",
 				controller: "TipoDocumentoController",
-                controllerAs: "vm"
+				controllerAs: "vm",
+                title: "Tipo documento"
 			})
             .state("administracion.tipo-entidad", {
                 url: "/tipo-entidad/:id",
                 templateUrl: "app/administracion/tipo-entidad/tipos-entidad.tmpl.html",
                 controller: "TipoEntidadController",
-                controllerAs: "vm"
+                controllerAs: "vm",
+                title: "Tipo entidad"
             })
             .state("administracion.entidad", {
                 url: "/entidad/:id",
                 templateUrl: "app/administracion/entidad/entidad.tmpl.html",
                 controller: "EntidadController",
-                controllerAs: "vm"
+                controllerAs: "vm",
+                title: "Entidad"
             })
             .state("administracion.tipo-anotacion", {
                 url: "/tipo-anotacion/:id",
                 templateUrl: "app/administracion/tipo-anotacion/tipo-anotacion.tmpl.html",
                 controller: "TipoAnotacionController",
-                controllerAs: "vm"
+                controllerAs: "vm",
+                title: "Tipo anotación"
             });
 	} // end config function
 })();

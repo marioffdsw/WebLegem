@@ -20,8 +20,12 @@
         vm.entidadSeleccionada = undefined;
         vm.editando = false;
         vm.seleccionar = seleccionar;
-
-
+        vm.dialogResponse = false;
+        vm.responseMessage = "";
+        vm.idLoad = "wl-lista";
+        vm.default = "Seleccione una opción";
+        vm.procesando = false;
+        vm.error = false;
 
 
         /**********************************************************************************
@@ -34,9 +38,6 @@
         vm.cancelar = cancelar;
         vm.aceptar = aceptar;
         vm.nuevo = nuevo;
-
-
-
 
         /**********************************************************************************
          *
@@ -56,13 +57,22 @@
 
 
         function aceptar() {
-            if (vm.form_entidad.nombre.$invalid == true || vm.form_entidad.tipo.$invalid == true) {
+            var x = document.getElementById("tipo");
+            var y = x.options[x.selectedIndex];
+
+            if (y.defaultSelected) {
+                vm.form_entidad.tipo.$invalid = true;
+            }
+
+            if (vm.form_entidad.nombre.$invalid == true || vm.form_entidad.tipo.$invalid == true ||
+                vm.form_entidad.correo.$invalid == true) {
                 vm.form_entidad.tipo.$invalid ? vm.form_entidad.tipo.$dirty = true : '';
                 vm.form_entidad.nombre.$invalid ? vm.form_entidad.nombre.$dirty = true : '';
+                vm.form_entidad.correo.$invalid ? vm.form_entidad.correo.$dirty = true : '';
             }
             else{
                 if (vm.entidadSeleccionada.id == 0) {
-                crear( vm.entidadSeleccionada );
+                    crear( vm.entidadSeleccionada );
                 }
                 else {
                         guardar(vm.entidadSeleccionada);
@@ -78,16 +88,29 @@
             vm.form_entidad.$setPristine();
         }
 
-
         function retrieveData() {
+            startAnimation();
+                TipoEntidadService.query()
 
-            TipoEntidadService.query( function( data ){
-                vm.tiposEntidades = data;
-            });
+                    .$promise.then(function (data) {
+                        stopAnimation();
+                        vm.tiposEntidades = data;
+                    },
+                    function errorCallback(error) {
+                        stopAnimation();
+                        vm.error = true;
+                    });
 
-            EntidadService.query(function (data) {
-                vm.entidades = data;                
-            });
+            EntidadService.query()
+
+                .$promise.then(function (data) {
+                    stopAnimation();
+                    vm.entidades = data;
+                },
+                function errorCallback(error) {
+                    stopAnimation();
+                    vm.error = true;
+                });
         }
 
 
@@ -97,29 +120,54 @@
 
 
         function crear( entidad ) {
-            EntidadService.save(entidad, function (data) {
-                retrieveData();
-            });
+            EntidadService.save(entidad)
+                .$promise.then(
+                    function (data) {
+                        retrieveData();
+                    },
+                    function errorCallback(error) {
+                        vm.responseMessage = error.data.message;
+                        vm.dialogResponse = true;
+                    },
+                    function notifyCallback(error) {
+                    }
+                );
             cancelar();
         } // end function create       
 
 
         function guardar(entidad) {
-            EntidadService.update(entidad, function (data) {
-                for (var i = 0; i < vm.entidades.length; i++) {
-                    if (vm.entidades[i].id == data.id) {
-                        vm.entidades[i] = data;
-                        break;
+            startAnimation();
+            EntidadService.update(tipo)
+                .$promise.then(
+                function (data) {
+                    for (var i = 0; i < vm.entidades.length; i++) {
+                        if (vm.entidades[i].id == data.id) {
+                            vm.entidades[i] = data;
+                            break;
+                        }
                     }
-                }
-            });
+                },
+                function errorCallback(error) {
+                    vm.responseMessage = error.data.message;
+                    vm.dialogResponse = true;
+                    stopAnimation();
+                });
             cancelar();
         } // end method guardar
 
         function remover(entidad) {
-            EntidadService.remove(entidad, function () {
-                retrieveData();
-            });
+            startAnimation();
+            EntidadService.remove(entidad)
+            .$promise.then(
+                function (data) {
+                    retrieveData();
+                },
+                function errorCallback(error) {
+                    vm.responseMessage = error.data.message;
+                    vm.dialogResponse = true;
+                    stopAnimation();
+                });
             cancelar();
         } // end function remover
 
@@ -140,5 +188,16 @@
         function seleccionarTipoEntidad( entidadSeleccionada, tiposEntidades ){
             return _.find(tiposEntidades, function (te) { return te.id == entidadSeleccionada.tipoEntidad.id });
         } // end method 
+
+
+        function startAnimation() {
+            document.getElementById(vm.idLoad).style.visibility = "visible";
+            vm.procesando = true;
+        }
+        function stopAnimation() {
+            document.getElementById(vm.idLoad).style.visibility = "hidden";
+            vm.procesando = false;
+        }
+
     } // end entidad controller    
 })();

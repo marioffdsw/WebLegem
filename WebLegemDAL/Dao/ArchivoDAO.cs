@@ -1,71 +1,46 @@
-﻿//using Oracle.DataAccess.Client;
-//using Oracle.DataAccess.Types;
-//using System;
-//using System.Collections.Generic;
-//using System.Data;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
-//using WebLegemDAL.Dao;
+﻿using CSharpFunctionalExtensions;
+using Oracle.DataAccess.Client;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WebLegemDAL.Models;
 
-//namespace WebLegemDAL.Dao
-//{
-//    public class ArchivoDao : BaseDao<Archivo>
-//    {
-//        public override string TableName
-//        {
-//            get
-//            {
-//                return "archivos_tab";
-//            }
-//        }
+namespace WebLegemDAL.DAO
+{
+    public class ArchivoDao
+    {
+        private string UdtTypeName
+        {
+            get { return "WEB_LEGEM.ARCHIVO_TYP"; }
+        }
 
-//        protected sealed override Archivo Insert(Archivo registro)
-//        {
+        public Maybe<Archivo> Get(int id)
+        {
+            using (OracleConnection conn = DB.GetOracleConnection())
+            using (OracleCommand cmd = DB.GetFuncionCommand(conn, "WEB_LEGEM.GET_AR"))
+            {
+                var result = DB.AddObjectResult( cmd, UdtTypeName );
+                DB.AddIdParameter( cmd, id );
 
-//            // TODO - recibir el archivo .pdf o .docx, almacenarlo en disco duro, antes de guardar en base de datos
+                cmd.ExecuteNonQuery();
+                return (Archivo) result.Value;
+            } // end using cmd
+        } // end method Get
 
-//            queryString = "WEB_LEGEM.OBTENER_ARCHIVO_SEQ_FUN";
-//            var cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
-//            cmd.CommandType = CommandType.StoredProcedure;
+        public Maybe<Archivo> Create( Archivo ar )
+        {
+            using (OracleConnection conn = DB.GetOracleConnection())
+            using (OracleCommand cmd = DB.GetFuncionCommand(conn, "WEB_LEGEM.CREATE_AR"))
+            {
+                var result = DB.AddObjectResult( cmd, UdtTypeName );
+                DB.AddObjectParameter( cmd, "archivo", UdtTypeName, ar );
 
-//            var param = new OracleParameter( "secuencia", OracleDbType.Decimal );
-//            param.Direction = ParameterDirection.ReturnValue;
+                cmd.ExecuteNonQuery();
 
-//            cmd.Parameters.Add( param );
-//            cmd.ExecuteNonQuery();
-
-//            queryString = $"INSERT INTO archivos_tab VALUES( {((OracleDecimal) param.Value).ToInt32()}, '{registro.Ruta}' )";
-//            var cmd2 = new OracleCommand() { Connection = connection, CommandText = queryString };
-//            cmd2.ExecuteNonQuery();
-
-//            return new Archivo { Id = ((OracleDecimal)param.Value).ToInt32(), Ruta = registro.Ruta };
-//        }
-
-//        protected override Archivo Modify(Archivo registro)
-//        {
-//            throw new NotImplementedException();
-//        }
-
-//        protected override void Remove(int id)
-//        {
-//            throw new NotImplementedException();
-//        }
-
-//        protected override Archivo Retrieve(int id)
-//        {
-//            queryString = $"SELECT * FROM archivos_tab WHERE id = {id}";
-//            var cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
-//            var reader = cmd.ExecuteReader();
-
-//            reader.Read();
-
-//            return new Archivo { Id = reader.GetInt32(0), Ruta = reader.GetString(1) };                        
-//        }
-
-//        protected override IQueryable<Archivo> RetrieveAll()
-//        {
-//            throw new NotImplementedException();
-//        }
-//    }
-//}
+                return (Archivo) result.Value;
+            } // end using cmd
+        } // end method Create
+    } // end class ArchivoDao
+} // end namespace WebLegemDAL.DAO2

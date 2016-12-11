@@ -15,7 +15,9 @@
                 lista: "=lista",
                 objeto: "=objeto",
                 seleccionar: "=seleccionar",
-                editando: "="
+                editando: "=",
+                procesando: "=",
+                error: "="
             },
             bindToController: true
         };

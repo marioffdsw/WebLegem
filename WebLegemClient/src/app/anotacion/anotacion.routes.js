@@ -14,19 +14,22 @@
 			    url: "/crear-anotacion",
 			    templateUrl: "app/anotacion/crear-anotacion/crear-anotacion.tmpl.html",
 			    controller: "crearAnotacionController",
-			    controllerAs: "vm"
+			    controllerAs: "vm",
+                title:"Crear anotación"
 			})
             .state("anotacion.eliminar-anotacion", {
                 url: "/eliminar-anotacion",
                 templateUrl: "app/anotacion/eliminar-anotacion/eliminar-anotacion.tmpl.html",
                 controller: "eliminarAnotacionController",
-                controllerAs: "vm"
+                controllerAs: "vm",
+                title:"Eliminar anotación"
             })
 		    .state("anotacion.editar-anotacion", {
 		        url: "/editar-anotacion",
 		        templateUrl: "app/anotacion/editar-anotacion/editar-anotacion.tmpl.html",
 		        controller: "editarAnotacionController",
-		        controllerAs: "vm"
+		        controllerAs: "vm",
+                title:"Editar anotación"
 		    })
 	    ;
             	    

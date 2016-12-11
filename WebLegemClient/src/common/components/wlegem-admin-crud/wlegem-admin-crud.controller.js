@@ -17,14 +17,17 @@
         vm.eliminar = eliminar;
         vm.cancelarEliminacion = cancelarEliminacion;
         vm.confirmarEliminacion = confirmarEliminacion;
+        vm.ganarFoco = ganarFoco;
 
         function nuevo() {            
             //vm.objetoSeleccionado = { id: 0, nombre: "" };
+            vm.ganarFoco();
             vm.nuevoCallback();
             vm.editando = true;
         } // end function nuevo
 
-        function editar() {            
+        function editar() {
+            vm.ganarFoco();
             vm.editando = !vm.editando;
             //vm.editarCallback();
         } // end function editar
@@ -42,6 +45,11 @@
             vm.eliminarCallback(vm.objetoSeleccionado);
             vm.ban_confirmacion = false;
         } // end function confirmarEliminacion
+
+        function ganarFoco() {
+            var elemento = document.getElementById(vm.foco);            
+            elemento.focus();
+        }
         
         return vm;
     } // end controller

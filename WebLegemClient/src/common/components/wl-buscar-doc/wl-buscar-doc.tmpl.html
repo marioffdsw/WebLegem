@@ -1,40 +1,40 @@
 ﻿
 <div>
-    <label class="subtitulos_labels animacion_filtro" ng-show="!vm.entidadEmisora ">Entidad emisora</label>
+    <label class="subtitulos_labels animacion_filtro" ng-show="!vm.entidadEmisora ">{{vm.language.strings.EntidadEmisora}}</label>
     <div class="a_select">
         <select type="text" ng-options="entidad.nombre as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'"
                 ng-model="vm.entidadEmisoraAux"></select>
     </div>
 </div>
 
-<label class="subtitulos_labels animacion_filtro" ng-show="!vm.tipoDocumento">Tipo de documento</label>
+<label class="subtitulos_labels animacion_filtro" ng-show="!vm.tipoDocumento">{{vm.language.strings.TipoDocumento}}</label>
 <div>
     <div class="a_select">
-        <select type="text" placeholder="Escriba entidad emisora" ng-model="vm.tipoDocumentoAux"
+        <select type="text" placeholder="{{vm.language.strings.EscribaEntidadEmisora}}" ng-model="vm.tipoDocumentoAux"
                 ng-options="tipoDocumento.nombre as tipoDocumento.nombre for tipoDocumento in vm.tiposDocumento| orderBy: 'nombre'"></select>
     </div>
 </div>
 
-<label class="subtitulos_labels animacion_filtro" ng-show="!vm.numero">Número de documento</label>
+<label class="subtitulos_labels animacion_filtro" ng-show="!vm.numero">{{vm.language.strings.NumeroDocumento}}</label>
 <div>
     <input type="text" class="a_input" maxlength="10"
            name="numero" id="numero" ng-model="vm.numeroAux"
-           placeholder="Escriba número de documento" />
+           placeholder="{{vm.language.strings.EscribaNumeroDocumento}}" />
 </div>
 
-<label class="subtitulos_labels animacion_filtro" ng-show="!vm.anioPublicacion ">Año de publicación</label>
+<label class="subtitulos_labels animacion_filtro" ng-show="!vm.anioPublicacion ">{{vm.language.strings.AnoPublicacion}}</label>
 <div>
     <input type="text" class="a_input" maxlength="4"
            name="anioPublicacion" id="anioPublicacion" ng-model="vm.anioPublicacion"
-           placeholder="Escriba año de publicación" />
+           placeholder="{{vm.language.strings.EscribaAnoPublicacion}}" />
 </div>
 
 <div class="generic-box-horizontal flex-1 derecha" style="margin-top:15px;">
-    <button class="btn_sin_ico no-animate" ng-if="!vm.crearDoc" ng-click="vm.llamarAccion();">Buscar</button>
+    <button class="btn_sin_ico no-animate" ng-if="!vm.crearDoc" ng-click="vm.llamarAccion();">{{vm.language.strings.Buscar}}</button>
 
-    <button class="btn_sin_ico no-animate" ng-if="vm.crearDoc" ng-click="vm.atras();">Atras</button>
+    <button class="btn_sin_ico no-animate" ng-if="vm.crearDoc" ng-click="vm.atras();">{{vm.language.strings.Atras}}</button>
 
     <button class="btn_sin_ico no-animate" ng-if="vm.crearDoc" ng-click="vm.crear();" style="margin-left:10px">
-        Crear
+       {{vm.language.strings.Crear}} 
     </button>
 </div>

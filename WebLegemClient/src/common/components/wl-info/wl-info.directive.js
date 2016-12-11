@@ -14,10 +14,11 @@
 
             scope: {
                 show: "=show",
-                title: "@title"
+                title: "@title",
+                color: "@color"
             },
 
-            link: function (scope, element, attrs,transclude) {
+            link: function (scope, element, attrs, transclude) {                
                 scope.hideModal = function () {
                     scope.show = false;
                 };

@@ -3,12 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static TestDb.TipoDocumentoTest;
-using static TestDb.TipoEntidadTest;
-using static TestDb.EntidadTest;
-using static TestDb.TestTipoAnotacion;
-using static TestDb.ArchivoTest;
-
+    
 namespace TestDb
 {
     class Program
@@ -16,16 +11,16 @@ namespace TestDb
         static void Main(string[] args)
         {
             //TestTipoDocumento();
-            //TestTipoEntidad();
+            TestTipoEntidad();
             //TestEntidad();
             //TestTipoAnotacion();
-            TestArchivo();
+            //TestArchivo();
         }
 
         public static void TestArchivo()
         {
             //CreateAr();
-            GetAr();
+            //ArchivoTest.GetAr();
         }
 
         public static void TestTipoAnotacion()
@@ -35,9 +30,9 @@ namespace TestDb
             //GetTa();
             //UpdateTa();            
             //DeleteTa();
+            //GetAllTa();            
             //GetAllTa();
-            //PopulateTa();
-            //GetAllTa();
+            //TestDb.TestTipoAnotacion.PopulateTa();
         }
 
         public static void TestEntidad()
@@ -49,7 +44,7 @@ namespace TestDb
             //UpdateE();
             //GetAllE();
             //DeleteAllE();
-            //PopulateE();
+            //EntidadTest.PopulateE();
             //GetAllE();
         } 
 
@@ -64,7 +59,7 @@ namespace TestDb
             //DeleteAllTe();
             //PrintAllTe();
             //PopulateTe();
-            PrintAllTe();
+            TipoEntidadTest.PopulateTe();
         }
 
         public static void TestTipoDocumento()
@@ -74,10 +69,10 @@ namespace TestDb
             //Get();
             //Update();
             //Delete();
-            //Populate();
-            GetAll();
-            //DeleteAll();
+            //TipoDocumentoTest.Populate();
             //GetAll();
+            //DeleteAll();
+            //TipoDocumentoTest.GetAll();
         } // end method TestTipoDocumento
     }
 }

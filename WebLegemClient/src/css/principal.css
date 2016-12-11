@@ -91,3 +91,17 @@
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
 }
+
+a:focus,
+button:focus{
+   outline-color:greenyellow;
+   outline-style:solid;
+   outline-width:2px;
+
+}
+
+p:focus{
+    outline-color:greenyellow;
+   outline-style:solid;
+   outline-width:2px;
+}

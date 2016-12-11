@@ -15,8 +15,10 @@
             bindToController: true,
             scope: {
                 editando: "=",
+                procesando: "=",
                 aceptarCallback: "=aceptar",
-                cancelarCallback: "=cancelar"
+                cancelarCallback: "=cancelar",
+                error: "="
             }
         };
     }

@@ -1,112 +1,106 @@
-﻿using System.Linq;
+﻿using CSharpFunctionalExtensions;
 using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WebLegemDAL.Dao;
 using WebLegemDAL.Models;
-using System.Data;
 
-namespace WebLegemDAL.Dao
+namespace WebLegemDAL.DAO
 {
-    public class EntidadDao : BaseDao<Entidad>
+    public class EntidadDao
     {
-
-        /**********************************************************************************
-         **********************************************************************************
-         *
-         *   PROPERTIES
-         *   
-         **********************************************************************************/
-
-        public override string TableName
+        private string UdtTypeName
         {
-            get
+            get { return "WEB_LEGEM.ENTIDAD_TYP"; }
+        }
+
+        public IEnumerable<Entidad> GetAll()
+        {
+            using (OracleConnection conn = DB.GetOracleConnection())
+            using (OracleCommand cmd = DB.GetFuncionCommand(conn, "WEB_LEGEM.GET_ALL_E"))
             {
-                return "entidades_view";
-            }
-        } // fin prop TableName
+                var result = DB.AddRefCursorResult( cmd );
+                cmd.ExecuteNonQuery();
+                var reader = ((OracleRefCursor)result.Value).GetDataReader();
+                return reader.AsEnumerable<Entidad>();
+            } // end using cmd
+        } // end method GetAll
 
-        public string UdtTypeName
+        public Maybe<Entidad> Get( int id )
         {
-            get
+            using (OracleConnection conn = DB.GetOracleConnection())
+            using (OracleCommand cmd = DB.GetFuncionCommand(conn, "WEB_LEGEM.GET_E"))
             {
-                return "WEB_LEGEM.ENTIDAD_TYP";
+                var result = DB.AddObjectResult( cmd, UdtTypeName );
+                DB.AddIdParameter( cmd, id );
+
+                cmd.ExecuteNonQuery();
+                return (Entidad) result.Value;
+            } // end using cmd
+        } // end method Get
+
+        public Result<Entidad> Create(Entidad e)
+        {
+            try
+            {
+                using (OracleConnection conn = DB.GetOracleConnection())
+                using (OracleCommand cmd = DB.GetFuncionCommand(conn, "WEB_LEGEM.CREATE_E"))
+                {
+                    var result = DB.AddObjectResult(cmd, UdtTypeName);
+                    DB.AddObjectParameter(cmd, "entidad", UdtTypeName, e);
+
+                    cmd.ExecuteNonQuery();
+                    return Result.Ok((Entidad)result.Value);
+                }                 
             }
-        } // fin prop UdtTypeName
+            catch (OracleException ex)
+            {
+                return Result.Fail<Entidad>("Registro existente con el mismo nombre");
+            }
+        
+        } // end method Create
 
-
-
-        /**********************************************************************************
-         **********************************************************************************
-         *
-         *   OVERWRITTEN METHODS
-         *   
-         **********************************************************************************/
-
-        protected sealed override IQueryable<Entidad> RetrieveAll()
+        public Result<Entidad> Update(Entidad e)
         {
-            queryString = $"SELECT * FROM {TableName} tev";
+            try{
+                using (OracleConnection conn = DB.GetOracleConnection())
+                using (OracleCommand cmd = DB.GetFuncionCommand(conn, "WEB_LEGEM.UPDATE_E"))
+                {
+                    var result = DB.AddObjectResult(cmd, UdtTypeName);
+                    DB.AddObjectParameter(cmd, "new_e", UdtTypeName, e);
 
-            OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
-            OracleDataReader reader = cmd.ExecuteReader();
+                    cmd.ExecuteNonQuery();
+                    return Result.Ok((Entidad)result.Value);
+                } // end using cmd
+            }
+            catch (OracleException ex)
+            {
+                return Result.Fail<Entidad>("Registro existente con el mismo nombre");
+            }
+            
+        } // end method Update
 
-            queryString = null;
-
-            var dt = new DataTable();
-            dt.Load(reader);
-
-            return dt.CreateDataReader().AsEnumerable<Entidad>().AsQueryable();
-        }
-
-        protected sealed override Entidad Retrieve(int id)
+        public Result Delete(int id)
         {
-            queryString = $"SELECT * FROM {TableName} te WHERE te.entidad.id = {id}";
-            OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
-            OracleDataReader reader = cmd.ExecuteReader();
-
-            queryString = null;
-
-            var dt = new DataTable();
-            dt.Load(reader);
-
-            return dt.CreateDataReader().AsEnumerable<Entidad>().AsQueryable().First();
-        }
-
-        protected sealed override Entidad Insert(Entidad entidad)
-        {
-            OracleCommand cmd = new OracleCommand($"INSERT INTO {TableName} VALUES( :td )", connection);
-            OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);
-            td.UdtTypeName = UdtTypeName;
-            td.Direction = ParameterDirection.InputOutput;
-            td.Value = entidad;
-
-            cmd.ExecuteNonQuery();
-
-            return (Entidad) td.Value;
-        }
-
-        protected sealed override Entidad Modify(Entidad entidad)
-        {
-            queryString = $"UPDATE {TableName} tev SET tev.entidad = :td WHERE tev.entidad.id = :id";
-
-            OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
-
-            OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);
-            td.UdtTypeName = UdtTypeName;
-            td.Direction = ParameterDirection.InputOutput;
-            td.Value = entidad;
-
-            OracleParameter id = cmd.Parameters.Add(":td", OracleDbType.Int32);            
-            id.Value = entidad.Id;
-
-            cmd.ExecuteNonQuery();
-
-            return (Entidad) td.Value;
-        } // end UpdateTipoDocumento method
-
-        protected sealed override void Remove(int id)
-        {
-            queryString = $"DELETE FROM {TableName} tev WHERE tev.entidad.id = {id}";
-
-            OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
-            cmd.ExecuteNonQuery();
-        }
-    }
-}
+            try
+            {
+                using (OracleConnection conn = DB.GetOracleConnection())
+                using (OracleCommand cmd = DB.GetFuncionCommand(conn, "WEB_LEGEM.DELETE_E"))
+                {
+                    DB.AddIdParameter(cmd, id);
+                    cmd.ExecuteNonQuery();
+                    return Result.Ok();
+                } // end using cmd
+            }
+            catch
+            {
+                return Result.Fail("No se puede eliminar este registro");
+            }
+            
+        } // end method Delete
+    } // end class EntidadDao
+} // end namespace WebLegemDAL.DAO2

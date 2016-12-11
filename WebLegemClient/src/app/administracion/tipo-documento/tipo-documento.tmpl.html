@@ -3,15 +3,21 @@
     <div class="box_left">
         <wl-lista-tipo-doc lista="vm.tiposDoc"
                            objeto-seleccionado="vm.tipoDocSeleccionado"
-                           editando="vm.editando">
+                           editando="vm.editando"
+                           procesando="vm.procesando"
+                           error="vm.error">
         </wl-lista-tipo-doc>
+        <div id="wl-lista" class=" load_list"></div>
     </div>
 
     <div class="box_right">
         <wl-admin-crud objeto-seleccionado="vm.tipoDocSeleccionado"
                        editando="vm.editando"
+                       procesando="vm.procesando"
                        nuevo="vm.nuevo"
-                       eliminar="vm.remover">
+                       eliminar="vm.remover"
+                       foco="input_tipo_doc"
+                       error="vm.error">
         </wl-admin-crud>
 
         <label class="texto_labels">{{vm.language.strings.NombreTipoDocumento}}:</label>
@@ -20,11 +26,11 @@
 
             <input class="a_input" ng-class="!vm.editando || !vm.tipoDocSeleccionado? 'disable': ''"
                    type="text"
-                   name="nombre"
+                   name="nombre" id="input_tipo_doc"
                    ng-model="vm.tipoDocSeleccionado.nombre"
                    required
                    placeholder="{{vm.language.strings.IngreseNombre}}" />
-            
+
         </form>
 
         <div ng-show="vm.form_tipo_doc.$invalid && vm.form_tipo_doc.$dirty">
@@ -33,7 +39,24 @@
 
         <wl-confirmacion editando="vm.editando"
                          aceptar="vm.aceptar "
-                         cancelar="vm.cancelar">
+                         cancelar="vm.cancelar"
+                         procesando="vm.procesando"
+                         error="vm.error">
         </wl-confirmacion>
     </div>
 </div>
+
+<wl-info show="vm.dialogResponse" title="Error" color="verde">
+    <div class='a-modal-contenido'>
+        <div class="generic-box-vertical">
+            <div class="generic-box-horizontal center">
+                <label class="texto_labels">{{vm.responseMessage}}</label>
+            </div>
+            <div class="generic-box-horizontal flex-1 center" style="margin-top:15px;">
+                <button class="btn_sin_ico" ng-click="vm.dialogResponse=false">
+                    Aceptar
+                </button>
+            </div>
+        </div>
+    </div>
+</wl-info>

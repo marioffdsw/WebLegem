@@ -1,20 +1,20 @@
 ﻿<div class="controles_box_right">
 
-    <button class="btn_con_ico"
+    <button class="btn_con_ico" ng-class="vm.procesando || vm.error? 'disable': ''"
             ng-show="vm.objetoSeleccionado && vm.objetoSeleccionado.id && !vm.editando"
             ng-click="vm.editar()">
         <span class="ico-pencil tamano_botones_1"></span>{{vm.language.strings.Editar}}
     </button>
 
-    <button class="btn_con_ico"
+    <button class="btn_con_ico" ng-class="vm.procesando || vm.error? 'disable': ''"
             ng-show="vm.objetoSeleccionado && vm.objetoSeleccionado.id && (!vm.editando || !vm.creando)"
             ng-click="vm.eliminar()">
         <span class="ico-trash tamano_botones_1"></span>{{vm.language.strings.Eliminar}}
     </button>
 
-    <button class="btn_con_ico " style="margin-left:10px;"
+    <button class="btn_con_ico " style="margin-left:10px;" ng-class="vm.procesando || vm.error? 'disable': ''"
             ng-show="!vm.editando"
-            ng-click="vm.nuevo()">
+            ng-click="vm.nuevo();">
         <span class="ico-plus tamano_botones_1"></span>{{vm.language.strings.Nuevo}}
     </button>
 
@@ -32,31 +32,11 @@
 
             <div class='a-modal-contenido'>
                 <div class="generic-box-vertical">
-                    <p>Esta seguro que desea eliminar "{{ vm.objetoSeleccionado.nombre }}"</p>
+                    <p>¿Esta seguro que desea eliminar "{{ vm.objetoSeleccionado.nombre }} ? "</p>
                     <div class="a-modal-confirmacion">
-                            <button class="btn_sin_ico" value="confirmar" ng-click="vm.confirmarEliminacion()">Aceptar</button>
+                            <button class="btn_sin_ico" value="confirmar" ng-click="vm.confirmarEliminacion()">Eliminar</button>
                             <button class="btn_sin_ico" ng-click="vm.cancelarEliminacion()">Cancelar</button>
 
-                    </div>
-                </div>
-                <div class="generic-box-vertical">
-                    <div style="display:flex;justify-content:center;">
-                        <div class="circulo_carga mediano"></div>
-                    </div>
-                    <div class="generic-box-horizontal center">
-                        <label class="texto_labels">Operacion terminada con exito</label>
-                        <span class="ico-check-circle" style="font-size:large; color:greenyellow"></span>
-                    </div>
-
-                    <div class="generic-box-horizontal center">
-                        <label class="texto_labels">Lamentablemente no se pudo realizar la operacion</label>
-                        <span class="ico-times-circle" style="font-size:large; color:#ff2f2f"></span>
-                    </div>
-
-                    <div class="generic-box-horizontal flex-1 center" style="margin-top:15px;">
-                        <button class="btn_sin_ico" ng-click="vm.ban_confirmacion=false">
-                            Aceptar
-                        </button>
                     </div>
                 </div>
             </div>

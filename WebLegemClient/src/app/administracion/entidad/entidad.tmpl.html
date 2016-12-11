@@ -3,16 +3,22 @@
         <wl-lista-entidades lista="vm.entidades"
                             objeto-seleccionado="vm.entidadSeleccionada"
                             editando="vm.editando"
-                            seleccionar="vm.seleccionar">
+                            seleccionar="vm.seleccionar"
+                            procesando="vm.procesando"
+                            error="vm.error">
         </wl-lista-entidades>
+        <div id="wl-lista" class=" load_list"></div>
     </div>
 
     <div class="box_right">
 
         <wl-admin-crud objeto-seleccionado="vm.entidadSeleccionada"
                        editando="vm.editando"
+                       procesando="vm.procesando"
                        nuevo="vm.nuevo"
-                       eliminar="vm.remover">
+                       eliminar="vm.remover"
+                       foco="nombre-entidad"
+                       error="vm.error">
         </wl-admin-crud>
 
         <label class="texto_labels" for="nombre-entidad">{{vm.language.strings.NombreEntidad}}:</label>
@@ -27,26 +33,66 @@
                 <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
             </div>
 
+            <label class="texto_labels">{{vm.language.strings.CorreoElectronico}}</label>
+
+            <input class="a_input" ng-model="vm.entidadSeleccionada.correo" placeholder="Ingrese correo electronico"
+                   ng-class="!vm.editando ? 'disable': ''" required type="email" name="correo" />
+
+            <div ng-show="vm.form_entidad.correo.$invalid && vm.form_entidad.correo.$dirty">
+                <div class="msj-error" ng-show="vm.form_entidad.correo.$error.required && !vm.form_entidad.correo.$error.email">
+                    {{vm.language.strings.CompleteCampo}}
+                </div>
+                <div class="msj-error" ng-show="vm.form_entidad.correo.$error.email">
+                    Correo no valido.
+                </div>
+                
+            </div>
+
+
             <label class="texto_labels" for="tipo-entidad">{{vm.language.strings.TipoEntidad}}:</label>            
+
+
 
             <div class="a_select"  ng-class="!vm.editando ? 'disable' : ''">
                 <select id="tipo" 
                         name="tipo"
                         ng-disabled="!vm.editando"
                         ng-options="tipoEntidad as tipoEntidad.nombre for tipoEntidad in vm.tiposEntidades"
-                        ng-model="vm.entidadSeleccionada.tipoEntidad"></select>
+                        ng-model="vm.entidadSeleccionada.tipoEntidad"
+                        >
+                    <option disabled selected value> {{vm.default}} </option>
+                </select>
             </div>
 
-            <div ng-show="vm.form_entidad.tipo.$invalid && vm.form_entidad.tipo.$dirty">
+            <div ng-show="vm.form_entidad.tipo.$invalid && vm.form_entidad.tipo.$dirty" style="margin-top:7px;">
                 <div class="msj-error">Seleccione una opción</div>
             </div>
+
+            
 
         </form>
 
         <wl-confirmacion editando="vm.editando"
                          aceptar="vm.aceptar"
-                         cancelar="vm.cancelar">
+                         cancelar="vm.cancelar"
+                         procesando="vm.procesando"
+                         error="vm.error">
         </wl-confirmacion>
 
     </div>
 </div>
+
+<wl-info show="vm.dialogResponse" title="Error"  color="verde">
+    <div class='a-modal-contenido'>
+        <div class="generic-box-vertical">
+            <div class="generic-box-horizontal center">
+                <label class="texto_labels">{{vm.responseMessage}}</label>
+            </div>
+            <div class="generic-box-horizontal flex-1 center" style="margin-top:15px;">
+                <button class="btn_sin_ico" ng-click="vm.dialogResponse=false">
+                    Aceptar
+                </button>
+            </div>
+        </div>
+    </div>
+</wl-info>

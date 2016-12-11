@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using WebLegemDAL.DAO2;
+using WebLegemDAL.DAO;
 using WebLegemDAL.Models;
 
 namespace WebLegemAPI.Controllers
@@ -25,21 +25,55 @@ namespace WebLegemAPI.Controllers
             return DAO.GetAll().AsQueryable();
         } // end action method Get
 
-        public TipoAnotacion Put(TipoAnotacion tipoAnotacion)
+        public IHttpActionResult Put(TipoAnotacion tipoAnot)
         {
-            return DAO.Update(tipoAnotacion).Value;
+            var tipoAnotacion = DAO.Update(tipoAnot);
+            if (tipoAnotacion.IsSuccess)
+            {
+                return Ok(tipoAnotacion.Value);
+            }
+            else
+            {
+                return ResponseMessage(Request.CreateErrorResponse(
+                      HttpStatusCode.Conflict,
+                      tipoAnotacion.Error
+                ));
+            }
         } // end action method Put
 
-        public TipoAnotacion Post(TipoAnotacion tipoAnotacion)
+        public IHttpActionResult Post(TipoAnotacion tipoAnota)
         {
-            return DAO.Create( tipoAnotacion ).Value;
+            var tipoAnotacion = DAO.Create(tipoAnota);
+
+            if (tipoAnotacion.IsSuccess)
+            {
+                return Ok(tipoAnotacion.Value);
+            }
+            else
+            {
+                return ResponseMessage(Request.CreateErrorResponse(
+                    HttpStatusCode.Conflict,
+                    tipoAnotacion.Error
+                    ));
+            }
+
         } // end action method Post
 
         public IHttpActionResult Delete(int id)
         {
-            DAO.Delete( id );
+            var tipoAnotacion = DAO.Delete(id);
+            if (tipoAnotacion.IsSuccess)
+            {
+                return Ok();
+            }
+            else
+            {
+                return ResponseMessage(Request.CreateErrorResponse(
+                    HttpStatusCode.Conflict,
+                    tipoAnotacion.Error
+                    ));
+            }
 
-            return Ok();
         } // end action method Delete
 
 

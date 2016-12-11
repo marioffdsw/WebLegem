@@ -1,112 +1,108 @@
-﻿using System.Linq;
-using Oracle.DataAccess.Client;
-using WebLegemDAL.Models;
+﻿using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using WebLegemDAL.Models;
+using WebLegemDAL.DAO;
+using WebLegemDAL.Dao;
+using CSharpFunctionalExtensions;
 
-namespace WebLegemDAL.Dao
+namespace WebLegemDAL.DAO
 {
-    public class TipoDocumentoDao : BaseDao<TipoDocumento>
+    public class TipoDocumentoDao
     {
-
-        /**********************************************************************************
-         **********************************************************************************
-         *
-         *   PROPERTIES
-         *   
-         **********************************************************************************/
-
-        public override string TableName
+        private string UdtTypeName
         {
-            get
-            {
-                return "tipos_documento_view";
-            }
-        } // fin prop TableName
-        
-        public string UdtTypeName
-        {
-            get
-            {
-                return "WEB_LEGEM.TIPO_DOCUMENTO_TYP";
-            }
-        } // fin prop UdtTypeName
-
-
-
-        /**********************************************************************************
-         **********************************************************************************
-         *
-         *   OVERRITEN METHODS
-         *   
-         **********************************************************************************/
-
-        protected sealed override IQueryable<TipoDocumento> RetrieveAll()
-        {
-            queryString = $"SELECT * FROM {TableName} tdv";
-
-            OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
-            OracleDataReader reader = cmd.ExecuteReader();
-
-            queryString = null;
-
-            var dt = new DataTable();
-            dt.Load(reader);
-
-            return dt.CreateDataReader().AsEnumerable<TipoDocumento>().AsQueryable();
+            get { return "WEB_LEGEM.TIPO_DOCUMENTO_TYP"; }
         }
 
-        protected sealed override TipoDocumento Retrieve(int id)
-        {
-            queryString = $"SELECT VALUE(td) FROM {TableName} td WHERE td.tipo_documento.id = {id}";
-            OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
-            OracleDataReader reader = cmd.ExecuteReader();
-
-            queryString = null;
-
-            var dt = new DataTable();
-            dt.Load(reader);
-
-            return dt.CreateDataReader().AsEnumerable<TipoDocumento>().AsQueryable().First();
-        }
-
-        protected sealed override TipoDocumento Insert( TipoDocumento tipoDocumento)
-        {
-            OracleCommand cmd = new OracleCommand( $"INSERT INTO {TableName} VALUES( :td )", connection);
-            OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);
-            td.UdtTypeName = UdtTypeName;
-            td.Direction = ParameterDirection.InputOutput;            
-            td.Value = tipoDocumento;
-
-            cmd.ExecuteNonQuery();
-            
-            return (TipoDocumento) td.Value;
-        }             
-
-        protected sealed override TipoDocumento Modify( TipoDocumento tipoDocumento )
+        public IEnumerable<TipoDocumento> GetAll()
         {            
-            queryString = $"UPDATE {TableName} tdv SET tdv.tipo_documento = :td WHERE tdv.tipo_documento.id = :id";
+            using (OracleConnection conn = DB.GetOracleConnection())            
+            using (OracleCommand cmd = DB.GetFuncionCommand( conn, @"WEB_LEGEM.GET_ALL_TD") )
+            {                    
+                var result = DB.AddRefCursorResult( cmd );
+                cmd.ExecuteNonQuery();
+                var reader = ((OracleRefCursor) result.Value).GetDataReader();
+                return reader.AsEnumerable<TipoDocumento>();
+            } // end using cmd            
+        } // end method GetAll        
 
-            OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
-
-            OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);            
-            td.UdtTypeName = UdtTypeName;
-            td.Direction = ParameterDirection.InputOutput;
-            td.Value = tipoDocumento;
-
-            OracleParameter id = cmd.Parameters.Add(":td", OracleDbType.Int32);            
-            id.Value = tipoDocumento.Id;
-
-            cmd.ExecuteNonQuery();            
-
-            return (TipoDocumento) td.Value;
-        } // end UpdateTipoDocumento method
-
-        protected sealed override void Remove(int id)
+        public Maybe<TipoDocumento> Get( int id )
         {
-            queryString = $"DELETE FROM {TableName} tdv WHERE tdv.tipo_documento.id = {id}";
+            using (OracleConnection conn = DB.GetOracleConnection())            
+            using (OracleCommand cmd = DB.GetFuncionCommand( conn, @"WEB_LEGEM.GET_TD"))
+            {
+                var result = DB.AddObjectResult( cmd, UdtTypeName );
+                DB.AddIdParameter( cmd, id );
+                    
+                cmd.ExecuteNonQuery();
+                return (TipoDocumento) result.Value;                    
+            } // end using cmd
+        } // end method Get
 
-            OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
-            cmd.ExecuteNonQuery();
-        }       
-    }    
-}
+        public Result<TipoDocumento> Create(TipoDocumento td)
+        {
+            try{
+                using (OracleConnection conn = DB.GetOracleConnection())
+                using (OracleCommand cmd = DB.GetFuncionCommand(conn, @"WEB_LEGEM.CREATE_TD"))
+                {
+                    var result = DB.AddObjectResult(cmd, UdtTypeName);
+                    DB.AddObjectParameter(cmd, "tipo_documento", UdtTypeName, td);
+
+                    cmd.ExecuteNonQuery();
+                    return Result.Ok((TipoDocumento)result.Value);
+                } 
+            }
+            catch (OracleException e)
+            {
+                return Result.Fail<TipoDocumento>("Registro existente con el mismo nombre");
+            }                                              
+        } // end method Create
+
+        public Result<TipoDocumento> Update(TipoDocumento td)
+        {
+            try
+            {
+                using (OracleConnection conn = DB.GetOracleConnection())
+                using (OracleCommand cmd = DB.GetFuncionCommand(conn, @"WEB_LEGEM.UPDATE_TD"))
+                {
+                    var result = DB.AddObjectResult(cmd, UdtTypeName);
+                    DB.AddObjectParameter(cmd, "NEW_TD", UdtTypeName, td);
+
+                    cmd.ExecuteNonQuery();
+                    return Result.Ok((TipoDocumento)result.Value);
+                } // end using cmd
+
+            }
+            catch(OracleException e)
+            {
+                return Result.Fail<TipoDocumento>("Registro existente con el mismo nombre");
+            }
+            
+        } // end method Update
+
+        public Result Delete(int id)
+        {
+            try
+            {
+                using (OracleConnection conn = DB.GetOracleConnection())
+                using (OracleCommand cmd = DB.GetFuncionCommand(conn, @"WEB_LEGEM.DELETE_TD"))
+                {
+                    DB.AddIdParameter(cmd, id);
+                    cmd.ExecuteNonQuery();
+                    return Result.Ok();
+                } // end using cmd
+            }
+            catch (OracleException e)
+            {
+                return Result.Fail("No se puede eliminar este registro");
+            }
+            
+        } // end method Delete
+    } // end class TipoDocumentoDao
+} // end namespace WebLegemDAL.DAO2

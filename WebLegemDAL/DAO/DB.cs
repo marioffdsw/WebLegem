@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebLegemDAL.DAO2
+namespace WebLegemDAL.DAO
 {
     public class DB
     {

@@ -1,121 +1,104 @@
-﻿using Oracle.DataAccess.Client;
+﻿using CSharpFunctionalExtensions;
+using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebLegemDAL.Dao;
 using WebLegemDAL.Models;
 
-namespace WebLegemDAL.Dao
+namespace WebLegemDAL.DAO
 {
-    public class TipoAnotacionDao : BaseDao<TipoAnotacion>
+    public class TipoAnotacionDao
     {
-
-        /**********************************************************************************
-         **********************************************************************************
-         *
-         *   PROPERTIES
-         *   
-         **********************************************************************************/
-
-        public override string TableName
-        {
-            get { return "tipos_anotacion_view"; }
-        } // fin prop TableName
-        
-        public string UdtTypeName
+        private string UdtTypeName
         {
             get { return "WEB_LEGEM.TIPO_ANOTACION_TYP"; }
-        } // fin prop UdtTypeName
-
-
-
-        /**********************************************************************************
-         **********************************************************************************
-         *
-         *   OVERWRITTEN METHODS
-         *   
-         **********************************************************************************/
-
-        protected sealed override IQueryable<TipoAnotacion> RetrieveAll()
-        {
-            queryString = $"SELECT * FROM {TableName} tav";
-
-            OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
-            OracleDataReader reader = cmd.ExecuteReader();
-
-            queryString = null;
-
-            var dt = new DataTable();
-            dt.Load(reader);
-
-            return dt.CreateDataReader().AsEnumerable<TipoAnotacion>().AsQueryable();
-        } // fin method RetrieveAll
-
-        protected sealed override TipoAnotacion Retrieve(int id)
-        {
-            queryString = $"SELECT * FROM {TableName} te WHERE te.entidad.id = :id";
-
-            OracleCommand cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
-
-            OracleParameter idParam = cmd.Parameters.Add( ":id", id );
-            idParam.Direction = ParameterDirection.Input;
-
-            OracleDataReader reader = cmd.ExecuteReader();
-
-            queryString = null;
-
-            var dt = new DataTable();
-            dt.Load(reader);
-
-            return dt.CreateDataReader().AsEnumerable<TipoAnotacion>().AsQueryable().First();
         }
 
-        protected sealed override TipoAnotacion Insert(TipoAnotacion registro)
+        public IEnumerable<TipoAnotacion> GetAll()
         {
-            OracleCommand cmd = new OracleCommand($"INSERT INTO {TableName} VALUES( :td )", connection);
-            OracleParameter td = cmd.Parameters.Add(":td", OracleDbType.Object);
-            td.UdtTypeName = UdtTypeName;
-            td.Direction = ParameterDirection.InputOutput;
-            td.Value = registro;
+            using (OracleConnection conn = DB.GetOracleConnection())
+            using (OracleCommand cmd = DB.GetFuncionCommand(conn, "WEB_LEGEM.GET_ALL_TA"))
+            {
+                var result = DB.AddRefCursorResult(cmd);
+                cmd.ExecuteNonQuery();
+                var reader = ((OracleRefCursor)result.Value).GetDataReader();
+                return reader.AsEnumerable<TipoAnotacion>();
+            } // end using cmd
+        } // end method GetAll
 
-            cmd.ExecuteNonQuery();
-
-            return (TipoAnotacion) td.Value;
-        } // fin method Insert
-
-        protected sealed override TipoAnotacion Modify(TipoAnotacion registro)
+        public Maybe<TipoAnotacion> Get(int id)
         {
-            queryString = $"UPDATE {TableName} tav SET tav.tipo_anotacion = :ta WHERE tav.tipo_anotacion.id = :id";
+            using (OracleConnection conn = DB.GetOracleConnection())
+            using (OracleCommand cmd = DB.GetFuncionCommand(conn, "WEB_LEGEM.GET_TA"))
+            {
+                var result = DB.AddObjectResult(cmd, UdtTypeName);
+                DB.AddIdParameter(cmd, id);
 
-            var cmd = new OracleCommand() { Connection = connection, CommandText = queryString };
-            var ta = cmd.Parameters.Add( ":ta", OracleDbType.Object );
-            ta.UdtTypeName = UdtTypeName;
-            ta.Direction = ParameterDirection.InputOutput;
-            ta.Value = registro;
+                cmd.ExecuteNonQuery();
+                return (TipoAnotacion)result.Value;
+            } // end using cmd
+        } // end method Get
 
-            var id = cmd.Parameters.Add( ":id", OracleDbType.Int32 );
-            id.Direction = ParameterDirection.Input;
-            id.Value = registro.Id;
-
-            cmd.ExecuteNonQuery();
-
-            return (TipoAnotacion) ta.Value;
-        } // end method Modify
-
-        protected sealed override void Remove(int id)
+        public Result<TipoAnotacion> Create(TipoAnotacion ta)
         {
-            queryString = $"DELETE FROM {TableName} tav WHERE tav.tipo_anotacion.id = :id";
+            try
+            {
+                using (OracleConnection conn = DB.GetOracleConnection())
+                using (OracleCommand cmd = DB.GetFuncionCommand(conn, "WEB_LEGEM.CREATE_TA"))
+                {
+                    var result = DB.AddObjectResult(cmd, UdtTypeName);
+                    DB.AddObjectParameter(cmd, "tipo_anotacion", UdtTypeName, ta);
 
-            var cmd = new OracleCommand( queryString, connection );
+                    cmd.ExecuteNonQuery();
+                    return Result.Ok((TipoAnotacion)result.Value);
+                }
+            }
+            catch
+            {
+                return Result.Fail<TipoAnotacion>("Registro existente con el mismo nombre");
+            }
+        } // end method Create
 
-            var idParam = cmd.Parameters.Add( ":id", OracleDbType.Int32 );
-            idParam.Direction = ParameterDirection.Input;
-            idParam.Value = id;
+        public Result<TipoAnotacion> Update(TipoAnotacion ta)
+        {
+            try
+            {
+                using (OracleConnection conn = DB.GetOracleConnection())
+                using (OracleCommand cmd = DB.GetFuncionCommand(conn, "WEB_LEGEM.UPDATE_TA"))
+                {
+                    var result = DB.AddObjectResult(cmd, UdtTypeName);
+                    DB.AddObjectParameter(cmd, "new_ta", UdtTypeName, ta);
+                    cmd.ExecuteNonQuery();
+                    return Result.Ok((TipoAnotacion)result.Value);
+                } // end using cmd
+            }
+            catch (OracleException e)
+            {
+                return Result.Fail<TipoAnotacion>("Registro existente con el mismo nombre");
+            }
+        } // end method Update
 
-            cmd.ExecuteNonQuery();
-        } // fin method Remove
-
-    } // fin class TipoAnotacionDao
-} // fin namespace WebLegemDAL.DAL
+        public Result Delete(int id)
+        {
+            try
+            {
+                using (OracleConnection conn = DB.GetOracleConnection())
+                using (OracleCommand cmd = DB.GetFuncionCommand(conn, @"WEB_LEGEM.DELETE_TA"))
+                {
+                    DB.AddIdParameter(cmd, id);
+                    cmd.ExecuteNonQuery();
+                    return Result.Ok();
+                } // end using cmd
+            }
+            catch
+            {
+                return Result.Fail("No se puede eliminar este registro");
+            }
+            
+        } // end method Delete
+    } // end class TipoAnotacionDao
+} // end namespace WebLegemDAL.DAO2

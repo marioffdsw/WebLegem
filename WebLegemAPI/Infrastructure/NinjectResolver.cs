@@ -5,9 +5,9 @@ using Ninject;
 using WebLegemDAL.Models;
 using Ninject.Web.Common;
 using WebLegemDAL;
-using WebLegemDAL.QueryObjects;
+//using WebLegemDAL.QueryObjects;
 using WebLegemAPI.OCR;
-using WebLegemDAL.DAO2;
+using WebLegemDAL.DAO;
 
 namespace WebLegemAPI.Infrastructure
 {
@@ -72,7 +72,7 @@ namespace WebLegemAPI.Infrastructure
             kernel.Bind<TipoDocumentoDao>().To<TipoDocumentoDao>().InRequestScope();
             kernel.Bind<TipoEntidadDao>().To<TipoEntidadDao>().InRequestScope();
             kernel.Bind<EntidadDao>().To<EntidadDao>().InRequestScope();
-            kernel.Bind<TipoAnotacionDao>().To<TipoAnotacionDao>().InRequestScope();       
+            kernel.Bind<TipoAnotacionDao>().To<TipoAnotacionDao>().InRequestScope();
             kernel.Bind<ArchivoDao>().To<ArchivoDao>().InRequestScope();
             kernel.Bind<DocumentoDao>().To<DocumentoDao>().InRequestScope();
 

@@ -11,7 +11,6 @@
         vm.language = language;
         vm.seleccionarObjeto = seleccionarObjeto;
         vm.checkear = checkear;
-        
 
         function checkear(tipo) {            
             return vm.objetoSeleccionado && angular.equals(vm.objetoSeleccionado.id, tipo.id);

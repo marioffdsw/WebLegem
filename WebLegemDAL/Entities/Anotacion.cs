@@ -114,7 +114,8 @@ namespace WebLegemDAL.Models
 
         public override string ToString()
         {
-            return $"Anotacion( {Id}, TipoAnotacion: {TipoAnotacion}, Anotado: {DocumentoAnotado}, Anotante: {DocumentoAnotante} )";
+            return String.Format("Anotacion( {0}, TipoAnotacion: {1}, Anotado: {2}, Anotante: {3} )",
+                Id, TipoAnotacion, DocumentoAnotado, DocumentoAnotante );
         }    
     } // end class Anotacion
 } // end namespace WebLegemDAL.Anotacion

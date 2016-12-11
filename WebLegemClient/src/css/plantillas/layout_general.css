@@ -2,10 +2,16 @@
         display: flex;
     }
 
-    .box_left {      
-        box-shadow: 1px 0 0 #e2e2e2;
-        background:white;
-    }
+.box_left {
+    box-shadow: 1px 0 0 #e2e2e2;
+    background: white;
+    position: relative;
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    height:100%;
+}
 
     .box_right {
         flex: 3;
@@ -80,7 +86,6 @@
 /* Extra Small Devices, Phones */ 
 @media only screen and (max-width : 480px) {
     .box_left {
-        position:absolute;
         left:0;
         top:55px;
         width:50vw;
@@ -97,7 +102,6 @@
     .box_left {
         flex: 1.5;
         padding: 20px;
-        position:unset;
         width:unset;
         top:unset;
         left:unset;

@@ -2,51 +2,88 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using WebLegemDAL.Models;
-using WebLegemDAL.DAO2;
+using WebLegemDAL.DAO;
+using CSharpFunctionalExtensions;
+using System.Net;
 
 namespace WebLegemAPI.Controllers
 {
-    [EnableCorsAttribute( "*", "*", "*" )]
+    [EnableCorsAttribute("*", "*", "*")]
     public class TipoDocumentoController : ApiController
     {
-        private TipoDocumentoDao DAO;        
+        private TipoDocumentoDao DAO;
 
         public TipoDocumentoController(
-                TipoDocumentoDao dao            
-            ) : base()
+                TipoDocumentoDao dao
+            )
+            : base()
         {
-            this.DAO = dao;            
+            this.DAO = dao;
         }
 
         public IQueryable<TipoDocumento> Get()
-        {                        
+        {
             var tiposDocumento = DAO.GetAll();
             return tiposDocumento.AsQueryable();
         } // end GET Action Method
 
         public TipoDocumento Get(int id)
         {
-            return DAO.Get( id ).Value;
+            return DAO.Get(id).Value;
         }
 
-        public TipoDocumento Put( TipoDocumento tipoDoc )
+        public IHttpActionResult Put(TipoDocumento tipoDoc)
         {
-            return DAO.Update( tipoDoc ).Value;
+            var tipoDocumento = DAO.Update(tipoDoc);
+            if (tipoDocumento.IsSuccess)
+            {
+                return Ok(tipoDocumento.Value);
+            }
+            else
+            {
+                return ResponseMessage(Request.CreateErrorResponse(
+                      HttpStatusCode.Conflict,
+                      tipoDocumento.Error
+                ));
+            }
         } // end GET Action Method
 
-        public TipoDocumento Post( TipoDocumento tipoDoc )
-        {                        
-            return DAO.Create(tipoDoc).Value;
+        public IHttpActionResult Post(TipoDocumento tipoDoc)
+        {
+            var tipoDocumento = DAO.Create(tipoDoc);
+
+            if (tipoDocumento.IsSuccess)
+            {
+                return Ok(tipoDocumento.Value);
+            }
+            else
+            {
+                return ResponseMessage(Request.CreateErrorResponse(
+                    HttpStatusCode.Conflict,
+                    tipoDocumento.Error
+                    ));
+            }
         }
 
-        public IHttpActionResult Delete( int id )
+        public IHttpActionResult Delete(int id)
         {
-            DAO.Delete( id );
+            var tipoDocumento = DAO.Delete(id);
+            if (tipoDocumento.IsSuccess)
+            {
+                return Ok();
+            }
+            else
+            {
+                return ResponseMessage(Request.CreateErrorResponse(
+                    HttpStatusCode.Conflict,
+                    tipoDocumento.Error
+                    ));
+            }
 
-            return Ok();
         } // fin action method DELETE 
     }
 }

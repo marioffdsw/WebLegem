@@ -14,9 +14,12 @@
             controllerAs: "vm",
             scope: {
                 objetoSeleccionado: "=",
-                editando: "=",                                  
+                editando: "=",
+                procesando: "=",
                 eliminarCallback: "=eliminar",
-                nuevoCallback: "=nuevo"
+                nuevoCallback: "=nuevo",
+                foco: "@foco",
+                error: "="
             },
             bindToController: true
         };
