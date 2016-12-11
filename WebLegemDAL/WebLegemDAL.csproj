@@ -54,6 +54,10 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Interactive, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Interactive.3.1.1\lib\net45\System.Interactive.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
@@ -71,6 +75,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO2\ArchivoDao.cs" />
+    <Compile Include="DAO2\ContenidoDao.cs" />
+    <Compile Include="DAO2\DocumentoDao.cs" />
     <Compile Include="DAO2\EntidadDao.cs" />
     <Compile Include="DAO2\DB.cs" />
     <Compile Include="DAO2\TipoAnotacionDao.cs" />
@@ -86,8 +92,9 @@
     <Compile Include="Dao\BaseDao.cs" />
     <Compile Include="DALExtensionMethods.cs" />
     <Compile Include="Entities\Documento.cs" />
-    <Compile Include="Entities\DocumentoConContenido.cs" />
+    <Compile Include="Entities\Contenido.cs" />
     <Compile Include="Factories\ArchivoFactory.cs" />
+    <Compile Include="Factories\ContenidoFactory.cs" />
     <Compile Include="Factories\DocumentoConContenidoFactory.cs" />
     <Compile Include="Dao\DocumentoConContenidoDao.cs" />
     <Compile Include="Dao\DocumentoConContenidoQueryObject.cs" />

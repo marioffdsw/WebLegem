@@ -18,6 +18,6 @@
                 reverse: "=reverse"
             },
             bindToController:true
-        }
-    } // end
+        } // end return
+    } // end function
 })();

@@ -67,11 +67,16 @@ namespace WebLegemAPI.Infrastructure
 
         private void AddBindings(IKernel kernel)
         {
+            kernel.Bind<Dictionary<Guid, Archivo>>().To<Dictionary<Guid, Archivo>>().InSingletonScope();
+            kernel.Bind<Dictionary<Guid, Documento>>().To<Dictionary<Guid, Documento>>().InSingletonScope();
             kernel.Bind<TipoDocumentoDao>().To<TipoDocumentoDao>().InRequestScope();
             kernel.Bind<TipoEntidadDao>().To<TipoEntidadDao>().InRequestScope();
             kernel.Bind<EntidadDao>().To<EntidadDao>().InRequestScope();
             kernel.Bind<TipoAnotacionDao>().To<TipoAnotacionDao>().InRequestScope();       
             kernel.Bind<ArchivoDao>().To<ArchivoDao>().InRequestScope();
+            kernel.Bind<DocumentoDao>().To<DocumentoDao>().InRequestScope();
+
+            kernel.Bind<IPdfToText>().To<NiconsoftOcr>().InRequestScope();
         }
     }
 }

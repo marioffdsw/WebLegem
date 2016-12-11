@@ -79,7 +79,13 @@
     <Content Include="Functions\Documento\get_c.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Functions\Documento\get_id_match.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Functions\Documento\get_i_d.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Documento\search_c.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Functions\Entidad\create_e.sql">

@@ -45,17 +45,16 @@
                     
 
                     <!--------------------------------------------------------------------------------------------------------->
-
-                    <div ng-show="(vm.arregloDocs) || (!vm.errorMessage && vm.documentosEncontrados.length > 0)">
-
+                                        
+                    <div ng-show="!vm.errorMessage && vm.documentosEncontrados.length > 0">
                         <div class="box-sort-busqueda">
-                            <wlegem-sort-busqueda busqueda="vm.toggle_avanzada"></wlegem-sort-busqueda>
+                            <wlegem-sort-busqueda busqueda="vm.toggle_avanzada" predicate="vm.predicate" reverse="vm.reverse"></wlegem-sort-busqueda>
                         </div>
 
                         <div class="res_bus">
                             <p class="desc_res">{{vm.language.strings.DocumentosEncontrados}}</p>
                             <div>
-                                <wlegem-resultado-busqueda loquesea="vm.arregloDocs" predicate="vm.predicate" reverse="vm.reverse"></wlegem-resultado-busqueda>
+                                <wlegem-resultado-busqueda loquesea="vm.documentosEncontrados" predicate="vm.predicate" reverse="vm.reverse"></wlegem-resultado-busqueda>
                             </div>
                         </div>
                     </div>

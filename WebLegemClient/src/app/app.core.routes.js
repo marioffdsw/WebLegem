@@ -47,7 +47,8 @@
                 url: "/ver-documento",
                 templateUrl: "app/busqueda/ver/ver-documento.tmpl.html",
                 controller: "VerDocumentoController",
-                controllerAs: "vm"
+                controllerAs: "vm",
+                params: { id: null }
             })
             .state('usuarios', {
                 url: "/usuarios",

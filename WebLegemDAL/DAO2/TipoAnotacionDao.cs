@@ -43,17 +43,25 @@ namespace WebLegemDAL.DAO2
             } // end using cmd
         } // end method Get
 
-        public Maybe<TipoAnotacion> Create(TipoAnotacion ta)
+        public Result<TipoAnotacion> Create(TipoAnotacion ta)
         {
-            using (OracleConnection conn = DB.GetOracleConnection())
-            using (OracleCommand cmd = DB.GetFuncionCommand(conn, "WEB_LEGEM.CREATE_TA"))
+            try
             {
-                var result = DB.AddObjectResult( cmd, UdtTypeName );
-                DB.AddObjectParameter( cmd, "tipo_anotacion", UdtTypeName, ta);
+                using (OracleConnection conn = DB.GetOracleConnection())
+                using (OracleCommand cmd = DB.GetFuncionCommand(conn, "WEB_LEGEM.CREATE_TA"))
+                {
+                    var result = DB.AddObjectResult(cmd, UdtTypeName);
+                    DB.AddObjectParameter(cmd, "tipo_anotacion", UdtTypeName, ta);
 
-                cmd.ExecuteNonQuery();
-                return (TipoAnotacion) result.Value;
-            } // end using cmd
+                    cmd.ExecuteNonQuery();
+                    return Result.Ok((TipoAnotacion) result.Value);
+                } // end using cmd
+            }
+            catch (Exception ex)
+            {
+                // TODO - escribir un mensaje de error adecuado para los tipos de excepciones diferentes
+                return Result.Fail<TipoAnotacion>( "mensaje de error" );
+            } // end catch
         } // end method Create
 
         public Maybe<TipoAnotacion> Update(TipoAnotacion ta)

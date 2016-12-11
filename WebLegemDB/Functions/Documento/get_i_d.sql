@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION get_i_d
-    ( id IN NUMBER )
+    ( id_ IN NUMBER )
 RETURN documento_typ
 IS
     id_doc          documento_typ;
@@ -13,7 +13,7 @@ BEGIN
             idt.ultima_modificacion )
         INTO id_doc
         FROM identificadores_documentos_tab idt
-        WHERE idt.id = id;
+        WHERE idt.id = id_;
 
     RETURN id_doc;
 END get_i_d;

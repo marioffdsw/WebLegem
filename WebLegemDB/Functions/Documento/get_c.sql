@@ -1,5 +1,5 @@
 CREATE OR REPLACE FUNCTION get_c
-    ( id    IN      NUMBER )
+    ( id_    IN      NUMBER )
 RETURN contenido_typ
 IS
     contenido       contenido_typ;
@@ -13,7 +13,7 @@ BEGIN
         ) 
         INTO contenido
         FROM contenidos_archivos_tab ca
-        WHERE ca.id = id;
+        WHERE ca.id = id_;
 
     RETURN contenido;
 END get_c;

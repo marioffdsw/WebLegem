@@ -1,4 +1,5 @@
-﻿using Oracle.DataAccess.Client;
+﻿using Newtonsoft.Json;
+using Oracle.DataAccess.Client;
 using Oracle.DataAccess.Types;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,15 @@ namespace WebLegemDAL.Models
         {
             get { return ruta; }
             set { ruta = value; }
+        }
+
+        [JsonIgnore]
+        public string Nombre
+        {
+            get
+            {
+                return Path.GetFileName( Ruta );   
+            }
         }
 
         [OracleObjectMapping( "ULTIMA_MODIFICACION" )]

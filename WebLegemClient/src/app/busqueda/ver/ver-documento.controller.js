@@ -5,15 +5,12 @@
         .module("WebLegemApp")
         .controller("VerDocumentoController", VerDocumentoController);
 
-    VerDocumentoController.$inject = [ "fileId","language", "serviceUrl" ];
-    function VerDocumentoController( fileId, language, serviceUrl ) {
+    VerDocumentoController.$inject = [ "fileId","language", "serviceUrl", "$stateParams" ];
+    function VerDocumentoController( fileId, language, serviceUrl, $stateParams ) {
         var vm = this;
         vm.language = language;
-        console.log( fileId );
-
-        vm.id = serviceUrl + "/Files/" + fileId.id;
-
-        console.log( vm.id );
+        console.log( $stateParams );
+        vm.id = serviceUrl + "/Files/" + $stateParams.id;
         return vm;
     }
 })();
