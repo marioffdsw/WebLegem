@@ -23,7 +23,7 @@
         <form name="vm.form_usuario" novalidate>
             <div class="box_duo_input">
                 <div>
-                    <p class="texto_labels green">{{vm.language.strings.Fotografia}}</p>
+                    <p class="texto_labels ">{{vm.language.strings.Fotografia}}</p>
                     <div class="box_fotografia">
                         <div class="foto_usuarios">
                             <span class="ico-user" ng-show="!vm.trash"></span>
@@ -52,7 +52,7 @@
                 </div>
                 <div>
                     <div>
-                        <p class="texto_labels green">{{vm.language.strings.Nombres}}</p>
+                        <p class="texto_labels ">{{vm.language.strings.Nombres}}</p>
                         <input class="a_input" ng-model="vm.usuarioSeleccionado.nombre"
                                ng-class="!vm.editando ? 'disable': ''" required name="nombre" />
 
@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div>
-                        <p class="texto_labels green">{{vm.language.strings.Apellidos}}</p>
+                        <p class="texto_labels ">{{vm.language.strings.Apellidos}}</p>
                         <input class="a_input" ng-model="vm.usuarioSeleccionado.apellido"
                                ng-class="!vm.editando ? 'disable': ''" required name="apellido" />
 
@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <div>
-                        <p class="texto_labels green">{{vm.language.strings.NombreUsuario}}</p>     
+                        <p class="texto_labels ">{{vm.language.strings.NombreUsuario}}</p>     
                         <input class="a_input" ng-model="vm.usuarioSeleccionado.nombreUsuario"
                                ng-class="!vm.editando ? 'disable': ''" required name="nick" />
 
@@ -83,7 +83,7 @@
 
             <div class="box_duo_input">
                 <div>
-                    <p class="texto_labels green">{{vm.language.strings.Contrasena}}</p>
+                    <p class="texto_labels ">{{vm.language.strings.Contrasena}}</p>
                     <input class="a_input" type="password" ng-model="vm.usuarioSeleccionado.contrasena" maxlength="20"
                            ng-class="!vm.editando ? 'disable': ''" readonly required name="pass"
                            onfocus="this.removeAttribute('readonly');" />
@@ -96,7 +96,7 @@
                                        modelo-pass="vm.usuarioSeleccionado.contrasena"></wl-seguridad-pass>
                 </div>
                 <div>
-                    <p class="texto_labels green">{{vm.language.strings.ConfirmarContrasena}}</p>
+                    <p class="texto_labels ">{{vm.language.strings.ConfirmarContrasena}}</p>
                     <input class="a_input" type="password" ng-model="vm.usuarioSeleccionado.contrasena"
                            readonly
                            onfocus="this.removeAttribute('readonly');"
@@ -110,7 +110,7 @@
 
             <div class="box_duo_input">
                 <div>
-                    <p class="texto_labels green">{{vm.language.strings.CorreoElectronico}}</p>
+                    <p class="texto_labels ">{{vm.language.strings.CorreoElectronico}}</p>
                     <input class="a_input" ng-model="vm.usuarioSeleccionado.correo"
                            ng-class="!vm.editando ? 'disable': ''" required  type="email" name="correo" />
 
@@ -125,7 +125,7 @@
 
                 </div>
                 <div>
-                    <p class="texto_labels green">{{vm.language.strings.RolUsuario}}</p>
+                    <p class="texto_labels ">{{vm.language.strings.RolUsuario}}</p>
                     <div class="div_con_info">
 
                         <div class="a_select" ng-show="!vm.editando" ng-class="!vm.editando ? 'disable' : ''">
@@ -156,7 +156,7 @@
             <div class="box_duo_input">
 
                 <div>
-                    <p class="texto_labels green">{{vm.language.strings.EstadoUsuario}}</p>
+                    <p class="texto_labels ">{{vm.language.strings.EstadoUsuario}}</p>
                     <div class="contenedor_radios">
                         <span>
                             <input class="a_radio" id="rad1" type="radio" name="rad" required
