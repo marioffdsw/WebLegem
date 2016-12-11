@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using WebLegemAPI.Models;
-using WebLegemDAL.DAO2;
+using WebLegemDAL.Dao;
 using WebLegemDAL.Models;
 
 namespace WebLegemAPI.Controllers

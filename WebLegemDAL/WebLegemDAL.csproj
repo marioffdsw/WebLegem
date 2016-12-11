@@ -74,13 +74,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO2\ContenidoDao.cs" />
-    <Compile Include="DAO2\DocumentoDao.cs" />
-    <Compile Include="DAO2\EntidadDao.cs" />
-    <Compile Include="DAO2\DB.cs" />
-    <Compile Include="DAO2\TipoAnotacionDao.cs" />
-    <Compile Include="DAO2\TipoDocumentoDao.cs" />
-    <Compile Include="DAO2\TipoEntidadDao.cs" />
+    <Compile Include="Dao\ContenidoDao.cs" />
+    <Compile Include="Dao\DB.cs" />
+    <Compile Include="Dao\DocumentoDao.cs" />
+    <Compile Include="Dao\EntidadDao.cs" />
+    <Compile Include="Dao\TipoAnotacionDao.cs" />
+    <Compile Include="Dao\TipoDocumentoDao.cs" />
+    <Compile Include="Dao\TipoEntidadDao.cs" />
     <Compile Include="Entities\Accion.cs" />
     <Compile Include="Factories\AccionFactory.cs" />
     <Compile Include="Entities\Anotacion.cs" />
@@ -95,7 +95,6 @@
     <Compile Include="Factories\DocumentoConContenidoFactory.cs" />
     <Compile Include="Factories\DocumentoFactory.cs" />
     <Compile Include="Entities\Entidad.cs" />
-    <Compile Include="Dao\EntidadDao.cs" />
     <Compile Include="Factories\EntidadFactory.cs" />
     <Compile Include="Entities\Modulo.cs" />
     <Compile Include="Factories\ModuloFactory.cs" />
@@ -107,14 +106,11 @@
     <Compile Include="Entities\Rol.cs" />
     <Compile Include="Factories\RolFactory.cs" />
     <Compile Include="Entities\TipoAnotacion.cs" />
-    <Compile Include="Dao\TipoAnotacionDao.cs" />
     <Compile Include="Factories\TipoAnotacionFactory.cs" />
     <Compile Include="Entities\TipoDocumento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Dao\TipoDocumentoDao.cs" />
     <Compile Include="Factories\TipoDocumentoFactory.cs" />
     <Compile Include="Entities\TipoEntidad.cs" />
-    <Compile Include="Dao\TipoEntidadDao.cs" />
     <Compile Include="Factories\TipoEntidadFactory.cs" />
     <Compile Include="Entities\Usuario.cs" />
     <Compile Include="Factories\UsuarioFactory.cs" />

@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using WebLegemDAL.Models;
-using WebLegemDAL.DAO;
+using WebLegemDAL.Dao;
 using CSharpFunctionalExtensions;
 using System.Net;
 

@@ -7,7 +7,7 @@ using Oracle.DataAccess.Types;
 using Newtonsoft.Json;
 using Oracle.DataAccess.Client;
 using System.Configuration;
-using WebLegemDAL.DAO2;
+using WebLegemDAL.Dao;
 
 namespace WebLegemDAL.Models
 {

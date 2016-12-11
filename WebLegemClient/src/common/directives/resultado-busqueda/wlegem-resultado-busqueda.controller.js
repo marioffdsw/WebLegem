@@ -15,9 +15,10 @@
 
         console.log( vm.arregloDocs );
 
-        function ver( id ) {
+        function ver(id) {
+            console.log( id );
             fileId.id = id;
-            $state.go( "ver-documento" );
+            $state.go( "ver-documento", {id: id}  );
         } // end function ver
                 
     } // end controller

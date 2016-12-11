@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using WebLegemDAL.Dao;
 using WebLegemDAL.Models;
 
-namespace WebLegemDAL.DAO
+namespace WebLegemDAL.Dao
 {
     public class TipoAnotacionDao
     {

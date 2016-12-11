@@ -6,8 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebLegemDAL.Models;
+using WebLegemDAL.Dao;
 
-namespace WebLegemDAL.DAO
+namespace WebLegemDAL.Dao
 {
     public class ArchivoDao
     {

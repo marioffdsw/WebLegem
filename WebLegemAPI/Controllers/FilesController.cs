@@ -51,7 +51,7 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using WebLegemAPI.Models;
 using WebLegemAPI.OCR;
-using WebLegemDAL.DAO2;
+using WebLegemDAL.Dao;
 using WebLegemDAL.Models;
 
 namespace WebLegemAPI.Controllers

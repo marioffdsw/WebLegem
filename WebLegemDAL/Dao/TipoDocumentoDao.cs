@@ -7,11 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebLegemDAL.Models;
-using WebLegemDAL.DAO;
+using WebLegemDAL.Dao;
 using WebLegemDAL.Dao;
 using CSharpFunctionalExtensions;
 
-namespace WebLegemDAL.DAO
+namespace WebLegemDAL.Dao
 {
     public class TipoDocumentoDao
     {

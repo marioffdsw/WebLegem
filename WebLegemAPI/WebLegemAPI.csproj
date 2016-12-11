@@ -221,10 +221,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebLegemCommon\WebLegemCommon.csproj">
-      <Project>{c49a602c-632b-4818-b7a2-44ffb4a2ab75}</Project>
-      <Name>WebLegemCommon</Name>
-    </ProjectReference>
     <ProjectReference Include="..\WebLegemDAL\WebLegemDAL.csproj">
       <Project>{fe6e7495-a6a0-46e3-a072-3b9dbf33b5ae}</Project>
       <Name>WebLegemDAL</Name>

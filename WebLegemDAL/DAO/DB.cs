@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WebLegemDAL.DAO
+namespace WebLegemDAL.Dao
 {
     public class DB
     {
@@ -21,7 +21,7 @@ namespace WebLegemDAL.DAO
 
         public static OracleConnection GetOracleConnection()
         {
-            OracleConnection conn = new OracleConnection( ConnectionString );
+            OracleConnection conn = new OracleConnection(ConnectionString);
             conn.Open();
 
             return conn;
@@ -38,23 +38,23 @@ namespace WebLegemDAL.DAO
             return cmd;
         }
 
-        public static OracleParameter AddRefCursorResult( OracleCommand cmd )
+        public static OracleParameter AddRefCursorResult(OracleCommand cmd)
         {
             if (cmd.Parameters.Count > 0)
-                throw new InvalidOperationException( "Count ya tiene parametros, el resultado debe ser el primer parametro en adicionarse" );
-           
+                throw new InvalidOperationException("Count ya tiene parametros, el resultado debe ser el primer parametro en adicionarse");
+
             var result = new OracleParameter();
             result.OracleDbType = OracleDbType.RefCursor;
             result.Direction = ParameterDirection.ReturnValue;
-            cmd.Parameters.Add( result );
+            cmd.Parameters.Add(result);
 
             return result;
         } // end method AddRefCursorResultParameter
 
-        public static OracleParameter AddObjectResult(OracleCommand cmd, string udtTypeName )
+        public static OracleParameter AddObjectResult(OracleCommand cmd, string udtTypeName)
         {
             if (cmd.Parameters.Count > 0)
-                throw new InvalidOperationException("Count ya tiene parametros, el resultado debe ser el primer parametro en adicionarse");           
+                throw new InvalidOperationException("Count ya tiene parametros, el resultado debe ser el primer parametro en adicionarse");
 
             // get result from oracle function
             var result = new OracleParameter();
@@ -74,33 +74,32 @@ namespace WebLegemDAL.DAO
             prm.Direction = ParameterDirection.Input;
             prm.ParameterName = "id_";
             prm.Value = id;
-            cmd.Parameters.Add( prm );
+            cmd.Parameters.Add(prm);
         } // end method AddIdParameter
 
-        public static void AddStringParameter(OracleCommand cmd, string paramName, string str)
+        public static void AddStringParameter(OracleCommand cmd, string parameterName, string value)
         {
             var prm = new OracleParameter();
             prm.OracleDbType = OracleDbType.Varchar2;
             prm.Direction = ParameterDirection.Input;
-            prm.ParameterName = paramName;
-            prm.Value = str;
+            prm.ParameterName = parameterName;
+            prm.Value = value;
             cmd.Parameters.Add( prm );
-
         } // end method AddStringParameter
 
         public static void AddObjectParameter(OracleCommand cmd,
-            string parameterName, 
-            string udtTypeName, 
+            string parameterName,
+            string udtTypeName,
             Object value)
         {
             OracleParameter prm = new OracleParameter();
             prm.OracleDbType = OracleDbType.Object;
             prm.UdtTypeName = udtTypeName;
-            prm.Direction = ParameterDirection.Input;            
+            prm.Direction = ParameterDirection.Input;
             prm.ParameterName = parameterName;
             prm.Value = value;
             cmd.Parameters.Add(prm);
         } // end method AddObjectParameter
-                        
+
     } // end class DB
 } // end namespace WebLegemDAL.DAO2

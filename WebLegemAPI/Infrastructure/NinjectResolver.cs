@@ -7,7 +7,7 @@ using Ninject.Web.Common;
 using WebLegemDAL;
 //using WebLegemDAL.QueryObjects;
 using WebLegemAPI.OCR;
-using WebLegemDAL.DAO;
+using WebLegemDAL.Dao;
 
 namespace WebLegemAPI.Infrastructure
 {
