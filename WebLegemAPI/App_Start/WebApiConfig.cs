@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WebLegemAPI.Infrastructure;
 
 namespace WebLegemAPI
@@ -12,6 +13,8 @@ namespace WebLegemAPI
         public static void Register(HttpConfiguration config)
         {
             config.DependencyResolver = new NinjectResolver();
+
+            config.EnableCors(new EnableCorsAttribute( "*", "*", "*" ) );
 
             // Web API configuration and services
 

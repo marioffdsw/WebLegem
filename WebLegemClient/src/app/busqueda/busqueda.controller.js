@@ -5,8 +5,8 @@
         .module("WebLegemApp.Busqueda")
         .controller("BusquedaController", BusquedaController);
 
-    BusquedaController.$inject = ["DocumentosResource", "EntidadService", "TipoDocumentoResource", "searchPattern", "fileId", "$state", "language"];
-    function BusquedaController(DocumentosResource, entidadService, TipoDocumentoService, searchPattern, fileId, $state, language) {
+    BusquedaController.$inject = ["DocumentosResource", "EntidadService", "TipoDocumentoResource", "searchPattern", "fileId", "$state", "language", "$scope"];
+    function BusquedaController(DocumentosResource, entidadService, TipoDocumentoService, searchPattern, fileId, $state, language, $scope) {
         var vm = this;
         vm.language = language;
         vm.palabrasABuscar = searchPattern.words ? searchPattern.words : "";
@@ -22,14 +22,22 @@
         vm.errorMessage = undefined;
         vm.verDocumento = verDocumento;
         vm.valorAnimacion = "";
+        vm.fechaPublicacion = "";
         vm.predicate = undefined;
 
         vm.toggle_avanzada = false;//toggle para que aparesca la busqueda avanzada
+        $scope.$watch('vm.toggle_avanzada', function () {
+            if (vm.toggle_avanzada == false) {
+                vm.fechaPublicacion = "";
+                vm.entidadEmisora = "";
+                vm.tipoDocumento = "";
+                vm.numero = "";                
+            } // end if
+        });
         
         if(vm.palabrasABuscar){
             buscar( vm.palabrasABuscar );
         }
-
 
         vm.buscar = buscar;
 
@@ -47,20 +55,20 @@
 
                 var query = { $filter: "" };
 
-                //if (vm.fechaPublicacion != "")
-                //    query.$filter += "contains(FechaPublicacion, '" + vm.fechaPublicacion + "')";
+                if ( typeof vm.fechaPublicacion != "undefined" && vm.fechaPublicacion != "")
+                    query.$filter += "year(Documento/FechaPublicacion) eq " + vm.fechaPublicacion + "";
 
                 if (vm.numero != "")
                     query.$filter += (query.$filter.length > 0 ? " and " : "") +
-                        "contains(Numero, '" + vm.numero + "')";
+                        "contains(Documento/Numero, '" + vm.numero + "')";
 
                 if (vm.entidadEmisora != "")
                     query.$filter += (query.$filter.length > 0 ? " and " : "") +
-                        "contains(toupper(Entidad/Nombre), toupper('" + vm.entidadEmisora + "'))";
+                        "contains(toupper(Documento/Entidad/Nombre), toupper('" + vm.entidadEmisora + "'))";
 
                 if (vm.tipoDocumento != "")
                     query.$filter += (query.$filter.length > 0 ? " and " : "") +
-                        "contains(toupper(TipoDocumento/Nombre), toupper('" + vm.tipoDocumento + "'))";
+                        "contains(toupper(Documento/TipoDocumento/Nombre), toupper('" + vm.tipoDocumento + "'))";
 
                 if (query.$filter === "")
                     query = {};
@@ -70,6 +78,7 @@
 
                 DocumentosResource.query(query, function (data) {
                     vm.documentosEncontrados = data;
+                    console.log( vm.documentosEncontrados );
                     vm.errorMessage = undefined;
                     if (vm.documentosEncontrados.length == 0) {
                         vm.errorMessage = "No se encontraron coincidencias para las palabras de busqueda";
@@ -116,77 +125,77 @@
         function verDocumento( archivoId ){
             if (archivoId > 0) {
                 fileId.id = archivoId
-                $state.go( "ver-documento" );
+                $state.go("ver-documento", { id: archivoId } );
             }
         } // fin function verDocumento      
         
         //----espacio reservado para andres-------//
-        vm.arregloDocs =
-        [
-            {
-                tipoDocumento: "Acuerdo",
-                numero: "234A49",
-                fecha: "22 de febrero del 2015",
-                asunto: "por el cual se modifica el articulocargadoo torpedo te va a hasé pupitaa está la cosa muy malar se calle ustée va usté muy cargadoo sexuarl amatomaa por la gloria de mi madre fistro. Mamaar amatomaa benemeritaar pecador qué dise usteer. No puedor hasta luego Lucas mamaar a wan benemeritaar diodenoo no te digo trigo por no llamarte Rodrigor torpedo. Por la gloria de mi madre está la cosa ",
-                entidad: "facultad de ingenieria"
-            },
-            {
-                tipoDocumento: "Acuerdo",
-                numero: "234A49",
-                fecha: "22 de febrero del 2015",
-                asunto: "por el cual se modifica  mooo lanco caballo negroorl mamaar me caenawer l el articulo #sadasdasdt 234 de laaa allo negroorl orpa grammusho peligro caballo blanco cabego en tus muelas apetecan a gramdo. Por la gloria de mi madre está la cosa ",
-                entidad: "facultad de ingenieria"
-            },
-            {
-                tipoDocumento: "Ley",
-                numero: "234A49",
-                fecha: "22 de febrero del 2015",
-                asunto: "por el cual se a caidita a wan quietooor tiene musho peligro. pupitaa está la cosa muy malar se calle ustée va usté muy cargadoo sexuarl amatomaa por la gloria de mi madre fistro. Mamaar amatomaa benemeritaar pecador qué dise usteer. No puedor hasta luego Lucas mamaar a wan benemeritaar diodenoo no te digo trigo por no llamarte Rodrigor torpedo. Por la gloria de mi madre está la cosa ",
-                entidad: "facultad de ingenieria"
-            },
-            {
-                tipoDocumento: "Acuerdo",
-                numero: "234A49",
-                fecha: "22 de febrero del 2015",
-                asunto: "por el cual se modifica el articulocargadoo torpedo te va a hasé pupitaa está la cosa muy malar se calle ustée va usté muy cargadoo sexuarl amatomaa por la gloria de mi madre fistro. Mamaar amatomaa benemeritaar pecador qué dise usteer. No puedor hasta luego Lucas mamaar a wan benemeritaar diodenoo no te digo trigo por no llamarte Rodrigor torpedo. Por la gloria de mi madre está la cosa ",
-                entidad: "facultad de ingenieria"
-            },
-            {
-                tipoDocumento: "Acuerdo",
-                numero: "234A49",
-                fecha: "22 de febrero del 2015",
-                asunto: "por el cual se modifica  mooo lanco caballo negroorl mamaar me caenawer l el articulo #sadasdasdt 234 de laaa allo negroorl orpa grammusho peligro caballo blanco cabego en tus muelas apetecan a gramdo. Por la gloria de mi madre está la cosa ",
-                entidad: "facultad de ingenieria"
-            },
-            {
-                tipoDocumento: "Ley",
-                numero: "234A49",
-                fecha: "22 de febrero del 2015",
-                asunto: "por el cual se a caidita a wan quietooor tiene musho peligro. pupitaa está la cosa muy malar se calle ustée va usté muy cargadoo sexuarl amatomaa por la gloria de mi madre fistro. Mamaar amatomaa benemeritaar pecador qué dise usteer. No puedor hasta luego Lucas mamaar a wan benemeritaar diodenoo no te digo trigo por no llamarte Rodrigor torpedo. Por la gloria de mi madre está la cosa ",
-                entidad: "facultad de ingenieria"
-            },
-            {
-                tipoDocumento: "Acuerdo",
-                numero: "234A49",
-                fecha: "22 de febrero del 2015",
-                asunto: "por el cual se modifica el articulocargadoo torpedo te va a hasé pupitaa está la cosa muy malar se calle ustée va usté muy cargadoo sexuarl amatomaa por la gloria de mi madre fistro. Mamaar amatomaa benemeritaar pecador qué dise usteer. No puedor hasta luego Lucas mamaar a wan benemeritaar diodenoo no te digo trigo por no llamarte Rodrigor torpedo. Por la gloria de mi madre está la cosa ",
-                entidad: "facultad de ingenieria"
-            },
-            {
-                tipoDocumento: "Acuerdo",
-                numero: "234A49",
-                fecha: "22 de febrero del 2015",
-                asunto: "por el cual se modifica  mooo lanco caballo negroorl mamaar me caenawer l el articulo #sadasdasdt 234 de laaa allo negroorl orpa grammusho peligro caballo blanco cabego en tus muelas apetecan a gramdo. Por la gloria de mi madre está la cosa ",
-                entidad: "facultad de ingenieria"
-            },
-            {
-                tipoDocumento: "Ley",
-                numero: "234A49",
-                fecha: "22 de febrero del 2015",
-                asunto: "por el cual se a caidita a wan quietooor tiene musho peligro. pupitaa está la cosa muy malar se calle ustée va usté muy cargadoo sexuarl amatomaa por la gloria de mi madre fistro. Mamaar amatomaa benemeritaar pecador qué dise usteer. No puedor hasta luego Lucas mamaar a wan benemeritaar diodenoo no te digo trigo por no llamarte Rodrigor torpedo. Por la gloria de mi madre está la cosa ",
-                entidad: "facultad de ingenieria"
-            },
-        ]
+        //vm.arregloDocs =
+        //[
+        //    {
+        //        tipoDocumento: "Acuerdo",
+        //        numero: "234A49",
+        //        fecha: "22 de febrero del 2015",
+        //        asunto: "por el cual se modifica el articulocargadoo torpedo te va a hasé pupitaa está la cosa muy malar se calle ustée va usté muy cargadoo sexuarl amatomaa por la gloria de mi madre fistro. Mamaar amatomaa benemeritaar pecador qué dise usteer. No puedor hasta luego Lucas mamaar a wan benemeritaar diodenoo no te digo trigo por no llamarte Rodrigor torpedo. Por la gloria de mi madre está la cosa ",
+        //        entidad: "facultad de ingenieria"
+        //    },
+        //    {
+        //        tipoDocumento: "Acuerdo",
+        //        numero: "234A49",
+        //        fecha: "22 de febrero del 2015",
+        //        asunto: "por el cual se modifica  mooo lanco caballo negroorl mamaar me caenawer l el articulo #sadasdasdt 234 de laaa allo negroorl orpa grammusho peligro caballo blanco cabego en tus muelas apetecan a gramdo. Por la gloria de mi madre está la cosa ",
+        //        entidad: "facultad de ingenieria"
+        //    },
+        //    {
+        //        tipoDocumento: "Ley",
+        //        numero: "234A49",
+        //        fecha: "22 de febrero del 2015",
+        //        asunto: "por el cual se a caidita a wan quietooor tiene musho peligro. pupitaa está la cosa muy malar se calle ustée va usté muy cargadoo sexuarl amatomaa por la gloria de mi madre fistro. Mamaar amatomaa benemeritaar pecador qué dise usteer. No puedor hasta luego Lucas mamaar a wan benemeritaar diodenoo no te digo trigo por no llamarte Rodrigor torpedo. Por la gloria de mi madre está la cosa ",
+        //        entidad: "facultad de ingenieria"
+        //    },
+        //    {
+        //        tipoDocumento: "Acuerdo",
+        //        numero: "234A49",
+        //        fecha: "22 de febrero del 2015",
+        //        asunto: "por el cual se modifica el articulocargadoo torpedo te va a hasé pupitaa está la cosa muy malar se calle ustée va usté muy cargadoo sexuarl amatomaa por la gloria de mi madre fistro. Mamaar amatomaa benemeritaar pecador qué dise usteer. No puedor hasta luego Lucas mamaar a wan benemeritaar diodenoo no te digo trigo por no llamarte Rodrigor torpedo. Por la gloria de mi madre está la cosa ",
+        //        entidad: "facultad de ingenieria"
+        //    },
+        //    {
+        //        tipoDocumento: "Acuerdo",
+        //        numero: "234A49",
+        //        fecha: "22 de febrero del 2015",
+        //        asunto: "por el cual se modifica  mooo lanco caballo negroorl mamaar me caenawer l el articulo #sadasdasdt 234 de laaa allo negroorl orpa grammusho peligro caballo blanco cabego en tus muelas apetecan a gramdo. Por la gloria de mi madre está la cosa ",
+        //        entidad: "facultad de ingenieria"
+        //    },
+        //    {
+        //        tipoDocumento: "Ley",
+        //        numero: "234A49",
+        //        fecha: "22 de febrero del 2015",
+        //        asunto: "por el cual se a caidita a wan quietooor tiene musho peligro. pupitaa está la cosa muy malar se calle ustée va usté muy cargadoo sexuarl amatomaa por la gloria de mi madre fistro. Mamaar amatomaa benemeritaar pecador qué dise usteer. No puedor hasta luego Lucas mamaar a wan benemeritaar diodenoo no te digo trigo por no llamarte Rodrigor torpedo. Por la gloria de mi madre está la cosa ",
+        //        entidad: "facultad de ingenieria"
+        //    },
+        //    {
+        //        tipoDocumento: "Acuerdo",
+        //        numero: "234A49",
+        //        fecha: "22 de febrero del 2015",
+        //        asunto: "por el cual se modifica el articulocargadoo torpedo te va a hasé pupitaa está la cosa muy malar se calle ustée va usté muy cargadoo sexuarl amatomaa por la gloria de mi madre fistro. Mamaar amatomaa benemeritaar pecador qué dise usteer. No puedor hasta luego Lucas mamaar a wan benemeritaar diodenoo no te digo trigo por no llamarte Rodrigor torpedo. Por la gloria de mi madre está la cosa ",
+        //        entidad: "facultad de ingenieria"
+        //    },
+        //    {
+        //        tipoDocumento: "Acuerdo",
+        //        numero: "234A49",
+        //        fecha: "22 de febrero del 2015",
+        //        asunto: "por el cual se modifica  mooo lanco caballo negroorl mamaar me caenawer l el articulo #sadasdasdt 234 de laaa allo negroorl orpa grammusho peligro caballo blanco cabego en tus muelas apetecan a gramdo. Por la gloria de mi madre está la cosa ",
+        //        entidad: "facultad de ingenieria"
+        //    },
+        //    {
+        //        tipoDocumento: "Ley",
+        //        numero: "234A49",
+        //        fecha: "22 de febrero del 2015",
+        //        asunto: "por el cual se a caidita a wan quietooor tiene musho peligro. pupitaa está la cosa muy malar se calle ustée va usté muy cargadoo sexuarl amatomaa por la gloria de mi madre fistro. Mamaar amatomaa benemeritaar pecador qué dise usteer. No puedor hasta luego Lucas mamaar a wan benemeritaar diodenoo no te digo trigo por no llamarte Rodrigor torpedo. Por la gloria de mi madre está la cosa ",
+        //        entidad: "facultad de ingenieria"
+        //    },
+        //]
 
         return vm;
     } // fin Busqueda Controller

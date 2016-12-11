@@ -6,10 +6,11 @@
         .module("WebLegemApp")
         .controller("newsController", newsController);
 
-    newsController.$inject = ["language"]
-    function newsController(language) {
+    newsController.$inject = [ "language", "serviceUrl" ]
+    function newsController(language, serviceUrl) {
         var vm = this;
         vm.language = language;
+        vm.serviceUrl = serviceUrl;
 
         vm.arregloDocs =
         [

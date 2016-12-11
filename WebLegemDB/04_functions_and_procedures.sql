@@ -28,3 +28,7 @@
 @@'Functions/Archivo/create_ar.sql'
 @@'Functions/Documento/get_c.sql'
 @@'Functions/Documento/create_c.sql'
+
+@@'Functions/Documento/get_id_match.sql'
+
+@@'Functions/Documento/search_c.sql'

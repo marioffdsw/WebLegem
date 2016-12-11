@@ -77,6 +77,17 @@ namespace WebLegemDAL.DAO
             cmd.Parameters.Add( prm );
         } // end method AddIdParameter
 
+        public static void AddStringParameter(OracleCommand cmd, string paramName, string str)
+        {
+            var prm = new OracleParameter();
+            prm.OracleDbType = OracleDbType.Varchar2;
+            prm.Direction = ParameterDirection.Input;
+            prm.ParameterName = paramName;
+            prm.Value = str;
+            cmd.Parameters.Add( prm );
+
+        } // end method AddStringParameter
+
         public static void AddObjectParameter(OracleCommand cmd,
             string parameterName, 
             string udtTypeName, 

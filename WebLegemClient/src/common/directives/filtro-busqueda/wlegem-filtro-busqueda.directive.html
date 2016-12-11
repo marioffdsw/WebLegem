@@ -47,10 +47,10 @@
 
             <!--********************************************************************************-->
 
-            <li ng-show="vm.anioPublicacion">
+            <li ng-show="vm.fechaPublicacion">
                 <div>
                     <p class="tip">{{vm.language.strings.AnoPublicacion}}:</p>
-                    <p class="descripcion">{{vm.anioPublicacion}}</p>
+                    <p class="descripcion">{{vm.fechaPublicacion}}</p>
                 </div>
                 <div>
                     <button id="fba_3" class="btn_delete_avanzada" ng-click="vm.fechaPublicacion = ''; vm.buscar(vm.palabrasABuscar);">
@@ -96,7 +96,7 @@
             <div>
                 <button class="btn_search_avanzada"
                         ng-click="vm.tipoDocumento = vm.tipoDocumentoAux; vm.buscar(vm.palabrasABuscar);">
-                    <span class=" ico-plus"></span>
+                    <span class="ico-plus"></span>
                 </button>
             </div>
         </div>
@@ -120,16 +120,16 @@
 
         <!----------------------------------------------------------------------------------------------------->
 
-        <label class="subtitulos_labels animacion_filtro" ng-show="!vm.anioPublicacion ">{{vm.language.strings.AnoPublicacion}}</label>
-        <div class="box_input_ico animacion_filtro" ng-show="!vm.anioPublicacion">
+        <label class="subtitulos_labels animacion_filtro" ng-show="!vm.fechaPublicacion ">{{vm.language.strings.AnoPublicacion}}</label>
+        <div class="box_input_ico animacion_filtro" ng-show="!vm.fechaPublicacion">
             <div>
-                <input type="text" class="input_text_ico" maxlength="4"
+                <input type="number" class="input_text_ico" max="9999" min="1901" step="1" maxlength="4"
                        name="anioPublicacion" id="anioPublicacion" ng-model="vm.anioPublicacionAux"
                        placeholder="{{vm.language.strings.EscribaAnoPublicacion}}" />
             </div>
             <div>
                 <button class="btn_search_avanzada"
-                        ng-click="vm.anioPublicacion = vm.anioPublicacionAux; vm.buscar(vm.palabrasABuscar);">
+                        ng-click="vm.fechaPublicacion = vm.anioPublicacionAux; vm.buscar(vm.palabrasABuscar);">
                     <span class="ico-plus"></span>
                 </button>
             </div>
