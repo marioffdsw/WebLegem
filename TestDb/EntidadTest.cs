@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WebLegemDAL.DAO2;
+using WebLegemDAL.DAO;
 using WebLegemDAL.Models;
 
 namespace TestDb

@@ -115,7 +115,7 @@
                            ng-class="!vm.editando ? 'disable': ''" required  type="email" name="correo" />
 
                     <div ng-show="vm.form_usuario.correo.$invalid && vm.form_usuario.correo.$dirty">
-                        <div class="msj-error" ng-show="vm.form_usuario.correo.$error.required" >
+                        <div class="msj-error" ng-show="vm.form_usuario.correo.$error.required && !vm.form_entidad.correo.$error.email">
                             {{vm.language.strings.CompleteCampo}}
                         </div>
                         <div class="msj-error" ng-show="vm.form_usuario.correo.$error.email">

@@ -13,19 +13,20 @@ namespace WebLegemAPI.Controllers
     [EnableCorsAttribute("*", "*", "*")]
     public class PermisosController : ApiController
     {
-        private IDataAccessObject<Permiso> DAO;
+        //private IDataAccessObject<Permiso> DAO;
 
         public PermisosController(
-                IDataAccessObject<Permiso> dao
+          //      IDataAccessObject<Permiso> dao
             ) : base()
         {
-            this.DAO = dao;
+            //this.DAO = dao;
         } // end constructor
 
         public IQueryable<Permiso> Get()
         {
-            var permiso = DAO.GetAll();
-            return permiso;
+            //var permiso = DAO.GetAll();
+            //return permiso;
+            return null;
         } // end GET Action Method    
     } // end class PermisosController
 } // end namespace WebLegemAPI.Controllers

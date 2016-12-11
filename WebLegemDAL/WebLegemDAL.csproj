@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>WebLegemDAL</RootNamespace>
     <AssemblyName>WebLegemDAL</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -70,59 +71,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO2\ArchivoDao.cs" />
-    <Compile Include="DAO2\EntidadDao.cs" />
-    <Compile Include="DAO2\DB.cs" />
-    <Compile Include="DAO2\TipoAnotacionDao.cs" />
-    <Compile Include="DAO2\TipoDocumentoDao.cs" />
-    <Compile Include="DAO2\TipoEntidadDao.cs" />
+    <Compile Include="DAO\ArchivoDao.cs" />
+    <Compile Include="DAO\EntidadDao.cs" />
+    <Compile Include="DAO\DB.cs" />
+    <Compile Include="DAO\TipoAnotacionDao.cs" />
+    <Compile Include="DAO\TipoDocumentoDao.cs" />
+    <Compile Include="DAO\TipoEntidadDao.cs" />
     <Compile Include="Entities\Accion.cs" />
     <Compile Include="Factories\AccionFactory.cs" />
     <Compile Include="Entities\Anotacion.cs" />
-    <Compile Include="Dao\AnotacionDao.cs" />
     <Compile Include="Factories\AnotacionFactory.cs" />
     <Compile Include="Entities\Archivo.cs" />
-    <Compile Include="Dao\ArchivoDao.cs" />
-    <Compile Include="Dao\BaseDao.cs" />
     <Compile Include="DALExtensionMethods.cs" />
     <Compile Include="Entities\Documento.cs" />
     <Compile Include="Entities\DocumentoConContenido.cs" />
     <Compile Include="Factories\ArchivoFactory.cs" />
     <Compile Include="Factories\DocumentoConContenidoFactory.cs" />
-    <Compile Include="Dao\DocumentoConContenidoDao.cs" />
-    <Compile Include="Dao\DocumentoConContenidoQueryObject.cs" />
-    <Compile Include="Dao\DocumentoDao.cs" />
     <Compile Include="Factories\DocumentoFactory.cs" />
-    <Compile Include="Dao\DocumentoQueryObject.cs" />
     <Compile Include="Entities\Entidad.cs" />
-    <Compile Include="Dao\EntidadDao.cs" />
     <Compile Include="Factories\EntidadFactory.cs" />
-    <Compile Include="Dao\IDataAccessObject.cs" />
-    <Compile Include="Dao\IGestorDeConsultas.cs" />
-    <Compile Include="Dao\IQueryObject.cs" />
     <Compile Include="Entities\Modulo.cs" />
     <Compile Include="Factories\ModuloFactory.cs" />
     <Compile Include="Entities\Permiso.cs" />
-    <Compile Include="Dao\PermisoDao.cs" />
     <Compile Include="Factories\PermisoFactory.cs" />
     <Compile Include="Entities\Recurso.cs" />
     <Compile Include="Factories\RecursoFactory.cs" />
     <Compile Include="Factories\PermisoArrayFactory.cs" />
     <Compile Include="Entities\Rol.cs" />
-    <Compile Include="Dao\RolDao.cs" />
     <Compile Include="Factories\RolFactory.cs" />
     <Compile Include="Entities\TipoAnotacion.cs" />
-    <Compile Include="Dao\TipoAnotacionDao.cs" />
     <Compile Include="Factories\TipoAnotacionFactory.cs" />
     <Compile Include="Entities\TipoDocumento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Dao\TipoDocumentoDao.cs" />
     <Compile Include="Factories\TipoDocumentoFactory.cs" />
     <Compile Include="Entities\TipoEntidad.cs" />
-    <Compile Include="Dao\TipoEntidadDao.cs" />
     <Compile Include="Factories\TipoEntidadFactory.cs" />
     <Compile Include="Entities\Usuario.cs" />
-    <Compile Include="Dao\UsuarioDao.cs" />
     <Compile Include="Factories\UsuarioFactory.cs" />
   </ItemGroup>
   <ItemGroup>

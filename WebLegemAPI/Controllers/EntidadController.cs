@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using WebLegemDAL.DAO2;
+using WebLegemDAL.DAO;
 using WebLegemDAL.Models;
 
 namespace WebLegemAPI.Controllers
@@ -25,23 +25,55 @@ namespace WebLegemAPI.Controllers
             return DAO.GetAll().AsQueryable();
         } // end GET Action Method
 
-        public Entidad Put(Entidad entidad)
+        public IHttpActionResult Put(Entidad ent)
         {
-            return DAO.Update( entidad).Value;
+            var entidad = DAO.Update(ent);
+            if (entidad.IsSuccess)
+            {
+                return Ok(entidad.Value);
+            }
+            else
+            {
+                return ResponseMessage(Request.CreateErrorResponse(
+                      HttpStatusCode.Conflict,
+                      entidad.Error
+                ));
+            }
         } // end PUT Action Method
 
-        public Entidad Post(Entidad entidad)
+        public IHttpActionResult Post(Entidad entidad)
         {
-            var resultado = DAO.Create( entidad );          
+            var resultado = DAO.Create( entidad );
 
-            return entidad;
+
+            if (resultado.IsSuccess)
+            {
+                return Ok(resultado.Value);
+            }
+            else
+            {
+                return ResponseMessage(Request.CreateErrorResponse(
+                    HttpStatusCode.Conflict,
+                    resultado.Error
+                    ));
+            }
+
         }
 
         public IHttpActionResult Delete(int id)
         {
-            DAO.Delete( id );
-
-            return Ok();
+            var entidadController = DAO.Delete(id);
+            if (entidadController.IsSuccess)
+            {
+                return Ok();
+            }
+            else
+            {
+                return ResponseMessage(Request.CreateErrorResponse(
+                    HttpStatusCode.Conflict,
+                    entidadController.Error
+                    ));
+            }
         } // end DELETE Action Method
     }
 }

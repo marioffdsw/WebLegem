@@ -12,7 +12,6 @@
         vm.checkear = checkear;
 
         function checkear(tipo) {
-            console.log( vm.objetoSeleccionado );
             return vm.objeto && angular.equals(vm.objeto.id, tipo.id);
         } // end function        
 

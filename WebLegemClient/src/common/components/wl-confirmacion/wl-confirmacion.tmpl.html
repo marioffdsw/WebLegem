@@ -3,6 +3,7 @@
             type="button"
             style="display:inline-block;"
             ng-show="vm.editando"
+            ng-class="vm.procesando || vm.error? 'disable': ''"
             ng-click="vm.aceptar()">
         <span class="ico-floppy-o tamano_botones_1"></span>{{vm.language.strings.Aceptar}}
     </button>
@@ -10,6 +11,7 @@
             ng-show="vm.editando"
             type="button"
             style="display:inline-block;"
+            ng-class="vm.procesando || vm.error? 'disable': ''"
             ng-click="vm.cancelar()">
         <span class="ico-times tamano_botones_1"></span>{{vm.language.strings.Cancelar}}
     </button>

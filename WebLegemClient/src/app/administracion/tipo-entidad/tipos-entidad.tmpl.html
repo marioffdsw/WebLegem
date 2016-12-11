@@ -3,15 +3,21 @@
         <wl-lista-tipos-entidades seleccionar="vm.seleccionar"
                                   lista="vm.tiposEntidades"
                                   objeto="vm.tipoEntidadSeleccionado"
-                                  editando="vm.editando">
+                                  editando="vm.editando"
+                                  procesando="vm.procesando"
+                                  error="vm.error">
         </wl-lista-tipos-entidades>
+        <div id="wl-lista" class=" load_list"></div>
     </div>
 
     <div class="box_right">
         <wl-admin-crud objeto-seleccionado="vm.tipoEntidadSeleccionado"
                        editando="vm.editando"
+                       procesando="vm.procesando"
                        nuevo="vm.nuevo"
-                       eliminar="vm.remover">
+                       eliminar="vm.remover"
+                       foco="input_tipo_ent"
+                       error="vm.error">
         </wl-admin-crud>
 
 
@@ -19,7 +25,7 @@
         <form name="vm.form_tipo_ent">
             <input class="a_input" ng-class="!vm.editando || !vm.tipoEntidadSeleccionado? 'disable': ''"
                    type="text"
-                   required
+                   required id="input_tipo_ent"
                    ng-model="vm.tipoEntidadSeleccionado.nombre"
                    placeholder="{{vm.language.strings.IngreseNombreEntidad}}" />
         </form>
@@ -35,7 +41,24 @@
 
         <wl-confirmacion editando="vm.editando"
                          aceptar="vm.aceptar"
-                         cancelar="vm.cancelar">
+                         cancelar="vm.cancelar"
+                         procesando="vm.procesando"
+                         error="vm.error">
         </wl-confirmacion>
     </div>
 </div>
+
+<wl-info show="vm.dialogResponse" title="Error" color="verde">
+    <div class='a-modal-contenido'>
+        <div class="generic-box-vertical">
+            <div class="generic-box-horizontal center">
+                <label class="texto_labels">{{vm.responseMessage}}</label>
+            </div>
+            <div class="generic-box-horizontal flex-1 center" style="margin-top:15px;">
+                <button class="btn_sin_ico" ng-click="vm.dialogResponse=false">
+                    Aceptar
+                </button>
+            </div>
+        </div>
+    </div>
+</wl-info>

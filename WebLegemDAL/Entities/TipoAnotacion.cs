@@ -112,7 +112,7 @@ namespace WebLegemDAL.Models
 
         public override string ToString()
         {
-            return $"TipoAnotacion( {id}, {Nombre}, {raiz} )";
+            return "TipoAnotacion( " + id + ", "  +Nombre + ", raiz )";
         } // fin method ToString
 
     } // end class TipoAnotacion

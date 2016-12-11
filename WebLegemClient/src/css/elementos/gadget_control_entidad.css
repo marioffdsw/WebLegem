@@ -55,16 +55,16 @@
     border:1px solid #aaa;
 }
 
-.panel_control.disable{
-    pointer-events:none;
-}
-
 .a_bloques {
     display: flex;
     -ms-flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
     list-style: none;
+}
+
+.a_bloques.disable{
+    pointer-events:none;
 }
 
 .a_bloques  li{
@@ -74,13 +74,23 @@
 
 .a_bloques li label div{
     height:100%;
+    width:100%;
     display:flex;
+    padding-left:5px;
+    padding-right:5px;
     flex-direction:column;
     justify-content:center;
-    align-items:center;
 }
 .a_bloques li label div p{
+    text-align:center;
     margin-top:10px;
+    color: #111;
+    font-family: "Lato-Regular";
+    font-size: 13px;
+    -ms-word-break: initial;
+    word-break: initial;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
 }
 
 
@@ -118,9 +128,12 @@
 }
 
 .escudo_hojas{
+    text-align:center;
     font-size:60px;
-    color:#000;
+    color:#111;
 }
+
+
 .note:before {
    content:"";
    position:absolute;
@@ -175,5 +188,6 @@
 .note.rounded {
    -webkit-border-radius:3px 0 3px 3px;
    -moz-border-radius:5px 0 5px 5px;
-   border-radius:3px 0 3px 3px;
+   border-radius:3px 0 3px 3px;  
 }
+

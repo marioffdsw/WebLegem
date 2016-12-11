@@ -20,6 +20,11 @@
         vm.tipoEntidadSeleccionado = {};
         vm.editando = false;
         vm.seleccionar = seleccionar;
+        vm.dialogResponse = false;
+        vm.responseMessage = "";
+        vm.idLoad = "wl-lista";
+        vm.procesando = false;
+        vm.error = false;
 
         /**********************************************************************************
          *
@@ -82,13 +87,27 @@
 
         function retrieveData() {
 
-            TipoEntidadService.query(function (data) {
-                vm.tiposEntidades = data;
-            });
+            startAnimation();
 
-            TipoDocumentoResource.query(function (data) {
-                vm.tiposDocumentos = mapearTiposDocumentoPermitidos(data, vm.tipoEntidadSeleccionado);
-            });
+            TipoEntidadService.query()
+                .$promise.then(function (data) {
+                    stopAnimation();
+                    vm.tiposEntidades = data;
+                },
+                function errorCallback(error) {
+                    stopAnimation();
+                    vm.error = true;
+                });
+
+            TipoDocumentoResource.query()
+                .$promise.then(function (data) {
+                    stopAnimation();
+                    vm.tiposDocumentos = mapearTiposDocumentoPermitidos(data, vm.tipoEntidadSeleccionado);
+                },
+                function errorCallback(error) {
+                    stopAnimation();
+                    vm.error = true;
+                });
         }
 
 
@@ -98,28 +117,52 @@
 
 
         function crear(tipoEntidad) {
-            TipoEntidadService.save(tipoEntidad, function (data) {
-                retrieveData();
-            });
-
+            TipoEntidadService.save(tipoEntidad)
+                .$promise.then(
+                    function (data) {
+                        retrieveData();
+                    },
+                    function errorCallback(error) {
+                        vm.responseMessage = error.data.message;
+                        vm.dialogResponse = true;
+                    },
+                    function notifyCallback(error) {
+                    }
+                );
             cancelar();
+
         } // end function create
 
 
         function guardar(tipoEntidad) {
-            TipoEntidadService.update(tipoEntidad, function (data) {
-                retrieveData();
-            });
 
+            startAnimation();
+            TipoEntidadService.update(tipoEntidad)
+                .$promise.then(
+                function (data) {
+                    retrieveData();
+                },
+                function errorCallback(error) {
+                    vm.responseMessage = error.data.message;
+                    vm.dialogResponse = true;
+                    stopAnimation();
+                });
             cancelar();
         } // end method guardar
 
 
         function remover(tipoEntidad) {
-            TipoEntidadService.remove(tipoEntidad, function () {
-                retrieveData();
-            });
-
+            startAnimation();
+            TipoEntidadService.remove(tipoEntidad)
+            .$promise.then(
+                function (data) {
+                    retrieveData();
+                },
+                function errorCallback(error) {
+                    vm.responseMessage = error.data.message;
+                    vm.dialogResponse = true;
+                    stopAnimation();
+                });            
             cancelar();
         } // end function remover
 
@@ -160,6 +203,16 @@
                 } // end for
             return false;
         } // end function isSelected
+
+
+        function startAnimation() {
+            document.getElementById(vm.idLoad).style.visibility = "visible";
+            vm.procesando = true;
+        }
+        function stopAnimation() {
+            document.getElementById(vm.idLoad).style.visibility = "hidden";
+            vm.procesando = false;
+        }
 
     }
 } // end EntidadController

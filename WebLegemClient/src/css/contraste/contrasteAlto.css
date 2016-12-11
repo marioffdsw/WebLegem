@@ -227,7 +227,7 @@
    box-shadow:#aaa 0 0 0 2px inset;
 }
 .a_bloques input:checked + label{
-   box-shadow:#8ff 0 0 1px 2px inset; /*pendiente*/
+   box-shadow:#00ffff  0 0 1px 2px inset; 
 }
 .note { 
     background:#eee;
@@ -237,12 +237,12 @@
 }
 .note:before {
     border-color:#aaa #000; 
-   -webkit-box-shadow: -1px 2px 1px #000 ;
+   -webkit-box-shadow: -1px 2px 1px #000;
    -moz-box-shadow: -1px 2px 1px #000;
    box-shadow: -1px 2px 1px #000;  
 }
 .a_bloques input:checked + label::after {
-    text-shadow: 0 0 1px #8ff;
+    text-shadow: 0 0 1px #000;
 }
 /*-----------------------------------*/
 
@@ -254,7 +254,7 @@
 .input_text_ico     /*Input con icono como en filtros busqueda ó como el de login*/
 {/*border:1px solid #faf3dd !important;*/
  background:rgba(52,71,79,0.5 )!important;
- color:#faf !important;
+ color:#fff !important;
 }
 
 /*Eventos de los inputs*/
@@ -267,7 +267,7 @@
     background:rgba(52,71,79,0.5)!important;   
 }
 
-.input_text_btn:focus~button:hover{background:#000;color:#faf;!important}
+.input_text_btn:focus~button:hover{background:#000;color:#fff !important;}
 
 /*------ hover para los input -------*/
 .a_input:hover,
@@ -325,7 +325,7 @@
 .input_text_btn:focus ~ button{
     border-color:#faf !important;
     background:#000 !important;
-    color:#fbf !important;
+    color:#fff !important;
 }
   
 .a_input:-webkit-autofill:active,
@@ -359,10 +359,10 @@
 .a_listado li{border:1px solid #aaa;border-top:none;}
 .a_listado li:first-child{border-top:1px solid #aaa}
 label.styled{color:#fff}
-label.styled:hover{background-color:rgba(255, 255, 255, 0.3);}
+label.styled:hover{background-color:rgba(255, 255, 255, 0.5);}
 label.styled>p{color:#b0f563}
 /* :: CHECKED :: */
-input.styled:checked~label.styled{background-color:rgba(0, 0, 0, 0.8)}
+input.styled:checked~label.styled{background-color:rgba(255, 255, 255, 0.3);}
 label.styled:before{color:#000;background-color:#a7d4a4}
 
 /*Fin Listado (Elemento)*/

@@ -1,32 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using System.Web.Http.Cors;
-using WebLegemDAL.Dao;
-using WebLegemDAL.Models;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Net;
+//using System.Net.Http;
+//using System.Web.Http;
+//using System.Web.Http.Cors;
+//using WebLegemDAL.Dao;
+//using WebLegemDAL.Models;
 
-namespace WebLegemAPI.Controllers
-{
-    [EnableCorsAttribute("*", "*", "*")]
-    public class RolesController : ApiController
-    {
-        private IDataAccessObject<Rol> DAO;
+//namespace WebLegemAPI.Controllers
+//{
+//    [EnableCorsAttribute("*", "*", "*")]
+//    public class RolesController : ApiController
+//    {
+//        private IDataAccessObject<Rol> DAO;
 
-        public RolesController(
-                IDataAccessObject<Rol> dao
-            ) : base()
-        {
-            this.DAO = dao;
-        } // end constructor
+//        public RolesController(
+//                IDataAccessObject<Rol> dao
+//            ) : base()
+//        {
+//            this.DAO = dao;
+//        } // end constructor
 
-        public IQueryable<Rol> Get()
-        {
-            var roles = DAO.GetAll();
-            return roles;
-        } // end method Get
+//        public IQueryable<Rol> Get()
+//        {
+//            var roles = DAO.GetAll();
+//            return roles;
+//        } // end method Get
 
-    } // end class RolesController
-} // end namespace WebLegemAPI.Controllers
+//    } // end class RolesController
+//} // end namespace WebLegemAPI.Controllers

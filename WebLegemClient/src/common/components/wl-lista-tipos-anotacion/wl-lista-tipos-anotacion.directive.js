@@ -14,7 +14,9 @@
             scope: {
                 lista: "=lista",
                 objetoSeleccionado: "=objetoSeleccionado",
-                editando: "="
+                editando: "=",
+                procesando: "=",
+                error: "="
             },
             bindToController: true
         };

@@ -14,13 +14,16 @@
 			    url: "/control-roles",
 			    templateUrl: "app/usuarios/control-roles/control-roles.tmpl.html",
 			    controller: "controlRolesController",
-			    controllerAs: "vm"
+			    controllerAs: "vm",
+                title: "Control de roles"
+
 			})
             .state("usuarios.control-usuarios", {
                 url: "/control-usuarios",
                 templateUrl: "app/usuarios/control-usuarios/control-usuarios.tmpl.html",
                 controller: "controlUsuariosController",
-                controllerAs: "vm"
+                controllerAs: "vm",
+                title: "Control de usuarios"
             });		    
 	} // end config function
 })();

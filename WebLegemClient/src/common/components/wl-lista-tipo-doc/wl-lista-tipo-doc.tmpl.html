@@ -15,7 +15,7 @@
     <ul class="a_listado" style="width: 100%" >
 
         <li ng-repeat="tipo in vm.lista | filter:vm.filtro"
-            ng-class="vm.editando? 'no_selecteable': ''">
+            ng-class="vm.editando || vm.procesando ? 'no_selecteable': ''">
 
             <input type="radio"
                    name="entidad_rad"
@@ -29,5 +29,11 @@
                 {{ tipo.nombre }}
             </label>
         </li>
+
+        <div class="error_lista" ng-show="vm.error">            
+                <span class="ico2-sad"></span>
+                <p class="texto_labels">Error al cargar los datos</p>            
+        </div>
+
     </ul>
 </div>

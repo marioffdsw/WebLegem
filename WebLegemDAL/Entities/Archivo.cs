@@ -79,7 +79,7 @@ namespace WebLegemDAL.Models
 
         public override string ToString()
         {
-            return $"Archivo( {Id}, {Ruta}, {UltimaModificacion} )";
+            return String.Format("Archivo( {0}, {1}, {2} )", Id, Ruta, UltimaModificacion);
         }
     }
 }
