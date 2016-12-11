@@ -80,12 +80,12 @@
                 icono: "ico-files-o",
                 condicion: "true"
             },
-            {
-                nombre: "Auditoria",
-                link: "auditoria.auditoria1",
-                icono: "ico-files-o",
-                condicion: "true"
-            }
+            //{
+            //    nombre: "Auditoria",
+            //    link: "auditoria.auditoria1",
+            //    icono: "ico-files-o",
+            //    condicion: "true"
+            //}
         ];
 
 

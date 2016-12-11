@@ -10,7 +10,7 @@ using WebLegemAPI.Models;
 using WebLegemDAL.Dao;
 using WebLegemDAL.Models;
 
-namespace WebLegemAPI.Controllers2
+namespace WebLegemAPI.Controllers
 {
     public class DocumentoController : ApiController
     {

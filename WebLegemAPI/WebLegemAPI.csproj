@@ -172,9 +172,8 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers2\DocumentoController.cs" />
+    <Compile Include="Controllers\DocumentoController.cs" />
     <Compile Include="Controllers\AnotacionController.cs" />
-    <Compile Include="Controllers\DocumentosController.cs" />
     <Compile Include="Controllers\EntidadController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
     <Compile Include="Controllers\FilesOldController.cs" />
@@ -188,7 +187,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Controllers2\ContenidoController.cs" />
+    <Compile Include="Controllers\ContenidoController.cs" />
     <Compile Include="Infrastructure\NinjectResolver.cs" />
     <Compile Include="Models\AnalizadorAsunto.cs" />
     <Compile Include="Models\ContenidoViewModel.cs" />
