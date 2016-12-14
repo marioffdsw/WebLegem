@@ -12,6 +12,12 @@
         var vm = this;
         var blob;        
 
+        vm.dialogResponse = false;
+        vm.responseMessage = "";
+        vm.default = "Seleccione una opción";
+        vm.procesando = false;
+        vm.error = false;
+
         vm.language = language;
         vm.subido = false;
         vm.ban_click = false;
@@ -248,6 +254,17 @@
             document.getElementById("body_index").style.overflow = "hidden";
 
         }
+
+
+        function startAnimation() {
+            document.getElementById(vm.idLoad).style.visibility = "visible";
+            vm.procesando = true;
+        }
+        function stopAnimation() {
+            document.getElementById(vm.idLoad).style.visibility = "hidden";
+            vm.procesando = false;
+        }
+
     } // end TipoEntidadController
 
 })();

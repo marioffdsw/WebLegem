@@ -35,7 +35,7 @@
 
             <label class="texto_labels">{{vm.language.strings.CorreoElectronico}}</label>
 
-            <input class="a_input" ng-model="vm.entidadSeleccionada.correo" placeholder="Ingrese correo electronico"
+            <input class="a_input" ng-model="vm.entidadSeleccionada.correo" placeholder="{{vm.language.strings.IngreseCorreoElectronico}}"
                    ng-class="!vm.editando ? 'disable': ''" required type="email" name="correo" />
 
             <div ng-show="vm.form_entidad.correo.$invalid && vm.form_entidad.correo.$dirty">
@@ -43,7 +43,7 @@
                     {{vm.language.strings.CompleteCampo}}
                 </div>
                 <div class="msj-error" ng-show="vm.form_entidad.correo.$error.email">
-                    Correo no valido.
+                    {{vm.language.strings.CorreoNoValido}}.
                 </div>
                 
             </div>

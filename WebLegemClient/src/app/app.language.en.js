@@ -9,28 +9,30 @@
             tamanoFuente: "Font Size",
             spa: "Español",
             eng: "English",
-            listadoTiposDocumento: "Document Type List",
+            listadoTiposDocumento: "Document type list",
             //-------------Entidad---------//
             NombreEntidad: "Entity name",
-            IngreseNombreEntidad: "Enter the name of txhe entity",
-            TipoEntidad: "Entity Type",
+            IngreseNombreEntidad: "Enter entity name ",
+            TipoEntidad: "Entity type",
             ListaEntidades: "List of entities",
-            ListaTipoEntidades: "Listde type of entities",
+            ListaTipoEntidades: "Entity type list ",
             //-----------Tipos_entidad---------------------//
-            NombreTipoEntidad: "Type name of the entity",
+            NombreTipoEntidad: "Entity type name ",
             IngreseNombreTipoEntidad: "Enter the entity type name",
+            IngreseCorreoElectronico: "Enter email",
+            CorreoNoValido:"Correo no valido",
             //-------------Tipo_documneto-------//
             NombreTipoDocumento: "Document type name",
             //---------------------administracion-------------//
             TipoDocumento: "Document type",
             Entidad: "Entity",
             //--------------crear anotacion----------//
-            SeleccionarDocumentoAnota:"Select document that notes",
-            NoEncontroNingunDocumentoConIdentificacion: "No document found with that identification",
-            SeleccioneDocumentoAnotara:"Select the document which will be recorded",
+            SeleccionarDocumentoAnota:"Select document to record",
+            NoEncontroNingunDocumentoConIdentificacion: "No document found with this identification",
+            SeleccioneDocumentoAnotara:"Select the document to be annotated",
             CompleteDatosCrearDocumento:"Complete data to create the document",
-            NoEcontroNingunDocumentoIdentificacionDeseaCrear:"No document found with that identification, You want to create a",
-            NuevoDocumento:"new document",
+            NoEcontroNingunDocumentoIdentificacionDeseaCrear:"No document found with this identification, You want to create a",
+            NuevoDocumento:"New document",
             TipoAnotacion: "Annotation type",
             EscribaEntidadEmisora: "Type Issuing entity",
             DescripcionDeAnotacion:"Description Annotation",
@@ -38,7 +40,7 @@
           
             //------------Editar anotacion------//
             BuscarDocumento: "Search document",
-            VistaPreviaDocumento:"Preview of the document",
+            VistaPreviaDocumento:"Document preview ",
             GuardarCambios: "Save changes",
             VistaPrevia: "Preview",
             SeGuardaronCambionExito:"Changes saved successfully",
@@ -46,26 +48,26 @@
             //--------------Eliminar anotacion----------//
             SeleccioneDocumentoEliminarAnotacione: "Select the document you want to delete annotations",
             EliminarAnotacion: "Delete Annotation",
-            EliminarAnotacionSeguro:"It will remove this annotation,Are you sure?",
+            EliminarAnotacionSeguro:"It will delete this annotation, Are you sure?",
             Confirmar: "Confirm",
-            EliminadoAnotacionesExito: "Annotations has been removed successfully",
+            EliminadoAnotacionesExito: "Annotations has been deleted successfully",
              
             //------------anotacion mayusculas-----------------//
             CrearAnotacionM: "CREATE ANOTATION ",
             EliminarAnotacionM: "DELETE ANOTATION",
             EditarAnotacionM:"EDIT ANOTATION",
             DeseaAñadirAnotacionesDocumento:"¿You want to add annotations to this document?",
-            seleccioneDocumentoDeseaAnotacion: "Select the document to which you want to make annotation",
+            seleccioneDocumentoDeseaAnotacion: "Select the document to which you want to annotate",
             NumeroDocumento: "Document number",
             Si:"Yes",
             No:"No",
             //----------anotacion-------//
             Confirmacion:"Confirmation",
-            DeseaUtilizarAsistenteAnotaciones: "To use the assistant annotations?",
-            ContinuarManualmente:"continue manually",
+            DeseaUtilizarAsistenteAnotaciones: "You want to use the annotation assistant?",
+            ContinuarManualmente:"Continue manually",
             //---------seleccionar anotacion-----//
             AnotacionesExistentes:"Existing annotations",
-            NoEncontroConcordanciasAnotaciones:"It did not find matches annotations",
+            NoEncontroConcordanciasAnotaciones:"No annotation matches found",
             //----------------tipo anotacion-----------------//
             Nombre: "Name",
             RolActivoAnotacion: "Active Role annotation",
@@ -73,38 +75,33 @@
             Anadir: "Add",
             Remover: "Remove",
             NombreTipoAnotacion: "Name Annotation type",
-            IngreseNombreTipoAnotacion: "Enter the name of the annotation type",
-            IngreseRaizTipoAnotacion: "Enter the root of the type notation",
-            TipoAnotacion:"Annotation type",
+            IngreseNombreTipoAnotacion: "Enter name of the annotation type",
+            IngreseRaizTipoAnotacion: "Enter the root of the notation type",
+            
             //--------------lista anotaciones -----------------//
             NAnotacionesEncontradas: "N annotations found",
             Detalles: "Details",
-            QuitarSeleccion:"Remove selection",
+            QuitarSeleccion:"Delete selection",
             Descripcion:"Description",
             CompleCamposRealizarAnotacion: "Complete the fields to make the annotation",
             DescripcionAnotacion: "Annotation description",
             //---------------crear anotacion ----------------------//
             AnoExpedicion: "Year of issue",
             verificar: "Check",
-            seleccioneDocumentoAnotar: "select the document that you want to annotate",
-            CompleCamposRealizarAnotacion: "Complete the fields for annotation",
-                        DescripcionAnotacion: "Description annotation",
+            seleccioneDocumentoAnotar: "Select the document that you want to annotate",           
             //---------------------pregunta anadir anotaciones---------------------//
             DeseaAnadirAnotacionesDocumento: "¿You want to add annotations to this document?",
-            //------------------seleccionar anotacion -------------------------------//
-            
-            ExistenPresenteDocumento: "There possible documents which noted here in",             
-            Aceptar: "OK",
-            
-            Emitido: "issued by",
+            //------------------seleccionar anotacion -------------------------------//           
+            ExistenPresenteDocumento: "There are n possible documents which records this document",             
+            Aceptar: "OK",            
+            Emitido: "Issued by",
             seleccionarDocumento: "Select document",
             EntidadEmisora: "Issuing entity",
-            AnoPublicacion: "Year of publication",
-            
+            AnoPublicacion: "Year of publication",            
             FechaPublicacion: "Publication date",
             //----------control usuarios-------//
-            ArchivoCargadoServidor: "The file has been uploaded to the serverr",
-            ArchivoNoCargadoServidor: "The file was NOT loaded on the server",
+            ArchivoCargadoServidor: "The file has been uploaded on the server",
+            ArchivoNoCargadoServidor: "The file has NOT uploaded on the server",
             TomarFoto: "Take photo",
             RepetirFoto: "Repeat photo",
             GuardarFoto: "Save photo",
@@ -115,9 +112,9 @@
             NombreUsuario: "Username",
             Contrasena: "Password",
             NivelSeguridad: "Security level",
-            ConfirmarContrasena: "Confirm Password",
+            ConfirmarContrasena: "Confirm password",
             CorreoElectronico: "Email",
-            RolUsuario: "User Role",
+            RolUsuario: "User role",
             EstadoUsuario: "User state",
             Activo: " Active",
             Bloqueado: "Locked",
@@ -126,9 +123,9 @@
             Guardar: "Save",
             //--------------recuperar clave------//
             RecuperacionContrasena: "Password recovery",
-            IngreseNombreBotonVerificar: "Enter the user name with which you registered, and below click on the button check",
+            IngreseNombreBotonVerificar: "Enter the user name with which you registered, and then click the check button",
             IngreseCorreoBotonRecuperar: "Now Enter the email with which you registered, and click below the Recover button",
-            EmailEnviadoRevise: "It sent an email to your email with the new password. Check your mail please",
+            EmailEnviadoRevise: "An email has been sent to your email with the new password. Check your mail please",
             Recuperar: "Get it back",
             CuentaUsuario: "User account",
             Verificar:"Check",
@@ -145,14 +142,13 @@
             documentosEncontrados: "Documents found",
             //----------- ----asunto--------------//
             CrearDocumento: "Create document",
-            Asunto: "Affair",
+            Asunto: "Issue",
             ProsesandoArchivo: "Processing file",
             Atras: "Back",
             Siguiente: "Next",
             //------------informacion_documento------------//
             IdentificacionDocumento: "Document identification",
-            Numero: "Number",
-            FechaDocumentacion: "Date documentation",
+            Numero: "Number",            
             //------------------resultado_ocr--------------//
             ResultadoOcr: "OCR result",
             Editar: "Edit",
@@ -168,20 +164,18 @@
             
             SubirDocumento: "Upload Document",
             EscogaUnArchivo: "Choose a file",
-            ArrastreloAqui: "Or drag here.",
+            ArrastreloAqui: "Or drag it here.",
             Anotacion: "Annotation",
-            ExisteAnota: "There annotation",
+            ExisteAnota: "Annotation exists",
             //----------------login--------------//
-            IngresoSistema: "Entry system",
+            IngresoSistema: "Login",
             CompleteCampo: "Complete this field.",
             CamposObligatorios: "* Required fields.",
-            Ingresar: "LOGIN    ",
+            Ingresar: "LOGIN",
             OlvideContrasena: " I forgot my password",
-            
+            NombreUsuarioI:"Username",            
             //------------------noticias-----------//
-            Legem: "Legem",
-           
-            
+            Legem: "Legem",                     
                 //------------------------footer--------------------//
             Contactenos: "Contact",
             UniversidadNarino: "University of Nariño",
@@ -192,7 +186,7 @@
             DesarrolladoPor: "Developed by:",
             Copyright: "Copyright © 2016 - University of Nariño - San Juan de Pasto - Colombia",
             //-------------------resultado busqueda---------------//
-            Descargar: "Dowland",
+            Descargar: "Download",
             Anotado: "Annotated",
             EscribaNumeroDocumento: "Write document number",
             EscribaAnoPublicacion: "Write year of publication",
@@ -202,11 +196,11 @@
             Filtro: "Filter",
             //---------------wlwgem-news---------//
             Ninguna: "Any",
-            ActualidadDocumental: "Today Documentary",
+            ActualidadDocumental: "Current documentary",
             //-----componentes-------//
             Menu: "Menu",
             Componentes: "Components",
-            ConfigurarCuenta: "configure Account",
+            ConfigurarCuenta: "Account settings",
             Salir: "Exit",
             Contraste: "Contrast",
             Idioma: "Language",
@@ -217,24 +211,18 @@
             //---------------place--------//
            
             NoEntontroDocumento: "No document found with that identification",
-            IngreseNombre: "Enter name",
-            
-            EscribaEntidadEmisora:"Type the issuer  entity",
-            
+            IngreseNombre: "Enter name",               
             //----- info anotaciones-----//
-            Anotaciones: "Annotations",
-            
-          
-            EncuentrAnotado: "It is noted by",
-            del: "of the",
-            
+            Anotaciones: "Annotations",            
+            EncuentrAnotado: "It is annotated by",
+            del: "of the",            
             Deroga: "Repeals",
             //-------Permisos-------//
             PermitirTodo: "Allow all",
-            NoPermitido: "Do not allow",
+            NoPermitido: "Not allowed",
             //--------adminCrud----------------//
             Nuevo:"New",
-            Eliminar: "Remove",
+            Eliminar: "Delete",
             //-------------rolDirective--------//
             permisos: "Permits",
             Modulo: "Module",
@@ -242,6 +230,8 @@
             Escritura: "Writing",
             Edicion: "Edition",
             Eliminacion: "Removal",
+            //----subir documento-----//
+            SeleccioneOpcion:"Select an option",
             
             //------------------OJO
 

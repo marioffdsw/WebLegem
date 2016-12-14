@@ -5,8 +5,8 @@
         .module("WebLegemApp.Administracion")
         .controller("TipoEntidadController", TipoEntidadController);
 
-    TipoEntidadController.$inject = ["TipoEntidadService", "TipoDocumentoResource", "_", "language"];
-    function TipoEntidadController(TipoEntidadService, TipoDocumentoResource, _, language) {
+    TipoEntidadController.$inject = ["TipoEntidadService", "TipoDocumentoResource", "_", "language", "stringService"];
+    function TipoEntidadController(TipoEntidadService, TipoDocumentoResource, _, language, stringService) {
         var vm = this;
         vm.language = language;
         /**********************************************************************************
@@ -117,6 +117,7 @@
 
 
         function crear(tipoEntidad) {
+            tipoEntidad.nombre = stringService.toTitleCase(tipoEntidad.nombre);
             TipoEntidadService.save(tipoEntidad)
                 .$promise.then(
                     function (data) {
@@ -135,12 +136,13 @@
 
 
         function guardar(tipoEntidad) {
-
             startAnimation();
+            tipoEntidad.nombre = stringService.toTitleCase(tipoEntidad.nombre);
             TipoEntidadService.update(tipoEntidad)
                 .$promise.then(
                 function (data) {
                     retrieveData();
+                    stopAnimation()
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;

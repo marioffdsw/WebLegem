@@ -24,9 +24,10 @@
     margin-right:10px !important;
 }
 
-.span-fill{
-    flex:1;
-
+.span-fill {  
+    -ms-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
 }
 
 

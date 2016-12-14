@@ -1,8 +1,17 @@
 ﻿.uploader input {
     display: none; 
 }
+
+.box-uploader{
+    width:100%;
+    display:flex;
+    align-content:center;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
  
-.uploader {
+.uploader {        
     align-items: center;
     background-color: #ddd;
     display: flex;
@@ -19,7 +28,7 @@
     outline-offset: 4px;
     position: relative;
     margin: 20px 0 2px 0;
-    width: 100%; 
+    width: 100% 
 }
 
 .uploader label{
@@ -30,13 +39,13 @@
     pointer-events: none; 
 } 
 
-.uploader span {
-    padding-top:1rem;
-    pointer-events: none; 
+
+.uploader > button{
+    margin-bottom:15px;
 }
  
 .uploader, 
-.uploader span{
+.uploader > span{
     -webkit-transition: all 100ms linear;
     -o-transition: all 100ms linear;
     transition: all 100ms linear; 
@@ -45,6 +54,9 @@
 .uploader > span {
     color: rgba(0, 0, 0, 0.5);
     font-size: 3em;
+    padding-top:1rem;
+    pointer-events: none; 
+    margin-bottom:10px;
 }
  
 .uploader.dragging {

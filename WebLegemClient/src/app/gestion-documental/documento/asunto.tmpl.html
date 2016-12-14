@@ -1,29 +1,46 @@
-﻿<div class="contenido_gd animatio ng-enter" id="holas">
-    <label class="titulo">{{vm.language.strings.CrearDocumento}}</label>
-    <div>
-        <label class="subtitulos_labels">
-            {{vm.language.strings.Asunto}}
-        </label>
-        <hr class="divisor_gestion_documental" />
-        <div style="display:flex;flex-direction:column; justify-content:center; text-align:center;"
-            ng-show="vm.documento.asunto.length < 2">
-            <div class="loader" id="loader"></div>
-            <p class="texto_labels">{{vm.language.strings.ProcesandoArchivo}}</p>
-        </div>
-        <form class="tontera" ng-show="vm.documento.asunto.length > 2">
+﻿<div class="contenedor-subir-documento">
+    <div class="box_father animatio ng-enter" id="holas">
+        <div class="box_right">
+            <label class="subtitulos_labels">
+                {{vm.language.strings.Asunto}}
+            </label>
+            <hr class="divisor_gestion_documental" />
 
-            <ng-quill-editor ng-model="vm.documento.asunto" toolbar="true" link-tooltip="true" image-tooltip="true" toolbar-entries="font size bold list bullet italic underline strike align color background link image" editor-required="true" required="" error-class="input-error">
-            </ng-quill-editor>
+            <div style="display:flex;flex-direction:column; justify-content:center; text-align:center;"
+                 ng-show="vm.documento.asunto.length < 2">
+                <div id="wl-lista" class=" load_list"></div>
+                <p class="texto_labels">{{vm.language.strings.ProcesandoArchivo}}</p>
+            </div>
 
-            <!--<button class="a_boton a_block" type="button" ui-sref="gestion-documental.crear-documento.pergunta-anotacion">Siguiente</button>-->
-        </form>
-        <div class="contenedor_back_next">
-            <button class="btn_con_ico" ui-sref="gestion-documental.crear-documento.informacion-documento">
-                <span class="ico-chevron-left tamano_botones_1"></span>{{vm.language.strings.Atras}}
-            </button>
-            <button class="btn_con_ico inverso" ng-click="vm.aceptar()">
-                {{vm.language.strings.Siguiente}}<span class="ico-chevron-right tamano_botones_1 derecha"></span>
-            </button>
+            <form class="tontera" ng-show="vm.documento.asunto.length > 2">
+
+                <ng-quill-editor ng-model="vm.documento.asunto" toolbar="true" link-tooltip="true" image-tooltip="true" toolbar-entries="font size bold list bullet italic underline strike align color background link image" editor-required="true" required="" error-class="input-error">
+                </ng-quill-editor>
+
+                <!--<button class="a_boton a_block" type="button" ui-sref="gestion-documental.crear-documento.pergunta-anotacion">Siguiente</button>-->
+            </form>
+
         </div>
     </div>
+
+    <div class="span-fill"></div>
+
+    <!---------------------------------------------------------------------------------------------------------------------Controles-->
+    <div class="box_father">
+        <div class="box_right">
+            <div class="divisor-pasos"><div></div></div>
+            <div class="controles-crear-anotacion">
+                <button class="btn_con_ico" ui-sref="gestion-documental.crear-documento.informacion-documento">
+                    <span class="ico-chevron-left tamano_botones_1"></span>{{vm.language.strings.Atras}}
+                </button>
+                <button class="btn_con_ico inverso" ng-click="vm.aceptar()">
+                    {{vm.language.strings.Siguiente}}<span class="ico-chevron-right tamano_botones_1 derecha"></span>
+                </button>
+            </div>
+            <!--<p>{{ vm.error }}</p> creo q no sirve pa nada -->
+        </div>
+
+    </div>
+
+
 </div>

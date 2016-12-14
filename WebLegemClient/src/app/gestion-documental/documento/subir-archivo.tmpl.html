@@ -1,50 +1,49 @@
-﻿<div class="box_father animatio ng-enter" ng-controller="uploaderController as an">
-    <div class="box_right">
+﻿<div class="contenedor-subir-documento">
+    <div class="box_father animatio ng-enter" ng-controller="uploaderController as an">
+        <div class="box_right">
 
-        <label class="texto_labels bold">
-            {{vm.language.strings.SubirDocumento}}
-        </label>
-        <hr class="divisor_gestion_documental" />
-
-        <form class="contenedor_uploader_gddasdas">
-            <label class="uploader" id="fileOutput" nv-file-drop uploader="vm.uploader">
-                <span id="ico_no_cargado" class="icon ico-upload"></span>
-                <span id="ico_cargado" class="icon ico-check"></span>
-
-                <label><b>{{vm.language.strings.EscogaUnArchivo}}</b> {{vm.language.strings.ArrastreloAqui}}</label>
-                <label id="fileSize"></label>
-                <label id="fileType"></label>
-                <input type="file" id="files" accept="*/*" nv-file-select nv-file-drop uploader="vm.uploader" />
-
+            <label class="texto_labels">
+                {{vm.language.strings.SubirDocumento}}
             </label>
-            <div id="progress_bar"><div class="percent">0%</div></div>
+            <hr class="divisor_gestion_documental" />
 
-            <button id="cancelar_lectura" type="button" class="btn_con_ico" ng-click="an.abortRead()">
-                <!--ng-click="vm.uploader.uploadAll()"-->
-                <span class="ico-times tamano_botones_1"></span>{{vm.language.strings.Cancelar}}
-            </button>
-            <br />
-        </form>
+            <div class="box-uploader">
+                <form class="contenedor_uploader_gd">
+                    <label class="uploader" id="fileOutput" nv-file-drop uploader="vm.uploader">
+                        <span id="ico_no_cargado" class="icon ico-upload"></span>
+                        <span id="ico_cargado" class="icon ico-check"></span>
+
+                        <label><b>{{vm.language.strings.EscogaUnArchivo}}</b> {{vm.language.strings.ArrastreloAqui}}</label>
+                        <label id="fileSize"></label>
+                        <label id="fileType"></label>
+
+                        <input type="file" id="files" accept="*/*" nv-file-select nv-file-drop uploader="vm.uploader" />
+
+                        <button id="cancelar_lectura" type="button" class="btn_con_ico" ng-click="an.abortRead()">
+                            <!--ng-click="vm.uploader.uploadAll()"-->
+                            <span class="ico-times tamano_botones_1"></span>{{vm.language.strings.Cancelar}}
+                        </button>
+
+                    </label>
+                    <div id="progress_bar"><div class="percent">0%</div></div>
+
+                </form>
+            </div>
+        </div>
     </div>
-</div>
 
-<!---------------------------------------------------------------------------------------------------------------------Controles-->
+    <!---------------------------------------------------------------------------------------------------------------------Controles-->
+    <div class="span-fill"></div>
 
-<div class="box_father">
-    <div class="box_right">
-        <div class="divisor-pasos"><div></div></div>
-        <div class="controles-crear-anotacion">
-            <button class="btn_con_ico inverso" ui-sref="gestion-documental.crear-documento.informacion-documento">
-                {{vm.language.strings.Siguiente}}<span class="ico-chevron-right tamano_botones_1 derecha"></span>
-            </button>
-            <button class="btn_con_ico inverso" ui-sref="gestion-documental.crear-documento.crear-anotacion">
-                {{vm.language.strings.Anotacion}}<span class="ico-chevron-right tamano_botones_1 derecha"></span>
-            </button>
-            <button class="btn_con_ico inverso" ui-sref="gestion-documental.crear-documento.seleccionar-anotacion">
-                {{vm.language.strings.ExisteAnota}}<span class="ico-chevron-right tamano_botones_1 derecha"></span>
-            </button>
+    <div class="box_father">
+        <div class="box_right">
+            <div class="divisor-pasos"><div></div></div>
+            <div class="controles-crear-anotacion">
+                <button class="btn_con_ico inverso" ui-sref="gestion-documental.crear-documento.informacion-documento">
+                    {{vm.language.strings.Siguiente}}<span class="ico-chevron-right tamano_botones_1 derecha"></span>
+                </button>               
+            </div>
         </div>
     </div>
 </div>
-
 

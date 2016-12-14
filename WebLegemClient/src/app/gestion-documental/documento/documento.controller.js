@@ -13,6 +13,7 @@
         vm.tipoDocSeleccionado = { id: 0 };
         vm.aceptar = aceptar;
         vm.validarDocumento = validarDocumento;
+        vm.default = "Seleccione una opción";
 
         vm.documento = {
             id: 0,
