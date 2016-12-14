@@ -14,6 +14,10 @@
         vm.aceptar = aceptar;
         vm.validarDocumento = validarDocumento;
         vm.default = "Seleccione una opción";
+        vm.errorType = false;
+        vm.existDocument = false;
+
+        vm.validarArchivo = validarArchivo;
 
         vm.documento = {
             id: 0,
@@ -93,6 +97,7 @@
         } // end function cancelar
 
         function aceptar() {
+            
             console.log( vm.documento );
             $state.go("gestion-documental.crear-documento.resultado");
 
@@ -117,22 +122,34 @@
         }
 
         function validarDocumento() {
-            
-            $resource(serviceUrl + "/Documento/Identificador")
+
+
+            if (vm.form_info_doc.numero.$invalid == true || vm.form_info_doc.fecha.$invalid == true ||
+                vm.documento.entidad == 0 || vm.documento.tipoDocumento == 0) {
+
+                vm.documento.entidad == 0 ? vm.form_info_doc.entidad.$invalid = true : '';
+                vm.documento.tipoDocumento == 0 ? vm.form_info_doc.tipo_doc.$invalid = true : '';
+                vm.form_info_doc.numero.$invalid ? vm.form_info_doc.numero.$dirty = true : '';
+                vm.form_info_doc.fecha.$invalid ? vm.form_info_doc.fecha.$dirty = true : '';
+            }
+            else {
+                $resource(serviceUrl + "/Documento/Identificador")
                 .save(vm.documento)
                 .$promise
-                .then(function (data ) {
-                    console.log( data );
+                .then(function (data) {
+                    console.log(data);
                     vm.documentoGuid = data;
                     vm.error = "";
-                    $state.go( "gestion-documental.crear-documento.asunto" );
+                    $state.go("gestion-documental.crear-documento.asunto");
                 })
                 .catch(function (response) {
-                    if (response.statusCode = 409) {                        
+                    if (response.statusCode = 409) {
                         vm.error = response.errorMessage;
                     } // end if
                 });
-            
+            }
+
+                        
 
             //var query = { $filter: ""};
             //query.$filter = //"contains(FechPublicacion, '" + vm.documento.anioPublicacion + "')" +
@@ -157,5 +174,28 @@
             //    console.log(error);
             //});                       
         }
+
+        function validarArchivo() {
+            var fname = document.getElementById('fileType').innerHTML;
+            var re = /(\.jpg|\.jpeg|\.bmp|\.gif|\.png)$/i;
+            var rex = /(\.gif)$/i;
+            if (fname == "") {
+                vm.errorType = false;
+                vm.existDocument = true;
+
+            }
+            else if(!rex.exec(fname))
+            {
+                vm.existDocument = false;
+                vm.errorType = true;
+            }
+            else {
+                vm.existDocument = false;
+                vm.errorType = false;
+                $state.go("gestion-documental.crear-documento.informacion-documento");
+            }
+            
+        }
+
     } // end Documento Controller
 })();

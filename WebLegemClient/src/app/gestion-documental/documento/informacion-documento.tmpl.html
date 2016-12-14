@@ -6,61 +6,63 @@
             </label>
             <hr class="divisor_gestion_documental" />
 
-            <table class="tabla_info_doc">
-                <!------------------------------------------------------------------------------------------------------------------------------------------------>
-                <tr>
-                    <td><label class="texto_labels" for="entidad" ng-model="vm.documento.entidad">{{vm.language.strings.Entidad}}:</label></td>
-                    <td>
-                        <div class="a_select">
-                            <select id="entidad" ng-model="vm.documento.entidad" 
-                                    ng-options="entidad as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'">                                
-                                <option value="" disabled selected hidden>{{vm.default}}</option>
-                            </select>
-                        </div>
-                        <div ng-show="true">
-                            <div class="msj-error">{{vm.language.strings.SeleccioneOpcion}}</div>
-                        </div>
-                    </td>
-                </tr>
-                <!------------------------------------------------------------------------------------------------------------------------------------------------>
-                <tr>
-                    <td><label class="texto_labels" for="tipo-documento">{{vm.language.strings.TipoDocumento}}:</label></td>
-                    <td>
-                        <div class="a_select">
-                            <select id="tipo-documento" ng-model="vm.documento.tipoDocumento"
-                                    ng-options="tipo as tipo.nombre for tipo in vm.documento.entidad.tipoEntidad.documentosSoportados | orderBy: 'nombre'">
-                                <option value="" disabled selected hidden>{{vm.default}}</option>
-                            </select>
-                        </div>
+            <form name="vm.form_info_doc">
+                <table class="tabla_info_doc">
+                    <!------------------------------------------------------------------------------------------------------------------------------------------------>
+                    <tr>
+                        <td><label class="texto_labels" for="entidad" ng-model="vm.documento.entidad">{{vm.language.strings.Entidad}}:</label></td>
+                        <td>
+                            <div class="a_select">
+                                <select id="entidad" ng-model="vm.documento.entidad" required name="entidad"
+                                        ng-options="entidad as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'">
+                                    <option value="" selected hidden>{{vm.default}}</option>
+                                </select>
+                            </div>
+                            <div ng-show="vm.form_info_doc.entidad.$invalid">
+                                <div class="msj-error">{{vm.language.strings.SeleccioneOpcion}}</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!------------------------------------------------------------------------------------------------------------------------------------------------>
+                    <tr>
+                        <td><label class="texto_labels" for="tipo-documento">{{vm.language.strings.TipoDocumento}}:</label></td>
+                        <td>
+                            <div class="a_select">
+                                <select id="tipo-documento" ng-model="vm.documento.tipoDocumento" required name="tipo_doc"
+                                        ng-options="tipo as tipo.nombre for tipo in vm.documento.entidad.tipoEntidad.documentosSoportados | orderBy: 'nombre'">
+                                    <option value="" selected hidden>{{vm.default}}</option>
+                                </select>
+                            </div>
 
-                        <!--vm.form_entidad.tipo.$invalid && vm.form_entidad.tipo.$dirty-->
-                        <div ng-show="true">
-                            <div class="msj-error">{{vm.language.strings.SeleccioneOpcion}}</div>
-                        </div>
-                    </td>
-                </tr>
-                <!------------------------------------------------------------------------------------------------------------------------------------------------>
-                <tr>
-                    <td><label class="texto_labels" for="numero">{{vm.language.strings.Numero}}:</label></td>
-                    <td>
-                        <input class="a_input " type="text" id="numero" ng-model="vm.documento.numero"
-                               placeholder="{{vm.language.strings.NumeroDocumento}}" />
-                        <div ng-show="true">
-                            <!--vm.form_tipo_doc.$invalid && vm.form_tipo_doc.$dirty-->
-                            <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label class="texto_labels" for="año">{{vm.language.strings.FechaPublicacion}}:</label></td>
-                    <td>
-                        <input class="a_input" type="date" id="exampleInput" name="input" ng-model="vm.documento.fechaPublicacion"
-                               placeholder="yyyy-MM-dd" min="2013-01-01" max="2020-12-31" required />
-                        <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
-                    </td>
-                </tr>
-                <!------------------------------------------------------------------------------------------------------------------------------------------------>
-            </table>
+                            <div ng-show="vm.form_info_doc.tipo_doc.$invalid">
+                                <div class="msj-error">{{vm.language.strings.SeleccioneOpcion}}</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!------------------------------------------------------------------------------------------------------------------------------------------------>
+                    <tr>
+                        <td><label class="texto_labels" for="numero">{{vm.language.strings.Numero}}:</label></td>
+                        <td>
+                            <input class="a_input " type="text" id="numero" ng-model="vm.documento.numero" required
+                                   placeholder="{{vm.language.strings.NumeroDocumento}}" name="numero"/>
+                            <div ng-show="vm.form_info_doc.numero.$invalid && vm.form_info_doc.numero.$dirty">
+                                <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="texto_labels" for="año">{{vm.language.strings.FechaPublicacion}}:</label></td>
+                        <td>
+                            <input class="a_input" type="date" id="exampleInput" name="fecha" ng-model="vm.documento.fechaPublicacion"
+                                   placeholder="yyyy-MM-dd" min="2013-01-01" max="2020-12-31" required />
+                            <div ng-show="vm.form_info_doc.fecha.$invalid && vm.form_info_doc.fecha.$dirty">
+                                <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!------------------------------------------------------------------------------------------------------------------------------------------------>
+                </table>
+            </form>
         </div>
     </div>
 

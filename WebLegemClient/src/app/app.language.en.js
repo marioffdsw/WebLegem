@@ -167,6 +167,10 @@
             ArrastreloAqui: "Or drag it here.",
             Anotacion: "Annotation",
             ExisteAnota: "Annotation exists",
+            TipoArchivoNoSoportado: "File extension not supported",
+            SeleccioneArchivo: "Select a file",
+
+
             //----------------login--------------//
             IngresoSistema: "Login",
             CompleteCampo: "Complete this field.",

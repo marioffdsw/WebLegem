@@ -8,7 +8,7 @@
             <hr class="divisor_gestion_documental" />
 
             <div class="box-uploader">
-                <form class="contenedor_uploader_gd">
+                <form class="contenedor_uploader_gd" name="vm.form_subir_doc">
                     <label class="uploader" id="fileOutput" nv-file-drop uploader="vm.uploader">
                         <span id="ico_no_cargado" class="icon ico-upload"></span>
                         <span id="ico_cargado" class="icon ico-check"></span>
@@ -17,7 +17,7 @@
                         <label id="fileSize"></label>
                         <label id="fileType"></label>
 
-                        <input type="file" id="files" accept="*/*" nv-file-select nv-file-drop uploader="vm.uploader" />
+                        <input type="file" id="files" name="documento" accept="*/*" nv-file-select nv-file-drop uploader="vm.uploader" />
 
                         <button id="cancelar_lectura" type="button" class="btn_con_ico" ng-click="an.abortRead()">
                             <!--ng-click="vm.uploader.uploadAll()"-->
@@ -26,9 +26,16 @@
 
                     </label>
                     <div id="progress_bar"><div class="percent">0%</div></div>
-
                 </form>
             </div>
+
+            <div ng-show="vm.errorType" class="generic-box-horizontal a_centrado">
+                <div class="msj-error">{{vm.language.strings.TipoArchivoNoSoportado}}</div>
+            </div>
+            <div ng-show="vm.existDocument" class="generic-box-horizontal a_centrado" >
+                <div class="msj-error">{{vm.language.strings.SeleccioneArchivo}}</div>
+            </div>
+
         </div>
     </div>
 
@@ -39,7 +46,8 @@
         <div class="box_right">
             <div class="divisor-pasos"><div></div></div>
             <div class="controles-crear-anotacion">
-                <button class="btn_con_ico inverso" ui-sref="gestion-documental.crear-documento.informacion-documento">
+                <button class="btn_con_ico inverso"
+                        ng-click="vm.validarArchivo();">
                     {{vm.language.strings.Siguiente}}<span class="ico-chevron-right tamano_botones_1 derecha"></span>
                 </button>               
             </div>

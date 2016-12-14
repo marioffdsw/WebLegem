@@ -97,6 +97,9 @@
             ArrastreloAqui: "ó arrastrelo aquí.",
             Anotacion: "Anotacion",
             ExisteAnota: "Existe anotación",
+            TipoArchivoNoSoportado: "Tipo de archivo no soportado",
+            SeleccioneArchivo: "Seleccione un archivo",
+
             //----------------login--------------//
             IngresoSistema: "Ingreso al sistema",
             CompleteCampo: "Complete este campo.",
