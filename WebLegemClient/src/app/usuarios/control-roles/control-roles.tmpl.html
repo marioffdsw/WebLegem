@@ -12,6 +12,7 @@
         <wl-admin-crud objeto-seleccionado="vm.rolSeleccionado"
                        editando="vm.editando"
                        nuevo="vm.nuevo"
+                       foco="input_nombre_rol"
                        eliminar="vm.remover">
         </wl-admin-crud>
 
@@ -19,6 +20,7 @@
 
         <form name="vm.form_rol" novalidate>
             <input class="a_input"
+                   id="input_nombre_rol"
                    type="text"
                    required
                    placeholder="{{vm.language.strings.IngreseNombre}}"
@@ -37,7 +39,8 @@
 
 
         <wl-lista-permisos editando="vm.editando"
-                           permisos-asignados="vm.permisos"></wl-lista-permisos>
+                           recursos="vm.permisos"
+                           permisos-asignados="vm.recursos"></wl-lista-permisos>
 
         <wl-confirmacion editando="vm.editando"
                          aceptar="vm.aceptar"

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -20,7 +21,8 @@ namespace WebLegemAPI.Controllers
                         HttpStatusCode.NotAcceptable,
                         "this request is not properly formatted") );
 
-            var streamProvider = new MultipartFormDataStreamProvider("C:/pruebas/img/");
+            var picturesPath = ConfigurationManager.AppSettings["picturesDir"].ToString();
+            var streamProvider = new MultipartFormDataStreamProvider( picturesPath );
             await Request.Content.ReadAsMultipartAsync(streamProvider);
                         
             return Ok( new { Nombre = streamProvider.FileData.Select( i => i.LocalFileName ) } );

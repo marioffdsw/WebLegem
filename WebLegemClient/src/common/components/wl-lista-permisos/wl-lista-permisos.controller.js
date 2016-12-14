@@ -8,8 +8,7 @@
     WlListaPermisosController.$inject = [ "modulos","language" ];
     function WlListaPermisosController( modulos ,language){
         var vm = this;
-        vm.language = language;
-        vm.modulos = modulos;
+        vm.language = language;        
 
         return vm;
     } // end WlListaPermisosController

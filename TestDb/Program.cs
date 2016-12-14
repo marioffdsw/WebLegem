@@ -11,10 +11,12 @@ namespace TestDb
         static void Main(string[] args)
         {
             //TestTipoDocumento();
-            TestTipoEntidad();
+            //TestTipoEntidad();
             //TestEntidad();
             //TestTipoAnotacion();
             //TestArchivo();
+            //TestRecurso();
+            TestRoles();
         }
 
         public static void TestArchivo()
@@ -74,5 +76,19 @@ namespace TestDb
             //DeleteAll();
             //TipoDocumentoTest.GetAll();
         } // end method TestTipoDocumento
+
+        public static void TestRecurso()
+        {
+            RecursosTest.GetAll();
+        } // end method TestRecurso
+
+        public static void TestRoles()
+        {
+            //RolesTest.Create();
+            //RolesTest.GetAll();
+            //RolesTest.Get();
+            //RolesTest.Update();
+            RolesTest.Delete();
+        } // end method TestRoles
     }
-}
+}   

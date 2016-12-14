@@ -79,6 +79,8 @@
     <Compile Include="EntidadTest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecursosTest.cs" />
+    <Compile Include="RolesTest.cs" />
     <Compile Include="TestTipoAnotacion.cs" />
     <Compile Include="TipoDocumentoTest.cs" />
     <Compile Include="TipoEntidadTest.cs" />

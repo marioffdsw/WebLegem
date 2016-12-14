@@ -1,13 +1,9 @@
-﻿using Oracle.DataAccess.Client;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
+﻿using System.Linq;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using WebLegemDAL.Models;
 using WebLegemDAL.Dao;
-using CSharpFunctionalExtensions;
 using System.Net;
 
 namespace WebLegemAPI.Controllers

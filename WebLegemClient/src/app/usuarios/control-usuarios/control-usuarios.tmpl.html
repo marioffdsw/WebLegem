@@ -10,11 +10,12 @@
     </div>
 
 
-    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~2-->
+    <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <div class="box_right">
         <wl-admin-crud objeto-seleccionado="vm.usuarioSeleccionado"
                        editando="vm.editando"
                        nuevo="vm.nuevo"
+                       foco="input_nombre_usuario"
                        eliminar="vm.remover">
         </wl-admin-crud>
 
@@ -53,7 +54,7 @@
                 <div>
                     <div>
                         <p class="texto_labels ">{{vm.language.strings.Nombres}}</p>
-                        <input class="a_input" ng-model="vm.usuarioSeleccionado.nombre"
+                        <input class="a_input" id="input_nombre_usuario" ng-model="vm.usuarioSeleccionado.nombre"
                                ng-class="!vm.editando ? 'disable': ''" required name="nombre" />
 
                         <div ng-show="vm.form_usuario.nombre.$invalid && vm.form_usuario.nombre.$dirty">

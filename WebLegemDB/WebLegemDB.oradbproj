@@ -17,6 +17,9 @@
     <Folder Include="Functions\Entidad" />
     <Folder Include="Functions\Documento" />
     <Folder Include="Functions\Archivo" />
+    <Folder Include="Functions\Usuario" />
+    <Folder Include="Functions\Recurso" />
+    <Folder Include="Functions\Rol" />
     <Folder Include="Functions\TipoAnotacion" />
     <Folder Include="Functions\TipoEntidad" />
     <Folder Include="Functions\TipoDocumento" />
@@ -41,6 +44,15 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="04_functions_and_procedures.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="05_users_schema.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="06_datos_recursos.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="07_users_functions.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="99_create_statements.sql">
@@ -106,6 +118,24 @@
     <Content Include="Functions\obtener_archivo_seq_fun.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Functions\Recurso\get_all_re.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Rol\create_r.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Rol\delete_r.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Rol\get_all_r.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Rol\get_r.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Rol\update_r.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Functions\TipoAnotacion\create_ta.sql">
       <SubType>Content</SubType>
     </Content>
@@ -149,6 +179,18 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Functions\TipoEntidad\update_te.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Usuario\create_u.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Usuario\get_all_u.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Usuario\get_u.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Usuario\update_u.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Indexes\contenido_text_idx.sql">
@@ -208,6 +250,9 @@
     <Content Include="Sequences\identificador_documento_seq.sql">
       <SubType>Content</SubType>
     </Content>
+    <Content Include="Sequences\permiso_seq.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="Sequences\rol_seq.sql">
       <SubType>Content</SubType>
     </Content>
@@ -221,9 +266,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Sequences\usuario_seq.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\acciones_tab.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Tables\anotaciones_tab.sql">
@@ -242,12 +284,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Tables\identificadores_documentos_tab.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\modulos_tab.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="Tables\permisos_asignados_tab.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Tables\permisos_tab.sql">
@@ -346,12 +382,6 @@
     <Content Include="User Defined Types\Nested Tables\tipo_documento_tab_typ.sql">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="User Defined Types\Nested Tables\tipo_doc_ref_tab_typ.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="User Defined Types\Objects\accion_typ.sql">
-      <SubType>Content</SubType>
-    </Content>
     <Content Include="User Defined Types\Objects\anotacion_typ.sql">
       <SubType>Content</SubType>
     </Content>
@@ -365,12 +395,6 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="User Defined Types\Objects\entidad_typ.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="User Defined Types\Objects\modulo_typ.sql">
-      <SubType>Content</SubType>
-    </Content>
-    <Content Include="User Defined Types\Objects\permiso_typ.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="User Defined Types\Objects\recurso_typ.sql">

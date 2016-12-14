@@ -7,6 +7,7 @@ CREATE OR REPLACE TYPE usuario_typ AS OBJECT (
     correo                    VARCHAR2(100),
     foto                      VARCHAR2( 255 ),
     estado                    CHAR( 1  ),
-    rol                       rol_typ
+    rol                       rol_typ,
+    ultima_modificacion       TIMESTAMP
 );
 /

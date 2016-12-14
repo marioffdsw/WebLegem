@@ -9,9 +9,9 @@ CREATE TABLE usuarios_tab
     contrasena                  VARCHAR2(20)        NOT NULL,
     correo                      VARCHAR2(100)       NOT NULL,
     foto                        VARCHAR2(255)       NOT NULL,
-    estado                      CHAR(1)             NOT NULL,
+    estado                      CHAR(1)             DEFAULT 'I',
     rol                         NUMBER              NOT NULL,
-    ultima_modificacion         TIMESTAMP           NOT NULL,
+    ultima_modificacion         TIMESTAMP           DEFAULT CURRENT_TIMESTAMP,
         
     CONSTRAINT usuarios_PK
         PRIMARY KEY ( id ),
