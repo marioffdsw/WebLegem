@@ -5,8 +5,8 @@
         .module("WebLegemApp.Usuarios")
         .controller("controlRolesController", controlRolesController);
 
-    controlRolesController.$inject = ["RolResource", "PermisosService", "_", "language"];
-    function controlRolesController(RolResource, PermisosService, _, language) {
+    controlRolesController.$inject = ["RolResource", "RecursoService", "_", "language"];
+    function controlRolesController(RolResource, RecursoService, _, language) {
         var vm = this;
         vm.language = language;
         /**********************************************************************************
@@ -16,7 +16,7 @@
          **********************************************************************************/
 
         vm.roles = [];
-        vm.permisos = [];
+        vm.recursos = [];
         vm.rolSeleccionado = undefined;
         vm.editando = false;
         vm.seleccionar = seleccionar;
@@ -63,7 +63,7 @@
 
                 var rol = angular.copy(vm.rolSeleccionado);
 
-                rol.permisos = _.chain(vm.permisos)
+                rol.permisosAsignados = _.chain(vm.recursos)
                     .filter(function (item) { return item.valor; })
                     .map(function (item) { delete item.valor; return item; })
                     .value();
@@ -80,7 +80,7 @@
         function cancelar() {
             vm.editando = false;
             vm.rolSeleccionado = undefined;
-            vm.permisos = mapearPermisosAsignados(vm.permisos, vm.rolSeleccionado);
+            vm.recursos = mapearPermisosAsignados(vm.recursos, vm.rolSeleccionado);
             vm.form_rol.$setPristine();
         } // end function cancelar        
 
@@ -92,8 +92,8 @@
             });
 
 
-            PermisosService.query(function (data) {
-                vm.permisos = mapearPermisosAsignados(data, vm.rolSeleccionado);                
+            RecursoService.query(function (data) {
+                vm.recursos = mapearPermisosAsignados(data, vm.rolSeleccionado);                
             });
         } // end function retrieveData
 
@@ -136,25 +136,21 @@
                 vm.rolSeleccionado = undefined :
                 vm.rolSeleccionado = angular.copy(rol);
 
-            vm.permisos = mapearPermisosAsignados(vm.permisos, vm.rolSeleccionado);            
+            vm.recursos = mapearPermisosAsignados(vm.recursos, vm.rolSeleccionado);            
         } // end function seleccionar
 
-        function mapearPermisosAsignados( permisos, rol ) {
-            return _.map(permisos, function (permiso) {
-                permiso.valor = false;
-
-                if (isSelected(permiso, rol))
-                    permiso.valor = true;
-
-                return permiso;
+        function mapearPermisosAsignados(recursos, rol) {            
+            return _.map(recursos, function (recurso) {                
+                recurso.valor = isSelected(recurso, rol);
+                return recurso;
             });
         } // end function mapearPermisosAsignados
 
-        function isSelected( permiso, rol ) {
+        function isSelected( recurso, rol ) {
             if (typeof rol === "undefined") return false;
 
             for (var i = 0; i < rol.permisosAsignados.length; i++)
-                if (permiso.id === rol.permisosAsignados[i].id) return true;
+                if (recurso.id === rol.permisosAsignados[i].id) return true;
 
             return false;
         } // end function isSelected

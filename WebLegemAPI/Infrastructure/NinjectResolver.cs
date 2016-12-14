@@ -75,6 +75,8 @@ namespace WebLegemAPI.Infrastructure
             kernel.Bind<TipoAnotacionDao>().To<TipoAnotacionDao>().InRequestScope();
             kernel.Bind<ArchivoDao>().To<ArchivoDao>().InRequestScope();
             kernel.Bind<DocumentoDao>().To<DocumentoDao>().InRequestScope();
+            kernel.Bind<RecursoDao>().To<RecursoDao>().InRequestScope();
+            kernel.Bind<RolDao>().To<RolDao>().InRequestScope();
 
             kernel.Bind<IPdfToText>().To<NiconsoftOcr>().InRequestScope();
         }

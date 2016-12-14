@@ -14,7 +14,7 @@
             bindToController: true,
             scope: {
                 editando: "=editando",
-                permisosAsignados: "=permisosAsignados"
+                permisosAsignados: "=permisosAsignados"                
             }
         };
     } // end wlListaPermisos

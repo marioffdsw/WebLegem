@@ -178,7 +178,7 @@
     <Compile Include="Controllers\FilesController.cs" />
     <Compile Include="Controllers\FilesOldController.cs" />
     <Compile Include="Controllers\FotosController.cs" />
-    <Compile Include="Controllers\PermisosController.cs" />
+    <Compile Include="Controllers\RecursoController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\TipoAnotacionController.cs" />
     <Compile Include="Controllers\TipoDocumentoController.cs" />
@@ -189,6 +189,7 @@
     </Compile>
     <Compile Include="Controllers\ContenidoController.cs" />
     <Compile Include="Infrastructure\NinjectResolver.cs" />
+    <Compile Include="Models\AnalizadorAnotaciones\AnallizadorAnotaciones.cs" />
     <Compile Include="Models\AnalizadorAsunto.cs" />
     <Compile Include="Models\ContenidoViewModel.cs" />
     <Compile Include="Models\Extensions.cs" />

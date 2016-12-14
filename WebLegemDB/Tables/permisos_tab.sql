@@ -1,21 +1,16 @@
 DROP TABLE permisos_tab;
 
 CREATE TABLE permisos_tab
-(
-    id                          NUMBER              NOT NULL,
+(    
     recurso                     NUMBER              NOT NULL,
-    accion                      NUMBER              NOT NULL,
-    ultima_modificacion         TIMESTAMP           NOT NULL,
+    rol                         NUMBER              NOT NULL,    
             
     CONSTRAINT permisos_PK
-        PRIMARY KEY ( id ),
+        PRIMARY KEY ( recurso, rol ),
 
     CONSTRAINT per_recurso_FK
         FOREIGN KEY ( recurso ) REFERENCES recursos_tab( id ),
 
-    CONSTRAINT per_accion_FK
-        FOREIGN KEY ( accion ) REFERENCES acciones_tab( id ),
-
-    CONSTRAINT permiso_unique
-        UNIQUE ( recurso, accion )
+    CONSTRAINT per_rol_FK
+        FOREIGN KEY ( rol ) REFERENCES roles_tab( id )   
 );

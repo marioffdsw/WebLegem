@@ -91,10 +91,11 @@
             }
         } // end function
 
-        function crear(usuario) {            
+        function crear(usuario) {
+            console.log("crear");
             var fileInput = document.querySelector("#hidden_input");
             var xhr = new XMLHttpRequest();
-            xhr.open('POST', serviceUrl + '/Files'); // with form data
+            xhr.open('POST', serviceUrl + '/Fotos'); // with form data
 
             xhr.onload = function ( data ) {
                 vm.subido = true;
@@ -110,15 +111,22 @@
                 
             var form = new FormData();            
 
-            //form.append('file', fileInput);
-            form.append('file', blob);
-            form.append('fileName', 'image' + '.png');
-            xhr.setRequestHeader( 'FileName', 'image' + '.png' );
-            ////send the request
-            //xhr.send(form);            
+            var canvas = document.createElement("CANVAS");
+            canvas.width = img.width;
+            canvas.height = img.height;
+            var context = canvas.getContext("2d");
+            context.drawImage(img, 0, 0);
+            canvas.toBlob(function (blob) {
+                form.append('file', blob);
+                form.append('fileName', 'image' + '.png');
+                xhr.setRequestHeader('FileName', 'image' + '.png');
 
-            //xhr.setRequestHeader("Content-type", "multipart/form-data");
-            xhr.send(form);
+                //xhr.setRequestHeader("Content-type", "multipart/form-data");
+                xhr.send(form);
+            }, "image/png");
+
+            //form.append('file', fileInput);            
+            
 
             //UsuariosResource.save(usuario, function (data) {
             //    RetrieveData();
@@ -173,14 +181,14 @@
 
             var files = e.target.files;
             var f = files[0];
-            var leerArchivo = new FileReader();
+            var leerArchivo = new FileReader();                      
 
             //leerArchivo.onloadstart = function (e) {
                 
             //};
 
             leerArchivo.onload = function (e) {
-                img.src = e.target.result;                
+                img.src = e.target.result;     
             };
 
             //console.log(f.name);//nombreArchivo

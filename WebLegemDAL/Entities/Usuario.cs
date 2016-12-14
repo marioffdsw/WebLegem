@@ -17,6 +17,7 @@ namespace WebLegemDAL.Models
         private string foto;
         private string estado;               
         private Rol rol;
+        private DateTime ultimaModificacion;
 
         [JsonIgnore]
         public virtual bool IsNull
@@ -97,6 +98,13 @@ namespace WebLegemDAL.Models
             set { rol = value; }
         } // end prop Rol
 
+        [OracleObjectMapping( "ULTIMA_MODIFICACION" )]
+        public DateTime UltimaModificacion
+        {
+            get { return ultimaModificacion; }
+            set { ultimaModificacion = value; }
+        } // end prop UltimaModificacion
+
         public void FromCustomObject(OracleConnection con, IntPtr pUdt)
         {
             OracleUdt.SetValue( con, pUdt, "ID", id );
@@ -123,6 +131,8 @@ namespace WebLegemDAL.Models
 
             if (rol != null)
                 OracleUdt.SetValue( con, pUdt, "ROL", rol );
+
+            OracleUdt.SetValue( con, pUdt, "ULTIMA_MODIFICACION", ultimaModificacion );
         }
 
         public void ToCustomObject(OracleConnection con, IntPtr pUdt)
@@ -136,6 +146,7 @@ namespace WebLegemDAL.Models
             foto = (string)OracleUdt.GetValue(con, pUdt, "FOTO");
             estado = (string)OracleUdt.GetValue(con, pUdt, "ESTADO");
             rol = (Rol)OracleUdt.GetValue( con, pUdt, "ROL" );
+            ultimaModificacion = (DateTime)OracleUdt.GetValue( con, pUdt, "ULTIMA_MODIFICACION" );
         }
 
         public override string ToString()

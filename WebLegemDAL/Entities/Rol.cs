@@ -11,15 +11,13 @@ namespace WebLegemDAL.Models
         private bool isNull; // implementacion de INullable
         private int id; // atributo id del typ
         private string nombre; // atributo nombre del typ
-        private Permiso[] permisosAsignados;
+        private Recurso[] permisosAsignados;
+        private DateTime ultimaModificacion;
 
         [JsonIgnore]
         public virtual bool IsNull
         {
-            get
-            {
-                return isNull;
-            }
+            get { return isNull; }
         } // end IsNull prop
 
         public static Rol Null
@@ -32,17 +30,11 @@ namespace WebLegemDAL.Models
             } // end get
         } // end Null prop
 
-        [OracleObjectMappingAttribute("NOMBRE")]
+        [OracleObjectMapping("NOMBRE")]
         public string Nombre
         {
-            get
-            {
-                return nombre;
-            }
-            set
-            {
-                nombre = value;
-            }
+            get { return nombre; }
+            set { nombre = value; }
         } // end Nombre prop
 
         [OracleObjectMapping("ID")]
@@ -53,11 +45,18 @@ namespace WebLegemDAL.Models
         } // end Id prop
 
         [OracleObjectMapping("PERMISOS_ASIGNADOS")]
-        public Permiso[] PermisosAsignados
+        public Recurso[] PermisosAsignados
         {
             get { return permisosAsignados; }
             set { permisosAsignados = value; }
         } // end PermisosAsignados prop
+
+        [OracleObjectMapping("ULTIMA_MODIFICACION")]
+        public DateTime UltimaModificacion
+        {
+            get { return ultimaModificacion; }
+            set { ultimaModificacion = value; }
+        }
 
         public virtual void FromCustomObject(OracleConnection con, IntPtr pUdt)
         {
@@ -67,6 +66,7 @@ namespace WebLegemDAL.Models
                 OracleUdt.SetValue(con, pUdt, "ID", id);
 
             OracleUdt.SetValue( con, pUdt, "PERMISOS_ASIGNADOS", permisosAsignados );
+            OracleUdt.SetValue( con,pUdt, "ULTIMA_MODIFICACION", ultimaModificacion );
         } // end method FromCustomObject
 
         public virtual void ToCustomObject(OracleConnection con, IntPtr pUdt)
@@ -75,7 +75,8 @@ namespace WebLegemDAL.Models
 
             nombre = (string)OracleUdt.GetValue(con, pUdt, "NOMBRE");
 
-            permisosAsignados = (Permiso[]) OracleUdt.GetValue( con, pUdt, "PERMISOS_ASIGNADOS");
+            permisosAsignados = (Recurso[]) OracleUdt.GetValue( con, pUdt, "PERMISOS_ASIGNADOS");
+            ultimaModificacion = (DateTime)OracleUdt.GetValue( con, pUdt, "ULTIMA_MODIFICACION" );
         } // end method ToCustomObject
 
         public override string ToString()

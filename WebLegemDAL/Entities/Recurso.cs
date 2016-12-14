@@ -9,16 +9,13 @@ namespace WebLegemDAL.Models
     {
         private bool isNull; // implementacion de INullable
         private int id; // atributo id del typ
-        private string nombre; // atributo nombre del typ
-        private Modulo modulo;
+        private string nombre; // atributo nombre del typ      
+        private string descripcion; 
 
         [JsonIgnore]
         public virtual bool IsNull
         {
-            get
-            {
-                return isNull;
-            }
+            get { return isNull; }
         } // end IsNull prop
 
         public static Recurso Null
@@ -31,56 +28,49 @@ namespace WebLegemDAL.Models
             } // end get
         } // end Null prop
 
-        [OracleObjectMappingAttribute("NOMBRE")]
-        public string Nombre
-        {
-            get
-            {
-                return nombre;
-            }
-            set
-            {
-                nombre = value;
-            }
-        } // end Nombre prop
-
         [OracleObjectMapping("ID")]
         public int Id
         {
             get { return id; }
             set { id = value; }
-        } // end Id prop
+        } // end Id prop        
 
-        [OracleObjectMapping("MODULO")]
-        public Modulo Modulo
+        [OracleObjectMappingAttribute("NOMBRE")]
+        public string Nombre
         {
-            get { return modulo; }
-            set { modulo = value; }
-        } // end prop Modulo
+            get { return nombre; }
+            set { nombre = value; }
+        } // end Nombre prop
+
+        [OracleObjectMapping("DESCRIPCION")]
+        public string Descripcion
+        {
+            get { return descripcion; }
+            set { descripcion = value; }
+        } // end prop Descripcion
         
 
         public void FromCustomObject(OracleConnection con, IntPtr pUdt)
         {
             OracleUdt.SetValue(con, pUdt, "NOMBRE", nombre);
+            
             if (nombre != null)
-                OracleUdt.SetValue(con, pUdt, "ID", id);
+                OracleUdt.SetValue(con, pUdt, "ID", id);            
 
-            if (modulo != null)
-                OracleUdt.SetValue(con, pUdt, "MODULO", modulo);
+            if( descripcion != null )
+                OracleUdt.SetValue(con, pUdt, "DESCRIPCION", descripcion );
         }
 
         public void ToCustomObject(OracleConnection con, IntPtr pUdt)
         {
             id = (Int32)OracleUdt.GetValue(con, pUdt, "ID");
-
             nombre = (string)OracleUdt.GetValue(con, pUdt, "NOMBRE");
-
-            modulo = (Modulo)OracleUdt.GetValue( con, pUdt, "MODULO" );
+            descripcion = (string)OracleUdt.GetValue( con, pUdt, "DESCRIPCION" );
         }
 
         public override string ToString()
         {
-            return "Recurso( " + id + ", '" + nombre + "', " + modulo + " )";
+            return "Recurso( " + id + ", '" + nombre + ", " + descripcion + " )";
         } // end method ToString
     } // end class Recurso
 } // end namespace WebLegemDAL.Recurso
