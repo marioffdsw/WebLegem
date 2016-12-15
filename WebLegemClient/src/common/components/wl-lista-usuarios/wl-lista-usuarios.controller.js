@@ -13,20 +13,22 @@
         vm.checkear = checkear;
 
         function checkear( objeto ) {
-            return angular.equals( vm.objetoSeleccioando, objeto );
+            return vm.objetoSeleccioando != undefined && angular.equals(vm.objetoSeleccioando.id, objeto.id);
         } // end function checkear
 
-        function seleccionarObjeto ( objeto ){
-            if( vm.editando === true ){
-                return;
-            } // end if
+        function seleccionarObjeto(objeto) {
+            vm.seleccionar(objeto);
+            //if( vm.editando === true ){
+            //    return;
+            //} // end if
 
-            if (angular.equals(vm.objetoSeleccioando, objeto)) {
-                vm.objetoSeleccioando = undefined;
-            }
-            else {
-                vm.objetoSeleccioando = angular.copy(objeto);
-            } // end else
+            //if ( checkear(objeto) ) {
+            //    vm.objetoSeleccioando = undefined;
+            //}
+            //else {
+            //    console.log(objeto);
+            //    vm.objetoSeleccioando = angular.copy(objeto);
+            //} // end else
         } // end function seleccionarObjeto
 
         return vm;

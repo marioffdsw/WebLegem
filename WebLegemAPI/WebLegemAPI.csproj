@@ -180,6 +180,7 @@
     <Compile Include="Controllers\FotosController.cs" />
     <Compile Include="Controllers\RecursoController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
+    <Compile Include="Controllers\SessionController.cs" />
     <Compile Include="Controllers\TipoAnotacionController.cs" />
     <Compile Include="Controllers\TipoDocumentoController.cs" />
     <Compile Include="Controllers\TipoEntidadController.cs" />

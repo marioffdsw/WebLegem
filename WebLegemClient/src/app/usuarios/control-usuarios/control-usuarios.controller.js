@@ -22,6 +22,7 @@
         vm.cancelar = cancelar;
         vm.nuevo = nuevo;
         vm.mostrarDialogo = mostrarDialogo;
+        vm.usuarioSeleccionado;
 
         vm.abrirCamara = abrirCamara;
         vm.seleccionarArchivo = seleccionarArchivo;
@@ -45,17 +46,23 @@
         } // end function RetrieveData
        
         function seleccionar(usuario) {
+            
             if (vm.editando) return;
 
-            if (vm.usuarioSeleccionado && vm.usuarioSeleccionado.id === usuario.id)
+            if (vm.usuarioSeleccionado && vm.usuarioSeleccionado.id === usuario.id) {
+                vm.borrarFoto();
                 return vm.usuarioSeleccionado = undefined;
+            }
                 
             var usuario = angular.copy(usuario, {});            
             usuario.contrasena = _.map(usuario.contrasena.split(''), function (character) {
                 return '*';
             }).join('');
             
+            
             vm.usuarioSeleccionado = usuario;
+            img.src = serviceUrl + "/Fotos?photoName=" + vm.usuarioSeleccionado.foto;
+            coonsole.log();
         } // end fnction seleccionar
 
         function nuevo() {
@@ -146,6 +153,7 @@
         function cancelar() {
             vm.editando = false;
             vm.usuarioSeleccionado = undefined;
+            vm.borrarFoto();
             vm.form_usuario.$setPristine();
             vm.ban_click = false;
         } // end function cancelar

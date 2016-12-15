@@ -13,6 +13,8 @@ namespace WebLegemAPI.Models.AnalizadorAnotaciones
         private TipoDocumentoDao tdDao;
         private EntidadDao eDao;
         private TipoAnotacionDao taDao;
+        private IEnumerable<TipoAnotacion> tiposAnotacion = null;
+        private IEnumerable<TipoDocumento> tiposDocumento = null;
 
 
         public AnallizadorAnotaciones( TipoDocumentoDao tdDao, EntidadDao eDao, TipoAnotacionDao taDao )
@@ -94,24 +96,80 @@ namespace WebLegemAPI.Models.AnalizadorAnotaciones
                 RegexOptions.IgnoreCase |
                 RegexOptions.IgnorePatternWhitespace).Value;
 
+            var tipoAnotacion = GetTiposAnotacion().Where(x => {
+                return Regex.Match(matchString, x.Raiz, RegexOptions.CultureInvariant |
+                    RegexOptions.IgnoreCase |
+                    RegexOptions.IgnorePatternWhitespace).Success;
+            }).First();
 
-
-            return null;
+            return tipoAnotacion;
         } // end method GetTipoAnotacion
+
+        private TipoDocumento GetTipoDocumentoFromSentence( string sentence )
+        {
+            try
+            {
+                var regex = CrearTipoDocumentoRegex();
+                var matchString = Regex.Match(sentence, regex, RegexOptions.CultureInvariant |
+                    RegexOptions.IgnoreCase |
+                    RegexOptions.IgnorePatternWhitespace).Value;
+
+                return GetTiposDocumento().Where(x => Regex.Match(matchString, x.Nombre,
+                    RegexOptions.CultureInvariant
+                    | RegexOptions.IgnoreCase
+                    | RegexOptions.IgnorePatternWhitespace).Success).FirstOrDefault(null);
+            }
+            catch (Exception)
+            {
+                return null;                
+            }            
+        } // end method GetTipoDocumentoFromSentence
+
+        private string GetNumeroDocumentoFromSentence( string sentence ) 
+        {
+            //TODO -implement this and the other methods of the analizer
+            throw new NotImplementedException();
+        } // end method GetNumeroDocumento
 
         private string CrearTipoAnotacionRegex()
         {
-            var regex = @"(?<tipoanotacion> (";
-            var tiposAnotaciones = taDao.GetAll();
+            var regex = @"(?<tipoanotacion> (";            
 
-            tiposAnotaciones.ForEach(x => {
+            GetTiposAnotacion().ForEach(x => {
                 regex += x.Raiz + @"\w*|";
             });
 
-            regex.Substring(0, regex.Length - 1);
+            regex = regex.Substring(0, regex.Length - 1);
             regex += "))";
 
             return regex;
         } // end method CrearTipoAnotacionRegex
+
+        private IEnumerable<TipoAnotacion> GetTiposAnotacion()
+        {
+            if (tiposAnotacion == null)
+                tiposAnotacion = taDao.GetAll();
+
+            return tiposAnotacion;
+        } // end method getTiposAnotacion
+
+        private string CrearTipoDocumentoRegex()
+        {
+            var regex = @"(?<tipodocumento> (";
+            GetTiposDocumento().ForEach( x => regex += x.Nombre + @"|" );
+
+            regex = regex.Substring( 0, regex.Length - 1 );
+            regex += "))";
+
+            return regex;
+        } // end method CrearTipoDocumentoRegex
+
+        private IEnumerable<TipoDocumento> GetTiposDocumento()
+        {
+            if (tiposDocumento == null)
+                tiposDocumento = tdDao.GetAll();
+
+            return tiposDocumento;
+        } // end method GetTiposDocumento
     } // end class AnalizadorAnotaciones
 } // end namespace WebLegemAPI.Models.AnalizadorAnotaciones

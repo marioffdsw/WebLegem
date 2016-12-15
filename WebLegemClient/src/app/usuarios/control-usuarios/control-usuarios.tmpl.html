@@ -1,5 +1,5 @@
 ﻿<div class="box_father">
-
+    
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~1-->
     <div class="box_left">
         <wl-lista-usuarios lista="vm.usuarios"
@@ -12,6 +12,7 @@
 
     <!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
     <div class="box_right">
+        
         <wl-admin-crud objeto-seleccionado="vm.usuarioSeleccionado"
                        editando="vm.editando"
                        nuevo="vm.nuevo"
@@ -82,7 +83,7 @@
                 </div>
             </div>
 
-            <div class="box_duo_input">
+            <div class="box_duo_input">                
                 <div>
                     <p class="texto_labels ">{{vm.language.strings.Contrasena}}</p>
                     <input class="a_input" type="password" ng-model="vm.usuarioSeleccionado.contrasena" maxlength="20"
@@ -93,8 +94,8 @@
                         <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
                     </div>
 
-                    <wl-seguridad-pass ng-show="vm.editando && vm.usuarioSeleccionado.contrasena.length > 0"
-                                       modelo-pass="vm.usuarioSeleccionado.contrasena"></wl-seguridad-pass>
+                    <!--<wl-seguridad-pass ng-show="vm.editando && vm.usuarioSeleccionado.contrasena.length > 0"
+                                       modelo-pass="vm.usuarioSeleccionado.contrasena"></wl-seguridad-pass>-->
                 </div>
                 <div>
                     <p class="texto_labels ">{{vm.language.strings.ConfirmarContrasena}}</p>
