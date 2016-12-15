@@ -19,15 +19,16 @@
             //-----------Tipos_entidad---------------------//
             NombreTipoEntidad: "Nombre del tipo de la entidad",
             IngreseNombreTipoEntidad: "Ingrese el nombre de tipo de entidad",
+            IngreseCorreoElectronico: "Ingrese correo electronico",            
+            CorreoNoValido:"Invalid mail",
             //-------------Tipo_documneto-------//
             NombreTipoDocumento: "Nombre de tipo documento",
             //---------------------administracion-------------//
             TipoDocumento: "Tipo de documento",
-            Entidad: "Entidad",
-         
+            Entidad: "Entidad",         
             //----------control usuarios-------//
             ArchivoCargadoServidor: "El archivo ha sido cargado en el servidor",
-            ArchivoNoCargadoServidor: "El archivo ha sido NO cargado en el servidor",
+            ArchivoNoCargadoServidor: "El archivo No ha sido cargado en el servidor",
             TomarFoto: "Tomar foto",
             RepetirFoto: "Repetir foto",
             GuardarFoto: "Guardar foto",
@@ -78,7 +79,7 @@
             //------------informacion_documento------------//
             IdentificacionDocumento: "Identificación del documento",
             Numero: "Número",
-            FechaPublicación: "Fecha de publicación",
+            FechaPublicacion: "Fecha de publicación",
             //------------------resultado_ocr--------------//
             ResultadoOcr:"Resultado OCR",
             Editar: "Editar",
@@ -96,13 +97,16 @@
             ArrastreloAqui: "ó arrastrelo aquí.",
             Anotacion: "Anotacion",
             ExisteAnota: "Existe anotación",
+            TipoArchivoNoSoportado: "Tipo de archivo no soportado",
+            SeleccioneArchivo: "Seleccione un archivo",
+
             //----------------login--------------//
             IngresoSistema: "Ingreso al sistema",
             CompleteCampo: "Complete este campo.",
             CamposObligatorios: "* Campos obligatorios.",
             Ingresar: "INGRESAR",
             OlvideContrasena: " Olvide mi contraseña",
-            NombreUsuario:"Nombre de Usuario *",
+            NombreUsuarioI:"Nombre de Usuario *",
             //------------------noticias-----------//
             Legem: "Legem",
             //-------------control roles-------//
@@ -113,7 +117,7 @@
             NoEncontroNingunDocumentoConIdentificacion: "No se encontro ningun documento con esa identificacion",
             SeleccioneDocumentoAnotara:"Seleccione el documento al cual se anotará",
             CompleteDatosCrearDocumento:"Complete los datos para crear el documento",
-            NoEcontroNingunDocumentoIdentificacionDeseaCrear:"No se encontro ningun documento con esa identificacion, desea crear un",
+            NoEcontroNingunDocumentoIdentificacionDeseaCrear:"No se encontro ningun documento con esa identificacion, desea crear uno",
             NuevoDocumento:"Nuevo documento",
             TipoAnotacion: "Tipo de anotación",
             EscribaEntidadEmisora: "Escriba entidad emisora",
@@ -161,7 +165,7 @@
             NombreTipoAnotacion: "Nombre del tipo Anotación",
             IngreseNombreTipoAnotacion: "Ingrese el nombre del Tipo de Anotacion",
             IngreseRaizTipoAnotacion: "Ingrese la raiz del tipo anotacion",
-            TipoAnotacion:"Tipo anotación",
+           
             //--------------lista anotaciones -----------------//
             NAnotacionesEncontradas: "N anotaciones encontradas",
             Detalles: "Detalles",
@@ -179,17 +183,13 @@
             EntidadEmisora:"Entidad emisora",
             AnoPublicacion: "Año de publicacion",
            
-            FechaPublicacion: "Fecha de publicacion",
+            
             //-------------- lista ano anotaciones----------//
-
             //---------------------pregunta anadir anotaciones---------------------//
-            DeseaAnadirAnotacionesDocumento: "¿Desea añadir anotaciones a este documento?",
-           
-            //------------------seleccionar anotacion -------------------------------//
-        
-            ExistenPresenteDocumento: "Existen n posibles documentos las cuales anota el presente documento",
-           
-            Emitido:"emitido por",
+            DeseaAnadirAnotacionesDocumento: "¿Desea añadir anotaciones a este documento?",           
+            //------------------seleccionar anotacion -------------------------------//        
+            ExistenPresenteDocumento: "Existen n posibles documentos las cuales anota el presente documento",           
+            Emitido:"Emitido por",
             Aceptar: "Aceptar",
             //------------------------footer--------------------//
             Contactenos: "Contactenos",
@@ -220,13 +220,11 @@
             Contraste: "Contraste",
             Idioma: "Idioma",
             Espanol: "Español",
-            Ingles: "Ingles",
-           
+            Ingles: "Ingles",           
             Irarriba: "Ir arriba",
             //-----------------place----//
             NoEntontroDocumento: "No se encontro ningun documento con esa identificación",
             IngreseNombre: "Ingrese nombre",            
-            
             //----- info anotaciones-----//
             Anotaciones: "Anotaciones",          
             EncuentrAnotado: "Se encuentra anotado por",
@@ -246,6 +244,8 @@
             Edicion:"Edición",
             Eliminacion:"Eliminación",
             //crear anotacio
+            //---------------subir documento------//
+            SeleccioneOpcion:"Seleccione una opción",
 
             //-------------------------OJO
 

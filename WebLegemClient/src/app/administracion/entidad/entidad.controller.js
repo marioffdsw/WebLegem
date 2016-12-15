@@ -5,8 +5,8 @@
         .module("WebLegemApp.Administracion")
         .controller("EntidadController", EntidadController);
 
-    EntidadController.$inject = [ "TipoEntidadService", "EntidadService","language" ];
-    function EntidadController( TipoEntidadService, EntidadService,language ) {
+    EntidadController.$inject = ["TipoEntidadService", "EntidadService", "language", "stringService"];
+    function EntidadController(TipoEntidadService, EntidadService, language, stringService) {
         var vm = this;
         vm.language = language;
         /**********************************************************************************
@@ -119,7 +119,8 @@
         }
 
 
-        function crear( entidad ) {
+        function crear(entidad) {
+            entidad.nombre = stringService.toTitleCase(entidad.nombre);
             EntidadService.save(entidad)
                 .$promise.then(
                     function (data) {
@@ -138,6 +139,7 @@
 
         function guardar(entidad) {
             startAnimation();
+            entidad.nombre = stringService.toTitleCase(entidad.nombre);
             EntidadService.update(tipo)
                 .$promise.then(
                 function (data) {
@@ -147,6 +149,7 @@
                             break;
                         }
                     }
+                    stopAnimation()
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
@@ -189,7 +192,8 @@
             return _.find(tiposEntidades, function (te) { return te.id == entidadSeleccionada.tipoEntidad.id });
         } // end method 
 
-
+        //---------------------------------------------------------------------------
+        //animaciones carga
         function startAnimation() {
             document.getElementById(vm.idLoad).style.visibility = "visible";
             vm.procesando = true;

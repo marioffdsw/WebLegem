@@ -15,36 +15,45 @@
                 templateUrl: "app/gestion-documental/documento/crear-documento.tmpl.html",
                 controller: "DocumentoController",
                 controllerAs: "vm",
-                abstract: true
+                abstract: true,
+                title:"Gestión documental"
             })
 			.state("gestion-documental.crear-documento.subir-archivo", {
 			    url: "subir-archivo/",
-			    templateUrl: "app/gestion-documental/documento/subir-archivo.tmpl.html",			    
+			    templateUrl: "app/gestion-documental/documento/subir-archivo.tmpl.html",
+			    title: "Subir documento"
 			})
             .state("gestion-documental.crear-documento.informacion-documento", {
                 url: "/informacion-documento/:id",
-                templateUrl: "app/gestion-documental/documento/informacion-documento.tmpl.html",                
+                templateUrl: "app/gestion-documental/documento/informacion-documento.tmpl.html",
+                title: "Información del documento"
             })
             .state("gestion-documental.crear-documento.asunto", {
                 url: "/crear-documento/",
-                templateUrl: "app/gestion-documental/documento/asunto.tmpl.html",                
+                templateUrl: "app/gestion-documental/documento/asunto.tmpl.html",
+                title: "Asunto del documento"
             })
             .state("gestion-documental.crear-documento.pergunta-anotacion", {
                 url: "/pregunta-anotacion",
-                templateUrl: "app/gestion-documental/anotacion/pregunta-añadir-anotaciones.tmpl.html"
+                templateUrl: "app/gestion-documental/anotacion/pregunta-añadir-anotaciones.tmpl.html",
+                title: "Anotación"
             })
             .state("gestion-documental.crear-documento.resultado", {
                 url: "/resultado",
-                templateUrl: "app/gestion-documental/documento/resultado.tmpl.html"
+                templateUrl: "app/gestion-documental/documento/resultado.tmpl.html",
+                title: "Resultado"
             })
             //==========================Anotaciones================================
             .state("gestion-documental.crear-documento.crear-anotacion", {
                 url: "/crear-anotacion",
-                templateUrl: "app/gestion-documental/anotacion/crear-anotacion.tmpl.html"
+                templateUrl: "app/gestion-documental/anotacion/crear-anotacion.tmpl.html",
+                title: "Crear anotación"
+
             })
             .state("gestion-documental.crear-documento.seleccionar-anotacion", {
                 url: "/seleccionar-anotacion",
-                templateUrl: "app/gestion-documental/anotacion/seleccionar-anotacion.tmpl.html"
+                templateUrl: "app/gestion-documental/anotacion/seleccionar-anotacion.tmpl.html",
+                title: "Seleccionar anotación"
             })
 
 

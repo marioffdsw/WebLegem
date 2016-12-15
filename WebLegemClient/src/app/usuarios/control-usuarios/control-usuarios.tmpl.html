@@ -5,8 +5,11 @@
         <wl-lista-usuarios lista="vm.usuarios"
                            objeto-seleccionado="vm.usuarioSeleccionado"
                            seleccionar="vm.seleccionar"
-                           editando="vm.editando">
+                           editando="vm.editando"
+                           procesando="vm.procesando"
+                           error="vm.error">
         </wl-lista-usuarios>
+        <div id="wl-lista" class=" load_list"></div>
     </div>
 
 
@@ -16,8 +19,10 @@
         <wl-admin-crud objeto-seleccionado="vm.usuarioSeleccionado"
                        editando="vm.editando"
                        nuevo="vm.nuevo"
-                       foco="input_nombre_usuario"
-                       eliminar="vm.remover">
+                       eliminar="vm.remover"
+                       procesando="vm.procesando"
+                       foco="nombre-persona"
+                       error="vm.error">
         </wl-admin-crud>
 
         <wl-fotografia show="vm.camaraToggle"></wl-fotografia>
@@ -55,7 +60,7 @@
                 <div>
                     <div>
                         <p class="texto_labels ">{{vm.language.strings.Nombres}}</p>
-                        <input class="a_input" id="input_nombre_usuario" ng-model="vm.usuarioSeleccionado.nombre"
+                        <input id="nombre-persona" class="a_input" ng-model="vm.usuarioSeleccionado.nombre"
                                ng-class="!vm.editando ? 'disable': ''" required name="nombre" />
 
                         <div ng-show="vm.form_usuario.nombre.$invalid && vm.form_usuario.nombre.$dirty">

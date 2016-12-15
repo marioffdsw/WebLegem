@@ -5,8 +5,8 @@
         .module("WebLegemApp")
         .controller("TipoAnotacionController", TipoAnotacionController);
 
-    TipoAnotacionController.$inject = ["TipoAnotacionResource", "language"];
-    function TipoAnotacionController( TipoAnotacionResource ,language) {
+    TipoAnotacionController.$inject = ["TipoAnotacionResource", "language", "stringService"];
+    function TipoAnotacionController(TipoAnotacionResource, language, stringService) {
         var vm = this;
         vm.language = language;
         /**********************************************************************************
@@ -85,7 +85,7 @@
 
 
         function crear() {
-
+            vm.tipoAnotacionSeleccionada.nombre = stringService.toTitleCase(vm.tipoAnotacionSeleccionada.nombre);
             TipoAnotacionResource.save(vm.tipoAnotacionSeleccionada)
                 .$promise.then(
                     function (data) {
@@ -103,6 +103,7 @@
 
         function guardar(tipo) {
             startAnimation();
+            tipo.nombre = stringService.toTitleCase(tipo.nombre);
             TipoAnotacionResource.update(tipo)
                 .$promise.then(
                 function (data) {
@@ -112,6 +113,7 @@
                             break;
                         }
                     }
+                    stopAnimation()
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;

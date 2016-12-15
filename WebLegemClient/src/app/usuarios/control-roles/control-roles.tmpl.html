@@ -4,24 +4,28 @@
         <wl-lista-roles objeto-seleccionado="vm.rolSeleccionado"
                         seleccionar="vm.seleccionar"
                         lista="vm.roles"
-                        editando="vm.editando">
+                        editando="vm.editando"
+                        procesando="vm.procesando"
+                        error="vm.error">
         </wl-lista-roles>
+        <div id="wl-lista" class=" load_list"></div>
     </div>
 
     <div class="box_right">
         <wl-admin-crud objeto-seleccionado="vm.rolSeleccionado"
                        editando="vm.editando"
                        nuevo="vm.nuevo"
-                       foco="input_nombre_rol"
-                       eliminar="vm.remover">
+                       eliminar="vm.remover"
+                       procesando="vm.procesando"
+                       foco="nombre-rol"
+                       error="vm.error">
         </wl-admin-crud>
 
-        <p class="texto_labels green bold">{{vm.language.strings.Nombre}}</p>
+        <p class="texto_labels">{{vm.language.strings.Nombre}}</p>
 
         <form name="vm.form_rol" novalidate>
             <input class="a_input"
-                   id="input_nombre_rol"
-                   type="text"
+                   type="text" id="nombre-rol"
                    required
                    placeholder="{{vm.language.strings.IngreseNombre}}"
                    ng-disabled="!vm.editando || !vm.rolSeleccionado"
@@ -35,7 +39,7 @@
             </div>
         </form>
 
-        <p class="texto_labels green bold">{{vm.language.strings.Permisos}}</p>
+        <p class="texto_labels">{{vm.language.strings.Permisos}}</p>
 
 
         <wl-lista-permisos editando="vm.editando"

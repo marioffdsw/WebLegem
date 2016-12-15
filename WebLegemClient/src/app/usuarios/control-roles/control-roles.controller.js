@@ -20,9 +20,11 @@
         vm.rolSeleccionado = undefined;
         vm.editando = false;
         vm.seleccionar = seleccionar;
-
-
-
+        vm.dialogResponse = false;
+        vm.responseMessage = "";
+        vm.default = "Seleccione una opción";
+        vm.procesando = false;
+        vm.error = false;
 
         /**********************************************************************************
          *
@@ -35,9 +37,6 @@
         vm.aceptar = aceptar;
         vm.nuevo = nuevo;
 
-
-
-
         /**********************************************************************************
          *
          *   DATA RETRIEVING CALLS
@@ -45,9 +44,6 @@
          **********************************************************************************/
 
         retrieveData();        
-
-
-
 
         /**********************************************************************************
          *

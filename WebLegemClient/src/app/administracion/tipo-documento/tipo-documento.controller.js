@@ -5,8 +5,8 @@
         .module("WebLegemApp.Administracion")
         .controller("TipoDocumentoController", TipoDocumentoController);
 
-    TipoDocumentoController.$inject = ["TipoDocumentoResource", "language"];
-    function TipoDocumentoController(TipoDocumentoResource, language) {
+    TipoDocumentoController.$inject = ["TipoDocumentoResource", "language", "stringService"];
+    function TipoDocumentoController(TipoDocumentoResource, language, stringService) {
         var vm = this;
         vm.language = language;
         /**********************************************************************************
@@ -85,6 +85,7 @@
 
         function crear() {
             startAnimation();
+            vm.tipoDocSeleccionado.nombre = stringService.toTitleCase(vm.tipoDocSeleccionado.nombre);            
             TipoDocumentoResource.save(vm.tipoDocSeleccionado)
                 .$promise.then(
                     function (data) {
@@ -102,6 +103,7 @@
 
         function guardar(tipo) {
             startAnimation();
+            tipo.nombre = stringService.toTitleCase(tipo.nombre);
             TipoDocumentoResource.update(tipo)
                 .$promise.then(
                 function (data) {
@@ -111,6 +113,7 @@
                             break;
                         }
                     }
+                    stopAnimation();
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
@@ -135,11 +138,12 @@
             cancelar();
         } // end function remover
 
-        function startAnimation() {
+        function startAnimation() {           
             document.getElementById(vm.idLoad).style.visibility = "visible";
             vm.procesando = true;
         }
         function stopAnimation() {
+            console.log("entro");
             document.getElementById(vm.idLoad).style.visibility = "hidden";
             vm.procesando = false;
         }

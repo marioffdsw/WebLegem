@@ -1,62 +1,86 @@
-﻿<div class="box_father animatio ng-enter">
-    <div class="box_right">
-        <label class="texto_labels bold">
-            {{vm.language.strings.IdentificacionDocumento}}
-        </label>
-        <hr class="divisor_gestion_documental" />
+﻿<div class="contenedor-subir-documento">
+    <div class="box_father animatio ng-enter">
+        <div class="box_right">
+            <label class="texto_labels">
+                {{vm.language.strings.IdentificacionDocumento}}
+            </label>
+            <hr class="divisor_gestion_documental" />
 
-            <table class="tabla_info_doc">
-                <!------------------------------------------------------------------------------------------------------------------------------------------------>
-                <tr>
-                    <td><label class="texto_labels" for="entidad" ng-model="vm.documento.entidad">{{vm.language.strings.Entidad}}:</label></td>
-                    <td>
-                        <div class="a_select">
-                            <select id="entidad" ng-model="vm.documento.entidad"
-                                    ng-options="entidad as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'"></select>
-                        </div>
-                    </td>
-                </tr>
-                <!------------------------------------------------------------------------------------------------------------------------------------------------>
-                <tr>
-                    <td><label class="texto_labels" for="tipo-documento">{{vm.language.strings.TipoDocumento}}:</label></td>
-                    <td>
-                        <div class="a_select">
-                            <select id="tipo-documento" ng-model="vm.documento.tipoDocumento"
-                                    ng-options="tipo as tipo.nombre for tipo in vm.documento.entidad.tipoEntidad.documentosSoportados | orderBy: 'nombre'"></select>
-                        </div>
-                    </td>
-                </tr>
-                <!------------------------------------------------------------------------------------------------------------------------------------------------>
-                <tr>
-                    <td><label class="texto_labels" for="numero">{{vm.language.strings.Numero}}:</label></td>
-                    <td>
-                        <input class="a_input " type="text" id="numero" ng-model="vm.documento.numero" />
-                    </td>
-                </tr>
-                <tr>
-                    <td><label class="texto_labels" for="año">{{vm.language.strings.FechaPublicacion}}:</label></td>
-                    <td>
-                        <input class="a_input" type="date" id="exampleInput" name="input" ng-model="vm.documento.fechaPublicacion"
-                               placeholder="yyyy-MM-dd" min="2013-01-01" max="2020-12-31" required />
-                    </td>
-                </tr>
-                <!------------------------------------------------------------------------------------------------------------------------------------------------>
-            </table>
-    </div>
-</div>
+            <form name="vm.form_info_doc">
+                <table class="tabla_info_doc">
+                    <!------------------------------------------------------------------------------------------------------------------------------------------------>
+                    <tr>
+                        <td><label class="texto_labels" for="entidad" ng-model="vm.documento.entidad">{{vm.language.strings.Entidad}}:</label></td>
+                        <td>
+                            <div class="a_select">
+                                <select id="entidad" ng-model="vm.documento.entidad" required name="entidad"
+                                        ng-options="entidad as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'">
+                                    <option value="" selected hidden>{{vm.default}}</option>
+                                </select>
+                            </div>
+                            <div ng-show="vm.form_info_doc.entidad.$invalid">
+                                <div class="msj-error">{{vm.language.strings.SeleccioneOpcion}}</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!------------------------------------------------------------------------------------------------------------------------------------------------>
+                    <tr>
+                        <td><label class="texto_labels" for="tipo-documento">{{vm.language.strings.TipoDocumento}}:</label></td>
+                        <td>
+                            <div class="a_select">
+                                <select id="tipo-documento" ng-model="vm.documento.tipoDocumento" required name="tipo_doc"
+                                        ng-options="tipo as tipo.nombre for tipo in vm.documento.entidad.tipoEntidad.documentosSoportados | orderBy: 'nombre'">
+                                    <option value="" selected hidden>{{vm.default}}</option>
+                                </select>
+                            </div>
 
-<!---------------------------------------------------------------------------------------------------------------------Controles-->
-<div class="box_father">
-    <div class="box_right">
-        <div class="divisor-pasos"><div></div></div>
-        <div class="controles-crear-anotacion">
-            <button class="btn_con_ico" ui-sref="gestion-documental.crear-documento.subir-archivo">
-                <span class="ico-chevron-left tamano_botones_1"></span>{{vm.language.strings.Atras}}
-            </button>
-            <button class="btn_con_ico inverso" ng-click="vm.validarDocumento()">
-                {{vm.language.strings.Siguiente}}<span class="ico-chevron-right tamano_botones_1 derecha"></span>
-            </button>
+                            <div ng-show="vm.form_info_doc.tipo_doc.$invalid">
+                                <div class="msj-error">{{vm.language.strings.SeleccioneOpcion}}</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!------------------------------------------------------------------------------------------------------------------------------------------------>
+                    <tr>
+                        <td><label class="texto_labels" for="numero">{{vm.language.strings.Numero}}:</label></td>
+                        <td>
+                            <input class="a_input " type="text" id="numero" ng-model="vm.documento.numero" required
+                                   placeholder="{{vm.language.strings.NumeroDocumento}}" name="numero"/>
+                            <div ng-show="vm.form_info_doc.numero.$invalid && vm.form_info_doc.numero.$dirty">
+                                <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label class="texto_labels" for="año">{{vm.language.strings.FechaPublicacion}}:</label></td>
+                        <td>
+                            <input class="a_input" type="date" id="exampleInput" name="fecha" ng-model="vm.documento.fechaPublicacion"
+                                   placeholder="yyyy-MM-dd" min="2013-01-01" max="2020-12-31" required />
+                            <div ng-show="vm.form_info_doc.fecha.$invalid && vm.form_info_doc.fecha.$dirty">
+                                <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
+                            </div>
+                        </td>
+                    </tr>
+                    <!------------------------------------------------------------------------------------------------------------------------------------------------>
+                </table>
+            </form>
         </div>
-        <!--<p>{{ vm.error }}</p> creo q no sirve pa nada -->
+    </div>
+
+    <div class="span-fill"></div>
+
+    <!---------------------------------------------------------------------------------------------------------------------Controles-->
+    <div class="box_father">
+        <div class="box_right">
+            <div class="divisor-pasos"><div></div></div>
+            <div class="controles-crear-anotacion">
+                <button class="btn_con_ico" ui-sref="gestion-documental.crear-documento.subir-archivo">
+                    <span class="ico-chevron-left tamano_botones_1"></span>{{vm.language.strings.Atras}}
+                </button>
+                <button class="btn_con_ico inverso" ng-click="vm.validarDocumento()">
+                    {{vm.language.strings.Siguiente}}<span class="ico-chevron-right tamano_botones_1 derecha"></span>
+                </button>
+            </div>
+            <!--<p>{{ vm.error }}</p> creo q no sirve pa nada -->
+        </div>
     </div>
 </div>
