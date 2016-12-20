@@ -190,7 +190,7 @@
     </Compile>
     <Compile Include="Controllers\ContenidoController.cs" />
     <Compile Include="Infrastructure\NinjectResolver.cs" />
-    <Compile Include="Models\AnalizadorAnotaciones\AnallizadorAnotaciones.cs" />
+    <Compile Include="Models\AnalizadorAnotaciones\AnalizadorAnotaciones.cs" />
     <Compile Include="Models\AnalizadorAsunto.cs" />
     <Compile Include="Models\ContenidoViewModel.cs" />
     <Compile Include="Models\Extensions.cs" />

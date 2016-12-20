@@ -75,6 +75,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Analizador\AnalizadorAnotaciones.cs" />
+    <Compile Include="Analizador\AnalizadorTest.cs" />
     <Compile Include="ArchivoTest.cs" />
     <Compile Include="EntidadTest.cs" />
     <Compile Include="Program.cs" />

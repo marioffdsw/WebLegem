@@ -173,6 +173,7 @@
     <script src="common/services/rol-resource.service.js"></script>
     <script src="common/services/recurso-resource.service.js"></script>
     <script src="common/services/usuarios-resource.service.js"></script>
+    <script src="common/services/session-resource.service.js"></script>
     <script src="common/services/string.service.js"></script>
 
     <!-- Filters -->
@@ -306,6 +307,7 @@
             <!--=============== Contenido Aplicacion ===================-->
             <div ui-view class="animatio contenedor_vistas"></div>
         </section>
+
         <!-------------------------------------------------Seccion Noticias--------------------------------------------------------->
         <section id="news-section">
             <wlegem-news ng-show="vm.$state.current.name == 'home'"></wlegem-news>

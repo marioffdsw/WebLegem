@@ -18,6 +18,26 @@ namespace WebLegemDAL.Dao
             get { return "WEB_LEGEM.CONTENIDO_TYP"; }
         }// end prop UdtTypeName
 
+        public Result<ContenidoDocumento> Exist(int id)
+        {
+            try
+            {
+                using (var conn = DB.GetOracleConnection())
+                using (var cmd = DB.GetFuncionCommand(conn, "WEB_LEGEM.GET_C"))
+                {
+                    var result = DB.AddObjectResult(cmd, UdtTypeName);
+                    DB.AddIdParameter(cmd, id);
+
+                    cmd.ExecuteNonQuery();
+                    return Result.Ok((ContenidoDocumento)result.Value);
+                }
+            } // end try
+            catch (OracleException ex)
+            {
+                return Result.Fail<ContenidoDocumento>("No se encontro ningun contenido con ese id");
+            } // end catch
+        } // end method Exist
+
         public Result<ContenidoDocumento> Create( ContenidoDocumento contenidoDocumento )
         {
             try

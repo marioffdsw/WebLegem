@@ -25,7 +25,8 @@ namespace WebLegemDAL.Models
         private Archivo archivo;
         private string asunto;
         private OracleBFile contenido;
-        private Boolean isNull;          
+        private Boolean isNull;
+        //private Boolean tieneAnotaciones;     
 
 
 
@@ -73,7 +74,13 @@ namespace WebLegemDAL.Models
                 return contenido;
             }
             set { contenido = value; }
-        } // fin prop Contenido        
+        } // fin prop Contenido      
+        
+        //public static Boolean TieneAnotaciones
+        //{
+        //    get { return TieneAnotaciones; }
+        //    set { TieneAnotaciones = value; }
+        //}  
 
         public static ContenidoDocumento Null
         {
