@@ -3,20 +3,21 @@
 
     angular
         .module("WebLegemApp.Usuarios")
-        .controller("controlUsuariosController", controlUsuariosController)    
-        
+        .controller("controlUsuariosController", controlUsuariosController)
 
-    controlUsuariosController.$inject = ["$window", "UsuariosResource", "RolResource", "serviceUrl", "_", "language"];
 
-    function controlUsuariosController($window, UsuariosResource, RolResource, serviceUrl, _, language) {
+    controlUsuariosController.$inject = ["$window", "UsuariosResource", "RolResource", "serviceUrl", "_", "language", "stringService"];
+
+    function controlUsuariosController($window, UsuariosResource, RolResource, serviceUrl, _, language, stringService) {
         var vm = this;
-        var blob;        
+        var blob;
 
         vm.dialogResponse = false;
         vm.responseMessage = "";
         vm.default = "Seleccione una opción";
         vm.procesando = false;
         vm.error = false;
+        vm.idLoad = "wl-lista";
 
         vm.language = language;
         vm.subido = false;
@@ -37,42 +38,58 @@
         vm.remover = eliminar;
 
         vm.trash = false;
-        vm.cargarFoto = vm.cargarFoto;        
-        
+        vm.cargarFoto = vm.cargarFoto;
+
         RetrieveData();
 
         function RetrieveData() {
-            UsuariosResource.query(function (data) {
-                vm.usuarios = data;
-            });
+            startAnimation();
+            UsuariosResource.query()
+                .$promise.then(function (data) {
+                    stopAnimation();
+                    vm.usuarios = data;
+                },
+                function errorCallback(error) {
+                    stopAnimation();
+                    vm.error = true;
+                }
+            );
 
-            RolResource.query(function (data) {
-                vm.roles = data;
-            });
+            startAnimation();
+            RolResource.query()
+                .$promise.then(function (data) {
+                    stopAnimation
+                    vm.roles = data;
+                },
+                function errorCallback(error) {
+                    stopAnimation();
+                    vm.error = true;
+                }
+            );
         } // end function RetrieveData
-       
+
         function seleccionar(usuario) {
-            
+
             if (vm.editando) return;
 
             if (vm.usuarioSeleccionado && vm.usuarioSeleccionado.id === usuario.id) {
                 vm.borrarFoto();
                 return vm.usuarioSeleccionado = undefined;
             }
-                
-            var usuario = angular.copy(usuario, {});            
+
+            var usuario = angular.copy(usuario, {});
             usuario.contrasena = _.map(usuario.contrasena.split(''), function (character) {
                 return '*';
             }).join('');
-            
-            
+
+
             vm.usuarioSeleccionado = usuario;
             img.src = serviceUrl + "/Fotos?photoName=" + vm.usuarioSeleccionado.foto;
             coonsole.log();
         } // end fnction seleccionar
 
         function nuevo() {
-            vm.usuarioSeleccionado = {id: 0}
+            vm.usuarioSeleccionado = { id: 0 }
         } // end function nuevo
 
         function aceptar() {
@@ -80,18 +97,17 @@
                 vm.form_usuario.pass.$invalid || vm.form_usuario.pass_confirm.$invalid || vm.form_usuario.correo.$invalid
                 || vm.form_usuario.tipo.$invalid || vm.form_usuario.rad.$invalid) {
 
-                vm.form_usuario.nombre.$invalid     ? vm.form_usuario.nombre.$dirty = true : '';
-                vm.form_usuario.apellido.$invalid   ? vm.form_usuario.apellido.$dirty = true : '';
-                vm.form_usuario.nick.$invalid       ? vm.form_usuario.nick.$dirty = true : '';
-                vm.form_usuario.pass.$invalid       ? vm.form_usuario.pass.$dirty = true : '';
-                vm.form_usuario.pass_confirm.$invalid   ? vm.form_usuario.pass_confirm.$dirty = true : '';
-                vm.form_usuario.correo.$invalid         ? vm.form_usuario.correo.$dirty = true : '';
-                vm.form_usuario.tipo.$invalid           ? vm.form_usuario.tipo.$dirty = true : '';
+                vm.form_usuario.nombre.$invalid ? vm.form_usuario.nombre.$dirty = true : '';
+                vm.form_usuario.apellido.$invalid ? vm.form_usuario.apellido.$dirty = true : '';
+                vm.form_usuario.nick.$invalid ? vm.form_usuario.nick.$dirty = true : '';
+                vm.form_usuario.pass.$invalid ? vm.form_usuario.pass.$dirty = true : '';
+                vm.form_usuario.pass_confirm.$invalid ? vm.form_usuario.pass_confirm.$dirty = true : '';
+                vm.form_usuario.correo.$invalid ? vm.form_usuario.correo.$dirty = true : '';
+                vm.form_usuario.tipo.$invalid ? vm.form_usuario.tipo.$dirty = true : '';
                 vm.form_usuario.rad.$invalid ? vm.ban_click = true : vm.ban_click = true;
 
             }
-            else
-            {
+            else {
                 if (vm.usuarioSeleccionado.id === 0)
                     return crear(vm.usuarioSeleccionado);
                 guardar(vm.usuarioSeleccionado);
@@ -99,24 +115,37 @@
         } // end function
 
         function crear(usuario) {
-            console.log("crear");
+
+
+            usuario.nombre = stringService.toTitleCase(usuario.nombre);
+
             var fileInput = document.querySelector("#hidden_input");
             var xhr = new XMLHttpRequest();
             xhr.open('POST', serviceUrl + '/Fotos'); // with form data
 
-            xhr.onload = function ( data ) {
+            xhr.onload = function (data) {
                 vm.subido = true;
 
-                var nombreCompletoArray = JSON.parse(this.responseText).nombre[0].split( "\\" );
-                var nombre = nombreCompletoArray[ nombreCompletoArray.length - 1 ];
-                
+                var nombreCompletoArray = JSON.parse(this.responseText).nombre[0].split("\\");
+                var nombre = nombreCompletoArray[nombreCompletoArray.length - 1];
+
                 usuario.foto = nombre;
-                UsuariosResource.save(usuario, function (data) {
-                    RetrieveData();
-                });
+                startAnimation();
+                UsuariosResource.save(usuario)
+                    .$promise.then(
+                    function (data) {
+                        stopAnimation();
+                        RetrieveData();
+                    },
+                    function errorCallback(error) {
+                        vm.responseMessage = error.data.message;
+                        vm.dialogResponse = true;
+                        stopAnimation();
+                    }
+                );
             } // end onload callback
-                
-            var form = new FormData();            
+
+            var form = new FormData();
 
             var canvas = document.createElement("CANVAS");
             canvas.width = img.width;
@@ -133,7 +162,7 @@
             }, "image/png");
 
             //form.append('file', fileInput);            
-            
+
 
             //UsuariosResource.save(usuario, function (data) {
             //    RetrieveData();
@@ -142,17 +171,33 @@
         } // end function crear
 
         function guardar(usuario) {
-            UsuariosResource.update(usuario, function (data) {
-                RetrieveData();
-            });
+            UsuariosResource.update(usuario)
+                .$promise.then(function (data) {
+                    stopAnimation();
+                    RetrieveData();
+                },
+                function errorCallback(error) {
+                    stopAnimation();
+                    vm.responseMessage = error.data.message;
+                    vm.dialogResponse = true;
+                }
+            );
 
             cancelar();
         } // end function guardar
 
         function eliminar(usuario) {
-            UsuariosResource.remove(usuario, function () {
-                RetrieveData();
-            })
+            UsuariosResource.remove(usuario)
+                .$promise.then(function (data) {                    
+                    RetrieveData();
+                    stopAnimation();
+                },
+                function errorCallback(error) {
+                vm.responseMessage = error.data.message;
+                vm.dialogResponse = true;
+                stopAnimation();
+            });
+
             cancelar();
         } // end fucntion eliminar
 
@@ -179,7 +224,7 @@
             img.style.visibility = " unset";
         }
 
-   
+
         function seleccionarArchivo() {
             btn_input.click();
         };
@@ -189,14 +234,14 @@
 
             var files = e.target.files;
             var f = files[0];
-            var leerArchivo = new FileReader();                      
+            var leerArchivo = new FileReader();
 
             //leerArchivo.onloadstart = function (e) {
-                
+
             //};
 
             leerArchivo.onload = function (e) {
-                img.src = e.target.result;     
+                img.src = e.target.result;
             };
 
             //console.log(f.name);//nombreArchivo
@@ -213,45 +258,45 @@
 
 
         function mostrarDialogo(a) {
-            
-            
+
+
             //arreglo para comparar
 
-            var permisos = ['nombrex','Crear', 'Leer', 'Actualizar', 'Eliminar']
-              
+            var permisos = ['nombrex', 'Crear', 'Leer', 'Actualizar', 'Eliminar']
+
 
             var arrayAux1 = [];
             var arrayAux2 = [];
 
             //crear arreglo
-            
+
             for (var x in a.permisos) {
 
                 var arreglo_permisos = {
-                    modulo:   a.permisos[x].recurso.modulo.nombre,
-                    permiso:  a.permisos[x].accion.nombre
+                    modulo: a.permisos[x].recurso.modulo.nombre,
+                    permiso: a.permisos[x].accion.nombre
                 }
                 arrayAux1.push(arreglo_permisos);
             }
 
-            var arrayModulos = _.unique(arrayAux1,'modulo');
-            
-            
+            var arrayModulos = _.unique(arrayAux1, 'modulo');
+
+
             for (var i in arrayModulos) {
                 var x = [arrayModulos[i].modulo];
-                for(var j in arrayAux1){
+                for (var j in arrayAux1) {
                     if (arrayModulos[i].modulo == arrayAux1[j].modulo)
-                        x.push(arrayAux1[j].permiso);    
+                        x.push(arrayAux1[j].permiso);
                 }
                 arrayAux2.push(x);
             }
 
-            arrayAux1.length = 0;   
+            arrayAux1.length = 0;
             for (var i in arrayAux2) {
                 var x = arrayAux2[i];
                 var resultado = [x[0]];
 
-                for (var j = 1; j < permisos.length; j++) {         
+                for (var j = 1; j < permisos.length; j++) {
                     var index = x.indexOf(permisos[j]);
                     if (index < 0) {
                         index = "no";
@@ -265,13 +310,13 @@
             }
 
             vm.usuariox = arrayAux1;
-            
+
             vm.infoRol = true;
             document.getElementById("body_index").style.overflow = "hidden";
 
         }
 
-
+        //---------------------------------------------------------------------------------
         function startAnimation() {
             document.getElementById(vm.idLoad).style.visibility = "visible";
             vm.procesando = true;

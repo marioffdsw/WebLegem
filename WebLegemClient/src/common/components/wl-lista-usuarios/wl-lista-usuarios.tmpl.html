@@ -28,6 +28,12 @@
                 <p>Rol: {{ usuario.rol.nombre }}</p>
             </label>
         </li>
+
+        <div class="error_lista" ng-show="vm.error">
+            <span class="ico2-sad"></span>
+            <p class="texto_labels">Error al cargar los datos</p>
+        </div>
+
     </ul>
 
 

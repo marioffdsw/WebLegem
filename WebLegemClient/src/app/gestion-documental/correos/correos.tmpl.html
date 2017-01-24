@@ -1,0 +1,37 @@
+﻿<div class="contenedor-subir-documento">
+
+    <div class="box_father animatio ng-enter" id="holas">
+        <div class="box_right">
+            <div style="width:100%; font-family:'Lato-Regular'">
+                <label class="subtitulos_labels">
+                    {{vm.language.strings.Resultado}}
+                </label>
+                <hr class="divisor_gestion_documental" />
+                <div style="display:flex; flex-direction:column; justify-content:center; align-self:center; align-content:center;">
+                    <div ng-show="!vm.error && !vm.success"><p class="texto_labels">{{vm.language.strings.Trabajando}}</p></div>
+                    <div ng-show="vm.success"><p class="texto_labels"> {{vm.language.strings.DocumentoCreadoExito}}</p></div>
+                    <div ng-show="vm.error"><p class="texto_labels">{{vm.language.strings.ErrorCrearDocumento}}</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="span-fill"></div>
+
+    <!---------------------------------------------------------------------------------------------------------------------Controles-->
+    <div class="box_father">
+        <div class="box_right">
+            <div class="divisor-pasos"><div></div></div>
+            <div class="controles-crear-anotacion">
+                <button type="button"
+                        ng-show="vm.error || vm.success"
+                        ui-sref="home" class="btn_con_ico">
+                    <span class="ico-chevron-right tamano_botones_1 derecha"></span>{{vm.language.strings.Regresar}}
+                </button>
+            </div>
+            <!--<p>{{ vm.error }}</p> creo q no sirve pa nada -->
+        </div>
+
+    </div>
+
+</div>
