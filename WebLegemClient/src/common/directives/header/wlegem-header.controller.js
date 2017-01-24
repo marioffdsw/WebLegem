@@ -6,15 +6,16 @@
         .module("WebLegemApp")
         .controller("headerController", headerController);
 
-    headerController.$inject = ["screenSize", "$state", "$rootScope", "LanguageService", "language"];
-    function headerController(screenSize, $state, $rootScope, LanguageService, language) {
+    headerController.$inject = ["screenSize", "$state", "$rootScope", "LanguageService", "language", "SessionService", "serviceUrl"];
+    function headerController(screenSize, $state, $rootScope, LanguageService, language, SessionService, serviceUrl) {
         var vm = this;
         vm.$state = $state;
         vm.desplegarMenu = desplegarMenu;
         vm.desplegarAcce = desplegarAcce;
         vm.language = language;
-
-        vm.loggeado = true;
+        vm.session = SessionService;
+        vm.serviceUrl = serviceUrl;
+        
         vm.LogOut = LogOut;
         vm.scrollTop = scrollTop;
         vm.scrollTop2 = scrollTop2;
@@ -50,43 +51,44 @@
                 nombre: "Ingresar",
                 icono: "ico-sign-in",
                 link: "login",
-                condicion: "!vm.loggeado",
+                condicion: "!vm.session.loggeado",
                 accion:vm.scrollTop
             }
         ];
 
-        vm.arregloOpciones = [
-            {
-                nombre: "Gestión Documental",
-                link: "gestion-documental.crear-documento.subir-archivo",
-                icono: "ico-stack-overflow",
-                condicion:"true"
-            },
-            {
-                nombre: "Administración",
-                link: "administracion.tipo-documento",
-                icono: "ico-tasks",
-                condicion:"true"
-            },
-            {
-                nombre: "Usuarios",
-                link: "usuarios.control-usuarios",
-                icono: "ico-users",
-                condicion:"true"
-            },
-            {
-                nombre: "Anotaciones",
-                link: "anotacion.crear-anotacion",
-                icono: "ico-files-o",
-                condicion: "true"
-            },
-            //{
-            //    nombre: "Auditoria",
-            //    link: "auditoria.auditoria1",
-            //    icono: "ico-files-o",
-            //    condicion: "true"
-            //}
-        ];
+        vm.arregloOpciones = SessionService.opcionesAMostrar;
+        //vm.arregloOpciones = [
+        //    {
+        //        nombre: "Gestión Documental",
+        //        link: "gestion-documental.crear-documento.subir-archivo",
+        //        icono: "ico-stack-overflow",
+        //        condicion:"true"
+        //    },
+        //    {
+        //        nombre: "Administración",
+        //        link: "administracion.tipo-documento",
+        //        icono: "ico-tasks",
+        //        condicion:"true"
+        //    },
+        //    {
+        //        nombre: "Usuarios",
+        //        link: "usuarios.control-usuarios",
+        //        icono: "ico-users",
+        //        condicion:"true"
+        //    },
+        //    {
+        //        nombre: "Anotaciones",
+        //        link: "anotacion.crear-anotacion",
+        //        icono: "ico-files-o",
+        //        condicion: "true"
+        //    },
+        //    //{
+        //    //    nombre: "Auditoria",
+        //    //    link: "auditoria.auditoria1",
+        //    //    icono: "ico-files-o",
+        //    //    condicion: "true"
+        //    //}
+        //];
 
 
         //Fin Items del Menu  -------------------------------------------->>
@@ -94,10 +96,11 @@
         //Funciones del menu --------------------------------------------->>
 
         function LogOut() {
-            $state.go("home");
-            vm.opcionesAMostrar = vm.opcionesNoLoggeado;
-            vm.loggeado = false;
-        }
+            //$state.go("home");
+            //vm.opcionesAMostrar = vm.opcionesNoLoggeado;
+            //vm.loggeado = false;
+            SessionService.LogOut();
+        }        
 
         //scroll to 0
         function scrollTop() {
@@ -270,9 +273,7 @@
                 case "alto":
                     $rootScope.val_contraste = 0;
                     break;
-            }
-
-            
+            }            
         };
 
         return vm;

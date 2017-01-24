@@ -23,14 +23,23 @@ namespace WebLegemAPI.Controllers
         private IPdfToText pdfToText;
         private ArchivoDao dao;
         private Dictionary<Guid, Archivo> map;
+        private TipoAnotacionDao taDao;
+        private TipoDocumentoDao tdDao;
+        private ContenidoDao cDao;
 
         public FilesController(IPdfToText pdfToText,
-                Dictionary<Guid, Archivo> dictionary, ArchivoDao dao)
+                Dictionary<Guid, Archivo> dictionary, ArchivoDao dao,
+                TipoAnotacionDao taDao,
+                TipoDocumentoDao tdDao,
+                ContenidoDao cDao)
             : base()
         {
             this.pdfToText = pdfToText;
             map = dictionary;
             this.dao = dao;
+            this.taDao = taDao;
+            this.tdDao = tdDao;
+            this.cDao= cDao;
         } // end constructor
 
         public HttpResponseMessage Get(int id)
@@ -80,6 +89,7 @@ namespace WebLegemAPI.Controllers
                     {
                         var info = new FileInfo(i.LocalFileName);
                         string resultado = pdfToText.Convertir(basePath, info.Name);
+                        var posiblesAnotaciones = new AnalizadorAnotaciones(this.tdDao, this.taDao).AnalizarPorPosiblesAnotaciones(resultado);
 
                         var test = textPath + @"\" + info.Name + ".txt";
 
@@ -96,7 +106,7 @@ namespace WebLegemAPI.Controllers
                         }
 
                         File.WriteAllText(test, resultado);
-                        return new FileDesc(archivo.Id.ToString(), basePath + @"\text" + @"\" + info.Name + ".txt", info.Length / 1024, asunto, guid);
+                        return new FileDesc(archivo.Id.ToString(), basePath + @"\text" + @"\" + info.Name + ".txt", info.Length / 1024, asunto, guid, posiblesAnotaciones);
                     });
 
                     return Ok(fileInfo);
@@ -108,7 +118,7 @@ namespace WebLegemAPI.Controllers
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotAcceptable, "This request is not properly formatted"));
             }
-        } // end action POST
+        } // end action POST        
 
         public class CustomMultipartFormDataStreamProvider : MultipartFormDataStreamProvider
         {
@@ -133,14 +143,16 @@ namespace WebLegemAPI.Controllers
             public long Size { get; set; }
             public string Result { get; set; }
             public Guid Guid { get; set; }
+            public List<Anotacion> PosiblesAnotaciones { get; set;}
 
-            public FileDesc(string n, string p, long s, string r, Guid g)
+            public FileDesc(string n, string p, long s, string r, Guid g, List<Anotacion> posiblesAnotaciones)
             {
                 Name = n;
                 Path = p;
                 Size = s;
                 Result = r;
                 Guid = g;
+                PosiblesAnotaciones = posiblesAnotaciones;
             }
         } // public class FileDesc
     } // end class ArchivosController

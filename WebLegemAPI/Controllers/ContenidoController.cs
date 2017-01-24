@@ -1,5 +1,8 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -15,15 +18,21 @@ namespace WebLegemAPI.Controllers
         Dictionary<Guid, Archivo> archivoMap;
         Dictionary<Guid, Documento> documentoMap;
         ContenidoDao dao;
+        TipoDocumentoDao tdDao;
+        TipoAnotacionDao taDao;
 
         public ContenidoController(
             Dictionary<Guid, Archivo> archivoMap, 
             Dictionary<Guid, Documento> documentoMap,
-            ContenidoDao dao )
+            ContenidoDao dao,
+            TipoDocumentoDao tdDao,
+            TipoAnotacionDao taDao)
         {
             this.archivoMap = archivoMap;
             this.documentoMap = documentoMap;
             this.dao = dao;
+            this.taDao = taDao;
+            this.tdDao = tdDao;
         } // end constructor
 
         [HttpPost]
@@ -46,5 +55,25 @@ namespace WebLegemAPI.Controllers
                     ) );
             }
         } // end method Post
+
+        [HttpGet]
+        [Route("api/Contenido/Anotaciones")]
+        public IHttpActionResult BuscarTiposAnotaciones(int id)
+        {
+            var result = dao.Exist(id);
+            if (result.IsSuccess)
+            {
+                var contenido = result.Value;
+                var textPath = ConfigurationManager.AppSettings["textPath"].ToString();
+                var filePath = Path.Combine(textPath, contenido.Contenido.FileName);
+                var text = File.ReadAllText(filePath);
+                var posiblesAnotaciones = new AnalizadorAnotaciones(tdDao, taDao).AnalizarPorPosiblesAnotaciones(text);
+                return Ok(posiblesAnotaciones);
+            }
+            else
+            {
+                return Ok(new List<Anotacion>());
+            }
+        } // end action method BuscarTiposAnotaciones
     } // end class ContenidoController
 } // end namespace WebLegemAPI.Controllers

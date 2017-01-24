@@ -37,7 +37,7 @@ namespace WebLegemDAL.Dao
                     return Result.Fail<Documento>( "No existe un documento con esas caracteristicas" );
                 throw ex;
             } // end method 
-        } // end method Exist
+        } // end method Exist        
 
         public IEnumerable<ContenidoDocumento> Search(String palabrasABuscar)
         {

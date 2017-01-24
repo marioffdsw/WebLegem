@@ -23,7 +23,7 @@ namespace WebLegemAPI.Controllers
             try
             {
                 return Ok(dao.GetAll().Where(x =>
-                x.NombreUsuario == usuario && x.Contrasena == contrasena).First().Rol.PermisosAsignados);
+                x.NombreUsuario == usuario && x.Contrasena == contrasena).First());
             } // end try
             catch (Exception)
             {

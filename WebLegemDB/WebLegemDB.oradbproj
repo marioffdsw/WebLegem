@@ -17,6 +17,7 @@
     <Folder Include="Functions\Entidad" />
     <Folder Include="Functions\Documento" />
     <Folder Include="Functions\Archivo" />
+    <Folder Include="Functions\Anotacion" />
     <Folder Include="Functions\Usuario" />
     <Folder Include="Functions\Recurso" />
     <Folder Include="Functions\Rol" />
@@ -68,6 +69,21 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Functions\actualizar_tipo_entidad_fun.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Anotacion\create_a.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Anotacion\delete_a.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Anotacion\get_a.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Anotacion\get_a_from_id.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Functions\Anotacion\update_a.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="Functions\Archivo\create_ar.sql">
@@ -374,6 +390,9 @@
       <SubType>Content</SubType>
     </Content>
     <Content Include="Triggers\View Triggers\eliminar_tipo_entidad_trig.sql">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="User Defined Types\Nested Tables\anotacion_tab_typ.sql">
       <SubType>Content</SubType>
     </Content>
     <Content Include="User Defined Types\Nested Tables\permiso_tab_typ.sql">

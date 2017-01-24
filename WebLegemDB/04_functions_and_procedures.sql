@@ -32,3 +32,14 @@
 @@'Functions/Documento/get_id_match.sql'
 
 @@'Functions/Documento/search_c.sql'
+
+
+
+
+
+/* --------------------------------------- */
+@@'Functions/Anotacion/get_a.sql'
+@@'Functions/Anotacion/create_a.sql'
+@@'Functions/Anotacion/delete_a.sql'
+@@'Functions/Anotacion/update_a.sql'
+@@'Functions/Anotacion/get_a_from_id.sql'

@@ -74,6 +74,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dao\AnotacionDao.cs" />
     <Compile Include="Dao\ContenidoDao.cs" />
     <Compile Include="Dao\DB.cs" />
     <Compile Include="Dao\DocumentoDao.cs" />

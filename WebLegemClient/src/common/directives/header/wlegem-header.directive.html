@@ -6,7 +6,7 @@
     <wl-nombre-logo class="logo-wl2" ng-show="vm.$state.current.name == 'home'">
     </wl-nombre-logo>
 
-    <wl-nombre-logo ng-show="vm.$state.current.name != 'home' || (!vm.loggeado && vm.$state.current.name == 'busqueda')">
+    <wl-nombre-logo ng-show="vm.$state.current.name != 'home' || (!vm.session.loggeado && vm.$state.current.name == 'busqueda')">
     </wl-nombre-logo>
 
 
@@ -16,7 +16,7 @@
 
         <ul class="ul_nav">
             <!--Opciones para usuarios---------------------------------------------------------->
-            <li class="li_nav" ng-show="vm.loggeado"
+            <li class="li_nav" ng-show="vm.session.loggeado"
                 ng-mouseover="vm.resize == true ? null : vm.toggle_menu = true"
                 ng-mouseleave="vm.resize == true ? null : vm.toggle_menu = false"
                 ng-click="vm.resize == true ? vm.toggle_menu = !vm.toggle_menu :null"
@@ -28,7 +28,7 @@
                 </a>
                 
                 <ul ng-show="vm.toggle_menu" class="desplegar">
-                    <li ng-repeat="opcion in vm.arregloOpciones" ng-click="vm.resize && vm.desplegarMenu()">
+                    <li ng-repeat="opcion in vm.session.opcionesAMostrar" ng-click="vm.resize && vm.desplegarMenu()">
                         <a class="btn_menu sub" ui-sref="{{opcion.link}}" href="#">
                             <div><span class="{{ opcion.icono }}"></span></div>
                             <p>{{ opcion.nombre }}</p>
@@ -47,11 +47,11 @@
             <li class="li_nav" ng-mouseover="vm.resize == true ? null: vm.toggle_usu = true "
                 ng-mouseleave="vm.resize == true ? null: vm.toggle_usu = false "
                 ng-click="vm.resize == true ? vm.toggle_usu = !vm.toggle_usu : null "
-                ng-show="vm.loggeado">
+                ng-show="vm.session.loggeado">
 
                 <a class=" btn_menu usu sin_ani" href="" ewl wl-p-enter="vm.toggle_usu = !vm.toggle_usu">
-                    <div>{{vm.usuario.username}}</div>
-                    <div><img src="{{vm.usuario.foto}}" /></div>
+                    <div>{{vm.session.usuario.nombreUsuario}}</div>
+                    <div><img src="{{vm.serviceUrl}}/Fotos?photoName={{vm.session.usuario.foto}}" /></div>
                 </a>
                 <ul ng-show="vm.toggle_usu" class="desplegar">
                     <li ng-click="vm.resize && vm.desplegarMenu()">
