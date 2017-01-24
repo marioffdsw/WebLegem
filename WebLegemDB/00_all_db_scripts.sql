@@ -1,0 +1,7 @@
+@@'01_web_legem_infrastructure.sql'
+@@'02_schema_definition.sql'
+@@'03_user_defined_types.sql'
+@@'04_functions_and_procedures.sql'
+@@'05_users_schema.sql'
+@@'06_datos_recursos.sql'
+@@'07_users_functions.sql'
