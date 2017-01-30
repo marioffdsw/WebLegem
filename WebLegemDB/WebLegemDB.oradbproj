@@ -38,6 +38,9 @@
     <DBRefs Include="Database References\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="00_all_db_scripts.sql">
+      <SubType>Content</SubType>
+    </Content>
     <Content Include="02_schema_definition.sql">
       <SubType>Content</SubType>
     </Content>

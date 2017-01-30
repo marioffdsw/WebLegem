@@ -58,14 +58,14 @@ namespace WebLegemAPI.Controllers
 
         [HttpGet]
         [Route("api/Contenido/Anotaciones")]
-        public IHttpActionResult BuscarTiposAnotaciones(int id)
+        public IHttpActionResult BuscarPosiblesAnotaciones(int id)
         {
             var result = dao.Exist(id);
             if (result.IsSuccess)
             {
                 var contenido = result.Value;
                 var textPath = ConfigurationManager.AppSettings["textPath"].ToString();
-                var filePath = Path.Combine(textPath, contenido.Contenido.FileName);
+                var filePath = Path.Combine(textPath, contenido.Archivo.Nombre + ".txt");
                 var text = File.ReadAllText(filePath);
                 var posiblesAnotaciones = new AnalizadorAnotaciones(tdDao, taDao).AnalizarPorPosiblesAnotaciones(text);
                 return Ok(posiblesAnotaciones);
