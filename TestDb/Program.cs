@@ -8,16 +8,16 @@ namespace TestDb
 {
     class Program
     {
-        //static void Main(string[] args)
-        //{
-        //    //TestTipoDocumento();
-        //    //TestTipoEntidad();
-        //    //TestEntidad();
-        //    //TestTipoAnotacion();
-        //    //TestArchivo();
-        //    //TestRecurso();
-        //    TestRoles();
-        //}
+        static void Main(string[] args)
+        {
+            //TestTipoDocumento();
+            //TestTipoEntidad();
+            //TestEntidad();
+            //TestTipoAnotacion();
+            //TestArchivo();
+            //TestRecurso();
+            TestRoles();
+        }
 
         public static void TestArchivo()
         {
@@ -84,11 +84,11 @@ namespace TestDb
 
         public static void TestRoles()
         {
-            //RolesTest.Create();
+            RolesTest.Create();
             //RolesTest.GetAll();
             //RolesTest.Get();
             //RolesTest.Update();
-            RolesTest.Delete();
+            //RolesTest.Delete();
         } // end method TestRoles
     }
 }   
