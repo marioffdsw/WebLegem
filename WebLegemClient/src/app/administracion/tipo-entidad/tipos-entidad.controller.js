@@ -36,6 +36,7 @@
         vm.cancelar = cancelar;
         vm.aceptar = aceptar;
         vm.nuevo = nuevo;
+        vm.actualizar = actualizar;
 
         /**********************************************************************************
          *
@@ -72,12 +73,12 @@
                 else {
                     guardar(tipoEntidad);
                 }
-                cancelar();
             }
         }
 
 
         function cancelar() {
+            actualizar();
             vm.editando = false;
             vm.tipoEntidadSeleccionado = {};
             vm.tiposDocumentos = mapearTiposDocumentoPermitidos(vm.tiposDocumentos, vm.tipoEntidadSeleccionado);
@@ -126,11 +127,12 @@
                     function errorCallback(error) {
                         vm.responseMessage = error.data.message;
                         vm.dialogResponse = true;
+                        cancelar();
                     },
                     function notifyCallback(error) {
+                        cancelar();
                     }
                 );
-            cancelar();
 
         } // end function create
 
@@ -147,9 +149,9 @@
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
                     vm.dialogResponse = true;
+                    cancelar();
                     stopAnimation();
                 });
-            cancelar();
         } // end method guardar
 
 
@@ -163,9 +165,9 @@
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
                     vm.dialogResponse = true;
+                    cancelar();
                     stopAnimation();
-                });            
-            cancelar();
+                });                        
         } // end function remover
 
         function seleccionar(tipoEntidad) {
@@ -206,6 +208,9 @@
             return false;
         } // end function isSelected
 
+        function actualizar() {
+            retrieveData();
+        }
 
         function startAnimation() {
             document.getElementById(vm.idLoad).style.visibility = "visible";

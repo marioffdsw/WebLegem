@@ -1,12 +1,18 @@
 ﻿<div>
-    <label class="texto_labels" style="margin-top:10px;">Lista de tipo de anotacion</label>
+    <label class="texto_labels" style="margin-top:10px;">{{ vm.language.strings.listadoTiposDocumento}}</label>
 
     <div class="box_input_btn">
+        <button class="btn_ico" title="Actualizar" ng-click="vm.actualizar()"
+                ng-class="vm.editando? 'disable': ''">
+            <span class="ico-refresh"></span>
+        </button>
+
         <input type="text"
                class="input_text_btn"
                ng-class="vm.editando? 'disable': ''"
                maxlength="20"
-               ng-model="vm.filter" />
+               ng-model="vm.filter"
+               placeholder="{{ vm.language.strings.listadoTiposDocumento }}" />
         <button class="btn_cancel" title="Quitar filtro" ng-click="vm.filter=''" ng-show="vm.filter.length > 2">
             <span class="ico-plus"></span>
         </button>

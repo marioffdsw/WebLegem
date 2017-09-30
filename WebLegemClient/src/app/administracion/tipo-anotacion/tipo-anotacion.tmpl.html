@@ -4,7 +4,9 @@
                                   lista="vm.tiposAnotacion"
                                   editando="vm.editando"
                                   procesando="vm.procesando"
-                                  error="vm.error">
+                                  error="vm.error"
+                                  actualizar="vm.actualizar"
+                                  >
         </wl-lista-tipos-anotacion>
         <div id="wl-lista" class=" load_list"></div>
     </div>
@@ -31,7 +33,7 @@
                 <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
             </div>
 
-            <label class="texto_labels">Raiz del tipo anotación:</label>
+            <label class="texto_labels">{{vm.language.strings.RaizTipoAnotacion}}:</label>
             <input class="a_input" ng-class="!vm.editando || !vm.tipoAnotacionSeleccionada? 'disable': ''"
                    type="text" name="raiz" required
                    ng-model="vm.tipoAnotacionSeleccionada.raiz"

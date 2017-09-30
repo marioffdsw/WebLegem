@@ -2,11 +2,16 @@
     <label class="texto_labels" style="margin-top:10px;">{{vm.language.strings.ListaEntidades}}</label>
 
     <div class="box_input_btn">
+        <button class="btn_ico" title="Actualizar" ng-click="vm.actualizar()"
+                ng-class="vm.editando? 'disable': ''">
+            <span class="ico-refresh"></span>
+        </button>
         <input type="text"
                class="input_text_btn"
                ng-class="vm.editando? 'disable': ''"
                maxlength="20"
-               ng-model="vm.filtro" />
+               ng-model="vm.filtro"
+               placeholder="{{ vm.language.strings.BuscarEntidad }}" />
         <button class="btn_cancel" title="Quitar filtro" ng-click="vm.filtro=''" ng-show="vm.filtro.length > 2">
             <span class="ico-plus"></span>
         </button>

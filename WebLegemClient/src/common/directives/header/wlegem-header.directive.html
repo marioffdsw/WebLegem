@@ -51,7 +51,7 @@
 
                 <a class=" btn_menu usu sin_ani" href="" ewl wl-p-enter="vm.toggle_usu = !vm.toggle_usu">
                     <div>{{vm.session.usuario.nombreUsuario}}</div>
-                    <div><img src="{{vm.serviceUrl}}/Fotos?photoName={{vm.session.usuario.foto}}" /></div>
+                    <div><img alt="" src="{{vm.serviceUrl}}/Fotos?photoName={{vm.session.usuario.foto}}" /></div>
                 </a>
                 <ul ng-show="vm.toggle_usu" class="desplegar">
                     <li ng-click="vm.resize && vm.desplegarMenu()">
@@ -60,6 +60,14 @@
                             <p>{{vm.language.strings.ConfigurarCuenta}}</p>
                         </a>
                     </li>
+
+                    <li ng-click="vm.resize && vm.desplegarMenu()">
+                        <a class="btn_menu sub" ui-sref="gestion-documental.crear-documento.notificar">
+                            <div class="ico-cog"></div>
+                            <p>correos</p>
+                        </a>
+                    </li>
+
                     <li ng-click="vm.resize && vm.desplegarMenu()">
                         <a class="btn_menu sub" ng-click="vm.LogOut()" href="">
                             <div class="ico-sign-out"></div>

@@ -1,10 +1,22 @@
 ﻿<div class="contenedor-subir-documento">
 
     <div class="box_father animatio ng-enter" id="holas">
+        <div class="box_left">
+            <wl-lista-correos   lista="vm.entidades"
+                                objeto-seleccionado="vm.entidadSeleccionada"
+                                editando="vm.editando"
+                                seleccionar="vm.seleccionar"
+                                procesando="vm.procesando"
+                                error="vm.error">
+            </wl-lista-correos>
+           
+            <div id="wl-lista" class=" load_list"></div>
+        </div>
+
         <div class="box_right">
             <div style="width:100%; font-family:'Lato-Regular'">
                 <label class="subtitulos_labels">
-                    {{vm.language.strings.Resultado}}
+                    {{vm.language.strings.Notificar}}
                 </label>
                 <hr class="divisor_gestion_documental" />
                 <div style="display:flex; flex-direction:column; justify-content:center; align-self:center; align-content:center;">
@@ -23,13 +35,10 @@
         <div class="box_right">
             <div class="divisor-pasos"><div></div></div>
             <div class="controles-crear-anotacion">
-                <button type="button"
-                        ng-show="vm.error || vm.success"
-                        ui-sref="home" class="btn_con_ico">
-                    <span class="ico-chevron-right tamano_botones_1 derecha"></span>{{vm.language.strings.Regresar}}
+                <button type="button" ui-sref="home" class="btn_con_ico inverso">
+                    {{vm.language.strings.Aceptar}}<span class="ico-chevron-right tamano_botones_1 derecha"></span>
                 </button>
             </div>
-            <!--<p>{{ vm.error }}</p> creo q no sirve pa nada -->
         </div>
 
     </div>

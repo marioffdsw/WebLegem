@@ -29,7 +29,8 @@
         vm.remover = remover;
         vm.cancelar = cancelar;
         vm.aceptar = aceptar;
-        vm.nuevo = nuevo;        
+        vm.nuevo = nuevo;
+        vm.actualizar = actualizar;
 
         /**********************************************************************************
         DATA RETRIEVING CALLS
@@ -49,13 +50,13 @@
                     crear(vm.tipoDocSeleccionado);
                 else
                     guardar(vm.tipoDocSeleccionado);
-                cancelar();
             }
 
         }
 
 
         function cancelar() {
+            actualizar();
             vm.editando = false;
             vm.tipoDocSeleccionado = undefined;
             vm.form_tipo_doc.$setPristine();
@@ -95,6 +96,7 @@
                         vm.responseMessage = error.data.message;
                         vm.dialogResponse = true;
                         stopAnimation();
+                        cancelar();
                     }
                 );
             cancelar();
@@ -134,9 +136,13 @@
                     vm.responseMessage = error.data.message;
                     vm.dialogResponse = true;
                     stopAnimation();
+                    cancelar();
                 });
-            cancelar();
         } // end function remover
+
+        function actualizar() {
+            retrieveData();
+        }
 
         function startAnimation() {           
             document.getElementById(vm.idLoad).style.visibility = "visible";

@@ -16,16 +16,20 @@
             TipoEntidad: "Tipo Entidad",
             ListaEntidades: "Lista de entidades",
             ListaTipoEntidades: "Lista de tipo de entidades",
+            BuscarEntidad: "Buscar Entidad ",
             //-----------Tipos_entidad---------------------//
             NombreTipoEntidad: "Nombre del tipo de la entidad",
             IngreseNombreTipoEntidad: "Ingrese el nombre de tipo de entidad",
             IngreseCorreoElectronico: "Ingrese correo electronico",            
-            CorreoNoValido:"Invalid mail",
+            CorreoNoValido: "Correo no valido",
+            BuscarTipoEntidad: "Buscar tipo de entidad",
             //-------------Tipo_documneto-------//
             NombreTipoDocumento: "Nombre de tipo documento",
+            BuscarDocumento: "Buscar documento ",
             //---------------------administracion-------------//
             TipoDocumento: "Tipo de documento",
-            Entidad: "Entidad",         
+            Entidad: "Entidad",                     
+            ListaAnotaciones: "Lista de tipo de anotacion",
             //----------control usuarios-------//
             ArchivoCargadoServidor: "El archivo ha sido cargado en el servidor",
             ArchivoNoCargadoServidor: "El archivo No ha sido cargado en el servidor",
@@ -46,8 +50,7 @@
             Activo: " Activo",
             Bloqueado: "Bloqueado",
             //---------cuenta-----------------//
-            ConfiguracionCuenta:"Configuración de cuenta",
-            
+            ConfiguracionCuenta:"Configuración de cuenta",            
             Guardar: "Guardar",
             //--------------recuperar clave------//
             RecuperacionContrasena: "Recuperación de contraseña",
@@ -68,8 +71,6 @@
             Buscar: "Buscar",
             EscribaBusqueda: "Escriba aquí su busqueda(Ejemplo:Decreto)",
             DocumentosEncontrados: "Documentos encontrados",
-            
-
             //----------- ----asunto--------------//
             CrearDocumento: "Crear documento",
             Asunto: "Asunto",
@@ -91,7 +92,6 @@
             ErrorCrearDocumento: "Error al crear documento",
             Regresar: "Regresar",
             //------------------Subir_archivo--------//
-            
             SubirDocumento: "Subir Documento",
             EscogaUnArchivo: "Escoga un archivo",
             ArrastreloAqui: "ó arrastrelo aquí.",
@@ -99,7 +99,6 @@
             ExisteAnota: "Existe anotación",
             TipoArchivoNoSoportado: "Tipo de archivo no soportado",
             SeleccioneArchivo: "Seleccione un archivo",
-
             //----------------login--------------//
             IngresoSistema: "Ingreso al sistema",
             CompleteCampo: "Complete este campo.",
@@ -109,8 +108,7 @@
             NombreUsuarioI:"Nombre de Usuario *",
             //------------------noticias-----------//
             Legem: "Legem",
-            //-------------control roles-------//
-            
+            //-------------control roles-------//            
             Permisos: "Permisos",
             //---------------crear anotacion ----------------------//
             SeleccionarDocumentoAnota:"Seleccionar documento que anota",
@@ -125,10 +123,9 @@
             CrearAnotacion: "Crear Anotación",
             SeHaCreadoAnotacion:"Se ha creado una Anotacion ",
             CompleteDatosCrearAnotacion:"Complete los datos para crear una anotación",
-            SeEncontroN:"Se encontro N",
-            ResultadosBusqueda:"resultados de la busqueda",
-            //------------Editar anotacion------//
-            BuscarDocumento: "Buscar documento",
+            SeEncontroN:"Se encontro ",
+            ResultadosBusqueda:"Resultados de la busqueda",
+            //------------Editar anotacion------//           
             VistaPreviaDocumento:"Vista previa del documento",
             GuardarCambios: "Guardar Cambios",
             VistaPrevia: "Vista Previa",
@@ -165,29 +162,25 @@
             NombreTipoAnotacion: "Nombre del tipo Anotación",
             IngreseNombreTipoAnotacion: "Ingrese el nombre del Tipo de Anotacion",
             IngreseRaizTipoAnotacion: "Ingrese la raiz del tipo anotacion",
-           
+            RaizTipoAnotacion: "Raiz del tipo anotación",
             //--------------lista anotaciones -----------------//
             NAnotacionesEncontradas: "N anotaciones encontradas",
             Detalles: "Detalles",
             QuitarSeleccion: "Quitar seleccion",
-            Descripcion:"Descripcion",
-            
-            AnoExpedicion: "Año de expedición",
-            
+            Descripcion:"Descripcion",            
+            AnoExpedicion: "Año de expedición",            
             seleccioneDocumentoAnotar: "Seleccione el documento al cual desea anotar",
-            CompleCamposRealizarAnotacion: "Complete los campos para realizar la anotación",
-           
+            CompleCamposRealizarAnotacion: "Complete los campos para realizar la anotación",           
             DescripcionAnotacion: "Descripcion anotación",
             //--------------crear anotacion----------//
             seleccionarDocumento: "seleccionar documento",
             EntidadEmisora:"Entidad emisora",
-            AnoPublicacion: "Año de publicacion",
-           
-            
+            AnoPublicacion: "Año de publicacion",           
             //-------------- lista ano anotaciones----------//
             //---------------------pregunta anadir anotaciones---------------------//
             DeseaAnadirAnotacionesDocumento: "¿Desea añadir anotaciones a este documento?",           
             //------------------seleccionar anotacion -------------------------------//        
+            ExistePresenteDocumento: "Existen",
             ExistenPresenteDocumento: "Existen n posibles documentos las cuales anota el presente documento",           
             Emitido:"Emitido por",
             Aceptar: "Aceptar",
@@ -223,7 +216,7 @@
             Ingles: "Ingles",           
             Irarriba: "Ir arriba",
             //-----------------place----//
-            NoEntontroDocumento: "No se encontro ningun documento con esa identificación",
+            NoEncontroDocumento: "No se encontro ningun documento con esa identificación",
             IngreseNombre: "Ingrese nombre",            
             //----- info anotaciones-----//
             Anotaciones: "Anotaciones",          
@@ -243,9 +236,12 @@
             Escritura:"Escritura",
             Edicion:"Edición",
             Eliminacion:"Eliminación",
-            //crear anotacio
             //---------------subir documento------//
-            SeleccioneOpcion:"Seleccione una opción",
+            SeleccioneOpcion: "Seleccione una opción",
+            Notificar: "Notificar",
+            //-----------alt-----------------------//
+            FotografiaUsuario: "Fotografia de usuario",
+
 
             //-------------------------OJO
 
@@ -280,9 +276,6 @@
                 icono: "ico-files-o",
                 condicion: "true"
             }
-            ]
-
-
-        
+            ]        
         }); 
 })();

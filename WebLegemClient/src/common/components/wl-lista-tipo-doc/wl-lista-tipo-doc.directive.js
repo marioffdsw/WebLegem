@@ -16,7 +16,8 @@
                 objetoSeleccionado: "=objetoSeleccionado",
                 editando: "=",
                 procesando: "=",
-                error: "="
+                error: "=",
+                actualizarCallback: "=actualizar"
             },
             bindToController: true
         };

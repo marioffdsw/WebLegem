@@ -14,7 +14,7 @@
          *   PROPERTIES
          *   
          **********************************************************************************/
-        
+
         vm.entidades = [];
         vm.tiposEntidades = [];
         vm.entidadSeleccionada = undefined;
@@ -33,11 +33,12 @@
          *   PUBLIC METHOD DEFINITION
          *   
          **********************************************************************************/
-        
+
         vm.remover = remover;
         vm.cancelar = cancelar;
         vm.aceptar = aceptar;
         vm.nuevo = nuevo;
+        vm.actualizar = actualizar;
 
         /**********************************************************************************
          *
@@ -45,7 +46,7 @@
          *   
          **********************************************************************************/
 
-        retrieveData();                
+        retrieveData();
 
 
 
@@ -53,14 +54,14 @@
          *
          *   PRIVATE METHODS
          *   
-         **********************************************************************************/                                             
+         **********************************************************************************/
 
 
         function aceptar() {
             var x = document.getElementById("tipo");
             var y = x.options[x.selectedIndex];
 
-            if (y.defaultSelected) {
+            if (y.defaultSelected && x.selectedIndex == 0) {
                 vm.form_entidad.tipo.$invalid = true;
             }
 
@@ -70,19 +71,19 @@
                 vm.form_entidad.nombre.$invalid ? vm.form_entidad.nombre.$dirty = true : '';
                 vm.form_entidad.correo.$invalid ? vm.form_entidad.correo.$dirty = true : '';
             }
-            else{
+            else {
                 if (vm.entidadSeleccionada.id == 0) {
-                    crear( vm.entidadSeleccionada );
+                    crear(vm.entidadSeleccionada);
                 }
                 else {
-                        guardar(vm.entidadSeleccionada);
+                    guardar(vm.entidadSeleccionada);
                 }
-                cancelar();
-                }
+            }
         }
 
 
         function cancelar() {
+            actualizar();
             vm.editando = false;
             vm.entidadSeleccionada = undefined;
             vm.form_entidad.$setPristine();
@@ -90,16 +91,16 @@
 
         function retrieveData() {
             startAnimation();
-                TipoEntidadService.query()
+            TipoEntidadService.query()
 
-                    .$promise.then(function (data) {
-                        stopAnimation();
-                        vm.tiposEntidades = data;
-                    },
-                    function errorCallback(error) {
-                        stopAnimation();
-                        vm.error = true;
-                    });
+                .$promise.then(function (data) {
+                    stopAnimation();
+                    vm.tiposEntidades = data;
+                },
+                function errorCallback(error) {
+                    stopAnimation();
+                    vm.error = true;
+                });
 
             EntidadService.query()
 
@@ -129,15 +130,17 @@
                     function errorCallback(error) {
                         vm.responseMessage = error.data.message;
                         vm.dialogResponse = true;
+                        cancelar();
                     },
                     function notifyCallback(error) {
+                        cancelar();
                     }
                 );
-            cancelar();
         } // end function create       
 
 
         function guardar(entidad) {
+            console.log(entidad);
             startAnimation();
             entidad.nombre = stringService.toTitleCase(entidad.nombre);
             EntidadService.update(tipo)
@@ -149,14 +152,16 @@
                             break;
                         }
                     }
+                    consolo.log(data)
+                    cancelar();
                     stopAnimation()
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
                     vm.dialogResponse = true;
+                    cancelar();
                     stopAnimation();
                 });
-            cancelar();
         } // end method guardar
 
         function remover(entidad) {
@@ -170,11 +175,11 @@
                     vm.responseMessage = error.data.message;
                     vm.dialogResponse = true;
                     stopAnimation();
+                    cancelar();
                 });
-            cancelar();
         } // end function remover
 
-        function seleccionar( entidadASeleccionar ){
+        function seleccionar(entidadASeleccionar) {
             if (vm.editando === true) {
                 return;
             }
@@ -183,14 +188,18 @@
             }
             else {
                 vm.entidadSeleccionada = angular.copy(entidadASeleccionar);
-                vm.entidadSeleccionada.tipoEntidad = seleccionarTipoEntidad( vm.entidadSeleccionada, vm.tiposEntidades );
+                vm.entidadSeleccionada.tipoEntidad = seleccionarTipoEntidad(vm.entidadSeleccionada, vm.tiposEntidades);
             }
         } // end function seleccionar
 
 
-        function seleccionarTipoEntidad( entidadSeleccionada, tiposEntidades ){
+        function seleccionarTipoEntidad(entidadSeleccionada, tiposEntidades) {
             return _.find(tiposEntidades, function (te) { return te.id == entidadSeleccionada.tipoEntidad.id });
         } // end method 
+
+        function actualizar() {
+            retrieveData();
+        }
 
         //---------------------------------------------------------------------------
         //animaciones carga
