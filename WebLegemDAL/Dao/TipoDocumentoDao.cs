@@ -34,7 +34,7 @@ namespace WebLegemDAL.Dao
 
         public Maybe<TipoDocumento> Get( int id )
         {
-            using (OracleConnection conn = DB.GetOracleConnection())            
+            using (OracleConnection conn = DB.GetOracleConnection())         
             using (OracleCommand cmd = DB.GetFuncionCommand( conn, @"WEB_LEGEM.GET_TD"))
             {
                 var result = DB.AddObjectResult( cmd, UdtTypeName );
