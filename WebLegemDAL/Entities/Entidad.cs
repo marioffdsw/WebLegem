@@ -17,6 +17,7 @@ namespace WebLegemDAL.Models
 
         private int id;
         private string nombre;
+        private string correo;
         private TipoEntidad tipoEntidad;
         private DateTime ultimaModificacion;
 
@@ -73,7 +74,21 @@ namespace WebLegemDAL.Models
             {
                 nombre = value;
             }
-        } // fin prop Nombre        
+        } // fin prop Nombre       
+
+        [OracleObjectMappingAttribute("CORREO")]
+        public string Correo
+        {
+            get
+            {
+                return correo;
+            }
+            set
+            {
+                correo = value;
+            }
+
+        }
 
         [OracleObjectMappingAttribute("TIPO_ENTIDAD")]
         public TipoEntidad TipoEntidad
@@ -109,7 +124,10 @@ namespace WebLegemDAL.Models
             OracleUdt.SetValue(con, pUdt, "ID", id);
 
             if (nombre != null)            
-                OracleUdt.SetValue(con, pUdt, "NOMBRE", nombre);            
+                OracleUdt.SetValue(con, pUdt, "NOMBRE", nombre);
+
+            if (correo != null)
+                OracleUdt.SetValue(con, pUdt, "CORREO", correo);          
 
             if (tipoEntidad != null)
                 OracleUdt.SetValue( con, pUdt, "TIPO_ENTIDAD", tipoEntidad );
@@ -123,13 +141,14 @@ namespace WebLegemDAL.Models
         {            
             Id = (Int32)OracleUdt.GetValue(con, pUdt, "ID");            
             Nombre = (string) OracleUdt.GetValue(con, pUdt, "NOMBRE");
-            TipoEntidad = (TipoEntidad) OracleUdt.GetValue( con, pUdt, "TIPO_ENTIDAD" );
+            Correo = (string) OracleUdt.GetValue(con, pUdt, "CORREO");
+            TipoEntidad = (TipoEntidad)OracleUdt.GetValue(con, pUdt, "TIPO_ENTIDAD");
             UltimaModificacion = (DateTime)OracleUdt.GetValue( con, pUdt, "ULTIMA_MODIFICACION");
         } // end ToCustomObject method
 
         public override string ToString()
         {
-            return "Entidad( " + Id + ", " + Nombre + ", " + tipoEntidad + " )";
+            return "Entidad( " + Id + ", " + Nombre + ", " + Correo +", " + tipoEntidad + " )";
         } // fin ToString method
     } // fin Entidad class    
 } // fin namespace

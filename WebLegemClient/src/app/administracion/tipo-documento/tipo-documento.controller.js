@@ -66,7 +66,6 @@
         function retrieveData() {
             startAnimation();
             TipoDocumentoResource.query()
-
                 .$promise.then(function (data) {
                     stopAnimation();
                     vm.tiposDoc = data;
@@ -74,9 +73,7 @@
                 function errorCallback(error) {
                     stopAnimation();
                     vm.error = true;
-                }
-
-                );
+                });
         }
 
         function nuevo() {
@@ -90,16 +87,18 @@
             TipoDocumentoResource.save(vm.tipoDocSeleccionado)
                 .$promise.then(
                     function (data) {
-                        retrieveData();
+                        cancelar();
                     },
                     function errorCallback(error) {
                         vm.responseMessage = error.data.message;
-                        vm.dialogResponse = true;
-                        stopAnimation();
+                        vm.dialogResponse = true;                        
+                        cancelar();
+                    },
+                    function notifyCallback(error) {
                         cancelar();
                     }
                 );
-            cancelar();
+            
         } // end function create       
 
 
@@ -115,14 +114,13 @@
                             break;
                         }
                     }
-                    stopAnimation();
+                    cancelar();
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
-                    vm.dialogResponse = true;
-                    stopAnimation();
+                    vm.dialogResponse = true;                    
+                    cancelar();
                 });
-            cancelar();
         } // end method guardar
 
         function remover(tipo) {
@@ -134,8 +132,7 @@
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
-                    vm.dialogResponse = true;
-                    stopAnimation();
+                    vm.dialogResponse = true;                    
                     cancelar();
                 });
         } // end function remover

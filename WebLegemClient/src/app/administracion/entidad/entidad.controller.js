@@ -116,16 +116,17 @@
 
 
         function nuevo() {
-            vm.entidadSeleccionada = { id: 0, nombre: "", tipoEntidad: {} };
+            vm.entidadSeleccionada = { id: 0, nombre: "", correo:"", tipoEntidad: {} };
         }
 
 
         function crear(entidad) {
             entidad.nombre = stringService.toTitleCase(entidad.nombre);
+            entidad.correo = entidad.correo;
             EntidadService.save(entidad)
                 .$promise.then(
-                    function (data) {
-                        retrieveData();
+                    function (data) {                        
+                        cancelar();
                     },
                     function errorCallback(error) {
                         vm.responseMessage = error.data.message;
@@ -140,10 +141,10 @@
 
 
         function guardar(entidad) {
-            console.log(entidad);
             startAnimation();
             entidad.nombre = stringService.toTitleCase(entidad.nombre);
-            EntidadService.update(tipo)
+            entidad.correo = stringService.toTitleCase(entidad.correo);
+            EntidadService.update(entidad)
                 .$promise.then(
                 function (data) {
                     for (var i = 0; i < vm.entidades.length; i++) {
@@ -152,15 +153,12 @@
                             break;
                         }
                     }
-                    consolo.log(data)
                     cancelar();
-                    stopAnimation()
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
                     vm.dialogResponse = true;
                     cancelar();
-                    stopAnimation();
                 });
         } // end method guardar
 
@@ -168,13 +166,12 @@
             startAnimation();
             EntidadService.remove(entidad)
             .$promise.then(
-                function (data) {
-                    retrieveData();
+                function (data) {                    
+                    cancelar();
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
-                    vm.dialogResponse = true;
-                    stopAnimation();
+                    vm.dialogResponse = true;                    
                     cancelar();
                 });
         } // end function remover

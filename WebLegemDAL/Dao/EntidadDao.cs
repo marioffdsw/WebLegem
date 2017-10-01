@@ -66,6 +66,7 @@ namespace WebLegemDAL.Dao
 
         public Result<Entidad> Update(Entidad e)
         {
+            
             try{
                 using (OracleConnection conn = DB.GetOracleConnection())
                 using (OracleCommand cmd = DB.GetFuncionCommand(conn, "WEB_LEGEM.UPDATE_E"))

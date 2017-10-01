@@ -87,9 +87,7 @@
 
 
         function retrieveData() {
-
             startAnimation();
-
             TipoEntidadService.query()
                 .$promise.then(function (data) {
                     stopAnimation();
@@ -122,7 +120,7 @@
             TipoEntidadService.save(tipoEntidad)
                 .$promise.then(
                     function (data) {
-                        retrieveData();
+                        cancelar();
                     },
                     function errorCallback(error) {
                         vm.responseMessage = error.data.message;
@@ -142,15 +140,13 @@
             tipoEntidad.nombre = stringService.toTitleCase(tipoEntidad.nombre);
             TipoEntidadService.update(tipoEntidad)
                 .$promise.then(
-                function (data) {
-                    retrieveData();
-                    stopAnimation()
+                function (data) {                    
+                    cancelar();
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
                     vm.dialogResponse = true;
                     cancelar();
-                    stopAnimation();
                 });
         } // end method guardar
 
@@ -159,14 +155,13 @@
             startAnimation();
             TipoEntidadService.remove(tipoEntidad)
             .$promise.then(
-                function (data) {
-                    retrieveData();
+                function (data) {                    
+                    cancelar();
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
                     vm.dialogResponse = true;
                     cancelar();
-                    stopAnimation();
                 });                        
         } // end function remover
 

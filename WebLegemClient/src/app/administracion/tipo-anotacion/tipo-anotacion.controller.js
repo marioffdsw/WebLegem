@@ -93,8 +93,8 @@
             vm.tipoAnotacionSeleccionada.nombre = stringService.toTitleCase(vm.tipoAnotacionSeleccionada.nombre);
             TipoAnotacionResource.save(vm.tipoAnotacionSeleccionada)
                 .$promise.then(
-                    function (data) {
-                        retrieveData();
+                    function (data) {                        
+                        cancelar();
                     },
                     function errorCallback(error) {
                         vm.responseMessage = error.data.message;
@@ -119,13 +119,11 @@
                             break;
                         }
                     }
-                    stopAnimation()
                     cancelar();
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
-                    vm.dialogResponse = true;
-                    stopAnimation();
+                    vm.dialogResponse = true;                    
                     cancelar();
                 });
         }
@@ -134,13 +132,12 @@
             startAnimation();
             TipoAnotacionResource.remove(tipoAnotacion)
             .$promise.then(
-                function (data) {
-                    retrieveData();
+                function (data) {                    
+                    cancelar();
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
-                    vm.dialogResponse = true;
-                    stopAnimation();
+                    vm.dialogResponse = true;                    
                     cancelar();
                 });
         }
