@@ -31,6 +31,7 @@
         vm.cancelar = cancelar;
         vm.aceptar = aceptar;
         vm.nuevo = nuevo;
+        vm.actualizar = actualizar;
 
         /**********************************************************************************
         DATA RETRIEVING CALLS
@@ -54,15 +55,19 @@
                 else {
                     guardar(vm.tipoAnotacionSeleccionada);
                 }
-                cancelar();
             }    
         }
 
 
         function cancelar() {
+            actualizar();
             vm.editando = false;
             vm.tipoAnotacionSeleccionada = undefined;
             vm.form_tipo_ano.$setPristine();
+        }
+
+        function actualizar() {
+            retrieveData();
         }
 
 
@@ -88,17 +93,18 @@
             vm.tipoAnotacionSeleccionada.nombre = stringService.toTitleCase(vm.tipoAnotacionSeleccionada.nombre);
             TipoAnotacionResource.save(vm.tipoAnotacionSeleccionada)
                 .$promise.then(
-                    function (data) {
-                        retrieveData();
+                    function (data) {                        
+                        cancelar();
                     },
                     function errorCallback(error) {
                         vm.responseMessage = error.data.message;
                         vm.dialogResponse = true;
+                        cancelar();
                     },
                     function notifyCallback(error) {
+                        cancelar();
                     }
                 );
-            cancelar();
         }
 
         function guardar(tipo) {
@@ -113,29 +119,27 @@
                             break;
                         }
                     }
-                    stopAnimation()
+                    cancelar();
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
-                    vm.dialogResponse = true;
-                    stopAnimation();
+                    vm.dialogResponse = true;                    
+                    cancelar();
                 });
-            cancelar();
         }
 
         function remover(tipoAnotacion) {
             startAnimation();
             TipoAnotacionResource.remove(tipoAnotacion)
             .$promise.then(
-                function (data) {
-                    retrieveData();
+                function (data) {                    
+                    cancelar();
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
-                    vm.dialogResponse = true;
-                    stopAnimation();
+                    vm.dialogResponse = true;                    
+                    cancelar();
                 });
-            cancelar();
         }
 
         function startAnimation() {

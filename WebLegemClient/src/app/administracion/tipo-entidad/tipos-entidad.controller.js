@@ -36,6 +36,7 @@
         vm.cancelar = cancelar;
         vm.aceptar = aceptar;
         vm.nuevo = nuevo;
+        vm.actualizar = actualizar;
 
         /**********************************************************************************
          *
@@ -72,12 +73,12 @@
                 else {
                     guardar(tipoEntidad);
                 }
-                cancelar();
             }
         }
 
 
         function cancelar() {
+            actualizar();
             vm.editando = false;
             vm.tipoEntidadSeleccionado = {};
             vm.tiposDocumentos = mapearTiposDocumentoPermitidos(vm.tiposDocumentos, vm.tipoEntidadSeleccionado);
@@ -86,9 +87,7 @@
 
 
         function retrieveData() {
-
             startAnimation();
-
             TipoEntidadService.query()
                 .$promise.then(function (data) {
                     stopAnimation();
@@ -121,16 +120,17 @@
             TipoEntidadService.save(tipoEntidad)
                 .$promise.then(
                     function (data) {
-                        retrieveData();
+                        cancelar();
                     },
                     function errorCallback(error) {
                         vm.responseMessage = error.data.message;
                         vm.dialogResponse = true;
+                        cancelar();
                     },
                     function notifyCallback(error) {
+                        cancelar();
                     }
                 );
-            cancelar();
 
         } // end function create
 
@@ -140,16 +140,14 @@
             tipoEntidad.nombre = stringService.toTitleCase(tipoEntidad.nombre);
             TipoEntidadService.update(tipoEntidad)
                 .$promise.then(
-                function (data) {
-                    retrieveData();
-                    stopAnimation()
+                function (data) {                    
+                    cancelar();
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
                     vm.dialogResponse = true;
-                    stopAnimation();
+                    cancelar();
                 });
-            cancelar();
         } // end method guardar
 
 
@@ -157,15 +155,14 @@
             startAnimation();
             TipoEntidadService.remove(tipoEntidad)
             .$promise.then(
-                function (data) {
-                    retrieveData();
+                function (data) {                    
+                    cancelar();
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
                     vm.dialogResponse = true;
-                    stopAnimation();
-                });            
-            cancelar();
+                    cancelar();
+                });                        
         } // end function remover
 
         function seleccionar(tipoEntidad) {
@@ -206,6 +203,9 @@
             return false;
         } // end function isSelected
 
+        function actualizar() {
+            retrieveData();
+        }
 
         function startAnimation() {
             document.getElementById(vm.idLoad).style.visibility = "visible";

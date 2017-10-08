@@ -11,6 +11,7 @@
         vm.language = language;
         vm.seleccionarObjeto = seleccionarObjeto;
         vm.checkear = checkear;
+        vm.actualizar = actualizar;
 
         function checkear(tipo) {            
             return vm.objetoSeleccionado && angular.equals(vm.objetoSeleccionado.id, tipo.id);
@@ -26,7 +27,11 @@
             else {
                 vm.objetoSeleccionado = angular.copy(tipo, {});
             }            
-        } // end function                        
+        } // end function    
+
+        function actualizar() {
+            vm.actualizarCallback();
+        }
 
         return vm;
     } // end controller

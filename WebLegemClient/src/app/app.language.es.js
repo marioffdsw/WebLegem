@@ -32,7 +32,7 @@
             BuscarDocumento:"Buscar documento",
             //---------------------administracion-------------//
             TipoDocumento: "Tipo de documento",
-            Entidad: "Entidad",
+            Entidad: "Entidad",         
             ListaAnotaciones:"Lista de tipo de anotacion",
             //----------control usuarios-------//
             ArchivoCargadoServidor: "El archivo ha sido cargado en el servidor",
@@ -56,7 +56,7 @@
             CerrarDialogo: "Cerrar dialogo",
             InformacionRol:"Información rol",
             //---------cuenta-----------------//
-            ConfiguracionCuenta:"Configuración de cuenta",            
+            ConfiguracionCuenta:"Configuración de cuenta",
             Guardar: "Guardar",
             CorreoNoValido: "Correo no valido",
             //--------------recuperar clave------//
@@ -78,7 +78,7 @@
             BusquedaAvanzada: "Busqueda avanzada",
             Buscar: "Buscar",
             EscribaBusqueda: "Escriba aquí su busqueda (Ejemplo: Decreto)",
-            DocumentosEncontrados: "Documentos encontrados",    
+            DocumentosEncontrados: "Documentos encontrados",
             //----------- ----asunto--------------//
             CrearDocumento: "Crear documento",
             Asunto: "Asunto",
@@ -116,7 +116,7 @@
             NombreUsuarioI:"Nombre de Usuario *",
             //------------------noticias-----------//
             Legem: "Legem",
-            //-------------control roles-------//            
+            //-------------control roles-------//
             Permisos: "Permisos",
             //---------------crear anotacion ----------------------//
             SeleccionarDocumentoAnota:"Seleccionar documento que anota",
@@ -131,9 +131,9 @@
             CrearAnotacion: "Crear anotación",
             SeHaCreadoAnotacion:"Se ha creado una Anotacion ",
             CompleteDatosCrearAnotacion:"Complete los datos para crear una anotación",
-            SeEncontroN:"Se encontro",
-            ResultadosBusqueda:"resultados de la busqueda",
-            //------------Editar anotacion------//          
+            SeEncontroN:"Se encontró",
+            ResultadosBusqueda:"Resultados de la busqueda",
+            //------------Editar anotacion------//
             VistaPreviaDocumento:"Vista previa del documento",
             GuardarCambios: "Guardar cambios",
             VistaPrevia: "Vista previa",
@@ -175,15 +175,15 @@
             NAnotacionesEncontradas: "Anotaciones encontradas",
             Detalles: "Detalles",
             QuitarSeleccion: "Quitar seleccion",
-            Descripcion:"Descripcion",            
-            AnoExpedicion: "Año de expedición",            
+            Descripcion:"Descripcion",
+            AnoExpedicion: "Año de expedición",
             seleccioneDocumentoAnotar: "Seleccione el documento al cual desea anotar",
-            CompleCamposRealizarAnotacion: "Complete los campos para realizar la anotación",           
+            CompleCamposRealizarAnotacion: "Complete los campos para realizar la anotación",
             DescripcionAnotacion: "Descripcion anotación",
             //--------------crear anotacion----------//
             seleccionarDocumento: "Seleccionar documento",
             EntidadEmisora:"Entidad emisora",
-            AnoPublicacion: "Año de publicacion",           
+            AnoPublicacion: "Año de publicacion",
             //-------------- lista ano anotaciones----------//
             //---------------------pregunta anadir anotaciones---------------------//
             DeseaAnadirAnotacionesDocumento: "¿Desea añadir anotaciones a este documento?",           
@@ -224,7 +224,7 @@
             Ingles: "Ingles",           
             Irarriba: "Ir arriba",
             //-----------------place----//
-            NoEntontroDocumento: "No se encontro ningun documento con esa identificación",
+            NoEncontroDocumento: "No se encontro ningun documento con esa identificación",
             IngreseNombre: "Ingrese nombre",            
             //----- info anotaciones-----//
             Anotaciones: "Anotaciones",          
@@ -244,7 +244,6 @@
             Escritura:"Escritura",
             Edicion:"Edición",
             Eliminacion:"Eliminación",
-            //crear anotacio
             //---------------subir documento------//
             SeleccioneOpcion: "Seleccione una opción",
             Notificar: "Notificar",
@@ -277,7 +276,7 @@
             //-----------------fotografia-------------------//
             CerrarCamara: "Cerrar camara",
             
-            
+
             //-------------------------OJO
 
             arregloOpciones : [
@@ -312,8 +311,5 @@
                 condicion: "true"
             }
             ]
-
-
-        
         }); 
 })();

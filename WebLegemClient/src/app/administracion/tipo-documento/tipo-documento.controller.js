@@ -29,7 +29,8 @@
         vm.remover = remover;
         vm.cancelar = cancelar;
         vm.aceptar = aceptar;
-        vm.nuevo = nuevo;        
+        vm.nuevo = nuevo;
+        vm.actualizar = actualizar;
 
         /**********************************************************************************
         DATA RETRIEVING CALLS
@@ -49,13 +50,13 @@
                     crear(vm.tipoDocSeleccionado);
                 else
                     guardar(vm.tipoDocSeleccionado);
-                cancelar();
             }
 
         }
 
 
         function cancelar() {
+            actualizar();
             vm.editando = false;
             vm.tipoDocSeleccionado = undefined;
             vm.form_tipo_doc.$setPristine();
@@ -65,7 +66,6 @@
         function retrieveData() {
             startAnimation();
             TipoDocumentoResource.query()
-
                 .$promise.then(function (data) {
                     stopAnimation();
                     vm.tiposDoc = data;
@@ -73,9 +73,7 @@
                 function errorCallback(error) {
                     stopAnimation();
                     vm.error = true;
-                }
-
-                );
+                });
         }
 
         function nuevo() {
@@ -89,15 +87,18 @@
             TipoDocumentoResource.save(vm.tipoDocSeleccionado)
                 .$promise.then(
                     function (data) {
-                        retrieveData();
+                        cancelar();
                     },
                     function errorCallback(error) {
                         vm.responseMessage = error.data.message;
-                        vm.dialogResponse = true;
-                        stopAnimation();
+                        vm.dialogResponse = true;                        
+                        cancelar();
+                    },
+                    function notifyCallback(error) {
+                        cancelar();
                     }
                 );
-            cancelar();
+            
         } // end function create       
 
 
@@ -113,14 +114,13 @@
                             break;
                         }
                     }
-                    stopAnimation();
+                    cancelar();
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
-                    vm.dialogResponse = true;
-                    stopAnimation();
+                    vm.dialogResponse = true;                    
+                    cancelar();
                 });
-            cancelar();
         } // end method guardar
 
         function remover(tipo) {
@@ -132,11 +132,14 @@
                 },
                 function errorCallback(error) {
                     vm.responseMessage = error.data.message;
-                    vm.dialogResponse = true;
-                    stopAnimation();
+                    vm.dialogResponse = true;                    
+                    cancelar();
                 });
-            cancelar();
         } // end function remover
+
+        function actualizar() {
+            retrieveData();
+        }
 
         function startAnimation() {           
             document.getElementById(vm.idLoad).style.visibility = "visible";

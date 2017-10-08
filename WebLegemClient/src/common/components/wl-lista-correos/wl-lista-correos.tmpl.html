@@ -1,17 +1,30 @@
 ﻿<div>
+    <tr>
+        <td><label class="texto_labels" for="entidad" ng-model="vm.documento.entidad">Tipo de destinatario</label></td>
+        <td>
+            <div class="a_select">
+                <select id="entidad" ng-model="vm.tipo" required name="entidad"
+                        ng-options="opcion.nombre for opcion in vm.opciones" ng-change="vm.updateList();">
+                    <option value="">Seleccione Destinatario</option>
+                </select>
+            </div>
+            <div ng-show="vm.form_info_doc.entidad.$invalid">
+                <div class="msj-error">{{vm.language.strings.SeleccioneOpcion}}</div>
+            </div>
+            
+        </td>
+    </tr>
+
+    tipo: {{vm.tipo}}
+
     <label class="texto_labels" style="margin-top:10px;">{{vm.language.strings.ListaTipoEntidades}}</label>
 
     <div class="box_input_btn">
-        <button class="btn_ico" title="Actualizar" ng-click="vm.actualizar()"
-                ng-class="vm.editando? 'disable': ''">
-            <span class="ico-refresh"></span>
-        </button>
         <input type="text"
                class="input_text_btn"
                ng-class="vm.editando? 'disable': ''"
                maxlength="20"
-               ng-model="vm.filter"
-               placeholder="{{ vm.language.strings.BuscarTipoEntidad }}" />
+               ng-model="vm.filter" />
         <button class="btn_cancel" title="Quitar filtro" ng-click="vm.filter=''" ng-show="vm.filter.length > 2">
             <span class="ico-plus"></span>
         </button>
@@ -34,8 +47,7 @@
 
         <div class="error_lista" ng-show="vm.error">
             <span class="ico2-sad"></span>
-            <p class="texto_labels">{{vm.language.strings.ErrorCargarDatos}}</p>
+            <p class="texto_labels">Error al cargar los datos</p>
         </div>
-
     </ul>
 </div>

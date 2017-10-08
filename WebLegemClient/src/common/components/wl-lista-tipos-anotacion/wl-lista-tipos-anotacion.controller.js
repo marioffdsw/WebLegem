@@ -1,5 +1,5 @@
 ﻿(function () {
-    'use strict';
+    "use strict";
 
     angular
       .module('WebLegemApp')
@@ -11,6 +11,7 @@
         vm.language = language;
         vm.seleccionarObjeto = seleccionarObjeto;
         vm.checkear = checkear;
+        vm.actualizar = actualizar;
 
 
         function checkear(entidad) {
@@ -27,7 +28,11 @@
             else {
                 vm.objetoSeleccionado = angular.copy(tipo, {});
             }
-        } // end function                        
+        } // end function     
+
+        function actualizar() {
+            vm.actualizarCallback();
+        }
 
         return vm;
     } // end controller

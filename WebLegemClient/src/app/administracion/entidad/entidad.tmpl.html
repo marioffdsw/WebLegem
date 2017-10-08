@@ -5,7 +5,8 @@
                             editando="vm.editando"
                             seleccionar="vm.seleccionar"
                             procesando="vm.procesando"
-                            error="vm.error">
+                            error="vm.error"
+                            actualizar="vm.actualizar">
         </wl-lista-entidades>
         <div id="wl-lista" class=" load_list"></div>
     </div>
@@ -67,8 +68,6 @@
             <div ng-show="vm.form_entidad.tipo.$invalid && vm.form_entidad.tipo.$dirty" style="margin-top:7px;">
                 <div class="msj-error">{{vm.language.strings.SeleccioneOpcion}}</div>
             </div>
-
-            
 
         </form>
 

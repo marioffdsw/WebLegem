@@ -56,6 +56,15 @@
                 title: "Seleccionar anotación"
             })
 
+            //==========================Correos================================
+            .state("gestion-documental.crear-documento.notificar", {
+                url: "/notificar",
+                templateUrl: "app/gestion-documental/correos/correos.tmpl.html",
+                title: "Notificar"
+
+            })
+
+
 
         ;
     } // end config function

@@ -3,13 +3,13 @@
 
     angular
         .module("WebLegemApp")
-        .directive("wlListaTiposEntidades", wlListaTiposEntidades);
+        .directive("wlListaCorreos", wlListaCorreos);
 
-    function wlListaTiposEntidades() {
+    function wlListaCorreos() {
         return {
-            templateUrl: "common/components/wl-lista-tipos-entidad/wl-lista-tipos-entidad.tmpl.html",
+            templateUrl: "common/components/wl-lista-correos/wl-lista-correos.tmpl.html",
             restrict: "E",
-            controller: "WlListaTiposEntidadesController",
+            controller: "WlListaCorreosController",
             controllerAs: "vm",
             scope: {
                 lista: "=lista",
@@ -17,8 +17,7 @@
                 seleccionar: "=seleccionar",
                 editando: "=",
                 procesando: "=",
-                error: "=",
-                actualizarCallback: "=actualizar"
+                error: "="
             },
             bindToController: true
         };
