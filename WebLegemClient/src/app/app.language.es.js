@@ -6,26 +6,34 @@
         .constant("es", {
             contraste: "Contraste",
             idioma: "Idioma",
-            tamanoFuente: "Tamaño Fuente",
+            tamanoFuente: "Tamaño fuente",
             spa: "Español",
             eng: "English",
-            listadoTiposDocumento: "Listado de Tipos Documento",
+            listadoTiposDocumento: "Listado de tipos documento",
+            Inicio:"Inicio",
             //-------------Entidad---------//
             NombreEntidad: "Nombre de la entidad",
             IngreseNombreEntidad: "Ingrese el nombre de la entidad",
-            TipoEntidad: "Tipo Entidad",
+            TipoEntidad: "Tipo entidad",
             ListaEntidades: "Lista de entidades",
             ListaTipoEntidades: "Lista de tipo de entidades",
+            BuscarEntidad:"Buscar entidad",
+            Error: "Error",
+            Entidades:"Entidades",
             //-----------Tipos_entidad---------------------//
             NombreTipoEntidad: "Nombre del tipo de la entidad",
             IngreseNombreTipoEntidad: "Ingrese el nombre de tipo de entidad",
             IngreseCorreoElectronico: "Ingrese correo electronico",            
-            CorreoNoValido:"Invalid mail",
+            CorreoNoValido: "Correo no valido",
+            BuscarTipoEntidad:"Buscar tipo de entidad",
+            DocumentosSoportados:"Documentos soportados",
             //-------------Tipo_documneto-------//
             NombreTipoDocumento: "Nombre de tipo documento",
+            BuscarDocumento:"Buscar documento",
             //---------------------administracion-------------//
             TipoDocumento: "Tipo de documento",
-            Entidad: "Entidad",         
+            Entidad: "Entidad",
+            ListaAnotaciones:"Lista de tipo de anotacion",
             //----------control usuarios-------//
             ArchivoCargadoServidor: "El archivo ha sido cargado en el servidor",
             ArchivoNoCargadoServidor: "El archivo No ha sido cargado en el servidor",
@@ -39,20 +47,22 @@
             NombreUsuario: "Nombre de usuario",
             Contrasena: "Contraseña",
             NivelSeguridad: "Nivel de seguridad",
-            ConfirmarContrasena: "Confirmar Contraseña",
+            ConfirmarContrasena: "Confirmar contraseña",
             CorreoElectronico: "Correo electronico",
             RolUsuario: "Rol del usuario",
             EstadoUsuario: "Estado del usuario",
             Activo: " Activo",
             Bloqueado: "Bloqueado",
+            CerrarDialogo: "Cerrar dialogo",
+            InformacionRol:"Información rol",
             //---------cuenta-----------------//
-            ConfiguracionCuenta:"Configuración de cuenta",
-            
+            ConfiguracionCuenta:"Configuración de cuenta",            
             Guardar: "Guardar",
+            CorreoNoValido: "Correo no valido",
             //--------------recuperar clave------//
             RecuperacionContrasena: "Recuperación de contraseña",
             IngreseNombreBotonVerificar: "Ingrese el nombre de usuario con el cual se registró, y a continuacion de click en el boton verificar",
-            IngreseCorreoBotonRecuperar:"Ahora Ingrese el correo electronico con el cual se registró, y a continuacion de click en el boton recuperar",
+            IngreseCorreoBotonRecuperar:"Ahora ingrese el correo electronico con el cual se registró, y a continuacion de click en el boton recuperar",
             EmailEnviadoRevise:"Se ha enviado un mail a su correo electronico con la nueva contraseña. Revise su correo por favor",
             Recuperar: "Recuperar",
             CuentaUsuario: "Cuenta de usuario",
@@ -62,14 +72,13 @@
             Enviar:"Enviar",
             //---------------auditoria----------//
             Roles: "Roles",
-            Usuarios:"Usuarios",
+            Usuarios: "Usuarios",
+            Rol:"Rol",
             //---------------Busqueda-------------//
-            BusquedaAvanzada: "Busqueda Avanzada",
+            BusquedaAvanzada: "Busqueda avanzada",
             Buscar: "Buscar",
-            EscribaBusqueda: "Escriba aquí su busqueda(Ejemplo:Decreto)",
-            DocumentosEncontrados: "Documentos encontrados",
-            
-
+            EscribaBusqueda: "Escriba aquí su busqueda (Ejemplo: Decreto)",
+            DocumentosEncontrados: "Documentos encontrados",    
             //----------- ----asunto--------------//
             CrearDocumento: "Crear documento",
             Asunto: "Asunto",
@@ -81,7 +90,7 @@
             Numero: "Número",
             FechaPublicacion: "Fecha de publicación",
             //------------------resultado_ocr--------------//
-            ResultadoOcr:"Resultado OCR",
+            ResultadoOcr:"Carga exitosa",
             Editar: "Editar",
             Cancelar: "Cancelar",
             //------------------resultado---------------//
@@ -91,15 +100,13 @@
             ErrorCrearDocumento: "Error al crear documento",
             Regresar: "Regresar",
             //------------------Subir_archivo--------//
-            
-            SubirDocumento: "Subir Documento",
+            SubirDocumento: "Subir documento",
             EscogaUnArchivo: "Escoga un archivo",
             ArrastreloAqui: "ó arrastrelo aquí.",
             Anotacion: "Anotacion",
             ExisteAnota: "Existe anotación",
             TipoArchivoNoSoportado: "Tipo de archivo no soportado",
             SeleccioneArchivo: "Seleccione un archivo",
-
             //----------------login--------------//
             IngresoSistema: "Ingreso al sistema",
             CompleteCampo: "Complete este campo.",
@@ -109,8 +116,7 @@
             NombreUsuarioI:"Nombre de Usuario *",
             //------------------noticias-----------//
             Legem: "Legem",
-            //-------------control roles-------//
-            
+            //-------------control roles-------//            
             Permisos: "Permisos",
             //---------------crear anotacion ----------------------//
             SeleccionarDocumentoAnota:"Seleccionar documento que anota",
@@ -122,22 +128,21 @@
             TipoAnotacion: "Tipo de anotación",
             EscribaEntidadEmisora: "Escriba entidad emisora",
             DescripcionDeAnotacion:"Descripcion de la Anotación",
-            CrearAnotacion: "Crear Anotación",
+            CrearAnotacion: "Crear anotación",
             SeHaCreadoAnotacion:"Se ha creado una Anotacion ",
             CompleteDatosCrearAnotacion:"Complete los datos para crear una anotación",
-            SeEncontroN:"Se encontro N",
+            SeEncontroN:"Se encontro",
             ResultadosBusqueda:"resultados de la busqueda",
-            //------------Editar anotacion------//
-            BuscarDocumento: "Buscar documento",
+            //------------Editar anotacion------//          
             VistaPreviaDocumento:"Vista previa del documento",
-            GuardarCambios: "Guardar Cambios",
-            VistaPrevia: "Vista Previa",
+            GuardarCambios: "Guardar cambios",
+            VistaPrevia: "Vista previa",
             SeGuardaronCambionExito:"Se guardaron los cambios con exito",
-            ModificarAnotacionSeguro: "Se va a modificar esta anotación, esta seguro?",
+            ModificarAnotacionSeguro: "¿Se va a modificar esta anotación, esta seguro?",
             //--------------Eliminar anotacion----------//
-            SeleccioneDocumentoEliminarAnotacione: "seleccione el documento del que quiere eliminar anotaciones",
-            EliminarAnotacion: "Eliminar Anotacion",
-            EliminarAnotacionSeguro: "Se va a eliminar esta anotación, esta seguro?",
+            SeleccioneDocumentoEliminarAnotacione: "Seleccione el documento del que quiere eliminar anotaciones",
+            EliminarAnotacion: "Eliminar anotacion",
+            EliminarAnotacionSeguro: "¿Se va a eliminar esta anotación, esta seguro?",
             Confirmar: "Confirmar",
             EliminadoAnotacionesExito: "Se ha eliminado las anotaciones con exito",
              //------------anotacion mayusculas-----------------//
@@ -151,50 +156,46 @@
             No: "No",
             //----------anotacion-------//
             Confirmacion:"Confirmación",
-            DeseaUtilizarAsistenteAnotaciones: "Desea utilizar el asistente de anotaciones?",
+            DeseaUtilizarAsistenteAnotaciones: "¿Desea utilizar el asistente de anotaciones?",
             ContinuarManualmente:"Continuar manualmente",
             //---------seleccionar anotacion-----//
             AnotacionesExistentes: "Anotaciones existentes",
             NoEncontroConcordanciasAnotaciones: "No se encontro concordancias de anotaciones",
             //----------------tipo anotacion-----------------//
             Nombre: "Nombre",
-            RolActivoAnotacion: "Rol Activo de la anotación",
-            RolPasivoAnotacion: "Rol Pasivo de la anotación",
+            RolActivoAnotacion: "Rol activo de la anotación",
+            RolPasivoAnotacion: "Rol pasivo de la anotación",
             Anadir: "Añadir",
             Remover: "Remover",
             NombreTipoAnotacion: "Nombre del tipo Anotación",
             IngreseNombreTipoAnotacion: "Ingrese el nombre del Tipo de Anotacion",
             IngreseRaizTipoAnotacion: "Ingrese la raiz del tipo anotacion",
-           
+            RaizTipoAnotacion:"Raiz del tipo anotación",
             //--------------lista anotaciones -----------------//
-            NAnotacionesEncontradas: "N anotaciones encontradas",
+            NAnotacionesEncontradas: "Anotaciones encontradas",
             Detalles: "Detalles",
             QuitarSeleccion: "Quitar seleccion",
-            Descripcion:"Descripcion",
-            
-            AnoExpedicion: "Año de expedición",
-            
+            Descripcion:"Descripcion",            
+            AnoExpedicion: "Año de expedición",            
             seleccioneDocumentoAnotar: "Seleccione el documento al cual desea anotar",
-            CompleCamposRealizarAnotacion: "Complete los campos para realizar la anotación",
-           
+            CompleCamposRealizarAnotacion: "Complete los campos para realizar la anotación",           
             DescripcionAnotacion: "Descripcion anotación",
             //--------------crear anotacion----------//
-            seleccionarDocumento: "seleccionar documento",
+            seleccionarDocumento: "Seleccionar documento",
             EntidadEmisora:"Entidad emisora",
-            AnoPublicacion: "Año de publicacion",
-           
-            
+            AnoPublicacion: "Año de publicacion",           
             //-------------- lista ano anotaciones----------//
             //---------------------pregunta anadir anotaciones---------------------//
             DeseaAnadirAnotacionesDocumento: "¿Desea añadir anotaciones a este documento?",           
             //------------------seleccionar anotacion -------------------------------//        
-            ExistenPresenteDocumento: "Existen n posibles documentos las cuales anota el presente documento",           
+            ExistenPresenteDocumento: "Existen",
+            ExistenPresenteDocumentocontinuacion:"posibles documentos las cuales anota el presente documento",
             Emitido:"Emitido por",
             Aceptar: "Aceptar",
             //------------------------footer--------------------//
             Contactenos: "Contactenos",
             UniversidadNarino: "Universidad de Nariño",
-            Torobajo: "Torobajo - Calle 18 Crr 50",
+            Torobajo: "Torobajo - Calle 18 Carrera 50",
             PBX: "PBX: (2)-7311449 - 18000957071",
             Siguenos: "Siguenos",
             AcercaSitio: "Acerca del Sitio",
@@ -211,11 +212,11 @@
             Filtro: "Filtro",
             //---------------wlwgem-news---------//
             Ninguna: "Ninguna",
-            ActualidadDocumental: "Actualidad Documental",
+            ActualidadDocumental: "Actualidad documental",
             //------header-------//
             Menu: "Menu",
             Componentes: "Componentes",
-            ConfigurarCuenta: "Configurar Cuenta",
+            ConfigurarCuenta: "Configurar cuenta",
             Salir: "Salir ",
             Contraste: "Contraste",
             Idioma: "Idioma",
@@ -245,8 +246,38 @@
             Eliminacion:"Eliminación",
             //crear anotacio
             //---------------subir documento------//
-            SeleccioneOpcion:"Seleccione una opción",
+            SeleccioneOpcion: "Seleccione una opción",
+            Notificar: "Notificar",
 
+            //---------------------lista de entidades----------//
+            ErrorCargarDatos: "Error al cargar los datos",
+            //-------------------------procesando--------------//
+            SeCreoAnotacionExito: "Se creo la anotación con exito",
+            LamentablementeNoPudoRealizarOperacion: "Lamentablemente no se pudo realizar la operación",
+
+            //------------------href title y alt------------------//
+            Facebook: "Facebook",
+            Twitter: "Twitter",
+            FotografiaUsuario:"Fotografia de usuario",
+            //---------------------lista usuarios-----------------//
+            QuitarFiltro:"Quitar filtro",
+          
+            //-------------------principal------------//
+            LogoAcreditacion:"Logo acreditación universidad de Nariño",
+            LogoPlaneacion:"Logo planeacion universidad de nariño",
+            EscudoAnos: "Escudo 111 años ",
+            //---------------lista de anotaciones-------------//
+            DetalleAnotacion: "Detalle Anotación",
+            //---------------------------lista tipo de anotaciones---------//
+            ListaTipoAnotacion: "Lista de tipo de anotación",
+            //---------------admin-------------------------//
+            EstaSeguroDeseaEliminar: "Esta seguro que desea eliminar",
+            //--------------------asociar documento-----------//
+            AsociarDocumento: "Asociar documento",
+            //-----------------fotografia-------------------//
+            CerrarCamara: "Cerrar camara",
+            
+            
             //-------------------------OJO
 
             arregloOpciones : [
