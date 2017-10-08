@@ -21,40 +21,52 @@
         vm.scrollTop2 = scrollTop2;
         vm.scrollNews = scrollNews;
 
+        //vm.language.strings.CorreoNoValido;
+        
+
         vm.usuario = { username: "admin", password: "1234", foto: "recursos/itachichibi.jpg" }
+        setArregloMenu();
 
         //Items del Menu  ------------------------------------------------>>
-        vm.arregloMenu = [
-            {
-                nombre: "Busqueda",
-                icono: "ico-search",
-                link: "busqueda",
-                condicion: "true",
-                accion: vm.scrollTop
 
-            },
-            {
-                nombre: "Inicio",
-                icono: "ico-home",
-                link: "home",
-                condicion: "true",
-                accion: vm.scrollTop
-            },
-            //{
-            //    nombre: "Actualidad",
-            //    icono: "ico-newspaper-o",
-            //    link: "home",
-            //    condicion: "true",
-            //    accion:vm.scrollNews
-            //},
-            {
-                nombre: "Ingresar",
-                icono: "ico-sign-in",
-                link: "login",
-                condicion: "!vm.session.loggeado",
-                accion:vm.scrollTop
-            }
-        ];
+        function setArregloMenu() {
+            vm.busqueda = vm.language.strings.Busqueda;
+            vm.inicio = vm.language.strings.Inicio;
+            vm.login = vm.language.strings.Login;
+
+            vm.arregloMenu = [
+                {
+                    nombre: vm.busqueda,
+                    icono: "ico-search",
+                    link: "busqueda",
+                    condicion: "true",
+                    accion: vm.scrollTop
+
+                },
+                {
+                    nombre: vm.inicio,
+                    icono: "ico-home",
+                    link: "home",
+                    condicion: "true",
+                    accion: vm.scrollTop
+                },
+                //{
+                //    nombre: "Actualidad",
+                //    icono: "ico-newspaper-o",
+                //    link: "home",
+                //    condicion: "true",
+                //    accion:vm.scrollNews
+                //},
+                {
+                    nombre: vm.login,
+                    icono: "ico-sign-in",
+                    link: "login",
+                    condicion: "!vm.session.loggeado",
+                    accion: vm.scrollTop
+                }
+            ];
+        }
+        
 
         vm.arregloOpciones = SessionService.opcionesAMostrar;
         //vm.arregloOpciones = [
@@ -258,8 +270,9 @@
 
         //funcion idioma
         vm.funcion_idioma = function (v, $event) {
-            vm.activo($event);                        
-            LanguageService.changeLanguage(v);            
+            vm.activo($event);
+            LanguageService.changeLanguage(v)
+            setArregloMenu();
         };
 
         vm.$rootScope = $rootScope;

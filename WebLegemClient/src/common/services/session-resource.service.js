@@ -2,13 +2,17 @@
     angular.module("WebLegemApp")
         .service("SessionService", SessionService);
 
-    SessionService.$inject = [ "$resource", "serviceUrl", "$state" ];
-    function SessionService( $resource, serviceUrl, $state ) {
+    SessionService.$inject = ["$resource", "serviceUrl", "$state", "language"];
+    function SessionService($resource, serviceUrl, $state, language) {
         var service = $resource(serviceUrl + "/session/");
-
+        var vm = this;
+        vm.language = language;
+        console.log(vm.language);
         service.loggeado = false;        
         service.permisos;
         service.opcionesAMostrar;
+
+        //"Administración"
 
         function mappearPermisosAOpciones(permisos) {            
             
@@ -16,7 +20,7 @@
             opciones = [];
             if (service.permisos.find(function (permiso) { return permiso.id == 1; }))
                 opciones.push({
-                    nombre: "Administración",
+                    nombre: correo,
                     link: "administracion.tipo-documento",
                     icono: "ico-tasks",
                     condicion: "true"
