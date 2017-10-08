@@ -1,10 +1,8 @@
 ﻿<div class="contenedor-subir-documento">
     <div class="box_father animatio ng-enter" id="holas">
-        <div class="box_right">
-            <label class="subtitulos_labels">
-                {{vm.language.strings.Asunto}}
-            </label>
-            <hr class="divisor_gestion_documental" />
+        <div class="box_right">        
+            <label class="subtitulos_labels">{{vm.language.strings.Asunto}}</label> 
+            <hr class="divisor_gestion_documental" />    
 
             <div style="display:flex;flex-direction:column; justify-content:center; text-align:center;"
                  ng-show="vm.documento.asunto.length < 2">

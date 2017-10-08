@@ -25,7 +25,7 @@
         </div>
         <div class="box_right">
             <label class="msj-error">{{vm.language.strings.NoEncontroConcordanciasAnotaciones}}  </label>
-            <a ng-click="vm.ban_crear_anotacion = true" href="" title="Crear anotacion">{{vm.language.strings.CrearAnotacion}}</a>
+            <a ng-click="vm.ban_crear_anotacion = true" href="" title="{{vm.language.strings.CrearAnotacion}}">{{vm.language.strings.CrearAnotacion}}</a>
             <wl-lista-ano-encontrado documento="vm.documentoAnotante" anotaciones-encontradas="false">  </wl-lista-ano-encontrado>     
             <asociar-documento show="vm.ban_crear_anotacion"
                     anotacion="vm.anotacionSeleccionada"></asociar-documento>

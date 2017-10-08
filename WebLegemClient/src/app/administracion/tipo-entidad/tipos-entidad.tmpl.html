@@ -21,10 +21,13 @@
         </wl-admin-crud>
 
 
-        <label class="texto_labels">{{vm.language.strings.NombreTipoEntidad}}:</label>
+        
         <form name="vm.form_tipo_ent">
+            <label class="texto_labels" for="input_tipo_ent">{{vm.language.strings.NombreTipoEntidad}}:</label>
+
             <input class="a_input" ng-class="!vm.editando || !vm.tipoEntidadSeleccionado? 'disable': ''"
                    type="text"
+                   name="input_tipo_ent"
                    required id="input_tipo_ent"
                    ng-model="vm.tipoEntidadSeleccionado.nombre"
                    placeholder="{{vm.language.strings.IngreseNombreEntidad}}" />
@@ -34,7 +37,7 @@
             <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
         </div>
 
-        <label class="texto_labels">Documentos soportados:</label>
+        <label class="texto_labels">{{vm.language.strings.DocumentosSoportados}}:</label>
         <wl-lista-tipo-doc-hojitas editando="vm.editando"
                                    lista-documentos="vm.tiposDocumentos">
         </wl-lista-tipo-doc-hojitas>
@@ -48,15 +51,15 @@
     </div>
 </div>
 
-<wl-info show="vm.dialogResponse" title="Error" color="verde">
+<wl-info show="vm.dialogResponse" title="{{vm.language.strings.Error}}" color="verde">
     <div class='a-modal-contenido'>
         <div class="generic-box-vertical">
             <div class="generic-box-horizontal center">
-                <label class="texto_labels">{{vm.responseMessage}}</label>
+                <p class="texto_labels">{{vm.responseMessage}}</p>
             </div>
             <div class="generic-box-horizontal flex-1 center" style="margin-top:15px;">
                 <button class="btn_sin_ico" ng-click="vm.dialogResponse=false">
-                    Aceptar
+                    {{vm.language.strings.Aceptar}}
                 </button>
             </div>
         </div>

@@ -2,17 +2,17 @@
     <div class="circulo_carga mediano"></div>
 </div>
 <div class="generic-box-horizontal center">
-    <label class="texto_labels">Se creo la anotacion con exito</label>
+    <label class="texto_labels">{{vm.language.strings.SeCreoAnotacionExito}}</label>
     <span class="ico-check-circle" style="font-size:large; color:greenyellow"></span>
 </div>
 
 <div class="generic-box-horizontal center">
-    <label class="texto_labels">Lamentablemente no se pudo realizar la operacion</label>
+    <label class="texto_labels">{{vm.language.strings.LamentablementeNoPudoRealizarOperacion}}</label> 
     <span class="ico-times-circle" style="font-size:large; color:#ff2f2f"></span>
 </div>
 
 <div class="generic-box-horizontal flex-1 center" style="margin-top:15px;">
     <button class="btn_sin_ico" ng-click="vm.aceptarProcesando()">
-        Aceptar
+        {{vm.language.strings.Aceptar}}
     </button>
 </div>

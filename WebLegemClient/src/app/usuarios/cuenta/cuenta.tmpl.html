@@ -25,15 +25,15 @@
 
 
                                 <div class="botonera_camara">
-                                    <button class="btn_ico" title="Tomar foto" ng-click="vm.abrirCamara();">
+                                    <button class="btn_ico" title="{{vm.language.strings.TomarFoto}}" ng-click="vm.abrirCamara();">
                                         <span class="ico-camera"></span>
                                     </button>
 
-                                    <button class="btn_ico" title="Subir foto" ng-click="vm.seleccionarArchivo();">
+                                    <button class="btn_ico" title="{{vm.language.strings.SubirFoto}}" ng-click="vm.seleccionarArchivo();">
                                         <span class="ico-upload"></span>
                                     </button>
 
-                                    <button class="btn_ico" title="Borrar Foto" ng-show="vm.trash" ng-click="vm.borrarFoto();">
+                                    <button class="btn_ico" title="{{vm.language.strings.BorrarFoto}}" ng-show="vm.trash" ng-click="vm.borrarFoto();">
                                         <span class="ico-trash"></span>
                                     </button>
                                 </div>
@@ -65,7 +65,7 @@
                                     {{vm.language.strings.CompleteCampo}}
                                 </div>
                                 <div class="msj-error" ng-show="vm.form_cuenta.correo.$error.email">
-                                    Correo no valido.
+                                    {{vm.language.strings.CorreoNoValido}}.
                                 </div>
                             </div>
 

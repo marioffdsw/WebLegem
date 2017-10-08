@@ -12,7 +12,7 @@
     <div class="container_news">
 
         <div style="width:100%; padding: 0 10px;  display:flex; justify-content: flex-start;">
-            <a style="color:white; font-size:large; font-family:'Lucida Sans Unicode'">Entidades: </a>
+            <a style="color:white; font-size:large; font-family:'Lucida Sans Unicode'">{{vm.language.strings.Entidades}}: </a>
             <div class="box_input_ico" style="min-width: 280px;">
                 <div class="a_select"
                      style="max-width: 300px; margin-right: 5px;">
@@ -29,7 +29,7 @@
 
             <div ng-if="true" class="tarjeta_news" ng-repeat="documento in vm.arregloDocs">
                 <div class="titulo_tarjeta">
-                    <a ng-click="vm.ver(documento.archivo)">{{ documento.tipoDocumento }} {{ documento.numero }} del {{ documento.fecha }}</a>
+                    <a ng-click="vm.ver(documento.archivo)">{{ documento.tipoDocumento }} {{ documento.numero }} {{vm.language.strings.del}} {{ documento.fecha }}</a>
                 </div>
 
                 <div class="contenido_tarjeta">
@@ -45,7 +45,7 @@
                     <a ng-click="vm.infoAnotacion = !vm.infoAnotacion; vm.anotaciones = documento; ">
                         <span class="ico-sticky-note-o"></span>{{vm.language.strings.Anotado}}
                     </a>
-                    <a href="{{ vm.serviceUrl }}/Files/{{ documento.archivo }}">
+                    <a title="{{vm.language.strings.Descargar}}" href="{{ vm.serviceUrl }}/Files/{{ documento.archivo }}">
 
                         <span class="ico-download"></span>{{vm.language.strings.Descargar}}
                     </a>

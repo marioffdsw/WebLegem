@@ -4,7 +4,7 @@
     <div class="box_input_btn">
         <input type="text"
                class="input_text_btn"
-               ng-class="vm.editando? 'disable': ''"
+               ng-class="vm.editando? 'disable': ''" 
                maxlength="20"
                ng-model="vm.filtro" />
         <button class="btn_cancel" title="Quitar filtro" ng-click="vm.filtro=''" ng-show="vm.filtro.length > 2">
@@ -32,7 +32,7 @@
 
         <div class="error_lista" ng-show="vm.error">
             <span class="ico2-sad"></span>
-            <p class="texto_labels">Error al cargar los datos</p>
+            <p class="texto_labels">{{vm.language.strings.ErrorCargarDatos}}</p>
         </div>
 
     </ul>

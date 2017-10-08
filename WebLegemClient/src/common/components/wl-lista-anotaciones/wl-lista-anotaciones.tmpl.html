@@ -18,8 +18,8 @@
                 </div>
             </div>
             <div class="right-subcontenido-la">
-                <button class="wla-detalles" ng-if="!vm.banEliminar" ng-click="vm.editar(i);$event.stopPropagation()">Editar</button>
-                <button class="wla-detalles" ng-if="vm.banEliminar" ng-click="vm.eliminar(i);$event.stopPropagation()">Eliminar</button>
+                <button class="wla-detalles" ng-if="!vm.banEliminar" ng-click="vm.editar(i);$event.stopPropagation()">{{vm.language.strings.Editar}}</button>
+                <button class="wla-detalles" ng-if="vm.banEliminar" ng-click="vm.eliminar(i);$event.stopPropagation()">{{vm.language.strings.Eliminar}}</button>
             </div>
 
         </div>
@@ -28,7 +28,7 @@
 
 <!--ventana modal para info anotacion-->
 
-<wl-info show="vm.modalShown" title="Detalle Anotacion">
+<wl-info show="vm.modalShown" title="{{vm.language.strings.DetalleAnotacion}}">
     <div class="a-modal-contenido">
         <span class="ico-bookmark marron"></span>
         <div class="info-anotacion">

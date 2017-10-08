@@ -20,13 +20,15 @@
                        error="vm.error">
         </wl-admin-crud>
 
-        <label class="texto_labels">{{vm.language.strings.NombreTipoDocumento}}:</label>
+        
 
         <form name="vm.form_tipo_doc">
 
+            <label class="texto_labels" for="input_tipo_doc">{{vm.language.strings.NombreTipoDocumento}}:</label>
+
             <input class="a_input" ng-class="!vm.editando || !vm.tipoDocSeleccionado? 'disable': ''"
                    type="text"
-                   name="nombre" id="input_tipo_doc"
+                   name="input_tipo_doc" id="input_tipo_doc"
                    ng-model="vm.tipoDocSeleccionado.nombre"
                    required
                    placeholder="{{vm.language.strings.IngreseNombre}}" />
@@ -46,15 +48,15 @@
     </div>
 </div>
 
-<wl-info show="vm.dialogResponse" title="Error" color="verde">
+<wl-info show="vm.dialogResponse" title="{{vm.language.strings.Error}}" color="verde">
     <div class='a-modal-contenido'>
         <div class="generic-box-vertical">
             <div class="generic-box-horizontal center">
-                <label class="texto_labels">{{vm.responseMessage}}</label>
+                <p class="texto_labels">{{vm.responseMessage}}</p>
             </div>
             <div class="generic-box-horizontal flex-1 center" style="margin-top:15px;">
                 <button class="btn_sin_ico" ng-click="vm.dialogResponse=false">
-                    Aceptar
+                    {{vm.language.strings.Aceptar}}
                 </button>
             </div>
         </div>

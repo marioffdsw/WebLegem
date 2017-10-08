@@ -1,9 +1,7 @@
 ﻿<div class="contenedor-subir-documento">
     <div class="box_father animatio ng-enter">
         <div class="box_right">
-            <label class="texto_labels">
-                {{vm.language.strings.IdentificacionDocumento}}
-            </label>
+            <label class="texto_labels">{{vm.language.strings.IdentificacionDocumento}}</label>
             <hr class="divisor_gestion_documental" />
 
             <form name="vm.form_info_doc">
@@ -51,7 +49,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><label class="texto_labels" for="año">{{vm.language.strings.FechaPublicacion}}:</label></td>
+                        <td><label class="texto_labels" for="exampleInput">{{vm.language.strings.FechaPublicacion}}:</label></td>
                         <td>
                             <input class="a_input" type="date" id="exampleInput" name="fecha" ng-model="vm.documento.fechaPublicacion"
                                    placeholder="yyyy-MM-dd" min="2013-01-01" max="2020-12-31" required />

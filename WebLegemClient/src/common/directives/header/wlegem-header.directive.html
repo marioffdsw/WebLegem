@@ -22,14 +22,14 @@
                 ng-click="vm.resize == true ? vm.toggle_menu = !vm.toggle_menu :null"
                 >
 
-                <a class="btn_menu sin_ani" href="" role="menu" ewl wl-p-enter="vm.toggle_menu = !vm.toggle_menu">
+                <a class="btn_menu sin_ani" href=""  title="{{vm.language.strings.Menu}}" role="menu" ewl wl-p-enter="vm.toggle_menu = !vm.toggle_menu">
                     <div class=" ico-cubes"></div>
                     <p>{{vm.language.strings.Componentes}}</p>
                 </a>
                 
                 <ul ng-show="vm.toggle_menu" class="desplegar">
                     <li ng-repeat="opcion in vm.session.opcionesAMostrar" ng-click="vm.resize && vm.desplegarMenu()">
-                        <a class="btn_menu sub" ui-sref="{{opcion.link}}" href="#">
+                        <a class="btn_menu sub" ui-sref="{{opcion.link}}"  title="{{vm.language.strings.Menu}}" href="#">
                             <div><span class="{{ opcion.icono }}"></span></div>
                             <p>{{ opcion.nombre }}</p>
                         </a>
@@ -38,7 +38,7 @@
             </li>
             <!--Opciones generales-------------------------------------------------------------->
             <li ng-repeat="item in vm.arregloMenu" class="li_nav" ng-click="vm.resize && vm.desplegarMenu()">
-                <a class="btn_menu" ui-sref="{{item.link}}" ng-show="{{item.condicion}}" ng-click="item.accion()">
+                <a class="btn_menu"   title="{{vm.language.strings.Menu}}" ui-sref="{{item.link}}" ng-show="{{item.condicion}}" ng-click="item.accion()">
                     <div class="{{item.icono}}"></div>
                     <p>{{item.nombre}}</p>
                 </a>
@@ -49,19 +49,19 @@
                 ng-click="vm.resize == true ? vm.toggle_usu = !vm.toggle_usu : null "
                 ng-show="vm.session.loggeado">
 
-                <a class=" btn_menu usu sin_ani" href="" ewl wl-p-enter="vm.toggle_usu = !vm.toggle_usu">
+                <a class=" btn_menu usu sin_ani" href="" title="{{vm.language.strings.Menu}}" ewl wl-p-enter="vm.toggle_usu = !vm.toggle_usu">
                     <div>{{vm.session.usuario.nombreUsuario}}</div>
                     <div><img src="{{vm.serviceUrl}}/Fotos?photoName={{vm.session.usuario.foto}}" /></div>
                 </a>
                 <ul ng-show="vm.toggle_usu" class="desplegar">
                     <li ng-click="vm.resize && vm.desplegarMenu()">
-                        <a class="btn_menu sub" ui-sref="cuenta">
+                        <a class="btn_menu sub" title="{{vm.language.strings.Menu}}" ui-sref="cuenta">
                             <div class="ico-cog"></div>
                             <p>{{vm.language.strings.ConfigurarCuenta}}</p>
                         </a>
                     </li>
                     <li ng-click="vm.resize && vm.desplegarMenu()">
-                        <a class="btn_menu sub" ng-click="vm.LogOut()" href="">
+                        <a class="btn_menu sub" ng-click="vm.LogOut()" href="" title="{{vm.language.strings.Menu}}">
                             <div class="ico-sign-out"></div>
                             <p>{{vm.language.strings.Salir}}</p>
                         </a>
@@ -77,7 +77,7 @@
              ng-mouseleave="vm.resize == true ? null: vm.toggle_acce = false"
              ng-click="vm.resize == true ? vm.desplegarAcce() : null ">
 
-            <a class=" btn_menu sin_ani" href="" ewl wl-p-enter="vm.toggle_acce = !vm.toggle_acce">
+            <a class=" btn_menu sin_ani" href=""title="{{vm.language.strings.Menu}}" ewl wl-p-enter="vm.toggle_acce = !vm.toggle_acce">
                 <div class="ico-wheelchair"></div>
             </a>
 
@@ -120,6 +120,6 @@
 
 </div>
 
-<a href="" ng-click="vm.scrollTop2();" title="Ir arriba" class="ir_arriba" id="ir_arriba">
+<a href="" ng-click="vm.scrollTop2();" title="{{ vm.language.strings.Irarriba}}" class="ir_arriba" id="ir_arriba">
     <p class="ico-chevron-up"></p>
 </a>

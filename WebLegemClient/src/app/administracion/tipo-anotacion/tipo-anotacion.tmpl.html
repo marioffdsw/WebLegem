@@ -19,11 +19,12 @@
                        error="vm.error">
         </wl-admin-crud>
 
-        <label class="texto_labels">{{vm.language.strings.NombreTipoAnotacion}}:</label>
+        
         <form name="vm.form_tipo_ano">
+            <label class="texto_labels" for="input_tipo_anot">{{vm.language.strings.NombreTipoAnotacion}}:</label>
 
             <input class="a_input" ng-class="!vm.editando || !vm.tipoAnotacionSeleccionada? 'disable': ''"
-                   type="text" name="tipo" required id="input_tipo_anot"
+                   type="text" name="input_tipo_anot" required id="input_tipo_anot"
                    ng-model="vm.tipoAnotacionSeleccionada.nombre"
                    placeholder="{{vm.language.strings.IngreseNombreTipoAnotacion}}" />
 
@@ -31,9 +32,9 @@
                 <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
             </div>
 
-            <label class="texto_labels">Raiz del tipo anotación:</label>
+            <label class="texto_labels" for="raiz">{{vm.language.strings.RaizTipoAnotacion}}:</label>
             <input class="a_input" ng-class="!vm.editando || !vm.tipoAnotacionSeleccionada? 'disable': ''"
-                   type="text" name="raiz" required
+                   type="text" name="raiz" required id="raiz"
                    ng-model="vm.tipoAnotacionSeleccionada.raiz"
                    placeholder="{{vm.language.strings.IngreseRaizTipoAnotacion}}" />
 
@@ -54,7 +55,7 @@
 </div>
 
 
-<wl-info show="vm.dialogResponse" title="Error" color="verde">
+<wl-info show="vm.dialogResponse" title="{{vm.language.strings.Error}}" color="verde">
     <div class='a-modal-contenido'>
         <div class="generic-box-vertical">
             <div class="generic-box-horizontal center">
@@ -62,7 +63,7 @@
             </div>
             <div class="generic-box-horizontal flex-1 center" style="margin-top:15px;">
                 <button class="btn_sin_ico" ng-click="vm.dialogResponse=false">
-                    Aceptar
+                    {{vm.language.strings.Aceptar}}
                 </button>
             </div>
         </div>

@@ -2,11 +2,9 @@
 
     <div class="box_father animatio ng-enter" id="holas">
         <div class="box_right">
-            <div style="width:100%; font-family:'Lato-Regular'">
-                <label class="subtitulos_labels">
-                    {{vm.language.strings.Resultado}}
-                </label>
-                <hr class="divisor_gestion_documental" />
+            <div   style="width:100%; font-family:'Lato-Regular'">
+                <label class="subtitulos_labels"> {{vm.language.strings.Resultado}}</label>
+                <hr class="divisor_gestion_documental"/>
                 <div style="display:flex; flex-direction:column; justify-content:center; align-self:center; align-content:center;">
                     <div ng-show="!vm.error && !vm.success"><p class="texto_labels">{{vm.language.strings.Trabajando}}</p></div>
                     <div ng-show="vm.success"><p class="texto_labels"> {{vm.language.strings.DocumentoCreadoExito}}</p></div>

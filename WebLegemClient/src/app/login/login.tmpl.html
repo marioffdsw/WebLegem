@@ -16,7 +16,7 @@
 
             <div class="box_input_ico inputs_login">
                 <div >
-                    <input required name="usuario" class="input_text_ico" id="user" type="text" ng-model="vm.user.nombre"
+                    <input required name="usuario" class="input_text_ico" id="user"  type="text" ng-model="vm.user.nombre"
                            placeholder="{{vm.language.strings.NombreUsuarioI}}" />
                 </div>
                 <div class="ico_input_text">
@@ -52,7 +52,7 @@
             </div>
 
 
-            <a ui-sref="recuperar-clave" class="olvide_contraseña"> {{vm.language.strings.OlvideContrasena}} </a>
+            <a ui-sref="recuperar-clave" title="{{vm.language.strings.OlvideContrasena}}" class="olvide_contraseña"> {{vm.language.strings.OlvideContrasena}} </a>
         </form>
     </div>
 

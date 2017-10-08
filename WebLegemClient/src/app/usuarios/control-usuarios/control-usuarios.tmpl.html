@@ -40,17 +40,17 @@
                             <input type="hidden" id="hidden_input" name="filename"/>
                         </div>
                         <div class="botonera_camara">
-                            <button class="btn_ico" title="Tomar foto" ng-click="vm.abrirCamara();"
+                            <button class="btn_ico" title="{{vm.language.strings.TomarFoto}}" ng-click="vm.abrirCamara();"
                                     ng-class="!vm.editando ? 'disable': ''">
                                 <span class="ico-camera"></span>
                             </button>
 
-                            <button class="btn_ico" title="Subir foto" ng-click="vm.seleccionarArchivo();"
+                            <button class="btn_ico" title="{{vm.language.strings.SubirFoto}}" ng-click="vm.seleccionarArchivo();"
                                     ng-class="!vm.editando ? 'disable': ''">
                                 <span class="ico-upload"></span>
                             </button>
 
-                            <button class="btn_ico" title="Borrar Foto" ng-show="vm.trash" ng-click="vm.borrarFoto();"
+                            <button class="btn_ico" title="{{vm.language.strings.BorrarFoto}}" ng-show="vm.trash" ng-click="vm.borrarFoto();"
                                     ng-class="!vm.editando ? 'disable': ''">
                                 <span class="ico-trash"></span>
                             </button>
@@ -126,7 +126,7 @@
                             {{vm.language.strings.CompleteCampo}}
                         </div>
                         <div class="msj-error" ng-show="vm.form_usuario.correo.$error.email">
-                            Correo no valido.
+                            {{vm.language.strings.CorreoNoValido}}.
                         </div>
                     </div>
 
@@ -148,7 +148,7 @@
                         </div>
 
 
-                        <button class="btn_ico" title="Informacion rol" ng-click="vm.mostrarDialogo(vm.usuarioSeleccionado.rol)"
+                        <button class="btn_ico" title="{{vm.language.strings.InformacionRol}}" ng-click="vm.mostrarDialogo(vm.usuarioSeleccionado.rol)"
                                 ng-class="!vm.editando ? 'disable': ''">
                             <span class="ico-info"></span>
                         </button>
@@ -170,9 +170,7 @@
                                    ng-disabled="!vm.editando"
                                    ng-model="vm.usuarioSeleccionado.estado"
                                    ng-value="'A'" />
-                            <label for="rad1">
-                                {{vm.language.strings.Activo}}
-                            </label>
+                            <label for="rad1"> {{vm.language.strings.Activo}}</label>
                         </span>
                         <span>
                             <input class="a_radio" id="rad2" type="radio" name="rad" required
@@ -201,15 +199,15 @@
 
 <!-- Modales -->
 
-<wl-info show="vm.dialogResponse" title="Error" color="verde">
+<wl-info show="vm.dialogResponse" title="{{vm.language.strings.Error}}" color="verde">
     <div class='a-modal-contenido'>
         <div class="generic-box-vertical">
             <div class="generic-box-horizontal center">
-                <label class="texto_labels">{{vm.responseMessage}}</label>
+                <p class="texto_labels">{{vm.responseMessage}}</p>
             </div>
             <div class="generic-box-horizontal flex-1 center" style="margin-top:15px;">
                 <button class="btn_sin_ico" ng-click="vm.dialogResponse=false">
-                    Aceptar
+                    {{vm.language.strings.Aceptar}}
                 </button>
             </div>
         </div>

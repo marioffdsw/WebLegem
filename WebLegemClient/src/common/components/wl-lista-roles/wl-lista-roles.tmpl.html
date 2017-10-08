@@ -8,7 +8,7 @@
                maxlength="20"
                placeholder="{{vm.language.strings.Filtro}}"
                ng-model="vm.filtro" />
-        <button class="btn_cancel" title="Quitar filtro" ng-click="vm.filtro=''" ng-show="vm.filtro.length > 2">
+        <button class="btn_cancel" title="{{vm.language.strings.QuitarFiltro}}" ng-click="vm.filtro=''" ng-show="vm.filtro.length > 2">
             <span class="ico-plus"></span>
         </button>
     </div>
@@ -31,7 +31,7 @@
 
         <div class="error_lista" ng-show="vm.error">
             <span class="ico2-sad"></span>
-            <p class="texto_labels">Error al cargar los datos</p>
+            <p class="texto_labels">{{vm.language.strings.ErrorCargarDatos}}</p>
         </div>
 
     </ul>

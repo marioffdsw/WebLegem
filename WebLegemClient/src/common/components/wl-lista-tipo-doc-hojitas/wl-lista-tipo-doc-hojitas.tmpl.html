@@ -8,21 +8,20 @@
         </div>-->
 
         <div class="panel_control">
-            <ul ng-class="vm.editando ? 'a_bloques' :'a_bloques disable'" >
+            <ul ng-class="vm.editando ? 'a_bloques' :'a_bloques disable'">
                 <li class=" te_li_lista" ng-repeat="tipoDoc in vm.listaDocumentos | orderBy: 'nombre'">
-                <input id="chk-td-{{tipoDoc.id}}"
-                       type="checkbox"
-                       ng-disabled="!vm.editando"
-                       ng-class="tipoDoc.valor ? 'checked' : ''"
-                       ng-model="tipoDoc.valor"
-                       ng-checked="tipoDoc.valor">
-                <label for="chk-td-{{tipoDoc.id}}"
-                       class="styled1 note rounded">
-                    <div>
-                        <span class="escudo-udenar escudo_hojas"></span>
-                        <p>{{ tipoDoc.nombre }}</p>
-                    </div>
-                </label>
+                    <input id="chk-td-{{tipoDoc.id}}"
+                           type="checkbox"
+                           ng-disabled="!vm.editando"
+                           ng-class="tipoDoc.valor ? 'checked' : ''"
+                           ng-model="tipoDoc.valor"
+                           ng-checked="tipoDoc.valor">
+                    <label for="chk-td-{{tipoDoc.id}}" class="styled1 note rounded">
+                        <div>
+                            <span class="escudo-udenar escudo_hojas"></span>
+                            <p>{{ tipoDoc.nombre }}</p>
+                        </div>
+                    </label>
                 </li>
             </ul>
         </div>

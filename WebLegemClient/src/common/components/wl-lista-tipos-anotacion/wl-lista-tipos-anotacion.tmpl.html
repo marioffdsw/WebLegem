@@ -1,5 +1,5 @@
 ﻿<div>
-    <label class="texto_labels" style="margin-top:10px;">Lista de tipo de anotacion</label>
+    <label class="texto_labels" style="margin-top:10px;">{{vm.language.strings.ListaTipoAnotacion}}</label>
 
     <div class="box_input_btn">
         <input type="text"
@@ -32,7 +32,7 @@
 
         <div class="error_lista" ng-show="vm.error">
             <span class="ico2-sad"></span>
-            <p class="texto_labels">Error al cargar los datos</p>
+            <p class="texto_labels">{{vm.language.strings.ErrorCargarDatos}}</p>
         </div>
 
     </ul>

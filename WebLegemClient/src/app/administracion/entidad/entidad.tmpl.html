@@ -21,22 +21,24 @@
                        error="vm.error">
         </wl-admin-crud>
 
-        <label class="texto_labels" for="nombre-entidad">{{vm.language.strings.NombreEntidad}}:</label>
+        
 
         <form name="vm.form_entidad">
 
+            <label class="texto_labels" for="nombre-entidad">{{vm.language.strings.NombreEntidad}}:</label>
+
             <input class="a_input" ng-class="!vm.editando || !vm.entidadSeleccionada? 'disable': ''"
-                   id="nombre-entidad" type="text" required name="nombre"
+                   id="nombre-entidad"   type="text" required name="nombre-entidad"
                    placeholder="{{vm.language.strings.IngreseNombreEntidad}}" ng-model="vm.entidadSeleccionada.nombre" />
 
             <div ng-show="vm.form_entidad.nombre.$invalid && vm.form_entidad.nombre.$dirty">
                 <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
             </div>
 
-            <label class="texto_labels">{{vm.language.strings.CorreoElectronico}}</label>
+            <label for="correo" class="texto_labels"> {{vm.language.strings.CorreoElectronico}}</label>
 
             <input class="a_input" ng-model="vm.entidadSeleccionada.correo" placeholder="{{vm.language.strings.IngreseCorreoElectronico}}"
-                   ng-class="!vm.editando ? 'disable': ''" required type="email" name="correo" />
+                   ng-class="!vm.editando ? 'disable': ''" required type="email" id="correo" name="correo" />
 
             <div ng-show="vm.form_entidad.correo.$invalid && vm.form_entidad.correo.$dirty">
                 <div class="msj-error" ng-show="vm.form_entidad.correo.$error.required && !vm.form_entidad.correo.$error.email">
@@ -49,11 +51,9 @@
             </div>
 
 
-            <label class="texto_labels" for="tipo-entidad">{{vm.language.strings.TipoEntidad}}:</label>            
-
-
 
             <div class="a_select"  ng-class="!vm.editando ? 'disable' : ''">
+                <label class="texto_labels" for="tipo">{{vm.language.strings.TipoEntidad}}:</label> 
                 <select id="tipo" 
                         name="tipo"
                         ng-disabled="!vm.editando"
@@ -65,7 +65,7 @@
             </div>
 
             <div ng-show="vm.form_entidad.tipo.$invalid && vm.form_entidad.tipo.$dirty" style="margin-top:7px;">
-                <div class="msj-error">Seleccione una opción</div>
+                <div class="msj-error">{{vm.language.strings.SeleccioneOpcion}}</div>
             </div>
 
             
@@ -82,15 +82,15 @@
     </div>
 </div>
 
-<wl-info show="vm.dialogResponse" title="Error"  color="verde">
+<wl-info show="vm.dialogResponse" title="{{vm.language.strings.Error}}"  color="verde">
     <div class='a-modal-contenido'>
         <div class="generic-box-vertical">
             <div class="generic-box-horizontal center">
-                <label class="texto_labels">{{vm.responseMessage}}</label>
+               <p class="texto_labels">{{vm.responseMessage}}</p>
             </div>
             <div class="generic-box-horizontal flex-1 center" style="margin-top:15px;">
                 <button class="btn_sin_ico" ng-click="vm.dialogResponse=false">
-                    Aceptar
+                    {{vm.language.strings.Aceptar}}
                 </button>
             </div>
         </div>

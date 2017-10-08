@@ -1,6 +1,6 @@
 ﻿
 <div>
-    <label class="subtitulos_labels animacion_filtro" ng-show="!vm.entidadEmisora ">{{vm.language.strings.EntidadEmisora}}</label>
+    <label class="subtitulos_labels animacion_filtro" ng-show="!vm.entidadEmisora">{{vm.language.strings.EntidadEmisora}}</label>
     <div class="a_select">
         <select type="text" ng-options="entidad.nombre as entidad.nombre for entidad in vm.entidades | orderBy: 'nombre'"
                 ng-model="vm.entidadEmisoraAux"></select>
