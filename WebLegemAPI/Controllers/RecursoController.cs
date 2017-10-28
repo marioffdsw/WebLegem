@@ -4,11 +4,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WebLegemDAL.Dao;
 using WebLegemDAL.Models;
 
 namespace WebLegemAPI.Controllers
 {
+    [EnableCorsAttribute("*", "*", "*")]
     public class RecursoController : ApiController
     {
         RecursoDao dao;

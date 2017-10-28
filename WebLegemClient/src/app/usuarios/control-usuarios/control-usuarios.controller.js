@@ -84,8 +84,7 @@
 
 
             vm.usuarioSeleccionado = usuario;
-            img.src = serviceUrl + "/Fotos?photoName=" + vm.usuarioSeleccionado.foto;
-            coonsole.log();
+            img.src = serviceUrl + "/Fotos?photoName=" + vm.usuarioSeleccionado.foto;            
         } // end fnction seleccionar
 
         function nuevo() {
@@ -115,7 +114,6 @@
         } // end function
 
         function crear(usuario) {
-
 
             usuario.nombre = stringService.toTitleCase(usuario.nombre);
 

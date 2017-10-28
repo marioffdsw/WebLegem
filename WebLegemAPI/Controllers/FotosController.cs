@@ -11,7 +11,7 @@ using System.Web.Http.Cors;
 
 namespace WebLegemAPI.Controllers
 {
-    [EnableCors("*", "*", "*")]
+    
     public class FotosController : ApiController
     {
         public async Task<IHttpActionResult> Post()

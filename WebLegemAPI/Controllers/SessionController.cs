@@ -4,10 +4,13 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WebLegemDAL.Dao;
 
 namespace WebLegemAPI.Controllers
 {
+
+    [EnableCorsAttribute("*", "*", "*")]
     public class SessionController : ApiController
     {
         private UsuarioDao dao;

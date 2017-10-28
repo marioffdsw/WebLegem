@@ -4,37 +4,56 @@
 
     SessionService.$inject = ["$resource", "serviceUrl", "$state", "language"];
     function SessionService($resource, serviceUrl, $state, language) {
-        var service = $resource(serviceUrl + "/session/");
-        var vm = this;
-        vm.language = language;
-        console.log(vm.language);
+        var service = $resource(serviceUrl + "/session/");        
         service.loggeado = false;        
         service.permisos;
         service.opcionesAMostrar;
 
+        service.traerOpciones = function mapaa() {
+            actualizarIdioma(language);
+            for (i = 0 ; i < opciones.length ; i++) {
+                switch (opciones[i].link) {
+                    case "administracion.tipo-documento":
+                        opciones[i].nombre = administracion;
+                        break;
+                    case "gestion-documental.crear-documento.subir-archivo":
+                        opciones[i].nombre = gestionDocumental;
+                        break;
+                    case "anotacion.crear-anotacion":
+                        opciones[i].nombre = anotaciones;
+                        break;
+                    case "usuarios.control-usuarios":
+                        opciones[i].nombre = usuarios;
+                        break;
+                }
+            }
+            return opciones;
+
+        };
+        opciones = [];
+
         //"Administración"
 
-        function mappearPermisosAOpciones(permisos) {            
-            
+        function mappearPermisosAOpciones(permisos) {             
+            actualizarIdioma(language);
             service.permisos = permisos;
-            opciones = [];
             if (service.permisos.find(function (permiso) { return permiso.id == 1; }))
                 opciones.push({
-                    nombre: correo,
+                    nombre: administracion,
                     link: "administracion.tipo-documento",
                     icono: "ico-tasks",
-                    condicion: "true"
+                    condicion: "true",                    
                 });
             if (service.permisos.find(function (permiso) { return permiso.id == 2; })) {
                 opciones.push({
-                    nombre: "Gestión Documental",
+                    nombre: gestionDocumental,
                     link: "gestion-documental.crear-documento.subir-archivo",
                     icono: "ico-stack-overflow",
                     condicion: "true"
                 });
 
                 opciones.push({
-                    nombre: "Anotaciones",
+                    nombre: anotaciones,
                     link: "anotacion.crear-anotacion",
                     icono: "ico-files-o",
                     condicion: "true"
@@ -42,7 +61,7 @@
             }
             if (service.permisos.find(function (permiso) { return permiso.id == 3 })) {
                 opciones.push({
-                    nombre: "Usuarios",
+                    nombre: usuarios,
                     link: "usuarios.control-usuarios",
                     icono: "ico-users",
                     condicion: "true"
@@ -75,4 +94,13 @@
 
         return service;
     } // end function SessionService 
+
+     function actualizarIdioma(language) {
+        administracion = language.strings.Administracion;
+        gestionDocumental = language.strings.GestionDocumental;
+        anotaciones = language.strings.Anotaciones;
+        usuarios = language.strings.Usuarios1;
+    }
+
+
 })();

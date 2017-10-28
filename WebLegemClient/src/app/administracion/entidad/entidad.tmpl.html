@@ -51,10 +51,8 @@
                 
             </div>
 
-
-
+            <label class="texto_labels" for="tipo">{{vm.language.strings.TipoEntidad}}:</label> 
             <div class="a_select"  ng-class="!vm.editando ? 'disable' : ''">
-                <label class="texto_labels" for="tipo">{{vm.language.strings.TipoEntidad}}:</label> 
                 <select id="tipo" 
                         name="tipo"
                         ng-disabled="!vm.editando"

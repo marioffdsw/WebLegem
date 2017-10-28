@@ -21,10 +21,6 @@
         vm.scrollTop2 = scrollTop2;
         vm.scrollNews = scrollNews;
 
-        //vm.language.strings.CorreoNoValido;
-        
-
-        vm.usuario = { username: "admin", password: "1234", foto: "recursos/itachichibi.jpg" }
         setArregloMenu();
 
         //Items del Menu  ------------------------------------------------>>
@@ -33,7 +29,6 @@
             vm.busqueda = vm.language.strings.Busqueda;
             vm.inicio = vm.language.strings.Inicio;
             vm.login = vm.language.strings.Login;
-
             vm.arregloMenu = [
                 {
                     nombre: vm.busqueda,
@@ -65,6 +60,7 @@
                     accion: vm.scrollTop
                 }
             ];
+            vm.arregloOpciones = SessionService.traerOpciones();
         }
         
 
