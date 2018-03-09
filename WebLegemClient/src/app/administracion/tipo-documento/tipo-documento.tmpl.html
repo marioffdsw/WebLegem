@@ -31,6 +31,7 @@
                    type="text"
                    name="input_tipo_doc" id="input_tipo_doc"
                    ng-model="vm.tipoDocSeleccionado.nombre"
+                   ng-disabled="!vm.editando"
                    required
                    placeholder="{{vm.language.strings.IngreseNombre}}" />
 

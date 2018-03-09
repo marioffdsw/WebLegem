@@ -64,7 +64,7 @@
             //---------cuenta-----------------//
             ConfiguracionCuenta:"Configuración de cuenta",
             Guardar: "Guardar",
-            CorreoNoValido: "Correo no valido",
+
             //--------------recuperar clave------//
             RecuperacionContrasena: "Recuperación de contraseña",
             IngreseNombreBotonVerificar: "Ingrese el nombre de usuario con el cual se registró, y a continuacion de click en el boton verificar",
@@ -120,6 +120,7 @@
             Ingresar: "INGRESAR",
             OlvideContrasena: " Olvide mi contraseña",
             NombreUsuarioI:"Nombre de Usuario *",
+            ContrasenaInvalida:"Usuario y/o contraseña incorrectos",
             //------------------noticias-----------//
             Legem: "Legem",
             //-------------control roles-------//

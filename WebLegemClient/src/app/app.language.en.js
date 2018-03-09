@@ -192,6 +192,7 @@
             Ingresar: "LOGIN",
             OlvideContrasena: " I forgot my password",
             NombreUsuarioI: "Username",
+            ContrasenaInvalida:"Incorrect user or password",
             //------------------noticias-----------//
             Legem: "Legem",                     
             //-----------------------------------control roles-------//

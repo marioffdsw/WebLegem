@@ -61,7 +61,8 @@
                     <div>
                         <p class="texto_labels ">{{vm.language.strings.Nombres}}</p>
                         <input id="nombre-persona" class="a_input" ng-model="vm.usuarioSeleccionado.nombre"
-                               ng-class="!vm.editando ? 'disable': ''" required name="nombre" />
+                               ng-class="!vm.editando ? 'disable': ''" required name="nombre"
+                               maxlength="100" />
 
                         <div ng-show="vm.form_usuario.nombre.$invalid && vm.form_usuario.nombre.$dirty">
                             <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
@@ -70,7 +71,8 @@
                     <div>
                         <p class="texto_labels ">{{vm.language.strings.Apellidos}}</p>
                         <input class="a_input" ng-model="vm.usuarioSeleccionado.apellido"
-                               ng-class="!vm.editando ? 'disable': ''" required name="apellido" />
+                               ng-class="!vm.editando ? 'disable': ''" required name="apellido"
+                               maxlength="100" />
 
                         <div ng-show="vm.form_usuario.apellido.$invalid && vm.form_usuario.apellido.$dirty">
                             <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
@@ -79,7 +81,7 @@
                     <div>
                         <p class="texto_labels ">{{vm.language.strings.NombreUsuario}}</p>     
                         <input class="a_input" ng-model="vm.usuarioSeleccionado.nombreUsuario"
-                               ng-class="!vm.editando ? 'disable': ''" required name="nick" />
+                               ng-class="!vm.editando ? 'disable': ''" required name="nick" maxlength="50" />
 
                         <div ng-show="vm.form_usuario.nick.$invalid && vm.form_usuario.nick.$dirty">
                             <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
@@ -91,9 +93,9 @@
             <div class="box_duo_input">                
                 <div>
                     <p class="texto_labels ">{{vm.language.strings.Contrasena}}</p>
-                    <input class="a_input" type="password" ng-model="vm.usuarioSeleccionado.contrasena" maxlength="20"
+                    <input class="a_input" type="password" ng-model="vm.usuarioSeleccionado.contrasena" maxlength="256"
                            ng-class="!vm.editando ? 'disable': ''" readonly required name="pass"
-                           onfocus="this.removeAttribute('readonly');" />
+                           onfocus="this.removeAttribute('readonly');"  />
 
                     <div ng-show="vm.form_usuario.pass.$invalid && vm.form_usuario.pass.$dirty">
                         <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
@@ -107,7 +109,7 @@
                     <input class="a_input" type="password" ng-model="vm.usuarioSeleccionado.contrasena"
                            readonly
                            onfocus="this.removeAttribute('readonly');"
-                           ng-class="!vm.editando ? 'disable': ''" required name="pass_confirm" />
+                           ng-class="!vm.editando ? 'disable': ''" required name="pass_confirm" maxlength="100" />
 
                     <div ng-show="vm.form_usuario.pass_confirm.$invalid && vm.form_usuario.pass_confirm.$dirty">
                         <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
@@ -166,23 +168,12 @@
                     <p class="texto_labels ">{{vm.language.strings.EstadoUsuario}}</p>
                     <div class="contenedor_radios">
                         <span>
-                            <input class="a_radio" id="rad1" type="radio" name="rad" required
+                            <input class="a_radio" id="rad1" type="checkbox" name="rad"
                                    ng-disabled="!vm.editando"
                                    ng-model="vm.usuarioSeleccionado.estado"
-                                   ng-value="'A'" />
+                                   checked="checked"/>
                             <label for="rad1"> {{vm.language.strings.Activo}}</label>
                         </span>
-                        <span>
-                            <input class="a_radio" id="rad2" type="radio" name="rad" required
-                                   ng-disabled="!vm.editando"
-                                   ng-model="vm.usuarioSeleccionado.estado"
-                                   ng-value="'I'" />
-                            <label for="rad2">{{vm.language.strings.Bloqueado}}</label>
-                        </span>
-                    </div>
-                  
-                    <div ng-show="vm.form_usuario.rad.$invalid && vm.ban_click">
-                        <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
                     </div>
                 </div>
                 <div></div>

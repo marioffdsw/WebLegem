@@ -15,9 +15,9 @@
 
 
             <div class="box_input_ico inputs_login">
-                <div >
-                    <input required name="usuario" class="input_text_ico" id="user"  type="text" ng-model="vm.user.nombre"
-                           placeholder="{{vm.language.strings.NombreUsuarioI}}" />
+                <div>
+                    <input required name="usuario" class="input_text_ico" id="user" type="text" ng-model="vm.user.nombre"
+                           maxlength="50" placeholder="{{vm.language.strings.NombreUsuarioI}}" />
                 </div>
                 <div class="ico_input_text">
                     <span class=" ico-user"></span>
@@ -30,9 +30,9 @@
             </div>
 
             <div class="box_input_ico inputs_login">
-                <div >
+                <div>
                     <input required class="input_text_ico" name="password" type="password" ng-model="vm.user.password"
-                           placeholder="{{vm.language.strings.Contrasena}} *" />
+                           maxlength="256" placeholder="{{vm.language.strings.Contrasena}} *" />
                 </div>
                 <div class="ico_input_text">
                     <span class=" ico-lock"></span>
@@ -40,9 +40,13 @@
             </div>
             <!----------------------------------------------------->
 
-
             <div>
-                <div class="msj-error" style="padding-bottom:10px"> {{vm.language.strings.CamposObligatorios}}*</div>
+                <div class="msj-error" style="padding-bottom:10px">
+                    {{vm.language.strings.CamposObligatorios}}
+                </div>
+                <div class="msj-error" style="padding-bottom:10px" ng-show="vm.error_login">
+                    {{vm.language.strings.ContrasenaInvalida}}
+                </div>
             </div>
 
             <div class="a_centrado">
@@ -57,19 +61,19 @@
     </div>
 
 
-    <div class="contenedor_simbolos" >
+    <div class="contenedor_simbolos">
 
-        <div >
+        <div>
             <div>
-                <img  src="recursos/escudos-logos/Logo-Acreditacion-01_blanco.png"/>
+                <img src="recursos/escudos-logos/Logo-Acreditacion-01_blanco.png" />
             </div>
 
             <div>
-                <img src="recursos/escudos-logos/planeacion.png"/>
+                <img src="recursos/escudos-logos/planeacion.png" />
             </div>
 
             <div>
-                <img src="recursos/escudos-logos/escudo_111_years.png"  />
+                <img src="recursos/escudos-logos/escudo_111_years.png" />
             </div>
         </div>
     </div>

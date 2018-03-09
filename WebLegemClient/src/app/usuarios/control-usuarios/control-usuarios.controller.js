@@ -47,7 +47,7 @@
             UsuariosResource.query()
                 .$promise.then(function (data) {
                     stopAnimation();
-                    vm.usuarios = data;
+                    vm.usuarios = data;                    
                 },
                 function errorCallback(error) {
                     stopAnimation();
@@ -68,8 +68,7 @@
             );
         } // end function RetrieveData
 
-        function seleccionar(usuario) {
-
+        function seleccionar(usuario) {            
             if (vm.editando) return;
 
             if (vm.usuarioSeleccionado && vm.usuarioSeleccionado.id === usuario.id) {
@@ -82,19 +81,22 @@
                 return '*';
             }).join('');
 
-
+          
             vm.usuarioSeleccionado = usuario;
-            img.src = serviceUrl + "/Fotos?photoName=" + vm.usuarioSeleccionado.foto;            
+            vm.usuarioSeleccionado.estado = (usuario.estado == "A");
+
+            //img.src = serviceUrl + "/Fotos?photoName=" + vm.usuarioSeleccionado.foto;            
         } // end fnction seleccionar
 
-        function nuevo() {
+        function nuevo() {            
             vm.usuarioSeleccionado = { id: 0 }
+            vm.usuarioSeleccionado.estado = true;
         } // end function nuevo
 
         function aceptar() {
             if (vm.form_usuario.nombre.$invalid || vm.form_usuario.apellido.$invalid || vm.form_usuario.nick.$invalid ||
                 vm.form_usuario.pass.$invalid || vm.form_usuario.pass_confirm.$invalid || vm.form_usuario.correo.$invalid
-                || vm.form_usuario.tipo.$invalid || vm.form_usuario.rad.$invalid) {
+                || vm.form_usuario.tipo.$invalid) {
 
                 vm.form_usuario.nombre.$invalid ? vm.form_usuario.nombre.$dirty = true : '';
                 vm.form_usuario.apellido.$invalid ? vm.form_usuario.apellido.$dirty = true : '';
@@ -103,18 +105,20 @@
                 vm.form_usuario.pass_confirm.$invalid ? vm.form_usuario.pass_confirm.$dirty = true : '';
                 vm.form_usuario.correo.$invalid ? vm.form_usuario.correo.$dirty = true : '';
                 vm.form_usuario.tipo.$invalid ? vm.form_usuario.tipo.$dirty = true : '';
-                vm.form_usuario.rad.$invalid ? vm.ban_click = true : vm.ban_click = true;
 
             }
             else {
-                if (vm.usuarioSeleccionado.id === 0)
+                vm.usuarioSeleccionado.estado = (vm.usuarioSeleccionado.estado ? "A" : "I");
+                if (vm.usuarioSeleccionado.id === 0) {
                     return crear(vm.usuarioSeleccionado);
-                guardar(vm.usuarioSeleccionado);
+                } else {
+                    return guardar(vm.usuarioSeleccionado);
+                }
+                    
             }
         } // end function
 
         function crear(usuario) {
-
             usuario.nombre = stringService.toTitleCase(usuario.nombre);
 
             var fileInput = document.querySelector("#hidden_input");
