@@ -12,6 +12,7 @@ namespace WebLegemDAL.Models
         private string nombreUsuario;
         private string nombre;
         private string apellido;
+        private string documento;
         private string contrasena;
         private string correo;
         private string foto;
@@ -61,6 +62,13 @@ namespace WebLegemDAL.Models
         {
             get { return apellido; }
             set { apellido = value; }
+        } // end prop Apellido
+
+        [OracleObjectMapping("DOCUMENTO")]
+        public string Documento
+        {
+            get { return documento; }
+            set { documento = value; }
         } // end prop Apellido
 
         [OracleObjectMapping("CONTRASENA")]
@@ -118,6 +126,9 @@ namespace WebLegemDAL.Models
             if (apellido != null)
                 OracleUdt.SetValue( con, pUdt, "APELLIDO", apellido );
 
+            if (documento != null)
+                OracleUdt.SetValue(con, pUdt, "DOCUMENTO", documento);
+
             if (contrasena != null)
                 OracleUdt.SetValue( con, pUdt, "CONTRASENA", contrasena );
 
@@ -141,6 +152,7 @@ namespace WebLegemDAL.Models
             nombre = (string)OracleUdt.GetValue( con, pUdt, "NOMBRE" );
             nombreUsuario = (string)OracleUdt.GetValue(con, pUdt, "NOMBRE_USUARIO");
             apellido = (string)OracleUdt.GetValue(con, pUdt, "APELLIDO");
+            documento = (string)OracleUdt.GetValue(con, pUdt, "DOCUMENTO");
             correo = (string)OracleUdt.GetValue(con, pUdt, "CORREO");
             contrasena = (string)OracleUdt.GetValue(con, pUdt, "CONTRASENA");
             foto = (string)OracleUdt.GetValue(con, pUdt, "FOTO");
@@ -151,7 +163,7 @@ namespace WebLegemDAL.Models
 
         public override string ToString()
         {
-            return "Usuario( \n" + Id + ", '" + Nombre + " " + Apellido +
+            return "Usuario( \n" + Id + ", '" + Nombre + " " + Apellido + " " + Documento + 
                     "\nCorreo: " + Correo + "\nFoto: " + Foto +
                     "\nEstado: " + ((estado == "A") ? "Activo" : "Inactivo") +
                     "\nRol: " + Rol +"\n)";
