@@ -62,8 +62,8 @@
                         <p class="texto_labels ">{{vm.language.strings.Nombres}}</p>
                         <input id="nombre-persona" class="a_input" ng-model="vm.usuarioSeleccionado.nombre"
                                ng-class="!vm.editando ? 'disable': ''" required name="nombre"
+                               placeholder="{{vm.language.strings.IngreseNombres}}"
                                maxlength="100" />
-
                         <div ng-show="vm.form_usuario.nombre.$invalid && vm.form_usuario.nombre.$dirty">
                             <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
                         </div>
@@ -72,7 +72,7 @@
                         <p class="texto_labels ">{{vm.language.strings.Apellidos}}</p>
                         <input class="a_input" ng-model="vm.usuarioSeleccionado.apellido"
                                ng-class="!vm.editando ? 'disable': ''" required name="apellido"
-                               maxlength="100" />
+                               placeholder="{{vm.language.strings.IngreseApellidos}}" maxlength="100" />
 
                         <div ng-show="vm.form_usuario.apellido.$invalid && vm.form_usuario.apellido.$dirty">
                             <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
@@ -81,7 +81,8 @@
                     <div>
                         <p class="texto_labels ">{{vm.language.strings.NombreUsuario}}</p>     
                         <input class="a_input" ng-model="vm.usuarioSeleccionado.nombreUsuario"
-                               ng-class="!vm.editando ? 'disable': ''" required name="nick" maxlength="50" />
+                               ng-class="!vm.editando ? 'disable': ''" required name="nick" maxlength="50"
+                               placeholder="{{vm.language.strings.IngreseNombreUsuario}}" />
 
                         <div ng-show="vm.form_usuario.nick.$invalid && vm.form_usuario.nick.$dirty">
                             <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
@@ -95,23 +96,20 @@
                     <p class="texto_labels ">{{vm.language.strings.Contrasena}}</p>
                     <input class="a_input" type="password" ng-model="vm.usuarioSeleccionado.contrasena" maxlength="256"
                            ng-class="!vm.editando ? 'disable': ''" readonly required name="pass"
-                           onfocus="this.removeAttribute('readonly');"  />
+                           onfocus="this.removeAttribute('readonly');"
+                           placeholder="{{vm.language.strings.IngreseContrasena}}" />
 
                     <div ng-show="vm.form_usuario.pass.$invalid && vm.form_usuario.pass.$dirty">
                         <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
                     </div>
-
-                    <!--<wl-seguridad-pass ng-show="vm.editando && vm.usuarioSeleccionado.contrasena.length > 0"
-                                       modelo-pass="vm.usuarioSeleccionado.contrasena"></wl-seguridad-pass>-->
                 </div>
                 <div>
-                    <p class="texto_labels ">{{vm.language.strings.ConfirmarContrasena}}</p>
-                    <input class="a_input" type="password" ng-model="vm.usuarioSeleccionado.contrasena"
-                           readonly
-                           onfocus="this.removeAttribute('readonly');"
-                           ng-class="!vm.editando ? 'disable': ''" required name="pass_confirm" maxlength="100" />
+                    <p class="texto_labels ">{{vm.language.strings.Documento}}</p>
+                    <input class="a_input" type="text" ng-model="vm.usuarioSeleccionado.documento"
+                           ng-class="!vm.editando ? 'disable': ''" required name="documento" maxlength="50"
+                           placeholder="{{vm.language.strings.IngreseDocumento}}" />
 
-                    <div ng-show="vm.form_usuario.pass_confirm.$invalid && vm.form_usuario.pass_confirm.$dirty">
+                    <div ng-show="vm.form_usuario.documento.$invalid && vm.form_usuario.documento.$dirty">
                         <div class="msj-error">{{vm.language.strings.CompleteCampo}}</div>
                     </div>
                 </div>
@@ -121,7 +119,8 @@
                 <div>
                     <p class="texto_labels ">{{vm.language.strings.CorreoElectronico}}</p>
                     <input class="a_input" ng-model="vm.usuarioSeleccionado.correo"
-                           ng-class="!vm.editando ? 'disable': ''" required  type="email" name="correo" />
+                           ng-class="!vm.editando ? 'disable': ''" required type="email" name="correo"
+                           placeholder="{{vm.language.strings.IngreseCorreoElectronico}}" />
 
                     <div ng-show="vm.form_usuario.correo.$invalid && vm.form_usuario.correo.$dirty">
                         <div class="msj-error" ng-show="vm.form_usuario.correo.$error.required && !vm.form_entidad.correo.$error.email">
@@ -146,19 +145,14 @@
                         <div class="a_select" ng-show="vm.editando">
                             <select id=" tipoentidadselect"
                                     ng-options="rol as rol.nombre for rol in vm.roles"
-                                    ng-model=" vm.usuarioSeleccionado.rol"></select>
+                                    ng-model=" vm.usuarioSeleccionado.rol.nombre">
+                                <option disabled selected value> {{vm.default}} </option>
+                            </select>                            
                         </div>
-
-
-                        <button class="btn_ico" title="{{vm.language.strings.InformacionRol}}" ng-click="vm.mostrarDialogo(vm.usuarioSeleccionado.rol)"
-                                ng-class="!vm.editando ? 'disable': ''">
-                            <span class="ico-info"></span>
-                        </button>
                     </div>
                     <div ng-show="vm.form_usuario.tipo.$invalid && vm.form_usuario.tipo.$dirty">
                         <div class="msj-error select ">{{vm.language.strings.CompleteCampo}}</div>
                     </div>
-                    <info-rol show="vm.infoRol" rol="vm.usuariox"></info-rol>
 
                 </div>
             </div>

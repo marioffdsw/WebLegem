@@ -28,7 +28,6 @@
         vm.seleccionar = seleccionar;
         vm.cancelar = cancelar;
         vm.nuevo = nuevo;
-        vm.mostrarDialogo = mostrarDialogo;
         vm.usuarioSeleccionado;
 
         vm.abrirCamara = abrirCamara;
@@ -95,16 +94,16 @@
 
         function aceptar() {
             if (vm.form_usuario.nombre.$invalid || vm.form_usuario.apellido.$invalid || vm.form_usuario.nick.$invalid ||
-                vm.form_usuario.pass.$invalid || vm.form_usuario.pass_confirm.$invalid || vm.form_usuario.correo.$invalid
-                || vm.form_usuario.tipo.$invalid) {
+                vm.form_usuario.pass.$invalid || vm.form_usuario.correo.$invalid || vm.form_usuario.tipo.$invalid ||
+                vm.form_usuario.documento.$invalid) {
 
                 vm.form_usuario.nombre.$invalid ? vm.form_usuario.nombre.$dirty = true : '';
                 vm.form_usuario.apellido.$invalid ? vm.form_usuario.apellido.$dirty = true : '';
                 vm.form_usuario.nick.$invalid ? vm.form_usuario.nick.$dirty = true : '';
                 vm.form_usuario.pass.$invalid ? vm.form_usuario.pass.$dirty = true : '';
-                vm.form_usuario.pass_confirm.$invalid ? vm.form_usuario.pass_confirm.$dirty = true : '';
                 vm.form_usuario.correo.$invalid ? vm.form_usuario.correo.$dirty = true : '';
                 vm.form_usuario.tipo.$invalid ? vm.form_usuario.tipo.$dirty = true : '';
+                vm.form_usuario.documento.$invalid ? vm.form_usuario.documento.$dirty = true : '';
 
             }
             else {
@@ -258,65 +257,6 @@
 
 
 
-
-        function mostrarDialogo(a) {
-
-
-            //arreglo para comparar
-
-            var permisos = ['nombrex', 'Crear', 'Leer', 'Actualizar', 'Eliminar']
-
-
-            var arrayAux1 = [];
-            var arrayAux2 = [];
-
-            //crear arreglo
-
-            for (var x in a.permisos) {
-
-                var arreglo_permisos = {
-                    modulo: a.permisos[x].recurso.modulo.nombre,
-                    permiso: a.permisos[x].accion.nombre
-                }
-                arrayAux1.push(arreglo_permisos);
-            }
-
-            var arrayModulos = _.unique(arrayAux1, 'modulo');
-
-
-            for (var i in arrayModulos) {
-                var x = [arrayModulos[i].modulo];
-                for (var j in arrayAux1) {
-                    if (arrayModulos[i].modulo == arrayAux1[j].modulo)
-                        x.push(arrayAux1[j].permiso);
-                }
-                arrayAux2.push(x);
-            }
-
-            arrayAux1.length = 0;
-            for (var i in arrayAux2) {
-                var x = arrayAux2[i];
-                var resultado = [x[0]];
-
-                for (var j = 1; j < permisos.length; j++) {
-                    var index = x.indexOf(permisos[j]);
-                    if (index < 0) {
-                        index = "no";
-                    }
-                    else {
-                        index = "si";
-                    }
-                    resultado.push(index);
-                }
-                arrayAux1.push(resultado);
-            }
-
-            vm.usuariox = arrayAux1;
-
-            vm.infoRol = true;
-            document.getElementById("body_index").style.overflow = "hidden";
-
-        }
 
         //---------------------------------------------------------------------------------
         function startAnimation() {

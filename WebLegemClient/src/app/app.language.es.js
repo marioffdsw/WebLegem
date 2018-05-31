@@ -61,6 +61,12 @@
             Bloqueado: "Bloqueado",
             CerrarDialogo: "Cerrar dialogo",
             InformacionRol:"Información rol",
+            Documento: "Identificación",
+            IngreseNombres: "Ingrese nombre",
+            IngreseApellidos: "Ingrese apellidos",
+            IngreseNombreUsuario: "Ingrese nombre de usuario",
+            IngreseContrasena: "Ingrese contraseña",
+            IngreseDocumento: "Ingrese identificación",
             //---------cuenta-----------------//
             ConfiguracionCuenta:"Configuración de cuenta",
             Guardar: "Guardar",
